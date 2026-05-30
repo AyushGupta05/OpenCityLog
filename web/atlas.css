@@ -76,6 +76,11 @@ button { font-family: inherit; }
   background: var(--paper);
 }
 .maplibregl-canvas { outline: none; }
+.maplibregl-canvas:focus-visible,
+#map:focus-within {
+  outline: 3px solid var(--c-transport);
+  outline-offset: -6px;
+}
 .maplibregl-map {
   background: var(--paper) !important;
   font-family: var(--font-sans);
@@ -734,14 +739,21 @@ button { font-family: inherit; }
   padding: 0;
 }
 .search-row {
+  width: 100%;
   padding: 10px 14px;
+  border: 0;
   border-bottom: 1px solid var(--rule);
+  background: transparent;
+  color: inherit;
   cursor: pointer;
   display: flex; align-items: center; gap: 10px;
+  font: inherit;
   font-size: 12.5px;
+  text-align: left;
 }
 .search-row:last-child { border: none; }
-.search-row:hover { background: var(--paper-2); }
+.search-row:hover,
+.search-row[data-active="true"] { background: var(--paper-2); }
 .search-row .dot {
   width: 8px; height: 8px; border-radius: 50%;
   flex-shrink: 0;
@@ -5151,8 +5163,9 @@ button { font-family: inherit; }
   .layers {
     top: 132px;
     width: auto;
-    max-height: 142px;
-    overflow: hidden;
+    max-height: min(30dvh, 250px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
   .active-lens-card {
     grid-template-columns: 32px minmax(0, 1fr);
@@ -5183,28 +5196,50 @@ button { font-family: inherit; }
   }
   .layers[data-lens] .map-lens,
   .map-lens {
-    display: none !important;
-    position: absolute;
-    left: 0;
+    display: flex !important;
+    position: static;
+    left: auto;
     right: auto;
-    top: 182px;
-    width: calc(100vw - 16px);
-    z-index: 365;
+    top: auto;
+    width: auto;
+    z-index: auto;
+    padding: 8px 10px;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    max-height: 112px;
+    overflow-y: auto;
   }
   .map-lens-switcher {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .lens-aspect-switcher {
+    padding-bottom: 6px;
+  }
+  .lens-legend {
+    max-height: 96px;
+    overflow: auto;
   }
   .lens-legend-summary {
     display: none;
   }
   .layers-list {
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 6px;
   }
   .layer-row {
-    min-height: 36px;
+    min-height: 34px;
+    padding: 7px 8px;
   }
   .layer-controls {
-    display: none;
+    display: flex;
+    padding: 8px 10px 10px;
+    gap: 8px;
   }
   .changelog {
     top: auto;

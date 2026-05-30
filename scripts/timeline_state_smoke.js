@@ -5,6 +5,7 @@ const {
   atlasUrl,
   attachConsoleCapture,
   chromium,
+  chromiumLaunchOptions,
   openAtlas,
 } = require("./atlas_smoke_helpers");
 
@@ -48,7 +49,7 @@ async function scrubTo(page, ratio) {
 }
 
 (async () => {
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch(chromiumLaunchOptions);
   const page = await browser.newPage({ viewport: { width: 1360, height: 820 }, deviceScaleFactor: 1 });
   const consoleMessages = [];
   const pageErrors = [];

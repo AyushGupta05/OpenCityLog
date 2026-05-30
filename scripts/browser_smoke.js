@@ -8,6 +8,7 @@ const {
   atlasUrl,
   attachConsoleCapture,
   chromium,
+  chromiumLaunchOptions,
   clickPin,
   ensureOutputDir,
   openAtlas,
@@ -23,18 +24,31 @@ function cameraMatches(before, after) {
     && Math.abs(before.mapBearing - after.mapBearing) < 0.05;
 }
 
+async function downloadTextFromClick(page, selector) {
+  const [download] = await Promise.all([
+    page.waitForEvent("download", { timeout: 10000 }),
+    page.locator(selector).first().click(),
+  ]);
+  const filePath = await download.path();
+  assert(filePath, `Download for ${selector} did not produce a readable file.`);
+  return fs.readFileSync(filePath, "utf8");
+}
+
 async function waitForGuideSignal(page, check) {
   if (!check.guideLayer) return;
-  await page.waitForFunction(
-    ({ layerId, flowStyles, surfaceStyles, minRendered, minGuideFeatures }) => {
+  const guideState = async () => page.evaluate(
+    ({ layerId, flowStyles, surfaceStyles }) => {
       const state = window.BimsAtlas?.state;
       const map = state?.map;
-      if (!map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") return false;
+      if (!map?.getLayer?.(layerId)) {
+        return { hasLayer: false, visible: false, rendered: 0, guideMatches: 0, activeAspect: state?.activeAspect || "" };
+      }
+      const visible = map.getLayoutProperty(layerId, "visibility") !== "none";
       let rendered = 0;
       try {
         rendered = map.queryRenderedFeatures({ layers: [layerId] }).length;
       } catch {
-        return false;
+        rendered = 0;
       }
       const guide = state?.lensGuideFeatureCache?.features || [];
       const guideMatches = guide.filter((feature) => {
@@ -43,17 +57,30 @@ async function waitForGuideSignal(page, check) {
           && (!flowStyles.length || flowStyles.includes(props.flow_style))
           && (!surfaceStyles.length || surfaceStyles.includes(props.surface_style));
       }).length;
-      return rendered >= minRendered && guideMatches >= minGuideFeatures;
+      return {
+        activeAspect: state?.activeAspect || "",
+        guideFeatureCount: guide.length,
+        guideMatches,
+        hasLayer: true,
+        rendered,
+        visible,
+      };
     },
     {
       layerId: check.guideLayer,
       flowStyles: check.guideFlowStyles || [],
       surfaceStyles: check.guideSurfaceStyles || [],
-      minRendered: check.minGuideRendered || 1,
-      minGuideFeatures: check.minGuideFeatures || 1,
-    },
-    { timeout: 20000 }
+    }
   );
+  const minRendered = check.minGuideRendered || 1;
+  const minGuideFeatures = check.minGuideFeatures || 1;
+  let lastState = null;
+  for (let attempt = 0; attempt < 60; attempt += 1) {
+    lastState = await guideState().catch(() => null);
+    if (lastState?.hasLayer && lastState.visible && lastState.rendered >= minRendered && lastState.guideMatches >= minGuideFeatures) return;
+    await page.waitForTimeout(350);
+  }
+  throw new Error(`Guide layer ${check.guideLayer} did not render enough ${check.id} features: ${JSON.stringify(lastState)}`);
 }
 
 async function assertAspectCopy(page, aspectId, { required = [], forbidden = [] } = {}) {
@@ -115,10 +142,12 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
   assert(!/No source-backed/i.test(state.lensLegendText), `${aspectId} ${year} retained a stale no-source-backed warning.`);
 }
 
-(async () => {
+let browser;
+
+async function runSmoke() {
   ensureOutputDir();
-  const browser = await chromium.launch({ headless: true });
-  const page = await browser.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1 });
+  browser = await chromium.launch(chromiumLaunchOptions);
+  let page = await browser.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1, acceptDownloads: true });
   const consoleMessages = [];
   const pageErrors = [];
   attachConsoleCapture(page, consoleMessages, pageErrors);
@@ -177,6 +206,29 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
   assert(initial.welcomeOpen === "false" && initial.welcomeVisibility === "hidden", "Welcome card did not close cleanly.");
   assert(!/CivicReplay|Run Simulation|Scenario Studio|10-year/i.test(initial.bodyText), "Legacy simulator copy is visible.");
 
+  await page.locator("#methodBtn").click();
+  await page.waitForFunction(
+    () => document.querySelector("#methodOverlay")?.getAttribute("data-open") === "true"
+      && document.activeElement?.id === "methodClose"
+      && document.querySelector(".topbar")?.hasAttribute("inert"),
+    null,
+    { timeout: 10000 }
+  );
+  await page.keyboard.press("Tab");
+  const methodTabState = await page.evaluate(() => ({
+    insideDialog: Boolean(document.querySelector("#methodOverlay")?.contains(document.activeElement)),
+    activeId: document.activeElement?.id || "",
+  }));
+  assert(methodTabState.insideDialog, `Methodology dialog did not trap Tab focus, active=${methodTabState.activeId}.`);
+  await page.keyboard.press("Escape");
+  await page.waitForFunction(
+    () => document.querySelector("#methodOverlay")?.getAttribute("data-open") === "false"
+      && document.activeElement?.id === "methodBtn"
+      && !document.querySelector(".topbar")?.hasAttribute("inert"),
+    null,
+    { timeout: 10000 }
+  );
+
   await page.evaluate(() => window.BimsAtlas?.recenterMap?.());
   await page.waitForTimeout(800);
   const yorkPin = await clickPin(page, "York Street");
@@ -205,6 +257,58 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
   const afterListClick = await atlasState(page);
   assert(afterListClick.detailTitle === "Belfast Grand Central Station opened", "Clicking the changelog list did not select the event detail.");
   assert(afterListClick.activePin?.text.includes("Belfast Grand Central"), "Changelog selection did not sync to the map pin.");
+
+  await page.close();
+  page = await browser.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1, acceptDownloads: true });
+  attachConsoleCapture(page, consoleMessages, pageErrors);
+  await openAtlas(page, atlasUrl);
+  await page.waitForFunction(
+    () => window.BimsAtlas?.state?.detailLayerLoaded && window.BimsAtlas?.state?.lensOverlayLoaded,
+    null,
+    { timeout: 45000 }
+  );
+  await page.waitForTimeout(1200);
+
+  await page.locator("#searchInput").fill("Grand Central");
+  await page.waitForSelector("#searchResults .search-row", { timeout: 10000 });
+  await page.keyboard.press("Tab");
+  const searchFocus = await page.evaluate(() => ({
+    activeClass: document.activeElement?.className || "",
+    resultsOpen: !document.querySelector("#searchResults")?.hasAttribute("hidden"),
+  }));
+  assert(searchFocus.resultsOpen && /\bsearch-row\b/.test(searchFocus.activeClass), "Search results did not stay open and receive keyboard focus after Tab.");
+  await page.locator("#searchResults .search-row").filter({ hasText: grandCentralTitle }).first().click();
+  await page.waitForFunction(
+    () => /Grand Central Station/i.test(document.querySelector(".detail-title")?.textContent || "")
+      && document.querySelector("#searchResults")?.hasAttribute("hidden"),
+    null,
+    { timeout: 10000 }
+  );
+  await page.locator("#searchInput").fill("");
+  await page.waitForFunction(() => !window.BimsAtlas?.state?.search, null, { timeout: 10000 });
+
+  const csvExport = await downloadTextFromClick(page, "#exportCsvBtn");
+  assert(csvExport.includes("event_id,title,city_id") && csvExport.includes("source_urls") && csvExport.includes("licenses"), "Filtered CSV export omitted provenance columns.");
+  const geojsonExport = JSON.parse(await downloadTextFromClick(page, "#exportGeojsonBtn"));
+  assert(geojsonExport.type === "FeatureCollection" && geojsonExport.features.length > 0, "Filtered GeoJSON export did not contain features.");
+  assert(Array.isArray(geojsonExport.features[0].properties.source_urls) && "provenance" in geojsonExport.features[0].properties, "Filtered GeoJSON export omitted source/provenance properties.");
+  const markdownExport = await downloadTextFromClick(page, "#detailExportMarkdown, #detailExportMarkdownAction");
+  assert(markdownExport.includes("## Provenance") && markdownExport.includes("## Sources"), "Selected-record Markdown export omitted provenance/source sections.");
+  const selectedGeojson = JSON.parse(await downloadTextFromClick(page, "#detailExportGeojson"));
+  assert(selectedGeojson.type === "FeatureCollection" && selectedGeojson.features.length === 1, "Selected-record GeoJSON export should contain exactly one feature.");
+  assert("provenance" in selectedGeojson.features[0].properties, "Selected-record GeoJSON export omitted provenance.");
+
+  await page.close();
+  page = await browser.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1, acceptDownloads: true });
+  attachConsoleCapture(page, consoleMessages, pageErrors);
+  await openAtlas(page, atlasUrl);
+  await page.waitForFunction(
+    () => window.BimsAtlas?.state?.detailLayerLoaded && window.BimsAtlas?.state?.lensOverlayLoaded,
+    null,
+    { timeout: 45000 }
+  );
+  await page.waitForTimeout(1200);
+
   await page.locator("#searchInput").fill("");
   await page.waitForFunction(() => !window.BimsAtlas?.state?.search, null, { timeout: 10000 });
 
@@ -265,12 +369,12 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
     { id: "utilities-works", guideLayer: "lens-guide-flow", guideFlowStyles: ["utility_work_thread"], minGuideRendered: 4, minGuideFeatures: 12 },
   ];
   for (const check of aspectChecks) {
-    await page.evaluate((id) => window.BimsAtlas?.setActiveAspect?.(id), check.id);
-    await page.waitForFunction(
-      (id) => window.BimsAtlas?.state?.activeAspect === id,
-      check.id,
-      { timeout: 10000 }
-    );
+    const activeAspect = await page.evaluate((id) => {
+      window.BimsAtlas?.setActiveAspect?.(id);
+      return window.BimsAtlas?.state?.activeAspect || "";
+    }, check.id);
+    assert(activeAspect === check.id, `Atlas did not activate ${check.id}; active aspect is ${activeAspect || "missing"}.`);
+    await page.waitForTimeout(250);
     await waitForGuideSignal(page, check);
   }
 
@@ -284,6 +388,11 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
       id: "transport-access",
       required: [/Access-proxy/i, /mapped context guides/i],
       forbidden: [/Isochrone/i, /Door-to-door/i, /\b15 min\b/i],
+    },
+    {
+      id: "civic-access-gaps",
+      required: [/Access-proxy/i, /not measured travel time/i],
+      forbidden: [/\b15 min\b/i, /<=\s*\d+\s*min/i],
     },
     {
       id: "transport-reliability",
@@ -485,11 +594,36 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
   }, null, 2));
 
   await browser.close();
+  browser = null;
   const actionable = actionableConsoleMessages(consoleMessages);
   assert(pageErrors.length === 0, `Browser page errors:\n${pageErrors.join("\n")}`);
   assert(actionable.length === 0, `Browser console warnings/errors:\n${actionable.map((message) => `${message.type}: ${message.text}`).join("\n")}`);
   console.log("OpenCityLog paper-atlas browser smoke OK: load, pins, changelog, area filter, lenses, compare, map tools, filter, zoom, scroll, timeline, camera, and screenshot checks passed.");
-})().catch((error) => {
+}
+
+async function closeBrowser() {
+  if (browser) await browser.close().catch(() => {});
+  browser = null;
+}
+
+async function main() {
+  let lastError;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      await runSmoke();
+      return;
+    } catch (error) {
+      lastError = error;
+      await closeBrowser();
+      if (!/Target page, context or browser has been closed|Target closed|Browser has been closed/i.test(error.message || "")) break;
+      console.warn(`Browser smoke attempt ${attempt} hit a closed headless target; retrying with a fresh browser.`);
+    }
+  }
+  throw lastError;
+}
+
+main().catch(async (error) => {
+  await closeBrowser();
   console.error(error);
   process.exit(1);
 });

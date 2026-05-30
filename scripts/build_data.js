@@ -307,6 +307,41 @@ function sourceRegistryForCity(registry, cityId, generatedAt, root = path.resolv
   ]);
 }
 
+function sourceAccessedAt(source) {
+  return source?.accessed_at || source?.retrieved_at || null;
+}
+
+function sourceRegistryReviewedAt(source) {
+  return source?.registry_reviewed_at || null;
+}
+
+function enrichEventSourceAccess(event, sourceById) {
+  const sourceIds = Array.isArray(event.source_ids) ? event.source_ids : [];
+  const exactAccessBySource = new Map();
+  for (const sourceId of sourceIds) {
+    const exactAccess = sourceAccessedAt(sourceById.get(sourceId));
+    if (exactAccess) exactAccessBySource.set(sourceId, exactAccess);
+  }
+
+  const firstExactAccess = event.provenance?.source_retrieved_at || [...exactAccessBySource.values()][0] || null;
+  const firstRegistryReview = event.provenance?.source_registry_reviewed_at
+    || sourceIds.map((sourceId) => sourceRegistryReviewedAt(sourceById.get(sourceId))).find(Boolean)
+    || null;
+
+  return {
+    ...event,
+    evidence: (event.evidence || []).map((item) => ({
+      ...item,
+      accessed_at: item.accessed_at || exactAccessBySource.get(item.source_id) || null,
+    })),
+    provenance: {
+      ...(event.provenance || {}),
+      ...(firstExactAccess ? { source_retrieved_at: firstExactAccess } : {}),
+      ...(firstRegistryReview ? { source_registry_reviewed_at: firstRegistryReview } : {}),
+    },
+  };
+}
+
 function yearRange(start, end) {
   if (!Number.isInteger(start) || !Number.isInteger(end) || end < start) return [];
   return Array.from({ length: end - start + 1 }, (_, index) => start + index);
@@ -496,7 +531,7 @@ function eventForBelfastAirQualitySummary(summary, csvRelativePath) {
       start: summary.start_date,
       end: summary.end_date,
     },
-    date_precision: "year",
+    date_precision: "range",
     source_date_field: "Date and Time",
     category: "environment",
     lens: "environment",
@@ -823,6 +858,7 @@ function normalizedYearForLegacyEvent(event, dates) {
 }
 
 function evidenceForLegacyEvent(event, sourceId, legacyCatalogPath) {
+  const accessedAt = event.sourceAccessedAt || event.retrievedAt || null;
   const evidence = [];
   if (event.sourceUrl) {
     evidence.push({
@@ -832,6 +868,7 @@ function evidenceForLegacyEvent(event, sourceId, legacyCatalogPath) {
       url: event.sourceUrl,
       file_path: null,
       record_id: event.sourceId || event.id || null,
+      accessed_at: accessedAt,
     });
   }
   if (event.osmChangesetUrl) {
@@ -842,6 +879,7 @@ function evidenceForLegacyEvent(event, sourceId, legacyCatalogPath) {
       url: event.osmChangesetUrl,
       file_path: null,
       record_id: event.osmChangeset ? String(event.osmChangeset) : null,
+      accessed_at: accessedAt,
     });
   }
   evidence.push({
@@ -851,6 +889,7 @@ function evidenceForLegacyEvent(event, sourceId, legacyCatalogPath) {
     url: null,
     file_path: legacyCatalogPath,
     record_id: event.id || null,
+    accessed_at: accessedAt,
   });
   return evidence;
 }
@@ -1149,6 +1188,10 @@ function buildCityArtifacts(root, outputDir, city, citySources, legacyCatalogPat
   if (existing) return existing;
   const cityOutputDir = path.join(outputDir, "cities", city.city_id);
   const { events, migration } = eventsForCity(root, city, legacyCatalogPath);
+  const sourceById = new Map(citySources.map((source) => [source.source_id, source]));
+  for (let index = 0; index < events.length; index += 1) {
+    events[index] = enrichEventSourceAccess(events[index], sourceById);
+  }
   const eventsByYear = new Map();
   for (const event of events) {
     if (!eventsByYear.has(event.year)) eventsByYear.set(event.year, []);

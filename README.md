@@ -1,6 +1,8 @@
 # OpenCityLog
 
-OpenCityLog is an open-source city-change atlas for exploring how real decisions, developments, infrastructure, policy, and environmental events changed cities over time, with every claim tied to public evidence.
+OpenCityLog is an open-source city-change atlas for exploring public records of
+decisions, developments, infrastructure, policy, and environmental conditions
+over time, with every claim tied to public evidence.
 
 The MVP is static-data first: city configs, source/provenance records, normalized event chunks, and browser-ready JSON/GeoJSON in `web/data`.
 
@@ -9,6 +11,7 @@ The project should show observed historical changes with evidence and caveats. I
 ## Build The Data Foundation
 
 ```powershell
+npm install
 npm run build:data
 npm run build:lens-contract
 npm run verify:data
@@ -26,6 +29,7 @@ Belfast is the default atlas pilot, with London and New York City available thro
 ## Run The Local Product
 
 ```powershell
+npm install
 npm start
 ```
 
@@ -39,9 +43,9 @@ branch-simulation, forecast, and legacy replay-manifest runtime paths are
 guarded by `npm run verify`.
 
 Belfast also has a generated detail layer at
-`web/data/city-atlas/cities/belfast/detail_layers.geojson`. It renders exact
-OSM-derived road centerlines and building footprints over the timeline. Road
-years come from OSM edit metadata, and building years are generated
+`web/data/city-atlas/cities/belfast/detail_layers.geojson`. It renders
+OSM-derived road centerlines and building footprints as mapped in OSM over the
+timeline. Road years come from OSM edit metadata, and building years are generated
 first-visible proxies, so they are mapped-visibility evidence rather than
 certified construction dates.
 
@@ -71,16 +75,36 @@ dates, licences, caveats, and correction-path metadata.
 Browser smoke coverage checks the core user path:
 
 ```powershell
+npm start
 npm run verify:browser
 ```
 
 The smoke scripts default to `http://127.0.0.1:5173` and also honor `URL=...`
-for alternate local ports.
+for alternate local ports. If the browser bundle is missing locally, install the
+Playwright Chromium dependency with `npx playwright install chromium`.
+
+When `5173` is already in use, start and verify on a matching alternate port:
+
+```powershell
+PORT=5174 npm start
+URL=http://127.0.0.1:5174 npm run verify:browser
+```
 
 ## Test
 
 ```powershell
 npm test
+```
+
+`npm test` is intentionally read-only: it runs the atlas verifiers and Python
+coverage without rebuilding generated artifacts. Use `npm run build` when you
+intend to regenerate Belfast events, transit layers, and city-atlas data.
+
+Focused checks used during development:
+
+```powershell
+npm run verify
+python3 -m unittest discover tests
 ```
 
 ## Add A New City

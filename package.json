@@ -1,6 +1,6 @@
 {
   "name": "bims-city-atlas",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Static-first city atlas data foundation for source-backed urban changelog artifacts.",
   "scripts": {
@@ -35,7 +35,7 @@
     "verify:browser": "node scripts/browser_smoke.js && node scripts/dashboard_smoke.js && npm run verify:timeline-basemap && npm run verify:timeline-state",
     "audit:atlas": "node scripts/audit_city_atlas_full.js",
     "coverage:python": "node scripts/run_python_coverage.js",
-    "test": "npm run build && npm run coverage:python"
+    "test": "npm run verify && npm run coverage:python"
   },
   "devDependencies": {
     "playwright": "^1.51.1"

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_lens_year_coverage",
-  "generated_at": "2026-05-30T16:04:02Z",
+  "generated_at": "2026-05-30T21:29:17Z",
   "city_id": "belfast",
   "display_name": "Belfast, Northern Ireland",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -14,7 +14,8 @@
   "required_row_count": 300,
   "row_count": 300,
   "status_counts": {
-    "source_backed_records": 300
+    "source_backed_records": 297,
+    "source_backed_context_no_year_records": 3
   },
   "rows": [
     {
@@ -4548,16 +4549,14 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_records",
-      "event_count": 13,
-      "compatible_event_count": 13,
+      "status": "source_backed_context_no_year_records",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
-      "headline_count_included": 13,
-      "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "inferred": 13
-      },
+      "coverage_context_feature_count": 17195,
+      "headline_count_included": 0,
+      "headline_count_excluded_context_features": 17195,
+      "confidence_counts": {},
       "source_count": 1,
       "source_ids": [
         "osm-overpass"
@@ -4565,16 +4564,19 @@
       "compatible_source_ids": [
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Access to Transport event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2007.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2007.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
+        "No license-compatible Access to Transport records are currently ingested for 2007.",
+        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
+        "Coverage-context features are excluded from headline counts and exports as events."
       ],
       "exports": {
         "markdown": true,
@@ -4597,9 +4599,9 @@
       "event_count": 57,
       "compatible_event_count": 57,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 57,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 3,
         "inferred": 54
@@ -4619,7 +4621,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2008.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2008.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4647,9 +4650,9 @@
       "event_count": 175,
       "compatible_event_count": 175,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 175,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 2,
         "inferred": 173
@@ -4667,7 +4670,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2009.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2009.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4695,9 +4699,9 @@
       "event_count": 23,
       "compatible_event_count": 23,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 23,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 3,
         "inferred": 20
@@ -4717,7 +4721,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2010.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2010.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4745,9 +4750,9 @@
       "event_count": 140,
       "compatible_event_count": 140,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 140,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 4,
         "inferred": 136
@@ -4765,7 +4770,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2011.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2011.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2011.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4793,9 +4799,9 @@
       "event_count": 232,
       "compatible_event_count": 232,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 232,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 3,
         "inferred": 229
@@ -4815,7 +4821,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2012.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2012.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4843,9 +4850,9 @@
       "event_count": 131,
       "compatible_event_count": 131,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 131,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 4,
         "inferred": 127
@@ -4865,7 +4872,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2013.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2013.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4893,9 +4901,9 @@
       "event_count": 244,
       "compatible_event_count": 244,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 244,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 2,
         "inferred": 242
@@ -4913,7 +4921,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2014.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2014.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4941,9 +4950,9 @@
       "event_count": 219,
       "compatible_event_count": 219,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 219,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 7,
         "inferred": 212
@@ -4965,7 +4974,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4993,9 +5003,9 @@
       "event_count": 979,
       "compatible_event_count": 979,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 979,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 136,
         "inferred": 843
@@ -5027,7 +5037,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2016.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2016.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2016.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5055,9 +5066,9 @@
       "event_count": 700,
       "compatible_event_count": 700,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 700,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 178,
         "inferred": 522
@@ -5083,7 +5094,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2017.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2017.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2017.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5111,9 +5123,9 @@
       "event_count": 911,
       "compatible_event_count": 911,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 911,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 579,
         "inferred": 332
@@ -5141,7 +5153,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2018.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2018.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2018.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5169,9 +5182,9 @@
       "event_count": 707,
       "compatible_event_count": 707,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 707,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 194,
         "inferred": 513
@@ -5203,7 +5216,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2019.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2019.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2019.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5231,9 +5245,9 @@
       "event_count": 918,
       "compatible_event_count": 918,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 918,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 355,
         "inferred": 563
@@ -5257,7 +5271,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2020.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2020.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2020.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5285,9 +5300,9 @@
       "event_count": 1428,
       "compatible_event_count": 1428,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 1428,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 605,
         "inferred": 823
@@ -5323,7 +5338,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2021.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2021.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2021.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5351,9 +5367,9 @@
       "event_count": 2359,
       "compatible_event_count": 2359,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 2359,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 508,
         "disputed": 1,
@@ -5382,7 +5398,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2022.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2022.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2022.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5410,9 +5427,9 @@
       "event_count": 1808,
       "compatible_event_count": 1808,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 1808,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 558,
         "inferred": 1250
@@ -5450,7 +5467,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2023.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2023.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2023.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5478,9 +5496,9 @@
       "event_count": 3547,
       "compatible_event_count": 3547,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 3547,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 623,
         "corroborated": 1,
@@ -5571,7 +5589,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5599,9 +5618,9 @@
       "event_count": 4527,
       "compatible_event_count": 4527,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 4527,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 215,
         "inferred": 4312
@@ -5671,7 +5690,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5699,9 +5719,9 @@
       "event_count": 2039,
       "compatible_event_count": 2039,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 2039,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 55,
         "corroborated": 1,
@@ -5754,7 +5774,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2026.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2026.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2026.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5778,16 +5799,14 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_records",
-      "event_count": 13,
-      "compatible_event_count": 13,
+      "status": "source_backed_context_no_year_records",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
-      "headline_count_included": 13,
-      "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "inferred": 13
-      },
+      "coverage_context_feature_count": 17195,
+      "headline_count_included": 0,
+      "headline_count_excluded_context_features": 17195,
+      "confidence_counts": {},
       "source_count": 1,
       "source_ids": [
         "osm-overpass"
@@ -5795,16 +5814,19 @@
       "compatible_source_ids": [
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Service Reliability event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2007.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2007.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
+        "No license-compatible Service Reliability records are currently ingested for 2007.",
+        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
+        "Coverage-context features are excluded from headline counts and exports as events."
       ],
       "exports": {
         "markdown": true,
@@ -5827,9 +5849,9 @@
       "event_count": 57,
       "compatible_event_count": 57,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 57,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 3,
         "inferred": 54
@@ -5849,7 +5871,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2008.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2008.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5877,9 +5900,9 @@
       "event_count": 175,
       "compatible_event_count": 175,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 175,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 2,
         "inferred": 173
@@ -5897,7 +5920,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2009.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2009.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5925,9 +5949,9 @@
       "event_count": 23,
       "compatible_event_count": 23,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 23,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 3,
         "inferred": 20
@@ -5947,7 +5971,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2010.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2010.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5975,9 +6000,9 @@
       "event_count": 140,
       "compatible_event_count": 140,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 140,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 4,
         "inferred": 136
@@ -5995,7 +6020,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2011.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2011.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2011.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6023,9 +6049,9 @@
       "event_count": 232,
       "compatible_event_count": 232,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 232,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 3,
         "inferred": 229
@@ -6045,7 +6071,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2012.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2012.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6073,9 +6100,9 @@
       "event_count": 131,
       "compatible_event_count": 131,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 131,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 4,
         "inferred": 127
@@ -6095,7 +6122,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2013.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2013.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6123,9 +6151,9 @@
       "event_count": 244,
       "compatible_event_count": 244,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 244,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 2,
         "inferred": 242
@@ -6143,7 +6171,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2014.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2014.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6171,9 +6200,9 @@
       "event_count": 219,
       "compatible_event_count": 219,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 219,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 7,
         "inferred": 212
@@ -6195,7 +6224,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6223,9 +6253,9 @@
       "event_count": 979,
       "compatible_event_count": 979,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 979,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 136,
         "inferred": 843
@@ -6257,7 +6287,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2016.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2016.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2016.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6285,9 +6316,9 @@
       "event_count": 700,
       "compatible_event_count": 700,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 700,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 178,
         "inferred": 522
@@ -6313,7 +6344,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2017.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2017.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2017.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6341,9 +6373,9 @@
       "event_count": 911,
       "compatible_event_count": 911,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 911,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 579,
         "inferred": 332
@@ -6371,7 +6403,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2018.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2018.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2018.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6399,9 +6432,9 @@
       "event_count": 707,
       "compatible_event_count": 707,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 707,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 194,
         "inferred": 513
@@ -6433,7 +6466,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2019.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2019.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2019.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6461,9 +6495,9 @@
       "event_count": 918,
       "compatible_event_count": 918,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 918,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 355,
         "inferred": 563
@@ -6487,7 +6521,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2020.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2020.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2020.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6515,9 +6550,9 @@
       "event_count": 1428,
       "compatible_event_count": 1428,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 1428,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 605,
         "inferred": 823
@@ -6553,7 +6588,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2021.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2021.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2021.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6581,9 +6617,9 @@
       "event_count": 2359,
       "compatible_event_count": 2359,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 2359,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 508,
         "disputed": 1,
@@ -6612,7 +6648,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2022.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2022.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2022.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6640,9 +6677,9 @@
       "event_count": 1808,
       "compatible_event_count": 1808,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 1808,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 558,
         "inferred": 1250
@@ -6680,7 +6717,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2023.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2023.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2023.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6708,9 +6746,9 @@
       "event_count": 3547,
       "compatible_event_count": 3547,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 3547,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 623,
         "corroborated": 1,
@@ -6801,7 +6839,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6829,9 +6868,9 @@
       "event_count": 4527,
       "compatible_event_count": 4527,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 4527,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 215,
         "inferred": 4312
@@ -6901,7 +6940,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6929,9 +6969,9 @@
       "event_count": 2039,
       "compatible_event_count": 2039,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 2039,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 55,
         "corroborated": 1,
@@ -6984,7 +7024,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2026.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2026.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2026.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7008,16 +7049,14 @@
       "year": 2007,
       "required_year": true,
       "visible_map_contract": true,
-      "status": "source_backed_records",
-      "event_count": 13,
-      "compatible_event_count": 13,
+      "status": "source_backed_context_no_year_records",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
-      "headline_count_included": 13,
-      "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "inferred": 13
-      },
+      "coverage_context_feature_count": 17195,
+      "headline_count_included": 0,
+      "headline_count_excluded_context_features": 17195,
+      "confidence_counts": {},
       "source_count": 1,
       "source_ids": [
         "osm-overpass"
@@ -7025,16 +7064,19 @@
       "compatible_source_ids": [
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2007.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2007.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
+        "No license-compatible Transport Activity records are currently ingested for 2007.",
+        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
+        "Coverage-context features are excluded from headline counts and exports as events."
       ],
       "exports": {
         "markdown": true,
@@ -7057,9 +7099,9 @@
       "event_count": 57,
       "compatible_event_count": 57,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 57,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 3,
         "inferred": 54
@@ -7079,7 +7121,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2008.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2008.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7107,9 +7150,9 @@
       "event_count": 175,
       "compatible_event_count": 175,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 175,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 2,
         "inferred": 173
@@ -7127,7 +7170,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2009.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2009.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7155,9 +7199,9 @@
       "event_count": 23,
       "compatible_event_count": 23,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 23,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 3,
         "inferred": 20
@@ -7177,7 +7221,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2010.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2010.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7205,9 +7250,9 @@
       "event_count": 140,
       "compatible_event_count": 140,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 140,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 4,
         "inferred": 136
@@ -7225,7 +7270,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2011.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2011.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2011.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7253,9 +7299,9 @@
       "event_count": 232,
       "compatible_event_count": 232,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 232,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 3,
         "inferred": 229
@@ -7275,7 +7321,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2012.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2012.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7303,9 +7350,9 @@
       "event_count": 131,
       "compatible_event_count": 131,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 131,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 4,
         "inferred": 127
@@ -7325,7 +7372,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2013.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2013.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7353,9 +7401,9 @@
       "event_count": 244,
       "compatible_event_count": 244,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 244,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 2,
         "inferred": 242
@@ -7373,7 +7421,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2014.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2014.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7401,9 +7450,9 @@
       "event_count": 219,
       "compatible_event_count": 219,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 219,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 7,
         "inferred": 212
@@ -7425,7 +7474,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7453,9 +7503,9 @@
       "event_count": 979,
       "compatible_event_count": 979,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 979,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 136,
         "inferred": 843
@@ -7487,7 +7537,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2016.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2016.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2016.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7515,9 +7566,9 @@
       "event_count": 700,
       "compatible_event_count": 700,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 700,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 178,
         "inferred": 522
@@ -7543,7 +7594,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2017.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2017.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2017.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7571,9 +7623,9 @@
       "event_count": 911,
       "compatible_event_count": 911,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 911,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 579,
         "inferred": 332
@@ -7601,7 +7653,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2018.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2018.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2018.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7629,9 +7682,9 @@
       "event_count": 707,
       "compatible_event_count": 707,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 707,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 194,
         "inferred": 513
@@ -7663,7 +7716,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2019.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2019.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2019.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7691,9 +7745,9 @@
       "event_count": 918,
       "compatible_event_count": 918,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 918,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 355,
         "inferred": 563
@@ -7717,7 +7771,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2020.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2020.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2020.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7745,9 +7800,9 @@
       "event_count": 1428,
       "compatible_event_count": 1428,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 1428,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 605,
         "inferred": 823
@@ -7783,7 +7838,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2021.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2021.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2021.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7811,9 +7867,9 @@
       "event_count": 2359,
       "compatible_event_count": 2359,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 2359,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 508,
         "disputed": 1,
@@ -7842,7 +7898,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2022.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2022.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2022.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7870,9 +7927,9 @@
       "event_count": 1808,
       "compatible_event_count": 1808,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 1808,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 558,
         "inferred": 1250
@@ -7910,7 +7967,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2023.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2023.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2023.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7938,9 +7996,9 @@
       "event_count": 3547,
       "compatible_event_count": 3547,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 3547,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 623,
         "corroborated": 1,
@@ -8031,7 +8089,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -8059,9 +8118,9 @@
       "event_count": 4527,
       "compatible_event_count": 4527,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 4527,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 215,
         "inferred": 4312
@@ -8131,7 +8190,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -8159,9 +8219,9 @@
       "event_count": 2039,
       "compatible_event_count": 2039,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 0,
+      "coverage_context_feature_count": 17195,
       "headline_count_included": 2039,
-      "headline_count_excluded_context_features": 0,
+      "headline_count_excluded_context_features": 17195,
       "confidence_counts": {
         "documented": 55,
         "corroborated": 1,
@@ -8214,7 +8274,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2026.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2026.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2026.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",

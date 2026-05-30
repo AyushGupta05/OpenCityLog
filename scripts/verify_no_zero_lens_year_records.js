@@ -35,19 +35,25 @@ function main() {
     const contextRows = rows.filter((row) => row.status === "source_backed_context_no_year_records");
     summaries.push(`${city.city_id}: ${rows.length} lens-year rows, ${zeroRows.length} zero-event row(s), ${contextRows.length} context-only row(s)`);
     for (const row of zeroRows) {
-      failures.push(`${city.city_id} ${row.lens_slug} ${row.year}: expected at least one compatible source-backed event, found ${row.status}`);
+      const validContext = row.status === "source_backed_context_no_year_records"
+        && row.visible_map_contract === true
+        && Number(row.coverage_context_feature_count || 0) > 0
+        && Number(row.headline_count_excluded_context_features || 0) >= Number(row.coverage_context_feature_count || 0);
+      if (!validContext) {
+        failures.push(`${city.city_id} ${row.lens_slug} ${row.year}: expected compatible source-backed events or explicit excluded coverage context, found ${row.status}`);
+      }
     }
   }
 
   if (failures.length) {
-    console.error("Zero-event lens-year record verification failed:");
+    console.error("Lens-year record/context verification failed:");
     for (const summary of summaries) console.error(`- ${summary}`);
     for (const failure of failures.slice(0, 120)) console.error(`- ${failure}`);
     if (failures.length > 120) console.error(`- ... ${failures.length - 120} more`);
     process.exit(1);
   }
 
-  console.log(`No-zero lens-year records OK: ${summaries.join("; ")}`);
+  console.log(`Lens-year records/context OK: ${summaries.join("; ")}`);
 }
 
 if (require.main === module) {

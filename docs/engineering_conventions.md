@@ -41,7 +41,7 @@ If a future spec restores simulation, require:
 ## Verification
 
 - Add focused verifiers for schemas and manifests.
-- Run `python -m unittest discover tests` for Python ETL changes.
+- Run `python3 -m unittest discover tests` for Python ETL changes.
 - Run `npm run verify` for current manifest/contract checks.
 - Run `npm run verify:browser` for UI changes.
 - Explain any legacy verifier failure separately from new work.

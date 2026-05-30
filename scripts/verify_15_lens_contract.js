@@ -139,6 +139,17 @@ function readLensDetail(root, citySummary, cityArtifact, year, cache) {
   return features;
 }
 
+function readTransportContext(root, row, cache) {
+  const artifactPath = row.map_artifacts?.transport_roads_base;
+  if (!artifactPath) return [];
+  const key = `transport:${artifactPath}`;
+  if (cache.has(key)) return cache.get(key);
+  const payload = fs.existsSync(resolve(root, artifactPath)) ? readJson(resolve(root, artifactPath)) : null;
+  const features = Array.isArray(payload?.features) ? payload.features : [];
+  cache.set(key, features);
+  return features;
+}
+
 function lensDetailFeatureMatches(row, feature) {
   const lens = LENS_BY_SLUG.get(row.lens_slug);
   const layers = LENS_DETAIL_LAYERS_BY_GROUP[lens?.group] || new Set();
@@ -350,16 +361,27 @@ function validateCoverageRow(failures, root, row, citySummary, cityArtifact, sou
   assert(failures, row.coverage_context_feature_count > 0, `${label} missing coverage context features`);
   assert(failures, row.headline_count_excluded_context_features >= row.coverage_context_feature_count, `${label} context features must be excluded from headline counts`);
   assert(failures, /No license-compatible/i.test((row.limitations || []).join(" ")), `${label} missing plain no-record limitation`);
-  const detailFeatures = readLensDetail(root, citySummary, cityArtifact, row.year, detailCache)
-    .filter((feature) => lensDetailFeatureMatches(row, feature));
-  const contextFeatures = detailFeatures.filter((feature) => feature.properties?.coverage_status === "no_same_category_records");
-  assert(failures, contextFeatures.length === row.coverage_context_feature_count, `${label} coverage context feature count mismatch`);
-  for (const feature of contextFeatures.slice(0, 25)) {
-    const props = feature.properties || {};
-    assert(failures, Number(props.event_count || 0) === 0, `${label} coverage context feature must not carry event_count`);
-    assert(failures, props.headline_count_excluded === true, `${label} coverage context feature must be headline-count excluded`);
-    assert(failures, props.evidence_role === "context_not_year_specific_change_evidence", `${label} coverage context feature missing evidence_role`);
-    assert(failures, detailFeatureSourceIds(feature).length > 0, `${label} coverage context feature missing source_ids`);
+  if (lens?.group === "transport") {
+    const contextFeatures = readTransportContext(root, row, detailCache);
+    assert(failures, contextFeatures.length === row.coverage_context_feature_count, `${label} transport context feature count mismatch`);
+    for (const feature of contextFeatures.slice(0, 25)) {
+      const props = feature.properties || {};
+      assert(failures, Number(props.event_count || 0) === 0, `${label} transport context feature must not carry event_count`);
+      assert(failures, Boolean(props.source_id || props.source_url), `${label} transport context feature missing source pointer`);
+      assert(failures, /current OSM road geometry|orientation/i.test(`${props.representation || ""} ${props.timing_note || ""}`), `${label} transport context feature missing orientation caveat`);
+    }
+  } else {
+    const detailFeatures = readLensDetail(root, citySummary, cityArtifact, row.year, detailCache)
+      .filter((feature) => lensDetailFeatureMatches(row, feature));
+    const contextFeatures = detailFeatures.filter((feature) => feature.properties?.coverage_status === "no_same_category_records");
+    assert(failures, contextFeatures.length === row.coverage_context_feature_count, `${label} coverage context feature count mismatch`);
+    for (const feature of contextFeatures.slice(0, 25)) {
+      const props = feature.properties || {};
+      assert(failures, Number(props.event_count || 0) === 0, `${label} coverage context feature must not carry event_count`);
+      assert(failures, props.headline_count_excluded === true, `${label} coverage context feature must be headline-count excluded`);
+      assert(failures, props.evidence_role === "context_not_year_specific_change_evidence", `${label} coverage context feature missing evidence_role`);
+      assert(failures, detailFeatureSourceIds(feature).length > 0, `${label} coverage context feature missing source_ids`);
+    }
   }
 }
 

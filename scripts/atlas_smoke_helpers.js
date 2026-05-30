@@ -4,9 +4,13 @@ const { chromium } = require("playwright");
 const { assertDetailedPng } = require("./image_detail");
 
 const rootDir = path.resolve(__dirname, "..");
-const outputDir = path.join(rootDir, "output", "playwright");
+const outputDir = path.resolve(process.env.ATLAS_SMOKE_OUTPUT_DIR || path.join(rootDir, "output", "playwright"));
 const baseUrl = (process.env.URL || "http://127.0.0.1:5173").replace(/\/$/, "");
 const atlasUrl = (process.env.ATLAS_URL || `${baseUrl}/atlas`).replace(/\/$/, "");
+const chromiumLaunchOptions = {
+  headless: true,
+  args: ["--use-gl=swiftshader", "--disable-dev-shm-usage"],
+};
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -63,6 +67,12 @@ async function atlasState(page) {
     };
     const markerStats = { transportPinCount: 0, visibleTransportPinCount: 0 };
     const activeCoverageRow = atlas?.state?.lensYearCoverageByKey?.get?.(`${atlas?.state?.activeAspect}:${Number(atlas?.state?.year)}`) || null;
+    const elementVisible = (el) => {
+      if (!el || el.hidden) return false;
+      const style = getComputedStyle(el);
+      const rect = el.getBoundingClientRect();
+      return style.display !== "none" && style.visibility !== "hidden" && Number(style.opacity || 1) !== 0 && rect.width > 0 && rect.height > 0;
+    };
     for (const [id, marker] of atlas?.state?.markers || []) {
       const event = atlas?.state?.eventById?.get(id);
       if (event?.category !== "transport") continue;
@@ -134,6 +144,7 @@ async function atlasState(page) {
       activeLens: atlas?.state?.activeLens || document.querySelector(".lens-choice[data-active='true']")?.getAttribute("data-lens") || "",
       activeAspect: atlas?.state?.activeAspect || document.querySelector(".lens-choice[data-active='true']")?.getAttribute("data-aspect") || "",
       lensChoiceCount: document.querySelectorAll(".lens-choice").length,
+      visibleLensButtonCount: [...document.querySelectorAll(".lens-choice")].filter(elementVisible).length,
       lensDataState: document.querySelector("#lensDataState")?.textContent.trim() || "",
       lensLegendText: document.querySelector("#lensLegend")?.textContent.trim() || "",
       lensYearCoverageLoaded: Boolean(atlas?.state?.lensYearCoverage?.rows?.length),
@@ -148,6 +159,8 @@ async function atlasState(page) {
       areaFilterOptionCount: document.querySelectorAll("#areaFilterOptions option").length,
       eventListMeta: document.querySelector("#eventListMeta")?.textContent.trim() || "",
       transportOn: document.querySelector(".layer-row[data-layer='transport']")?.getAttribute("data-on") || "",
+      visibleLayerRowCount: [...document.querySelectorAll(".layer-row")].filter(elementVisible).length,
+      filterControlCount: ["#confidenceFilter", "#areaFilterInput", "#showInferredToggle"].filter((selector) => elementVisible(document.querySelector(selector))).length,
       detailTitle: document.querySelector(".detail-title")?.textContent.trim() || "",
       detailOpen: !document.querySelector("#detailInner")?.hasAttribute("hidden"),
       detailLensEvidenceRows: document.querySelectorAll("#detailInner .lens-evidence-row").length,
@@ -287,6 +300,7 @@ module.exports = {
   actionableConsoleMessages,
   baseUrl,
   chromium,
+  chromiumLaunchOptions,
   clickPin,
   closeWelcome,
   ensureOutputDir,

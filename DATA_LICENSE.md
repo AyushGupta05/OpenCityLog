@@ -5,7 +5,7 @@ Bims City Atlas separates project code from upstream public data.
 ## Project Code
 
 Code, scripts, tests, configuration examples, and project documentation in this
-repository are provided under the MIT License unless a file says otherwise.
+repository are provided under the Apache License 2.0 unless a file says otherwise.
 
 ## Source Data
 

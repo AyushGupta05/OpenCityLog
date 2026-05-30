@@ -7,6 +7,7 @@ const {
   atlasUrl,
   attachConsoleCapture,
   chromium,
+  chromiumLaunchOptions,
   ensureOutputDir,
   openAtlas,
   outputDir,
@@ -30,7 +31,7 @@ async function assertResponsiveLayout(page, label) {
 
 (async () => {
   ensureOutputDir();
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch(chromiumLaunchOptions);
   const consoleMessages = [];
   const pageErrors = [];
 
@@ -57,6 +58,9 @@ async function assertResponsiveLayout(page, label) {
   await mobile.waitForTimeout(1200);
   const mobileState = await assertResponsiveLayout(mobile, "mobile");
   assert(mobileState.scrollWidth <= mobileState.clientWidth + 4, "mobile: responsive shell has horizontal overflow.");
+  assert(mobileState.visibleLensButtonCount > 0, "mobile: 15-lens controls are hidden.");
+  assert(mobileState.visibleLayerRowCount >= 6, "mobile: layer toggles are hidden.");
+  assert(mobileState.filterControlCount >= 3, "mobile: evidence, area, and inferred filters are hidden.");
   assert(mobileState.activePin?.inViewport, "mobile: active selected event pin is not visible.");
   const mobilePng = await mobile.screenshot({ path: path.join(outputDir, "paper-atlas-mobile.png"), fullPage: false });
   assertDetailedPng(mobilePng, assert, "Paper atlas mobile");

@@ -1,5 +1,17 @@
 # Release Notes
 
+## Unreleased - 2026-05-30
+
+### Verification And Metadata
+
+- Package and citation metadata now align with the 0.2.0 15-lens atlas release.
+- Python verification docs standardize on `python3 -m unittest discover tests`.
+- Browser-smoke docs include the matching `PORT=...` and `URL=...` override
+  needed when the default local port is already in use.
+- The current generated coverage report is refreshed from the committed atlas
+  artifacts and should be treated as the source-backed coverage snapshot for
+  this branch, not a claim of complete city history.
+
 ## 0.2.0 15-Lens Atlas Contract - 2026-05-25
 
 ### Product Scope
@@ -35,7 +47,7 @@
 
 - `npm run build:lens-contract`
 - `npm run verify:lens-contract`
-- `python -m unittest tests.test_15_lens_contract`
+- `python3 -m unittest tests.test_15_lens_contract`
 
 ### Known Limits
 
@@ -78,7 +90,7 @@ changelog and evidence atlas.
 The release-readiness pass ran:
 
 - `npm run verify`
-- `python -m unittest discover tests`
+- `python3 -m unittest discover tests`
 - `npm run verify:browser` against a fresh local server
 - `npm test`
 

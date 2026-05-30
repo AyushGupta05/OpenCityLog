@@ -55,7 +55,7 @@ const officialEvents = [
     subtitle: "Belfast Rapid Transit introduced Glider services across East-West and Titanic Quarter corridors.",
     area: "City Centre",
     coordinates: [-5.9301, 54.5973],
-    confidence: "high",
+    confidence: "documented",
     sourceBasis: "official project/service launch",
     sourceName: "Department for Infrastructure / Translink public information",
     sourceUrl: "https://www.infrastructure-ni.gov.uk/articles/belfast-rapid-transit"
@@ -70,7 +70,7 @@ const officialEvents = [
     subtitle: "A restored leisure and community facility re-entered Belfast's public service network.",
     area: "East Belfast",
     coordinates: [-5.9107, 54.5946],
-    confidence: "high",
+    confidence: "documented",
     sourceBasis: "official council project opening",
     sourceName: "Belfast City Council",
     sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/templemore-baths"
@@ -85,7 +85,7 @@ const officialEvents = [
     subtitle: "The new integrated bus and rail station changed access patterns around the city centre.",
     area: "City Centre",
     coordinates: [-5.9391, 54.5943],
-    confidence: "high",
+    confidence: "documented",
     sourceBasis: "official station opening",
     sourceName: "Translink",
     sourceUrl: "https://www.translink.co.uk/usingtranslink/stations/belfastgrandcentral"
@@ -100,7 +100,7 @@ const officialEvents = [
     subtitle: "The station replaced Yorkgate and added a new north Belfast rail access point.",
     area: "Cathedral Quarter",
     coordinates: [-5.9238, 54.6092],
-    confidence: "high",
+    confidence: "documented",
     sourceBasis: "official station opening",
     sourceName: "Translink",
     sourceUrl: "https://www.translink.co.uk/usingtranslink/stations/yorkstreet"
@@ -115,7 +115,7 @@ const officialEvents = [
     subtitle: "The expanded city-centre campus created a major education and employment-access anchor.",
     area: "Cathedral Quarter",
     coordinates: [-5.928, 54.6047],
-    confidence: "high",
+    confidence: "documented",
     sourceBasis: "official institutional opening",
     sourceName: "Ulster University",
     sourceUrl: "https://www.ulster.ac.uk/campuses/belfast"
@@ -130,7 +130,7 @@ const officialEvents = [
     subtitle: "A major leisure redevelopment changed service access in west Belfast.",
     area: "West Belfast",
     coordinates: [-5.999, 54.584],
-    confidence: "high",
+    confidence: "documented",
     sourceBasis: "official council leisure programme",
     sourceName: "Belfast City Council",
     sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/andersonstown-leisure-centre"
@@ -145,7 +145,7 @@ const officialEvents = [
     subtitle: "The Olympia redevelopment created a new public leisure and community-service anchor.",
     area: "South Belfast",
     coordinates: [-5.955, 54.588],
-    confidence: "high",
+    confidence: "documented",
     sourceBasis: "official council leisure programme",
     sourceName: "Belfast City Council",
     sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/olympia-leisure-centre"
@@ -160,7 +160,7 @@ const officialEvents = [
     subtitle: "Construction activity around the transport hub is retained as a source-backed city-centre transport and development-area milestone.",
     area: "City Centre",
     coordinates: [-5.9391, 54.5943],
-    confidence: "medium-high",
+    confidence: "documented",
     sourceBasis: "official transport-hub project record",
     sourceName: "Translink Weavers Cross",
     sourceUrl: "https://www.weaverscross.co.uk/"
@@ -302,7 +302,7 @@ function planningEvents() {
       if (!/approved/i.test(decision)) continue;
       const date = parsePlanningDate(row[index.DecisionIssuedDate] || row[index.DateValid] || row[index.DateReceived]);
       if (!date) continue;
-      const year = Math.max(2016, Math.min(2026, date.getUTCFullYear()));
+      const year = date.getUTCFullYear();
       if (!years.includes(year)) continue;
       const easting = normaliseEastingNorthing(row[index.Easting]);
       const northing = normaliseEastingNorthing(row[index.Northing]);
@@ -323,7 +323,7 @@ function planningEvents() {
         subtitle: `${decision} planning record from Belfast planning statistics dataset.`,
         area: row[index.SiteAddress] || "Belfast",
         coordinates: point.map((value) => Number(value.toFixed(6))),
-        confidence: "high",
+        confidence: "documented",
         sourceBasis: "official planning statistics record",
         sourceName: `Northern Ireland planning statistics ${file}`,
         sourceUrl: "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
@@ -410,7 +410,11 @@ function buildMetaMap(metaPath) {
   const filePath = path.join(rootDir, metaPath);
   if (!fs.existsSync(filePath)) return new Map();
   const payload = JSON.parse(fs.readFileSync(filePath, "utf8"));
-  return new Map((payload.elements || []).map((element) => [sourceIdForElement(element), element]));
+  const sourceAccessedAt = payload.fetchedAt || payload.accessed_at || payload.retrieved_at || payload.generated_at || null;
+  return new Map((payload.elements || []).map((element) => [
+    sourceIdForElement(element),
+    sourceAccessedAt && !element.sourceAccessedAt ? { ...element, sourceAccessedAt } : element,
+  ]));
 }
 
 function walkCoords(value, coords = []) {
@@ -440,7 +444,7 @@ function inBelfast(point) {
 function eventYear(timestamp) {
   const year = Number(String(timestamp || "").slice(0, 4));
   if (!Number.isFinite(year)) return null;
-  return Math.max(2016, Math.min(2026, year));
+  return years.includes(year) ? year : null;
 }
 
 function titleFor(config, feature, meta) {
@@ -466,7 +470,7 @@ function eventForFeature(config, feature, meta) {
   const sourceId = props.source_id;
   const year = eventYear(meta.timestamp);
   const point = centroid(feature);
-  if (!sourceId || !year || year < 2016 || !inBelfast(point)) return null;
+  if (!sourceId || !year || !inBelfast(point)) return null;
   const tags = meta.tags || {};
   const sourceUrl = publicOsmUrl(sourceId);
   const osmChangesetUrl = changesetUrl(meta.changeset);
@@ -481,10 +485,11 @@ function eventForFeature(config, feature, meta) {
     subtitle: `Public OSM mapped-event record for ${config.assetLabel}; use as mapped change evidence, not a confirmed construction/opening date.`,
     area: props.name || tags.name || config.assetLabel,
     coordinates: point.map((value) => Number(value.toFixed(6))),
-    confidence: "medium",
+    confidence: "inferred",
     sourceBasis: "OSM mapped infrastructure event",
     sourceName: "OpenStreetMap / Overpass API",
     sourceUrl,
+    sourceAccessedAt: meta.sourceAccessedAt || null,
     osmChangesetUrl,
     osmTimestamp: meta.timestamp,
     osmVersion: meta.version,

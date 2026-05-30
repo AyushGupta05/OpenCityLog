@@ -1,0 +1,60 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          lfs: true
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Install Python coverage tooling
+        run: python3 -m pip install coverage
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Verify atlas contracts
+        run: npm run verify
+
+      - name: Run Python tests
+        run: python3 -m unittest discover tests
+
+      - name: Enforce Python coverage
+        run: npm run coverage:python
+
+      - name: Run browser smoke
+        run: |
+          PORT=5174 npm start &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:5174/api/health >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:5174/api/health >/dev/null
+          URL=http://127.0.0.1:5174 npm run verify:browser

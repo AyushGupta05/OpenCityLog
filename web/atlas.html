@@ -77,7 +77,7 @@
       <div class="active-lens-icon" id="activeLensIcon" aria-hidden="true">T</div>
       <div class="active-lens-copy">
         <div class="active-lens-domain" id="activeLensDomain">Transport lens</div>
-        <h2 id="activeLensTitle">Speed</h2>
+        <h2 id="activeLensTitle">Transport activity</h2>
         <p id="activeLensDescription">Loading source-backed lens treatment.</p>
       </div>
     </div>
@@ -177,10 +177,10 @@
     </button>
   </div>
   <!-- Detail panel (right) — overlay panel on by default, populated when an event is selected -->
-  <div class="detail panel" id="detailPanel" data-open="true">
+  <aside class="detail panel" id="detailPanel" data-open="true" role="region" aria-labelledby="detailTitle">
     <div class="detail-empty" id="detailEmpty">
       <div class="detail-empty-eyebrow">Selected change</div>
-      <div class="detail-empty-title">Pick a change on the map or in search</div>
+      <div class="detail-empty-title" id="detailEmptyTitle">Pick a change on the map or in search</div>
       <div class="detail-empty-body">
         Each pin is a source-backed city-change record in <strong id="emptyCityName">Belfast</strong>.
         Some records are inferred from OSM mapped visibility and are labelled as such.
@@ -193,7 +193,7 @@
       </div>
     </div>
     <div class="detail-inner" id="detailInner" hidden></div>
-  </div>
+  </aside>
 
   <!-- Bottom timeline -->
   <div class="timeline panel">
@@ -206,7 +206,7 @@
       </div>
       <div class="tl-play">
         <span class="tl-speed">1.4×/s</span>
-        <button class="btn btn-icon" id="playBtn" title="Play / pause">
+        <button class="btn btn-icon" id="playBtn" title="Play timeline" aria-label="Play timeline" aria-pressed="false">
           <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M7 5l12 7-12 7z"/></svg>
         </button>
       </div>

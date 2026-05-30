@@ -279,7 +279,28 @@ function loadLensDetailFeatures(root, city, year, cache) {
   return features;
 }
 
-function detailCountsForLens(root, city, lens, year, cache) {
+function transportContextCounts(root, city, sourceById) {
+  const artifactPath = city.artifact_paths?.transport_roads_base;
+  const payload = readJsonIfExists(artifactPath ? resolve(root, artifactPath) : null);
+  const features = Array.isArray(payload?.features) ? payload.features : [];
+  const sourceIds = [];
+  for (const candidate of ["osm-overpass", "openstreetmap-overpass", "opendatani-spatial-ni"]) {
+    if (sourceById.has(candidate)) {
+      sourceIds.push(candidate);
+      break;
+    }
+  }
+  return {
+    detail_feature_count: 0,
+    coverage_context_feature_count: features.length,
+    source_ids: sourceIds,
+  };
+}
+
+function detailCountsForLens(root, city, lens, year, cache, sourceById) {
+  if (lens.group === "transport") {
+    return transportContextCounts(root, city, sourceById);
+  }
   const layers = LENS_DETAIL_LAYERS_BY_GROUP[lens.group] || new Set();
   if (!layers.size) {
     return { detail_feature_count: 0, coverage_context_feature_count: 0, source_ids: [] };
@@ -343,7 +364,7 @@ function buildLensYearCoverage(root, citySummary, city, eventsIndex, events, sou
         confidenceCounts[event.confidence] = (confidenceCounts[event.confidence] || 0) + 1;
         for (const sourceId of event.source_ids || []) eventSourceIds.add(sourceId);
       }
-      const detailCounts = detailCountsForLens(root, city, lens, year, detailCache);
+      const detailCounts = detailCountsForLens(root, city, lens, year, detailCache, sourceById);
       const status = yearCoverageStatus(compatibleEvents.length, detailCounts);
       const sourceIds = compatibleEvents.length
         ? [...eventSourceIds].sort()
@@ -376,6 +397,9 @@ function buildLensYearCoverage(root, citySummary, city, eventsIndex, events, sou
           events_json: `web/data/city-atlas/cities/${citySummary.city_id}/events_${year}.json`,
           events_geojson: `web/data/city-atlas/cities/${citySummary.city_id}/events_${year}.geojson`,
           lens_detail_geojson: `web/data/city-atlas/cities/${citySummary.city_id}/lens_detail_${year}.geojson`,
+          ...(lens.group === "transport" && city.artifact_paths?.transport_roads_base
+            ? { transport_roads_base: city.artifact_paths.transport_roads_base }
+            : {}),
         },
         limitations: rowLimitations(status, lens, year),
         exports: {

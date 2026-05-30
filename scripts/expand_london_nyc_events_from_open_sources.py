@@ -1722,6 +1722,9 @@ def make_fhrs_event(row: dict[str, Any], authority: dict[str, Any], retrieved_at
         source_retrieved_at=retrieved_at,
         source_dataset_id=FHRS_SOURCE_ID,
         source_date_field="RatingDate",
+        atlas_category="civic_services",
+        atlas_lens="services",
+        affected_signals=["public_health", "services"],
         geometry_source="Food Standards Agency FHRS establishment geocode",
         geometry_precision="public food-business premises point; source coordinates may be incomplete or inaccurate",
         summary=clean_text(

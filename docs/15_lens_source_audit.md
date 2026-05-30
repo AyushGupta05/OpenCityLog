@@ -62,7 +62,7 @@ Each launched city must expose all 15 lenses. A lens can use the same source-bac
 | London | TfL disruptions/status feeds, DfT road-collision records, London Datastore transport datasets | TfL terms and OGL | Disruption records are event/status rows, not timetable reliability measurements. |
 | NYC | MTA status/open data, NYC DOT street closures/permits, Open Data service and street-event feeds | MTA and NYC Open Data terms | Planned and active disruptions must be labelled separately. |
 
-### Journey Speed
+### Transport Activity
 
 | City | Compatible sources | Licence notes | Main caveats |
 | --- | --- | --- | --- |
@@ -86,11 +86,11 @@ Each launched city must expose all 15 lenses. A lens can use the same source-bac
 | London | London Datastore facilities, NHS/education public data where linked, ONS/GLA geographies | OGL/dataset-specific terms | Catchments are display aids around source rows, not eligibility areas. |
 | NYC | NYC Open Data facilities, school, library, parks, health, community district datasets | NYC Open Data terms | Official service boundaries must only be shown when the dataset supplies them. |
 
-### Service Demand
+### Service Context
 
 | City | Compatible sources | Licence notes | Main caveats |
 | --- | --- | --- | --- |
-| Belfast | Council service pages, NISRA denominators, civic facility/project records, public request/notice sources where available | OGL where stated | Demand grids are descriptive context; no population or capacity model is implied. |
+| Belfast | Council service pages, NISRA denominators, civic facility/project records, public request/notice sources where available | OGL where stated | Service-context grids are descriptive context; no population or capacity model is implied. |
 | London | Police.uk, LFB, FHRS, London Datastore demographic/geography datasets, ONS denominators | OGL/dataset-specific terms | Counts must preserve privacy-minimization and geography vintage. |
 | NYC | NYC 311, HPD, FDNY/EMS, facilities and demographic geography from NYC Open Data/Census context | NYC Open Data/US public data terms | Request and incident rows are administrative records, not validated demand estimates. |
 
@@ -118,7 +118,7 @@ Each launched city must expose all 15 lenses. A lens can use the same source-bac
 | London | GLA/London Datastore economic layers, transport hubs, HM Land Registry/HPI, FSA/LFB/Police context | OGL/dataset terms | Economic pull must remain a source-backed context grouping, not an opaque score. |
 | NYC | Open Data employment/business/facility datasets, MTA/DOT anchors, DCP economic/geography resources | NYC Open Data/agency terms | Do not infer visitor flows, spending, or job impacts from anchor proximity. |
 
-### Utility Capacity
+### Utility Context
 
 | City | Compatible sources | Licence notes | Main caveats |
 | --- | --- | --- | --- |
@@ -126,7 +126,7 @@ Each launched city must expose all 15 lenses. A lens can use the same source-bac
 | London | London Datastore infrastructure layers, streetworks/open works feeds where public, OSM utility context | OGL/ODbL/dataset-specific terms | Public works/assets are context, not capacity headroom. |
 | NYC | NYC Open Data infrastructure/capital assets, DOT permits/street closures, DEP/utility-related public datasets, OSM | NYC Open Data/ODbL | Asset presence is not available capacity. |
 
-### Network Resilience
+### Utility Network Context
 
 | City | Compatible sources | Licence notes | Main caveats |
 | --- | --- | --- | --- |
