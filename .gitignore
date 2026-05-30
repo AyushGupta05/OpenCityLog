@@ -13,3 +13,16 @@ node_modules
 .playwright-mcp/
 open-citylog-*.png
 .clawpatch/
+
+# Generated visual QA/debug artifacts. Keep only committed contract references
+# and cited provenance snapshots under tmp/.
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
+/*-snapshot.md
+tmp/*
+!tmp/reference-screens/
+!tmp/reference-screens/**
+!tmp/subagents/
+!tmp/subagents/**
