@@ -35,7 +35,7 @@ Keep retired:
 - decorative particle/fly-through dashboard demos;
 - predictor language that implies calibrated future outcomes.
 
-Replace these with observed event records, before/after imagery, source drawers, confidence labels, and descriptive event-impact lenses.
+Replace these with observed event records, before/after imagery, source drawers, confidence labels, and descriptive context lenses.
 
 ## Trust rules
 
@@ -44,7 +44,7 @@ Replace these with observed event records, before/after imagery, source drawers,
 3. Inferred records must be visually distinct and labelled inline.
 4. OSM-derived events must distinguish mapped/edit visibility from real-world effective date.
 5. Every number should trace back to source rows or generated manifests.
-6. Proposal copy must say "historical analogue", "observed change", "not a forecast", "evidence strength", or "observed during the same period"; never "caused" or "will".
+6. Any future proposal-research copy must say "historical analogue", "observed change", "not a forecast", "evidence strength", or "observed during the same period"; never "caused" or "will".
 
 ## Architecture direction
 

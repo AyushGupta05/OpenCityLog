@@ -103,6 +103,5 @@ npm test
 - `docs/15_lens_source_audit.md`
 - `docs/provenance.md`
 - `docs/data_acquisition.md`
-- `docs/lightweight_impact.md`
 - `docs/city_architect_research.md`
 - `docs/release_notes.md`

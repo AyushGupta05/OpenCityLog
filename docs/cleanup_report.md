@@ -4,7 +4,7 @@ Date: 2026-04-28
 
 ## Summary
 
-The repository has been pivoted away from the retired simulation-studio surface. The active product is the city atlas/changelog UI, source-backed event records, evidence drawers, before/after imagery, timeline scrubbing, and event-impact lenses for place, traffic, and components.
+The repository has been pivoted away from the retired simulation-studio surface. The active product is the city atlas/changelog UI, source-backed event records, evidence drawers, before/after imagery, timeline scrubbing, and descriptive context lenses for place, transport, services, economy, utilities, and planning.
 
 ## Retired Surfaces
 
@@ -16,6 +16,7 @@ Removed or quarantined surfaces include:
 - Forecast, transformer, trend-baseline, and traffic-microsimulation builders/verifiers.
 - Retired dashboard visual/smoke scripts that only covered removed surfaces.
 - Retired model artifacts for future forecasts and trend branches.
+- Retired Proposal Lens implementation, schema, verifier, skipped tests, stale MVP memo, and old CivicReplay design concept.
 
 ## Active Runtime
 
@@ -41,4 +42,4 @@ The active verifier checks source/event validity, confirms retired runtime paths
 
 ## Remaining Migration Note
 
-Some historical Belfast replay artifacts and old raw-source artifacts can still exist as data inputs or provenance material. They are not public simulator UI paths and should not be reintroduced into runtime routes, navigation, scripts, or copy unless a future accepted spec restores them with a validated model and clear planner value.
+Some historical Belfast replay artifacts and old raw-source artifacts can still exist as data inputs or provenance material. They are not public simulator UI paths and should not be reintroduced into runtime routes, navigation, scripts, or copy unless a future accepted spec restores them with a validated model, source-backed provenance, and clear planner value.

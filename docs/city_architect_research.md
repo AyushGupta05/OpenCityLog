@@ -1,6 +1,6 @@
 # City Architect Research Notes
 
-These notes informed the Proposal Lens and city-architect workbench. They are intentionally product-facing: the goal is to make Bims-5 more useful to a city architect, urban designer, planner, or public-interest reviewer without turning the atlas into an outcome model.
+These notes informed the city-architect research direction. They are intentionally product-facing: the goal is to make Bims-5 more useful to a city architect, urban designer, planner, or public-interest reviewer without turning the atlas into an outcome model.
 
 ## Persona
 

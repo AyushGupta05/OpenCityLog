@@ -2,7 +2,7 @@
 
 ## Status
 
-This document is a historical design note. The Proposal Lens is not an active runtime feature in the current city-change atlas contract.
+This document is a retirement note. The Proposal Lens is not an active runtime feature in the current city-change atlas contract.
 
 The current product scope is the 15 mandatory historical/current lenses described in `docs/15_lens_city_design_contract.md`. Those lenses must use source-backed city records, visible confidence and limitations, evidence panels, list/table paths, and Markdown/CSV/GeoJSON exports. They must not present future proposal analogues as active atlas coverage.
 
@@ -13,7 +13,7 @@ The local server now returns `410` tombstones for the retired proposal endpoints
 - `GET /api/proposal-impact/schema`
 - `POST /api/proposal-impact`
 
-The implementation file `lib/proposal-impact.js` is retained only as legacy reference material while the repo migration settles. The old verifier script is a tombstone that points back to the active 15-lens contract. Neither is part of `npm verify`, and neither should be reconnected without a later accepted product spec.
+The old implementation, schema, verifier, and skipped tests have been removed. `npm run verify` includes a legacy-path guard that fails if those retired executable surfaces are restored outside a later accepted product spec.
 
 ## Why It Is Quarantined
 
