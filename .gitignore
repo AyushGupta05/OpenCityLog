@@ -1,6 +1,7 @@
 __pycache__/
 *.py[cod]
 *.log
+.coverage
 .env
 .env.*
 !.env.example
