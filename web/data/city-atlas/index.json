@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-27T18:19:06Z",
+  "generated_at": "2026-05-30T13:41:47Z",
   "default_city_id": "belfast",
   "city_count": 3,
   "cities": [
@@ -75,7 +75,7 @@
   },
   "lens_manifest_path": "web/data/city-atlas/lens-manifest.json",
   "coverage_report_path": "web/data/city-atlas/coverage-report.json",
-  "coverage_report_generated_at": "2026-05-27T18:21:59Z",
+  "coverage_report_generated_at": "2026-05-30T13:44:13Z",
   "coverage_summary": {
     "city_count": 3,
     "total_events": 352023,

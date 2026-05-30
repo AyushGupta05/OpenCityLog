@@ -33,15 +33,15 @@ Use stable internal slugs, but public-facing labels:
 | `planning-delta` | Built Change |
 | `transport-access` | Access to Transport |
 | `transport-reliability` | Service Reliability |
-| `transport-speed` | Journey Speed |
-| `civic-access-gaps` | Public Service Gaps |
+| `transport-speed` | Transport Activity |
+| `civic-access-gaps` | Service Coverage Context |
 | `civic-catchment` | Service Catchments |
-| `civic-demand` | Service Demand |
+| `civic-demand` | Service Context |
 | `economy-land-use` | Land Use |
 | `economy-vitality` | High Street Activity |
-| `economy-gravity` | Economic Pull |
-| `utilities-capacity` | Utility Capacity |
-| `utilities-resilience` | Network Resilience |
+| `economy-gravity` | Economic Context Links |
+| `utilities-capacity` | Utility Context |
+| `utilities-resilience` | Utility Network Context |
 | `utilities-works` | Utility Works |
 
 No partial lens list is allowed for a launched city. If a city lacks data for a lens, find credible public data and add it to the repo before launch.
@@ -59,7 +59,7 @@ The 15 reference screenshots define the shared grammar:
 
 - Fixed desktop layout skeleton: compact left lens summary/navigation, central map, right evidence/details panel, and bottom timeline.
 - Same lens color roles across cities. A color should mean the same thing in the same lens everywhere.
-- Same lens metaphor unless source data cannot honestly support it: parcels/sites for Development Sites, route/corridor traces for Journey Speed, catchment cells for Service Catchments, network traces for utilities, and so on.
+- Same lens metaphor unless source data cannot honestly support it: parcels/sites for Development Sites, route/corridor traces for Transport Activity, catchment cells for Service Catchments, network traces for utilities, and so on.
 - Neutral, light basemap treatment with muted ordinary map labels such as roads, rivers, boroughs, neighbourhoods, and stations.
 - No extra editorial landmark layer unless it is a source-backed object or source-backed context layer.
 - Sparse areas must look sparse. The reference screens define structure, not required visual density.

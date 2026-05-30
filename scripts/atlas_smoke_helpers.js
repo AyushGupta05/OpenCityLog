@@ -18,7 +18,8 @@ function ensureOutputDir() {
 
 async function waitForPaperAtlas(page) {
   await page.waitForSelector("#map .maplibregl-canvas", { timeout: 45000 });
-  await page.waitForSelector("#layersList .layer-row", { timeout: 45000 });
+  await page.waitForSelector("#activeLensCard", { timeout: 45000 });
+  await page.waitForSelector("#layersList .layer-row", { state: "attached", timeout: 45000 });
   await page.waitForSelector(".pin", { timeout: 45000 });
   await page.waitForFunction(
     () => document.querySelector("#appStatus")?.textContent.trim() === "",
@@ -81,6 +82,46 @@ async function atlasState(page) {
         inViewport: rect.right >= 0 && rect.left <= window.innerWidth && rect.bottom >= 0 && rect.top <= window.innerHeight,
       };
     });
+    const visibleRect = (selector) => {
+      const el = document.querySelector(selector);
+      if (!el || el.hidden || el.getAttribute("data-open") === "false") return null;
+      const style = getComputedStyle(el);
+      if (style.display === "none" || style.visibility === "hidden" || Number(style.opacity || 1) === 0) return null;
+      const rect = el.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) return null;
+      return {
+        selector,
+        el,
+        left: rect.left,
+        right: rect.right,
+        top: rect.top,
+        bottom: rect.bottom,
+        width: rect.width,
+        height: rect.height,
+      };
+    };
+    const panelRects = [
+      ["topbar", ".topbar"],
+      ["layers", ".layers"],
+      ["mapLens", ".map-lens"],
+      ["detail", "#detailPanel"],
+      ["changelog", "#changelogPanel"],
+      ["timeline", ".timeline"],
+      ["mapTools", ".map-tools"],
+    ].map(([name, selector]) => ({ name, ...visibleRect(selector) })).filter((item) => item.el);
+    const panelOverlaps = [];
+    for (let i = 0; i < panelRects.length; i += 1) {
+      for (let j = i + 1; j < panelRects.length; j += 1) {
+        const a = panelRects[i];
+        const b = panelRects[j];
+        if (a.el.contains(b.el) || b.el.contains(a.el)) continue;
+        const horizontal = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+        const vertical = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+        if (horizontal > 4 && vertical > 4) {
+          panelOverlaps.push(`${a.name}/${b.name} ${Math.round(horizontal)}x${Math.round(vertical)}`);
+        }
+      }
+    }
     return {
       title: document.title,
       url: location.href,
@@ -102,6 +143,8 @@ async function atlasState(page) {
       lensYearCoverageContextCount: Number(activeCoverageRow?.coverage_context_feature_count || 0),
       lensYearCoverageVisible: Boolean(activeCoverageRow?.visible_map_contract),
       areaFilterValue: document.querySelector("#areaFilterInput")?.value || "",
+      searchPlaceholder: document.querySelector("#searchInput")?.getAttribute("placeholder") || "",
+      areaPlaceholder: document.querySelector("#areaFilterInput")?.getAttribute("placeholder") || "",
       areaFilterOptionCount: document.querySelectorAll("#areaFilterOptions option").length,
       eventListMeta: document.querySelector("#eventListMeta")?.textContent.trim() || "",
       transportOn: document.querySelector(".layer-row[data-layer='transport']")?.getAttribute("data-on") || "",
@@ -153,6 +196,7 @@ async function atlasState(page) {
       transportRoadFeatureCount: atlas?.state?.transportRoadFeatureCount ?? null,
       pinCount: pins.length,
       visiblePinCount: pins.filter((pin) => pin.inViewport).length,
+      panelOverlaps,
       transportPinCount: markerStats.transportPinCount,
       visibleTransportPinCount: markerStats.visibleTransportPinCount,
       activePin: pins.find((pin) => pin.active) || null,
@@ -202,6 +246,19 @@ async function pinPosition(page, text) {
 }
 
 async function clickPin(page, text) {
+  await page.waitForFunction((needle) => {
+    const normalize = (value) => String(value || "").replace(/\s+/g, " ").trim();
+    const target = normalize(needle).toLowerCase();
+    return [...document.querySelectorAll(".pin")].some((pin) => {
+      const text = normalize(pin.textContent).toLowerCase();
+      if (!text.includes(target)) return false;
+      const rect = pin.getBoundingClientRect();
+      const x = Math.round(rect.left + rect.width / 2);
+      const y = Math.round(rect.top + rect.height / 2);
+      const top = document.elementFromPoint(x, y);
+      return top === pin || pin.contains(top) || top?.closest?.(".pin") === pin;
+    });
+  }, text, { timeout: 12000 }).catch(() => {});
   const pin = await pinPosition(page, text);
   assert(pin, `Could not find map pin containing "${text}".`);
   await page.mouse.click(pin.x, pin.y);

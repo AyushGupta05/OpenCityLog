@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_manifest_index",
-  "generated_at": "2026-05-27T18:21:37Z",
+  "generated_at": "2026-05-30T13:43:50Z",
   "contract_source": "docs/15_lens_city_design_contract.md",
   "visual_reference_set": "tmp/reference-screens",
   "lens_count": 15,
@@ -156,7 +156,7 @@
           "compatible_event_count": 14910,
           "source_count": 190,
           "compatible_source_count": 190,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -177,7 +177,7 @@
           "compatible_event_count": 14910,
           "source_count": 190,
           "compatible_source_count": 190,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -198,7 +198,7 @@
           "compatible_event_count": 14910,
           "source_count": 190,
           "compatible_source_count": 190,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -219,7 +219,7 @@
           "compatible_event_count": 21157,
           "source_count": 83,
           "compatible_source_count": 83,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -240,7 +240,7 @@
           "compatible_event_count": 21157,
           "source_count": 83,
           "compatible_source_count": 83,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -261,7 +261,7 @@
           "compatible_event_count": 21157,
           "source_count": 83,
           "compatible_source_count": 83,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -282,7 +282,7 @@
           "compatible_event_count": 1529,
           "source_count": 45,
           "compatible_source_count": 45,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -303,7 +303,7 @@
           "compatible_event_count": 1529,
           "source_count": 45,
           "compatible_source_count": 45,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -324,7 +324,7 @@
           "compatible_event_count": 1529,
           "source_count": 45,
           "compatible_source_count": 45,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -345,7 +345,7 @@
           "compatible_event_count": 2049,
           "source_count": 38,
           "compatible_source_count": 38,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -366,7 +366,7 @@
           "compatible_event_count": 2049,
           "source_count": 38,
           "compatible_source_count": 38,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -387,7 +387,7 @@
           "compatible_event_count": 2049,
           "source_count": 38,
           "compatible_source_count": 38,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -408,7 +408,7 @@
           "compatible_event_count": 14487,
           "source_count": 73,
           "compatible_source_count": 73,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -429,7 +429,7 @@
           "compatible_event_count": 14487,
           "source_count": 73,
           "compatible_source_count": 73,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -450,7 +450,7 @@
           "compatible_event_count": 14487,
           "source_count": 73,
           "compatible_source_count": 73,
-          "last_retrieved_or_reviewed": "2026-05-27T18:19:04Z",
+          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
           "year_contract": {
             "required_years": {
               "start": 2007,

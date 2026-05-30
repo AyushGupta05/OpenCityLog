@@ -1,35 +1,35 @@
 /* OpenCityLog — paper-atlas UI on a MapLibre + OSM base */
 
 :root {
-  /* Paper / ink palette */
-  --paper: #F2EEE3;
-  --paper-2: #E8E2D3;
-  --paper-3: #D9D2BF;
-  --ink: #1A1814;
-  --ink-2: #2E2A22;
-  --muted: #6B6453;
-  --muted-2: #8A8270;
-  --rule: rgba(26, 24, 20, 0.12);
-  --rule-strong: rgba(26, 24, 20, 0.28);
-  --panel: rgba(248, 245, 237, 0.96);
-  --panel-solid: #F8F5ED;
+  /* Civic atlas palette: cool white panels over a legible map base. */
+  --paper: #eef3f8;
+  --paper-2: #ffffff;
+  --paper-3: #d7e1eb;
+  --ink: #111827;
+  --ink-2: #243044;
+  --muted: #5f6b7a;
+  --muted-2: #7a8594;
+  --rule: rgba(15, 23, 42, 0.12);
+  --rule-strong: rgba(15, 23, 42, 0.28);
+  --panel: rgba(255, 255, 255, 0.95);
+  --panel-solid: #ffffff;
 
-  /* Layer accents — saturated but earthy. One per OpenCityLog category. */
-  --c-transport:         #1B7A85;
-  --c-built_environment: #C8472E;
-  --c-civic_services:    #D69423;
-  --c-economy:           #7A3B7A;
-  --c-environment:       #3F6B3A;
-  --c-utilities:         #8C7460;
+  /* Layer accents. One per OpenCityLog category. */
+  --c-transport:         #1769E0;
+  --c-built_environment: #D94B3F;
+  --c-civic_services:    #0E8F83;
+  --c-economy:           #7A4AB3;
+  --c-environment:       #3C8D4D;
+  --c-utilities:         #52637A;
 
   /* Confidence */
   --conf-high: #3F6B3A;
   --conf-med:  #D69423;
   --conf-low:  #C8472E;
 
-  --shadow-1: 0 1px 0 rgba(26,24,20,0.06), 0 1px 2px rgba(26,24,20,0.04);
-  --shadow-2: 0 2px 4px rgba(26,24,20,0.06), 0 8px 24px rgba(26,24,20,0.10);
-  --shadow-3: 0 4px 10px rgba(26,24,20,0.08), 0 24px 60px rgba(26,24,20,0.18);
+  --shadow-1: 0 1px 0 rgba(15,23,42,0.05), 0 1px 2px rgba(15,23,42,0.04);
+  --shadow-2: 0 2px 4px rgba(15,23,42,0.06), 0 12px 32px rgba(15,23,42,0.12);
+  --shadow-3: 0 4px 10px rgba(15,23,42,0.10), 0 28px 70px rgba(15,23,42,0.20);
 
   --font-sans: "Geist", "Söhne", -apple-system, "Helvetica Neue", Arial, sans-serif;
   --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
@@ -140,6 +140,13 @@ button { font-family: inherit; }
   width: 22px;
   height: 22px;
   will-change: transform;
+}
+.pin-wrap[data-active="true"] {
+  pointer-events: none;
+}
+.pin-wrap:hover,
+.pin-wrap:focus-within {
+  z-index: 95 !important;
 }
 .pin {
   position: relative;
@@ -796,7 +803,7 @@ button { font-family: inherit; }
   position: absolute;
   top: calc(100% + 6px);
   left: 0;
-  min-width: 240px;
+  min-width: 300px;
   padding: 4px;
   z-index: 410;
 }
@@ -804,19 +811,32 @@ button { font-family: inherit; }
   padding: 8px 10px;
   border-radius: 3px;
   cursor: pointer;
-  display: flex; align-items: center; gap: 10px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 10px;
+  align-items: center;
   font-size: 13px;
 }
 .city-row:hover { background: var(--paper-2); }
 .city-row[data-active="true"] { background: var(--paper-2); }
 .city-row .meta {
+  grid-column: 2;
+  grid-row: 1 / span 2;
   font-family: var(--font-mono);
   font-size: 10px;
   color: var(--muted);
-  margin-left: auto;
 }
 .city-row .city-name { font-weight: 500; }
 .city-row[data-active="false"] .city-name { font-weight: 400; }
+.city-count {
+  grid-column: 1;
+  min-width: 0;
+  color: var(--muted);
+  font: 10.5px var(--font-mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 /* ------- Left layers panel ------- */
 .layers {
@@ -2251,9 +2271,9 @@ button { font-family: inherit; }
 }
 .event-row {
   width: 100%;
-  min-height: 62px;
+  min-height: 72px;
   display: grid;
-  grid-template-columns: 10px minmax(0, 1fr) auto;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
   align-items: start;
   gap: 10px;
   padding: 10px;
@@ -2270,12 +2290,24 @@ button { font-family: inherit; }
   border-color: color-mix(in oklab, var(--accent) 42%, transparent);
 }
 .event-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: color-mix(in oklab, var(--accent) 16%, white);
+  color: var(--accent);
+  border: 1px solid color-mix(in oklab, var(--accent) 36%, transparent);
+  margin-top: 1px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 10%, transparent);
+}
+.event-dot::after {
+  content: attr(data-rank);
+  font: 700 9px var(--font-mono);
+}
+.event-row[data-active="true"] .event-dot {
   background: var(--accent);
-  margin-top: 4px;
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 16%, transparent);
+  color: #fff;
 }
 .event-main {
   min-width: 0;
@@ -2298,6 +2330,23 @@ button { font-family: inherit; }
   line-height: 1.4;
   letter-spacing: 0.03em;
   color: var(--muted);
+}
+.event-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.event-tags span {
+  max-width: 100%;
+  padding: 2px 5px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  color: var(--ink-2);
+  background: color-mix(in oklab, var(--paper-2) 86%, var(--accent) 8%);
+  font: 9.5px var(--font-mono);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .event-year {
   font: 10px var(--font-mono);
@@ -2486,6 +2535,11 @@ button { font-family: inherit; }
 }
 .map-study-chip svg {
   color: var(--ink-2);
+}
+.map-study-chip[data-scope="city"] {
+  color: var(--ink);
+  border-color: color-mix(in oklab, var(--lens-accent, #1b7a85) 34%, var(--rule));
+  background: color-mix(in oklab, var(--paper) 88%, var(--lens-accent, #1b7a85));
 }
 /* ------- Bottom timeline ------- */
 .timeline {
@@ -5062,8 +5116,8 @@ button { font-family: inherit; }
   }
   .topbar {
     top: 8px;
-    gap: 8px;
-    padding: 8px;
+    gap: 6px;
+    padding: 7px;
   }
   .brand {
     padding-right: 8px;
@@ -5075,8 +5129,14 @@ button { font-family: inherit; }
   .brand-tag {
     display: none;
   }
+  .avatar-pill {
+    display: none;
+  }
   .city-switcher .btn {
     max-width: 118px;
+  }
+  .city-menu {
+    min-width: min(300px, calc(100vw - 24px));
   }
   #methodBtn, #changelogToggle, #compareBtn {
     width: 32px;
@@ -5089,12 +5149,41 @@ button { font-family: inherit; }
     height: 14px;
   }
   .layers {
-    top: 146px;
+    top: 132px;
     width: auto;
-    max-height: 174px;
-    overflow: auto;
+    max-height: 142px;
+    overflow: hidden;
   }
+  .active-lens-card {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 9px;
+    padding: 9px 11px 8px;
+  }
+  .active-lens-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
+  .active-lens-svg {
+    width: 20px;
+    height: 20px;
+  }
+  .active-lens-domain {
+    font-size: 8.5px;
+  }
+  .active-lens-copy h2 {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+  .active-lens-copy p {
+    display: none;
+  }
+  .layers-head {
+    padding: 8px 11px;
+  }
+  .layers[data-lens] .map-lens,
   .map-lens {
+    display: none !important;
     position: absolute;
     left: 0;
     right: auto;
@@ -5109,21 +5198,19 @@ button { font-family: inherit; }
     display: none;
   }
   .layers-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: none;
   }
   .layer-row {
     min-height: 36px;
   }
   .layer-controls {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: none;
   }
   .changelog {
     top: auto;
-    bottom: 128px;
+    bottom: 112px;
     width: auto;
-    max-height: min(44dvh, 360px);
+    max-height: min(34dvh, 280px);
     z-index: 370;
   }
   .changelog[data-open="false"] {
@@ -5145,16 +5232,16 @@ button { font-family: inherit; }
   }
   .map-tools {
     right: 12px;
-    bottom: 288px;
+    bottom: calc(112px + min(34dvh, 280px) + 12px);
   }
   .map-study-chip {
     display: none !important;
   }
   .detail {
     top: auto;
-    bottom: 128px;
+    bottom: 112px;
     width: auto;
-    max-height: min(44dvh, 360px);
+    max-height: min(34dvh, 280px);
   }
   .detail[data-open="false"] {
     transform: translateY(calc(100% + 24px));
@@ -5163,12 +5250,12 @@ button { font-family: inherit; }
     padding: 18px;
   }
   .detail-body {
-    max-height: 230px;
+    max-height: min(23dvh, 184px);
   }
   .timeline {
     bottom: 8px;
-    height: 108px;
-    padding: 12px;
+    height: 96px;
+    padding: 10px 11px;
   }
   .tl-head {
     gap: 10px;
@@ -5258,7 +5345,7 @@ button { font-family: inherit; }
   }
   .maplibregl-ctrl-bottom-right {
     right: 12px;
-    bottom: 242px;
+    bottom: calc(112px + min(34dvh, 280px) + 54px);
   }
   .maplibregl-ctrl-bottom-left {
     left: 12px;
@@ -5281,7 +5368,7 @@ button { font-family: inherit; }
     width: 100%;
   }
   .detail {
-    max-height: min(42dvh, 320px);
+    max-height: min(34dvh, 280px);
   }
   .detail-title,
   .detail-empty-title {

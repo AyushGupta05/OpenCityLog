@@ -143,7 +143,7 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
   assert(initial.detailLayerLoaded && !initial.detailLayerError, `OSM-derived detail layers did not mount: ${initial.detailLayerError}`);
   assert(initial.lensOverlayLoaded && !initial.lensOverlayError, `Event-derived lens overlays did not mount: ${initial.lensOverlayError}`);
   assert(initial.activeLens === "transport", "Transport should be the default active map lens.");
-  assert(initial.activeAspect === "transport-speed", "Journey Speed should be the default 15-lens view.");
+  assert(initial.activeAspect === "transport-speed", "Transport Activity should be the default 15-lens view.");
   assert(initial.lensChoiceCount === 15, "The desktop lens switcher should expose all 15 atlas lenses.");
   assert(initial.lensYearCoverageLoaded && !initial.lensYearCoverageError, `Lens-year coverage metadata did not load: ${initial.lensYearCoverageError}`);
   assert(initial.lensYearCoverageVisible, "The active 15-lens/year contract row is not marked visible.");

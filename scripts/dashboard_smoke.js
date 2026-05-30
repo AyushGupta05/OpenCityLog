@@ -21,6 +21,9 @@ async function assertResponsiveLayout(page, label) {
   assert(/OpenStreetMap contributors/i.test(state.attribution), `${label}: OSM attribution is missing.`);
   assert(state.detailTitle.length > 8, `${label}: evidence detail panel did not render.`);
   assert(state.layersCount.includes("/6"), `${label}: layer state is missing.`);
+  if (label === "mobile") {
+    assert(state.panelOverlaps.length === 0, `${label}: panels overlap (${state.panelOverlaps.join(", ")}).`);
+  }
   assert(!/CivicReplay|Run Simulation|Scenario Studio|10-year/i.test(state.bodyText), `${label}: stale legacy copy is visible.`);
   return state;
 }
@@ -58,11 +61,28 @@ async function assertResponsiveLayout(page, label) {
   const mobilePng = await mobile.screenshot({ path: path.join(outputDir, "paper-atlas-mobile.png"), fullPage: false });
   assertDetailedPng(mobilePng, assert, "Paper atlas mobile");
 
+  const cityChecks = [
+    { id: "belfast", label: "Belfast", placeholder: /Belfast/i },
+    { id: "london", label: "London", placeholder: /London/i },
+    { id: "nyc", label: "New York City", placeholder: /New York City/i },
+  ];
+  for (const city of cityChecks) {
+    const page = await browser.newPage({ viewport: { width: 1280, height: 820 }, deviceScaleFactor: 1 });
+    attachConsoleCapture(page, consoleMessages, pageErrors);
+    await openAtlas(page, `${atlasUrl}?city=${city.id}&year=2026`);
+    await page.waitForTimeout(city.id === "london" ? 2400 : 1400);
+    const cityState = await assertResponsiveLayout(page, `city ${city.id}`);
+    assert(cityState.city === city.label, `city ${city.id}: loaded ${cityState.city} instead of ${city.label}.`);
+    assert(city.placeholder.test(cityState.searchPlaceholder), `city ${city.id}: search placeholder is not city-specific.`);
+    assert(cityState.visiblePinCount >= 8, `city ${city.id}: too few visible city records.`);
+    await page.close();
+  }
+
   await browser.close();
   const actionable = actionableConsoleMessages(consoleMessages);
   assert(pageErrors.length === 0, `Dashboard page errors:\n${pageErrors.join("\n")}`);
   assert(actionable.length === 0, `Dashboard console warnings/errors:\n${actionable.map((message) => `${message.type}: ${message.text}`).join("\n")}`);
-  console.log("OpenCityLog paper-atlas dashboard smoke OK: desktop, tablet, and mobile layouts passed.");
+  console.log("OpenCityLog paper-atlas dashboard smoke OK: desktop, tablet, mobile, and Belfast/London/NYC city checks passed.");
 })().catch((error) => {
   console.error(error);
   process.exit(1);

@@ -30,7 +30,7 @@
     </div>
 
     <div class="city-switcher" id="citySwitcher">
-      <button class="btn" id="cityToggle" type="button">
+      <button class="btn" id="cityToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Choose city. Current city: Belfast">
         <span id="cityNameLabel">Belfast</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="10" height="10"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
@@ -39,7 +39,7 @@
 
     <div class="search" id="searchBox">
       <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4" stroke-linecap="round"/></svg>
-      <input id="searchInput" placeholder='Search changes in Belfast…  (try "grand central", "cycle", "translink")' autocomplete="off">
+      <input id="searchInput" placeholder='Search changes in Belfast... (try "grand central", "cycle", "translink")' autocomplete="off">
       <div class="search-results panel" id="searchResults" hidden></div>
     </div>
 
@@ -169,10 +169,10 @@
 
   <!-- Map tools restored from the previous atlas controls -->
   <div class="map-tools panel" aria-label="Map tools">
-    <button class="btn btn-icon" id="recenterBtn" type="button" title="Recenter map">
+    <button class="btn btn-icon" id="recenterBtn" type="button" title="Fit whole city" aria-label="Fit whole city">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><circle cx="12" cy="12" r="7"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
     </button>
-    <button class="btn btn-icon" id="tiltBtn" type="button" title="Toggle tilted view" aria-pressed="false">
+    <button class="btn btn-icon" id="tiltBtn" type="button" title="Toggle tilted view" aria-label="Toggle tilted view" aria-pressed="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M4 15l8 4 8-4"/><path d="M4 10l8 4 8-4"/><path d="M4 5l8 4 8-4"/></svg>
     </button>
   </div>
@@ -220,14 +220,14 @@
   </div>
 
   <!-- Methodology overlay -->
-  <div class="method-overlay" id="methodOverlay" data-open="false">
+  <div class="method-overlay" id="methodOverlay" data-open="false" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="methodTitle">
     <button class="btn method-close" id="methodClose">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
       Close
     </button>
     <div class="method-inner">
       <div class="method-eyebrow">Methodology · v0.4</div>
-      <h1 class="method-h1">A city change atlas, grounded in evidence — not forecasts.</h1>
+      <h1 class="method-h1" id="methodTitle">A city change atlas, grounded in evidence — not forecasts.</h1>
       <p class="method-lead">
         OpenCityLog indexes observed urban changes from primary sources — planning records,
         official open data, Translink and DfI public project pages, and OpenStreetMap mapped
@@ -237,7 +237,7 @@
       <div class="method-grid">
         <div class="method-block">
           <h3>What counts as a "change"</h3>
-          <p>Physical interventions (new stations, openings, demolitions), official decisions with on-the-ground effects (planning approvals, route changes), and observed mapped-visibility records from OSM.</p>
+          <p>Physical interventions (new stations, openings, demolitions), official decisions and route changes, and observed mapped-visibility records from OSM. Decision records are not treated as proof of later built outcomes unless the source documents that outcome.</p>
         </div>
         <div class="method-block">
           <h3>Confidence ratings</h3>
