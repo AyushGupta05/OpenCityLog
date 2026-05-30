@@ -102,6 +102,36 @@ function citedArchitectureOneOffScripts() {
   return cited;
 }
 
+function referencedOneOffScripts(relativePath) {
+  if (!exists(relativePath)) return [];
+  const text = fs.readFileSync(path.join(rootDir, relativePath), "utf8");
+  const refs = new Set();
+  for (const match of text.match(scriptReferencePattern) || []) {
+    const fileName = path.basename(match);
+    if (bannedScriptFilePatterns.some(([pattern]) => pattern.test(fileName))) refs.add(match);
+  }
+  for (const match of text.matchAll(/path\.join\(__dirname,\s*["']([^"']+)["']\)/g)) {
+    const relative = `scripts/${match[1]}`;
+    const fileName = path.basename(relative);
+    if (bannedScriptFilePatterns.some(([pattern]) => pattern.test(fileName))) refs.add(relative);
+  }
+  return [...refs];
+}
+
+function expandRetainedOneOffScripts(seedScripts) {
+  const retained = new Set(seedScripts);
+  const queue = [...seedScripts];
+  while (queue.length) {
+    const current = queue.shift();
+    for (const dependency of referencedOneOffScripts(current)) {
+      if (retained.has(dependency)) continue;
+      retained.add(dependency);
+      queue.push(dependency);
+    }
+  }
+  return retained;
+}
+
 for (const relativePath of bannedFiles) {
   if (exists(relativePath)) failures.push(`Legacy file should not exist: ${relativePath}`);
 }
@@ -111,7 +141,7 @@ for (const relativePath of bannedDirectories) {
 }
 
 const scriptsDir = path.join(rootDir, "scripts");
-const provenanceRetainedScripts = citedArchitectureOneOffScripts();
+const provenanceRetainedScripts = expandRetainedOneOffScripts(citedArchitectureOneOffScripts());
 for (const entry of fs.readdirSync(scriptsDir)) {
   for (const [pattern, label] of bannedScriptFilePatterns) {
     const relativePath = `scripts/${entry}`;
