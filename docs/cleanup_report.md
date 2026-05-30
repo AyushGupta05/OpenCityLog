@@ -17,6 +17,7 @@ Removed or quarantined surfaces include:
 - Retired dashboard visual/smoke scripts that only covered removed surfaces.
 - Retired model artifacts for future forecasts and trend branches.
 - Retired Proposal Lens implementation, schema, verifier, skipped tests, stale MVP memo, and old CivicReplay design concept.
+- Stale nested `open-citylog/data-discovery/` package superseded by the active root `data-discovery/` package.
 
 ## Active Runtime
 

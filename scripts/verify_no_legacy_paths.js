@@ -35,6 +35,10 @@ const bannedFiles = [
   "web/data/mode-a/trend_baseline_branch.json",
 ];
 
+const bannedDirectories = [
+  "open-citylog/data-discovery",
+];
+
 const runtimeFiles = [
   "package.json",
   "server.js",
@@ -57,6 +61,10 @@ function exists(relativePath) {
 
 for (const relativePath of bannedFiles) {
   if (exists(relativePath)) failures.push(`Legacy file should not exist: ${relativePath}`);
+}
+
+for (const relativePath of bannedDirectories) {
+  if (exists(relativePath)) failures.push(`Legacy directory should not exist: ${relativePath}`);
 }
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(rootDir, "package.json"), "utf8"));
@@ -126,4 +134,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Legacy path verification OK: ${bannedFiles.length} retired files absent and runtime routes/copy clean.`);
+console.log(`Legacy path verification OK: ${bannedFiles.length} retired files and ${bannedDirectories.length} retired directories absent; runtime routes/copy clean.`);
