@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_lens_year_coverage",
-  "generated_at": "2026-05-30T13:43:50Z",
+  "generated_at": "2026-05-30T16:04:02Z",
   "city_id": "nyc",
   "display_name": "New York City, New York",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -7577,7 +7577,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2007,
@@ -7600,7 +7600,7 @@
       "compatible_source_ids": [
         "buis-pvji"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2007.geojson",
@@ -7622,7 +7622,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2008,
@@ -7659,7 +7659,7 @@
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2008.geojson",
@@ -7681,7 +7681,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2009,
@@ -7718,7 +7718,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2009.geojson",
@@ -7740,7 +7740,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2010,
@@ -7781,7 +7781,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2010.geojson",
@@ -7803,7 +7803,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2011,
@@ -7838,7 +7838,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2011.geojson",
@@ -7860,7 +7860,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2012,
@@ -7899,7 +7899,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2012.geojson",
@@ -7921,7 +7921,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2013,
@@ -7962,7 +7962,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2013.geojson",
@@ -7984,7 +7984,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2014,
@@ -8023,7 +8023,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2014.geojson",
@@ -8045,7 +8045,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2015,
@@ -8086,7 +8086,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2015.geojson",
@@ -8108,7 +8108,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2016,
@@ -8155,7 +8155,7 @@
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2016.geojson",
@@ -8177,7 +8177,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2017,
@@ -8230,7 +8230,7 @@
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2017.geojson",
@@ -8252,7 +8252,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2018,
@@ -8299,7 +8299,7 @@
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2018.geojson",
@@ -8321,7 +8321,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2019,
@@ -8372,7 +8372,7 @@
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2019.geojson",
@@ -8394,7 +8394,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2020,
@@ -8447,7 +8447,7 @@
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pluto-mappluto-lots"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2020.geojson",
@@ -8469,7 +8469,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2021,
@@ -8520,7 +8520,7 @@
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2021.geojson",
@@ -8542,7 +8542,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2022,
@@ -8597,7 +8597,7 @@
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pluto-mappluto-lots"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2022.geojson",
@@ -8619,7 +8619,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2023,
@@ -8676,7 +8676,7 @@
         "nyc-pdc-meeting-minutes-certificates-2008-2026",
         "nyc-pluto-mappluto-lots"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2023.geojson",
@@ -8698,7 +8698,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2024,
@@ -8753,7 +8753,7 @@
         "nyc-planninglabs-geosearch-nycpad",
         "nyc-sca-school-openings-projects"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2024.geojson",
@@ -8775,7 +8775,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2025,
@@ -8826,7 +8826,7 @@
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2025.geojson",
@@ -8848,7 +8848,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2026,
@@ -8891,7 +8891,7 @@
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/nyc/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/nyc/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2026.geojson",
@@ -8913,7 +8913,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2007,
@@ -8938,7 +8938,7 @@
         "8m42-w767",
         "buis-pvji"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2007.geojson",
@@ -8960,7 +8960,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2008,
@@ -8991,7 +8991,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2008.geojson",
@@ -9013,7 +9013,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2009,
@@ -9042,7 +9042,7 @@
         "nyc-architecture-public-pages",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2009.geojson",
@@ -9064,7 +9064,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2010,
@@ -9091,7 +9091,7 @@
         "buis-pvji",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2010.geojson",
@@ -9113,7 +9113,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2011,
@@ -9144,7 +9144,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2011.geojson",
@@ -9166,7 +9166,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2012,
@@ -9195,7 +9195,7 @@
         "nyc-architecture-public-pages",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2012.geojson",
@@ -9217,7 +9217,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2013,
@@ -9246,7 +9246,7 @@
         "nyc-architecture-public-pages",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2013.geojson",
@@ -9268,7 +9268,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2014,
@@ -9299,7 +9299,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2014.geojson",
@@ -9321,7 +9321,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2015,
@@ -9348,7 +9348,7 @@
         "nyc-architecture-public-pages",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2015.geojson",
@@ -9370,7 +9370,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2016,
@@ -9403,7 +9403,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2016.geojson",
@@ -9425,7 +9425,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2017,
@@ -9454,7 +9454,7 @@
         "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2017.geojson",
@@ -9476,7 +9476,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2018,
@@ -9511,7 +9511,7 @@
         "nyc-lpc-individual-landmark-sites-buis-pvji",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2018.geojson",
@@ -9533,7 +9533,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2019,
@@ -9568,7 +9568,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2019.geojson",
@@ -9590,7 +9590,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2020,
@@ -9619,7 +9619,7 @@
         "nyc-architecture-public-pages",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2020.geojson",
@@ -9641,7 +9641,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2021,
@@ -9670,7 +9670,7 @@
         "nyc-architecture-public-pages",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2021.geojson",
@@ -9692,7 +9692,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2022,
@@ -9727,7 +9727,7 @@
         "nyc-lpc-individual-landmark-sites-buis-pvji",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2022.geojson",
@@ -9749,7 +9749,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2023,
@@ -9784,7 +9784,7 @@
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2023.geojson",
@@ -9806,7 +9806,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2024,
@@ -9847,7 +9847,7 @@
         "nyc-planninglabs-geosearch-nycpad",
         "nyc-sca-school-openings-projects"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2024.geojson",
@@ -9869,7 +9869,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2025,
@@ -9924,7 +9924,7 @@
         "nychh_queens_truebeam_ir_suite_opening_2025",
         "nychh_woodhull_minor_surgery_suite_renovation_2025"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2025.geojson",
@@ -9946,7 +9946,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2026,
@@ -9983,7 +9983,7 @@
         "nychh_south_brooklyn_oncology_infusion_opening_2026",
         "qpl_seaside_hvac_reopening_2026"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/nyc/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2026.geojson",
@@ -11097,7 +11097,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2007,
@@ -11122,7 +11122,7 @@
         "8m42-w767",
         "buis-pvji"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2007.geojson",
@@ -11144,7 +11144,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2008,
@@ -11175,7 +11175,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2008.geojson",
@@ -11197,7 +11197,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2009,
@@ -11226,7 +11226,7 @@
         "nyc-architecture-public-pages",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2009.geojson",
@@ -11248,7 +11248,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2010,
@@ -11275,7 +11275,7 @@
         "buis-pvji",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2010.geojson",
@@ -11297,7 +11297,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2011,
@@ -11328,7 +11328,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2011.geojson",
@@ -11350,7 +11350,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2012,
@@ -11379,7 +11379,7 @@
         "nyc-architecture-public-pages",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2012.geojson",
@@ -11401,7 +11401,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2013,
@@ -11430,7 +11430,7 @@
         "nyc-architecture-public-pages",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2013.geojson",
@@ -11452,7 +11452,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2014,
@@ -11483,7 +11483,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2014.geojson",
@@ -11505,7 +11505,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2015,
@@ -11532,7 +11532,7 @@
         "nyc-architecture-public-pages",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2015.geojson",
@@ -11554,7 +11554,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2016,
@@ -11587,7 +11587,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2016.geojson",
@@ -11609,7 +11609,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2017,
@@ -11638,7 +11638,7 @@
         "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2017.geojson",
@@ -11660,7 +11660,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2018,
@@ -11695,7 +11695,7 @@
         "nyc-lpc-individual-landmark-sites-buis-pvji",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2018.geojson",
@@ -11717,7 +11717,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2019,
@@ -11752,7 +11752,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2019.geojson",
@@ -11774,7 +11774,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2020,
@@ -11803,7 +11803,7 @@
         "nyc-architecture-public-pages",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2020.geojson",
@@ -11825,7 +11825,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2021,
@@ -11854,7 +11854,7 @@
         "nyc-architecture-public-pages",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2021.geojson",
@@ -11876,7 +11876,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2022,
@@ -11911,7 +11911,7 @@
         "nyc-lpc-individual-landmark-sites-buis-pvji",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2022.geojson",
@@ -11933,7 +11933,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2023,
@@ -11968,7 +11968,7 @@
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2023.geojson",
@@ -11990,7 +11990,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2024,
@@ -12031,7 +12031,7 @@
         "nyc-planninglabs-geosearch-nycpad",
         "nyc-sca-school-openings-projects"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2024.geojson",
@@ -12053,7 +12053,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2025,
@@ -12108,7 +12108,7 @@
         "nychh_queens_truebeam_ir_suite_opening_2025",
         "nychh_woodhull_minor_surgery_suite_renovation_2025"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2025.geojson",
@@ -12130,7 +12130,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2026,
@@ -12167,7 +12167,7 @@
         "nychh_south_brooklyn_oncology_infusion_opening_2026",
         "qpl_seaside_hvac_reopening_2026"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/nyc/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2026.geojson",
@@ -14305,7 +14305,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2007,
@@ -14328,7 +14328,7 @@
       "compatible_source_ids": [
         "8m42-w767"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2007.geojson",
@@ -14350,7 +14350,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2008,
@@ -14379,7 +14379,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2008.geojson",
@@ -14401,7 +14401,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2009,
@@ -14428,7 +14428,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2009.geojson",
@@ -14450,7 +14450,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2010,
@@ -14475,7 +14475,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2010.geojson",
@@ -14497,7 +14497,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2011,
@@ -14526,7 +14526,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2011.geojson",
@@ -14548,7 +14548,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2012,
@@ -14577,7 +14577,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2012.geojson",
@@ -14599,7 +14599,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2013,
@@ -14630,7 +14630,7 @@
         "nyc-lpc-individual-landmark-sites-buis-pvji",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2013.geojson",
@@ -14652,7 +14652,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2014,
@@ -14681,7 +14681,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2014.geojson",
@@ -14703,7 +14703,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2015,
@@ -14734,7 +14734,7 @@
         "nyc-dob-permit-issuance-ipu4-2q9a",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2015.geojson",
@@ -14756,7 +14756,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2016,
@@ -14783,7 +14783,7 @@
         "nyc-architecture-public-pages",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2016.geojson",
@@ -14805,7 +14805,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2017,
@@ -14838,7 +14838,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2017.geojson",
@@ -14860,7 +14860,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2018,
@@ -14895,7 +14895,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2018.geojson",
@@ -14917,7 +14917,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2019,
@@ -14946,7 +14946,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2019.geojson",
@@ -14968,7 +14968,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2020,
@@ -15001,7 +15001,7 @@
         "nyc-dob-co-bs8b-p36w",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2020.geojson",
@@ -15023,7 +15023,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2021,
@@ -15058,7 +15058,7 @@
         "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2021.geojson",
@@ -15080,7 +15080,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2022,
@@ -15117,7 +15117,7 @@
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
         "nyc-pluto-mappluto-lots"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2022.geojson",
@@ -15139,7 +15139,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2023,
@@ -15172,7 +15172,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2023.geojson",
@@ -15194,7 +15194,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2024,
@@ -15227,7 +15227,7 @@
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2024.geojson",
@@ -15249,7 +15249,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2025,
@@ -15288,7 +15288,7 @@
         "nyc-pdc-meeting-minutes-certificates-2008-2026",
         "nyc-pluto-mappluto-lots"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2025.geojson",
@@ -15310,7 +15310,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2026,
@@ -15341,7 +15341,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/nyc/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/nyc/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2026.geojson",
@@ -15363,7 +15363,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2007,
@@ -15386,7 +15386,7 @@
       "compatible_source_ids": [
         "8m42-w767"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2007.geojson",
@@ -15408,7 +15408,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2008,
@@ -15449,7 +15449,7 @@
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
         "nyc-pluto-mappluto-lots"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2008.geojson",
@@ -15471,7 +15471,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2009,
@@ -15508,7 +15508,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2009.geojson",
@@ -15530,7 +15530,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2010,
@@ -15561,7 +15561,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2010.geojson",
@@ -15583,7 +15583,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2011,
@@ -15620,7 +15620,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2011.geojson",
@@ -15642,7 +15642,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2012,
@@ -15679,7 +15679,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2012.geojson",
@@ -15701,7 +15701,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2013,
@@ -15742,7 +15742,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2013.geojson",
@@ -15764,7 +15764,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2014,
@@ -15805,7 +15805,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2014.geojson",
@@ -15827,7 +15827,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2015,
@@ -15866,7 +15866,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2015.geojson",
@@ -15888,7 +15888,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2016,
@@ -15923,7 +15923,7 @@
         "nyc-lpc-individual-landmark-sites-buis-pvji",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2016.geojson",
@@ -15945,7 +15945,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2017,
@@ -15986,7 +15986,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2017.geojson",
@@ -16008,7 +16008,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2018,
@@ -16051,7 +16051,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2018.geojson",
@@ -16073,7 +16073,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2019,
@@ -16122,7 +16122,7 @@
         "nyc-lpc-individual-landmark-sites-buis-pvji",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2019.geojson",
@@ -16144,7 +16144,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2020,
@@ -16189,7 +16189,7 @@
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2020.geojson",
@@ -16211,7 +16211,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2021,
@@ -16258,7 +16258,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2021.geojson",
@@ -16280,7 +16280,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2022,
@@ -16331,7 +16331,7 @@
         "nyc-pdc-meeting-minutes-certificates-2008-2026",
         "nyc-pluto-mappluto-lots"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2022.geojson",
@@ -16353,7 +16353,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2023,
@@ -16392,7 +16392,7 @@
         "nyc-dob-now-co-pkdm-hqz6",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2023.geojson",
@@ -16414,7 +16414,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2024,
@@ -16461,7 +16461,7 @@
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2024.geojson",
@@ -16483,7 +16483,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2025,
@@ -16536,7 +16536,7 @@
         "nyc-pluto-mappluto-lots",
         "nychh_elmhurst_radiology_room_renovation_2025"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2025.geojson",
@@ -16558,7 +16558,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2026,
@@ -16589,7 +16589,7 @@
         "nyc-pdc-meeting-minutes-certificates-2008-2026",
         "nychh_north_central_bronx_mri_suite_opening_2026"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/nyc/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/nyc/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2026.geojson",
@@ -16611,7 +16611,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2007,
@@ -16634,7 +16634,7 @@
       "compatible_source_ids": [
         "8m42-w767"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2007.geojson",
@@ -16656,7 +16656,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2008,
@@ -16697,7 +16697,7 @@
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
         "nyc-pluto-mappluto-lots"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2008.geojson",
@@ -16719,7 +16719,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2009,
@@ -16756,7 +16756,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-open-data-lpc-permit-application-information-dpm2-m9mq"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2009.geojson",
@@ -16778,7 +16778,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2010,
@@ -16809,7 +16809,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2010.geojson",
@@ -16831,7 +16831,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2011,
@@ -16868,7 +16868,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2011.geojson",
@@ -16890,7 +16890,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2012,
@@ -16927,7 +16927,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2012.geojson",
@@ -16949,7 +16949,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2013,
@@ -16990,7 +16990,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2013.geojson",
@@ -17012,7 +17012,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2014,
@@ -17053,7 +17053,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2014.geojson",
@@ -17075,7 +17075,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2015,
@@ -17114,7 +17114,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2015.geojson",
@@ -17136,7 +17136,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2016,
@@ -17171,7 +17171,7 @@
         "nyc-lpc-individual-landmark-sites-buis-pvji",
         "nyc-lpc-permit-application-information"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2016.geojson",
@@ -17193,7 +17193,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2017,
@@ -17234,7 +17234,7 @@
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-lpc-individual-landmark-sites-buis-pvji"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2017.geojson",
@@ -17256,7 +17256,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2018,
@@ -17299,7 +17299,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2018.geojson",
@@ -17321,7 +17321,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2019,
@@ -17370,7 +17370,7 @@
         "nyc-lpc-individual-landmark-sites-buis-pvji",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2019.geojson",
@@ -17392,7 +17392,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2020,
@@ -17437,7 +17437,7 @@
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2020.geojson",
@@ -17459,7 +17459,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2021,
@@ -17506,7 +17506,7 @@
         "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2021.geojson",
@@ -17528,7 +17528,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2022,
@@ -17579,7 +17579,7 @@
         "nyc-pdc-meeting-minutes-certificates-2008-2026",
         "nyc-pluto-mappluto-lots"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2022.geojson",
@@ -17601,7 +17601,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2023,
@@ -17640,7 +17640,7 @@
         "nyc-dob-now-co-pkdm-hqz6",
         "nyc-parks-capital-project-tracker-4hcv-tc5r"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2023.geojson",
@@ -17662,7 +17662,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2024,
@@ -17709,7 +17709,7 @@
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2024.geojson",
@@ -17731,7 +17731,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2025,
@@ -17784,7 +17784,7 @@
         "nyc-pluto-mappluto-lots",
         "nychh_elmhurst_radiology_room_renovation_2025"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2025.geojson",
@@ -17806,7 +17806,7 @@
       "city_id": "nyc",
       "display_name": "New York City, New York",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2026,
@@ -17837,7 +17837,7 @@
         "nyc-pdc-meeting-minutes-certificates-2008-2026",
         "nychh_north_central_bronx_mri_suite_opening_2026"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/nyc/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/nyc/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/nyc/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/nyc/events_2026.geojson",

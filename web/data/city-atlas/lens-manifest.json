@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_manifest_index",
-  "generated_at": "2026-05-30T13:43:50Z",
+  "generated_at": "2026-05-30T16:04:02Z",
   "contract_source": "docs/15_lens_city_design_contract.md",
   "visual_reference_set": "tmp/reference-screens",
   "lens_count": 15,
@@ -48,19 +48,19 @@
     },
     {
       "slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
-      "primary_selectable_object_type": "journey speed or road activity record",
+      "primary_selectable_object_type": "road activity or transport context record",
       "visual_metaphor": "route and corridor traces",
-      "color_role": "green to red activity or delay proxy colors"
+      "color_role": "green to red observed activity and delay-context colors"
     },
     {
       "slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
-      "primary_selectable_object_type": "public service record or access-gap evidence cell",
-      "visual_metaphor": "access gap seams",
-      "color_role": "civic amber with gap severity strokes"
+      "primary_selectable_object_type": "public service record or coverage evidence cell",
+      "visual_metaphor": "coverage context cells",
+      "color_role": "civic amber with confidence and coverage strokes"
     },
     {
       "slug": "civic-catchment",
@@ -72,11 +72,11 @@
     },
     {
       "slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
-      "primary_selectable_object_type": "service demand or civic incident record",
-      "visual_metaphor": "demand pressure grid",
-      "color_role": "demand pressure bands with confidence cues"
+      "primary_selectable_object_type": "service context or civic incident record",
+      "visual_metaphor": "service context grid",
+      "color_role": "service-context bands with confidence cues"
     },
     {
       "slug": "economy-land-use",
@@ -96,27 +96,27 @@
     },
     {
       "slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
-      "primary_selectable_object_type": "economic anchor, property, employment, or visitor activity record",
-      "visual_metaphor": "economic pull nodes and flow lines",
-      "color_role": "economic pull node and flow colors"
+      "primary_selectable_object_type": "economic anchor, property, employment, or visitor context record",
+      "visual_metaphor": "economic context nodes and links",
+      "color_role": "economic context node and link colors"
     },
     {
       "slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
-      "primary_selectable_object_type": "utility asset, capacity, or network record",
-      "visual_metaphor": "utility network traces and assets",
-      "color_role": "utility brown with asset symbols"
+      "primary_selectable_object_type": "utility asset, work, or network-context record",
+      "visual_metaphor": "utility network traces and context assets",
+      "color_role": "utility teal with asset and status symbols"
     },
     {
       "slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
-      "primary_selectable_object_type": "utility resilience, failure, or risk record",
-      "visual_metaphor": "network resilience hierarchy",
-      "color_role": "resilience line styles with risk cues"
+      "primary_selectable_object_type": "utility risk, incident, or network context record",
+      "visual_metaphor": "network context hierarchy",
+      "color_role": "network-context line styles with risk cues"
     },
     {
       "slug": "utilities-works",
@@ -156,7 +156,7 @@
           "compatible_event_count": 14910,
           "source_count": 190,
           "compatible_source_count": 190,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -177,7 +177,7 @@
           "compatible_event_count": 14910,
           "source_count": 190,
           "compatible_source_count": 190,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -198,7 +198,7 @@
           "compatible_event_count": 14910,
           "source_count": 190,
           "compatible_source_count": 190,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -219,7 +219,7 @@
           "compatible_event_count": 21157,
           "source_count": 83,
           "compatible_source_count": 83,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -240,7 +240,7 @@
           "compatible_event_count": 21157,
           "source_count": 83,
           "compatible_source_count": 83,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -256,12 +256,12 @@
         },
         {
           "slug": "transport-speed",
-          "public_label": "Journey Speed",
+          "public_label": "Transport Activity",
           "event_count": 21157,
           "compatible_event_count": 21157,
           "source_count": 83,
           "compatible_source_count": 83,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -277,12 +277,12 @@
         },
         {
           "slug": "civic-access-gaps",
-          "public_label": "Public Service Gaps",
+          "public_label": "Service Coverage Context",
           "event_count": 1529,
           "compatible_event_count": 1529,
           "source_count": 45,
           "compatible_source_count": 45,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -303,7 +303,7 @@
           "compatible_event_count": 1529,
           "source_count": 45,
           "compatible_source_count": 45,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -319,12 +319,12 @@
         },
         {
           "slug": "civic-demand",
-          "public_label": "Service Demand",
+          "public_label": "Service Context",
           "event_count": 1529,
           "compatible_event_count": 1529,
           "source_count": 45,
           "compatible_source_count": 45,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -345,7 +345,7 @@
           "compatible_event_count": 2049,
           "source_count": 38,
           "compatible_source_count": 38,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -366,7 +366,7 @@
           "compatible_event_count": 2049,
           "source_count": 38,
           "compatible_source_count": 38,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -382,12 +382,12 @@
         },
         {
           "slug": "economy-gravity",
-          "public_label": "Economic Pull",
+          "public_label": "Economic Context Links",
           "event_count": 2049,
           "compatible_event_count": 2049,
           "source_count": 38,
           "compatible_source_count": 38,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -403,12 +403,12 @@
         },
         {
           "slug": "utilities-capacity",
-          "public_label": "Utility Capacity",
+          "public_label": "Utility Context",
           "event_count": 14487,
           "compatible_event_count": 14487,
           "source_count": 73,
           "compatible_source_count": 73,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -424,12 +424,12 @@
         },
         {
           "slug": "utilities-resilience",
-          "public_label": "Network Resilience",
+          "public_label": "Utility Network Context",
           "event_count": 14487,
           "compatible_event_count": 14487,
           "source_count": 73,
           "compatible_source_count": 73,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -450,7 +450,7 @@
           "compatible_event_count": 14487,
           "source_count": 73,
           "compatible_source_count": 73,
-          "last_retrieved_or_reviewed": "2026-05-30T13:41:46Z",
+          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -595,7 +595,7 @@
         },
         {
           "slug": "transport-speed",
-          "public_label": "Journey Speed",
+          "public_label": "Transport Activity",
           "event_count": 59103,
           "compatible_event_count": 59103,
           "source_count": 25,
@@ -616,7 +616,7 @@
         },
         {
           "slug": "civic-access-gaps",
-          "public_label": "Public Service Gaps",
+          "public_label": "Service Coverage Context",
           "event_count": 93639,
           "compatible_event_count": 93639,
           "source_count": 45,
@@ -658,7 +658,7 @@
         },
         {
           "slug": "civic-demand",
-          "public_label": "Service Demand",
+          "public_label": "Service Context",
           "event_count": 93639,
           "compatible_event_count": 93639,
           "source_count": 45,
@@ -721,7 +721,7 @@
         },
         {
           "slug": "economy-gravity",
-          "public_label": "Economic Pull",
+          "public_label": "Economic Context Links",
           "event_count": 59420,
           "compatible_event_count": 59420,
           "source_count": 17,
@@ -742,7 +742,7 @@
         },
         {
           "slug": "utilities-capacity",
-          "public_label": "Utility Capacity",
+          "public_label": "Utility Context",
           "event_count": 249,
           "compatible_event_count": 249,
           "source_count": 17,
@@ -763,7 +763,7 @@
         },
         {
           "slug": "utilities-resilience",
-          "public_label": "Network Resilience",
+          "public_label": "Utility Network Context",
           "event_count": 249,
           "compatible_event_count": 249,
           "source_count": 17,
@@ -935,7 +935,7 @@
         },
         {
           "slug": "transport-speed",
-          "public_label": "Journey Speed",
+          "public_label": "Transport Activity",
           "event_count": 4029,
           "compatible_event_count": 4029,
           "source_count": 26,
@@ -956,7 +956,7 @@
         },
         {
           "slug": "civic-access-gaps",
-          "public_label": "Public Service Gaps",
+          "public_label": "Service Coverage Context",
           "event_count": 2234,
           "compatible_event_count": 2234,
           "source_count": 29,
@@ -998,7 +998,7 @@
         },
         {
           "slug": "civic-demand",
-          "public_label": "Service Demand",
+          "public_label": "Service Context",
           "event_count": 2234,
           "compatible_event_count": 2234,
           "source_count": 29,
@@ -1061,7 +1061,7 @@
         },
         {
           "slug": "economy-gravity",
-          "public_label": "Economic Pull",
+          "public_label": "Economic Context Links",
           "event_count": 364,
           "compatible_event_count": 364,
           "source_count": 17,
@@ -1082,7 +1082,7 @@
         },
         {
           "slug": "utilities-capacity",
-          "public_label": "Utility Capacity",
+          "public_label": "Utility Context",
           "event_count": 1002,
           "compatible_event_count": 1002,
           "source_count": 26,
@@ -1103,7 +1103,7 @@
         },
         {
           "slug": "utilities-resilience",
-          "public_label": "Network Resilience",
+          "public_label": "Utility Network Context",
           "event_count": 1002,
           "compatible_event_count": 1002,
           "source_count": 26,

@@ -2279,17 +2279,18 @@ def nyc_borough_name(value: Any) -> str:
         return "Manhattan"
     if "BROOKLYN" in text or text == "KINGS":
         return "Brooklyn"
-    if "QUEENS" in text:
-        return "Queens"
     if "BRONX" in text:
         return "Bronx"
+    if "QUEENS" in text:
+        return "Queens"
     return {
         "M": "Manhattan",
         "MN": "Manhattan",
         "MANHATTAN": "Manhattan",
-        "B": "Bronx",
+        "X": "Bronx",
         "BX": "Bronx",
         "BRONX": "Bronx",
+        "B": "Brooklyn",
         "K": "Brooklyn",
         "BK": "Brooklyn",
         "BROOKLYN": "Brooklyn",

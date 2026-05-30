@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_lens_year_coverage",
-  "generated_at": "2026-05-30T13:43:50Z",
+  "generated_at": "2026-05-30T16:04:02Z",
   "city_id": "belfast",
   "display_name": "Belfast, Northern Ireland",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -7002,7 +7002,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2007,
@@ -7025,7 +7025,7 @@
       "compatible_source_ids": [
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -7047,7 +7047,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2008,
@@ -7075,7 +7075,7 @@
         "dfc-harni-belfast",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
@@ -7097,7 +7097,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2009,
@@ -7123,7 +7123,7 @@
         "dfc-harni-belfast",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
@@ -7145,7 +7145,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2010,
@@ -7173,7 +7173,7 @@
         "osm-overpass",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
@@ -7195,7 +7195,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2011,
@@ -7221,7 +7221,7 @@
         "belfast-architecture-public-pages",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2011.geojson",
@@ -7243,7 +7243,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2012,
@@ -7271,7 +7271,7 @@
         "ni_water_news_2012_belfast_hydrant_abuse",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
@@ -7293,7 +7293,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2013,
@@ -7321,7 +7321,7 @@
         "dfc-harni-belfast",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
@@ -7343,7 +7343,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2014,
@@ -7369,7 +7369,7 @@
         "belfast-architecture-public-pages",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
@@ -7391,7 +7391,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2015,
@@ -7421,7 +7421,7 @@
         "de-belfast-royal-academy-sep-site-contract-2015-round409",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
@@ -7443,7 +7443,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2016,
@@ -7483,7 +7483,7 @@
         "osm-overpass",
         "round118-dfc-lisburn-road-library-upgrade-2016"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2016.geojson",
@@ -7505,7 +7505,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2017,
@@ -7539,7 +7539,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2017.geojson",
@@ -7561,7 +7561,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2018,
@@ -7597,7 +7597,7 @@
         "osm-overpass",
         "translink-station-anniversaries-2026"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2018.geojson",
@@ -7619,7 +7619,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2019,
@@ -7659,7 +7659,7 @@
         "osm-overpass",
         "translink-station-anniversaries-2026"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2019.geojson",
@@ -7681,7 +7681,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2020,
@@ -7713,7 +7713,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2020.geojson",
@@ -7735,7 +7735,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2021,
@@ -7779,7 +7779,7 @@
         "round118-dfi-york-street-station-investment-2021",
         "translink-public-project-pages"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2021.geojson",
@@ -7801,7 +7801,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2022,
@@ -7838,7 +7838,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2022.geojson",
@@ -7860,7 +7860,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2023,
@@ -7906,7 +7906,7 @@
         "qub_estates_completed",
         "translink-public-project-pages"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2023.geojson",
@@ -7928,7 +7928,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2024,
@@ -8027,7 +8027,7 @@
         "translink-bgcs-enabling-work-gvs-closure-2024",
         "translink-public-project-pages"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
@@ -8049,7 +8049,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2025,
@@ -8127,7 +8127,7 @@
         "osm-overpass",
         "qub_estates_completed"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
@@ -8149,7 +8149,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2026,
@@ -8210,7 +8210,7 @@
         "osm-overpass",
         "qub-weavers-hall-topping-out-2026-round361"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/belfast/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2026.geojson",
@@ -8232,7 +8232,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2007,
@@ -8257,7 +8257,7 @@
         "belfast_city_council_minutes_2008_2015",
         "belfast_met_history_2007"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -8279,7 +8279,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2008,
@@ -8302,7 +8302,7 @@
       "compatible_source_ids": [
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
@@ -8324,7 +8324,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2009,
@@ -8347,7 +8347,7 @@
       "compatible_source_ids": [
         "dfc-harni-belfast"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
@@ -8369,7 +8369,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2010,
@@ -8394,7 +8394,7 @@
         "belfast-architecture-public-pages",
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
@@ -8416,7 +8416,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2011,
@@ -8439,7 +8439,7 @@
       "compatible_source_ids": [
         "belfast-architecture-public-pages"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2011.geojson",
@@ -8461,7 +8461,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2012,
@@ -8488,7 +8488,7 @@
         "belfast_city_council_minutes_2008_2015",
         "ni_water_news_2012_belfast_hydrant_abuse"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
@@ -8510,7 +8510,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2013,
@@ -8533,7 +8533,7 @@
       "compatible_source_ids": [
         "belfast-architecture-public-pages"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
@@ -8555,7 +8555,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2014,
@@ -8580,7 +8580,7 @@
         "belfast-architecture-public-pages",
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
@@ -8602,7 +8602,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2015,
@@ -8629,7 +8629,7 @@
         "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
@@ -8651,7 +8651,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2016,
@@ -8687,7 +8687,7 @@
         "qub_estates_completed",
         "round118-dfc-lisburn-road-library-upgrade-2016"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2016.geojson",
@@ -8709,7 +8709,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2017,
@@ -8740,7 +8740,7 @@
         "dfi_colin_transport_hub_2017",
         "ni-planning-statistics"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2017.geojson",
@@ -8762,7 +8762,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2018,
@@ -8791,7 +8791,7 @@
         "libraries-ni-annual-report-2017-18",
         "ni-planning-statistics"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2018.geojson",
@@ -8813,7 +8813,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2019,
@@ -8844,7 +8844,7 @@
         "ni-planning-statistics",
         "qub_estates_completed"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2019.geojson",
@@ -8866,7 +8866,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2020,
@@ -8900,7 +8900,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2020.geojson",
@@ -8922,7 +8922,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2021,
@@ -8960,7 +8960,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2021.geojson",
@@ -8982,7 +8982,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2022,
@@ -9020,7 +9020,7 @@
         "round118-doh-belfast-maternity-nearing-completion-2022",
         "ulster-university-public-pages"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2022.geojson",
@@ -9042,7 +9042,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2023,
@@ -9083,7 +9083,7 @@
         "ni-planning-statistics",
         "qub_estates_completed"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2023.geojson",
@@ -9105,7 +9105,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2024,
@@ -9161,7 +9161,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
@@ -9183,7 +9183,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2025,
@@ -9229,7 +9229,7 @@
         "osm-overpass",
         "qub_estates_completed"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
@@ -9251,7 +9251,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2026,
@@ -9292,7 +9292,7 @@
         "dfi_saltwater_square_2026",
         "ni-planning-portal-public-register"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/belfast/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2026.geojson",
@@ -10396,7 +10396,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2007,
@@ -10421,7 +10421,7 @@
         "belfast_city_council_minutes_2008_2015",
         "belfast_met_history_2007"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -10443,7 +10443,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2008,
@@ -10466,7 +10466,7 @@
       "compatible_source_ids": [
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
@@ -10488,7 +10488,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2009,
@@ -10511,7 +10511,7 @@
       "compatible_source_ids": [
         "dfc-harni-belfast"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
@@ -10533,7 +10533,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2010,
@@ -10558,7 +10558,7 @@
         "belfast-architecture-public-pages",
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
@@ -10580,7 +10580,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2011,
@@ -10603,7 +10603,7 @@
       "compatible_source_ids": [
         "belfast-architecture-public-pages"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2011.geojson",
@@ -10625,7 +10625,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2012,
@@ -10652,7 +10652,7 @@
         "belfast_city_council_minutes_2008_2015",
         "ni_water_news_2012_belfast_hydrant_abuse"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
@@ -10674,7 +10674,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2013,
@@ -10697,7 +10697,7 @@
       "compatible_source_ids": [
         "belfast-architecture-public-pages"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
@@ -10719,7 +10719,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2014,
@@ -10744,7 +10744,7 @@
         "belfast-architecture-public-pages",
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
@@ -10766,7 +10766,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2015,
@@ -10793,7 +10793,7 @@
         "belfast_city_council_minutes_2008_2015",
         "de-belfast-royal-academy-sep-site-contract-2015-round409"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
@@ -10815,7 +10815,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2016,
@@ -10851,7 +10851,7 @@
         "qub_estates_completed",
         "round118-dfc-lisburn-road-library-upgrade-2016"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2016.geojson",
@@ -10873,7 +10873,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2017,
@@ -10904,7 +10904,7 @@
         "dfi_colin_transport_hub_2017",
         "ni-planning-statistics"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2017.geojson",
@@ -10926,7 +10926,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2018,
@@ -10955,7 +10955,7 @@
         "libraries-ni-annual-report-2017-18",
         "ni-planning-statistics"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2018.geojson",
@@ -10977,7 +10977,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2019,
@@ -11008,7 +11008,7 @@
         "ni-planning-statistics",
         "qub_estates_completed"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2019.geojson",
@@ -11030,7 +11030,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2020,
@@ -11064,7 +11064,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2020.geojson",
@@ -11086,7 +11086,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2021,
@@ -11124,7 +11124,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2021.geojson",
@@ -11146,7 +11146,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2022,
@@ -11184,7 +11184,7 @@
         "round118-doh-belfast-maternity-nearing-completion-2022",
         "ulster-university-public-pages"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2022.geojson",
@@ -11206,7 +11206,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2023,
@@ -11247,7 +11247,7 @@
         "ni-planning-statistics",
         "qub_estates_completed"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2023.geojson",
@@ -11269,7 +11269,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2024,
@@ -11325,7 +11325,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
@@ -11347,7 +11347,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2025,
@@ -11393,7 +11393,7 @@
         "osm-overpass",
         "qub_estates_completed"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
@@ -11415,7 +11415,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2026,
@@ -11456,7 +11456,7 @@
         "dfi_saltwater_square_2026",
         "ni-planning-portal-public-register"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/belfast/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2026.geojson",
@@ -13502,7 +13502,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2007,
@@ -13529,7 +13529,7 @@
         "belfast_met_history_2007",
         "ni_laganside_dissolution_2007"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -13551,7 +13551,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2008,
@@ -13576,7 +13576,7 @@
         "belfast-architecture-public-pages",
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
@@ -13598,7 +13598,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2009,
@@ -13621,7 +13621,7 @@
       "compatible_source_ids": [
         "dfc_westside_masterplan_2009"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
@@ -13643,7 +13643,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2010,
@@ -13666,7 +13666,7 @@
       "compatible_source_ids": [
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
@@ -13688,7 +13688,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2011,
@@ -13711,7 +13711,7 @@
       "compatible_source_ids": [
         "belfast-architecture-public-pages"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2011.geojson",
@@ -13733,7 +13733,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2012,
@@ -13756,7 +13756,7 @@
       "compatible_source_ids": [
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
@@ -13778,7 +13778,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2013,
@@ -13801,7 +13801,7 @@
       "compatible_source_ids": [
         "belfast_harbour_offshore_wind_terminal_2013"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
@@ -13823,7 +13823,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2014,
@@ -13846,7 +13846,7 @@
       "compatible_source_ids": [
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
@@ -13868,7 +13868,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2015,
@@ -13891,7 +13891,7 @@
       "compatible_source_ids": [
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
@@ -13913,7 +13913,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2016,
@@ -13940,7 +13940,7 @@
         "belfast-architecture-public-pages",
         "ni-planning-statistics"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2016.geojson",
@@ -13962,7 +13962,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2017,
@@ -13988,7 +13988,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2017.geojson",
@@ -14010,7 +14010,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2018,
@@ -14035,7 +14035,7 @@
         "belfast-architecture-public-pages",
         "ni-planning-statistics"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2018.geojson",
@@ -14057,7 +14057,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2019,
@@ -14082,7 +14082,7 @@
         "belfast-architecture-public-pages",
         "ni-planning-statistics"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2019.geojson",
@@ -14104,7 +14104,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2020,
@@ -14132,7 +14132,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2020.geojson",
@@ -14154,7 +14154,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2021,
@@ -14181,7 +14181,7 @@
         "ni-planning-statistics",
         "qub_estates_completed"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2021.geojson",
@@ -14203,7 +14203,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2022,
@@ -14238,7 +14238,7 @@
         "pacni-appeals-search-round124",
         "ulster-university-public-pages"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2022.geojson",
@@ -14260,7 +14260,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2023,
@@ -14291,7 +14291,7 @@
         "ni-planning-statistics",
         "qub_estates_completed"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2023.geojson",
@@ -14313,7 +14313,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2024,
@@ -14360,7 +14360,7 @@
         "ni-planning-statistics",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
@@ -14382,7 +14382,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2025,
@@ -14432,7 +14432,7 @@
         "osm-overpass",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
@@ -14454,7 +14454,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2026,
@@ -14492,7 +14492,7 @@
         "ni-planning-portal-public-register",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/belfast/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/belfast/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2026.geojson",
@@ -14514,7 +14514,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2007,
@@ -14537,7 +14537,7 @@
       "compatible_source_ids": [
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -14559,7 +14559,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2008,
@@ -14582,7 +14582,7 @@
       "compatible_source_ids": [
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
@@ -14604,7 +14604,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2009,
@@ -14627,7 +14627,7 @@
       "compatible_source_ids": [
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
@@ -14649,7 +14649,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2010,
@@ -14674,7 +14674,7 @@
         "belfast_city_council_minutes_2008_2015",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
@@ -14696,7 +14696,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2011,
@@ -14719,7 +14719,7 @@
       "compatible_source_ids": [
         "belfast-architecture-public-pages"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2011.geojson",
@@ -14741,7 +14741,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2012,
@@ -14766,7 +14766,7 @@
         "belfast_city_council_minutes_2008_2015",
         "ni_water_news_2012_belfast_hydrant_abuse"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
@@ -14788,7 +14788,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2013,
@@ -14811,7 +14811,7 @@
       "compatible_source_ids": [
         "belfast_harbour_offshore_wind_terminal_2013"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
@@ -14833,7 +14833,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2014,
@@ -14858,7 +14858,7 @@
         "belfast-architecture-public-pages",
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
@@ -14880,7 +14880,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2015,
@@ -14907,7 +14907,7 @@
         "belfast-architecture-public-pages",
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
@@ -14929,7 +14929,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2016,
@@ -14960,7 +14960,7 @@
         "dfi-ni-public-project-pages",
         "ni-planning-statistics"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2016.geojson",
@@ -14982,7 +14982,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2017,
@@ -15016,7 +15016,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2017.geojson",
@@ -15038,7 +15038,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2018,
@@ -15068,7 +15068,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2018.geojson",
@@ -15090,7 +15090,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2019,
@@ -15120,7 +15120,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2019.geojson",
@@ -15142,7 +15142,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2020,
@@ -15172,7 +15172,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2020.geojson",
@@ -15194,7 +15194,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2021,
@@ -15238,7 +15238,7 @@
         "qub_estates_completed",
         "round118-dfi-york-street-station-investment-2021"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2021.geojson",
@@ -15260,7 +15260,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2022,
@@ -15294,7 +15294,7 @@
         "osm-overpass",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2022.geojson",
@@ -15316,7 +15316,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2023,
@@ -15356,7 +15356,7 @@
         "osm-overpass",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2023.geojson",
@@ -15378,7 +15378,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2024,
@@ -15464,7 +15464,7 @@
         "osm-overpass",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
@@ -15486,7 +15486,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2025,
@@ -15578,7 +15578,7 @@
         "osm-overpass",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
@@ -15600,7 +15600,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2026,
@@ -15644,7 +15644,7 @@
         "osm-overpass",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/belfast/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/belfast/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2026.geojson",
@@ -15666,7 +15666,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2007,
@@ -15689,7 +15689,7 @@
       "compatible_source_ids": [
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -15711,7 +15711,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2008,
@@ -15734,7 +15734,7 @@
       "compatible_source_ids": [
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
@@ -15756,7 +15756,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2009,
@@ -15779,7 +15779,7 @@
       "compatible_source_ids": [
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
@@ -15801,7 +15801,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2010,
@@ -15826,7 +15826,7 @@
         "belfast_city_council_minutes_2008_2015",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
@@ -15848,7 +15848,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2011,
@@ -15871,7 +15871,7 @@
       "compatible_source_ids": [
         "belfast-architecture-public-pages"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2011.geojson",
@@ -15893,7 +15893,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2012,
@@ -15918,7 +15918,7 @@
         "belfast_city_council_minutes_2008_2015",
         "ni_water_news_2012_belfast_hydrant_abuse"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
@@ -15940,7 +15940,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2013,
@@ -15963,7 +15963,7 @@
       "compatible_source_ids": [
         "belfast_harbour_offshore_wind_terminal_2013"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
@@ -15985,7 +15985,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2014,
@@ -16010,7 +16010,7 @@
         "belfast-architecture-public-pages",
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
@@ -16032,7 +16032,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2015,
@@ -16059,7 +16059,7 @@
         "belfast-architecture-public-pages",
         "belfast_city_council_minutes_2008_2015"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
@@ -16081,7 +16081,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2016,
@@ -16112,7 +16112,7 @@
         "dfi-ni-public-project-pages",
         "ni-planning-statistics"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2016.geojson",
@@ -16134,7 +16134,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2017,
@@ -16168,7 +16168,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2017.geojson",
@@ -16190,7 +16190,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2018,
@@ -16220,7 +16220,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2018.geojson",
@@ -16242,7 +16242,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2019,
@@ -16272,7 +16272,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2019.geojson",
@@ -16294,7 +16294,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2020,
@@ -16324,7 +16324,7 @@
         "ni-planning-statistics",
         "osm-overpass"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2020.geojson",
@@ -16346,7 +16346,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2021,
@@ -16390,7 +16390,7 @@
         "qub_estates_completed",
         "round118-dfi-york-street-station-investment-2021"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2021.geojson",
@@ -16412,7 +16412,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2022,
@@ -16446,7 +16446,7 @@
         "osm-overpass",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2022.geojson",
@@ -16468,7 +16468,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2023,
@@ -16508,7 +16508,7 @@
         "osm-overpass",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2023.geojson",
@@ -16530,7 +16530,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2024,
@@ -16616,7 +16616,7 @@
         "osm-overpass",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
@@ -16638,7 +16638,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2025,
@@ -16730,7 +16730,7 @@
         "osm-overpass",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
@@ -16752,7 +16752,7 @@
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2026,
@@ -16796,7 +16796,7 @@
         "osm-overpass",
         "pacni-appeals-search-round124"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/belfast/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/belfast/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2026.geojson",

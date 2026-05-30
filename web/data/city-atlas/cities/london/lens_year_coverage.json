@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_lens_year_coverage",
-  "generated_at": "2026-05-30T13:43:50Z",
+  "generated_at": "2026-05-30T16:04:02Z",
   "city_id": "london",
   "display_name": "London, England",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -6646,7 +6646,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2007,
@@ -6669,7 +6669,7 @@
       "compatible_source_ids": [
         "lon-extra-planning-data-tree-preservation-zones"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2007.geojson",
@@ -6691,7 +6691,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2008,
@@ -6722,7 +6722,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2008.geojson",
@@ -6744,7 +6744,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2009,
@@ -6775,7 +6775,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2009.geojson",
@@ -6797,7 +6797,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2010,
@@ -6826,7 +6826,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2010.geojson",
@@ -6848,7 +6848,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2011,
@@ -6881,7 +6881,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2011.geojson",
@@ -6903,7 +6903,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2012,
@@ -6932,7 +6932,7 @@
         "london-development-database-archive",
         "src_hackney_young_centres"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2012.geojson",
@@ -6954,7 +6954,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2013,
@@ -6985,7 +6985,7 @@
         "london-development-database-archive",
         "mhclg-called-in-decisions"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2013.geojson",
@@ -7007,7 +7007,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2014,
@@ -7046,7 +7046,7 @@
         "london-development-database-archive",
         "mhclg-called-in-decisions"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2014.geojson",
@@ -7068,7 +7068,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2015,
@@ -7103,7 +7103,7 @@
         "london-development-database-archive",
         "mhclg-called-in-decisions"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2015.geojson",
@@ -7125,7 +7125,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2016,
@@ -7162,7 +7162,7 @@
         "london-development-database-archive",
         "mhclg-called-in-decisions"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2016.geojson",
@@ -7184,7 +7184,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2017,
@@ -7219,7 +7219,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2017.geojson",
@@ -7241,7 +7241,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2018,
@@ -7280,7 +7280,7 @@
         "london-development-database-archive",
         "mhclg-called-in-decisions"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2018.geojson",
@@ -7302,7 +7302,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2019,
@@ -7341,7 +7341,7 @@
         "london-development-database-archive",
         "mhclg-called-in-decisions"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2019.geojson",
@@ -7363,7 +7363,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2020,
@@ -7408,7 +7408,7 @@
         "opdc-public-realm-project-pages",
         "planning-data-certificate-of-immunity"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2020.geojson",
@@ -7430,7 +7430,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2021,
@@ -7473,7 +7473,7 @@
         "london-architecture-public-pages",
         "mhclg-called-in-decisions"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2021.geojson",
@@ -7495,7 +7495,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2022,
@@ -7534,7 +7534,7 @@
         "london-architecture-public-pages",
         "planning-data-certificate-of-immunity"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2022.geojson",
@@ -7556,7 +7556,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2023,
@@ -7601,7 +7601,7 @@
         "police-data-api",
         "police-data-stop-search"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2023.geojson",
@@ -7623,7 +7623,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2024,
@@ -7670,7 +7670,7 @@
         "police-data-api",
         "police-data-stop-search"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2024.geojson",
@@ -7692,7 +7692,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2025,
@@ -7731,7 +7731,7 @@
         "police-data-api",
         "police-data-stop-search"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2025.geojson",
@@ -7753,7 +7753,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "transport-speed",
-      "public_label": "Journey Speed",
+      "public_label": "Transport Activity",
       "group": "transport",
       "category": "transport",
       "year": 2026,
@@ -7784,7 +7784,7 @@
         "police-data-api",
         "police-data-stop-search"
       ],
-      "evidence_basis": "Source-backed Journey Speed event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2026.geojson",
@@ -7806,7 +7806,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2007,
@@ -7829,7 +7829,7 @@
       "compatible_source_ids": [
         "wembley_stadium_history_2007"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2007.geojson",
@@ -7851,7 +7851,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2008,
@@ -7884,7 +7884,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2008.geojson",
@@ -7906,7 +7906,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2009,
@@ -7935,7 +7935,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2009.geojson",
@@ -7957,7 +7957,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2010,
@@ -7986,7 +7986,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2010.geojson",
@@ -8008,7 +8008,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2011,
@@ -8037,7 +8037,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2011.geojson",
@@ -8059,7 +8059,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2012,
@@ -8090,7 +8090,7 @@
         "london-development-database-archive",
         "src_barts_royal_london_history"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2012.geojson",
@@ -8112,7 +8112,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2013,
@@ -8149,7 +8149,7 @@
         "london-development-database-archive",
         "src_brent_civic_centre_update"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2013.geojson",
@@ -8171,7 +8171,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2014,
@@ -8206,7 +8206,7 @@
         "mhclg-called-in-decisions",
         "src_bca_windrush_square_opened"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2014.geojson",
@@ -8228,7 +8228,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2015,
@@ -8259,7 +8259,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2015.geojson",
@@ -8281,7 +8281,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2016,
@@ -8316,7 +8316,7 @@
         "src_design_museum_new_home",
         "src_tate_modern_blavatnik_opened"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2016.geojson",
@@ -8338,7 +8338,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2017,
@@ -8373,7 +8373,7 @@
         "mhclg-called-in-decisions",
         "src_qmul_graduate_centre_opened"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2017.geojson",
@@ -8395,7 +8395,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2018,
@@ -8439,7 +8439,7 @@
         "src_southbank_concrete_dreams",
         "src_southbank_visual_arts_2018"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2018.geojson",
@@ -8461,7 +8461,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2019,
@@ -8506,7 +8506,7 @@
         "src_science_museum_medicine_galleries",
         "src_uclh_rnent_eastman_hospital"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2019.geojson",
@@ -8528,7 +8528,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2020,
@@ -8567,7 +8567,7 @@
         "london-development-database-archive",
         "mhclg-called-in-decisions"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2020.geojson",
@@ -8589,7 +8589,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2021,
@@ -8624,7 +8624,7 @@
         "london-architecture-public-pages",
         "src_courtauld_gallery_reopens"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2021.geojson",
@@ -8646,7 +8646,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2022,
@@ -8694,7 +8694,7 @@
         "src_uclh_grafton_way_fully_open",
         "src_uclh_grafton_way_royal_opening"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2022.geojson",
@@ -8716,7 +8716,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2023,
@@ -8763,7 +8763,7 @@
         "src_ucl_east_official_opening",
         "src_young_va_open"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2023.geojson",
@@ -8785,7 +8785,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2024,
@@ -8827,7 +8827,7 @@
         "police-data-stop-search",
         "src_imperial_sph_opened"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2024.geojson",
@@ -8849,7 +8849,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2025,
@@ -8890,7 +8890,7 @@
         "police-data-stop-search",
         "src_sadlers_wells_east_mayor_opening"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2025.geojson",
@@ -8912,7 +8912,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-access-gaps",
-      "public_label": "Public Service Gaps",
+      "public_label": "Service Coverage Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2026,
@@ -8949,7 +8949,7 @@
         "police-data-api",
         "police-data-stop-search"
       ],
-      "evidence_basis": "Source-backed Public Service Gaps event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2026.geojson",
@@ -10136,7 +10136,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2007,
@@ -10159,7 +10159,7 @@
       "compatible_source_ids": [
         "wembley_stadium_history_2007"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2007.geojson",
@@ -10181,7 +10181,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2008,
@@ -10214,7 +10214,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2008.geojson",
@@ -10236,7 +10236,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2009,
@@ -10265,7 +10265,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2009.geojson",
@@ -10287,7 +10287,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2010,
@@ -10316,7 +10316,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2010.geojson",
@@ -10338,7 +10338,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2011,
@@ -10367,7 +10367,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2011.geojson",
@@ -10389,7 +10389,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2012,
@@ -10420,7 +10420,7 @@
         "london-development-database-archive",
         "src_barts_royal_london_history"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2012.geojson",
@@ -10442,7 +10442,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2013,
@@ -10479,7 +10479,7 @@
         "london-development-database-archive",
         "src_brent_civic_centre_update"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2013.geojson",
@@ -10501,7 +10501,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2014,
@@ -10536,7 +10536,7 @@
         "mhclg-called-in-decisions",
         "src_bca_windrush_square_opened"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2014.geojson",
@@ -10558,7 +10558,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2015,
@@ -10589,7 +10589,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2015.geojson",
@@ -10611,7 +10611,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2016,
@@ -10646,7 +10646,7 @@
         "src_design_museum_new_home",
         "src_tate_modern_blavatnik_opened"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2016.geojson",
@@ -10668,7 +10668,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2017,
@@ -10703,7 +10703,7 @@
         "mhclg-called-in-decisions",
         "src_qmul_graduate_centre_opened"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2017.geojson",
@@ -10725,7 +10725,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2018,
@@ -10769,7 +10769,7 @@
         "src_southbank_concrete_dreams",
         "src_southbank_visual_arts_2018"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2018.geojson",
@@ -10791,7 +10791,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2019,
@@ -10836,7 +10836,7 @@
         "src_science_museum_medicine_galleries",
         "src_uclh_rnent_eastman_hospital"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2019.geojson",
@@ -10858,7 +10858,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2020,
@@ -10897,7 +10897,7 @@
         "london-development-database-archive",
         "mhclg-called-in-decisions"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2020.geojson",
@@ -10919,7 +10919,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2021,
@@ -10954,7 +10954,7 @@
         "london-architecture-public-pages",
         "src_courtauld_gallery_reopens"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2021.geojson",
@@ -10976,7 +10976,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2022,
@@ -11024,7 +11024,7 @@
         "src_uclh_grafton_way_fully_open",
         "src_uclh_grafton_way_royal_opening"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2022.geojson",
@@ -11046,7 +11046,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2023,
@@ -11093,7 +11093,7 @@
         "src_ucl_east_official_opening",
         "src_young_va_open"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2023.geojson",
@@ -11115,7 +11115,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2024,
@@ -11157,7 +11157,7 @@
         "police-data-stop-search",
         "src_imperial_sph_opened"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2024.geojson",
@@ -11179,7 +11179,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2025,
@@ -11220,7 +11220,7 @@
         "police-data-stop-search",
         "src_sadlers_wells_east_mayor_opening"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2025.geojson",
@@ -11242,7 +11242,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "civic-demand",
-      "public_label": "Service Demand",
+      "public_label": "Service Context",
       "group": "civic",
       "category": "civic_services",
       "year": 2026,
@@ -11279,7 +11279,7 @@
         "police-data-api",
         "police-data-stop-search"
       ],
-      "evidence_basis": "Source-backed Service Demand event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2026.geojson",
@@ -13441,7 +13441,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2007,
@@ -13466,7 +13466,7 @@
         "lon-extra-hm-land-registry-price-paid-data",
         "lon-extra-uk-house-price-index"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2007.geojson",
@@ -13488,7 +13488,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2008,
@@ -13519,7 +13519,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2008.geojson",
@@ -13541,7 +13541,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2009,
@@ -13572,7 +13572,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2009.geojson",
@@ -13594,7 +13594,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2010,
@@ -13625,7 +13625,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2010.geojson",
@@ -13647,7 +13647,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2011,
@@ -13678,7 +13678,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2011.geojson",
@@ -13700,7 +13700,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2012,
@@ -13729,7 +13729,7 @@
         "lon-extra-uk-house-price-index",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2012.geojson",
@@ -13751,7 +13751,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2013,
@@ -13782,7 +13782,7 @@
         "london-development-database-archive",
         "mhclg-called-in-decisions"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2013.geojson",
@@ -13804,7 +13804,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2014,
@@ -13837,7 +13837,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2014.geojson",
@@ -13859,7 +13859,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2015,
@@ -13890,7 +13890,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2015.geojson",
@@ -13912,7 +13912,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2016,
@@ -13943,7 +13943,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2016.geojson",
@@ -13965,7 +13965,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2017,
@@ -13998,7 +13998,7 @@
         "london-development-database-archive",
         "planning-data-article-4-direction-area"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2017.geojson",
@@ -14020,7 +14020,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2018,
@@ -14057,7 +14057,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2018.geojson",
@@ -14079,7 +14079,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2019,
@@ -14110,7 +14110,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2019.geojson",
@@ -14132,7 +14132,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2020,
@@ -14171,7 +14171,7 @@
         "london-development-database-archive",
         "mhclg-called-in-decisions"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2020.geojson",
@@ -14193,7 +14193,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2021,
@@ -14222,7 +14222,7 @@
         "lon-extra-uk-house-price-index",
         "london-architecture-public-pages"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2021.geojson",
@@ -14244,7 +14244,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2022,
@@ -14273,7 +14273,7 @@
         "lon-extra-uk-house-price-index",
         "london-architecture-public-pages"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2022.geojson",
@@ -14295,7 +14295,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2023,
@@ -14326,7 +14326,7 @@
         "london-architecture-public-pages",
         "mhclg-called-in-decisions"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2023.geojson",
@@ -14348,7 +14348,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2024,
@@ -14385,7 +14385,7 @@
         "london-architecture-public-pages",
         "planning-data-certificate-of-immunity"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2024.geojson",
@@ -14407,7 +14407,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2025,
@@ -14440,7 +14440,7 @@
         "lon-extra-uk-house-price-index",
         "london-architecture-public-pages"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2025.geojson",
@@ -14462,7 +14462,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "economy-gravity",
-      "public_label": "Economic Pull",
+      "public_label": "Economic Context Links",
       "group": "economy",
       "category": "economy",
       "year": 2026,
@@ -14489,7 +14489,7 @@
         "lon-extra-hm-land-registry-price-paid-data",
         "lon-extra-uk-house-price-index"
       ],
-      "evidence_basis": "Source-backed Economic Pull event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Economic Context Links event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2026.geojson",
@@ -14511,7 +14511,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2007,
@@ -14534,7 +14534,7 @@
       "compatible_source_ids": [
         "uk_parliament_hansard_thames_tideway_2013"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2007.geojson",
@@ -14556,7 +14556,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2008,
@@ -14581,7 +14581,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2008.geojson",
@@ -14603,7 +14603,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2009,
@@ -14628,7 +14628,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2009.geojson",
@@ -14650,7 +14650,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2010,
@@ -14677,7 +14677,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2010.geojson",
@@ -14699,7 +14699,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2011,
@@ -14724,7 +14724,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2011.geojson",
@@ -14746,7 +14746,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2012,
@@ -14771,7 +14771,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2012.geojson",
@@ -14793,7 +14793,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2013,
@@ -14820,7 +14820,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2013.geojson",
@@ -14842,7 +14842,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2014,
@@ -14867,7 +14867,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2014.geojson",
@@ -14889,7 +14889,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2015,
@@ -14922,7 +14922,7 @@
         "lon-extra-planning-data-tree-preservation-zones",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2015.geojson",
@@ -14944,7 +14944,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2016,
@@ -14971,7 +14971,7 @@
         "london-development-database-archive",
         "mhclg-called-in-decisions"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2016.geojson",
@@ -14993,7 +14993,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2017,
@@ -15022,7 +15022,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2017.geojson",
@@ -15044,7 +15044,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2018,
@@ -15069,7 +15069,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2018.geojson",
@@ -15091,7 +15091,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2019,
@@ -15116,7 +15116,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2019.geojson",
@@ -15138,7 +15138,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2020,
@@ -15169,7 +15169,7 @@
         "london-development-database-archive",
         "planning-data-certificate-of-immunity"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2020.geojson",
@@ -15191,7 +15191,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2021,
@@ -15214,7 +15214,7 @@
       "compatible_source_ids": [
         "london-architecture-public-pages"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2021.geojson",
@@ -15236,7 +15236,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2022,
@@ -15259,7 +15259,7 @@
       "compatible_source_ids": [
         "london-architecture-public-pages"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2022.geojson",
@@ -15281,7 +15281,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2023,
@@ -15306,7 +15306,7 @@
         "london-architecture-public-pages",
         "police-data-api"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2023.geojson",
@@ -15328,7 +15328,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2024,
@@ -15361,7 +15361,7 @@
         "planning-data-certificate-of-immunity",
         "police-data-api"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2024.geojson",
@@ -15383,7 +15383,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2025,
@@ -15414,7 +15414,7 @@
         "police-data-api",
         "src_southwark_canada_water_leisure"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2025.geojson",
@@ -15436,7 +15436,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-capacity",
-      "public_label": "Utility Capacity",
+      "public_label": "Utility Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2026,
@@ -15463,7 +15463,7 @@
         "london-architecture-public-pages",
         "police-data-api"
       ],
-      "evidence_basis": "Source-backed Utility Capacity event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Context event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2026.geojson",
@@ -15485,7 +15485,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2007,
@@ -15508,7 +15508,7 @@
       "compatible_source_ids": [
         "uk_parliament_hansard_thames_tideway_2013"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2007.geojson",
@@ -15530,7 +15530,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2008,
@@ -15555,7 +15555,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2008.geojson",
@@ -15577,7 +15577,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2009,
@@ -15602,7 +15602,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2009.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2009.geojson",
@@ -15624,7 +15624,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2010,
@@ -15651,7 +15651,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2010.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2010.geojson",
@@ -15673,7 +15673,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2011,
@@ -15698,7 +15698,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2011.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2011.geojson",
@@ -15720,7 +15720,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2012,
@@ -15745,7 +15745,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2012.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2012.geojson",
@@ -15767,7 +15767,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2013,
@@ -15794,7 +15794,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2013.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2013.geojson",
@@ -15816,7 +15816,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2014,
@@ -15841,7 +15841,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2014.geojson",
@@ -15863,7 +15863,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2015,
@@ -15896,7 +15896,7 @@
         "lon-extra-planning-data-tree-preservation-zones",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2015.geojson",
@@ -15918,7 +15918,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2016,
@@ -15945,7 +15945,7 @@
         "london-development-database-archive",
         "mhclg-called-in-decisions"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2016.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2016.geojson",
@@ -15967,7 +15967,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2017,
@@ -15996,7 +15996,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2017.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2017.geojson",
@@ -16018,7 +16018,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2018,
@@ -16043,7 +16043,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2018.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2018.geojson",
@@ -16065,7 +16065,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2019,
@@ -16090,7 +16090,7 @@
         "london-architecture-public-pages",
         "london-development-database-archive"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2019.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2019.geojson",
@@ -16112,7 +16112,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2020,
@@ -16143,7 +16143,7 @@
         "london-development-database-archive",
         "planning-data-certificate-of-immunity"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2020.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2020.geojson",
@@ -16165,7 +16165,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2021,
@@ -16188,7 +16188,7 @@
       "compatible_source_ids": [
         "london-architecture-public-pages"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2021.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2021.geojson",
@@ -16210,7 +16210,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2022,
@@ -16233,7 +16233,7 @@
       "compatible_source_ids": [
         "london-architecture-public-pages"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2022.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2022.geojson",
@@ -16255,7 +16255,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2023,
@@ -16280,7 +16280,7 @@
         "london-architecture-public-pages",
         "police-data-api"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2023.geojson",
@@ -16302,7 +16302,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2024,
@@ -16335,7 +16335,7 @@
         "planning-data-certificate-of-immunity",
         "police-data-api"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2024.geojson",
@@ -16357,7 +16357,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2025,
@@ -16388,7 +16388,7 @@
         "police-data-api",
         "src_southwark_canada_water_leisure"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2025.geojson",
@@ -16410,7 +16410,7 @@
       "city_id": "london",
       "display_name": "London, England",
       "lens_slug": "utilities-resilience",
-      "public_label": "Network Resilience",
+      "public_label": "Utility Network Context",
       "group": "utilities",
       "category": "utilities",
       "year": 2026,
@@ -16437,7 +16437,7 @@
         "london-architecture-public-pages",
         "police-data-api"
       ],
-      "evidence_basis": "Source-backed Network Resilience event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "evidence_basis": "Source-backed Utility Network Context event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2026.geojson",
