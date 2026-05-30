@@ -18,6 +18,7 @@ Removed or quarantined surfaces include:
 - Retired model artifacts for future forecasts and trend branches.
 - Retired Proposal Lens implementation, schema, verifier, skipped tests, stale MVP memo, and old CivicReplay design concept.
 - Stale nested `open-citylog/data-discovery/` package superseded by the active root `data-discovery/` package.
+- One-off round/append/correct/remove/audit scripts that were not referenced by package scripts, docs, tests, manifests, config, frontend entry points, or active discovery inputs.
 
 ## Active Runtime
 

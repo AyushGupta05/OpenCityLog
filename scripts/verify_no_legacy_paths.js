@@ -39,6 +39,15 @@ const bannedDirectories = [
   "open-citylog/data-discovery",
 ];
 
+const bannedScriptFilePatterns = [
+  [/^append_architecture_batch_.*\.(js|py)$/i, "one-off architecture append batch"],
+  [/^audit_round.*\.(js|py)$/i, "one-off architecture audit round"],
+  [/^correct_.*\.(js|py)$/i, "one-off correction script"],
+  [/^extract_planning.*\.(js|py)$/i, "one-off extraction script"],
+  [/^fetch_round.*\.(js|py)$/i, "one-off fetch round"],
+  [/^remove_.*\.(js|py)$/i, "one-off removal script"],
+];
+
 const runtimeFiles = [
   "package.json",
   "server.js",
@@ -65,6 +74,13 @@ for (const relativePath of bannedFiles) {
 
 for (const relativePath of bannedDirectories) {
   if (exists(relativePath)) failures.push(`Legacy directory should not exist: ${relativePath}`);
+}
+
+const scriptsDir = path.join(rootDir, "scripts");
+for (const entry of fs.readdirSync(scriptsDir)) {
+  for (const [pattern, label] of bannedScriptFilePatterns) {
+    if (pattern.test(entry)) failures.push(`${label} should not remain in scripts/: ${entry}`);
+  }
 }
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(rootDir, "package.json"), "utf8"));
@@ -134,4 +150,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Legacy path verification OK: ${bannedFiles.length} retired files and ${bannedDirectories.length} retired directories absent; runtime routes/copy clean.`);
+console.log(`Legacy path verification OK: ${bannedFiles.length} retired files, ${bannedDirectories.length} retired directories, and ${bannedScriptFilePatterns.length} one-off script patterns absent; runtime routes/copy clean.`);
