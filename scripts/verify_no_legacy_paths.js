@@ -5,6 +5,19 @@ const rootDir = path.resolve(__dirname, "..");
 const failures = [];
 
 const bannedFiles = [
+  "api/replay-manifest.json",
+  "lib/proposal-impact.js",
+  "schemas/proposal.schema.json",
+  "schemas/replay_spatial_model.sql",
+  "schemas/source_manifest.schema.json",
+  "scripts/build_mode_a_replay.py",
+  "scripts/build_ui_manifest.py",
+  "scripts/build_wayback_imagery_manifest.js",
+  "scripts/spatial_replay_etl.py",
+  "scripts/verify_proposal_impact.js",
+  "tests/test_energy_proposal_lens.py",
+  "tests/test_proposal_lens.py",
+  "tests/test_spatial_replay_etl.py",
   "web/solana-scenario-commit.js",
   "web/solana-web3.min.js",
   "web/impact-predictor.js",
@@ -22,10 +35,16 @@ const bannedFiles = [
   "scripts/verify-transformer-model.js",
   "scripts/verify-trend-baseline.js",
   "web/data/mode-a/baseline_2025_forecast.json",
+  "web/data/wayback-imagery.json",
   "web/data/mode-a/forecast_model.json",
   "web/data/mode-a/transformer_capacity_forecast.json",
   "web/data/mode-a/transformer_impact_model.json",
   "web/data/mode-a/trend_baseline_branch.json",
+];
+
+const bannedDirectories = [
+  "build/spatial_replay",
+  "web/data/mode-a",
 ];
 
 const runtimeFiles = [
@@ -50,6 +69,13 @@ function exists(relativePath) {
 
 for (const relativePath of bannedFiles) {
   if (exists(relativePath)) failures.push(`Legacy file should not exist: ${relativePath}`);
+}
+
+for (const relativePath of bannedDirectories) {
+  const absolutePath = path.join(rootDir, relativePath);
+  if (!fs.existsSync(absolutePath)) continue;
+  const entries = fs.readdirSync(absolutePath);
+  if (entries.length) failures.push(`Legacy directory should be empty or absent: ${relativePath}`);
 }
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(rootDir, "package.json"), "utf8"));

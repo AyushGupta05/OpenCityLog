@@ -13,7 +13,7 @@ The local server now returns `410` tombstones for the retired proposal endpoints
 - `GET /api/proposal-impact/schema`
 - `POST /api/proposal-impact`
 
-The implementation file `lib/proposal-impact.js` is retained only as legacy reference material while the repo migration settles. The old verifier script is a tombstone that points back to the active 15-lens contract. Neither is part of `npm verify`, and neither should be reconnected without a later accepted product spec.
+The old implementation file, schema, verifier, and skipped tests have been deleted. The legacy-path verifier now fails if those retired Proposal Lens files are restored. The server keeps only explicit `410` responses so old clients receive a clear tombstone instead of an active analogue feature.
 
 ## Why It Is Quarantined
 
