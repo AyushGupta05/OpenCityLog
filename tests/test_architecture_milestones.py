@@ -15,6 +15,16 @@ class ArchitectureMilestoneTests(unittest.TestCase):
         cls.payload = json.loads(MILESTONES.read_text(encoding="utf-8"))
         cls.sources = {source["source_id"]: source for source in cls.payload["sources"]}
 
+    def iter_strings(self, value):
+        if isinstance(value, str):
+            yield value
+        elif isinstance(value, list):
+            for item in value:
+                yield from self.iter_strings(item)
+        elif isinstance(value, dict):
+            for item in value.values():
+                yield from self.iter_strings(item)
+
     def test_package_covers_all_target_cities(self) -> None:
         counts = Counter(event["city_id"] for event in self.payload["events"])
 
@@ -56,6 +66,14 @@ class ArchitectureMilestoneTests(unittest.TestCase):
             combined = " ".join(str(event.get(field, "")) for field in checked_fields)
             with self.subTest(event_id=event["event_id"]):
                 self.assertIsNone(banned.search(combined))
+
+    def test_provenance_text_references_retained_scripts(self) -> None:
+        script_ref = re.compile(r"\bscripts/[A-Za-z0-9_./-]+\.(js|py)\b")
+
+        for index, text in enumerate(self.iter_strings(self.payload)):
+            with self.subTest(string_index=index):
+                for match in script_ref.finditer(text):
+                    self.assertTrue((ROOT / match.group(0)).exists(), match.group(0))
 
 
 if __name__ == "__main__":

@@ -62,6 +62,7 @@ const EVENT_FIELDS = [
   "limitations",
   "transformation_method",
 ];
+const REPO_SCRIPT_REFERENCE_PATTERN = /\bscripts\/[A-Za-z0-9_./-]+\.(?:js|py)\b/g;
 const SOURCE_FIELDS = [
   "source_id",
   "city_ids",
@@ -370,6 +371,26 @@ function validateMilestoneSources(payload, failures) {
   return sourceById;
 }
 
+function validateRetainedScriptReferences(root, value, label, failures) {
+  if (typeof value === "string") {
+    for (const scriptRef of value.match(REPO_SCRIPT_REFERENCE_PATTERN) || []) {
+      assert(failures, fs.existsSync(resolve(root, scriptRef)), `${label} references missing script ${scriptRef}`);
+    }
+    return;
+  }
+
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => validateRetainedScriptReferences(root, item, `${label}[${index}]`, failures));
+    return;
+  }
+
+  if (value && typeof value === "object") {
+    for (const [key, item] of Object.entries(value)) {
+      validateRetainedScriptReferences(root, item, `${label}.${key}`, failures);
+    }
+  }
+}
+
 function sourceRecordSignature(event) {
   const recordId = compactText(event.source_record_id).toLowerCase();
   if (!recordId) return null;
@@ -420,7 +441,6 @@ function validateMilestoneEvents(payload, sourceById, failures) {
     assert(failures, !containsOverclaim(event.summary), `${label} summary overclaims`);
     assert(failures, !containsOverclaim(event.observed_change), `${label} observed_change overclaims`);
     assert(failures, !containsOverclaim(event.limitations), `${label} limitations overclaim`);
-
     const signature = sourceRecordSignature(event);
     if (signature) {
       const existing = recordSignatures.get(signature);
@@ -442,6 +462,7 @@ function validateMilestones(root, milestonesPath, failures) {
   assert(failures, payload.target_scope?.end_date === TARGET_END, `Architecture milestone package target end must be ${TARGET_END}`);
   assert(failures, !containsOverclaim(payload.scope_note), "Architecture milestone scope_note overclaims");
   assert(failures, !containsOverclaim(payload.license_note), "Architecture milestone license_note overclaims");
+  validateRetainedScriptReferences(root, payload, "architecture_milestones", failures);
   const sourceById = validateMilestoneSources(payload, failures);
   const summary = validateMilestoneEvents(payload, sourceById, failures);
   validateSourceRegistryManifest(root, sourceById, failures);

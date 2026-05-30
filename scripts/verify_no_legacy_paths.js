@@ -47,6 +47,7 @@ const bannedScriptFilePatterns = [
   [/^fetch_round.*\.(js|py)$/i, "one-off fetch round"],
   [/^remove_.*\.(js|py)$/i, "one-off removal script"],
 ];
+const scriptReferencePattern = /\bscripts\/[A-Za-z0-9_./-]+\.(?:js|py)\b/g;
 
 const runtimeFiles = [
   "package.json",
@@ -68,6 +69,39 @@ function exists(relativePath) {
   return fs.existsSync(path.join(rootDir, relativePath));
 }
 
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(rootDir, relativePath), "utf8").replace(/^\uFEFF/, ""));
+}
+
+function walkStrings(value, visit) {
+  if (typeof value === "string") {
+    visit(value);
+    return;
+  }
+  if (Array.isArray(value)) {
+    for (const item of value) walkStrings(item, visit);
+    return;
+  }
+  if (value && typeof value === "object") {
+    for (const item of Object.values(value)) walkStrings(item, visit);
+  }
+}
+
+function citedArchitectureOneOffScripts() {
+  const relativePath = "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json";
+  if (!exists(relativePath)) return new Set();
+  const cited = new Set();
+  walkStrings(readJson(relativePath), (text) => {
+    for (const match of text.match(scriptReferencePattern) || []) {
+      const fileName = path.basename(match);
+      if (bannedScriptFilePatterns.some(([pattern]) => pattern.test(fileName))) {
+        cited.add(match);
+      }
+    }
+  });
+  return cited;
+}
+
 for (const relativePath of bannedFiles) {
   if (exists(relativePath)) failures.push(`Legacy file should not exist: ${relativePath}`);
 }
@@ -77,10 +111,17 @@ for (const relativePath of bannedDirectories) {
 }
 
 const scriptsDir = path.join(rootDir, "scripts");
+const provenanceRetainedScripts = citedArchitectureOneOffScripts();
 for (const entry of fs.readdirSync(scriptsDir)) {
   for (const [pattern, label] of bannedScriptFilePatterns) {
-    if (pattern.test(entry)) failures.push(`${label} should not remain in scripts/: ${entry}`);
+    const relativePath = `scripts/${entry}`;
+    if (pattern.test(entry) && !provenanceRetainedScripts.has(relativePath)) {
+      failures.push(`${label} should not remain in scripts/ unless cited by active architecture provenance: ${entry}`);
+    }
   }
+}
+for (const relativePath of provenanceRetainedScripts) {
+  if (!exists(relativePath)) failures.push(`Architecture provenance cites missing retained script: ${relativePath}`);
 }
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(rootDir, "package.json"), "utf8"));
@@ -150,4 +191,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Legacy path verification OK: ${bannedFiles.length} retired files, ${bannedDirectories.length} retired directories, and ${bannedScriptFilePatterns.length} one-off script patterns absent; runtime routes/copy clean.`);
+console.log(`Legacy path verification OK: ${bannedFiles.length} retired files, ${bannedDirectories.length} retired directories, ${provenanceRetainedScripts.size} provenance-retained one-off script(s), and unreferenced one-off script patterns absent; runtime routes/copy clean.`);
