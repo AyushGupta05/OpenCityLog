@@ -1256,6 +1256,8 @@
     const event = {
       id: String(props.event_id || raw.id || props.id || `${fallbackYear}-${index}`),
       title: cleanTitle(props.title),
+      subtitle: cleanSummary(props.subtitle || ""),
+      details: cleanSummary(props.details || props.explanation || props.summary || ""),
       shortDescription: cleanSummary(props.short_description || props.summary || props.explanation || ""),
       year: Number(props.year || fallbackYear),
       effectiveDate: props.effective_date || "",
@@ -1265,7 +1267,7 @@
       category: props.category || "built_environment",
       lens: props.lens || props.category || "city_change",
       confidence: props.confidence || "documented",
-      summary: cleanSummary(props.explanation || props.summary || ""),
+      summary: cleanSummary(props.explanation || props.summary || props.details || ""),
       area: props.affected_area?.label || props.affected_area_label || "",
       sourceIds: Array.isArray(sourceIds) ? sourceIds.filter(Boolean) : [sourceIds].filter(Boolean),
       evidence: Array.isArray(props.evidence) ? props.evidence : [],
@@ -1279,6 +1281,10 @@
     event.lngLat = geometryToLngLat(geom);
     event.areaSearchText = areaSearchTextForEvent(event);
     return event;
+  }
+
+  function eventSubtitleLine(event) {
+    return event?.subtitle || `${event?.title || "Selected event"} / ${event?.effectiveDate || String(event?.year || "")}`;
   }
 
   function geometryToLngLat(geom) {
@@ -16672,7 +16678,7 @@
     return `
       <button class="evidence-event" type="button" data-event-id="${escapeAttr(event.id)}">
         <strong>${escapeHtml(event.shortDescription || event.title)}</strong>
-        <span>${escapeHtml(event.area || "Unknown area")} / ${eventSourceCount(event)} evidence row${eventSourceCount(event) === 1 ? "" : "s"}${source ? ` / ${escapeHtml(source)}` : ""}</span>
+        <span>${escapeHtml(event.subtitle || `${event.area || "Unknown area"} / ${eventSourceCount(event)} evidence row${eventSourceCount(event) === 1 ? "" : "s"}${source ? ` / ${source}` : ""}`)}</span>
       </button>`;
   }
 
@@ -16853,7 +16859,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
         </button>
         <div class="detail-eyebrow">Evidence brief</div>
-        <div class="planning-detail-subtitle">${escapeHtml(event.title)} / ${escapeHtml(event.effectiveDate || String(event.year))}</div>
+        <div class="planning-detail-subtitle">${escapeHtml(eventSubtitleLine(event))}</div>
         <h2 class="detail-title">${escapeHtml(event.title)}</h2>
         ${renderDetailLensControls(event, context)}
         <div class="planning-caution stage-caution transport-speed-caution"><span></span><p>Associated nearby change; causation is not claimed <b>Not a forecast</b></p></div>
@@ -17175,7 +17181,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
         </button>
         <div class="detail-eyebrow">Evidence brief</div>
-        <div class="planning-detail-subtitle">${escapeHtml(event.title)} / ${escapeHtml(event.effectiveDate || String(event.year))}</div>
+        <div class="planning-detail-subtitle">${escapeHtml(eventSubtitleLine(event))}</div>
         <h2 class="detail-title">${escapeHtml(event.title)}</h2>
         ${renderDetailLensControls(event, context)}
         <div class="planning-caution stage-caution utility-capacity-caution"><span></span><p>Associated nearby change; causation is not claimed <b>Not a forecast</b></p></div>
@@ -17367,7 +17373,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
         </button>
         <div class="detail-eyebrow">Evidence brief</div>
-        <div class="planning-detail-subtitle">${escapeHtml(event.title)} . ${escapeHtml(event.effectiveDate || String(event.year))}</div>
+        <div class="planning-detail-subtitle">${escapeHtml(eventSubtitleLine(event))}</div>
         ${isParcels ? `
           <div class="planning-stage-tabs" role="tablist" aria-label="Planning stage filter">
             <button type="button" data-filter="all" data-active="false">All lenses</button>
@@ -17758,7 +17764,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
         </button>
         <div class="detail-eyebrow">Evidence brief</div>
-        <div class="planning-detail-subtitle">${escapeHtml(event.title)} . ${escapeHtml(event.effectiveDate || String(event.year))}</div>
+        <div class="planning-detail-subtitle">${escapeHtml(eventSubtitleLine(event))}</div>
         <div class="economy-detail-tabs" role="tablist" aria-label="Economy detail">
           <button type="button" data-panel="performance" data-active="true">Records</button>
           <button type="button" data-panel="change" data-active="false">Change</button>
@@ -17922,7 +17928,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
         </button>
         <div class="detail-eyebrow">Change around selected event</div>
-        <div class="planning-detail-subtitle">${escapeHtml(event.title)} / ${escapeHtml(event.effectiveDate || String(event.year))}</div>
+        <div class="planning-detail-subtitle">${escapeHtml(eventSubtitleLine(event))}</div>
         ${renderDetailLensControls(event, context)}
         <div class="planning-caution stage-caution land-use-caution"><span></span><p>Associated nearby change; causation is not claimed <b>Not a forecast</b></p></div>
       </div>
@@ -18189,7 +18195,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
         </button>
         <div class="detail-eyebrow">Evidence brief</div>
-        <div class="planning-detail-subtitle">${escapeHtml(event.title)} / ${escapeHtml(event.effectiveDate || String(event.year))}</div>
+        <div class="planning-detail-subtitle">${escapeHtml(eventSubtitleLine(event))}</div>
         ${renderDetailLensControls(event, context)}
         <div class="planning-caution stage-caution gravity-caution"><span></span><p>Associated nearby change; causation is not claimed <b>Not a forecast</b></p></div>
       </div>
@@ -18377,7 +18383,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
         </button>
         <div class="detail-eyebrow">Evidence brief</div>
-        <div class="planning-detail-subtitle">${escapeHtml(event.title)} / ${escapeHtml(event.effectiveDate || String(event.year))}</div>
+        <div class="planning-detail-subtitle">${escapeHtml(eventSubtitleLine(event))}</div>
         <h2 class="detail-title">${escapeHtml(event.title)}</h2>
         ${renderDetailLensControls(event, context)}
         <div class="planning-caution stage-caution civic-access-caution"><span></span><p>Associated nearby change; causation is not claimed <b>Not a forecast</b></p></div>
@@ -18667,7 +18673,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
         </button>
         <div class="detail-eyebrow">Evidence brief</div>
-        <div class="planning-detail-subtitle">${escapeHtml(event.title)} / ${escapeHtml(event.effectiveDate || String(event.year))}</div>
+        <div class="planning-detail-subtitle">${escapeHtml(eventSubtitleLine(event))}</div>
         <h2 class="detail-title">${escapeHtml(event.title)}</h2>
         ${renderDetailLensControls(event, context)}
         <div class="civic-detail-tabs civic-demand-tabs" role="tablist" aria-label="Civic service-context filter">
@@ -19070,7 +19076,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
         </button>
         <div class="detail-eyebrow">Change around this event</div>
-        <div class="planning-detail-subtitle">${escapeHtml(event.title)} / ${escapeHtml(event.effectiveDate || String(event.year))}</div>
+        <div class="planning-detail-subtitle">${escapeHtml(eventSubtitleLine(event))}</div>
         <h2 class="detail-title">${escapeHtml(event.title)}</h2>
         <div class="detail-where">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="11" height="11"><path d="M12 22s7-7.5 7-13a7 7 0 10-14 0c0 5.5 7 13 7 13z" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5"/></svg>
@@ -19601,6 +19607,7 @@
           ${e.confidence === "inferred" ? '<span class="chip neutral">OSM visibility</span>' : ''}
         </div>
         <h2 class="detail-title">${escapeHtml(e.title)}</h2>
+        ${e.subtitle ? `<div class="planning-detail-subtitle">${escapeHtml(e.subtitle)}</div>` : ""}
         <div class="detail-where">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="11" height="11"><path d="M12 22s7-7.5 7-13a7 7 0 10-14 0c0 5.5 7 13 7 13z" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5"/></svg>
           <span>${escapeHtml(e.area || "—")}</span>
@@ -19613,7 +19620,7 @@
         <div class="selected-event-card" style="--accent:${lens.accent || layer.color}">
           <div>
             <span>Selected event</span>
-            <strong>${escapeHtml(e.shortDescription || e.summary || e.title)}</strong>
+            <strong>${escapeHtml(e.shortDescription || e.details || e.summary || e.title)}</strong>
           </div>
           <dl>
             <div><dt>Effective</dt><dd>${escapeHtml(e.effectiveDate || String(e.year))}</dd></div>
@@ -20037,7 +20044,7 @@
           <span class="event-dot" data-rank="${index + 1}" aria-hidden="true"></span>
           <span class="event-main">
             <span class="event-title">${escapeHtml(event.title)}</span>
-            <span class="event-summary">${escapeHtml(event.shortDescription || event.summary || "")}</span>
+            <span class="event-summary">${escapeHtml(event.subtitle || event.shortDescription || event.summary || "")}</span>
             <span class="event-tags" aria-hidden="true">
               <span>${escapeHtml(layer.label)}</span>
               <span>${escapeHtml(confidence)}</span>

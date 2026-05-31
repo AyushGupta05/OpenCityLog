@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_city_manifest",
-  "generated_at": "2026-05-30T21:29:17Z",
+  "generated_at": "2026-05-31T02:08:13Z",
   "city_id": "nyc",
   "display_name": "New York City, New York",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -997,8 +997,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 3756,
-        "compatible_event_count": 3756,
+        "event_count": 3759,
+        "compatible_event_count": 3759,
         "review_required_event_count": 0,
         "source_count": 25,
         "compatible_source_count": 25,
@@ -1008,7 +1008,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 3756
+          "documented": 3759
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1016,7 +1016,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 9399,
+        "excluded_review_required_event_count": 9420,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1274,8 +1274,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 3756,
-        "compatible_event_count": 3756,
+        "event_count": 3759,
+        "compatible_event_count": 3759,
         "review_required_event_count": 0,
         "source_count": 25,
         "compatible_source_count": 25,
@@ -1285,7 +1285,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 3756
+          "documented": 3759
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1293,7 +1293,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 9399,
+        "excluded_review_required_event_count": 9420,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1551,8 +1551,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 3756,
-        "compatible_event_count": 3756,
+        "event_count": 3759,
+        "compatible_event_count": 3759,
         "review_required_event_count": 0,
         "source_count": 25,
         "compatible_source_count": 25,
@@ -1562,7 +1562,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 3756
+          "documented": 3759
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1570,7 +1570,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 9399,
+        "excluded_review_required_event_count": 9420,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1828,8 +1828,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 2236,
-        "compatible_event_count": 2236,
+        "event_count": 2239,
+        "compatible_event_count": 2239,
         "review_required_event_count": 0,
         "source_count": 29,
         "compatible_source_count": 29,
@@ -1839,7 +1839,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 2236
+          "documented": 2239
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1847,7 +1847,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2153,
+        "excluded_review_required_event_count": 2159,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2113,8 +2113,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 2236,
-        "compatible_event_count": 2236,
+        "event_count": 2239,
+        "compatible_event_count": 2239,
         "review_required_event_count": 0,
         "source_count": 29,
         "compatible_source_count": 29,
@@ -2124,7 +2124,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 2236
+          "documented": 2239
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2132,7 +2132,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2153,
+        "excluded_review_required_event_count": 2159,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2398,8 +2398,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 2236,
-        "compatible_event_count": 2236,
+        "event_count": 2239,
+        "compatible_event_count": 2239,
         "review_required_event_count": 0,
         "source_count": 29,
         "compatible_source_count": 29,
@@ -2409,7 +2409,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 2236
+          "documented": 2239
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2417,7 +2417,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2153,
+        "excluded_review_required_event_count": 2159,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2702,7 +2702,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2343,
+        "excluded_review_required_event_count": 2339,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2961,7 +2961,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2343,
+        "excluded_review_required_event_count": 2339,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3220,7 +3220,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2343,
+        "excluded_review_required_event_count": 2339,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3460,8 +3460,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 997,
-        "compatible_event_count": 997,
+        "event_count": 998,
+        "compatible_event_count": 998,
         "review_required_event_count": 0,
         "source_count": 25,
         "compatible_source_count": 25,
@@ -3471,7 +3471,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 997
+          "documented": 998
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3737,8 +3737,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 997,
-        "compatible_event_count": 997,
+        "event_count": 998,
+        "compatible_event_count": 998,
         "review_required_event_count": 0,
         "source_count": 25,
         "compatible_source_count": 25,
@@ -3748,7 +3748,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 997
+          "documented": 998
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -4014,8 +4014,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 997,
-        "compatible_event_count": 997,
+        "event_count": 998,
+        "compatible_event_count": 998,
         "review_required_event_count": 0,
         "source_count": 25,
         "compatible_source_count": 25,
@@ -4025,7 +4025,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 997
+          "documented": 998
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",

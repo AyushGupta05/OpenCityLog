@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_lens_year_coverage",
-  "generated_at": "2026-05-30T21:29:17Z",
+  "generated_at": "2026-05-31T02:08:13Z",
   "city_id": "nyc",
   "display_name": "New York City, New York",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -4850,14 +4850,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 84,
-      "compatible_event_count": 84,
+      "event_count": 85,
+      "compatible_event_count": 85,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 44934,
-      "headline_count_included": 84,
+      "headline_count_included": 85,
       "headline_count_excluded_context_features": 44934,
       "confidence_counts": {
-        "documented": 84
+        "documented": 85
       },
       "source_count": 7,
       "source_ids": [
@@ -5756,14 +5756,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 297,
-      "compatible_event_count": 297,
+      "event_count": 298,
+      "compatible_event_count": 298,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 44934,
-      "headline_count_included": 297,
+      "headline_count_included": 298,
       "headline_count_excluded_context_features": 44934,
       "confidence_counts": {
-        "documented": 297
+        "documented": 298
       },
       "source_count": 16,
       "source_ids": [
@@ -5910,14 +5910,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 356,
-      "compatible_event_count": 356,
+      "event_count": 357,
+      "compatible_event_count": 357,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 44934,
-      "headline_count_included": 356,
+      "headline_count_included": 357,
       "headline_count_excluded_context_features": 44934,
       "confidence_counts": {
-        "documented": 356
+        "documented": 357
       },
       "source_count": 16,
       "source_ids": [
@@ -6170,14 +6170,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 84,
-      "compatible_event_count": 84,
+      "event_count": 85,
+      "compatible_event_count": 85,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 44934,
-      "headline_count_included": 84,
+      "headline_count_included": 85,
       "headline_count_excluded_context_features": 44934,
       "confidence_counts": {
-        "documented": 84
+        "documented": 85
       },
       "source_count": 7,
       "source_ids": [
@@ -7076,14 +7076,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 297,
-      "compatible_event_count": 297,
+      "event_count": 298,
+      "compatible_event_count": 298,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 44934,
-      "headline_count_included": 297,
+      "headline_count_included": 298,
       "headline_count_excluded_context_features": 44934,
       "confidence_counts": {
-        "documented": 297
+        "documented": 298
       },
       "source_count": 16,
       "source_ids": [
@@ -7230,14 +7230,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 356,
-      "compatible_event_count": 356,
+      "event_count": 357,
+      "compatible_event_count": 357,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 44934,
-      "headline_count_included": 356,
+      "headline_count_included": 357,
       "headline_count_excluded_context_features": 44934,
       "confidence_counts": {
-        "documented": 356
+        "documented": 357
       },
       "source_count": 16,
       "source_ids": [
@@ -7490,14 +7490,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 84,
-      "compatible_event_count": 84,
+      "event_count": 85,
+      "compatible_event_count": 85,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 44934,
-      "headline_count_included": 84,
+      "headline_count_included": 85,
       "headline_count_excluded_context_features": 44934,
       "confidence_counts": {
-        "documented": 84
+        "documented": 85
       },
       "source_count": 7,
       "source_ids": [
@@ -8396,14 +8396,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 297,
-      "compatible_event_count": 297,
+      "event_count": 298,
+      "compatible_event_count": 298,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 44934,
-      "headline_count_included": 297,
+      "headline_count_included": 298,
       "headline_count_excluded_context_features": 44934,
       "confidence_counts": {
-        "documented": 297
+        "documented": 298
       },
       "source_count": 16,
       "source_ids": [
@@ -8550,14 +8550,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 356,
-      "compatible_event_count": 356,
+      "event_count": 357,
+      "compatible_event_count": 357,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 44934,
-      "headline_count_included": 356,
+      "headline_count_included": 357,
       "headline_count_excluded_context_features": 44934,
       "confidence_counts": {
-        "documented": 356
+        "documented": 357
       },
       "source_count": 16,
       "source_ids": [
@@ -8811,29 +8811,31 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 96,
-      "compatible_event_count": 96,
+      "event_count": 97,
+      "compatible_event_count": 97,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 96,
+      "headline_count_included": 97,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 96
+        "documented": 97
       },
-      "source_count": 5,
+      "source_count": 6,
       "source_ids": [
         "8m42-w767",
         "buis-pvji",
         "nyc-architecture-public-pages",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-        "nyc-lpc-individual-landmark-sites-buis-pvji"
+        "nyc-lpc-individual-landmark-sites-buis-pvji",
+        "nyc-lpc-permit-application-information"
       ],
       "compatible_source_ids": [
         "8m42-w767",
         "buis-pvji",
         "nyc-architecture-public-pages",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-        "nyc-lpc-individual-landmark-sites-buis-pvji"
+        "nyc-lpc-individual-landmark-sites-buis-pvji",
+        "nyc-lpc-permit-application-information"
       ],
       "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -9119,29 +9121,31 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 97,
-      "compatible_event_count": 97,
+      "event_count": 98,
+      "compatible_event_count": 98,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 97,
+      "headline_count_included": 98,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 97
+        "documented": 98
       },
-      "source_count": 5,
+      "source_count": 6,
       "source_ids": [
         "8m42-w767",
         "buis-pvji",
         "nyc-architecture-public-pages",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-        "nyc-lpc-individual-landmark-sites-buis-pvji"
+        "nyc-lpc-individual-landmark-sites-buis-pvji",
+        "nyc-lpc-permit-application-information"
       ],
       "compatible_source_ids": [
         "8m42-w767",
         "buis-pvji",
         "nyc-architecture-public-pages",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-        "nyc-lpc-individual-landmark-sites-buis-pvji"
+        "nyc-lpc-individual-landmark-sites-buis-pvji",
+        "nyc-lpc-permit-application-information"
       ],
       "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -9657,14 +9661,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 134,
-      "compatible_event_count": 134,
+      "event_count": 135,
+      "compatible_event_count": 135,
       "detail_feature_count": 131,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 134,
+      "headline_count_included": 135,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 134
+        "documented": 135
       },
       "source_count": 10,
       "source_ids": [
@@ -9903,29 +9907,31 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 96,
-      "compatible_event_count": 96,
+      "event_count": 97,
+      "compatible_event_count": 97,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 96,
+      "headline_count_included": 97,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 96
+        "documented": 97
       },
-      "source_count": 5,
+      "source_count": 6,
       "source_ids": [
         "8m42-w767",
         "buis-pvji",
         "nyc-architecture-public-pages",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-        "nyc-lpc-individual-landmark-sites-buis-pvji"
+        "nyc-lpc-individual-landmark-sites-buis-pvji",
+        "nyc-lpc-permit-application-information"
       ],
       "compatible_source_ids": [
         "8m42-w767",
         "buis-pvji",
         "nyc-architecture-public-pages",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-        "nyc-lpc-individual-landmark-sites-buis-pvji"
+        "nyc-lpc-individual-landmark-sites-buis-pvji",
+        "nyc-lpc-permit-application-information"
       ],
       "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -10211,29 +10217,31 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 97,
-      "compatible_event_count": 97,
+      "event_count": 98,
+      "compatible_event_count": 98,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 97,
+      "headline_count_included": 98,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 97
+        "documented": 98
       },
-      "source_count": 5,
+      "source_count": 6,
       "source_ids": [
         "8m42-w767",
         "buis-pvji",
         "nyc-architecture-public-pages",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-        "nyc-lpc-individual-landmark-sites-buis-pvji"
+        "nyc-lpc-individual-landmark-sites-buis-pvji",
+        "nyc-lpc-permit-application-information"
       ],
       "compatible_source_ids": [
         "8m42-w767",
         "buis-pvji",
         "nyc-architecture-public-pages",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-        "nyc-lpc-individual-landmark-sites-buis-pvji"
+        "nyc-lpc-individual-landmark-sites-buis-pvji",
+        "nyc-lpc-permit-application-information"
       ],
       "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -10749,14 +10757,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 134,
-      "compatible_event_count": 134,
+      "event_count": 135,
+      "compatible_event_count": 135,
       "detail_feature_count": 131,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 134,
+      "headline_count_included": 135,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 134
+        "documented": 135
       },
       "source_count": 10,
       "source_ids": [
@@ -10995,29 +11003,31 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 96,
-      "compatible_event_count": 96,
+      "event_count": 97,
+      "compatible_event_count": 97,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 96,
+      "headline_count_included": 97,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 96
+        "documented": 97
       },
-      "source_count": 5,
+      "source_count": 6,
       "source_ids": [
         "8m42-w767",
         "buis-pvji",
         "nyc-architecture-public-pages",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-        "nyc-lpc-individual-landmark-sites-buis-pvji"
+        "nyc-lpc-individual-landmark-sites-buis-pvji",
+        "nyc-lpc-permit-application-information"
       ],
       "compatible_source_ids": [
         "8m42-w767",
         "buis-pvji",
         "nyc-architecture-public-pages",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-        "nyc-lpc-individual-landmark-sites-buis-pvji"
+        "nyc-lpc-individual-landmark-sites-buis-pvji",
+        "nyc-lpc-permit-application-information"
       ],
       "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2008.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -11303,29 +11313,31 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 97,
-      "compatible_event_count": 97,
+      "event_count": 98,
+      "compatible_event_count": 98,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 97,
+      "headline_count_included": 98,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 97
+        "documented": 98
       },
-      "source_count": 5,
+      "source_count": 6,
       "source_ids": [
         "8m42-w767",
         "buis-pvji",
         "nyc-architecture-public-pages",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-        "nyc-lpc-individual-landmark-sites-buis-pvji"
+        "nyc-lpc-individual-landmark-sites-buis-pvji",
+        "nyc-lpc-permit-application-information"
       ],
       "compatible_source_ids": [
         "8m42-w767",
         "buis-pvji",
         "nyc-architecture-public-pages",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-        "nyc-lpc-individual-landmark-sites-buis-pvji"
+        "nyc-lpc-individual-landmark-sites-buis-pvji",
+        "nyc-lpc-permit-application-information"
       ],
       "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/nyc/events_2014.json matched by lib/atlas-lenses.js#eventMatchesLens.",
       "map_artifacts": {
@@ -11841,14 +11853,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 134,
-      "compatible_event_count": 134,
+      "event_count": 135,
+      "compatible_event_count": 135,
       "detail_feature_count": 131,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 134,
+      "headline_count_included": 135,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 134
+        "documented": 135
       },
       "source_count": 10,
       "source_ids": [
@@ -15901,16 +15913,16 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 61,
-      "compatible_event_count": 61,
+      "event_count": 62,
+      "compatible_event_count": 62,
       "detail_feature_count": 2,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 61,
+      "headline_count_included": 62,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 61
+        "documented": 62
       },
-      "source_count": 11,
+      "source_count": 12,
       "source_ids": [
         "8m42-w767",
         "as9z-kwsh",
@@ -15921,6 +15933,7 @@
         "nyc-dob-filings-permits",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+        "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
@@ -15934,6 +15947,7 @@
         "nyc-dob-filings-permits",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+        "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
@@ -17139,16 +17153,16 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 61,
-      "compatible_event_count": 61,
+      "event_count": 62,
+      "compatible_event_count": 62,
       "detail_feature_count": 2,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 61,
+      "headline_count_included": 62,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 61
+        "documented": 62
       },
-      "source_count": 11,
+      "source_count": 12,
       "source_ids": [
         "8m42-w767",
         "as9z-kwsh",
@@ -17159,6 +17173,7 @@
         "nyc-dob-filings-permits",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+        "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
@@ -17172,6 +17187,7 @@
         "nyc-dob-filings-permits",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+        "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
@@ -18377,16 +18393,16 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 61,
-      "compatible_event_count": 61,
+      "event_count": 62,
+      "compatible_event_count": 62,
       "detail_feature_count": 2,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 61,
+      "headline_count_included": 62,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 61
+        "documented": 62
       },
-      "source_count": 11,
+      "source_count": 12,
       "source_ids": [
         "8m42-w767",
         "as9z-kwsh",
@@ -18397,6 +18413,7 @@
         "nyc-dob-filings-permits",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+        "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],
@@ -18410,6 +18427,7 @@
         "nyc-dob-filings-permits",
         "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
         "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
+        "nyc-lpc-permit-application-information",
         "nyc-parks-capital-project-tracker-4hcv-tc5r",
         "nyc-pdc-meeting-minutes-certificates-2008-2026"
       ],

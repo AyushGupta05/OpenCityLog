@@ -30,6 +30,8 @@
     "city_id": {"type": "string"},
     "event_id": {"type": "string"},
     "title": {"type": "string"},
+    "subtitle": {"type": "string", "minLength": 12, "maxLength": 180},
+    "details": {"type": "string", "minLength": 12, "maxLength": 500},
     "short_description": {"type": "string", "minLength": 12, "maxLength": 220},
     "year": {"type": "integer", "minimum": 1700},
     "effective_date": {"type": ["string", "null"]},

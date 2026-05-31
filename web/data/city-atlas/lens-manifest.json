@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_manifest_index",
-  "generated_at": "2026-05-30T21:29:17Z",
+  "generated_at": "2026-05-31T02:08:13Z",
   "contract_source": "docs/15_lens_city_design_contract.md",
   "visual_reference_set": "tmp/reference-screens",
   "lens_count": 15,
@@ -156,7 +156,7 @@
           "compatible_event_count": 14910,
           "source_count": 190,
           "compatible_source_count": 190,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -177,7 +177,7 @@
           "compatible_event_count": 14910,
           "source_count": 190,
           "compatible_source_count": 190,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -198,7 +198,7 @@
           "compatible_event_count": 14910,
           "source_count": 190,
           "compatible_source_count": 190,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -215,11 +215,11 @@
         {
           "slug": "transport-access",
           "public_label": "Access to Transport",
-          "event_count": 21144,
-          "compatible_event_count": 21144,
+          "event_count": 21110,
+          "compatible_event_count": 21110,
           "source_count": 83,
           "compatible_source_count": 83,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -236,11 +236,11 @@
         {
           "slug": "transport-reliability",
           "public_label": "Service Reliability",
-          "event_count": 21144,
-          "compatible_event_count": 21144,
+          "event_count": 21110,
+          "compatible_event_count": 21110,
           "source_count": 83,
           "compatible_source_count": 83,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -257,11 +257,11 @@
         {
           "slug": "transport-speed",
           "public_label": "Transport Activity",
-          "event_count": 21144,
-          "compatible_event_count": 21144,
+          "event_count": 21110,
+          "compatible_event_count": 21110,
           "source_count": 83,
           "compatible_source_count": 83,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -278,11 +278,11 @@
         {
           "slug": "civic-access-gaps",
           "public_label": "Service Coverage Context",
-          "event_count": 1529,
-          "compatible_event_count": 1529,
+          "event_count": 1526,
+          "compatible_event_count": 1526,
           "source_count": 45,
           "compatible_source_count": 45,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -299,11 +299,11 @@
         {
           "slug": "civic-catchment",
           "public_label": "Service Catchments",
-          "event_count": 1529,
-          "compatible_event_count": 1529,
+          "event_count": 1526,
+          "compatible_event_count": 1526,
           "source_count": 45,
           "compatible_source_count": 45,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -320,11 +320,11 @@
         {
           "slug": "civic-demand",
           "public_label": "Service Context",
-          "event_count": 1529,
-          "compatible_event_count": 1529,
+          "event_count": 1526,
+          "compatible_event_count": 1526,
           "source_count": 45,
           "compatible_source_count": 45,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -341,11 +341,11 @@
         {
           "slug": "economy-land-use",
           "public_label": "Land Use",
-          "event_count": 2049,
-          "compatible_event_count": 2049,
+          "event_count": 2037,
+          "compatible_event_count": 2037,
           "source_count": 38,
           "compatible_source_count": 38,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -362,11 +362,11 @@
         {
           "slug": "economy-vitality",
           "public_label": "High Street Activity",
-          "event_count": 2049,
-          "compatible_event_count": 2049,
+          "event_count": 2037,
+          "compatible_event_count": 2037,
           "source_count": 38,
           "compatible_source_count": 38,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -383,11 +383,11 @@
         {
           "slug": "economy-gravity",
           "public_label": "Economic Context Links",
-          "event_count": 2049,
-          "compatible_event_count": 2049,
+          "event_count": 2037,
+          "compatible_event_count": 2037,
           "source_count": 38,
           "compatible_source_count": 38,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -408,7 +408,7 @@
           "compatible_event_count": 14487,
           "source_count": 73,
           "compatible_source_count": 73,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -429,7 +429,7 @@
           "compatible_event_count": 14487,
           "source_count": 73,
           "compatible_source_count": 73,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -450,7 +450,7 @@
           "compatible_event_count": 14487,
           "source_count": 73,
           "compatible_source_count": 73,
-          "last_retrieved_or_reviewed": "2026-05-30T21:26:46Z",
+          "last_retrieved_or_reviewed": "2026-05-31T02:06:04Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -554,8 +554,8 @@
         {
           "slug": "transport-access",
           "public_label": "Access to Transport",
-          "event_count": 59103,
-          "compatible_event_count": 59103,
+          "event_count": 59104,
+          "compatible_event_count": 59104,
           "source_count": 25,
           "compatible_source_count": 25,
           "last_retrieved_or_reviewed": "2026-05-20",
@@ -575,8 +575,8 @@
         {
           "slug": "transport-reliability",
           "public_label": "Service Reliability",
-          "event_count": 59103,
-          "compatible_event_count": 59103,
+          "event_count": 59104,
+          "compatible_event_count": 59104,
           "source_count": 25,
           "compatible_source_count": 25,
           "last_retrieved_or_reviewed": "2026-05-20",
@@ -596,8 +596,8 @@
         {
           "slug": "transport-speed",
           "public_label": "Transport Activity",
-          "event_count": 59103,
-          "compatible_event_count": 59103,
+          "event_count": 59104,
+          "compatible_event_count": 59104,
           "source_count": 25,
           "compatible_source_count": 25,
           "last_retrieved_or_reviewed": "2026-05-20",
@@ -617,8 +617,8 @@
         {
           "slug": "civic-access-gaps",
           "public_label": "Service Coverage Context",
-          "event_count": 93639,
-          "compatible_event_count": 93639,
+          "event_count": 93638,
+          "compatible_event_count": 93638,
           "source_count": 45,
           "compatible_source_count": 45,
           "last_retrieved_or_reviewed": "2026-05-27",
@@ -638,8 +638,8 @@
         {
           "slug": "civic-catchment",
           "public_label": "Service Catchments",
-          "event_count": 93639,
-          "compatible_event_count": 93639,
+          "event_count": 93638,
+          "compatible_event_count": 93638,
           "source_count": 45,
           "compatible_source_count": 45,
           "last_retrieved_or_reviewed": "2026-05-27",
@@ -659,8 +659,8 @@
         {
           "slug": "civic-demand",
           "public_label": "Service Context",
-          "event_count": 93639,
-          "compatible_event_count": 93639,
+          "event_count": 93638,
+          "compatible_event_count": 93638,
           "source_count": 45,
           "compatible_source_count": 45,
           "last_retrieved_or_reviewed": "2026-05-27",
@@ -894,8 +894,8 @@
         {
           "slug": "transport-access",
           "public_label": "Access to Transport",
-          "event_count": 3756,
-          "compatible_event_count": 3756,
+          "event_count": 3759,
+          "compatible_event_count": 3759,
           "source_count": 25,
           "compatible_source_count": 25,
           "last_retrieved_or_reviewed": "2026-05-20",
@@ -915,8 +915,8 @@
         {
           "slug": "transport-reliability",
           "public_label": "Service Reliability",
-          "event_count": 3756,
-          "compatible_event_count": 3756,
+          "event_count": 3759,
+          "compatible_event_count": 3759,
           "source_count": 25,
           "compatible_source_count": 25,
           "last_retrieved_or_reviewed": "2026-05-20",
@@ -936,8 +936,8 @@
         {
           "slug": "transport-speed",
           "public_label": "Transport Activity",
-          "event_count": 3756,
-          "compatible_event_count": 3756,
+          "event_count": 3759,
+          "compatible_event_count": 3759,
           "source_count": 25,
           "compatible_source_count": 25,
           "last_retrieved_or_reviewed": "2026-05-20",
@@ -957,8 +957,8 @@
         {
           "slug": "civic-access-gaps",
           "public_label": "Service Coverage Context",
-          "event_count": 2236,
-          "compatible_event_count": 2236,
+          "event_count": 2239,
+          "compatible_event_count": 2239,
           "source_count": 29,
           "compatible_source_count": 29,
           "last_retrieved_or_reviewed": "2026-05-20",
@@ -978,8 +978,8 @@
         {
           "slug": "civic-catchment",
           "public_label": "Service Catchments",
-          "event_count": 2236,
-          "compatible_event_count": 2236,
+          "event_count": 2239,
+          "compatible_event_count": 2239,
           "source_count": 29,
           "compatible_source_count": 29,
           "last_retrieved_or_reviewed": "2026-05-20",
@@ -999,8 +999,8 @@
         {
           "slug": "civic-demand",
           "public_label": "Service Context",
-          "event_count": 2236,
-          "compatible_event_count": 2236,
+          "event_count": 2239,
+          "compatible_event_count": 2239,
           "source_count": 29,
           "compatible_source_count": 29,
           "last_retrieved_or_reviewed": "2026-05-20",
@@ -1083,8 +1083,8 @@
         {
           "slug": "utilities-capacity",
           "public_label": "Utility Context",
-          "event_count": 997,
-          "compatible_event_count": 997,
+          "event_count": 998,
+          "compatible_event_count": 998,
           "source_count": 25,
           "compatible_source_count": 25,
           "last_retrieved_or_reviewed": "2026-05-20",
@@ -1104,8 +1104,8 @@
         {
           "slug": "utilities-resilience",
           "public_label": "Utility Network Context",
-          "event_count": 997,
-          "compatible_event_count": 997,
+          "event_count": 998,
+          "compatible_event_count": 998,
           "source_count": 25,
           "compatible_source_count": 25,
           "last_retrieved_or_reviewed": "2026-05-20",
@@ -1125,8 +1125,8 @@
         {
           "slug": "utilities-works",
           "public_label": "Utility Works",
-          "event_count": 997,
-          "compatible_event_count": 997,
+          "event_count": 998,
+          "compatible_event_count": 998,
           "source_count": 25,
           "compatible_source_count": 25,
           "last_retrieved_or_reviewed": "2026-05-20",

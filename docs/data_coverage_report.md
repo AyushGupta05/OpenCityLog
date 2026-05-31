@@ -1,6 +1,6 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-30T21:29:17Z
+Generated: 2026-05-31T02:08:53Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
