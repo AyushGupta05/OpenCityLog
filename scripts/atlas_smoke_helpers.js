@@ -99,15 +99,29 @@ async function atlasState(page) {
       if (style.display === "none" || style.visibility === "hidden" || Number(style.opacity || 1) === 0) return null;
       const rect = el.getBoundingClientRect();
       if (rect.width <= 0 || rect.height <= 0) return null;
+      let left = rect.left;
+      let right = rect.right;
+      let top = rect.top;
+      let bottom = rect.bottom;
+      for (let parent = el.parentElement; parent; parent = parent.parentElement) {
+        const parentStyle = getComputedStyle(parent);
+        if (!/(auto|scroll|hidden|clip)/.test(`${parentStyle.overflow} ${parentStyle.overflowX} ${parentStyle.overflowY}`)) continue;
+        const parentRect = parent.getBoundingClientRect();
+        left = Math.max(left, parentRect.left);
+        right = Math.min(right, parentRect.right);
+        top = Math.max(top, parentRect.top);
+        bottom = Math.min(bottom, parentRect.bottom);
+      }
+      if (right - left <= 0 || bottom - top <= 0) return null;
       return {
         selector,
         el,
-        left: rect.left,
-        right: rect.right,
-        top: rect.top,
-        bottom: rect.bottom,
-        width: rect.width,
-        height: rect.height,
+        left,
+        right,
+        top,
+        bottom,
+        width: right - left,
+        height: bottom - top,
       };
     };
     const panelRects = [
@@ -132,6 +146,18 @@ async function atlasState(page) {
         }
       }
     }
+    const contentOverflows = [
+      ["detailBody", ".detail-body"],
+      ["transportSummary", ".transport-speed-summary-grid"],
+      ["transportBands", ".transport-speed-band-table"],
+      ["lensSwitcher", "#lensSwitcher"],
+      ["timelineHead", ".tl-head"],
+    ].flatMap(([name, selector]) => {
+      const el = document.querySelector(selector);
+      if (!elementVisible(el)) return [];
+      const overflowX = el.scrollWidth - el.clientWidth;
+      return overflowX > 3 ? [`${name} +${Math.round(overflowX)}px`] : [];
+    });
     return {
       title: document.title,
       url: location.href,
@@ -210,6 +236,7 @@ async function atlasState(page) {
       pinCount: pins.length,
       visiblePinCount: pins.filter((pin) => pin.inViewport).length,
       panelOverlaps,
+      contentOverflows,
       transportPinCount: markerStats.transportPinCount,
       visibleTransportPinCount: markerStats.visibleTransportPinCount,
       activePin: pins.find((pin) => pin.active) || null,

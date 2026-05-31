@@ -873,7 +873,7 @@
       "confidenceFilter", "areaFilterInput", "areaFilterOptions", "showInferredToggle", "coverageNote",
       "detailPanel", "detailEmpty", "detailInner", "emptyCityName",
       "methodOverlay", "methodClose", "methodDatasetTable", "methodCities",
-      "tlYear", "tlVisible", "tlTotal", "tlCity", "tlLayers",
+      "tlYear", "prevYearBtn", "nextYearBtn", "tlVisible", "tlTotal", "tlCity", "tlLayers",
       "playBtn", "playIcon",
       "tlTrack", "tlHistogram", "tlAxis", "tlCursor", "tlScrub",
       "welcome", "welcomeCity", "welcomeStart", "welcomeSkip",
@@ -961,6 +961,12 @@
     els.eventListMore?.addEventListener("click", () => {
       state.eventListLimit += EVENT_LIST_BATCH_SIZE;
       renderEventList();
+    });
+    els.prevYearBtn?.addEventListener("click", () => {
+      setYear(Math.max(state.yearRange[0], state.year - 1));
+    });
+    els.nextYearBtn?.addEventListener("click", () => {
+      setYear(Math.min(state.yearRange[1], state.year + 1));
     });
     els.exportCsvBtn?.addEventListener("click", () => exportFilteredCsv());
     els.exportGeojsonBtn?.addEventListener("click", () => exportFilteredGeojson());
@@ -14683,11 +14689,7 @@
   function lensEventsForYear(year) {
     let events = visibleEventsForYear(year).filter((event) => event.lngLat);
     if (state.search) {
-      const q = state.search.toLowerCase();
-      events = events.filter((event) =>
-        (event.title || "").toLowerCase().includes(q) ||
-        (event.area || "").toLowerCase().includes(q) ||
-        (event.summary || "").toLowerCase().includes(q));
+      events = events.filter((event) => eventMatchesSearchQuery(event, state.search));
     }
     return events;
   }
@@ -15185,11 +15187,13 @@
     if (/\bqueens\b|\bqueens county\b/.test(text)) aliases.push("Queens County Q");
     if (/\bbronx\b|\bthe bronx\b|\bbronx county\b/.test(text)) aliases.push("Bronx County BX X");
     if (/\bstaten island\b|\brichmond county\b/.test(text)) aliases.push("Staten Island Richmond County SI R");
-    if (/\bcity centre\b|\bcity center\b|\bbt1\b/.test(text)) aliases.push("Belfast city centre");
-    if (/\bnorth belfast\b/.test(text)) aliases.push("North Belfast");
-    if (/\bsouth belfast\b/.test(text)) aliases.push("South Belfast");
-    if (/\beast belfast\b/.test(text)) aliases.push("East Belfast");
-    if (/\bwest belfast\b/.test(text)) aliases.push("West Belfast");
+    if (/\bcity centre\b|\bcity center\b|\bbt1\b|\bbt2\b/.test(text)) aliases.push("Belfast city centre BT1 BT2");
+    if (/\btitanic quarter\b|\bbt3\b/.test(text)) aliases.push("Titanic Quarter BT3");
+    if (/\bqueen s quarter\b|\bqueens quarter\b|\bbt7\b/.test(text)) aliases.push("Queen's Quarter South Belfast BT7");
+    if (/\bnorth belfast\b|\bbt14\b|\bbt15\b/.test(text)) aliases.push("North Belfast BT14 BT15");
+    if (/\bsouth belfast\b|\bbt7\b|\bbt9\b/.test(text)) aliases.push("South Belfast BT7 BT9");
+    if (/\beast belfast\b|\bbt4\b|\bbt5\b|\bbt6\b/.test(text)) aliases.push("East Belfast BT4 BT5 BT6");
+    if (/\bwest belfast\b|\bbt11\b|\bbt12\b|\bbt13\b/.test(text)) aliases.push("West Belfast BT11 BT12 BT13");
     return aliases;
   }
 
@@ -15213,13 +15217,55 @@
     if (!query || isWholeCityAreaQuery(query)) return true;
     const text = normalizeAreaText(searchText);
     if (!text) return false;
-    const tokens = query.split(" ").filter((token) => token.length > 1);
-    return tokens.length ? tokens.every((token) => text.includes(token)) : text.includes(query);
+    return normalizedTextMatchesQuery(text, query);
   }
 
   function eventMatchesAreaFilter(event) {
     if (!state.areaFilter) return true;
     return areaTextMatchesQuery(event.areaSearchText || areaSearchTextForEvent(event));
+  }
+
+  function eventMatchesSearchQuery(event, query) {
+    const q = normalizeAreaText(query);
+    if (!q) return true;
+    const text = normalizeAreaText([
+      event?.title,
+      event?.area,
+      event?.summary,
+      event?.subtitle,
+      event?.sourceName,
+      event?.confidence,
+      event?.year,
+      event?.areaSearchText || areaSearchTextForEvent(event),
+    ].join(" "));
+    return normalizedTextMatchesQuery(text, q);
+  }
+
+  function eventSearchScore(event, query) {
+    const q = normalizeAreaText(query);
+    if (!q) return 1;
+    const title = normalizeAreaText(event?.title);
+    const area = normalizeAreaText([event?.area, event?.areaSearchText || areaSearchTextForEvent(event)].join(" "));
+    const summary = normalizeAreaText([event?.summary, event?.subtitle, event?.sourceName, event?.confidence, event?.year].join(" "));
+    let score = 0;
+    if (normalizedTextMatchesQuery(title, q)) score += title.includes(q) ? 90 : 70;
+    if (normalizedTextMatchesQuery(area, q)) score += area.includes(q) ? 45 : 35;
+    if (normalizedTextMatchesQuery(summary, q)) score += summary.includes(q) ? 20 : 12;
+    if (event?.confidence === "documented") score += 3;
+    return score;
+  }
+
+  function normalizedTextMatchesQuery(text, query) {
+    const normalizedText = normalizeAreaText(text);
+    const normalizedQuery = normalizeAreaText(query);
+    if (!normalizedQuery) return true;
+    const words = normalizedText.split(" ").filter(Boolean);
+    const tokens = normalizedQuery.split(" ").filter((token) => token.length > 1);
+    if (!tokens.length) return normalizedText.includes(normalizedQuery);
+    return tokens.every((token) => {
+      if (/^[a-z]{1,3}\d{1,3}$/i.test(token)) return words.includes(token);
+      return normalizedText.includes(token) || words.some((word) => word.startsWith(token));
+    });
   }
 
   function chunkAreaFacetsForFilter(chunk, query = areaFilterQuery()) {
@@ -15380,11 +15426,7 @@
   function filteredEvents() {
     let events = visibleEventsForYear(state.year);
     if (state.search) {
-      const q = state.search.toLowerCase();
-      events = events.filter((e) =>
-        (e.title || "").toLowerCase().includes(q) ||
-        (e.area || "").toLowerCase().includes(q) ||
-        (e.summary || "").toLowerCase().includes(q));
+      events = events.filter((event) => eventMatchesSearchQuery(event, state.search));
     }
     return events;
   }
@@ -15519,8 +15561,9 @@
       const active = state.activeAspect === lens.id;
       const layerOn = state.activeLayers.has(lens.category);
       return `
-        <button class="lens-choice" type="button" role="tab" data-aspect="${escapeAttr(lens.id)}" data-active="${active}" data-layer-on="${layerOn}" aria-selected="${active}" title="${escapeAttr(lens.label)}">
-          ${escapeHtml(lens.shortLabel)}
+        <button class="lens-choice" type="button" role="tab" data-aspect="${escapeAttr(lens.id)}" data-active="${active}" data-layer-on="${layerOn}" aria-selected="${active}" aria-label="${escapeAttr(`${lensDomainLabel(lens)}: ${lens.label}`)}" title="${escapeAttr(`${lensDomainLabel(lens)}: ${lens.label}`)}">
+          <span class="lens-choice-domain">${escapeHtml(lensDomainLabel(lens))}</span>
+          <span class="lens-choice-label">${escapeHtml(lens.shortLabel)}</span>
         </button>
       `;
     }).join("");
@@ -15529,6 +15572,12 @@
       button.addEventListener("click", choose);
       addPressHandler(button, choose);
     });
+  }
+
+  function lensDomainLabel(lens) {
+    const category = lens?.category || lens?.layerId || "";
+    if (category === "built_environment") return "Planning";
+    return LAYER_BY_ID.get(category)?.label || lens?.domain || "Lens";
   }
 
   function renderAspectSwitcher() {
@@ -20106,7 +20155,17 @@
     row.focus();
   }
 
-  function selectSearchResult(id) {
+  async function selectSearchResult(rowOrId) {
+    const row = typeof rowOrId === "string" ? null : rowOrId;
+    const id = row?.getAttribute("data-event-id") || (typeof rowOrId === "string" ? rowOrId : "");
+    const area = row?.getAttribute("data-area-filter") || "";
+    if (area) {
+      hideSearchResults();
+      if (els.searchInput) els.searchInput.value = "";
+      state.search = "";
+      await setAreaFilter(area);
+      return;
+    }
     if (!id) return;
     selectEvent(id);
     hideSearchResults();
@@ -20131,7 +20190,7 @@
       focusSearchResult(state.searchResultActiveIndex < 0 ? -1 : state.searchResultActiveIndex - 1);
     } else if (e.key === "Enter" && state.searchResultActiveIndex >= 0) {
       e.preventDefault();
-      selectSearchResult(searchRows()[state.searchResultActiveIndex]?.getAttribute("data-event-id"));
+      selectSearchResult(searchRows()[state.searchResultActiveIndex]);
     } else if (e.key === "Escape") {
       hideSearchResults();
     }
@@ -20165,6 +20224,59 @@
       .join("");
   }
 
+  function areaSearchResults(query) {
+    const q = normalizeAreaText(query);
+    if (!q) return [];
+    const seen = new Set();
+    const results = [];
+    const add = (label, filterValue = label, meta = "Area") => {
+      const cleanLabel = cleanAreaFilter(label);
+      const cleanFilter = cleanAreaFilter(filterValue);
+      const key = meta === "Postcode area"
+        ? normalizeAreaText(cleanLabel)
+        : normalizeAreaText(cleanFilter || cleanLabel);
+      if (!cleanLabel || !cleanFilter || !key || seen.has(key)) return;
+      const postcodeQuery = /^[a-z]{1,3}\d{1,3}$/i.test(q);
+      if (postcodeQuery && meta === "Postcode area") {
+        const labelWords = normalizeAreaText(cleanLabel).split(" ").filter(Boolean);
+        if (!labelWords.includes(q)) return;
+      } else if (postcodeQuery) {
+        const labelWords = normalizeAreaText(cleanLabel).split(" ").filter(Boolean);
+        if (!labelWords.includes(q)) return;
+      }
+      const haystack = normalizeAreaText([
+        cleanLabel,
+        cleanFilter,
+        ...areaAliasesForLabel(cleanLabel),
+        ...areaAliasesForLabel(cleanFilter),
+      ].join(" "));
+      if (!normalizedTextMatchesQuery(haystack, q)) return;
+      seen.add(key);
+      const count = visibleEventsForYear(state.year).filter((event) =>
+        areaTextMatchesQuery(event.areaSearchText || areaSearchTextForEvent(event), normalizeAreaText(cleanFilter))
+      ).length;
+      results.push({ type: "area", label: cleanLabel, filterValue: cleanFilter, meta, count });
+    };
+
+    for (const entry of presetAreaSearchEntriesForCity(state.cityId)) add(entry.label, entry.filter, entry.meta);
+    for (const label of presetAreaLabelsForCity(state.cityId)) add(label, label, "Area");
+    for (const chunk of state.chunks.values()) {
+      for (const facet of Array.isArray(chunk.area_facets) ? chunk.area_facets : []) add(facet.label, facet.label, "Area");
+      if (results.length >= 8) break;
+    }
+    for (const events of state.loadedEvents.values()) {
+      for (const event of events) add(event.area, event.area, "Area");
+      if (results.length >= 8) break;
+    }
+    const postcodeQuery = /^[a-z]{1,3}\d{1,3}$/i.test(q);
+    return results
+      .sort((a, b) => {
+        if (postcodeQuery && a.meta !== b.meta) return a.meta === "Postcode area" ? -1 : 1;
+        return (b.count - a.count) || a.label.localeCompare(b.label);
+      })
+      .slice(0, 5);
+  }
+
   function presetAreaLabelsForCity(cityId) {
     if (cityId === "nyc") return ["Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island"];
     if (cityId === "london") {
@@ -20186,6 +20298,23 @@
     return [];
   }
 
+  function presetAreaSearchEntriesForCity(cityId) {
+    if (cityId === "belfast") {
+      return [
+        { label: "BT1 / City Centre", filter: "City Centre", meta: "Postcode area" },
+        { label: "BT2 / City Centre", filter: "City Centre", meta: "Postcode area" },
+        { label: "BT3 / Titanic Quarter", filter: "Titanic Quarter", meta: "Postcode area" },
+        { label: "BT4 / East Belfast", filter: "East Belfast", meta: "Postcode area" },
+        { label: "BT5 / East Belfast", filter: "East Belfast", meta: "Postcode area" },
+        { label: "BT7 / Queen's Quarter", filter: "Queen's Quarter", meta: "Postcode area" },
+        { label: "BT9 / South Belfast", filter: "South Belfast", meta: "Postcode area" },
+        { label: "BT12 / West Belfast", filter: "West Belfast", meta: "Postcode area" },
+        { label: "BT15 / North Belfast", filter: "North Belfast", meta: "Postcode area" },
+      ];
+    }
+    return [];
+  }
+
   function renderSearchResults() {
     if (!els.searchResults || !els.searchInput) return;
     const q = state.search.trim();
@@ -20193,12 +20322,16 @@
       hideSearchResults();
       return;
     }
-    const events = visibleEventsForYear(state.year);
-    const matches = events
-      .filter((e) =>
-        (e.title || "").toLowerCase().includes(q.toLowerCase()) ||
-        (e.area || "").toLowerCase().includes(q.toLowerCase()))
+    const areaMatches = areaSearchResults(q);
+    const eventMatches = visibleEventsForYear(state.year)
+      .map((event) => ({ ...event, searchScore: eventSearchScore(event, q) }))
+      .filter((event) => event.searchScore > 0)
+      .sort((a, b) => b.searchScore - a.searchScore || Number(b.year || 0) - Number(a.year || 0))
       .slice(0, 8);
+    const areaFirst = /\b(bt\d{1,2}|postcode|postal|area|quarter|ward|borough)\b/i.test(q);
+    const matches = areaFirst
+      ? [...areaMatches, ...eventMatches].slice(0, 8)
+      : [...eventMatches.slice(0, 5), ...areaMatches].slice(0, 8);
 
     if (!matches.length) {
       state.searchResultActiveIndex = -1;
@@ -20212,16 +20345,18 @@
     els.searchInput.setAttribute("aria-expanded", "true");
     state.searchResultActiveIndex = Math.min(state.searchResultActiveIndex, matches.length - 1);
     els.searchResults.innerHTML = matches.map((m, index) => {
-      const color = (LAYER_BY_ID.get(m.category) || LAYERS[1]).color;
+      const isArea = m.type === "area";
+      const color = isArea ? "var(--c-transport)" : (LAYER_BY_ID.get(m.category) || LAYERS[1]).color;
       const active = index === state.searchResultActiveIndex;
       return `
-        <button class="search-row" id="search-result-${index}" type="button" data-event-id="${escapeAttr(m.id)}" role="option" aria-selected="${active}" data-active="${active}">
+        <button class="search-row" id="search-result-${index}" type="button" data-result-type="${isArea ? "area" : "event"}" data-event-id="${escapeAttr(isArea ? "" : m.id)}" data-area-filter="${escapeAttr(isArea ? m.filterValue : "")}" role="option" aria-selected="${active}" data-active="${active}">
           <span class="dot" style="background:${color}"></span>
           <div>
-            <div class="row-title">${escapeHtml(m.title)}</div>
-            <div style="font-size:11px;color:var(--muted)">${escapeHtml(m.area || "")}</div>
+            <div class="row-kind">${isArea ? escapeHtml(m.meta || "Area") : "Record"}</div>
+            <div class="row-title">${escapeHtml(isArea ? m.label : m.title)}</div>
+            <div style="font-size:11px;color:var(--muted)">${escapeHtml(isArea ? `Filter to ${m.filterValue}` : (m.area || ""))}</div>
           </div>
-          <span class="meta">${m.year}</span>
+          <span class="meta">${isArea ? `${m.count || 0}` : m.year}</span>
         </button>`;
     }).join("");
     els.searchResults.querySelectorAll(".search-row").forEach((row, index) => {
@@ -20246,10 +20381,10 @@
           els.searchInput?.focus();
         } else if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          selectSearchResult(row.getAttribute("data-event-id"));
+          selectSearchResult(row);
         }
       });
-      row.addEventListener("click", () => selectSearchResult(row.getAttribute("data-event-id")));
+      row.addEventListener("click", () => selectSearchResult(row));
     });
   }
 
@@ -20294,16 +20429,16 @@
   }
 
   function searchPlaceholderForCity(cityId, city = "city") {
-    if (cityId === "nyc") return 'Search changes in New York City... (try "Queens", "DOB", "hydrant")';
-    if (cityId === "london") return 'Search changes in London... (try "Camden", "listed", "rail")';
-    if (cityId === "belfast") return 'Search changes in Belfast... (try "grand central", "cycle", "translink")';
+    if (cityId === "nyc") return 'Search New York City records or areas... (try "Queens", "DOB", "hydrant")';
+    if (cityId === "london") return 'Search London records or areas... (try "Camden", "listed", "rail")';
+    if (cityId === "belfast") return 'Search Belfast records, areas, or postcodes... (try "BT1", "grand central", "cycle")';
     return `Search source-backed changes in ${city}...`;
   }
 
   function areaPlaceholderForCity(cityId) {
     if (cityId === "nyc") return "Borough, neighborhood, street";
-    if (cityId === "london") return "Borough, ward, street";
-    if (cityId === "belfast") return "Quarter, district, street";
+    if (cityId === "london") return "Borough, ward, street, postcode area";
+    if (cityId === "belfast") return "Postcode, quarter, district, street";
     return "Area, district, street";
   }
 
@@ -20322,6 +20457,19 @@
     setText(els.tlCity, state.selectedEvent ? truncate(state.selectedEvent.title, 48) : shortCityName(state.city?.display_name));
     const area = state.areaFilter ? ` / ${areaFilterLabel()}` : "";
     setText(els.tlLayers, `${lens?.label || "Lens"} / ${state.activeLayers.size}/${LAYERS.length} layers${area}`);
+    updateYearControls();
+  }
+
+  function updateYearControls() {
+    const [start, end] = state.yearRange;
+    if (els.prevYearBtn) {
+      els.prevYearBtn.disabled = Number(state.year) <= Number(start);
+      els.prevYearBtn.title = `Previous year (${Math.max(start, state.year - 1)})`;
+    }
+    if (els.nextYearBtn) {
+      els.nextYearBtn.disabled = Number(state.year) >= Number(end);
+      els.nextYearBtn.title = `Next year (${Math.min(end, state.year + 1)})`;
+    }
   }
 
   function totalEventsForYear(year) {
@@ -20355,6 +20503,7 @@
     if (next === state.year && state.loadedEvents.has(next)) {
       renderAll();
       updateTimeDependentMapState();
+      updateYearControls();
       return;
     }
     state.year = next;
@@ -20362,6 +20511,7 @@
     resetEventListLimit();
     if (state.compareOpen) state.compareAfterYear = next;
     setText(els.tlYear, String(next));
+    updateYearControls();
     updateTimeDependentMapState();
     // de-select if the selected event isn't in the new year
     if (state.selectedEvent && state.selectedEvent.year !== next) {

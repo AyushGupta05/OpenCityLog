@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="/atlas.css?v=paper-atlas-30">
+  <link rel="stylesheet" href="/atlas.css?v=paper-atlas-31">
 </head>
 <body data-theme="light" data-mapstyle="osm">
 
@@ -198,7 +198,15 @@
   <!-- Bottom timeline -->
   <div class="timeline panel">
     <div class="tl-head">
-      <div class="tl-year" id="tlYear">2024</div>
+      <div class="tl-year-control" aria-label="Timeline year">
+        <button class="btn btn-icon tl-year-step" id="prevYearBtn" type="button" title="Previous year" aria-label="Previous year">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="12" height="12"><path d="M15 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tl-year" id="tlYear">2024</div>
+        <button class="btn btn-icon tl-year-step" id="nextYearBtn" type="button" title="Next year" aria-label="Next year">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="12" height="12"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
       <div class="tl-meta">
         <span><strong id="tlVisible">0</strong> / <span id="tlTotal">0</span> changes visible</span>
         <span id="tlCity">Belfast</span>
