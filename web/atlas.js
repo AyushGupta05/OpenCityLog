@@ -1639,6 +1639,11 @@
       && heightCoverage >= 0.68;
   }
 
+  function shouldPreferCitywideLensCamera() {
+    if (!state.map || state.search || state.areaFilter) return false;
+    return !state.selectedEvent || citywideOverviewActive();
+  }
+
   function eventWithinCityBounds(event, bounds = cityBoundsValues()) {
     if (!bounds || !event?.lngLat) return Boolean(event?.lngLat);
     const [lng, lat] = event.lngLat.map(Number);
@@ -4014,7 +4019,7 @@
       id: "lens-planning-cells-fill",
       type: "fill",
       source: LENS_DETAIL_SOURCE_ID,
-      minzoom: 9.2,
+      minzoom: 5.5,
       filter: lensDetailFilter("planning_cell"),
       layout: { visibility: "none" },
       paint: {
@@ -4026,20 +4031,20 @@
       id: "lens-planning-cells-outline",
       type: "line",
       source: LENS_DETAIL_SOURCE_ID,
-      minzoom: 9.2,
+      minzoom: 5.5,
       filter: lensDetailFilter("planning_cell"),
       layout: { visibility: "none", "line-join": "round" },
       paint: {
         "line-color": planningCellColorExpression(),
         "line-opacity": lensDetailLineOpacity(0.28, 0.82),
-        "line-width": ["interpolate", ["linear"], ["zoom"], 9, 0.35, 13, 0.75, 16, 1.35],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 5.5, 0.28, 9, 0.42, 13, 0.75, 16, 1.35],
       },
     });
     state.map.addLayer({
       id: "lens-civic-coverage-fill",
       type: "fill",
       source: LENS_DETAIL_SOURCE_ID,
-      minzoom: 8.8,
+      minzoom: 5.5,
       filter: lensDetailFilter("civic_coverage_cell"),
       layout: { visibility: "none" },
       paint: {
@@ -4051,20 +4056,20 @@
       id: "lens-civic-coverage-outline",
       type: "line",
       source: LENS_DETAIL_SOURCE_ID,
-      minzoom: 8.8,
+      minzoom: 5.5,
       filter: lensDetailFilter("civic_coverage_cell"),
       layout: { visibility: "none", "line-join": "round" },
       paint: {
         "line-color": civicCellColorExpression(),
         "line-opacity": lensDetailLineOpacity(0.18, 0.58),
-        "line-width": ["interpolate", ["linear"], ["zoom"], 9, 0.25, 13, 0.5, 16, 0.9],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 5.5, 0.22, 9, 0.32, 13, 0.5, 16, 0.9],
       },
     });
     state.map.addLayer({
       id: "lens-civic-facility-icons",
       type: "symbol",
       source: LENS_DETAIL_SOURCE_ID,
-      minzoom: 8.8,
+      minzoom: 5.5,
       filter: lensDetailFilter("civic_facility"),
       layout: detailIconLayout("lens-icon-civic", 9.5, true),
       paint: detailIconPaint(0.86),
@@ -4073,7 +4078,7 @@
       id: "lens-economy-cells-fill",
       type: "fill",
       source: LENS_DETAIL_SOURCE_ID,
-      minzoom: 9.4,
+      minzoom: 5.5,
       filter: lensDetailFilter("economy_activity_cell"),
       layout: { visibility: "none" },
       paint: {
@@ -4085,20 +4090,20 @@
       id: "lens-economy-cells-outline",
       type: "line",
       source: LENS_DETAIL_SOURCE_ID,
-      minzoom: 9.4,
+      minzoom: 5.5,
       filter: lensDetailFilter("economy_activity_cell"),
       layout: { visibility: "none", "line-join": "round" },
       paint: {
         "line-color": economyCellColorExpression(),
         "line-opacity": lensDetailLineOpacity(0.16, 0.66),
-        "line-width": ["interpolate", ["linear"], ["zoom"], 9, 0.22, 13, 0.52, 16, 1],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 5.5, 0.22, 9, 0.34, 13, 0.52, 16, 1],
       },
     });
     state.map.addLayer({
       id: "lens-economy-frontage-case",
       type: "line",
       source: LENS_DETAIL_SOURCE_ID,
-      minzoom: 9,
+      minzoom: 5.5,
       filter: lensDetailFilter("economy_frontage"),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
@@ -4112,7 +4117,7 @@
       id: "lens-economy-frontage",
       type: "line",
       source: LENS_DETAIL_SOURCE_ID,
-      minzoom: 9,
+      minzoom: 5.5,
       filter: lensDetailFilter("economy_frontage"),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
@@ -4125,7 +4130,7 @@
       id: "lens-utilities-trace-case",
       type: "line",
       source: LENS_DETAIL_SOURCE_ID,
-      minzoom: 9,
+      minzoom: 5.5,
       filter: lensDetailFilter("utility_trace"),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
@@ -4139,7 +4144,7 @@
       id: "lens-utilities-trace",
       type: "line",
       source: LENS_DETAIL_SOURCE_ID,
-      minzoom: 9,
+      minzoom: 5.5,
       filter: lensDetailFilter("utility_trace"),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
@@ -4153,7 +4158,7 @@
       id: "lens-utility-asset-icons",
       type: "symbol",
       source: LENS_DETAIL_SOURCE_ID,
-      minzoom: 9,
+      minzoom: 5.5,
       filter: lensDetailFilter("utility_asset"),
       layout: detailUtilityIconLayout(9.8, true),
       paint: detailIconPaint(0.84),
@@ -4405,19 +4410,31 @@
 
   function lensDetailFillOpacity(low, high) {
     const intensity = lensDetailIntensityExpression();
-    return [
+    const featureOpacity = [
       "*",
       ["case", ["==", ["get", "confidence"], "inferred"], 0.64, ["==", ["get", "confidence"], "disputed"], 0.72, 1],
       ["interpolate", ["linear"], intensity, 0, low, 1, high],
+    ];
+    return [
+      "interpolate", ["linear"], ["zoom"],
+      5.5, ["*", 1.45, featureOpacity],
+      9, ["*", 1.12, featureOpacity],
+      13, featureOpacity,
     ];
   }
 
   function lensDetailLineOpacity(low, high) {
     const intensity = lensDetailIntensityExpression();
-    return [
+    const featureOpacity = [
       "*",
       ["case", ["==", ["get", "confidence"], "inferred"], 0.58, ["==", ["get", "confidence"], "disputed"], 0.68, 1],
       ["interpolate", ["linear"], intensity, 0, low, 1, high],
+    ];
+    return [
+      "interpolate", ["linear"], ["zoom"],
+      5.5, ["*", 1.6, featureOpacity],
+      9, ["*", 1.18, featureOpacity],
+      13, featureOpacity,
     ];
   }
 
@@ -4426,7 +4443,8 @@
     const rank = ["min", 1.55, ["max", 0.7, ["to-number", ["get", "rank"], 1]]];
     return [
       "interpolate", ["linear"], ["zoom"],
-      9, ["*", ["interpolate", ["linear"], intensity, 0, low * 0.36, 1, high * 0.36], rank],
+      5.5, ["*", ["interpolate", ["linear"], intensity, 0, low * 0.28, 1, high * 0.28], rank],
+      9, ["*", ["interpolate", ["linear"], intensity, 0, low * 0.42, 1, high * 0.42], rank],
       13, ["*", ["interpolate", ["linear"], intensity, 0, low * 0.72, 1, high * 0.72], rank],
       16, ["*", ["interpolate", ["linear"], intensity, 0, low, 1, high], rank],
     ];
@@ -4645,7 +4663,7 @@
       id: "lens-built-footprints-fill",
       type: "fill",
       source: DETAIL_SOURCE_ID,
-      minzoom: 10.4,
+      minzoom: 8.2,
       filter: builtFootprintFilter(),
       layout: { visibility: "none" },
       paint: {
@@ -4657,13 +4675,13 @@
       id: "lens-built-footprints-before",
       type: "line",
       source: DETAIL_SOURCE_ID,
-      minzoom: 10.8,
+      minzoom: 8.2,
       filter: builtFootprintBeforeFilter(),
       layout: { visibility: "none", "line-join": "round" },
       paint: {
         "line-color": "#cf604c",
-        "line-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0.16, 14, 0.44, 17, 0.66],
-        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.25, 14, 0.78, 17, 1.15],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 8, 0.1, 10, 0.16, 14, 0.44, 17, 0.66],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 8, 0.18, 10, 0.25, 14, 0.78, 17, 1.15],
         "line-dasharray": [1.1, 1.15],
       },
     });
@@ -4671,20 +4689,20 @@
       id: "lens-built-footprints-outline",
       type: "line",
       source: DETAIL_SOURCE_ID,
-      minzoom: 10.4,
+      minzoom: 8.2,
       filter: builtFootprintFilter(),
       layout: { visibility: "none", "line-join": "round" },
       paint: {
         "line-color": "#f3c7b8",
-        "line-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0.18, 14, 0.42, 17, 0.66],
-        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.25, 14, 0.75, 17, 1.1],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 8, 0.12, 10, 0.18, 14, 0.42, 17, 0.66],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 8, 0.18, 10, 0.25, 14, 0.75, 17, 1.1],
       },
     });
     state.map.addLayer({
       id: "lens-built-footprints-year",
       type: "line",
       source: DETAIL_SOURCE_ID,
-      minzoom: 11.6,
+      minzoom: 8.2,
       filter: builtFootprintYearFilter(),
       layout: { visibility: "none", "line-join": "round" },
       paint: {
@@ -5205,11 +5223,11 @@
     if (!state.map?.getSource(LENS_DETAIL_SOURCE_ID)) return;
     const aspect = activeMapLens();
     const showPlanningCells = isActiveMapLens("built_environment");
-    const showCivicCells = isActiveMapLens("civic_services") && aspect.id !== "civic-catchment";
-    const showCivicFacilityIcons = isActiveMapLens("civic_services") && aspect.id !== "civic-catchment";
-    const showEconomyCells = isActiveMapLens("economy") && !["economy-gravity", "economy-land-use"].includes(aspect.id);
-    const showEconomyFrontage = isActiveMapLens("economy") && !["economy-land-use", "economy-gravity"].includes(aspect.id);
-    const showUtilityDetail = isActiveMapLens("utilities") && aspect.id !== "utilities-works";
+    const showCivicCells = isActiveMapLens("civic_services");
+    const showCivicFacilityIcons = isActiveMapLens("civic_services");
+    const showEconomyCells = isActiveMapLens("economy");
+    const showEconomyFrontage = isActiveMapLens("economy") && aspect.id !== "economy-land-use";
+    const showUtilityDetail = isActiveMapLens("utilities");
     const visibilityByLayer = {
       "lens-planning-cells-fill": showPlanningCells,
       "lens-planning-cells-outline": showPlanningCells,
@@ -5672,18 +5690,18 @@
     }
     if (state.map.getLayer("lens-built-footprints-before")) {
       state.map.setPaintProperty("lens-built-footprints-before", "line-color", aspect.id === "planning-delta" ? "#cf6a57" : "#f3c7b8");
-      state.map.setPaintProperty("lens-built-footprints-before", "line-opacity", ["interpolate", ["linear"], ["zoom"], 10, 0.16, 14, aspect.id === "planning-delta" ? 0.5 : 0.32, 17, aspect.id === "planning-delta" ? 0.68 : 0.48]);
-      state.map.setPaintProperty("lens-built-footprints-before", "line-width", ["interpolate", ["linear"], ["zoom"], 10, 0.25, 14, 0.78, 17, 1.15]);
+      state.map.setPaintProperty("lens-built-footprints-before", "line-opacity", ["interpolate", ["linear"], ["zoom"], 8, 0.1, 10, 0.16, 14, aspect.id === "planning-delta" ? 0.5 : 0.32, 17, aspect.id === "planning-delta" ? 0.68 : 0.48]);
+      state.map.setPaintProperty("lens-built-footprints-before", "line-width", ["interpolate", ["linear"], ["zoom"], 8, 0.18, 10, 0.25, 14, 0.78, 17, 1.15]);
       state.map.setPaintProperty("lens-built-footprints-before", "line-dasharray", [1.1, 1.15]);
     }
     if (state.map.getLayer("lens-built-footprints-outline")) {
       state.map.setPaintProperty("lens-built-footprints-outline", "line-color", aspect.id === "planning-delta" ? "#e6b09d" : "#f3c7b8");
-      state.map.setPaintProperty("lens-built-footprints-outline", "line-opacity", ["interpolate", ["linear"], ["zoom"], 10, aspect.id === "planning-delta" ? 0.12 : 0.18, 14, aspect.id === "planning-delta" ? 0.28 : 0.42, 17, aspect.id === "planning-delta" ? 0.42 : 0.66]);
+      state.map.setPaintProperty("lens-built-footprints-outline", "line-opacity", ["interpolate", ["linear"], ["zoom"], 8, aspect.id === "planning-delta" ? 0.08 : 0.12, 10, aspect.id === "planning-delta" ? 0.12 : 0.18, 14, aspect.id === "planning-delta" ? 0.28 : 0.42, 17, aspect.id === "planning-delta" ? 0.42 : 0.66]);
     }
     if (state.map.getLayer("lens-built-footprints-year")) {
       state.map.setPaintProperty("lens-built-footprints-year", "line-color", aspect.id === "planning-delta" ? "#8f4a3e" : "#201c17");
       state.map.setPaintProperty("lens-built-footprints-year", "line-opacity", aspect.id === "planning-delta" ? 0.28 : 0.72);
-      state.map.setPaintProperty("lens-built-footprints-year", "line-width", ["interpolate", ["linear"], ["zoom"], 11, aspect.id === "planning-delta" ? 0.45 : 0.8, 15, aspect.id === "planning-delta" ? 1.1 : 1.7, 17, aspect.id === "planning-delta" ? 1.65 : 2.4]);
+      state.map.setPaintProperty("lens-built-footprints-year", "line-width", ["interpolate", ["linear"], ["zoom"], 8, aspect.id === "planning-delta" ? 0.24 : 0.42, 11, aspect.id === "planning-delta" ? 0.45 : 0.8, 15, aspect.id === "planning-delta" ? 1.1 : 1.7, 17, aspect.id === "planning-delta" ? 1.65 : 2.4]);
     }
   }
 
@@ -17447,6 +17465,12 @@
         </button>
         <div class="detail-eyebrow">Evidence brief</div>
         <div class="planning-detail-subtitle">${escapeHtml(eventSubtitleLine(event))}</div>
+        <h2 class="detail-title">${escapeHtml(event.title)}</h2>
+        <div class="detail-where">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="11" height="11"><path d="M12 22s7-7.5 7-13a7 7 0 10-14 0c0 5.5 7 13 7 13z" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span>${escapeHtml(event.area || "Unknown area")}</span>
+          ${event.lngLat ? `<span class="sep">.</span><span style="font-family:var(--font-mono);font-size:10.5px">${event.lngLat[1].toFixed(3)}, ${event.lngLat[0].toFixed(3)}</span>` : ""}
+        </div>
         ${isParcels ? `
           <div class="planning-stage-tabs" role="tablist" aria-label="Planning stage filter">
             <button type="button" data-filter="all" data-active="false">All lenses</button>
@@ -20847,12 +20871,12 @@
   function setActiveLens(lensId) {
     const next = normalizeMapLensId(lensId);
     if (!next) return;
-    const keepCitywideCamera = citywideOverviewActive();
+    const useCitywideCamera = shouldPreferCitywideLensCamera();
     state.manualLensOverride = next;
     state.manualAspectOverride = null;
     if (next === state.activeLens) {
       updateTimeDependentMapState();
-      if (keepCitywideCamera) fitMapToCity(260);
+      if (useCitywideCamera) fitMapToCity(260);
       else focusActiveLensCamera();
       syncTopline();
       return;
@@ -20876,7 +20900,7 @@
     renderSearchResults();
     updateTimeDependentMapState();
     renderMarkers();
-    if (keepCitywideCamera) fitMapToCity(260);
+    if (useCitywideCamera) fitMapToCity(260);
     else focusActiveLensCamera();
     syncTopline();
   }
@@ -20885,12 +20909,12 @@
     const next = normalizeLensAspectId(aspectId);
     if (!next) return;
     const aspect = LENS_ASPECT_BY_ID.get(next);
-    const keepCitywideCamera = citywideOverviewActive();
+    const useCitywideCamera = shouldPreferCitywideLensCamera();
     state.manualAspectOverride = next;
     state.manualLensOverride = aspect?.category || state.activeLens;
     if (next === state.activeAspect && (!aspect?.category || aspect.category === state.activeLens)) {
       updateTimeDependentMapState();
-      if (keepCitywideCamera) fitMapToCity(260);
+      if (useCitywideCamera) fitMapToCity(260);
       else focusActiveLensCamera();
       syncTopline();
       return;
@@ -20916,7 +20940,7 @@
     renderSearchResults();
     updateTimeDependentMapState();
     renderMarkers();
-    if (keepCitywideCamera) fitMapToCity(260);
+    if (useCitywideCamera) fitMapToCity(260);
     else focusActiveLensCamera();
     syncTopline();
   }

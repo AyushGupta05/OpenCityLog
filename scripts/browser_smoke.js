@@ -227,6 +227,23 @@ async function runSmoke() {
   const afterPinClick = await atlasState(page);
   assert(afterPinClick.detailTitle.includes("York Street"), "Clicking a York Street map pin did not update the evidence detail panel.");
   assert(afterPinClick.activePin?.text.includes("York Street"), "Clicked map pin did not become the active event.");
+  await page.waitForFunction(
+    () => document.querySelector("#mapStudyChip")?.dataset.scope !== "city"
+      && Number(window.BimsAtlas?.state?.map?.getZoom?.() || 0) >= 12.5,
+    null,
+    { timeout: 10000 }
+  );
+  await page.evaluate(() => window.BimsAtlas?.setActiveAspect?.("civic-access-gaps"));
+  await page.waitForFunction(
+    () => window.BimsAtlas?.state?.activeAspect === "civic-access-gaps"
+      && document.querySelector("#mapStudyChip")?.dataset.scope !== "city",
+    null,
+    { timeout: 10000 }
+  );
+  const afterLocalLensSwitch = await atlasState(page);
+  assert(afterLocalLensSwitch.mapZoom >= 12.5, "Switching lenses from an event-focused view unexpectedly reset to the citywide camera.");
+  await page.evaluate(() => window.BimsAtlas?.setActiveAspect?.("transport-speed"));
+  await page.waitForFunction(() => window.BimsAtlas?.state?.activeAspect === "transport-speed", null, { timeout: 10000 });
 
   const grandCentralTitle = "Belfast Grand Central Station opened";
   await page.locator("#searchInput").fill(grandCentralTitle);

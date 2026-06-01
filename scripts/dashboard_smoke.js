@@ -128,6 +128,66 @@ async function assertDesktopButtonsRespond(page) {
   await page.waitForFunction(() => document.querySelector("#playBtn")?.getAttribute("aria-pressed") === "true", null, { timeout: 10000 });
   await page.locator("#playBtn").click();
   await page.waitForFunction(() => document.querySelector("#playBtn")?.getAttribute("aria-pressed") === "false", null, { timeout: 10000 });
+
+  await page.evaluate(async () => {
+    await window.BimsAtlas?.setAreaFilter?.("");
+    await window.BimsAtlas?.setYear?.(2024);
+    window.BimsAtlas?.recenterMap?.();
+  });
+  await page.waitForFunction(() => !document.querySelector("#eventListMore")?.hidden, null, { timeout: 10000 });
+  const limitBeforeMore = await page.evaluate(() => Number(window.BimsAtlas?.state?.eventListLimit || 0));
+  await page.locator("#eventListMore").click();
+  await page.waitForFunction(
+    (previous) => Number(window.BimsAtlas?.state?.eventListLimit || 0) > previous,
+    limitBeforeMore,
+    { timeout: 10000 }
+  );
+}
+
+async function assertMobileButtonsRespond(page) {
+  const startingTheme = await page.locator("body").getAttribute("data-theme");
+
+  await page.locator("#methodBtn").click();
+  await page.waitForFunction(() => document.querySelector("#methodOverlay")?.getAttribute("data-open") === "true", null, { timeout: 10000 });
+  await page.locator("#methodClose").click();
+  await page.waitForFunction(() => document.querySelector("#methodOverlay")?.getAttribute("data-open") === "false", null, { timeout: 10000 });
+
+  await page.locator("#compareBtn").click();
+  await page.waitForFunction(() => document.querySelector("#comparePanel")?.getAttribute("data-open") === "true", null, { timeout: 10000 });
+  await page.locator("#compareClose").click();
+  await page.waitForFunction(() => document.querySelector("#comparePanel")?.getAttribute("data-open") === "false", null, { timeout: 10000 });
+
+  await page.locator("#shareBtn").click();
+  await page.waitForFunction(() => document.querySelector("#toast")?.getAttribute("data-show") === "true", null, { timeout: 10000 });
+
+  await page.locator("#themeBtn").click();
+  await page.waitForFunction(
+    (theme) => document.body.getAttribute("data-theme") !== theme,
+    startingTheme,
+    { timeout: 10000 }
+  );
+  await page.locator("#themeBtn").click();
+  await page.waitForFunction(
+    (theme) => document.body.getAttribute("data-theme") === theme,
+    startingTheme,
+    { timeout: 10000 }
+  );
+
+  await page.locator("#playBtn").click();
+  await page.waitForFunction(() => document.querySelector("#playBtn")?.getAttribute("aria-pressed") === "true", null, { timeout: 10000 });
+  await page.locator("#playBtn").click();
+  await page.waitForFunction(() => document.querySelector("#playBtn")?.getAttribute("aria-pressed") === "false", null, { timeout: 10000 });
+
+  await page.locator("#cityToggle").click();
+  await page.waitForFunction(() => document.querySelector("#cityToggle")?.getAttribute("aria-expanded") === "true", null, { timeout: 10000 });
+  await page.keyboard.press("Escape");
+  await page.waitForFunction(() => document.querySelector("#cityToggle")?.getAttribute("aria-expanded") === "false", null, { timeout: 10000 });
+
+  await page.locator("#lensSwitcher .lens-choice[data-aspect='planning-pressure']").click();
+  await page.waitForFunction(() => window.BimsAtlas?.state?.activeAspect === "planning-pressure", null, { timeout: 10000 });
+  const state = await atlasState(page);
+  assert(state.scrollWidth <= state.clientWidth + 4, "mobile after buttons: responsive shell has horizontal overflow.");
+  assert(state.activeLens === "built_environment", "mobile: lens button did not switch to Planning & Built.");
 }
 
 async function assertDesktopCitywideCoverage(page) {
@@ -163,6 +223,15 @@ async function assertDesktopCitywideCoverage(page) {
       lens.id,
       { timeout: 10000 }
     );
+    await page.waitForFunction(
+      () => {
+        const state = window.BimsAtlas?.state;
+        if (!state?.map || state.activeLens === "transport") return true;
+        return state.map.isSourceLoaded?.("lens-detail-overlays") === true;
+      },
+      null,
+      { timeout: 20000 }
+    );
     await page.waitForTimeout(350);
     const state = await atlasState(page);
     assert(state.scrollWidth <= state.clientWidth + 4, `desktop citywide ${lens.id}: page overflows horizontally.`);
@@ -192,7 +261,29 @@ async function assertDesktopCitywideCoverage(page) {
         }
       }
       const coverageRows = atlas?.state?.lensYearCoverage?.rows || [];
+      const activeAspect = atlas?.state?.activeAspect || "";
+      const activeLens = atlas?.state?.activeLens || "";
+      const activeCoverageRow = coverageRows.find((row) => row?.lens_slug === activeAspect && Number(row?.year) === Number(atlas?.state?.year)) || null;
       const contextRows = coverageRows.filter((row) => /context/i.test(row?.status || "") || Number(row?.coverage_context_feature_count || 0) > 0).length;
+      const renderedLayerCount = (layerId) => {
+        if (!map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") return 0;
+        try {
+          return map.queryRenderedFeatures({ layers: [layerId] }).length;
+        } catch (_error) {
+          return 0;
+        }
+      };
+      const detailLayersByLens = {
+        built_environment: ["lens-planning-cells-fill"],
+        civic_services: ["lens-civic-coverage-fill", "lens-civic-facility-icons"],
+        economy: activeAspect === "economy-land-use"
+          ? ["lens-economy-cells-fill"]
+          : ["lens-economy-cells-fill", "lens-economy-frontage"],
+        utilities: ["lens-utilities-trace", "lens-utility-asset-icons"],
+        transport: ["lens-transport-roads", "lens-transport-base"],
+      };
+      const renderedSourceBackedDetail = (detailLayersByLens[activeLens] || [])
+        .reduce((sum, layerId) => sum + renderedLayerCount(layerId), 0);
       const bounds = atlas?.state?.city?.bounds || [];
       const [west, south, east, north] = bounds.map(Number);
       const cells = new Set();
@@ -207,6 +298,11 @@ async function assertDesktopCitywideCoverage(page) {
       return {
         renderedGuides,
         contextRows,
+        activeLens,
+        activeAspect,
+        visibleMapContract: Boolean(activeCoverageRow?.visible_map_contract),
+        detailFeatureCount: Number(activeCoverageRow?.detail_feature_count || 0),
+        renderedSourceBackedDetail,
         markerCells: cells.size,
         chip: document.querySelector("#mapStudyChipText")?.textContent.trim() || "",
       };
@@ -215,7 +311,55 @@ async function assertDesktopCitywideCoverage(page) {
     assert(citywideState.renderedGuides === 0, `desktop citywide ${lens.id}: generated guide layers rendered ${citywideState.renderedGuides} features.`);
     assert(citywideState.contextRows === 0, `desktop citywide ${lens.id}: lens-year coverage still includes context filler rows.`);
     assert(citywideState.markerCells >= 3, `desktop citywide ${lens.id}: map markers are clustered too tightly for a citywide view.`);
+    if (citywideState.visibleMapContract && citywideState.detailFeatureCount > 0) {
+      assert(citywideState.renderedSourceBackedDetail > 0, `desktop citywide ${lens.id}: source-backed lens detail exists but rendered no citywide features.`);
+    }
   }
+
+  await page.evaluate(async () => {
+    await window.BimsAtlas?.setAreaFilter?.("");
+    await window.BimsAtlas?.setActiveAspect?.("planning-delta");
+    await window.BimsAtlas?.setYear?.(2010);
+    window.BimsAtlas?.recenterMap?.();
+  });
+  await page.waitForFunction(
+    () => Number(window.BimsAtlas?.state?.year) === 2010
+      && window.BimsAtlas?.state?.activeAspect === "planning-delta"
+      && window.BimsAtlas?.state?.map?.isSourceLoaded?.("lens-detail-overlays") === true
+      && document.querySelector("#mapStudyChip")?.dataset.scope === "city",
+    null,
+    { timeout: 20000 }
+  );
+  await page.waitForTimeout(500);
+  const historicPlanning = await atlasState(page);
+  await page.evaluate(async () => {
+    await window.BimsAtlas?.setYear?.(2024);
+    window.BimsAtlas?.recenterMap?.();
+  });
+  await page.waitForFunction(
+    () => Number(window.BimsAtlas?.state?.year) === 2024
+      && window.BimsAtlas?.state?.activeAspect === "planning-delta"
+      && Number(window.BimsAtlas?.state?.lensDetailYearLoaded) === 2024
+      && window.BimsAtlas?.state?.map?.isSourceLoaded?.("lens-detail-overlays") === true,
+    null,
+    { timeout: 20000 }
+  );
+  await page.waitForTimeout(700);
+  const currentPlanning = await atlasState(page);
+  assert(historicPlanning.lensPlanningCellsRendered > 0, "desktop citywide planning-delta 2010: dated source-backed planning cells did not render.");
+  assert(currentPlanning.lensPlanningCellsRendered > historicPlanning.lensPlanningCellsRendered, `desktop citywide planning-delta: 2024 rendered cells (${currentPlanning.lensPlanningCellsRendered}) did not increase from 2010 (${historicPlanning.lensPlanningCellsRendered}).`);
+  assert(Number(currentPlanning.lensDetailYearLoaded) === 2024, "desktop citywide planning-delta: building/planning source did not reload to the current timeline year.");
+  await page.evaluate(async () => {
+    const event = (window.BimsAtlas?.filteredEvents?.() || []).find((item) => item?.lngLat);
+    if (event) await window.BimsAtlas?.selectEvent?.(event.id, { silent: true, keepCamera: true });
+    window.BimsAtlas?.recenterMap?.();
+  });
+  await page.waitForFunction(
+    () => document.querySelector("#mapStudyChip")?.dataset.scope === "city"
+      && (document.querySelector(".detail-title")?.textContent.trim() || "").length > 8,
+    null,
+    { timeout: 10000 }
+  );
 
   const samples = await page.evaluate(() => {
     const atlas = window.BimsAtlas;
@@ -271,6 +415,147 @@ async function assertDesktopCitywideCoverage(page) {
   await page.waitForFunction(() => document.querySelector("#mapStudyChip")?.dataset.scope === "city", null, { timeout: 10000 });
 }
 
+async function assertCitySourceBackedLensCoverage(page, cityId) {
+  await page.evaluate(async () => {
+    await window.BimsAtlas?.setAreaFilter?.("");
+    await window.BimsAtlas?.setYear?.(2024);
+    window.BimsAtlas?.recenterMap?.();
+  });
+  await page.waitForFunction(
+    () => Number(window.BimsAtlas?.state?.year) === 2024
+      && document.querySelector("#mapStudyChip")?.dataset.scope === "city",
+    null,
+    { timeout: 20000 }
+  );
+  const checksByCity = {
+    belfast: [
+      { aspect: "planning-pressure", rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells" },
+      { aspect: "civic-access-gaps", rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells" },
+      { aspect: "economy-land-use", rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], featureLayer: "economy_activity_cell", label: "economy cells" },
+      { aspect: "utilities-capacity", rendered: ["lensUtilityTraceRendered", "lensUtilityAssetsRendered"], renderedLayers: ["lens-utilities-trace", "lens-utility-asset-icons"], featureLayer: "utility_trace", label: "utility traces/assets" },
+    ],
+    london: [
+      { aspect: "planning-pressure", rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells" },
+      { aspect: "civic-access-gaps", rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells" },
+      { aspect: "utilities-capacity", rendered: ["lensUtilityTraceRendered"], renderedLayers: ["lens-utilities-trace"], featureLayer: "utility_trace", label: "utility traces" },
+    ],
+    nyc: [
+      { aspect: "planning-pressure", rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells" },
+      { aspect: "civic-access-gaps", rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells" },
+      { aspect: "economy-land-use", rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], featureLayer: "economy_activity_cell", label: "economy cells" },
+    ],
+  };
+  const checks = checksByCity[cityId] || checksByCity.belfast;
+  for (const check of checks) {
+    await page.evaluate((aspect) => window.BimsAtlas?.setActiveAspect?.(aspect), check.aspect);
+    await page.waitForFunction(
+      (aspect) => window.BimsAtlas?.state?.activeAspect === aspect
+        && Number(window.BimsAtlas?.state?.lensDetailYearLoaded) === 2024,
+      check.aspect,
+      { timeout: 20000 }
+    );
+    await page.waitForFunction(
+      () => window.BimsAtlas?.state?.map?.isSourceLoaded?.("lens-detail-overlays") === true,
+      null,
+      { timeout: 20000 }
+    );
+    await page.waitForTimeout(700);
+    const state = await atlasState(page);
+    const rendered = check.rendered.reduce((sum, field) => sum + Number(state[field] || 0), 0);
+    assert(rendered > 0, `city ${cityId}: ${check.label} did not render across the 2024 citywide map.`);
+    await assertPannedSourceBackedLensCoverage(page, cityId, check);
+  }
+}
+
+async function assertPannedSourceBackedLensCoverage(page, cityId, check) {
+  const samples = await page.evaluate(({ featureLayer }) => {
+    const atlas = window.BimsAtlas;
+    const bounds = atlas?.state?.city?.bounds || [];
+    const [west, south, east, north] = bounds.map(Number);
+    if (![west, south, east, north].every(Number.isFinite)) return [];
+    const cityCenter = [(west + east) / 2, (south + north) / 2];
+    const coordsFromGeometry = (geometry, acc = []) => {
+      if (!geometry || acc.length > 160) return acc;
+      const coords = geometry.coordinates;
+      const visit = (value) => {
+        if (acc.length > 160) return;
+        if (Array.isArray(value?.[0]) && typeof value[0][0] !== "number") {
+          value.forEach(visit);
+        } else if (Array.isArray(value?.[0]) && typeof value[0][0] === "number") {
+          value.forEach((point) => {
+            if (Number.isFinite(Number(point?.[0])) && Number.isFinite(Number(point?.[1]))) acc.push([Number(point[0]), Number(point[1])]);
+          });
+        } else if (Number.isFinite(Number(value?.[0])) && Number.isFinite(Number(value?.[1]))) {
+          acc.push([Number(value[0]), Number(value[1])]);
+        }
+      };
+      visit(coords);
+      return acc;
+    };
+    const featurePoint = (feature) => {
+      const coords = coordsFromGeometry(feature.geometry);
+      const inBounds = coords.filter(([lng, lat]) => lng >= west && lng <= east && lat >= south && lat <= north);
+      if (!inBounds.length) return null;
+      const lng = inBounds.reduce((sum, point) => sum + point[0], 0) / inBounds.length;
+      const lat = inBounds.reduce((sum, point) => sum + point[1], 0) / inBounds.length;
+      return [lng, lat];
+    };
+    const candidates = (atlas?.state?.lensDetailFeatures || [])
+      .filter((feature) => feature?.properties?.layer === featureLayer)
+      .map((feature) => {
+        const lngLat = featurePoint(feature);
+        if (!lngLat) return null;
+        const [lng, lat] = lngLat;
+        const x = Math.max(0, Math.min(4, Math.floor(((lng - west) / Math.max(0.000001, east - west)) * 5)));
+        const y = Math.max(0, Math.min(4, Math.floor(((lat - south) / Math.max(0.000001, north - south)) * 5)));
+        const dx = (lng - cityCenter[0]) * Math.cos((cityCenter[1] * Math.PI) / 180);
+        const dy = lat - cityCenter[1];
+        return {
+          lngLat,
+          cell: `${x}:${y}`,
+          score: Math.hypot(dx, dy),
+          label: feature.properties?.label || feature.properties?.title || feature.properties?.name || featureLayer,
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.score - a.score);
+    const byCell = new Map();
+    for (const candidate of candidates) {
+      if (!byCell.has(candidate.cell)) byCell.set(candidate.cell, candidate);
+      if (byCell.size >= 4) break;
+    }
+    return [...byCell.values()].slice(0, 2);
+  }, check);
+  assert(samples.length > 0, `city ${cityId} ${check.aspect}: no source-backed ${check.featureLayer} samples available for panned coverage.`);
+
+  for (const sample of samples) {
+    await page.evaluate((target) => {
+      window.BimsAtlas?.state?.map?.jumpTo?.({ center: target.lngLat, zoom: 12.8, pitch: 0, bearing: 0 });
+    }, sample);
+    await page.waitForFunction(
+      () => window.BimsAtlas?.state?.map?.isSourceLoaded?.("lens-detail-overlays") === true,
+      null,
+      { timeout: 20000 }
+    );
+    await page.waitForTimeout(450);
+    const rendered = await page.evaluate((layers) => {
+      const map = window.BimsAtlas?.state?.map;
+      return layers.reduce((sum, layerId) => {
+        if (!map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") return sum;
+        try {
+          return sum + map.queryRenderedFeatures({ layers: [layerId] }).length;
+        } catch (_error) {
+          return sum;
+        }
+      }, 0);
+    }, check.renderedLayers);
+    assert(rendered > 0, `city ${cityId} ${check.aspect}: ${check.label} did not render after panning to ${sample.label}.`);
+  }
+
+  await page.evaluate(() => window.BimsAtlas?.recenterMap?.());
+  await page.waitForFunction(() => document.querySelector("#mapStudyChip")?.dataset.scope === "city", null, { timeout: 10000 });
+}
+
 (async () => {
   ensureOutputDir();
   const browser = await chromium.launch(chromiumLaunchOptions);
@@ -288,6 +573,7 @@ async function assertDesktopCitywideCoverage(page) {
   await assertDesktopCitywideCoverage(desktop);
   const desktopPng = await desktop.screenshot({ path: path.join(outputDir, "paper-atlas-desktop.png"), fullPage: false });
   assertDetailedPng(desktopPng, assert, "Paper atlas desktop");
+  await desktop.close();
 
   const tablet = await browser.newPage({ viewport: { width: 900, height: 760 }, deviceScaleFactor: 1 });
   attachConsoleCapture(tablet, consoleMessages, pageErrors);
@@ -296,6 +582,7 @@ async function assertDesktopCitywideCoverage(page) {
   const tabletState = await assertResponsiveLayout(tablet, "tablet");
   assert(tabletState.scrollWidth <= 904, "tablet: responsive shell exceeded viewport width.");
   await tablet.screenshot({ path: path.join(outputDir, "paper-atlas-tablet.png"), fullPage: false });
+  await tablet.close();
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true });
   attachConsoleCapture(mobile, consoleMessages, pageErrors);
@@ -309,6 +596,8 @@ async function assertDesktopCitywideCoverage(page) {
   assert(mobileState.activePin?.inViewport, "mobile: active selected event pin is not visible.");
   const mobilePng = await mobile.screenshot({ path: path.join(outputDir, "paper-atlas-mobile.png"), fullPage: false });
   assertDetailedPng(mobilePng, assert, "Paper atlas mobile");
+  await assertMobileButtonsRespond(mobile);
+  await mobile.close();
 
   const cityChecks = [
     { id: "belfast", label: "Belfast", placeholder: /Belfast/i },
@@ -324,6 +613,7 @@ async function assertDesktopCitywideCoverage(page) {
     assert(cityState.city === city.label, `city ${city.id}: loaded ${cityState.city} instead of ${city.label}.`);
     assert(city.placeholder.test(cityState.searchPlaceholder), `city ${city.id}: search placeholder is not city-specific.`);
     assert(cityState.visiblePinCount >= 8, `city ${city.id}: too few visible city records.`);
+    await assertCitySourceBackedLensCoverage(page, city.id);
     await page.close();
   }
 
