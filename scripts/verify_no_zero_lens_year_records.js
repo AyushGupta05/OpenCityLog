@@ -32,28 +32,32 @@ function main() {
       && REQUIRED_YEARS.includes(Number(row.year))
       && Number(row.event_count || 0) <= 0
     ));
-    const contextRows = rows.filter((row) => row.status === "source_backed_context_no_year_records");
-    summaries.push(`${city.city_id}: ${rows.length} lens-year rows, ${zeroRows.length} zero-event row(s), ${contextRows.length} context-only row(s)`);
+    const contextRows = rows.filter((row) => /context/i.test(row.status || "") || Number(row.coverage_context_feature_count || 0) > 0);
+    summaries.push(`${city.city_id}: ${rows.length} lens-year rows, ${zeroRows.length} zero-event row(s), ${contextRows.length} generated context row(s)`);
+    for (const row of contextRows) {
+      failures.push(`${city.city_id} ${row.lens_slug} ${row.year}: generated coverage/context filler is not allowed; only real source-backed event rows may be visible`);
+    }
     for (const row of zeroRows) {
-      const validContext = row.status === "source_backed_context_no_year_records"
-        && row.visible_map_contract === true
-        && Number(row.coverage_context_feature_count || 0) > 0
-        && Number(row.headline_count_excluded_context_features || 0) >= Number(row.coverage_context_feature_count || 0);
-      if (!validContext) {
-        failures.push(`${city.city_id} ${row.lens_slug} ${row.year}: expected compatible source-backed events or explicit excluded coverage context, found ${row.status}`);
+      const honestMissing = row.status === "missing_source_backed_view"
+        && row.visible_map_contract === false
+        && Number(row.coverage_context_feature_count || 0) === 0
+        && Number(row.headline_count_excluded_context_features || 0) === 0
+        && Number(row.source_count || 0) === 0;
+      if (!honestMissing) {
+        failures.push(`${city.city_id} ${row.lens_slug} ${row.year}: zero-event rows must stay hidden and carry no borrowed context/source counts, found ${row.status}`);
       }
     }
   }
 
   if (failures.length) {
-    console.error("Lens-year record/context verification failed:");
+    console.error("Lens-year real-data verification failed:");
     for (const summary of summaries) console.error(`- ${summary}`);
     for (const failure of failures.slice(0, 120)) console.error(`- ${failure}`);
     if (failures.length > 120) console.error(`- ... ${failures.length - 120} more`);
     process.exit(1);
   }
 
-  console.log(`Lens-year records/context OK: ${summaries.join("; ")}`);
+  console.log(`Lens-year real-data coverage OK: ${summaries.join("; ")}`);
 }
 
 if (require.main === module) {

@@ -889,9 +889,23 @@
       open ? els.cityMenu.setAttribute("hidden", "") : els.cityMenu.removeAttribute("hidden");
       updateCityChrome();
     });
-    document.addEventListener("click", () => {
+    const closeCityMenu = () => {
       els.cityMenu?.setAttribute("hidden", "");
       updateCityChrome();
+    };
+    els.cityToggle?.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      e.preventDefault();
+      closeCityMenu();
+    });
+    els.cityMenu?.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      e.preventDefault();
+      closeCityMenu();
+      els.cityToggle?.focus();
+    });
+    document.addEventListener("click", () => {
+      closeCityMenu();
     });
     els.cityMenu?.addEventListener("click", (e) => e.stopPropagation());
 
@@ -1517,6 +1531,14 @@
     return [-5.9301, 54.5973];
   }
 
+  function currentMapCenter() {
+    const center = state.map?.getCenter?.();
+    const lng = Number(center?.lng);
+    const lat = Number(center?.lat);
+    if (Number.isFinite(lng) && Number.isFinite(lat)) return [lng, lat];
+    return mapCenter();
+  }
+
   function cityBoundsValues() {
     const values = Array.isArray(state.city?.bounds) ? state.city.bounds.map(Number) : [];
     if (values.length !== 4 || values.some((value) => !Number.isFinite(value))) return null;
@@ -1673,7 +1695,7 @@
   function renderMarkers() {
     if (!state.map) return;
     const selected = state.selectedEvent?.lngLat ? state.selectedEvent : null;
-    const center = mapCenter();
+    const center = currentMapCenter();
     const eventsForFilters = filteredEvents();
     const citywide = citywideOverviewActive();
     const localVisibleEvents = citywide
@@ -1693,7 +1715,7 @@
       ? lensPointEventsForActiveLens()
       : eventsForFilters.filter((event) => event.lngLat);
     const guideDominantAspect = ["civic-access-gaps", "civic-catchment", "civic-demand", "economy-vitality", "economy-gravity", "utilities-capacity"].includes(activeMapLens()?.id);
-    const markerCandidates = selected && guideDominantAspect
+    const markerCandidates = selected && guideDominantAspect && !citywide
       ? [selected]
       : selected
       ? [selected, ...localVisibleEvents, ...leadingActiveEvents, ...scopedEvents]
@@ -1895,7 +1917,7 @@
       top: 82,
       bottom: Math.max(260, size.height - 145),
     };
-    const centerPx = state.map.project(state.selectedEvent?.lngLat || mapCenter());
+    const centerPx = state.map.project(state.selectedEvent?.lngLat || currentMapCenter());
     const exclusions = lensGuideLabelExclusions();
     const placed = [];
     const html = [];
@@ -2309,11 +2331,13 @@
   }
 
   function transportRoadBasePath() {
+    if (activeTransportLensYearMissing()) return "";
     const configured = state.cityMeta?.artifact_paths?.transport_roads_base || state.city?.artifact_paths?.transport_roads_base;
     return configured ? dataPathToUrl(configured) : "";
   }
 
   function transportRoadYearPath(year = state.year) {
+    if (activeTransportLensYearMissing(year)) return "";
     const template = state.cityMeta?.artifact_paths?.transport_roads_template || state.city?.artifact_paths?.transport_roads_template;
     const numericYear = currentTimelineYear(year);
     return template ? dataPathToUrl(String(template).replace("{year}", String(numericYear))) : "";
@@ -2676,18 +2700,24 @@
         state.lensDetailYearLoaded = null;
       }
 
+      const baseSource = state.map.getSource(LENS_ROAD_BASE_SOURCE_ID);
       if (basePath) {
-        const baseSource = state.map.getSource(LENS_ROAD_BASE_SOURCE_ID);
         if (baseSource?.setData) {
           if (state.transportRoadBasePathLoaded !== basePath) baseSource.setData(basePath);
         } else {
           state.map.addSource(LENS_ROAD_BASE_SOURCE_ID, { type: "geojson", data: basePath, generateId: true });
         }
         state.transportRoadBasePathLoaded = basePath;
+      } else if (!baseSource) {
+        state.map.addSource(LENS_ROAD_BASE_SOURCE_ID, { type: "geojson", data: emptyFeatureCollection(), generateId: true });
+        state.transportRoadBasePathLoaded = "";
+      } else if (baseSource?.setData && state.transportRoadBasePathLoaded !== "") {
+        baseSource.setData(emptyFeatureCollection());
+        state.transportRoadBasePathLoaded = "";
       }
 
+      const roadSource = state.map.getSource(LENS_ROAD_SOURCE_ID);
       if (yearPath) {
-        const roadSource = state.map.getSource(LENS_ROAD_SOURCE_ID);
         if (roadSource?.setData) {
           if (state.transportRoadYearPathLoaded !== yearPath) roadSource.setData(yearPath);
         } else {
@@ -2696,6 +2726,16 @@
         state.transportRoadYearPathLoaded = yearPath;
         state.transportRoadYearLoaded = currentTimelineYear();
         updateTransportRoadFeatureCount(yearPath, currentTimelineYear());
+      } else if (!roadSource) {
+        state.map.addSource(LENS_ROAD_SOURCE_ID, { type: "geojson", data: emptyFeatureCollection(), generateId: true });
+        state.transportRoadYearPathLoaded = "";
+        state.transportRoadYearLoaded = null;
+        updateTransportRoadFeatureCount("", currentTimelineYear());
+      } else if (roadSource?.setData && state.transportRoadYearPathLoaded !== "") {
+        roadSource.setData(emptyFeatureCollection());
+        state.transportRoadYearPathLoaded = "";
+        state.transportRoadYearLoaded = null;
+        updateTransportRoadFeatureCount("", currentTimelineYear());
       }
 
       if (!state.map.getLayer("lens-civic-icons") || !state.map.getLayer("lens-transport-roads") || !state.map.getLayer("lens-planning-cells-fill")) {
@@ -5112,7 +5152,7 @@
     updatePointLensLayer("lens-utilities-icons", "utilities");
     bindLensInteractionLayers();
 
-    const showTransportRoads = isActiveMapLens("transport") && activeMapLens().id !== "transport-access";
+    const showTransportRoads = isActiveMapLens("transport") && activeMapLens().id !== "transport-access" && !activeTransportLensYearMissing();
     const showTransportBase = showTransportRoads;
     for (const layerId of ["lens-transport-base-case", "lens-transport-base"]) {
       if (!state.map.getLayer(layerId)) continue;
@@ -5662,7 +5702,13 @@
     const source = state.map?.getSource(LENS_ROAD_SOURCE_ID);
     if (!source?.setData) return;
     const path = transportRoadYearPath(state.year);
-    if (!path) return;
+    if (!path) {
+      source.setData(emptyFeatureCollection());
+      state.transportRoadYearPathLoaded = "";
+      state.transportRoadYearLoaded = null;
+      updateTransportRoadFeatureCount("", currentTimelineYear());
+      return;
+    }
     if (state.transportRoadYearPathLoaded === path) {
       updateTransportRoadFeatureCount(path, currentTimelineYear());
       return;
@@ -6114,8 +6160,10 @@
   }
 
   function lensGuideFeatureCollection() {
+    // Strict source-only mode: no procedural guide geometry or coverage filler.
+    return emptyFeatureCollection();
     const lens = activeMapLens();
-    const center = state.selectedEvent?.lngLat || mapCenter();
+    const center = state.selectedEvent?.lngLat || currentMapCenter();
     const radiusM = lensEffectiveRadiusM(lens);
     const features = [];
     const accent = lens.accent || LAYER_BY_ID.get(lens.category)?.color || "#1b7a85";
@@ -14668,7 +14716,7 @@
       }
       return events.slice(0, limit);
     }
-    const center = state.selectedEvent?.lngLat || mapCenter();
+    const center = state.selectedEvent?.lngLat || currentMapCenter();
     const radiusM = lensEffectiveRadiusM(activeMapLens()) * (state.activeLens === "transport" ? 2.4 : 1.8);
     events = events
       .map((event) => ({ event, distance: event.lngLat ? lngLatDistanceMeters(center, event.lngLat) : Infinity }))
@@ -15352,35 +15400,34 @@
     return state.lensYearCoverageByKey.get(`${slug}:${Number(year)}`) || null;
   }
 
+  function activeTransportLensYearMissing(year = state.year, lens = activeMapLens()) {
+    const category = lens?.category || lens?.layerId || state.activeLens;
+    if (category !== "transport") return false;
+    const row = activeLensYearCoverageRow(lens, year);
+    if (!row) return false;
+    return row?.status === "missing_source_backed_view" || Number(row?.event_count || 0) <= 0;
+  }
+
   function lensYearCoverageIsContext(row) {
-    return row?.status === "source_backed_context_no_year_records";
+    return false;
   }
 
   function lensYearCoverageNote(row = activeLensYearCoverageRow(), lens = activeMapLens(), category = lens?.category || lens?.layerId || state.activeLens) {
     if (!row) return "";
-    if (!lensYearCoverageIsContext(row)) {
-      const count = Number(row.compatible_event_count || row.event_count || 0);
-      return `${compactNumber(count)} source-backed ${lens?.label || "lens"} record${count === 1 ? "" : "s"} match ${row.year}; confidence, limitations, sources, licences, and transform notes are in the evidence panel and exports.`;
+    if (row.status === "missing_source_backed_view" || Number(row.event_count || 0) <= 0) {
+      const label = lens?.label || row.public_label || String(category || "lens").replace(/_/g, " ");
+      return `No source-backed ${label} records match ${row.year}. No coverage surface or filler geometry is generated for this lens/year.`;
     }
-    const label = lens?.label || row.public_label || ({
-      built_environment: "planning/built",
-      civic_services: "civic service",
-      economy: lens?.id === "economy-land-use" ? "land-use-specific economy" : "economy",
-      utilities: "utility",
-      transport: "transport",
-    }[category] || "lens");
-    const contextCount = Number(row.coverage_context_feature_count || row.detail_feature_count || 0);
-    const sourceCount = Number(row.source_count || (row.source_ids || []).length || 0);
-    const contextText = contextCount
-      ? `The map shows ${compactNumber(contextCount)} source-backed coverage-context feature${contextCount === 1 ? "" : "s"}`
-      : "The map shows source-backed coverage context";
-    return `No source-backed ${label} event records match ${row.year}. ${contextText} from ${compactNumber(sourceCount)} public source${sourceCount === 1 ? "" : "s"} so the lens remains visible across the city; those features are context only and excluded from headline record counts.`;
+    const count = Number(row.compatible_event_count || row.event_count || 0);
+    return `${compactNumber(count)} source-backed ${lens?.label || "lens"} record${count === 1 ? "" : "s"} match ${row.year}; confidence, limitations, sources, licences, and transform notes are in the evidence panel and exports.`;
   }
 
   function compactLensYearCoverageNote(row = activeLensYearCoverageRow(), lens = activeMapLens(), category = lens?.category || lens?.layerId || state.activeLens) {
-    if (!lensYearCoverageIsContext(row)) return "";
-    const label = lens?.label || row.public_label || String(category || "lens").replace(/_/g, " ");
-    return `No ${row.year} ${label} event records; showing source-backed coverage context only.`;
+    if (row?.status === "missing_source_backed_view" || Number(row?.event_count || 0) <= 0) {
+      const label = lens?.label || row?.public_label || String(category || "lens").replace(/_/g, " ");
+      return `No ${row?.year || state.year} ${label} records; no filler geometry.`;
+    }
+    return "";
   }
 
   function eventMatchesActiveLens(event, lens = activeMapLens()) {
@@ -15602,7 +15649,7 @@
       <div class="lens-contract-strip" role="status">
         <span><strong>${escapeHtml(compactNumber(coverage.compatible_event_count || coverage.event_count || 0))}</strong> source-backed records</span>
         <span><strong>${escapeHtml(compactNumber(coverage.compatible_source_count || coverage.source_count || 0))}</strong> compatible sources</span>
-        <span><strong>${escapeHtml(compactNumber(visibleYears || 20))}</strong> visible years ${escapeHtml(requiredYears)}</span>
+        <span><strong>${escapeHtml(compactNumber(visibleYears))}</strong> visible years ${escapeHtml(requiredYears)}</span>
         <span>${escapeHtml(yearRange)}</span>
       </div>
     `;
@@ -16174,13 +16221,6 @@
   function lensStatusText(lens) {
     const category = lens.category || lens.layerId || lens.id;
     const yearCoverage = activeLensYearCoverageRow(lens, state.year);
-    const coverageContextStatus = lensYearCoverageIsContext(yearCoverage)
-      ? {
-        label: "Coverage context",
-        empty: false,
-        note: lensYearCoverageNote(yearCoverage, lens, category),
-      }
-      : null;
     if (!state.activeLayers.has(category)) {
       return {
         label: "Layer off",
@@ -16189,12 +16229,15 @@
       };
     }
     if (category === "transport") {
-      if (!transportRoadYearPath(state.year)) return { label: "No linework", empty: true, note: lens.empty };
+      const missingTransportNote = (yearCoverage?.status === "missing_source_backed_view" || Number(yearCoverage?.event_count || 0) <= 0)
+        ? lensYearCoverageNote(yearCoverage, lens, category)
+        : lens.empty;
+      if (!transportRoadYearPath(state.year)) return { label: "No linework", empty: true, note: missingTransportNote };
       if (state.transportRoadFeatureCountYearLoaded === state.year && state.transportRoadFeatureCount === 0) {
         return {
           label: "No linework",
           empty: true,
-          note: "No source-backed transport records intersect mapped road segments for the selected year.",
+          note: missingTransportNote || "No source-backed transport records intersect mapped road segments for the selected year. No generated marks, context surfaces, or filler geometry are shown for this lens/year.",
         };
       }
       if (state.transportRoadFeatureCountPathLoaded === transportRoadYearPath(state.year) && state.transportRoadFeatureCountYearLoaded !== state.year) {
@@ -16207,7 +16250,6 @@
       const renderableCount = lensRenderablePointCount("built_environment");
       const hasFootprints = Boolean(detailLayerPath());
       const hasDetailCells = Boolean(renderableCount && lensDetailYearPath(state.year));
-      if (!pointCount && coverageContextStatus) return coverageContextStatus;
       if (!hasFootprints && !pointCount && !hasDetailCells) return { label: "No geometry", empty: true, note: missingSameCategoryCoverageNote(lens, category) };
       if (pointCount && !renderableCount && !hasFootprints) {
         return {
@@ -16241,13 +16283,12 @@
     if (category === "civic_services") {
       const count = lensPointCount(category);
       const renderableCount = lensRenderablePointCount(category);
-      if (!count && coverageContextStatus) return coverageContextStatus;
       if (lens.id === "civic-catchment") {
         const anchorCount = state.civicServiceFeatures.length;
         if (anchorCount && !count) {
           return {
-            label: "Context only",
-            empty: false,
+            label: "No records",
+            empty: true,
             note: missingSameCategoryCoverageNote(lens, category),
           };
         }
@@ -16268,7 +16309,6 @@
       const evidenceEvents = lensEvidenceEventsForYear(lens, category, state.year);
       const count = evidenceEvents.length;
       const renderableCount = evidenceEvents.filter(isLensDetailEligibleEvent).length;
-      if (!count && coverageContextStatus) return coverageContextStatus;
       if (!count) return { label: "No records", empty: true, note: missingSameCategoryCoverageNote(lens, category) };
       if (!renderableCount) {
         const recordLabel = lens.id === "economy-land-use" ? "Land-use-specific economy records" : "Economy records";
@@ -16287,7 +16327,6 @@
     if (category === "utilities") {
       const count = lensPointCount(category);
       const renderableCount = lensRenderablePointCount(category);
-      if (!count && coverageContextStatus) return coverageContextStatus;
       if (lens.id === "utilities-capacity") {
         const flowCounts = utilityCapacityGuideTypeCounts();
         const contextCount = flowCounts.total || (state.utilityNetworkFeatures || [])
@@ -16298,8 +16337,8 @@
           .length;
         if (!count && contextCount) {
           return {
-            label: `${compactNumber(contextCount)} context traces`,
-            empty: false,
+            label: "No records",
+            empty: true,
             note: missingSameCategoryCoverageNote(lens, category),
           };
         }
@@ -16309,14 +16348,12 @@
       return { label: `Traces + ${renderableCount} assets`, empty: false, note: lensGeometryNote(lens, count, renderableCount) };
     }
     const count = lensPointCount(category);
-    if (!count && coverageContextStatus) return coverageContextStatus;
     if (!count) return { label: "No records", empty: true, note: missingSameCategoryCoverageNote(lens, category) };
     return { label: `${count} records`, empty: false, note: lens.caveat };
   }
 
   function missingSameCategoryCoverageNote(lens, category = lens?.category || lens?.layerId || state.activeLens, year = state.year) {
     const row = activeLensYearCoverageRow(lens, year);
-    if (lensYearCoverageIsContext(row)) return lensYearCoverageNote(row, lens, category);
     const label = {
       built_environment: "planning/built",
       civic_services: "civic service",
@@ -16325,27 +16362,18 @@
       transport: "transport",
     }[category] || String(category || "lens").replace(/_/g, " ");
     const prefix = `No source-backed ${label} records match ${year} for this lens.`;
-    if (category === "built_environment") return `${prefix} Mapped footprints or cells are context only and are not year-specific change evidence.`;
-    if (category === "civic_services") return `${prefix} Current OSM civic-service anchors may be shown as context and may post-date the selected year.`;
-    if (category === "economy") return `${prefix} Current OSM economy anchors may be shown as context and may post-date the selected year.`;
-    if (category === "utilities") return `${prefix} Current OSM utility context may be shown and may post-date the selected year.`;
-    return prefix;
+    return `${prefix} No generated marks, context surfaces, or filler geometry are shown for this lens/year.`;
   }
 
   function compactMissingSameCategoryCoverageNote(lens, category = lens?.category || lens?.layerId || state.activeLens, year = state.year) {
     const row = activeLensYearCoverageRow(lens, year);
-    if (lensYearCoverageIsContext(row)) return compactLensYearCoverageNote(row, lens, category);
     const label = {
       built_environment: "planning/built",
       civic_services: "civic service",
       economy: lens?.id === "economy-land-use" ? "land-use-specific economy" : "economy",
       utilities: "utility",
     }[category] || "lens";
-    if (category === "built_environment") return `No source-backed ${year} ${label} records; mapped context only.`;
-    if (category === "civic_services") return `No source-backed ${year} civic records; current anchors are context.`;
-    if (category === "economy") return `No source-backed ${year} ${label} records; current anchors are context.`;
-    if (category === "utilities") return `No source-backed ${year} utility records; current context may post-date.`;
-    return `No source-backed ${year} records; context only.`;
+    return `No source-backed ${year} ${label} records; no filler geometry.`;
   }
 
   function activeLensMissingSameCategoryCoverage(lens = activeMapLens()) {
@@ -16522,20 +16550,16 @@
   }
 
   function timelineYearCellMarkup({ count, maxCount, laneIndex, year, yearIndex, selected, past }) {
-    const coverageRow = activeLensYearCoverageRow(activeMapLens(), year);
-    const contextOnly = count === 0 && lensYearCoverageIsContext(coverageRow);
-    const density = contextOnly ? 0.22 : Math.sqrt(Math.max(0, count)) / Math.sqrt(Math.max(1, maxCount));
-    const tickCount = count > 0 ? Math.max(1, Math.min(10, Math.round(1 + density * 9))) : (contextOnly ? 1 : 0);
+    const density = Math.sqrt(Math.max(0, count)) / Math.sqrt(Math.max(1, maxCount));
+    const tickCount = count > 0 ? Math.max(1, Math.min(10, Math.round(1 + density * 9))) : 0;
     const ticks = [];
     for (let i = 0; i < tickCount; i += 1) {
       const left = timelineTickOffset(year, laneIndex, i, tickCount);
       const height = 5 + Math.round(density * 13) + ((i + laneIndex + yearIndex) % 3);
       const wide = density > 0.72 && i % 3 === 0;
-      ticks.push(`<i class="tl-source-tick${wide ? " wide" : ""}${contextOnly ? " context" : ""}" style="left:${left.toFixed(2)}%;height:${height}px"></i>`);
+      ticks.push(`<i class="tl-source-tick${wide ? " wide" : ""}" style="left:${left.toFixed(2)}%;height:${height}px"></i>`);
     }
-    const label = contextOnly
-      ? `${year}: source-backed coverage context only; 0 event records`
-      : `${year}: ${compactNumber(count)} source record${Number(count) === 1 ? "" : "s"}`;
+    const label = `${year}: ${compactNumber(count)} source record${Number(count) === 1 ? "" : "s"}`;
     return `<div class="tl-year-cell" data-year="${year}" data-selected="${selected}" data-past="${past}" title="${escapeAttr(label)}">${ticks.join("")}</div>`;
   }
 
@@ -20537,7 +20561,7 @@
     const nearestToCamera = opts.keepCamera && state.mapReady
       ? events
         .filter((event) => event.lngLat)
-        .map((event) => ({ event, distance: lngLatDistanceMeters(mapCenter(), event.lngLat) }))
+        .map((event) => ({ event, distance: lngLatDistanceMeters(currentMapCenter(), event.lngLat) }))
         .sort((a, b) => a.distance - b.distance)[0]?.event
       : null;
     const documented = events.find((e) => e.confidence === "documented");
@@ -20657,7 +20681,7 @@
     return [offsetX, offsetY];
   }
 
-  function lensCameraZoom(lens = activeMapLens(), lngLat = state.selectedEvent?.lngLat || mapCenter()) {
+  function lensCameraZoom(lens = activeMapLens(), lngLat = state.selectedEvent?.lngLat || currentMapCenter()) {
     const radiusM = Math.max(300, lensEffectiveRadiusM(lens));
     const metersPerPixelByLens = {
       "transport-speed": 5.05,
@@ -20676,7 +20700,7 @@
       "utilities-resilience": 7.45,
       "utilities-works": 6.15,
     };
-    const lat = Number(lngLat?.[1] || mapCenter()[1]) * Math.PI / 180;
+    const lat = Number(lngLat?.[1] || currentMapCenter()[1]) * Math.PI / 180;
     const maxZoomByLens = {
       "transport-speed": 14.65,
       "transport-access": 14.55,
@@ -20823,11 +20847,13 @@
   function setActiveLens(lensId) {
     const next = normalizeMapLensId(lensId);
     if (!next) return;
+    const keepCitywideCamera = citywideOverviewActive();
     state.manualLensOverride = next;
     state.manualAspectOverride = null;
     if (next === state.activeLens) {
       updateTimeDependentMapState();
-      focusActiveLensCamera();
+      if (keepCitywideCamera) fitMapToCity(260);
+      else focusActiveLensCamera();
       syncTopline();
       return;
     }
@@ -20850,7 +20876,8 @@
     renderSearchResults();
     updateTimeDependentMapState();
     renderMarkers();
-    focusActiveLensCamera();
+    if (keepCitywideCamera) fitMapToCity(260);
+    else focusActiveLensCamera();
     syncTopline();
   }
 
@@ -20858,11 +20885,13 @@
     const next = normalizeLensAspectId(aspectId);
     if (!next) return;
     const aspect = LENS_ASPECT_BY_ID.get(next);
+    const keepCitywideCamera = citywideOverviewActive();
     state.manualAspectOverride = next;
     state.manualLensOverride = aspect?.category || state.activeLens;
     if (next === state.activeAspect && (!aspect?.category || aspect.category === state.activeLens)) {
       updateTimeDependentMapState();
-      focusActiveLensCamera();
+      if (keepCitywideCamera) fitMapToCity(260);
+      else focusActiveLensCamera();
       syncTopline();
       return;
     }
@@ -20887,7 +20916,8 @@
     renderSearchResults();
     updateTimeDependentMapState();
     renderMarkers();
-    focusActiveLensCamera();
+    if (keepCitywideCamera) fitMapToCity(260);
+    else focusActiveLensCamera();
     syncTopline();
   }
 

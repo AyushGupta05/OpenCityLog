@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_lens_year_coverage",
-  "generated_at": "2026-05-31T02:08:13Z",
+  "generated_at": "2026-06-01T18:06:58Z",
   "city_id": "london",
   "display_name": "London, England",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -4336,9 +4336,9 @@
       "event_count": 5,
       "compatible_event_count": 5,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 5,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 5
       },
@@ -4382,9 +4382,9 @@
       "event_count": 501,
       "compatible_event_count": 501,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 501,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 501
       },
@@ -4436,9 +4436,9 @@
       "event_count": 361,
       "compatible_event_count": 361,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 361,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 361
       },
@@ -4490,9 +4490,9 @@
       "event_count": 353,
       "compatible_event_count": 353,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 353,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 353
       },
@@ -4542,9 +4542,9 @@
       "event_count": 336,
       "compatible_event_count": 336,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 336,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 336
       },
@@ -4598,9 +4598,9 @@
       "event_count": 357,
       "compatible_event_count": 357,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 357,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 357
       },
@@ -4650,9 +4650,9 @@
       "event_count": 312,
       "compatible_event_count": 312,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 312,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 312
       },
@@ -4704,9 +4704,9 @@
       "event_count": 358,
       "compatible_event_count": 358,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 358,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 358
       },
@@ -4766,9 +4766,9 @@
       "event_count": 398,
       "compatible_event_count": 398,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 398,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 398
       },
@@ -4824,9 +4824,9 @@
       "event_count": 512,
       "compatible_event_count": 512,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 512,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 512
       },
@@ -4884,9 +4884,9 @@
       "event_count": 533,
       "compatible_event_count": 533,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 533,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 533
       },
@@ -4942,9 +4942,9 @@
       "event_count": 608,
       "compatible_event_count": 608,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 608,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 608
       },
@@ -5004,9 +5004,9 @@
       "event_count": 621,
       "compatible_event_count": 621,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 621,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 621
       },
@@ -5066,9 +5066,9 @@
       "event_count": 4716,
       "compatible_event_count": 4716,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 4716,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4716
       },
@@ -5134,9 +5134,9 @@
       "event_count": 4669,
       "compatible_event_count": 4669,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 4669,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4669
       },
@@ -5200,9 +5200,9 @@
       "event_count": 4910,
       "compatible_event_count": 4910,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 4910,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4910
       },
@@ -5262,9 +5262,9 @@
       "event_count": 9533,
       "compatible_event_count": 9533,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 9533,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 9533
       },
@@ -5330,9 +5330,9 @@
       "event_count": 12768,
       "compatible_event_count": 12768,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 12768,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 12768
       },
@@ -5400,9 +5400,9 @@
       "event_count": 14314,
       "compatible_event_count": 14314,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 14314,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 14314
       },
@@ -5462,9 +5462,9 @@
       "event_count": 2849,
       "compatible_event_count": 2849,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 2849,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 2849
       },
@@ -5516,9 +5516,9 @@
       "event_count": 5,
       "compatible_event_count": 5,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 5,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 5
       },
@@ -5562,9 +5562,9 @@
       "event_count": 501,
       "compatible_event_count": 501,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 501,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 501
       },
@@ -5616,9 +5616,9 @@
       "event_count": 361,
       "compatible_event_count": 361,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 361,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 361
       },
@@ -5670,9 +5670,9 @@
       "event_count": 353,
       "compatible_event_count": 353,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 353,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 353
       },
@@ -5722,9 +5722,9 @@
       "event_count": 336,
       "compatible_event_count": 336,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 336,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 336
       },
@@ -5778,9 +5778,9 @@
       "event_count": 357,
       "compatible_event_count": 357,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 357,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 357
       },
@@ -5830,9 +5830,9 @@
       "event_count": 312,
       "compatible_event_count": 312,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 312,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 312
       },
@@ -5884,9 +5884,9 @@
       "event_count": 358,
       "compatible_event_count": 358,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 358,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 358
       },
@@ -5946,9 +5946,9 @@
       "event_count": 398,
       "compatible_event_count": 398,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 398,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 398
       },
@@ -6004,9 +6004,9 @@
       "event_count": 512,
       "compatible_event_count": 512,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 512,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 512
       },
@@ -6064,9 +6064,9 @@
       "event_count": 533,
       "compatible_event_count": 533,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 533,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 533
       },
@@ -6122,9 +6122,9 @@
       "event_count": 608,
       "compatible_event_count": 608,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 608,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 608
       },
@@ -6184,9 +6184,9 @@
       "event_count": 621,
       "compatible_event_count": 621,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 621,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 621
       },
@@ -6246,9 +6246,9 @@
       "event_count": 4716,
       "compatible_event_count": 4716,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 4716,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4716
       },
@@ -6314,9 +6314,9 @@
       "event_count": 4669,
       "compatible_event_count": 4669,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 4669,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4669
       },
@@ -6380,9 +6380,9 @@
       "event_count": 4910,
       "compatible_event_count": 4910,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 4910,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4910
       },
@@ -6442,9 +6442,9 @@
       "event_count": 9533,
       "compatible_event_count": 9533,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 9533,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 9533
       },
@@ -6510,9 +6510,9 @@
       "event_count": 12768,
       "compatible_event_count": 12768,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 12768,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 12768
       },
@@ -6580,9 +6580,9 @@
       "event_count": 14314,
       "compatible_event_count": 14314,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 14314,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 14314
       },
@@ -6642,9 +6642,9 @@
       "event_count": 2849,
       "compatible_event_count": 2849,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 2849,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 2849
       },
@@ -6696,9 +6696,9 @@
       "event_count": 5,
       "compatible_event_count": 5,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 5,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 5
       },
@@ -6742,9 +6742,9 @@
       "event_count": 501,
       "compatible_event_count": 501,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 501,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 501
       },
@@ -6796,9 +6796,9 @@
       "event_count": 361,
       "compatible_event_count": 361,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 361,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 361
       },
@@ -6850,9 +6850,9 @@
       "event_count": 353,
       "compatible_event_count": 353,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 353,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 353
       },
@@ -6902,9 +6902,9 @@
       "event_count": 336,
       "compatible_event_count": 336,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 336,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 336
       },
@@ -6958,9 +6958,9 @@
       "event_count": 357,
       "compatible_event_count": 357,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 357,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 357
       },
@@ -7010,9 +7010,9 @@
       "event_count": 312,
       "compatible_event_count": 312,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 312,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 312
       },
@@ -7064,9 +7064,9 @@
       "event_count": 358,
       "compatible_event_count": 358,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 358,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 358
       },
@@ -7126,9 +7126,9 @@
       "event_count": 398,
       "compatible_event_count": 398,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 398,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 398
       },
@@ -7184,9 +7184,9 @@
       "event_count": 512,
       "compatible_event_count": 512,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 512,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 512
       },
@@ -7244,9 +7244,9 @@
       "event_count": 533,
       "compatible_event_count": 533,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 533,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 533
       },
@@ -7302,9 +7302,9 @@
       "event_count": 608,
       "compatible_event_count": 608,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 608,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 608
       },
@@ -7364,9 +7364,9 @@
       "event_count": 621,
       "compatible_event_count": 621,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 621,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 621
       },
@@ -7426,9 +7426,9 @@
       "event_count": 4716,
       "compatible_event_count": 4716,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 4716,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4716
       },
@@ -7494,9 +7494,9 @@
       "event_count": 4669,
       "compatible_event_count": 4669,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 4669,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4669
       },
@@ -7560,9 +7560,9 @@
       "event_count": 4910,
       "compatible_event_count": 4910,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 4910,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4910
       },
@@ -7622,9 +7622,9 @@
       "event_count": 9533,
       "compatible_event_count": 9533,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 9533,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 9533
       },
@@ -7690,9 +7690,9 @@
       "event_count": 12768,
       "compatible_event_count": 12768,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 12768,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 12768
       },
@@ -7760,9 +7760,9 @@
       "event_count": 14314,
       "compatible_event_count": 14314,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 14314,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 14314
       },
@@ -7822,9 +7822,9 @@
       "event_count": 2849,
       "compatible_event_count": 2849,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 61678,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 2849,
-      "headline_count_excluded_context_features": 61678,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 2849
       },

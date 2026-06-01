@@ -17,13 +17,6 @@ const REQUIRED_EXPORTS = [
 ];
 const REQUIRED_LENS_YEARS = Array.from({ length: 20 }, (_, index) => 2007 + index);
 const LENS_BY_SLUG = new Map(LENS_DEFINITIONS.map((lens) => [lens.slug, lens]));
-const LENS_DETAIL_LAYERS_BY_GROUP = {
-  planning: new Set(["planning_cell"]),
-  transport: new Set([]),
-  civic: new Set(["civic_coverage_cell", "civic_facility"]),
-  economy: new Set(["economy_activity_cell", "economy_frontage"]),
-  utilities: new Set(["utility_trace", "utility_asset"]),
-};
 
 const BANNED = [
   /\bwill\s+(increase|decrease|reduce|improve|worsen|cause)\b/i,
@@ -115,13 +108,6 @@ function eventSourceIds(event) {
   return event.source_ids || event.sourceIds || [];
 }
 
-function detailFeatureSourceIds(feature) {
-  return String(feature?.properties?.source_ids || "")
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean);
-}
-
 function lensDetailPath(citySummary, cityArtifact, year) {
   const template = citySummary.artifact_paths?.lens_detail_template || cityArtifact.artifact_paths?.lens_detail_template;
   return template ? template.replace("{year}", String(year)) : "";
@@ -137,26 +123,6 @@ function readLensDetail(root, citySummary, cityArtifact, year, cache) {
   const features = Array.isArray(payload?.features) ? payload.features : [];
   cache.set(key, features);
   return features;
-}
-
-function readTransportContext(root, row, cache) {
-  const artifactPath = row.map_artifacts?.transport_roads_base;
-  if (!artifactPath) return [];
-  const key = `transport:${artifactPath}`;
-  if (cache.has(key)) return cache.get(key);
-  const payload = fs.existsSync(resolve(root, artifactPath)) ? readJson(resolve(root, artifactPath)) : null;
-  const features = Array.isArray(payload?.features) ? payload.features : [];
-  cache.set(key, features);
-  return features;
-}
-
-function lensDetailFeatureMatches(row, feature) {
-  const lens = LENS_BY_SLUG.get(row.lens_slug);
-  const layers = LENS_DETAIL_LAYERS_BY_GROUP[lens?.group] || new Set();
-  const props = feature.properties || {};
-  return props.category === row.category
-    && Number(props.year) === Number(row.year)
-    && layers.has(props.layer);
 }
 
 function actualCompatibleEventCount(root, row, eventsIndex, sourceById, eventCache) {
@@ -200,8 +166,8 @@ function validateLensRow(failures, label, lens, sourceById) {
   assert(failures, lens.coverage?.year_contract?.required_years?.start === 2007, `${label} year contract must start at 2007`);
   assert(failures, lens.coverage?.year_contract?.required_years?.end === 2026, `${label} year contract must end at 2026`);
   assert(failures, lens.coverage?.year_contract?.required_year_count === 20, `${label} year contract must require 20 years`);
-  assert(failures, lens.coverage?.year_contract?.visible_year_count === 20, `${label} must be visible in all 20 required years`);
-  assert(failures, Array.isArray(lens.coverage?.year_contract?.missing_visible_years) && lens.coverage.year_contract.missing_visible_years.length === 0, `${label} has missing visible years`);
+  assert(failures, lens.coverage?.year_contract?.visible_year_count === lens.coverage?.year_contract?.source_backed_record_year_count, `${label} visible years must have real source-backed records`);
+  assert(failures, (lens.coverage?.year_contract?.source_backed_context_year_count || 0) === 0, `${label} must not use context-only years`);
   assert(failures, Boolean(lens.coverage?.year_contract?.lens_year_coverage_path), `${label} missing lens_year_coverage_path`);
   assert(failures, Boolean(lens.freshness?.last_retrieved_or_reviewed), `${label} missing freshness retrieval/review date`);
   assert(failures, Boolean(lens.freshness?.source_coverage_period), `${label} missing source coverage period`);
@@ -326,10 +292,12 @@ function validateCoverageRow(failures, root, row, citySummary, cityArtifact, sou
     assert(failures, row.category === lens.category, `${label} category mismatch`);
   }
   assert(failures, row.required_year === true, `${label} must be marked required_year`);
-  assert(failures, row.visible_map_contract === true, `${label} must be visible under the 2007-2026 lens contract`);
-  assert(failures, row.status !== "missing_source_backed_view", `${label} has missing source-backed view`);
+  assert(failures, row.visible_map_contract === (Number(row.event_count || 0) > 0), `${label} visibility must follow real source-backed event records`);
+  assert(failures, !/context/i.test(row.status || ""), `${label} must not use generated filler status`);
   assert(failures, row.compatible_event_count === row.event_count, `${label} compatible_event_count must match launched event_count`);
   assert(failures, row.headline_count_included === row.event_count, `${label} headline_count_included must equal event_count`);
+  assert(failures, Number(row.coverage_context_feature_count || 0) === 0, `${label} must not expose generated filler features`);
+  assert(failures, Number(row.headline_count_excluded_context_features || 0) === 0, `${label} must not hide generated context features from headline counts`);
   assert(failures, Array.isArray(row.limitations) && row.limitations.length > 0, `${label} missing limitations`);
   assert(failures, row.exports?.markdown === true && row.exports?.csv === true && row.exports?.geojson === true, `${label} missing required exports`);
 
@@ -337,14 +305,18 @@ function validateCoverageRow(failures, root, row, citySummary, cityArtifact, sou
   assert(failures, row.event_count === actualEventCount, `${label} event_count ${row.event_count} does not match source-backed events ${actualEventCount}`);
 
   const sourceIds = row.source_ids || [];
-  assert(failures, sourceIds.length > 0, `${label} missing source_ids`);
-  for (const sourceId of sourceIds) {
-    const source = sourceById.get(sourceId);
-    assert(failures, Boolean(source), `${label} references missing source ${sourceId}`);
-    if (source) {
-      assert(failures, sourceHasMinimumLicense(source), `${label} source ${sourceId} missing minimum license fields`);
-      assert(failures, !licenseNeedsReview(source), `${label} source ${sourceId} still needs license review`);
+  if (row.event_count > 0) {
+    assert(failures, sourceIds.length > 0, `${label} missing source_ids`);
+    for (const sourceId of sourceIds) {
+      const source = sourceById.get(sourceId);
+      assert(failures, Boolean(source), `${label} references missing source ${sourceId}`);
+      if (source) {
+        assert(failures, sourceHasMinimumLicense(source), `${label} source ${sourceId} missing minimum license fields`);
+        assert(failures, !licenseNeedsReview(source), `${label} source ${sourceId} still needs license review`);
+      }
     }
+  } else {
+    assert(failures, sourceIds.length === 0, `${label} missing-source rows must not borrow boundary/context sources`);
   }
 
   for (const artifactPath of Object.values(row.map_artifacts || {})) {
@@ -357,32 +329,9 @@ function validateCoverageRow(failures, root, row, citySummary, cityArtifact, sou
     return;
   }
 
-  assert(failures, row.status === "source_backed_context_no_year_records", `${label} without records must use context status`);
-  assert(failures, row.coverage_context_feature_count > 0, `${label} missing coverage context features`);
-  assert(failures, row.headline_count_excluded_context_features >= row.coverage_context_feature_count, `${label} context features must be excluded from headline counts`);
-  assert(failures, /No license-compatible/i.test((row.limitations || []).join(" ")), `${label} missing plain no-record limitation`);
-  if (lens?.group === "transport") {
-    const contextFeatures = readTransportContext(root, row, detailCache);
-    assert(failures, contextFeatures.length === row.coverage_context_feature_count, `${label} transport context feature count mismatch`);
-    for (const feature of contextFeatures.slice(0, 25)) {
-      const props = feature.properties || {};
-      assert(failures, Number(props.event_count || 0) === 0, `${label} transport context feature must not carry event_count`);
-      assert(failures, Boolean(props.source_id || props.source_url), `${label} transport context feature missing source pointer`);
-      assert(failures, /current OSM road geometry|orientation/i.test(`${props.representation || ""} ${props.timing_note || ""}`), `${label} transport context feature missing orientation caveat`);
-    }
-  } else {
-    const detailFeatures = readLensDetail(root, citySummary, cityArtifact, row.year, detailCache)
-      .filter((feature) => lensDetailFeatureMatches(row, feature));
-    const contextFeatures = detailFeatures.filter((feature) => feature.properties?.coverage_status === "no_same_category_records");
-    assert(failures, contextFeatures.length === row.coverage_context_feature_count, `${label} coverage context feature count mismatch`);
-    for (const feature of contextFeatures.slice(0, 25)) {
-      const props = feature.properties || {};
-      assert(failures, Number(props.event_count || 0) === 0, `${label} coverage context feature must not carry event_count`);
-      assert(failures, props.headline_count_excluded === true, `${label} coverage context feature must be headline-count excluded`);
-      assert(failures, props.evidence_role === "context_not_year_specific_change_evidence", `${label} coverage context feature missing evidence_role`);
-      assert(failures, detailFeatureSourceIds(feature).length > 0, `${label} coverage context feature missing source_ids`);
-    }
-  }
+  assert(failures, row.status === "missing_source_backed_view", `${label} without records must stay missing, not filled with context geometry`);
+  assert(failures, row.visible_map_contract === false, `${label} without records must not be visible on the map`);
+  assert(failures, /No map marks or coverage surfaces are generated/i.test((row.limitations || []).join(" ")), `${label} missing plain no-filler limitation`);
 }
 
 function validateLensYearCoverage(root, schema, citySummary, cityArtifact, manifest, eventsIndex, sourceById, failures) {
@@ -456,7 +405,7 @@ function main() {
       for (const failure of failures) console.error(`- ${failure}`);
       process.exit(1);
     }
-    console.log("15-lens contract OK: launched cities expose all 15 source-backed lenses for every year 2007-2026, with provenance, freshness, exports, scope, and reference-screen coverage.");
+    console.log("15-lens contract OK: launched cities expose 15 lens-year audit rows for every year 2007-2026; visible rows are source-backed and zero-event rows stay explicit, invisible, and filler-free.");
   } catch (error) {
     console.error(`verify:lens-contract failed: ${error.message}`);
     process.exit(1);

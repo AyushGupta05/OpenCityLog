@@ -149,10 +149,10 @@
           }
         },
         "required_year_count": {"type": "integer", "minimum": 20, "maximum": 20},
-        "visible_year_count": {"type": "integer", "minimum": 20, "maximum": 20},
-        "missing_visible_years": {"type": "array", "maxItems": 0, "items": {"type": "integer"}},
+        "visible_year_count": {"type": "integer", "minimum": 0, "maximum": 20},
+        "missing_visible_years": {"type": "array", "maxItems": 20, "items": {"type": "integer"}},
         "source_backed_record_year_count": {"type": "integer", "minimum": 0},
-        "source_backed_context_year_count": {"type": "integer", "minimum": 0},
+        "source_backed_context_year_count": {"type": "integer", "minimum": 0, "maximum": 0},
         "lens_year_coverage_path": {"type": "string", "minLength": 1}
       }
     },

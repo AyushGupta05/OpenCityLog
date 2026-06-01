@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_lens_year_coverage",
-  "generated_at": "2026-05-31T02:08:13Z",
+  "generated_at": "2026-06-01T18:06:58Z",
   "city_id": "belfast",
   "display_name": "Belfast, Northern Ireland",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -15,7 +15,7 @@
   "row_count": 300,
   "status_counts": {
     "source_backed_records": 297,
-    "source_backed_context_no_year_records": 3
+    "missing_source_backed_view": 3
   },
   "rows": [
     {
@@ -4548,35 +4548,30 @@
       "category": "transport",
       "year": 2007,
       "required_year": true,
-      "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
+      "visible_map_contract": false,
+      "status": "missing_source_backed_view",
       "event_count": 0,
       "compatible_event_count": 0,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 0,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {},
-      "source_count": 1,
-      "source_ids": [
-        "osm-overpass"
-      ],
-      "compatible_source_ids": [
-        "osm-overpass"
-      ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "evidence_basis": "No same-lens source-backed event rows matched for 2007; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2007.geojson",
-        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2007.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
         "No license-compatible Access to Transport records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -4599,9 +4594,9 @@
       "event_count": 57,
       "compatible_event_count": 57,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 57,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 3,
         "inferred": 54
@@ -4650,9 +4645,9 @@
       "event_count": 175,
       "compatible_event_count": 175,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 175,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 2,
         "inferred": 173
@@ -4699,9 +4694,9 @@
       "event_count": 23,
       "compatible_event_count": 23,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 23,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 3,
         "inferred": 20
@@ -4750,9 +4745,9 @@
       "event_count": 140,
       "compatible_event_count": 140,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 140,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4,
         "inferred": 136
@@ -4799,9 +4794,9 @@
       "event_count": 232,
       "compatible_event_count": 232,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 232,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 3,
         "inferred": 229
@@ -4850,9 +4845,9 @@
       "event_count": 131,
       "compatible_event_count": 131,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 131,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4,
         "inferred": 127
@@ -4901,9 +4896,9 @@
       "event_count": 244,
       "compatible_event_count": 244,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 244,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 2,
         "inferred": 242
@@ -4950,9 +4945,9 @@
       "event_count": 219,
       "compatible_event_count": 219,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 219,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 7,
         "inferred": 212
@@ -5003,9 +4998,9 @@
       "event_count": 976,
       "compatible_event_count": 976,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 976,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 133,
         "inferred": 843
@@ -5066,9 +5061,9 @@
       "event_count": 676,
       "compatible_event_count": 676,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 676,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 154,
         "inferred": 522
@@ -5123,9 +5118,9 @@
       "event_count": 906,
       "compatible_event_count": 906,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 906,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 574,
         "inferred": 332
@@ -5182,9 +5177,9 @@
       "event_count": 707,
       "compatible_event_count": 707,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 707,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 194,
         "inferred": 513
@@ -5245,9 +5240,9 @@
       "event_count": 918,
       "compatible_event_count": 918,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 918,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 355,
         "inferred": 563
@@ -5300,9 +5295,9 @@
       "event_count": 1427,
       "compatible_event_count": 1427,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1427,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 604,
         "inferred": 823
@@ -5367,9 +5362,9 @@
       "event_count": 2359,
       "compatible_event_count": 2359,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 2359,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 508,
         "disputed": 1,
@@ -5427,9 +5422,9 @@
       "event_count": 1808,
       "compatible_event_count": 1808,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1808,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 558,
         "inferred": 1250
@@ -5496,9 +5491,9 @@
       "event_count": 3546,
       "compatible_event_count": 3546,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 3546,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 622,
         "corroborated": 1,
@@ -5618,9 +5613,9 @@
       "event_count": 4527,
       "compatible_event_count": 4527,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 4527,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 215,
         "inferred": 4312
@@ -5719,9 +5714,9 @@
       "event_count": 2039,
       "compatible_event_count": 2039,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 2039,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 55,
         "corroborated": 1,
@@ -5798,35 +5793,30 @@
       "category": "transport",
       "year": 2007,
       "required_year": true,
-      "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
+      "visible_map_contract": false,
+      "status": "missing_source_backed_view",
       "event_count": 0,
       "compatible_event_count": 0,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 0,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {},
-      "source_count": 1,
-      "source_ids": [
-        "osm-overpass"
-      ],
-      "compatible_source_ids": [
-        "osm-overpass"
-      ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "evidence_basis": "No same-lens source-backed event rows matched for 2007; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2007.geojson",
-        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2007.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
         "No license-compatible Service Reliability records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -5849,9 +5839,9 @@
       "event_count": 57,
       "compatible_event_count": 57,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 57,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 3,
         "inferred": 54
@@ -5900,9 +5890,9 @@
       "event_count": 175,
       "compatible_event_count": 175,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 175,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 2,
         "inferred": 173
@@ -5949,9 +5939,9 @@
       "event_count": 23,
       "compatible_event_count": 23,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 23,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 3,
         "inferred": 20
@@ -6000,9 +5990,9 @@
       "event_count": 140,
       "compatible_event_count": 140,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 140,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4,
         "inferred": 136
@@ -6049,9 +6039,9 @@
       "event_count": 232,
       "compatible_event_count": 232,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 232,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 3,
         "inferred": 229
@@ -6100,9 +6090,9 @@
       "event_count": 131,
       "compatible_event_count": 131,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 131,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4,
         "inferred": 127
@@ -6151,9 +6141,9 @@
       "event_count": 244,
       "compatible_event_count": 244,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 244,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 2,
         "inferred": 242
@@ -6200,9 +6190,9 @@
       "event_count": 219,
       "compatible_event_count": 219,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 219,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 7,
         "inferred": 212
@@ -6253,9 +6243,9 @@
       "event_count": 976,
       "compatible_event_count": 976,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 976,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 133,
         "inferred": 843
@@ -6316,9 +6306,9 @@
       "event_count": 676,
       "compatible_event_count": 676,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 676,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 154,
         "inferred": 522
@@ -6373,9 +6363,9 @@
       "event_count": 906,
       "compatible_event_count": 906,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 906,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 574,
         "inferred": 332
@@ -6432,9 +6422,9 @@
       "event_count": 707,
       "compatible_event_count": 707,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 707,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 194,
         "inferred": 513
@@ -6495,9 +6485,9 @@
       "event_count": 918,
       "compatible_event_count": 918,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 918,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 355,
         "inferred": 563
@@ -6550,9 +6540,9 @@
       "event_count": 1427,
       "compatible_event_count": 1427,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1427,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 604,
         "inferred": 823
@@ -6617,9 +6607,9 @@
       "event_count": 2359,
       "compatible_event_count": 2359,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 2359,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 508,
         "disputed": 1,
@@ -6677,9 +6667,9 @@
       "event_count": 1808,
       "compatible_event_count": 1808,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1808,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 558,
         "inferred": 1250
@@ -6746,9 +6736,9 @@
       "event_count": 3546,
       "compatible_event_count": 3546,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 3546,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 622,
         "corroborated": 1,
@@ -6868,9 +6858,9 @@
       "event_count": 4527,
       "compatible_event_count": 4527,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 4527,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 215,
         "inferred": 4312
@@ -6969,9 +6959,9 @@
       "event_count": 2039,
       "compatible_event_count": 2039,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 2039,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 55,
         "corroborated": 1,
@@ -7048,35 +7038,30 @@
       "category": "transport",
       "year": 2007,
       "required_year": true,
-      "visible_map_contract": true,
-      "status": "source_backed_context_no_year_records",
+      "visible_map_contract": false,
+      "status": "missing_source_backed_view",
       "event_count": 0,
       "compatible_event_count": 0,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 0,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {},
-      "source_count": 1,
-      "source_ids": [
-        "osm-overpass"
-      ],
-      "compatible_source_ids": [
-        "osm-overpass"
-      ],
-      "evidence_basis": "No same-lens event rows matched for 2007; source-backed coverage-context features in lens_detail_2007.geojson keep the lens visible without adding event records.",
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "evidence_basis": "No same-lens source-backed event rows matched for 2007; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2007.geojson",
-        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2007.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
         "No license-compatible Transport Activity records are currently ingested for 2007.",
-        "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-        "Coverage-context features are excluded from headline counts and exports as events."
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -7099,9 +7084,9 @@
       "event_count": 57,
       "compatible_event_count": 57,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 57,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 3,
         "inferred": 54
@@ -7150,9 +7135,9 @@
       "event_count": 175,
       "compatible_event_count": 175,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 175,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 2,
         "inferred": 173
@@ -7199,9 +7184,9 @@
       "event_count": 23,
       "compatible_event_count": 23,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 23,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 3,
         "inferred": 20
@@ -7250,9 +7235,9 @@
       "event_count": 140,
       "compatible_event_count": 140,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 140,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4,
         "inferred": 136
@@ -7299,9 +7284,9 @@
       "event_count": 232,
       "compatible_event_count": 232,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 232,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 3,
         "inferred": 229
@@ -7350,9 +7335,9 @@
       "event_count": 131,
       "compatible_event_count": 131,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 131,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 4,
         "inferred": 127
@@ -7401,9 +7386,9 @@
       "event_count": 244,
       "compatible_event_count": 244,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 244,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 2,
         "inferred": 242
@@ -7450,9 +7435,9 @@
       "event_count": 219,
       "compatible_event_count": 219,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 219,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 7,
         "inferred": 212
@@ -7503,9 +7488,9 @@
       "event_count": 976,
       "compatible_event_count": 976,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 976,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 133,
         "inferred": 843
@@ -7566,9 +7551,9 @@
       "event_count": 676,
       "compatible_event_count": 676,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 676,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 154,
         "inferred": 522
@@ -7623,9 +7608,9 @@
       "event_count": 906,
       "compatible_event_count": 906,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 906,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 574,
         "inferred": 332
@@ -7682,9 +7667,9 @@
       "event_count": 707,
       "compatible_event_count": 707,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 707,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 194,
         "inferred": 513
@@ -7745,9 +7730,9 @@
       "event_count": 918,
       "compatible_event_count": 918,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 918,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 355,
         "inferred": 563
@@ -7800,9 +7785,9 @@
       "event_count": 1427,
       "compatible_event_count": 1427,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1427,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 604,
         "inferred": 823
@@ -7867,9 +7852,9 @@
       "event_count": 2359,
       "compatible_event_count": 2359,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 2359,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 508,
         "disputed": 1,
@@ -7927,9 +7912,9 @@
       "event_count": 1808,
       "compatible_event_count": 1808,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1808,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 558,
         "inferred": 1250
@@ -7996,9 +7981,9 @@
       "event_count": 3546,
       "compatible_event_count": 3546,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 3546,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 622,
         "corroborated": 1,
@@ -8118,9 +8103,9 @@
       "event_count": 4527,
       "compatible_event_count": 4527,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 4527,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 215,
         "inferred": 4312
@@ -8219,9 +8204,9 @@
       "event_count": 2039,
       "compatible_event_count": 2039,
       "detail_feature_count": 0,
-      "coverage_context_feature_count": 17195,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 2039,
-      "headline_count_excluded_context_features": 17195,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 55,
         "corroborated": 1,
@@ -11644,10 +11629,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -11734,10 +11719,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -12656,10 +12641,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -12746,10 +12731,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -13668,10 +13653,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -13758,10 +13743,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -14766,10 +14751,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 12,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -15918,10 +15903,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 12,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -17070,10 +17055,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 12,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },

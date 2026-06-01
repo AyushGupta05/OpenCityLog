@@ -157,7 +157,7 @@ The generated lens-year coverage artifacts are:
 - `web/data/city-atlas/cities/london/lens_year_coverage.json`
 - `web/data/city-atlas/cities/nyc/lens_year_coverage.json`
 
-Each city artifact contains 300 rows: 15 mandatory lenses times the required years 2007-2026. A row with `source_backed_records` has compatible same-lens event records for that year. A row with `source_backed_context_no_year_records` has `event_count: 0` and keeps the lens visible through source-backed coverage-context features from official scope/context sources. Those context features are not city-change events, are excluded from headline counts, and cannot be treated as evidence of a built, service, economic, utility, or transport change.
+Each city artifact contains 300 rows: 15 mandatory lenses times the required years 2007-2026. A row with `source_backed_records` has compatible same-lens event records for that year and may be visible on the map. A row with `missing_source_backed_view` has `event_count: 0`, `source_count: 0`, and `visible_map_contract: false`; no generated marks, context surfaces, or filler geometry are emitted for that lens/year.
 
 Run:
 
@@ -166,7 +166,7 @@ npm run build:lens-contract
 npm run verify:lens-contract
 ```
 
-The verifier fails if a launched city is missing any lens, required 2007-2026 lens-year row, full-city boundary source, licence URL, attribution, compatible source count, freshness, export flag, reference-screen coverage, required year artifact, or basic provenance fields. Same-lens event count may be zero only when the corresponding lens-year row and `lens_detail_<year>.geojson` file expose source-backed context features that are explicitly labelled and excluded from headline counts.
+The verifier fails if a launched city is missing any lens, required 2007-2026 lens-year row, full-city boundary source, licence URL, attribution, compatible source count, freshness, export flag, reference-screen coverage, required year artifact, or basic provenance fields. Same-lens event count may be zero only when the row is explicitly labelled `missing_source_backed_view`, is not visible on the map, has no borrowed context sources, and states that no marks or coverage surfaces are generated.
 
 ## Public Reference Pages
 

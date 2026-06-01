@@ -35,8 +35,9 @@
   methodology anchors, and export capability flags.
 - Lens-year coverage artifacts enforce the mandatory 15 lenses across every
   year from 2007 through 2026.
-- Zero-event lens-years are labelled as source-backed coverage context with
-  `event_count: 0`, and are excluded from headline record counts.
+- Zero-event lens-years are labelled `missing_source_backed_view` with
+  `event_count: 0`, `source_count: 0`, and no generated map marks, context
+  surfaces, or filler geometry.
 - Event indexes include source-backed `affected_area.label` facets so area,
   borough, ward, district, street, and named-place filters can update map,
   list, timeline, compare counts, and filtered exports without inventing data.
@@ -53,8 +54,8 @@
 
 - The manifests confirm source-backed lens coverage, not complete city history.
 - Sparse geographies remain sparse; no placeholder records are generated.
-- Coverage-context surfaces are not evidence of a city-change event or measured
-  condition.
+- Missing lens-years stay visually blank instead of borrowing context surfaces;
+  the manifests identify where more source-backed data is needed.
 - Review-required source terms remain visible and should be resolved before
   formal redistribution.
 

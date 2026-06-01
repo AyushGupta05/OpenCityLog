@@ -371,10 +371,11 @@ function validateLensDetailSemantics(failures, label, features) {
     const layer = feature.properties?.layer;
     if (!LENS_DETAIL_SITE_LAYERS.has(layer)) continue;
     if (feature.properties?.coverage_status === "no_same_category_records") {
-      assert(failures, Number(feature.properties?.event_count || 0) === 0, `${label} coverage context must not carry event_count`);
-      assert(failures, feature.properties?.headline_count_excluded === true, `${label} coverage context must be excluded from headline counts`);
-      assert(failures, feature.properties?.evidence_role === "context_not_year_specific_change_evidence", `${label} coverage context missing evidence_role`);
-      assert(failures, Boolean(feature.properties?.source_ids), `${label} coverage context missing official scope source ids`);
+      assert(failures, false, `${label} contains generated filler geometry in ${layer}: ${feature.properties?.id || "<unknown>"}`);
+      continue;
+    }
+    if (feature.properties?.evidence_role === "context_not_year_specific_change_evidence") {
+      assert(failures, false, `${label} contains context-only lens evidence in ${layer}: ${feature.properties?.id || "<unknown>"}`);
       continue;
     }
     const siteText = lensDetailSiteText(feature);

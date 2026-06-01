@@ -2,7 +2,6 @@ const fs = require("fs");
 const path = require("path");
 const {
   LENS_DEFINITIONS,
-  eventMatchesLens,
   licenseNeedsReview,
   sourceHasMinimumLicense,
 } = require("../lib/atlas-lenses");
@@ -56,42 +55,6 @@ const FRONTAGE_TRACE_RADIUS_KM = 0.55;
 const UTILITY_TRACE_RADIUS_KM = 0.62;
 const LENS_YEAR_CONTRACT_START = 2007;
 const LENS_YEAR_CONTRACT_END = 2026;
-const LENS_CONTRACT_CATEGORIES = new Set(["built_environment", "transport", "civic_services", "economy", "utilities"]);
-const CITY_SCOPE_SOURCE_IDS = {
-  belfast: ["opendatani-spatial-ni"],
-  london: ["gla-statistical-gis-boundaries", "ons-geoportal-boundaries"],
-  nyc: ["9nt8-h7nd", "ruf7-3wgc", "5crt-au7u"],
-};
-const COVERAGE_CONTEXT_BY_CATEGORY = {
-  built_environment: {
-    layer: "planning_cell",
-    label: "planning and built",
-    representation: "planning lens coverage context",
-    props: { lifecycle_status: "coverage_context", status: "no_year_records" },
-  },
-  civic_services: {
-    layer: "civic_coverage_cell",
-    label: "civic service",
-    representation: "civic lens coverage context",
-    props: { service_type: "coverage_context", status: "no_year_records" },
-  },
-  economy: {
-    layer: "economy_activity_cell",
-    label: "economy",
-    representation: "economy lens coverage context",
-    props: { sector: "coverage_context", activity_status: "no_year_records", status: "no_year_records" },
-  },
-  utilities: {
-    layer: "utility_trace",
-    label: "utility",
-    representation: "utility lens coverage context",
-    props: { utility_type: "coverage_context", work_status: "no_year_records", status: "no_year_records" },
-  },
-};
-const REPRESENTATIVE_LENS_BY_CATEGORY = new Map();
-for (const lens of LENS_DEFINITIONS) {
-  if (!REPRESENTATIVE_LENS_BY_CATEGORY.has(lens.category)) REPRESENTATIVE_LENS_BY_CATEGORY.set(lens.category, lens);
-}
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -804,133 +767,6 @@ function detailBaseProperties(cityId, layer, category, year, bucket, representat
   };
 }
 
-function scopeSourceIds(city, sourceById) {
-  const preferred = CITY_SCOPE_SOURCE_IDS[city.city_id] || [];
-  const ready = preferred.filter((sourceId) => {
-    const source = sourceById.get(sourceId);
-    return sourceHasMinimumLicense(source) && !licenseNeedsReview(source);
-  });
-  if (ready.length) return ready;
-  return Array.from(sourceById.values())
-    .filter((source) => sourceHasMinimumLicense(source) && !licenseNeedsReview(source))
-    .filter((source) => /boundar|ward|borough|district|geograph|spatial/i.test([
-      source.source_id,
-      source.title,
-      source.source_family,
-      source.provenance_notes,
-    ].filter(Boolean).join(" ")))
-    .slice(0, 3)
-    .map((source) => source.source_id);
-}
-
-function categoryHasCompatibleRecords(yearEvents, category, sourceById) {
-  const representativeLens = REPRESENTATIVE_LENS_BY_CATEGORY.get(category);
-  return yearEvents.some((event) => (
-    (event.category === category || (representativeLens && eventMatchesLens(event, representativeLens, sourceById)))
-      && eventHasCompatibleSources(event, sourceById)
-  ));
-}
-
-function cityCoverageGridPolygons(city, columns = 5, rows = 5) {
-  const bounds = Array.isArray(city.bounds) ? city.bounds.map(Number) : null;
-  if (!bounds || bounds.length !== 4 || bounds.some((value) => !Number.isFinite(value))) return [];
-  const [west, south, east, north] = bounds;
-  const dx = (east - west) / columns;
-  const dy = (north - south) / rows;
-  const features = [];
-  for (let row = 0; row < rows; row += 1) {
-    for (let col = 0; col < columns; col += 1) {
-      const w = west + col * dx;
-      const e = west + (col + 1) * dx;
-      const s = south + row * dy;
-      const n = south + (row + 1) * dy;
-      features.push({
-        index: row * columns + col,
-        geometry: {
-          type: "Polygon",
-          coordinates: [[
-            [round(w, 7), round(s, 7)],
-            [round(e, 7), round(s, 7)],
-            [round(e, 7), round(n, 7)],
-            [round(w, 7), round(n, 7)],
-            [round(w, 7), round(s, 7)],
-          ]],
-        },
-      });
-    }
-  }
-  return features;
-}
-
-function cityCoverageGridLines(city, columns = 6, rows = 6) {
-  const bounds = Array.isArray(city.bounds) ? city.bounds.map(Number) : null;
-  if (!bounds || bounds.length !== 4 || bounds.some((value) => !Number.isFinite(value))) return [];
-  const [west, south, east, north] = bounds;
-  const dx = (east - west) / columns;
-  const dy = (north - south) / rows;
-  const lines = [];
-  for (let col = 1; col < columns; col += 1) {
-    const x = west + col * dx;
-    lines.push({
-      index: lines.length,
-      geometry: { type: "LineString", coordinates: [[round(x, 7), round(south, 7)], [round(x, 7), round(north, 7)]] },
-    });
-  }
-  for (let row = 1; row < rows; row += 1) {
-    const y = south + row * dy;
-    lines.push({
-      index: lines.length,
-      geometry: { type: "LineString", coordinates: [[round(west, 7), round(y, 7)], [round(east, 7), round(y, 7)]] },
-    });
-  }
-  return lines;
-}
-
-function coverageContextProperties(city, year, category, config, sourceIds, index) {
-  const title = `${city.display_name || city.city_id} ${year} ${config.label} coverage context`;
-  return {
-    id: `lens-detail-${city.city_id}-${year}-${config.layer}-coverage-context-${index}`,
-    layer: config.layer,
-    category,
-    year,
-    visible_year: year,
-    title,
-    confidence: "inferred",
-    confidence_mix: "inferred:1",
-    event_count: 0,
-    source_count: sourceIds.length,
-    source_ids: sourceIds.join(","),
-    event_ids: "",
-    event_ids_all: "",
-    source_urls: "",
-    geometry_precision_mix: "configured atlas coverage grid from official scope sources",
-    representation: config.representation,
-    timing_note: `No license-compatible ${config.label} records are currently ingested for ${year}; this lens geometry marks source coverage context only.`,
-    caveat: "Coverage context is not a city-change event, not a measured condition, and is excluded from headline counts.",
-    generated_from: `web/data/city-atlas/cities/${city.city_id}/events_${year}.json`,
-    coverage_status: "no_same_category_records",
-    evidence_role: "context_not_year_specific_change_evidence",
-    source_kind: "official_scope_context",
-    headline_count_excluded: true,
-    intensity: 0.16,
-    label: `No same-lens ${config.label} records currently ingested`,
-    ...config.props,
-  };
-}
-
-function buildCoverageContextFeatures(city, year, category, sourceIds) {
-  const config = COVERAGE_CONTEXT_BY_CATEGORY[category];
-  if (!config || !sourceIds.length) return [];
-  const shapes = category === "utilities"
-    ? cityCoverageGridLines(city, 7, 7)
-    : cityCoverageGridPolygons(city, 5, 5);
-  return shapes.map((shape, index) => ({
-    type: "Feature",
-    properties: coverageContextProperties(city, year, category, config, sourceIds, index),
-    geometry: shape.geometry,
-  }));
-}
-
 function buildCellFeatures(city, yearEvents, refLat) {
   const buckets = new Map();
   for (const event of yearEvents) {
@@ -1129,11 +965,10 @@ function lensDetailLayerCounts(features) {
   return counts;
 }
 
-function writeLensDetailYears(city, paths, events, years, outDir, sourceById) {
+function writeLensDetailYears(city, paths, events, years, outDir) {
   const roads = loadRoadFeatures(city, paths);
   const template = `web/data/city-atlas/cities/${city.city_id}/lens_detail_{year}.geojson`;
   const refLat = cityReferenceLat(city, events);
-  const coverageSourceIds = scopeSourceIds(city, sourceById);
 
   for (const year of years) {
     const yearEvents = events.filter((event) => event.year === year);
@@ -1147,7 +982,7 @@ function writeLensDetailYears(city, paths, events, years, outDir, sourceById) {
         "economy",
         "economy_frontage",
         FRONTAGE_TRACE_RADIUS_KM,
-        "nearest mapped street frontage proxy from source-backed economy records",
+        "nearest mapped street frontage trace from source-backed economy records",
         "Economy frontage traces use existing OSM street geometry nearest to source-backed event points; they are not measured footfall, spend, or vacancy data.",
       ),
       ...buildPointDetailFeatures(
@@ -1177,11 +1012,6 @@ function writeLensDetailYears(city, paths, events, years, outDir, sourceById) {
         "Utility glyphs show observed or mapped records only and do not imply network capacity.",
       ),
     ];
-    for (const category of LENS_CONTRACT_CATEGORIES) {
-      if (category === "transport") continue;
-      if (categoryHasCompatibleRecords(yearEvents, category, sourceById)) continue;
-      features.push(...buildCoverageContextFeatures(city, year, category, coverageSourceIds));
-    }
 
     writeJson(path.join(outDir, `lens_detail_${year}.geojson`), {
       type: "FeatureCollection",
@@ -1201,7 +1031,7 @@ function writeLensDetailYears(city, paths, events, years, outDir, sourceById) {
         caveats: [
           "Derived cells are evidence grids, not surveyed parcels, catchments, zones, or administrative boundaries.",
           "Trace lines are nearest mapped street or work-location context, not surveyed utility networks, measured traffic speed, spend, vacancy, or service quality. No capacity data is inferred.",
-          "When a lens/year has no same-category source-backed records, faint coverage-context grids keep the lens visible while explicitly recording the source gap. Those context features are not city-change events and are excluded from headline counts.",
+          "When a lens/year has no same-category source-backed records, no coverage geometry is generated; sparse data remains sparse.",
           "Borough, citywide, statistical, corridor, and multi-site records are excluded from site-like lens geometry; they remain available in the event list and evidence records.",
           "OSM mapped-visibility dates and administrative decision dates can differ from real-world physical change dates.",
         ],
@@ -1273,7 +1103,7 @@ function buildCity(city) {
   });
 
   const transportRoads = writeTransportRoadYears(buildCityRecord, paths, events, years, cityDir);
-  const lensDetail = writeLensDetailYears(buildCityRecord, paths, events, years, cityDir, sourceById);
+  const lensDetail = writeLensDetailYears(buildCityRecord, paths, events, years, cityDir);
   const additions = {
     lens_overlays: overlayRelativePath,
     lens_detail_template: lensDetail.template,
