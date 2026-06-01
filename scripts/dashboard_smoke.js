@@ -32,6 +32,30 @@ async function assertResponsiveLayout(page, label) {
   return state;
 }
 
+async function chooseLens(page, aspectId) {
+  const details = page.locator("#lensSwitcher .lens-picker");
+  if (await details.count()) {
+    await details.locator("summary").click();
+    await page.waitForFunction(
+      (id) => {
+        const picker = document.querySelector("#lensSwitcher .lens-picker");
+        const button = document.querySelector(`#lensSwitcher .lens-choice[data-aspect="${id}"]`);
+        return picker?.open && button && button.offsetParent !== null;
+      },
+      aspectId,
+      { timeout: 10000 }
+    );
+  }
+  const clicked = await page.evaluate((id) => {
+    const button = document.querySelector(`#lensSwitcher .lens-choice[data-aspect="${id}"]`);
+    if (!button) return false;
+    button.scrollIntoView?.({ block: "nearest", inline: "center" });
+    button.click();
+    return true;
+  }, aspectId);
+  assert(clicked, `Could not find lens button ${aspectId}.`);
+}
+
 async function assertDesktopCoreInteractions(page) {
   const startYear = await page.locator("#tlYear").innerText();
   await page.locator("#prevYearBtn").click();
@@ -45,7 +69,7 @@ async function assertDesktopCoreInteractions(page) {
 
   const lensButtons = await page.locator("#lensSwitcher .lens-choice").count();
   assert(lensButtons >= 15, "desktop: lens switcher does not expose the full lens set.");
-  await page.locator("#lensSwitcher .lens-choice[data-aspect='planning-pressure']").click();
+  await chooseLens(page, "planning-pressure");
   await page.waitForTimeout(700);
   let state = await atlasState(page);
   assert(state.activeAspect === "planning-pressure", "desktop: lens switch did not activate Planning Activity.");
@@ -61,7 +85,7 @@ async function assertDesktopCoreInteractions(page) {
   state = await atlasState(page);
   assert(state.areaFilterValue.length > 0, "desktop: selecting an area search result did not set the area filter.");
 
-  await page.locator("#lensSwitcher .lens-choice[data-aspect='transport-speed']").click();
+  await chooseLens(page, "transport-speed");
   await page.waitForTimeout(700);
   await page.locator("#searchInput").fill("gra");
   await page.waitForTimeout(400);
@@ -183,7 +207,7 @@ async function assertMobileButtonsRespond(page) {
   await page.keyboard.press("Escape");
   await page.waitForFunction(() => document.querySelector("#cityToggle")?.getAttribute("aria-expanded") === "false", null, { timeout: 10000 });
 
-  await page.locator("#lensSwitcher .lens-choice[data-aspect='planning-pressure']").click();
+  await chooseLens(page, "planning-pressure");
   await page.waitForFunction(() => window.BimsAtlas?.state?.activeAspect === "planning-pressure", null, { timeout: 10000 });
   const state = await atlasState(page);
   assert(state.scrollWidth <= state.clientWidth + 4, "mobile after buttons: responsive shell has horizontal overflow.");
@@ -217,7 +241,7 @@ async function assertDesktopCitywideCoverage(page) {
   assert(lensButtons.length === 15, `desktop citywide: expected 15 lens buttons, got ${lensButtons.length}.`);
 
   for (const lens of lensButtons) {
-    await page.locator(`#lensSwitcher .lens-choice[data-aspect='${lens.id}']`).click();
+    await chooseLens(page, lens.id);
     await page.waitForFunction(
       (id) => window.BimsAtlas?.state?.activeAspect === id,
       lens.id,
@@ -459,7 +483,22 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
       null,
       { timeout: 20000 }
     );
-    await page.waitForTimeout(700);
+    await page.waitForFunction(
+      (layers) => {
+        const map = window.BimsAtlas?.state?.map;
+        if (!map) return false;
+        return layers.reduce((sum, layerId) => {
+          if (!map.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") return sum;
+          try {
+            return sum + map.queryRenderedFeatures({ layers: [layerId] }).length;
+          } catch (_error) {
+            return sum;
+          }
+        }, 0) > 0;
+      },
+      check.renderedLayers,
+      { timeout: 20000 }
+    );
     const state = await atlasState(page);
     const rendered = check.rendered.reduce((sum, field) => sum + Number(state[field] || 0), 0);
     assert(rendered > 0, `city ${cityId}: ${check.label} did not render across the 2024 citywide map.`);

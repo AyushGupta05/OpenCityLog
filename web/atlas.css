@@ -5791,7 +5791,7 @@ button { font-family: inherit; }
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   #root {
     --desktop-layers-width: 284px;
     --desktop-event-width: 360px;
