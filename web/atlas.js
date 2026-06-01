@@ -9,7 +9,7 @@
   const DEFAULT_YEAR = 2024;
   const MAX_MARKERS = 180;
   const CITY_OVERVIEW_MAX_ZOOM = 11.2;
-  const EVENT_LIST_BATCH_SIZE = 24;
+  const EVENT_LIST_BATCH_SIZE = 48;
   const PLAY_RATE_YEARS_PER_SECOND = 1.4;
   const GRAND_CENTRAL_EVENT_IDS = new Set([
     "official-2024-grand-central",
@@ -15622,18 +15622,46 @@
 
   function renderLensSwitcher() {
     if (!els.lensSwitcher) return;
-    els.lensSwitcher.innerHTML = LENS_ASPECTS.map((lens) => {
-      const active = state.activeAspect === lens.id;
-      const layerOn = state.activeLayers.has(lens.category);
-      return `
-        <button class="lens-choice" type="button" role="tab" data-aspect="${escapeAttr(lens.id)}" data-active="${active}" data-layer-on="${layerOn}" aria-selected="${active}" aria-label="${escapeAttr(`${lensDomainLabel(lens)}: ${lens.label}`)}" title="${escapeAttr(`${lensDomainLabel(lens)}: ${lens.label}`)}">
-          <span class="lens-choice-domain">${escapeHtml(lensDomainLabel(lens))}</span>
-          <span class="lens-choice-label">${escapeHtml(lens.shortLabel)}</span>
-        </button>
-      `;
-    }).join("");
+    const active = activeMapLens();
+    const groups = LAYERS
+      .map((layer) => ({
+        layer,
+        lenses: LENS_ASPECTS.filter((lens) => lens.category === layer.id),
+      }))
+      .filter((group) => group.lenses.length);
+    els.lensSwitcher.innerHTML = `
+      <details class="lens-picker">
+        <summary aria-label="Choose map lens">
+          <span>
+            <b>${escapeHtml(lensDomainLabel(active))}</b>
+            <strong>${escapeHtml(active?.label || "Choose lens")}</strong>
+          </span>
+          <em>${escapeHtml(active?.shortLabel || "")}</em>
+        </summary>
+        <div class="lens-picker-menu" role="tablist" aria-label="City atlas lenses">
+          ${groups.map((group) => `
+            <div class="lens-picker-group" style="--group-color:${escapeAttr(group.layer.color)}">
+              <div class="lens-picker-group-title">${escapeHtml(group.layer.label)}</div>
+              ${group.lenses.map((lens) => {
+                const isActive = state.activeAspect === lens.id;
+                const layerOn = state.activeLayers.has(lens.category);
+                return `
+                  <button class="lens-choice" type="button" role="tab" data-aspect="${escapeAttr(lens.id)}" data-active="${isActive}" data-layer-on="${layerOn}" aria-selected="${isActive}" aria-label="${escapeAttr(`${lensDomainLabel(lens)}: ${lens.label}`)}" title="${escapeAttr(`${lensDomainLabel(lens)}: ${lens.label}`)}">
+                    <span class="lens-choice-domain">${escapeHtml(lensDomainLabel(lens))}</span>
+                    <span class="lens-choice-label">${escapeHtml(lens.label)}</span>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+          `).join("")}
+        </div>
+      </details>
+    `;
     els.lensSwitcher.querySelectorAll(".lens-choice").forEach((button) => {
-      const choose = () => setActiveAspect(button.getAttribute("data-aspect"));
+      const choose = () => {
+        setActiveAspect(button.getAttribute("data-aspect"));
+        button.closest("details")?.removeAttribute("open");
+      };
       button.addEventListener("click", choose);
       addPressHandler(button, choose);
     });
@@ -19804,6 +19832,15 @@
     title.id = "detailTitle";
     title.setAttribute("tabindex", "-1");
     els.detailPanel?.setAttribute("aria-labelledby", "detailTitle");
+    const body = els.detailInner?.querySelector(".detail-body");
+    const event = state.selectedEvent;
+    if (body && event && !body.querySelector(".detail-meaning-card")) {
+      const context = buildLensContext(event);
+      const card = document.createElement("section");
+      card.className = "detail-meaning-card";
+      card.innerHTML = renderDetailMeaningCard(event, context);
+      body.insertBefore(card, body.firstChild);
+    }
   }
 
   function focusDetailPanel() {
@@ -19853,6 +19890,36 @@
       }
     }
     return rows.slice(0, 6);
+  }
+
+  function renderDetailMeaningCard(event, context = buildLensContext(event)) {
+    const layer = LAYER_BY_ID.get(event.category) || LAYERS[1];
+    const confidence = confidenceDescriptor(event.confidence);
+    const sourceCount = eventSourceCount(event);
+    const when = event.effectiveDate || String(event.year);
+    const summary = event.shortDescription || event.details || event.summary || event.title;
+    const caveat = event.confidence === "inferred"
+      ? "This is an inferred mapped-visibility record. Treat the date as map evidence, not a confirmed construction or opening date."
+      : "This is an observed record from public evidence. Nearby lens context is descriptive and does not claim causation or forecast impact.";
+    const contextLine = context?.lens
+      ? `${context.lens.label} shows nearby source-backed records and mapped context within ${formatRadius(context.radiusM)}.`
+      : "The active lens shows nearby source-backed records and mapped context.";
+    return `
+      <div class="detail-meaning-head">
+        <span style="--accent:${escapeAttr(context?.lens?.accent || layer.color)}"></span>
+        <div>
+          <strong>What this record means</strong>
+          <p>${escapeHtml(summary)}</p>
+        </div>
+      </div>
+      <dl class="detail-meaning-facts">
+        <div><dt>When</dt><dd>${escapeHtml(when)}${event.datePrecision ? ` (${escapeHtml(event.datePrecision)})` : ""}</dd></div>
+        <div><dt>Where</dt><dd>${escapeHtml(event.area || "Location not stated")}</dd></div>
+        <div><dt>Evidence</dt><dd>${escapeHtml(confidence.label)} / ${sourceCount} source row${sourceCount === 1 ? "" : "s"}</dd></div>
+        <div><dt>Lens context</dt><dd>${escapeHtml(contextLine)}</dd></div>
+      </dl>
+      <div class="detail-meaning-note">${escapeHtml(caveat)}</div>
+    `;
   }
 
   function renderSourceRow(source) {
@@ -21281,13 +21348,13 @@
   function buildProvenanceFacts(event) {
     const p = event.provenance || {};
     return [
-      { label: "Effective date", value: event.effectiveDate || String(event.year) },
-      { label: "Date precision", value: event.datePrecision || "not stated" },
-      { label: "Date basis", value: event.sourceDateField || p.source_date_field || p.source_basis || "" },
-      { label: "Retrieved", value: p.source_retrieved_at || "" },
-      { label: "Geometry source", value: p.geometry_source || "" },
-      { label: "Geometry limitation", value: p.geometry_precision || "" },
-      { label: "Transform", value: p.transform || "" },
+      { label: "When recorded", value: event.effectiveDate || String(event.year) },
+      { label: "Date certainty", value: event.datePrecision || "not stated" },
+      { label: "Date comes from", value: event.sourceDateField || p.source_date_field || p.source_basis || "" },
+      { label: "Source checked", value: p.source_retrieved_at || "" },
+      { label: "Location comes from", value: p.geometry_source || "" },
+      { label: "Location caveat", value: p.geometry_precision || "" },
+      { label: "Built by", value: p.transform || "" },
     ].filter((fact) => fact.value);
   }
 
