@@ -37,6 +37,23 @@ body:
         - Caveat or limitation
         - Licence or attribution
         - Source URL or record id
+  - type: dropdown
+    id: correction_status
+    attributes:
+      label: Suggested correction status
+      description: Maintainers will make the final status decision in the append-only correction ledger.
+      options:
+        - proposed
+        - accepted
+        - rejected
+        - superseded
+    validations:
+      required: true
+  - type: input
+    id: correction_artifact
+    attributes:
+      label: Append-only correction artifact
+      description: Leave blank for new issues; maintainers should record accepted/rejected outcomes in `data/corrections/corrections.json`.
   - type: checkboxes
     id: checks
     attributes:

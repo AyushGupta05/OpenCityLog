@@ -268,19 +268,31 @@ def stable_hash(text: str) -> int:
 def year_from_date(value: Any) -> int:
     m = re.search(r"(16|17|18|19|20)\d{2}", str(value or ""))
     if not m:
-        return 2026
+        raise ValueError(f"Source date does not contain a supported four-digit year: {value!r}")
     return int(m.group(0))
 
 
 def date_precision(value: Any) -> str:
     raw = str(value or "")
+    if is_date_range(raw):
+        return "range"
     if re.match(r"^\d{4}-\d{2}-\d{2}", raw):
         return "day"
     if re.match(r"^\d{4}-\d{2}", raw):
         return "month"
-    if "-" in raw and re.search(r"\d{4}.*\d{4}", raw):
-        return "range"
     return "year"
+
+
+def is_date_range(value: Any) -> bool:
+    return parse_date_range(value) is not None
+
+
+def parse_date_range(value: Any) -> dict[str, str] | None:
+    raw = str(value or "").strip()
+    match = re.match(r"^((?:16|17|18|19|20)\d{2}(?:-\d{2}(?:-\d{2})?)?)\s*(?:to|through|/|–|—|\.\.|-)\s*((?:16|17|18|19|20)\d{2}(?:-\d{2}(?:-\d{2})?)?)$", raw, flags=re.I)
+    if not match:
+        return None
+    return {"start": match.group(1), "end": match.group(2)}
 
 
 def normalized_date_precision(value: Any, fallback: str = "year") -> str:
@@ -353,34 +365,52 @@ def category_and_lens(bucket: str, title: str = "") -> tuple[str, str, list[str]
     text = f"{bucket} {title}".lower()
     signals = set()
     planning_terms = ["planning", "development", "building", "zoning", "parcel", "landmark", "brownfield", "housing", "listed", "conservation", "local plan"]
-    if any(k in text for k in planning_terms):
-        category, lens = "built_environment", "built_environment"
-        signals.add("built_environment"); signals.add("buildings")
-    elif any(k in text for k in ["traffic", "transport", "road", "transit", "collision", "bus", "rail", "subway", "cycle", "parking"]):
-        category, lens = "transport", "traffic"
-        signals.add("traffic"); signals.add("mobility")
-    elif any(k in text for k in ["environment", "air", "flood", "green", "tree", "noise", "climate", "parkland", "parks property", "public realm/parks"]):
-        category, lens = "environment", "green_space"
-        signals.add("green_space")
-    elif any(k in text for k in ["economy", "business", "jobs", "employment", "licence", "storefront"]):
-        category, lens = "economy", "jobs"
-        signals.add("jobs")
-    elif any(k in text for k in ["service", "health", "school", "police", "fire", "public"]):
+    transport_terms = ["traffic", "transport", "road", "transit", "collision", "bus", "rail", "subway", "cycle", "parking"]
+    environment_terms = ["environment", "air", "flood", "green", "tree", "noise", "climate", "parkland", "parks property", "public realm/parks"]
+    economy_terms = ["economy", "business", "jobs", "employment", "licence", "storefront"]
+    civic_terms = ["service", "health", "school", "police", "fire", "public"]
+    utility_terms = ["energy", "utility", "power", "water", "sewer", "waste"]
+    if has_any_term(text, ["food hygiene", "public health"]):
         category, lens = "civic_services", "services"
         signals.add("services")
-    elif any(k in text for k in ["energy", "utility", "power", "water", "sewer", "waste"]):
+    elif has_any_term(text, planning_terms):
+        category, lens = "built_environment", "built_environment"
+        signals.add("built_environment"); signals.add("buildings")
+    elif has_any_term(text, transport_terms):
+        category, lens = "transport", "traffic"
+        signals.add("traffic"); signals.add("mobility")
+    elif has_any_term(text, environment_terms):
+        category, lens = "environment", "green_space"
+        signals.add("green_space")
+    elif has_any_term(text, economy_terms):
+        category, lens = "economy", "jobs"
+        signals.add("jobs")
+    elif has_any_term(text, civic_terms):
+        category, lens = "civic_services", "services"
+        signals.add("services")
+    elif has_any_term(text, utility_terms):
         category, lens = "utilities", "utilities"
         signals.add("utilities")
     else:
         category, lens = "built_environment", "built_environment"
         signals.add("built_environment"); signals.add("buildings")
-    if any(k in text for k in planning_terms):
+    if has_any_term(text, planning_terms):
         signals.add("built_environment"); signals.add("buildings")
-    if any(k in text for k in ["traffic", "transport", "road", "bus", "rail", "subway"]):
+    if has_any_term(text, ["traffic", "transport", "road", "bus", "rail", "subway"]):
         signals.add("traffic"); signals.add("mobility")
-    if any(k in text for k in ["environment", "flood", "air", "tree", "green"]):
+    if has_any_term(text, ["environment", "flood", "air", "tree", "green"]):
         signals.add("green_space")
     return category, lens, sorted(signals)
+
+
+def has_any_term(text: str, terms: list[str]) -> bool:
+    return any(has_term(text, term) for term in terms)
+
+
+def has_term(text: str, term: str) -> bool:
+    if len(term) <= 3 and term.isalpha():
+        return re.search(rf"\b{re.escape(term)}\b", text) is not None
+    return term in text
 
 
 def point_for(city: str, text: str, idx: int) -> tuple[str, float, float]:
@@ -465,7 +495,16 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
             geometry_precision = geometry_precision or "Approximate area/city reference marker for map navigation, not an exact event geometry."
 
     raw_source_ids = item.get("source_ids") or []
-    source_ids = [sid for sid in raw_source_ids if sid in source_by_id]
+    exact_source_candidates = [
+        item.get("source_dataset_id"),
+        item.get("source_id"),
+        item.get("source_record_id"),
+    ]
+    source_ids = []
+    for sid in [*exact_source_candidates, *raw_source_ids]:
+        sid_text = str(sid) if sid is not None else ""
+        if sid_text in source_by_id and sid_text not in source_ids:
+            source_ids.append(sid_text)
     if not source_ids:
         bucket_token = str(bucket).split("/")[0].split(";")[0].strip().lower()
         matching = [sid for sid, src in source_by_id.items() if bucket_token and bucket_token in str(src.get("bucket", "")).lower()]
@@ -487,10 +526,14 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
     if used_atlas_reference_point:
         caveats.append("Map marker is an atlas reference point because the source record did not provide row-level coordinates.")
     explicit_range = item.get("effective_date_range") if isinstance(item.get("effective_date_range"), dict) else {}
-    range_start = item.get("date_start") or explicit_range.get("start")
-    range_end = item.get("date_end") or explicit_range.get("end")
+    parsed_range = parse_date_range(date) or {}
+    range_start = item.get("date_start") or explicit_range.get("start") or parsed_range.get("start")
+    range_end = item.get("date_end") or explicit_range.get("end") or parsed_range.get("end")
     effective_date_range = {"start": str(range_start), "end": str(range_end)} if range_start and range_end else None
     precision = normalized_date_precision(item.get("date_precision"), "range" if effective_date_range else date_precision(date))
+    effective_date = str(range_start or date)
+    if precision == "range" and not effective_date_range:
+        precision = date_precision(effective_date)
     return {
         "schema_version": SCHEMA,
         "city_id": city,
@@ -499,7 +542,7 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
         "title": title,
         "short_description": concise,
         "year": year,
-        "effective_date": str(range_start or date).split("-")[0] if precision == "range" and not effective_date_range else str(range_start or date),
+        "effective_date": effective_date,
         "effective_date_range": effective_date_range,
         "date_precision": precision,
         "source_date_field": source_date_field,
@@ -521,6 +564,7 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
             "source_record_id": item.get("source_record_id") or item.get("record_id") or primary_evidence.get("record_id"),
             "source_url": item.get("source_url") or primary_evidence.get("url"),
             "source_retrieved_at": item.get("source_retrieved_at") or primary_evidence.get("accessed_at"),
+            "source_registry_reviewed_at": item.get("source_registry_reviewed_at") or (primary_source.get("retrieved_at") if primary_source else None) or GENERATED_AT,
             "source_dataset_id": item.get("source_dataset_id") or (primary_source.get("source_id") if primary_source else None),
             "source_date_field": source_date_field,
             "geometry_source": geometry_source,

@@ -35,6 +35,7 @@ class DataFoundationTests(unittest.TestCase):
             self.assertLessEqual(len(event["short_description"]), 220)
             self.assertEqual(event["source_ids"], ["osm-overpass"])
             self.assertEqual(event["geometry"]["type"], "Point")
+            self.assertIn("source_registry_reviewed_at", event["provenance"])
             self.assertIn("not a confirmed real-world opening", event["explanation"])
             self.assertTrue(event["evidence"])
 
@@ -55,7 +56,8 @@ class DataFoundationTests(unittest.TestCase):
                     for row in coverage_report["coverage_rows"]
                 )
             )
-            self.assertEqual(coverage_report["cities"][0]["target_coverage_gap"]["gap_events"], 99998)
+            self.assertNotIn("target_coverage_gap", coverage_report["cities"][0])
+            self.assertIn("gaps", coverage_report["cities"][0])
             self.assertTrue((root / "docs" / "data_coverage_report.md").exists())
             atlas_index = read_json(root / "web" / "data" / "city-atlas" / "index.json")
             self.assertEqual(atlas_index["coverage_report_path"], "web/data/city-atlas/coverage-report.json")
@@ -119,6 +121,80 @@ class DataFoundationTests(unittest.TestCase):
             completed = run_node(root, "scripts/verify_data.js", check=False)
             self.assertNotEqual(completed.returncode, 0)
             self.assertIn("missing provenance.geometry_source", completed.stderr)
+
+    def test_verify_rejects_structurally_invalid_geometry(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            payload["events"][0]["geometry"] = {
+                "type": "LineString",
+                "coordinates": [[-5.94, 54.61]],
+            }
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("has invalid geometry", completed.stderr)
+
+    def test_verify_rejects_invalid_effective_date(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            payload["events"][0]["effective_date"] = "not a date"
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("has invalid effective_date not a date", completed.stderr)
+
+    def test_verify_rejects_missing_event_access_trace(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            payload["events"][0]["provenance"].pop("source_retrieved_at", None)
+            payload["events"][0]["provenance"].pop("source_registry_reviewed_at", None)
+            for evidence in payload["events"][0]["evidence"]:
+                evidence.pop("accessed_at", None)
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("missing event source retrieval or registry review timestamp", completed.stderr)
+
+    def test_verify_rejects_osm_timestamp_without_mapped_visibility_caveat(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            payload["events"][0]["source_date_field"] = "timestamp"
+            payload["events"][0]["provenance"]["source_date_field"] = "timestamp"
+            payload["events"][0]["provenance"]["geometry_precision"] = "point"
+            payload["events"][0]["explanation"] = "Fixture road event."
+            payload["events"][0]["caveats"] = ["Fixture caveat."]
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("has OSM timestamp without mapped-visibility caveat", completed.stderr)
 
     def test_verify_rejects_missing_short_description(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Expand London/NYC city-atlas event seeds from official/open source rows.
 
-The previous PDF identifies the source families to use. This script turns several of
-those families into row-level, source-backed event records for the CivicReplay atlas:
+The source inventory identifies the source families to use. This script turns several of
+those families into row-level, source-backed event records for the OpenCityLog atlas:
 - London: Planning Data England brownfield/designation records inside London LPAs,
   London Fire Brigade incidents, TfL road disruptions.
 - NYC: DOB permits, street-construction permits, certificates of occupancy, ZAP projects,
@@ -36,7 +36,7 @@ DISCOVERY = ROOT / "data-discovery"
 RAW = DISCOVERY / "raw_metadata"
 RAW.mkdir(parents=True, exist_ok=True)
 
-USER_AGENT = "Bims-5-CivicReplay-event-expander/1.0 (+local research script)"
+USER_AGENT = "OpenCityLog-event-expander/1.0 (+local research script)"
 LONDON_BOUNDS = (-0.5103, 51.2868, 0.334, 51.6919)
 NYC_BOUNDS = (-74.2591, 40.4774, -73.7004, 40.9176)
 LONDON_DATAHUB_SEARCH_URL = "https://planningdata.london.gov.uk/api-guest/applications/_search"
@@ -1722,6 +1722,9 @@ def make_fhrs_event(row: dict[str, Any], authority: dict[str, Any], retrieved_at
         source_retrieved_at=retrieved_at,
         source_dataset_id=FHRS_SOURCE_ID,
         source_date_field="RatingDate",
+        atlas_category="civic_services",
+        atlas_lens="services",
+        affected_signals=["public_health", "services"],
         geometry_source="Food Standards Agency FHRS establishment geocode",
         geometry_precision="public food-business premises point; source coordinates may be incomplete or inaccurate",
         summary=clean_text(

@@ -7,6 +7,7 @@ const {
   atlasUrl,
   attachConsoleCapture,
   chromium,
+  chromiumLaunchOptions,
   ensureOutputDir,
   openAtlas,
   outputDir,
@@ -42,7 +43,7 @@ function cameraStable(before, after) {
 
 (async () => {
   ensureOutputDir();
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch(chromiumLaunchOptions);
   const page = await browser.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1 });
   const consoleMessages = [];
   const pageErrors = [];

@@ -69,6 +69,14 @@ function schemaTypeName(value) {
   return typeof value;
 }
 
+function stableStringify(value) {
+  if (Array.isArray(value)) return `[${value.map(stableStringify).join(",")}]`;
+  if (value && typeof value === "object") {
+    return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`).join(",")}}`;
+  }
+  return JSON.stringify(value);
+}
+
 function resolveRef(ref, rootSchema) {
   if (!ref.startsWith("#/")) throw new Error(`Only local schema refs are supported: ${ref}`);
   return ref
@@ -102,6 +110,9 @@ function validateValue(value, schema, label, failures, rootSchema = schema) {
 
   if (value === null || value === undefined) return;
 
+  if (Object.prototype.hasOwnProperty.call(schema, "const") && stableStringify(value) !== stableStringify(schema.const)) {
+    fail(failures, `${label} must equal ${JSON.stringify(schema.const)}`);
+  }
   if (schema.enum && !schema.enum.includes(value)) {
     fail(failures, `${label} has invalid enum value ${JSON.stringify(value)}`);
   }
@@ -128,6 +139,17 @@ function validateValue(value, schema, label, failures, rootSchema = schema) {
     if (Number.isInteger(schema.maxItems) && value.length > schema.maxItems) {
       fail(failures, `${label} has more than ${schema.maxItems} item(s)`);
     }
+    if (schema.uniqueItems === true) {
+      const seen = new Set();
+      for (const item of value) {
+        const key = stableStringify(item);
+        if (seen.has(key)) {
+          fail(failures, `${label} has duplicate item ${key}`);
+          break;
+        }
+        seen.add(key);
+      }
+    }
     if (Array.isArray(schema.prefixItems)) {
       schema.prefixItems.forEach((itemSchema, index) => {
         if (index < value.length) validateValue(value[index], itemSchema, `${label}[${index}]`, failures, rootSchema);
@@ -149,6 +171,12 @@ function validateValue(value, schema, label, failures, rootSchema = schema) {
         validateValue(value[key], propertySchema, `${label}.${key}`, failures, rootSchema);
       }
     }
+    if (schema.additionalProperties === false) {
+      const allowed = new Set(Object.keys(schema.properties || {}));
+      for (const key of Object.keys(value)) {
+        if (!allowed.has(key)) fail(failures, `${label}.${key} is not allowed`);
+      }
+    }
   }
 }
 
@@ -166,6 +194,10 @@ function loadSchemas(root, schemaDir) {
     source: readJson(path.join(dir, "source.schema.json")),
     event: readJson(path.join(dir, "event.schema.json")),
     availability: readJson(path.join(dir, "availability.schema.json")),
+    architectureSourceInventory: readJson(path.join(dir, "architecture_source_inventory.schema.json")),
+    correctionLedger: fs.existsSync(path.join(dir, "correction_record.schema.json"))
+      ? readJson(path.join(dir, "correction_record.schema.json"))
+      : null,
   };
 }
 
@@ -190,6 +222,33 @@ function validateSourceRegistry(root, sourceRegistryPath, schemas, failures) {
   registry.sources.forEach((source, index) => {
     validateObjectAgainstSchema(failures, source, schemas.source, `${relativeFromRoot(root, registryPath)}.sources[${index}]`);
   });
+}
+
+function validateOptionalArtifacts(root, schemas, failures) {
+  const architecturePath = path.join(root, "config", "architecture_source_inventory.json");
+  if (fs.existsSync(architecturePath)) {
+    validateObjectAgainstSchema(failures, readJson(architecturePath), schemas.architectureSourceInventory, relativeFromRoot(root, architecturePath));
+  }
+  const correctionPath = path.join(root, "data", "corrections", "corrections.json");
+  if (schemas.correctionLedger && fs.existsSync(correctionPath)) {
+    const correctionLedger = readJson(correctionPath);
+    const correctionLabel = relativeFromRoot(root, correctionPath);
+    validateObjectAgainstSchema(failures, correctionLedger, schemas.correctionLedger, correctionLabel);
+    validateCorrectionLedgerIds(correctionLedger, correctionLabel, failures);
+  }
+}
+
+function validateCorrectionLedgerIds(correctionLedger, label, failures) {
+  const seen = new Set();
+  for (const [index, correction] of (correctionLedger.corrections || []).entries()) {
+    const correctionId = correction?.correction_id;
+    if (!correctionId) continue;
+    if (seen.has(correctionId)) {
+      fail(failures, `${label}.corrections[${index}].correction_id duplicates ${correctionId}`);
+      continue;
+    }
+    seen.add(correctionId);
+  }
 }
 
 function validateAtlasArtifacts(root, atlasDir, schemas, failures) {
@@ -256,6 +315,7 @@ function validate(args) {
   const schemas = loadSchemas(args.root, args.schemaDir);
   validateConfigCities(args.root, args.configDir, schemas, failures);
   validateSourceRegistry(args.root, args.sourceRegistry, schemas, failures);
+  validateOptionalArtifacts(args.root, schemas, failures);
   validateAtlasArtifacts(args.root, args.atlasDir, schemas, failures);
   return failures;
 }

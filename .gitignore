@@ -7,9 +7,17 @@ __pycache__/
 node_modules/
 build/
 output/
+.coverage
+tmp/*
+!tmp/reference-screens/
+!tmp/reference-screens/**
 .env.local
 node_modules
 .playwright-cli/
 .playwright-mcp/
 open-citylog-*.png
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
 .clawpatch/

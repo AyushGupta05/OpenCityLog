@@ -1,5 +1,17 @@
 # Release Notes
 
+## Unreleased - 2026-05-30
+
+### Verification And Metadata
+
+- Package and citation metadata now align with the 0.2.0 15-lens atlas release.
+- Python verification docs standardize on `python3 -m unittest discover tests`.
+- Browser-smoke docs include the matching `PORT=...` and `URL=...` override
+  needed when the default local port is already in use.
+- The current generated coverage report is refreshed from the committed atlas
+  artifacts and should be treated as the source-backed coverage snapshot for
+  this branch, not a claim of complete city history.
+
 ## 0.2.0 15-Lens Atlas Contract - 2026-05-25
 
 ### Product Scope
@@ -23,8 +35,9 @@
   methodology anchors, and export capability flags.
 - Lens-year coverage artifacts enforce the mandatory 15 lenses across every
   year from 2007 through 2026.
-- Zero-event lens-years are labelled as source-backed coverage context with
-  `event_count: 0`, and are excluded from headline record counts.
+- Zero-event lens-years are labelled `missing_source_backed_view` with
+  `event_count: 0`, `source_count: 0`, and no generated map marks, context
+  surfaces, or filler geometry.
 - Event indexes include source-backed `affected_area.label` facets so area,
   borough, ward, district, street, and named-place filters can update map,
   list, timeline, compare counts, and filtered exports without inventing data.
@@ -35,14 +48,14 @@
 
 - `npm run build:lens-contract`
 - `npm run verify:lens-contract`
-- `python -m unittest tests.test_15_lens_contract`
+- `python3 -m unittest tests.test_15_lens_contract`
 
 ### Known Limits
 
 - The manifests confirm source-backed lens coverage, not complete city history.
 - Sparse geographies remain sparse; no placeholder records are generated.
-- Coverage-context surfaces are not evidence of a city-change event or measured
-  condition.
+- Missing lens-years stay visually blank instead of borrowing context surfaces;
+  the manifests identify where more source-backed data is needed.
 - Review-required source terms remain visible and should be resolved before
   formal redistribution.
 
@@ -78,7 +91,7 @@ changelog and evidence atlas.
 The release-readiness pass ran:
 
 - `npm run verify`
-- `python -m unittest discover tests`
+- `python3 -m unittest discover tests`
 - `npm run verify:browser` against a fresh local server
 - `npm test`
 

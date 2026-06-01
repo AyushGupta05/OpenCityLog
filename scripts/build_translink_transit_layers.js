@@ -103,6 +103,37 @@ function download(url, filePath) {
   });
 }
 
+function commandExists(command) {
+  const probe = process.platform === "win32"
+    ? childProcess.spawnSync("where", [command], { stdio: "ignore" })
+    : childProcess.spawnSync("command", ["-v", command], { stdio: "ignore", shell: true });
+  return !probe.error && probe.status === 0;
+}
+
+function extractZipArchive(archivePath, extractPath) {
+  if (commandExists("powershell")) {
+    childProcess.execFileSync(
+      "powershell",
+      ["-NoProfile", "-Command", `Expand-Archive -Force -LiteralPath '${archivePath.replace(/'/g, "''")}' -DestinationPath '${extractPath.replace(/'/g, "''")}'`],
+      { stdio: "inherit" }
+    );
+    return;
+  }
+  if (commandExists("pwsh")) {
+    childProcess.execFileSync(
+      "pwsh",
+      ["-NoProfile", "-Command", `Expand-Archive -Force -LiteralPath '${archivePath.replace(/'/g, "''")}' -DestinationPath '${extractPath.replace(/'/g, "''")}'`],
+      { stdio: "inherit" }
+    );
+    return;
+  }
+  if (commandExists("unzip")) {
+    childProcess.execFileSync("unzip", ["-o", archivePath, "-d", extractPath], { stdio: "inherit" });
+    return;
+  }
+  throw new Error("Cannot extract Translink zip archives: install PowerShell (powershell/pwsh) or unzip.");
+}
+
 async function ensureArchive(source) {
   const archivePath = path.join(rawDir, source.archive);
   if (!fs.existsSync(archivePath)) {
@@ -112,11 +143,7 @@ async function ensureArchive(source) {
   const extractPath = path.join(rawDir, source.extractDir);
   if (!fs.existsSync(extractPath) || fs.readdirSync(extractPath).length === 0) {
     ensureDir(extractPath);
-    childProcess.execFileSync(
-      "powershell",
-      ["-NoProfile", "-Command", `Expand-Archive -Force -LiteralPath '${archivePath.replace(/'/g, "''")}' -DestinationPath '${extractPath.replace(/'/g, "''")}'`],
-      { stdio: "inherit" }
-    );
+    extractZipArchive(archivePath, extractPath);
   }
 }
 

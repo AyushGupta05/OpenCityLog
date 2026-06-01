@@ -22,9 +22,9 @@ Run small, focused sessions rather than one broad rewrite.
    - Prompt: "Use `.agents/skills/geospatial-frontend-reviewer` to review the map, timeline, event rail, evidence drawer, accessibility, and performance for this UI change."
    - Use after UI changes and before browser smoke testing.
 
-5. Lightweight impact session
-   - Prompt: "Use `.agents/skills/lightweight-impact-modeler` to turn this proposal-impact idea into analogue lookup, local-context comparison, confidence, and caveats without prediction language."
-   - Use only for non-forecast proposal logic.
+5. Proposal/research safety session
+   - Prompt: "Use `.agents/skills/lightweight-impact-modeler` only to critique or reshape a proposal idea into historical-context research notes with confidence and caveats."
+   - Use for research notes only unless a later accepted spec restores a runtime feature with a validated method and provenance model.
 
 6. Open-source maintainer session
    - Prompt: "Use `.agents/skills/open-source-maintainer` to update docs, examples, issue templates, release notes, or contribution guidance for this data/product change."
@@ -93,4 +93,3 @@ A task is done when:
 - `git status --short` shows only intentional files for the task.
 
 Docs-only guidance work is done when `AGENTS.md`, relevant docs, and local skills exist, have valid frontmatter, and no product code changed.
-

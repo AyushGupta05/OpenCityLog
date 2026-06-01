@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_lens_year_coverage",
-  "generated_at": "2026-05-30T16:04:02Z",
+  "generated_at": "2026-06-01T18:06:58Z",
   "city_id": "belfast",
   "display_name": "Belfast, Northern Ireland",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -14,7 +14,8 @@
   "required_row_count": 300,
   "row_count": 300,
   "status_counts": {
-    "source_backed_records": 300
+    "source_backed_records": 297,
+    "missing_source_backed_view": 3
   },
   "rows": [
     {
@@ -4547,25 +4548,19 @@
       "category": "transport",
       "year": 2007,
       "required_year": true,
-      "visible_map_contract": true,
-      "status": "source_backed_records",
-      "event_count": 13,
-      "compatible_event_count": 13,
+      "visible_map_contract": false,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 13,
+      "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "inferred": 13
-      },
-      "source_count": 1,
-      "source_ids": [
-        "osm-overpass"
-      ],
-      "compatible_source_ids": [
-        "osm-overpass"
-      ],
-      "evidence_basis": "Source-backed Access to Transport event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "evidence_basis": "No same-lens source-backed event rows matched for 2007; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -4574,7 +4569,9 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
+        "No license-compatible Access to Transport records are currently ingested for 2007.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -4619,7 +4616,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2008.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2008.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4667,7 +4665,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2009.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2009.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4717,7 +4716,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2010.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2010.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4765,7 +4765,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2011.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2011.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2011.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4815,7 +4816,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2012.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2012.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4865,7 +4867,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2013.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2013.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4913,7 +4916,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2014.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2014.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4965,7 +4969,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -4990,14 +4995,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 979,
-      "compatible_event_count": 979,
+      "event_count": 976,
+      "compatible_event_count": 976,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 979,
+      "headline_count_included": 976,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 136,
+        "documented": 133,
         "inferred": 843
       },
       "source_count": 9,
@@ -5027,7 +5032,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2016.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2016.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2016.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5052,14 +5058,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 700,
-      "compatible_event_count": 700,
+      "event_count": 676,
+      "compatible_event_count": 676,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 700,
+      "headline_count_included": 676,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 178,
+        "documented": 154,
         "inferred": 522
       },
       "source_count": 6,
@@ -5083,7 +5089,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2017.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2017.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2017.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5108,14 +5115,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 911,
-      "compatible_event_count": 911,
+      "event_count": 906,
+      "compatible_event_count": 906,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 911,
+      "headline_count_included": 906,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 579,
+        "documented": 574,
         "inferred": 332
       },
       "source_count": 7,
@@ -5141,7 +5148,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2018.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2018.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2018.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5203,7 +5211,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2019.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2019.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2019.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5257,7 +5266,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2020.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2020.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2020.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5282,14 +5292,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1428,
-      "compatible_event_count": 1428,
+      "event_count": 1427,
+      "compatible_event_count": 1427,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 1428,
+      "headline_count_included": 1427,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 605,
+        "documented": 604,
         "inferred": 823
       },
       "source_count": 11,
@@ -5323,7 +5333,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2021.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2021.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2021.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5382,7 +5393,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2022.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2022.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2022.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5450,7 +5462,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2023.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2023.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2023.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5475,14 +5488,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 3547,
-      "compatible_event_count": 3547,
+      "event_count": 3546,
+      "compatible_event_count": 3546,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 3547,
+      "headline_count_included": 3546,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 623,
+        "documented": 622,
         "corroborated": 1,
         "inferred": 2923
       },
@@ -5571,7 +5584,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5671,7 +5685,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5754,7 +5769,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2026.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2026.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2026.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5777,25 +5793,19 @@
       "category": "transport",
       "year": 2007,
       "required_year": true,
-      "visible_map_contract": true,
-      "status": "source_backed_records",
-      "event_count": 13,
-      "compatible_event_count": 13,
+      "visible_map_contract": false,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 13,
+      "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "inferred": 13
-      },
-      "source_count": 1,
-      "source_ids": [
-        "osm-overpass"
-      ],
-      "compatible_source_ids": [
-        "osm-overpass"
-      ],
-      "evidence_basis": "Source-backed Service Reliability event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "evidence_basis": "No same-lens source-backed event rows matched for 2007; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -5804,7 +5814,9 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
+        "No license-compatible Service Reliability records are currently ingested for 2007.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -5849,7 +5861,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2008.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2008.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5897,7 +5910,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2009.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2009.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5947,7 +5961,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2010.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2010.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -5995,7 +6010,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2011.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2011.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2011.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6045,7 +6061,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2012.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2012.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6095,7 +6112,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2013.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2013.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6143,7 +6161,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2014.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2014.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6195,7 +6214,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6220,14 +6240,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 979,
-      "compatible_event_count": 979,
+      "event_count": 976,
+      "compatible_event_count": 976,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 979,
+      "headline_count_included": 976,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 136,
+        "documented": 133,
         "inferred": 843
       },
       "source_count": 9,
@@ -6257,7 +6277,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2016.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2016.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2016.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6282,14 +6303,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 700,
-      "compatible_event_count": 700,
+      "event_count": 676,
+      "compatible_event_count": 676,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 700,
+      "headline_count_included": 676,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 178,
+        "documented": 154,
         "inferred": 522
       },
       "source_count": 6,
@@ -6313,7 +6334,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2017.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2017.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2017.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6338,14 +6360,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 911,
-      "compatible_event_count": 911,
+      "event_count": 906,
+      "compatible_event_count": 906,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 911,
+      "headline_count_included": 906,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 579,
+        "documented": 574,
         "inferred": 332
       },
       "source_count": 7,
@@ -6371,7 +6393,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2018.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2018.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2018.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6433,7 +6456,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2019.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2019.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2019.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6487,7 +6511,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2020.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2020.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2020.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6512,14 +6537,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1428,
-      "compatible_event_count": 1428,
+      "event_count": 1427,
+      "compatible_event_count": 1427,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 1428,
+      "headline_count_included": 1427,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 605,
+        "documented": 604,
         "inferred": 823
       },
       "source_count": 11,
@@ -6553,7 +6578,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2021.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2021.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2021.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6612,7 +6638,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2022.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2022.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2022.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6680,7 +6707,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2023.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2023.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2023.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6705,14 +6733,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 3547,
-      "compatible_event_count": 3547,
+      "event_count": 3546,
+      "compatible_event_count": 3546,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 3547,
+      "headline_count_included": 3546,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 623,
+        "documented": 622,
         "corroborated": 1,
         "inferred": 2923
       },
@@ -6801,7 +6829,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6901,7 +6930,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -6984,7 +7014,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2026.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2026.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2026.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7007,25 +7038,19 @@
       "category": "transport",
       "year": 2007,
       "required_year": true,
-      "visible_map_contract": true,
-      "status": "source_backed_records",
-      "event_count": 13,
-      "compatible_event_count": 13,
+      "visible_map_contract": false,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 13,
+      "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "inferred": 13
-      },
-      "source_count": 1,
-      "source_ids": [
-        "osm-overpass"
-      ],
-      "compatible_source_ids": [
-        "osm-overpass"
-      ],
-      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2007.json matched by lib/atlas-lenses.js#eventMatchesLens.",
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "evidence_basis": "No same-lens source-backed event rows matched for 2007; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2007.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2007.geojson",
@@ -7034,7 +7059,9 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
+        "No license-compatible Transport Activity records are currently ingested for 2007.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -7079,7 +7106,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2008.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2008.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2008.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2008.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7127,7 +7155,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2009.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2009.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2009.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2009.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7177,7 +7206,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2010.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2010.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2010.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2010.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7225,7 +7255,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2011.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2011.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2011.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2011.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7275,7 +7306,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2012.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2012.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2012.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2012.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7325,7 +7357,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2013.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2013.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2013.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2013.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7373,7 +7406,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2014.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2014.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2014.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2014.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7425,7 +7459,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7450,14 +7485,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 979,
-      "compatible_event_count": 979,
+      "event_count": 976,
+      "compatible_event_count": 976,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 979,
+      "headline_count_included": 976,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 136,
+        "documented": 133,
         "inferred": 843
       },
       "source_count": 9,
@@ -7487,7 +7522,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2016.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2016.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2016.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2016.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7512,14 +7548,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 700,
-      "compatible_event_count": 700,
+      "event_count": 676,
+      "compatible_event_count": 676,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 700,
+      "headline_count_included": 676,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 178,
+        "documented": 154,
         "inferred": 522
       },
       "source_count": 6,
@@ -7543,7 +7579,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2017.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2017.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2017.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2017.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7568,14 +7605,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 911,
-      "compatible_event_count": 911,
+      "event_count": 906,
+      "compatible_event_count": 906,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 911,
+      "headline_count_included": 906,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 579,
+        "documented": 574,
         "inferred": 332
       },
       "source_count": 7,
@@ -7601,7 +7638,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2018.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2018.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2018.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2018.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7663,7 +7701,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2019.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2019.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2019.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2019.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7717,7 +7756,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2020.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2020.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2020.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2020.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7742,14 +7782,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 1428,
-      "compatible_event_count": 1428,
+      "event_count": 1427,
+      "compatible_event_count": 1427,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 1428,
+      "headline_count_included": 1427,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 605,
+        "documented": 604,
         "inferred": 823
       },
       "source_count": 11,
@@ -7783,7 +7823,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2021.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2021.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2021.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2021.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7842,7 +7883,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2022.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2022.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2022.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2022.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7910,7 +7952,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2023.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2023.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2023.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -7935,14 +7978,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 3547,
-      "compatible_event_count": 3547,
+      "event_count": 3546,
+      "compatible_event_count": 3546,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 3547,
+      "headline_count_included": 3546,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 623,
+        "documented": 622,
         "corroborated": 1,
         "inferred": 2923
       },
@@ -8031,7 +8074,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -8131,7 +8175,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -8214,7 +8259,8 @@
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2026.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2026.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2026.geojson",
+        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
@@ -8989,14 +9035,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 191,
-      "compatible_event_count": 191,
+      "event_count": 190,
+      "compatible_event_count": 190,
       "detail_feature_count": 172,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 191,
+      "headline_count_included": 190,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 185,
+        "documented": 184,
         "inferred": 6
       },
       "source_count": 8,
@@ -9049,14 +9095,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 202,
-      "compatible_event_count": 202,
+      "event_count": 200,
+      "compatible_event_count": 200,
       "detail_feature_count": 193,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 202,
+      "headline_count_included": 200,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 202
+        "documented": 200
       },
       "source_count": 10,
       "source_ids": [
@@ -10071,14 +10117,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 191,
-      "compatible_event_count": 191,
+      "event_count": 190,
+      "compatible_event_count": 190,
       "detail_feature_count": 172,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 191,
+      "headline_count_included": 190,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 185,
+        "documented": 184,
         "inferred": 6
       },
       "source_count": 8,
@@ -10131,14 +10177,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 202,
-      "compatible_event_count": 202,
+      "event_count": 200,
+      "compatible_event_count": 200,
       "detail_feature_count": 193,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 202,
+      "headline_count_included": 200,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 202
+        "documented": 200
       },
       "source_count": 10,
       "source_ids": [
@@ -11153,14 +11199,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 191,
-      "compatible_event_count": 191,
+      "event_count": 190,
+      "compatible_event_count": 190,
       "detail_feature_count": 172,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 191,
+      "headline_count_included": 190,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 185,
+        "documented": 184,
         "inferred": 6
       },
       "source_count": 8,
@@ -11213,14 +11259,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 202,
-      "compatible_event_count": 202,
+      "event_count": 200,
+      "compatible_event_count": 200,
       "detail_feature_count": 193,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 202,
+      "headline_count_included": 200,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 202
+        "documented": 200
       },
       "source_count": 10,
       "source_ids": [
@@ -11583,10 +11629,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -11673,10 +11719,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -11945,14 +11991,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 263,
-      "compatible_event_count": 263,
+      "event_count": 262,
+      "compatible_event_count": 262,
       "detail_feature_count": 182,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 263,
+      "headline_count_included": 262,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 260,
+        "documented": 259,
         "inferred": 3
       },
       "source_count": 2,
@@ -11993,14 +12039,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 275,
-      "compatible_event_count": 275,
+      "event_count": 271,
+      "compatible_event_count": 271,
       "detail_feature_count": 170,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 275,
+      "headline_count_included": 271,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 275
+        "documented": 271
       },
       "source_count": 2,
       "source_ids": [
@@ -12040,14 +12086,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 70,
-      "compatible_event_count": 70,
+      "event_count": 69,
+      "compatible_event_count": 69,
       "detail_feature_count": 49,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 70,
+      "headline_count_included": 69,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 70
+        "documented": 69
       },
       "source_count": 2,
       "source_ids": [
@@ -12087,14 +12133,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 145,
-      "compatible_event_count": 145,
+      "event_count": 144,
+      "compatible_event_count": 144,
       "detail_feature_count": 94,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 145,
+      "headline_count_included": 144,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 144,
+        "documented": 143,
         "inferred": 1
       },
       "source_count": 3,
@@ -12186,14 +12232,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 211,
-      "compatible_event_count": 211,
+      "event_count": 210,
+      "compatible_event_count": 210,
       "detail_feature_count": 123,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 211,
+      "headline_count_included": 210,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 211
+        "documented": 210
       },
       "source_count": 7,
       "source_ids": [
@@ -12296,14 +12342,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 251,
-      "compatible_event_count": 251,
+      "event_count": 248,
+      "compatible_event_count": 248,
       "detail_feature_count": 139,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 251,
+      "headline_count_included": 248,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 251
+        "documented": 248
       },
       "source_count": 13,
       "source_ids": [
@@ -12365,14 +12411,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 136,
-      "compatible_event_count": 136,
+      "event_count": 135,
+      "compatible_event_count": 135,
       "detail_feature_count": 36,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 136,
+      "headline_count_included": 135,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 133,
+        "documented": 132,
         "inferred": 3
       },
       "source_count": 14,
@@ -12595,10 +12641,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -12685,10 +12731,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -12957,14 +13003,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 263,
-      "compatible_event_count": 263,
+      "event_count": 262,
+      "compatible_event_count": 262,
       "detail_feature_count": 182,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 263,
+      "headline_count_included": 262,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 260,
+        "documented": 259,
         "inferred": 3
       },
       "source_count": 2,
@@ -13005,14 +13051,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 275,
-      "compatible_event_count": 275,
+      "event_count": 271,
+      "compatible_event_count": 271,
       "detail_feature_count": 170,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 275,
+      "headline_count_included": 271,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 275
+        "documented": 271
       },
       "source_count": 2,
       "source_ids": [
@@ -13052,14 +13098,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 70,
-      "compatible_event_count": 70,
+      "event_count": 69,
+      "compatible_event_count": 69,
       "detail_feature_count": 49,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 70,
+      "headline_count_included": 69,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 70
+        "documented": 69
       },
       "source_count": 2,
       "source_ids": [
@@ -13099,14 +13145,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 145,
-      "compatible_event_count": 145,
+      "event_count": 144,
+      "compatible_event_count": 144,
       "detail_feature_count": 94,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 145,
+      "headline_count_included": 144,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 144,
+        "documented": 143,
         "inferred": 1
       },
       "source_count": 3,
@@ -13198,14 +13244,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 211,
-      "compatible_event_count": 211,
+      "event_count": 210,
+      "compatible_event_count": 210,
       "detail_feature_count": 123,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 211,
+      "headline_count_included": 210,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 211
+        "documented": 210
       },
       "source_count": 7,
       "source_ids": [
@@ -13308,14 +13354,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 251,
-      "compatible_event_count": 251,
+      "event_count": 248,
+      "compatible_event_count": 248,
       "detail_feature_count": 139,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 251,
+      "headline_count_included": 248,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 251
+        "documented": 248
       },
       "source_count": 13,
       "source_ids": [
@@ -13377,14 +13423,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 136,
-      "compatible_event_count": 136,
+      "event_count": 135,
+      "compatible_event_count": 135,
       "detail_feature_count": 36,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 136,
+      "headline_count_included": 135,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 133,
+        "documented": 132,
         "inferred": 3
       },
       "source_count": 14,
@@ -13607,10 +13653,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -13697,10 +13743,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 25,
-      "coverage_context_feature_count": 25,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 25,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -13969,14 +14015,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 263,
-      "compatible_event_count": 263,
+      "event_count": 262,
+      "compatible_event_count": 262,
       "detail_feature_count": 182,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 263,
+      "headline_count_included": 262,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 260,
+        "documented": 259,
         "inferred": 3
       },
       "source_count": 2,
@@ -14017,14 +14063,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 275,
-      "compatible_event_count": 275,
+      "event_count": 271,
+      "compatible_event_count": 271,
       "detail_feature_count": 170,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 275,
+      "headline_count_included": 271,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 275
+        "documented": 271
       },
       "source_count": 2,
       "source_ids": [
@@ -14064,14 +14110,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 70,
-      "compatible_event_count": 70,
+      "event_count": 69,
+      "compatible_event_count": 69,
       "detail_feature_count": 49,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 70,
+      "headline_count_included": 69,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 70
+        "documented": 69
       },
       "source_count": 2,
       "source_ids": [
@@ -14111,14 +14157,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 145,
-      "compatible_event_count": 145,
+      "event_count": 144,
+      "compatible_event_count": 144,
       "detail_feature_count": 94,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 145,
+      "headline_count_included": 144,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 144,
+        "documented": 143,
         "inferred": 1
       },
       "source_count": 3,
@@ -14210,14 +14256,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 211,
-      "compatible_event_count": 211,
+      "event_count": 210,
+      "compatible_event_count": 210,
       "detail_feature_count": 123,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 211,
+      "headline_count_included": 210,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 211
+        "documented": 210
       },
       "source_count": 7,
       "source_ids": [
@@ -14320,14 +14366,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 251,
-      "compatible_event_count": 251,
+      "event_count": 248,
+      "compatible_event_count": 248,
       "detail_feature_count": 139,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 251,
+      "headline_count_included": 248,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 251
+        "documented": 248
       },
       "source_count": 13,
       "source_ids": [
@@ -14389,14 +14435,14 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 136,
-      "compatible_event_count": 136,
+      "event_count": 135,
+      "compatible_event_count": 135,
       "detail_feature_count": 36,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 136,
+      "headline_count_included": 135,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 133,
+        "documented": 132,
         "inferred": 3
       },
       "source_count": 14,
@@ -14705,10 +14751,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 12,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -15857,10 +15903,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 12,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },
@@ -17009,10 +17055,10 @@
       "status": "source_backed_records",
       "event_count": 1,
       "compatible_event_count": 1,
-      "detail_feature_count": 12,
-      "coverage_context_feature_count": 12,
+      "detail_feature_count": 0,
+      "coverage_context_feature_count": 0,
       "headline_count_included": 1,
-      "headline_count_excluded_context_features": 12,
+      "headline_count_excluded_context_features": 0,
       "confidence_counts": {
         "documented": 1
       },

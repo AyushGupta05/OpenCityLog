@@ -6,7 +6,7 @@ This branch keeps the atlas data-source layer inspectable and deterministic. The
 
 The source catalogue is `config/source_inventory.json`. Each source entry records:
 
-- coverage years for the 2016-2026 replay window
+- coverage years for the 2016-2026 atlas coverage window
 - access pattern, such as local repo, manual drop, API query, portal download, or feed
 - licence and attribution notes
 - ingestion status
@@ -36,7 +36,7 @@ npm run build:data
 
 Current expansion families include London Planning Data brownfield/designation rows, Planning London Datahub application lifecycle records, London Fire Brigade incidents, DfT STATS19 road-collision rows, HM Land Registry Price Paid property-transaction rows, UK House Price Index borough-month aggregate rows, Food Standards Agency food-hygiene rating records, Police.uk anonymized street-level crime/ASB rows, privacy-minimized Police.uk stop-and-search rows, TfL road disruptions, NYC DOB/DOB NOW permits, DOB certificates of occupancy, DOT street work/closure/network-change records, DCP ZAP projects, LPC landmark and historic-district designations, HPD affordable housing production, FDNY dispatch incidents, capital project tracker/status rows, NYC Parks properties, the 2015 street tree census, 311 service requests, permitted events, and motor-vehicle collision records.
 
-Major named architecture and built-environment milestones that are not well represented as row-level administrative data are kept in `data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json`. As of the 2026-05-23 architecture pass, the package covers London, New York City, and Belfast with 99,507 administrative or documented milestone records, 438 source entries, public source URLs, retrieval dates, source row ids, source date fields, project-level points, confidence labels, licence/terms notes, attribution text, transformation notes, and limitations. `scripts/normalize_architecture_milestones.js` fills required provenance fields for older curated rows and pins the target window. `scripts/build_discovery_city_atlas.py` adds the London/NYC milestones to generated city-atlas event chunks, while `scripts/build_infrastructure_events.js` folds Belfast milestones into the legacy Belfast event catalog before `scripts/build_data.js` normalizes them.
+Major named architecture and built-environment milestones that are not well represented as row-level administrative data are kept in `data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json`. As of the current architecture coverage artifact, the package covers London, New York City, and Belfast with 104,617 administrative or documented milestone records, 439 source entries, public source URLs, retrieval dates, source row ids, source date fields, project-level points, confidence labels, licence/terms notes, attribution text, transformation notes, and limitations. `scripts/normalize_architecture_milestones.js` fills required provenance fields for older curated rows and pins the target window. `scripts/build_discovery_city_atlas.py` adds the London/NYC milestones to generated city-atlas event chunks, while `scripts/build_infrastructure_events.js` folds Belfast milestones into the legacy Belfast event catalog before `scripts/build_data.js` normalizes them.
 
 These rows are administrative or observed source records, not predictions and not proof of causal impact. Permit, planning, capital-project, and designation dates must be labelled by the source field that supports them. Forecast/projected fields may be retained in summaries only when the event date is the source reporting date or a recorded actual date.
 
@@ -143,4 +143,4 @@ The current indexer is deliberately conservative. It flags evidence; it does not
 - `folder_filename_year_mismatch` means the year in the folder and the year in the filename disagree.
 - `metadata_skipped` means the file was too large for lightweight GeoJSON parsing under the configured size limit.
 
-Review these flags before using a layer in replay analysis.
+Review these flags before using a layer in atlas coverage analysis.

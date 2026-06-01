@@ -17,10 +17,18 @@ Run the main checks:
 
 ```powershell
 npm run verify
-python -m unittest discover tests
+python3 -m unittest discover tests
 ```
 
 For UI changes, start the app and run:
+
+```powershell
+$env:PORT = "5174"; npm start
+$env:URL = "http://127.0.0.1:5174"; npm run verify:browser
+```
+
+Use a matching `PORT` and `URL` when the default `5173` port is already in use.
+Otherwise the default browser check is:
 
 ```powershell
 npm run verify:browser
@@ -58,6 +66,11 @@ Do not add:
    caveat, source attribution, or licence.
 5. Prefer append-only correction records or documented source updates over
    silently overwriting raw source data.
+
+Append-only correction artifacts belong under `data/corrections/` and should
+match `schemas/correction_record.schema.json`. Keep the original source row
+visible, record the correction status, and link the public evidence used to
+accept or reject the change.
 
 For 15-lens atlas corrections, also include:
 

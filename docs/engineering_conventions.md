@@ -28,7 +28,7 @@ These conventions support the Bims-5 pivot from legacy replay/simulation toward 
 
 ## Legacy Simulation
 
-The repo currently contains legacy forecast/simulation surfaces. New code should not deepen those paths. Prefer deleting, hiding, renaming, or downgrading them as migration work allows.
+Legacy forecast/simulation runtime surfaces have been removed or guarded by tombstone verifiers. New code should not restore those paths or route users toward future-outcome claims.
 
 If a future spec restores simulation, require:
 
@@ -41,8 +41,7 @@ If a future spec restores simulation, require:
 ## Verification
 
 - Add focused verifiers for schemas and manifests.
-- Run `python -m unittest discover tests` for Python ETL changes.
+- Run `python3 -m unittest discover tests` for Python ETL changes.
 - Run `npm run verify` for current manifest/contract checks.
 - Run `npm run verify:browser` for UI changes.
 - Explain any legacy verifier failure separately from new work.
-

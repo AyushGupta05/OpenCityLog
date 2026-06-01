@@ -4,9 +4,10 @@ const path = require("path");
 
 const rootDir = __dirname;
 const webDir = path.join(rootDir, "web");
-const port = Number(process.env.PORT || 5173);
 
 loadLocalEnv(path.join(rootDir, ".env.local"));
+
+const port = parsePort(process.env.PORT || "5173");
 
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
@@ -38,6 +39,14 @@ function loadLocalEnv(filePath) {
     }
     process.env[key] = value;
   }
+}
+
+function parsePort(value) {
+  const portNumber = Number(value);
+  if (!Number.isInteger(portNumber) || portNumber < 1 || portNumber > 65535) {
+    throw new Error(`Invalid PORT value: ${value}`);
+  }
+  return portNumber;
 }
 
 function sendJson(res, status, payload) {
@@ -78,8 +87,16 @@ function safeStaticPath(baseDir, pathname) {
   return candidate;
 }
 
-function serveFile(res, filePath) {
-  if (!filePath || !fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
+async function serveFile(req, res, filePath) {
+  let stat = null;
+  if (filePath) {
+    try {
+      stat = await fs.promises.stat(filePath);
+    } catch (_error) {
+      stat = null;
+    }
+  }
+  if (!filePath || !stat?.isFile()) {
     sendText(res, 404, "Not found");
     return;
   }
@@ -89,11 +106,29 @@ function serveFile(res, filePath) {
     "content-type": mimeTypes[ext] || "application/octet-stream",
     "cache-control": localAssetCache
   });
-  fs.createReadStream(filePath).pipe(res);
+  if (req.method === "HEAD") {
+    res.end();
+    return;
+  }
+  const stream = fs.createReadStream(filePath);
+  stream.on("error", (error) => {
+    if (!res.headersSent) {
+      sendText(res, 500, "Unable to read file");
+      return;
+    }
+    res.destroy(error);
+  });
+  stream.pipe(res);
 }
 
 const server = http.createServer((req, res) => {
-  const requestUrl = new URL(req.url, `http://${req.headers.host || `localhost:${port}`}`);
+  let requestUrl;
+  try {
+    requestUrl = new URL(req.url || "/", `http://${req.headers.host || `localhost:${port}`}`);
+  } catch (_error) {
+    sendText(res, 400, "Invalid URL");
+    return;
+  }
   const pathname = requestUrl.pathname;
   const decodedPathname = normalizeUrlPath(pathname);
   if (decodedPathname === null) {
@@ -139,7 +174,19 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  serveFile(res, safeStaticPath(webDir, pathname));
+  serveFile(req, res, safeStaticPath(webDir, pathname)).catch((error) => {
+    if (!res.headersSent) sendText(res, 500, "Unable to serve request");
+    else res.destroy(error);
+  });
+});
+
+server.on("clientError", (_error, socket) => {
+  if (socket.writable) socket.end("HTTP/1.1 400 Bad Request\r\n\r\n");
+});
+
+server.on("error", (error) => {
+  console.error(`Open Citylog server failed: ${error.message}`);
+  process.exit(1);
 });
 
 server.listen(port, () => {

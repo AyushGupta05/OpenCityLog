@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_city_manifest",
-  "generated_at": "2026-05-30T16:04:02Z",
+  "generated_at": "2026-06-01T18:06:58Z",
   "city_id": "nyc",
   "display_name": "New York City, New York",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -46,18 +46,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 62813,
-        "compatible_event_count": 62813,
+        "event_count": 58013,
+        "compatible_event_count": 58013,
         "review_required_event_count": 0,
-        "source_count": 46,
-        "compatible_source_count": 46,
+        "source_count": 45,
+        "compatible_source_count": 45,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1965,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 62813
+          "documented": 58013
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -65,7 +65,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 21101,
+        "excluded_review_required_event_count": 25901,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -80,7 +80,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1965-2026",
         "update_cadence": "As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Daily; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Every 6 months; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion."
       },
@@ -113,7 +113,6 @@
           "nyc-lpc-historic-districts-skyk-mpzq",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-planninglabs-geosearch-nycpad",
@@ -161,7 +160,6 @@
           "nyc-lpc-historic-districts-skyk-mpzq",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-planninglabs-geosearch-nycpad",
@@ -365,18 +363,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 62813,
-        "compatible_event_count": 62813,
+        "event_count": 58013,
+        "compatible_event_count": 58013,
         "review_required_event_count": 0,
-        "source_count": 46,
-        "compatible_source_count": 46,
+        "source_count": 45,
+        "compatible_source_count": 45,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1965,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 62813
+          "documented": 58013
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -384,7 +382,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 21101,
+        "excluded_review_required_event_count": 25901,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -399,7 +397,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1965-2026",
         "update_cadence": "As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Daily; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Every 6 months; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion."
       },
@@ -432,7 +430,6 @@
           "nyc-lpc-historic-districts-skyk-mpzq",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-planninglabs-geosearch-nycpad",
@@ -480,7 +477,6 @@
           "nyc-lpc-historic-districts-skyk-mpzq",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-planninglabs-geosearch-nycpad",
@@ -684,18 +680,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 62813,
-        "compatible_event_count": 62813,
+        "event_count": 58013,
+        "compatible_event_count": 58013,
         "review_required_event_count": 0,
-        "source_count": 46,
-        "compatible_source_count": 46,
+        "source_count": 45,
+        "compatible_source_count": 45,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1965,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 62813
+          "documented": 58013
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -703,7 +699,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 21101,
+        "excluded_review_required_event_count": 25901,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -718,7 +714,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1965-2026",
         "update_cadence": "As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Daily; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Every 6 months; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion."
       },
@@ -751,7 +747,6 @@
           "nyc-lpc-historic-districts-skyk-mpzq",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-planninglabs-geosearch-nycpad",
@@ -799,7 +794,6 @@
           "nyc-lpc-historic-districts-skyk-mpzq",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-planninglabs-geosearch-nycpad",
@@ -1003,18 +997,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 4029,
-        "compatible_event_count": 4029,
+        "event_count": 3759,
+        "compatible_event_count": 3759,
         "review_required_event_count": 0,
-        "source_count": 26,
-        "compatible_source_count": 26,
+        "source_count": 25,
+        "compatible_source_count": 25,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1966,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 4029
+          "documented": 3759
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1022,7 +1016,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 9126,
+        "excluded_review_required_event_count": 9420,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1037,7 +1031,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1966-2026",
         "update_cadence": "Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Daily; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Implementation/date fields; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion.; Meeting-driven; newest certificates may be revised after posting."
       },
@@ -1063,7 +1057,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-planninglabs-geosearch-nycpad",
@@ -1091,7 +1084,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-planninglabs-geosearch-nycpad",
@@ -1282,18 +1274,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 4029,
-        "compatible_event_count": 4029,
+        "event_count": 3759,
+        "compatible_event_count": 3759,
         "review_required_event_count": 0,
-        "source_count": 26,
-        "compatible_source_count": 26,
+        "source_count": 25,
+        "compatible_source_count": 25,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1966,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 4029
+          "documented": 3759
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1301,7 +1293,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 9126,
+        "excluded_review_required_event_count": 9420,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1316,7 +1308,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1966-2026",
         "update_cadence": "Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Daily; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Implementation/date fields; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion.; Meeting-driven; newest certificates may be revised after posting."
       },
@@ -1342,7 +1334,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-planninglabs-geosearch-nycpad",
@@ -1370,7 +1361,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-planninglabs-geosearch-nycpad",
@@ -1561,18 +1551,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 4029,
-        "compatible_event_count": 4029,
+        "event_count": 3759,
+        "compatible_event_count": 3759,
         "review_required_event_count": 0,
-        "source_count": 26,
-        "compatible_source_count": 26,
+        "source_count": 25,
+        "compatible_source_count": 25,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1966,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 4029
+          "documented": 3759
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1580,7 +1570,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 9126,
+        "excluded_review_required_event_count": 9420,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1595,7 +1585,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1966-2026",
         "update_cadence": "Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Daily; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Implementation/date fields; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion.; Meeting-driven; newest certificates may be revised after posting."
       },
@@ -1621,7 +1611,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-planninglabs-geosearch-nycpad",
@@ -1649,7 +1638,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-planninglabs-geosearch-nycpad",
@@ -1840,8 +1828,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 2234,
-        "compatible_event_count": 2234,
+        "event_count": 2239,
+        "compatible_event_count": 2239,
         "review_required_event_count": 0,
         "source_count": 29,
         "compatible_source_count": 29,
@@ -1851,7 +1839,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 2234
+          "documented": 2239
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1859,7 +1847,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2105,
+        "excluded_review_required_event_count": 2159,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2125,8 +2113,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 2234,
-        "compatible_event_count": 2234,
+        "event_count": 2239,
+        "compatible_event_count": 2239,
         "review_required_event_count": 0,
         "source_count": 29,
         "compatible_source_count": 29,
@@ -2136,7 +2124,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 2234
+          "documented": 2239
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2144,7 +2132,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2105,
+        "excluded_review_required_event_count": 2159,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2410,8 +2398,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 2234,
-        "compatible_event_count": 2234,
+        "event_count": 2239,
+        "compatible_event_count": 2239,
         "review_required_event_count": 0,
         "source_count": 29,
         "compatible_source_count": 29,
@@ -2421,7 +2409,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 2234
+          "documented": 2239
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2429,7 +2417,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2105,
+        "excluded_review_required_event_count": 2159,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2695,18 +2683,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 364,
-        "compatible_event_count": 364,
+        "event_count": 317,
+        "compatible_event_count": 317,
         "review_required_event_count": 0,
-        "source_count": 17,
-        "compatible_source_count": 17,
+        "source_count": 16,
+        "compatible_source_count": 16,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1966,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 364
+          "documented": 317
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2714,7 +2702,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2284,
+        "excluded_review_required_event_count": 2339,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2729,9 +2717,9 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1966-2026",
-        "update_cadence": "As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion.; Meeting-driven; newest certificates may be revised after posting.; NYC Open Data operating dataset; publisher-updated."
+        "update_cadence": "As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion.; Meeting-driven; newest certificates may be revised after posting.; Operational NYC Open Data dataset; metadata timestamp retained above."
       },
       "provenance": {
         "source_ids": [
@@ -2749,7 +2737,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots"
         ],
@@ -2768,7 +2755,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots"
         ],
@@ -2956,18 +2942,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 364,
-        "compatible_event_count": 364,
+        "event_count": 317,
+        "compatible_event_count": 317,
         "review_required_event_count": 0,
-        "source_count": 17,
-        "compatible_source_count": 17,
+        "source_count": 16,
+        "compatible_source_count": 16,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1966,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 364
+          "documented": 317
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2975,7 +2961,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2284,
+        "excluded_review_required_event_count": 2339,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2990,9 +2976,9 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1966-2026",
-        "update_cadence": "As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion.; Meeting-driven; newest certificates may be revised after posting.; NYC Open Data operating dataset; publisher-updated."
+        "update_cadence": "As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion.; Meeting-driven; newest certificates may be revised after posting.; Operational NYC Open Data dataset; metadata timestamp retained above."
       },
       "provenance": {
         "source_ids": [
@@ -3010,7 +2996,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots"
         ],
@@ -3029,7 +3014,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots"
         ],
@@ -3217,18 +3201,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 364,
-        "compatible_event_count": 364,
+        "event_count": 317,
+        "compatible_event_count": 317,
         "review_required_event_count": 0,
-        "source_count": 17,
-        "compatible_source_count": 17,
+        "source_count": 16,
+        "compatible_source_count": 16,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1966,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 364
+          "documented": 317
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3236,7 +3220,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2284,
+        "excluded_review_required_event_count": 2339,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3251,9 +3235,9 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1966-2026",
-        "update_cadence": "As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion.; Meeting-driven; newest certificates may be revised after posting.; NYC Open Data operating dataset; publisher-updated."
+        "update_cadence": "As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion.; Meeting-driven; newest certificates may be revised after posting.; Operational NYC Open Data dataset; metadata timestamp retained above."
       },
       "provenance": {
         "source_ids": [
@@ -3271,7 +3255,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots"
         ],
@@ -3290,7 +3273,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots"
         ],
@@ -3478,18 +3460,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 1002,
-        "compatible_event_count": 1002,
+        "event_count": 998,
+        "compatible_event_count": 998,
         "review_required_event_count": 0,
-        "source_count": 26,
-        "compatible_source_count": 26,
+        "source_count": 25,
+        "compatible_source_count": 25,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1965,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 1002
+          "documented": 998
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3497,7 +3479,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2779,
+        "excluded_review_required_event_count": 2784,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3512,7 +3494,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1965-2026",
         "update_cadence": "As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Daily; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Implementation/date fields; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion."
       },
@@ -3538,7 +3520,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots",
@@ -3566,7 +3547,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots",
@@ -3757,18 +3737,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 1002,
-        "compatible_event_count": 1002,
+        "event_count": 998,
+        "compatible_event_count": 998,
         "review_required_event_count": 0,
-        "source_count": 26,
-        "compatible_source_count": 26,
+        "source_count": 25,
+        "compatible_source_count": 25,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1965,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 1002
+          "documented": 998
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3776,7 +3756,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2779,
+        "excluded_review_required_event_count": 2784,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3791,7 +3771,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1965-2026",
         "update_cadence": "As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Daily; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Implementation/date fields; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion."
       },
@@ -3817,7 +3797,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots",
@@ -3845,7 +3824,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots",
@@ -4036,18 +4014,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 1002,
-        "compatible_event_count": 1002,
+        "event_count": 998,
+        "compatible_event_count": 998,
         "review_required_event_count": 0,
-        "source_count": 26,
-        "compatible_source_count": 26,
+        "source_count": 25,
+        "compatible_source_count": 25,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1965,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 1002
+          "documented": 998
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -4055,7 +4033,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2779,
+        "excluded_review_required_event_count": 2784,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -4070,7 +4048,7 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-23",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1965-2026",
         "update_cadence": "As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Daily; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Implementation/date fields; Legacy dataset; metadata timestamp retained above.; Maintained with ZAP data; verify current catalog metadata for production ingestion."
       },
@@ -4096,7 +4074,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots",
@@ -4124,7 +4101,6 @@
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots",

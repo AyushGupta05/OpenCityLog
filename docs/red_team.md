@@ -35,7 +35,7 @@ Keep retired:
 - decorative particle/fly-through dashboard demos;
 - predictor language that implies calibrated future outcomes.
 
-Replace these with observed event records, before/after imagery, source drawers, confidence labels, and descriptive event-impact lenses.
+Replace these with observed event records, before/after imagery, source drawers, confidence labels, and descriptive context/evidence lenses.
 
 ## Trust rules
 

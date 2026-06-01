@@ -1,10 +1,10 @@
 cff-version: 1.2.0
 message: "If you use Bims City Atlas, cite the repository and the upstream public sources shown in each event or source brief."
 title: "Bims City Atlas"
-version: "0.1.0"
-date-released: "2026-05-09"
+version: "0.2.0"
+date-released: "2026-05-25"
 authors:
   - name: "Bims-5 contributors"
-license: "MIT"
+license: "Apache-2.0"
 repository-code: "https://github.com/AyushGupta05/OpenCityLog"
 abstract: "An open-source, provenance-first city changelog and change atlas for source-backed urban records."

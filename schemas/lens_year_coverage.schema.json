@@ -84,7 +84,6 @@
           "type": "string",
           "enum": [
             "source_backed_records",
-            "source_backed_context_no_year_records",
             "missing_source_backed_view"
           ]
         },
