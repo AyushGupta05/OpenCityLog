@@ -251,7 +251,12 @@ async function assertDesktopCitywideCoverage(page) {
       () => {
         const state = window.BimsAtlas?.state;
         if (!state?.map || state.activeLens === "transport") return true;
-        return state.map.isSourceLoaded?.("lens-detail-overlays") === true;
+        if (!state.map.getSource?.("lens-detail-overlays")) return false;
+        try {
+          return state.map.isSourceLoaded?.("lens-detail-overlays") === true;
+        } catch (_error) {
+          return false;
+        }
       },
       null,
       { timeout: 20000 }
@@ -260,6 +265,8 @@ async function assertDesktopCitywideCoverage(page) {
     const state = await atlasState(page);
     assert(state.scrollWidth <= state.clientWidth + 4, `desktop citywide ${lens.id}: page overflows horizontally.`);
     assert(state.mapCanvas === 1, `desktop citywide ${lens.id}: MapLibre canvas is missing.`);
+    assert(state.citywideLensMode, `desktop citywide ${lens.id}: lens switch left citywide camera mode.`);
+    assert(state.mapZoom <= 11.7, `desktop citywide ${lens.id}: lens switch zoomed into a local study area (${state.mapZoom}).`);
     assert(state.pinCount > 0 && state.visiblePinCount > 0, `desktop citywide ${lens.id}: map event pins are missing.`);
     assert(state.zoomButtons === 2, `desktop citywide ${lens.id}: zoom buttons are missing.`);
     assert(state.panelOverlaps.length === 0, `desktop citywide ${lens.id}: panels overlap (${state.panelOverlaps.join(", ")}).`);
@@ -349,7 +356,15 @@ async function assertDesktopCitywideCoverage(page) {
   await page.waitForFunction(
     () => Number(window.BimsAtlas?.state?.year) === 2010
       && window.BimsAtlas?.state?.activeAspect === "planning-delta"
-      && window.BimsAtlas?.state?.map?.isSourceLoaded?.("lens-detail-overlays") === true
+      && (() => {
+        const map = window.BimsAtlas?.state?.map;
+        if (!map?.getSource?.("lens-detail-overlays")) return false;
+        try {
+          return map.isSourceLoaded?.("lens-detail-overlays") === true;
+        } catch (_error) {
+          return false;
+        }
+      })()
       && document.querySelector("#mapStudyChip")?.dataset.scope === "city",
     null,
     { timeout: 20000 }
@@ -364,7 +379,15 @@ async function assertDesktopCitywideCoverage(page) {
     () => Number(window.BimsAtlas?.state?.year) === 2024
       && window.BimsAtlas?.state?.activeAspect === "planning-delta"
       && Number(window.BimsAtlas?.state?.lensDetailYearLoaded) === 2024
-      && window.BimsAtlas?.state?.map?.isSourceLoaded?.("lens-detail-overlays") === true,
+      && (() => {
+        const map = window.BimsAtlas?.state?.map;
+        if (!map?.getSource?.("lens-detail-overlays")) return false;
+        try {
+          return map.isSourceLoaded?.("lens-detail-overlays") === true;
+        } catch (_error) {
+          return false;
+        }
+      })(),
     null,
     { timeout: 20000 }
   );
@@ -479,7 +502,15 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
       { timeout: 20000 }
     );
     await page.waitForFunction(
-      () => window.BimsAtlas?.state?.map?.isSourceLoaded?.("lens-detail-overlays") === true,
+      () => {
+        const map = window.BimsAtlas?.state?.map;
+        if (!map?.getSource?.("lens-detail-overlays")) return false;
+        try {
+          return map.isSourceLoaded?.("lens-detail-overlays") === true;
+        } catch (_error) {
+          return false;
+        }
+      },
       null,
       { timeout: 20000 }
     );
@@ -502,6 +533,11 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     const state = await atlasState(page);
     const rendered = check.rendered.reduce((sum, field) => sum + Number(state[field] || 0), 0);
     assert(rendered > 0, `city ${cityId}: ${check.label} did not render across the 2024 citywide map.`);
+    const citywidePng = await page.screenshot({
+      path: path.join(outputDir, `paper-atlas-${cityId}-${check.aspect}-citywide.png`),
+      fullPage: false,
+    });
+    assertDetailedPng(citywidePng, assert, `city ${cityId} ${check.aspect} citywide`);
     await assertPannedSourceBackedLensCoverage(page, cityId, check);
   }
 }
@@ -567,12 +603,20 @@ async function assertPannedSourceBackedLensCoverage(page, cityId, check) {
   }, check);
   assert(samples.length > 0, `city ${cityId} ${check.aspect}: no source-backed ${check.featureLayer} samples available for panned coverage.`);
 
-  for (const sample of samples) {
+  for (const [index, sample] of samples.entries()) {
     await page.evaluate((target) => {
       window.BimsAtlas?.state?.map?.jumpTo?.({ center: target.lngLat, zoom: 12.8, pitch: 0, bearing: 0 });
     }, sample);
     await page.waitForFunction(
-      () => window.BimsAtlas?.state?.map?.isSourceLoaded?.("lens-detail-overlays") === true,
+      () => {
+        const map = window.BimsAtlas?.state?.map;
+        if (!map?.getSource?.("lens-detail-overlays")) return false;
+        try {
+          return map.isSourceLoaded?.("lens-detail-overlays") === true;
+        } catch (_error) {
+          return false;
+        }
+      },
       null,
       { timeout: 20000 }
     );
@@ -589,6 +633,10 @@ async function assertPannedSourceBackedLensCoverage(page, cityId, check) {
       }, 0);
     }, check.renderedLayers);
     assert(rendered > 0, `city ${cityId} ${check.aspect}: ${check.label} did not render after panning to ${sample.label}.`);
+    await page.screenshot({
+      path: path.join(outputDir, `paper-atlas-${cityId}-${check.aspect}-pan-${index + 1}.png`),
+      fullPage: false,
+    });
   }
 
   await page.evaluate(() => window.BimsAtlas?.recenterMap?.());
@@ -650,6 +698,8 @@ async function assertPannedSourceBackedLensCoverage(page, cityId, check) {
     await page.waitForTimeout(city.id === "london" ? 2400 : 1400);
     const cityState = await assertResponsiveLayout(page, `city ${city.id}`);
     assert(cityState.city === city.label, `city ${city.id}: loaded ${cityState.city} instead of ${city.label}.`);
+    assert(cityState.citywideLensMode, `city ${city.id}: atlas did not start in citywide lens mode.`);
+    assert(cityState.mapZoom <= 11.7, `city ${city.id}: atlas opened at local/event zoom (${cityState.mapZoom}).`);
     assert(city.placeholder.test(cityState.searchPlaceholder), `city ${city.id}: search placeholder is not city-specific.`);
     assert(cityState.visiblePinCount >= 8, `city ${city.id}: too few visible city records.`);
     await assertCitySourceBackedLensCoverage(page, city.id);

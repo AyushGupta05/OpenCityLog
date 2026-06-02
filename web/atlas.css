@@ -1004,13 +1004,16 @@ button { font-family: inherit; }
 }
 .map-lens-switcher {
   display: block;
+  width: 100%;
   padding: 8px 0 8px;
 }
 .lens-picker {
   position: relative;
+  width: 100%;
 }
 .lens-picker summary {
   list-style: none;
+  width: 100%;
   min-height: 38px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto auto;
@@ -1657,10 +1660,15 @@ button { font-family: inherit; }
   display: flex !important;
 }
 .layers[data-lens] .map-lens-switcher {
-  display: grid !important;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 2px;
+  display: block !important;
+  width: 100%;
   padding: 8px 0 8px;
+}
+.layers[data-lens] .lens-picker .lens-choice {
+  min-height: 34px;
+  padding: 6px 8px;
+  font-size: 11.5px;
+  border-radius: 4px;
 }
 .layers[data-lens] .lens-aspect-switcher {
   display: block !important;
@@ -3169,6 +3177,128 @@ button { font-family: inherit; }
   color: var(--ink-2);
   font-size: 11.5px;
   line-height: 1.4;
+}
+.detail-cross-lens-card {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--panel);
+  margin-bottom: 14px;
+}
+.detail-cross-lens-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.detail-cross-lens-head strong {
+  display: block;
+  color: var(--ink);
+  font: 750 12px var(--font-sans);
+}
+.detail-cross-lens-head p {
+  margin: 3px 0 0;
+  color: var(--ink-2);
+  font-size: 11.2px;
+  line-height: 1.35;
+}
+.detail-cross-lens-head > span {
+  flex: 0 0 auto;
+  padding: 3px 5px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  color: var(--muted);
+  font: 700 9px var(--font-mono);
+  white-space: nowrap;
+}
+.cross-lens-grid {
+  display: grid;
+  gap: 4px;
+}
+.cross-lens-header,
+.cross-lens-row {
+  display: grid;
+  grid-template-columns: minmax(118px, 1fr) 38px 38px 46px;
+  gap: 6px;
+  align-items: center;
+}
+.cross-lens-header {
+  padding: 0 7px;
+  color: var(--muted);
+  font: 700 8.5px var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.cross-lens-header span:not(:first-child) {
+  text-align: right;
+}
+.cross-lens-row {
+  min-height: 36px;
+  width: 100%;
+  padding: 5px 7px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--accent) 3%, var(--paper));
+  color: var(--ink);
+  cursor: pointer;
+}
+.cross-lens-row:hover,
+.cross-lens-row:focus-visible {
+  border-color: color-mix(in oklab, var(--accent) 52%, var(--rule));
+  background: color-mix(in oklab, var(--accent) 9%, var(--paper));
+  outline: none;
+}
+.cross-lens-row[data-active="true"] {
+  border-color: color-mix(in oklab, var(--accent) 74%, var(--rule));
+  background: color-mix(in oklab, var(--accent) 12%, var(--paper));
+}
+.cross-lens-row:disabled {
+  cursor: default;
+  opacity: 0.64;
+  background: var(--paper);
+}
+.cross-lens-row span:not(.cross-lens-name),
+.cross-lens-row strong {
+  justify-self: end;
+  font: 700 10.5px var(--font-mono);
+}
+.cross-lens-row strong {
+  color: #8d3438;
+}
+.cross-lens-row strong[data-positive="true"] {
+  color: #237a55;
+}
+.cross-lens-name {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr);
+  gap: 6px;
+  align-items: center;
+  text-align: left;
+}
+.cross-lens-name i {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+.cross-lens-name b,
+.cross-lens-name small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cross-lens-name b {
+  font: 700 11.2px var(--font-sans);
+}
+.cross-lens-name small {
+  grid-column: 2;
+  margin-top: -2px;
+  color: var(--muted);
+  font-size: 9.5px;
 }
 .lens-export-controls {
   grid-column: 1 / -1;
@@ -5395,6 +5525,7 @@ button { font-family: inherit; }
     top: auto;
     width: auto;
     z-index: auto;
+    flex-direction: column;
     padding: 8px 10px;
     border: 0;
     border-bottom: 1px solid var(--rule);
@@ -5403,8 +5534,17 @@ button { font-family: inherit; }
     box-shadow: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    max-height: 112px;
+    max-height: 148px;
     overflow-y: auto;
+  }
+  .map-lens-switcher {
+    padding: 6px 0;
+  }
+  .lens-picker-menu {
+    max-height: 220px;
+  }
+  .lens-contract-strip {
+    display: none;
   }
   .map-lens-switcher {
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -5738,7 +5878,7 @@ button { font-family: inherit; }
   }
 
   .timeline {
-    left: calc(16px + var(--desktop-left-width) + 16px);
+    left: 16px;
     right: 16px;
     bottom: 16px;
     height: var(--desktop-timeline-height);
