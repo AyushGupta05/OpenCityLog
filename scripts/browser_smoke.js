@@ -502,10 +502,12 @@ async function runSmoke() {
   await page.evaluate(async () => {
     await window.BimsAtlas?.setYear?.(2024);
     await window.BimsAtlas?.setActiveAspect?.("transport-speed");
+    window.BimsAtlas?.recenterMap?.();
   });
   await page.waitForFunction(
     () => Number(window.BimsAtlas?.state?.year) === 2024
-      && window.BimsAtlas?.state?.activeAspect === "transport-speed",
+      && window.BimsAtlas?.state?.activeAspect === "transport-speed"
+      && document.querySelector("#mapStudyChip")?.dataset.scope === "city",
     null,
     { timeout: 20000 }
   );

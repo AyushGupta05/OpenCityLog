@@ -315,6 +315,8 @@ SOURCE_DATE_FIELD_HINTS = {
     "lon-extra-hm-land-registry-price-paid-data": "transfer deed date",
     "lon-extra-uk-house-price-index": "Date",
     "lon-extra-food-hygiene-rating-scheme-api": "RatingDate",
+    "64uk-42ks": "yearbuilt, yearalter1, or yearalter2",
+    "w7w3-xahh": "license_creation_date",
     "police-data-api": "Month",
     "police-data-stop-search": "Date (month-truncated by adapter)",
     "ipu4-2q9a": "issuance_date",
@@ -408,8 +410,8 @@ def has_any_term(text: str, terms: list[str]) -> bool:
 
 
 def has_term(text: str, term: str) -> bool:
-    if len(term) <= 3 and term.isalpha():
-        return re.search(rf"\b{re.escape(term)}\b", text) is not None
+    if term and term[0].isalnum() and term[-1].isalnum():
+        return re.search(rf"(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])", text) is not None
     return term in text
 
 
@@ -460,6 +462,25 @@ def street_permit_seed_is_utility_work(item: dict[str, Any]) -> bool:
     ))
 
 
+def london_seed_is_utility_record(item: dict[str, Any]) -> bool:
+    source_ids = source_ids_for_item(item)
+    event_id = str(item.get("event_id") or "")
+    text = item_text_for_category_override(item)
+    utility_pattern = re.compile(
+        r"\b("
+        r"utility works|utilities|thames water|water utilities|water main|surface water drainage|"
+        r"drainage strategy|storm water|sewer|sewerage|substation|sub-station|electricity sub station|"
+        r"electricity substation|electrical substation|telecom|telecommunications|electronic communications network|"
+        r"monopole|antenna|equipment cabinet|ev charger|charging point|heat network|district heating"
+        r")\b",
+    )
+    if "tfl-road-disruptions" in source_ids and event_id.startswith("lon_tfl_disruption_"):
+        return bool(utility_pattern.search(text))
+    if source_ids & {"gla-planning-datahub-applications", "london-development-database-archive", "london-planning-datahub-api-core"}:
+        return bool(utility_pattern.search(text))
+    return False
+
+
 def source_category_override(item: dict[str, Any]) -> tuple[str, str, set[str]] | None:
     source_ids = source_ids_for_item(item)
     event_id = str(item.get("event_id") or "")
@@ -467,6 +488,12 @@ def source_category_override(item: dict[str, Any]) -> tuple[str, str, set[str]] 
         return "economy", "jobs", {"economy", "economic_opportunity", "property_market", "residential"}
     if "lon-extra-food-hygiene-rating-scheme-api" in source_ids and event_id.startswith("lon_fsa_fhrs_rating_"):
         return "economy", "jobs", {"economy", "economic_opportunity", "high_street_activity", "public_health"}
+    if "64uk-42ks" in source_ids and event_id.startswith("nyc_pluto_land_use_"):
+        return "economy", "jobs", {"economy", "economic_opportunity", "land_use", "property_market"}
+    if "w7w3-xahh" in source_ids and event_id.startswith("nyc_business_license_"):
+        return "economy", "jobs", {"economy", "economic_opportunity", "business", "high_street_activity", "commercial", "land_use"}
+    if london_seed_is_utility_record(item):
+        return "utilities", "utilities", {"utilities"}
     if source_ids & {"tqtj-sjs8", "c9sj-fmsg"} and event_id.startswith(("nyc_street_permit_", "nyc_street_permit_legacy_")):
         if street_permit_seed_is_utility_work(item):
             return "utilities", "utilities", {"utilities"}
@@ -703,7 +730,10 @@ def source_to_registry(city: str, source: dict[str, Any]) -> dict[str, Any]:
     caveats = [caveat]
     if not source.get("retrieved_at"):
         caveats.append("Exact source retrieval date is not recorded in this discovered source catalog entry; review the linked publisher page before formal reuse.")
-    if not nyc_open_data_source and re.search(r"requires source-level review|verify|terms|dataset-specific", str(licence), re.I):
+    licence_text = str(licence)
+    review_required = bool(re.search(r"requires source-level review|verify|dataset-specific", licence_text, re.I))
+    licence_reviewed = bool(re.search(r"Open Government Licence|OGL|NYC Open Data|Open Parliament Licence", licence_text, re.I)) and not review_required
+    if not nyc_open_data_source and not licence_reviewed and re.search(r"requires source-level review|verify|terms|dataset-specific", licence_text, re.I):
         caveats.append("Licence or terms require source-level review before redistribution or formal analytical reuse.")
     return {
         "source_id": sid,

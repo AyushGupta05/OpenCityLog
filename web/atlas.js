@@ -1134,6 +1134,7 @@
     const params = new URL(window.location.href).searchParams;
     const requestedEventId = initialEventId();
     const requestedAspect = normalizeLensAspectId(params.get("lens") || params.get("aspect"));
+    const requestedLensParam = params.get("lens") || params.get("aspect");
     const requestedLens = requestedAspect
       ? LENS_ASPECT_BY_ID.get(requestedAspect).category
       : normalizeMapLensId(params.get("lens"));
@@ -1154,6 +1155,8 @@
     } else {
       state.year = state.years[state.years.length - 1] || DEFAULT_YEAR;
     }
+    state.activeAspect = startupAspectForCoverage(state.activeAspect, state.activeLens, state.year, Boolean(requestedLensParam));
+    state.activeLens = LENS_ASPECT_BY_ID.get(state.activeAspect)?.category || state.activeLens;
     const requestedArea = cleanAreaFilter(params.get("area") || "");
     const requestedConfidence = String(params.get("confidence") || "all");
     const requestedSearch = cleanSummary(params.get("q") || "");
@@ -21794,6 +21797,20 @@
     if (configured && LENS_ASPECT_BY_ID.has(configured)) return configured;
     const first = LENS_ASPECTS_BY_CATEGORY.get(key)?.[0]?.id;
     return first || DEFAULT_LENS_ASPECT_BY_CATEGORY[DEFAULT_MAP_LENS];
+  }
+
+  function aspectHasVisibleCoverageForYear(aspectId, year) {
+    const row = state.lensYearCoverageByKey.get(`${aspectId}:${Number(year)}`);
+    if (!row || !Object.prototype.hasOwnProperty.call(row, "direct_event_count")) return true;
+    return row.visible_map_contract !== false && Number(row.direct_event_count || 0) > 0;
+  }
+
+  function startupAspectForCoverage(preferredAspect, preferredCategory, year, preservePreferred = false) {
+    if (preservePreferred || aspectHasVisibleCoverageForYear(preferredAspect, year)) return preferredAspect;
+    const sameCategory = LENS_ASPECTS.filter((lens) => lens.category === preferredCategory);
+    const otherCategories = LENS_ASPECTS.filter((lens) => lens.category !== preferredCategory);
+    const fallback = [...sameCategory, ...otherCategories].find((lens) => aspectHasVisibleCoverageForYear(lens.id, year));
+    return fallback?.id || preferredAspect;
   }
 
   async function fetchJson(url) {

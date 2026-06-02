@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-08T20:48:52Z",
+  "generated_at": "2026-06-02T08:40:49Z",
   "london": {
     "brownfield_events": 5643,
     "planning_datahub_application_events": 9485,
@@ -15,7 +15,7 @@
     "fhrs_food_hygiene_rating_events": 9900
   },
   "nyc": {
-    "total_generated_events": 28901,
+    "total_generated_events": 33276,
     "source_event_counts": {
       "ipu4-2q9a": 2380,
       "w9ak-ipjd": 960,
@@ -39,7 +39,9 @@
       "8m42-w767": 1980,
       "bkfu-528j": 2470,
       "erm2-nwe9": 840,
-      "h9gi-nx95": 2400
+      "h9gi-nx95": 2400,
+      "64uk-42ks": 2379,
+      "w7w3-xahh": 1996
     }
   },
   "notes": [
@@ -55,6 +57,8 @@
     "Police.uk stop-and-search rows are privacy-minimized by the adapter: demographic fields and exact timestamps are intentionally omitted before writing atlas events.",
     "NYC LPC landmark and historic-district records are legal designation events; FDNY dispatch rows are operational incident records, not final cause or impact determinations.",
     "UK House Price Index rows are borough-level monthly aggregate statistics; they are nominal, revised over time, and not evidence of single-site construction, affordability, displacement, or causation.",
-    "Food Standards Agency FHRS rows are current-snapshot food-hygiene rating records. The adapter omits business names, addresses, postcodes, phone/email fields, and right-to-reply text before writing atlas events."
+    "Food Standards Agency FHRS rows are current-snapshot food-hygiene rating records. The adapter omits business names, addresses, postcodes, phone/email fields, and right-to-reply text before writing atlas events.",
+    "NYC PLUTO rows are tax-lot snapshot/attribute records. The adapter omits owner and street-address fields, distinguishes yearbuilt/yearalter fields from real-world change dates, and treats current-release snapshots as context rather than 2026 land-use changes.",
+    "NYC DCWP Issued Licenses rows are regulated-business administrative records. The adapter omits business/trade names, contact phone numbers, and street-address fields; borough names are used for display while raw NTA codes remain provenance/detail context."
   ]
 }

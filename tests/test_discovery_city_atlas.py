@@ -22,6 +22,24 @@ class DiscoveryCityAtlasNormalizationTest(unittest.TestCase):
         self.assertEqual(source["licence_url"], "https://opendata.cityofnewyork.us/faq/")
         self.assertNotIn("requires source-level review", " ".join(source["caveats"]).lower())
 
+    def test_tfl_open_data_registry_keeps_ogl_terms_compatible(self):
+        source = source_to_registry("london", {
+            "source_id": "tfl-road-disruptions",
+            "title": "TfL Road disruptions / planned works API",
+            "publisher": "Transport for London",
+            "bucket": "events/street closures",
+            "access_url": "https://api.tfl.gov.uk/Road",
+            "api_endpoint": "https://api.tfl.gov.uk/Road/all/Disruption",
+            "licence": "TfL open data/API terms; public-sector information is available under Open Government Licence v3.0 with TfL attribution and API terms/caching requirements.",
+            "licence_url": "https://tfl.gov.uk/info-for/open-data-users/",
+            "limitations": "Live API; historic closures must be archived by user.",
+            "retrieved_at": "2026-05-08T00:00:00Z",
+        })
+
+        self.assertIn("Open Government Licence", source["licence"])
+        self.assertEqual(source["licence_url"], "https://tfl.gov.uk/info-for/open-data-users/")
+        self.assertNotIn("requires source-level review", " ".join(source["caveats"]).lower())
+
     def test_hmlr_price_paid_seed_promotes_to_economy_without_hpi(self):
         event = normalize_seed(
             "london",
@@ -147,6 +165,176 @@ class DiscoveryCityAtlasNormalizationTest(unittest.TestCase):
         self.assertEqual(utility_event["category"], "utilities")
         self.assertEqual(utility_event["lens"], "utilities")
         self.assertNotEqual(generic_event["category"], "utilities")
+
+    def test_london_tfl_utility_works_promote_without_generic_works(self):
+        source_by_id = {
+            "tfl-road-disruptions": {
+                "source_id": "tfl-road-disruptions",
+                "title": "TfL Road disruptions / planned works API",
+                "access_url": "https://api.tfl.gov.uk/Road/all/Disruption",
+            }
+        }
+        utility_event = normalize_seed(
+            "london",
+            {
+                "event_id": "lon_tfl_disruption_tims-223032",
+                "title": "TfL road disruption: [A1205] Burdett Road",
+                "date": "2026-01-20",
+                "bucket": "transport/traffic/roadworks",
+                "source_dataset_id": "tfl-road-disruptions",
+                "source_record_id": "TIMS-223032",
+                "summary": "Lane restrictions in place to facilitate Thames Water works.",
+            },
+            1,
+            source_by_id,
+        )
+        generic_event = normalize_seed(
+            "london",
+            {
+                "event_id": "lon_tfl_disruption_tims-206772",
+                "title": "TfL road disruption: Gallows Corner Flyover",
+                "date": "2025-03-15",
+                "bucket": "transport/traffic/roadworks",
+                "source_dataset_id": "tfl-road-disruptions",
+                "source_record_id": "TIMS-206772",
+                "summary": "Restrictions to facilitate refurbishment of Gallows Corner Flyover.",
+            },
+            2,
+            source_by_id,
+        )
+
+        self.assertEqual(utility_event["category"], "utilities")
+        self.assertEqual(utility_event["lens"], "utilities")
+        self.assertNotEqual(generic_event["category"], "utilities")
+
+    def test_london_planning_utility_rows_promote_without_cable_street_false_positive(self):
+        source_by_id = {
+            "gla-planning-datahub-applications": {
+                "source_id": "gla-planning-datahub-applications",
+                "title": "Planning London Datahub - planning applications",
+                "access_url": "https://planningdata.london.gov.uk/api-guest/",
+            }
+        }
+        utility_event = normalize_seed(
+            "london",
+            {
+                "event_id": "lon_planning_datahub_application_decided_barnet-26-0570-con",
+                "title": "Planning decision recorded: Clitterhouse Playing Fields, Barnet",
+                "date": "2026-04-24",
+                "bucket": "planning/development",
+                "source_dataset_id": "gla-planning-datahub-applications",
+                "source_record_id": "Barnet-26_0570_CON",
+                "summary": "Submission of details pursuant to Condition 47 (Surface Water Drainage).",
+            },
+            1,
+            source_by_id,
+        )
+        generic_event = normalize_seed(
+            "london",
+            {
+                "event_id": "lon_arch_round362_lon_pld_completion_tower_hamlets_pa_04_00447_2010_09_30",
+                "title": "PLD completion date recorded for 226 Cable Street, E1",
+                "date": "2010-09-30",
+                "bucket": "planning/development",
+                "source_dataset_id": "gla-planning-datahub-applications",
+                "source_record_id": "PA/04/00447",
+                "summary": "Planning London Datahub records source-reported administrative actual completion date field for 226 Cable Street.",
+            },
+            2,
+            source_by_id,
+        )
+
+        self.assertEqual(utility_event["category"], "utilities")
+        self.assertEqual(utility_event["lens"], "utilities")
+        self.assertNotEqual(generic_event["category"], "utilities")
+
+    def test_nyc_pluto_seed_promotes_to_economy_land_use(self):
+        event = normalize_seed(
+            "nyc",
+            {
+                "event_id": "nyc_pluto_land_use_yearalter1_2020_2054800111",
+                "title": "PLUTO tax-lot land-use record: commercial and office in Bronx",
+                "date": "2020",
+                "bucket": "planning/development; land use",
+                "source_dataset_id": "64uk-42ks",
+                "source_record_id": "2054800111",
+                "latitude": 40.830953,
+                "longitude": -73.816551,
+                "summary": "NYC DCP PLUTO tax-lot row records land use 'commercial and office'.",
+            },
+            1,
+            {
+                "64uk-42ks": {
+                    "source_id": "64uk-42ks",
+                    "title": "Primary Land Use Tax Lot Output (PLUTO)",
+                    "access_url": "https://data.cityofnewyork.us/api/views/64uk-42ks",
+                }
+            },
+        )
+
+        self.assertEqual(event["category"], "economy")
+        self.assertEqual(event["lens"], "jobs")
+        self.assertIn("land_use", event["affected_signals"])
+        self.assertIn("property_market", event["affected_signals"])
+
+    def test_nyc_pluto_public_facility_seed_does_not_gain_generic_commercial_residential_signals(self):
+        event = normalize_seed(
+            "nyc",
+            {
+                "event_id": "nyc_pluto_land_use_snapshot_2026_1000010010",
+                "title": "PLUTO tax-lot land-use record: public facilities and institutions in Manhattan",
+                "date": "2026",
+                "bucket": "economy/land-use/tax lot/property",
+                "source_dataset_id": "64uk-42ks",
+                "source_record_id": "1000010010",
+                "latitude": 40.689,
+                "longitude": -74.019,
+                "affected_signals": ["economy", "economic_opportunity", "land_use", "property_market", "civic_services"],
+                "summary": "NYC DCP PLUTO tax-lot row records land use 'public facilities and institutions'.",
+            },
+            1,
+            {
+                "64uk-42ks": {
+                    "source_id": "64uk-42ks",
+                    "title": "Primary Land Use Tax Lot Output (PLUTO)",
+                    "access_url": "https://data.cityofnewyork.us/api/views/64uk-42ks",
+                }
+            },
+        )
+
+        self.assertEqual(event["category"], "economy")
+        self.assertIn("civic_services", event["affected_signals"])
+        self.assertNotIn("commercial", event["affected_signals"])
+        self.assertNotIn("residential", event["affected_signals"])
+
+    def test_nyc_business_license_seed_promotes_to_economy(self):
+        event = normalize_seed(
+            "nyc",
+            {
+                "event_id": "nyc_business_license_0002902-dca",
+                "title": "NYC business premises licence: Pawnbroker in Manhattan",
+                "date": "2007-04-18",
+                "bucket": "business licenses/economy",
+                "source_dataset_id": "w7w3-xahh",
+                "source_record_id": "0002902-DCA",
+                "latitude": 40.755613,
+                "longitude": -73.990962,
+                "summary": "NYC DCWP issued premises licence for business category Pawnbroker.",
+            },
+            1,
+            {
+                "w7w3-xahh": {
+                    "source_id": "w7w3-xahh",
+                    "title": "Issued Licenses",
+                    "access_url": "https://data.cityofnewyork.us/api/views/w7w3-xahh",
+                }
+            },
+        )
+
+        self.assertEqual(event["category"], "economy")
+        self.assertEqual(event["lens"], "jobs")
+        self.assertIn("business", event["affected_signals"])
+        self.assertNotIn("green_space", event["affected_signals"])
 
 
 if __name__ == "__main__":

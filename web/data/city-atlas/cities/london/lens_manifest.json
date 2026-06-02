@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_city_manifest",
-  "generated_at": "2026-06-01T18:06:58Z",
+  "generated_at": "2026-06-02T10:31:27Z",
   "city_id": "london",
   "display_name": "London, England",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -45,18 +45,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 52965,
-        "compatible_event_count": 52965,
+        "event_count": 52966,
+        "compatible_event_count": 52966,
         "review_required_event_count": 0,
-        "source_count": 68,
-        "compatible_source_count": 68,
+        "source_count": 70,
+        "compatible_source_count": 70,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1951,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 52955,
+          "documented": 52956,
           "inferred": 2,
           "corroborated": 8
         },
@@ -66,7 +66,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 52051,
+        "excluded_review_required_event_count": 52050,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -81,9 +81,9 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-27",
+        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
         "source_coverage_period": "1951-2026",
-        "update_cadence": "Annual monitoring report.; Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence"
+        "update_cadence": "Annual monitoring report.; Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets."
       },
       "provenance": {
         "source_ids": [
@@ -108,6 +108,7 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -153,6 +154,7 @@
           "src_uclh_rnent_eastman_hospital",
           "src_wandsworth_putney_library",
           "src_young_va_open",
+          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013",
           "westminster-authority-monitoring-public-realm"
         ],
@@ -178,6 +180,7 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -223,6 +226,7 @@
           "src_uclh_rnent_eastman_hospital",
           "src_wandsworth_putney_library",
           "src_young_va_open",
+          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013",
           "westminster-authority-monitoring-public-realm"
         ],
@@ -410,18 +414,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 52965,
-        "compatible_event_count": 52965,
+        "event_count": 52966,
+        "compatible_event_count": 52966,
         "review_required_event_count": 0,
-        "source_count": 68,
-        "compatible_source_count": 68,
+        "source_count": 70,
+        "compatible_source_count": 70,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1951,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 52955,
+          "documented": 52956,
           "inferred": 2,
           "corroborated": 8
         },
@@ -431,7 +435,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 52051,
+        "excluded_review_required_event_count": 52050,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -446,9 +450,9 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-27",
+        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
         "source_coverage_period": "1951-2026",
-        "update_cadence": "Annual monitoring report.; Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence"
+        "update_cadence": "Annual monitoring report.; Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets."
       },
       "provenance": {
         "source_ids": [
@@ -473,6 +477,7 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -518,6 +523,7 @@
           "src_uclh_rnent_eastman_hospital",
           "src_wandsworth_putney_library",
           "src_young_va_open",
+          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013",
           "westminster-authority-monitoring-public-realm"
         ],
@@ -543,6 +549,7 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -588,6 +595,7 @@
           "src_uclh_rnent_eastman_hospital",
           "src_wandsworth_putney_library",
           "src_young_va_open",
+          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013",
           "westminster-authority-monitoring-public-realm"
         ],
@@ -775,18 +783,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 52965,
-        "compatible_event_count": 52965,
+        "event_count": 52966,
+        "compatible_event_count": 52966,
         "review_required_event_count": 0,
-        "source_count": 68,
-        "compatible_source_count": 68,
+        "source_count": 70,
+        "compatible_source_count": 70,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1951,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 52955,
+          "documented": 52956,
           "inferred": 2,
           "corroborated": 8
         },
@@ -796,7 +804,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 52051,
+        "excluded_review_required_event_count": 52050,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -811,9 +819,9 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-27",
+        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
         "source_coverage_period": "1951-2026",
-        "update_cadence": "Annual monitoring report.; Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence"
+        "update_cadence": "Annual monitoring report.; Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets."
       },
       "provenance": {
         "source_ids": [
@@ -838,6 +846,7 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -883,6 +892,7 @@
           "src_uclh_rnent_eastman_hospital",
           "src_wandsworth_putney_library",
           "src_young_va_open",
+          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013",
           "westminster-authority-monitoring-public-realm"
         ],
@@ -908,6 +918,7 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -953,6 +964,7 @@
           "src_uclh_rnent_eastman_hospital",
           "src_wandsworth_putney_library",
           "src_young_va_open",
+          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013",
           "westminster-authority-monitoring-public-realm"
         ],
@@ -1140,18 +1152,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59113,
-        "compatible_event_count": 59113,
+        "event_count": 59192,
+        "compatible_event_count": 59192,
         "review_required_event_count": 0,
-        "source_count": 27,
-        "compatible_source_count": 27,
+        "source_count": 29,
+        "compatible_source_count": 29,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1959,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59113
+          "documented": 59192
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1159,30 +1171,31 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 33268,
+        "excluded_review_required_event_count": 33187,
         "year_contract": {
           "required_years": {
             "start": 2007,
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 15,
+          "visible_year_count": 14,
           "missing_visible_years": [
             2007,
+            2011,
             2013,
             2015,
             2017,
             2019
           ],
-          "source_backed_record_year_count": 15,
+          "source_backed_record_year_count": 14,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-20",
+        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
         "source_coverage_period": "1959-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence"
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets."
       },
       "provenance": {
         "source_ids": [
@@ -1203,6 +1216,7 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -1212,7 +1226,8 @@
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
           "police-data-stop-search",
-          "src_hackney_young_centres"
+          "src_hackney_young_centres",
+          "tfl-road-disruptions"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
@@ -1232,6 +1247,7 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -1241,7 +1257,8 @@
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
           "police-data-stop-search",
-          "src_hackney_young_centres"
+          "src_hackney_young_centres",
+          "tfl-road-disruptions"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -1427,18 +1444,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59113,
-        "compatible_event_count": 59113,
+        "event_count": 59192,
+        "compatible_event_count": 59192,
         "review_required_event_count": 0,
-        "source_count": 27,
-        "compatible_source_count": 27,
+        "source_count": 29,
+        "compatible_source_count": 29,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1959,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59113
+          "documented": 59192
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1446,30 +1463,31 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 33268,
+        "excluded_review_required_event_count": 33187,
         "year_contract": {
           "required_years": {
             "start": 2007,
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 15,
+          "visible_year_count": 14,
           "missing_visible_years": [
             2007,
+            2011,
             2013,
             2015,
             2017,
             2019
           ],
-          "source_backed_record_year_count": 15,
+          "source_backed_record_year_count": 14,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-20",
+        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
         "source_coverage_period": "1959-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence"
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets."
       },
       "provenance": {
         "source_ids": [
@@ -1490,6 +1508,7 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -1499,7 +1518,8 @@
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
           "police-data-stop-search",
-          "src_hackney_young_centres"
+          "src_hackney_young_centres",
+          "tfl-road-disruptions"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
@@ -1519,6 +1539,7 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -1528,7 +1549,8 @@
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
           "police-data-stop-search",
-          "src_hackney_young_centres"
+          "src_hackney_young_centres",
+          "tfl-road-disruptions"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -1714,18 +1736,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59113,
-        "compatible_event_count": 59113,
+        "event_count": 59192,
+        "compatible_event_count": 59192,
         "review_required_event_count": 0,
-        "source_count": 27,
-        "compatible_source_count": 27,
+        "source_count": 29,
+        "compatible_source_count": 29,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1959,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59113
+          "documented": 59192
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1733,30 +1755,31 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 33268,
+        "excluded_review_required_event_count": 33187,
         "year_contract": {
           "required_years": {
             "start": 2007,
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 15,
+          "visible_year_count": 14,
           "missing_visible_years": [
             2007,
+            2011,
             2013,
             2015,
             2017,
             2019
           ],
-          "source_backed_record_year_count": 15,
+          "source_backed_record_year_count": 14,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-20",
+        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
         "source_coverage_period": "1959-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence"
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets."
       },
       "provenance": {
         "source_ids": [
@@ -1777,6 +1800,7 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -1786,7 +1810,8 @@
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
           "police-data-stop-search",
-          "src_hackney_young_centres"
+          "src_hackney_young_centres",
+          "tfl-road-disruptions"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
@@ -1806,6 +1831,7 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -1815,7 +1841,8 @@
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
           "police-data-stop-search",
-          "src_hackney_young_centres"
+          "src_hackney_young_centres",
+          "tfl-road-disruptions"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -2001,8 +2028,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 93638,
-        "compatible_event_count": 93638,
+        "event_count": 93645,
+        "compatible_event_count": 93645,
         "review_required_event_count": 0,
         "source_count": 45,
         "compatible_source_count": 45,
@@ -2012,7 +2039,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 93635,
+          "documented": 93642,
           "inferred": 2,
           "corroborated": 1
         },
@@ -2022,7 +2049,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 30325,
+        "excluded_review_required_event_count": 30326,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2322,8 +2349,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 93638,
-        "compatible_event_count": 93638,
+        "event_count": 93645,
+        "compatible_event_count": 93645,
         "review_required_event_count": 0,
         "source_count": 45,
         "compatible_source_count": 45,
@@ -2333,7 +2360,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 93635,
+          "documented": 93642,
           "inferred": 2,
           "corroborated": 1
         },
@@ -2343,7 +2370,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 30325,
+        "excluded_review_required_event_count": 30326,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2643,8 +2670,8 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 93638,
-        "compatible_event_count": 93638,
+        "event_count": 93645,
+        "compatible_event_count": 93645,
         "review_required_event_count": 0,
         "source_count": 45,
         "compatible_source_count": 45,
@@ -2654,7 +2681,7 @@
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 93635,
+          "documented": 93642,
           "inferred": 2,
           "corroborated": 1
         },
@@ -2664,7 +2691,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 30325,
+        "excluded_review_required_event_count": 30326,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3747,18 +3774,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 249,
-        "compatible_event_count": 249,
+        "event_count": 558,
+        "compatible_event_count": 558,
         "review_required_event_count": 0,
-        "source_count": 17,
-        "compatible_source_count": 17,
+        "source_count": 19,
+        "compatible_source_count": 19,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 249
+          "documented": 558
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3766,43 +3793,29 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1391,
+        "excluded_review_required_event_count": 1607,
         "year_contract": {
           "required_years": {
             "start": 2007,
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 2,
+          "visible_year_count": 16,
           "missing_visible_years": [
-            2008,
-            2009,
-            2010,
-            2011,
-            2012,
-            2013,
-            2014,
-            2015,
-            2016,
-            2017,
-            2018,
-            2019,
-            2020,
             2021,
             2022,
             2023,
-            2025,
-            2026
+            2024
           ],
-          "source_backed_record_year_count": 2,
+          "source_backed_record_year_count": 16,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-27",
+        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
         "source_coverage_period": "2007-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific; Source-specific publication/update cadence"
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific"
       },
       "provenance": {
         "source_ids": [
@@ -3816,12 +3829,14 @@
           "historic-england-nhle-open-data-round305-tail3",
           "historic-england-nhle-open-data-round305-tail3-layer-3",
           "lon-extra-planning-data-tree-preservation-zones",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "src_southwark_canada_water_leisure",
+          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
@@ -3835,12 +3850,14 @@
           "historic-england-nhle-open-data-round305-tail3",
           "historic-england-nhle-open-data-round305-tail3-layer-3",
           "lon-extra-planning-data-tree-preservation-zones",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "src_southwark_canada_water_leisure",
+          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
@@ -3976,6 +3993,19 @@
             "licence_review_required": false
           },
           {
+            "source_id": "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
+            "title": "Historical Urban Event Evidence Catalog - TfL routes, timetables, accessibility, demand, and cycle hire",
+            "publisher": "Transport for London",
+            "source_family": "transport",
+            "licence": "TfL terms based on OGL with amendments; check caching/branding/commercial rules.",
+            "licence_url": "https://api.tfl.gov.uk/",
+            "attribution_text": "Transport for London",
+            "accessed_at": "2026-06-02T10:31:27Z",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
             "source_id": "london-architecture-public-pages",
             "title": "London architecture and major project public pages",
             "publisher": "Named London public, institutional, venue, developer, and architecture sources",
@@ -3984,19 +4014,6 @@
             "licence_url": "https://www.london.gov.uk/",
             "attribution_text": "Named London public, institutional, venue, developer, and architecture sources",
             "accessed_at": "2026-05-18",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "london-development-database-archive",
-            "title": "Planning permissions on the London Development Database (LDD)",
-            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
-            "source_family": "significant_public_or_mixed_use_completion_record",
-            "licence": "UK Open Government Licence (OGL v3)",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
-            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4027,18 +4044,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 249,
-        "compatible_event_count": 249,
+        "event_count": 558,
+        "compatible_event_count": 558,
         "review_required_event_count": 0,
-        "source_count": 17,
-        "compatible_source_count": 17,
+        "source_count": 19,
+        "compatible_source_count": 19,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 249
+          "documented": 558
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -4046,43 +4063,29 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1391,
+        "excluded_review_required_event_count": 1607,
         "year_contract": {
           "required_years": {
             "start": 2007,
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 2,
+          "visible_year_count": 16,
           "missing_visible_years": [
-            2008,
-            2009,
-            2010,
-            2011,
-            2012,
-            2013,
-            2014,
-            2015,
-            2016,
-            2017,
-            2018,
-            2019,
-            2020,
             2021,
             2022,
             2023,
-            2025,
-            2026
+            2024
           ],
-          "source_backed_record_year_count": 2,
+          "source_backed_record_year_count": 16,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-27",
+        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
         "source_coverage_period": "2007-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific; Source-specific publication/update cadence"
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific"
       },
       "provenance": {
         "source_ids": [
@@ -4096,12 +4099,14 @@
           "historic-england-nhle-open-data-round305-tail3",
           "historic-england-nhle-open-data-round305-tail3-layer-3",
           "lon-extra-planning-data-tree-preservation-zones",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "src_southwark_canada_water_leisure",
+          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
@@ -4115,12 +4120,14 @@
           "historic-england-nhle-open-data-round305-tail3",
           "historic-england-nhle-open-data-round305-tail3-layer-3",
           "lon-extra-planning-data-tree-preservation-zones",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "src_southwark_canada_water_leisure",
+          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
@@ -4256,6 +4263,19 @@
             "licence_review_required": false
           },
           {
+            "source_id": "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
+            "title": "Historical Urban Event Evidence Catalog - TfL routes, timetables, accessibility, demand, and cycle hire",
+            "publisher": "Transport for London",
+            "source_family": "transport",
+            "licence": "TfL terms based on OGL with amendments; check caching/branding/commercial rules.",
+            "licence_url": "https://api.tfl.gov.uk/",
+            "attribution_text": "Transport for London",
+            "accessed_at": "2026-06-02T10:31:27Z",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
             "source_id": "london-architecture-public-pages",
             "title": "London architecture and major project public pages",
             "publisher": "Named London public, institutional, venue, developer, and architecture sources",
@@ -4264,19 +4284,6 @@
             "licence_url": "https://www.london.gov.uk/",
             "attribution_text": "Named London public, institutional, venue, developer, and architecture sources",
             "accessed_at": "2026-05-18",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "london-development-database-archive",
-            "title": "Planning permissions on the London Development Database (LDD)",
-            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
-            "source_family": "significant_public_or_mixed_use_completion_record",
-            "licence": "UK Open Government Licence (OGL v3)",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
-            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4307,18 +4314,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 249,
-        "compatible_event_count": 249,
+        "event_count": 558,
+        "compatible_event_count": 558,
         "review_required_event_count": 0,
-        "source_count": 17,
-        "compatible_source_count": 17,
+        "source_count": 19,
+        "compatible_source_count": 19,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 249
+          "documented": 558
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -4326,43 +4333,29 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1391,
+        "excluded_review_required_event_count": 1607,
         "year_contract": {
           "required_years": {
             "start": 2007,
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 2,
+          "visible_year_count": 16,
           "missing_visible_years": [
-            2008,
-            2009,
-            2010,
-            2011,
-            2012,
-            2013,
-            2014,
-            2015,
-            2016,
-            2017,
-            2018,
-            2019,
-            2020,
             2021,
             2022,
             2023,
-            2025,
-            2026
+            2024
           ],
-          "source_backed_record_year_count": 2,
+          "source_backed_record_year_count": 16,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-27",
+        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
         "source_coverage_period": "2007-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific; Source-specific publication/update cadence"
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific"
       },
       "provenance": {
         "source_ids": [
@@ -4376,12 +4369,14 @@
           "historic-england-nhle-open-data-round305-tail3",
           "historic-england-nhle-open-data-round305-tail3-layer-3",
           "lon-extra-planning-data-tree-preservation-zones",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "src_southwark_canada_water_leisure",
+          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
@@ -4395,12 +4390,14 @@
           "historic-england-nhle-open-data-round305-tail3",
           "historic-england-nhle-open-data-round305-tail3-layer-3",
           "lon-extra-planning-data-tree-preservation-zones",
+          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "src_southwark_canada_water_leisure",
+          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
@@ -4536,6 +4533,19 @@
             "licence_review_required": false
           },
           {
+            "source_id": "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
+            "title": "Historical Urban Event Evidence Catalog - TfL routes, timetables, accessibility, demand, and cycle hire",
+            "publisher": "Transport for London",
+            "source_family": "transport",
+            "licence": "TfL terms based on OGL with amendments; check caching/branding/commercial rules.",
+            "licence_url": "https://api.tfl.gov.uk/",
+            "attribution_text": "Transport for London",
+            "accessed_at": "2026-06-02T10:31:27Z",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
             "source_id": "london-architecture-public-pages",
             "title": "London architecture and major project public pages",
             "publisher": "Named London public, institutional, venue, developer, and architecture sources",
@@ -4544,19 +4554,6 @@
             "licence_url": "https://www.london.gov.uk/",
             "attribution_text": "Named London public, institutional, venue, developer, and architecture sources",
             "accessed_at": "2026-05-18",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "london-development-database-archive",
-            "title": "Planning permissions on the London Development Database (LDD)",
-            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
-            "source_family": "significant_public_or_mixed_use_completion_record",
-            "licence": "UK Open Government Licence (OGL v3)",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
-            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false

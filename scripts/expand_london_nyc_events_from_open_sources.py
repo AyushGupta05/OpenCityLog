@@ -81,6 +81,8 @@ GENERATED_PREFIXES = (
     "nyc_permitted_event_",
     "nyc_311_service_request_",
     "nyc_collision_crash_",
+    "nyc_pluto_land_use_",
+    "nyc_business_license_",
 )
 
 LONDON_PLANNING_DESIGNATION_DATASETS = [
@@ -228,6 +230,28 @@ FHRS_SOURCE_ID = "lon-extra-food-hygiene-rating-scheme-api"
 FHRS_API_ROOT = "https://api.ratings.food.gov.uk"
 FHRS_HELP_URL = "https://api.ratings.food.gov.uk/help"
 FHRS_DATA_PAGE = "https://www.food.gov.uk/uk-food-hygiene-rating-data-api"
+NYC_PLUTO_SOURCE_ID = "64uk-42ks"
+NYC_BUSINESS_LICENSE_SOURCE_ID = "w7w3-xahh"
+NYC_PLUTO_LAND_USE = {
+    "01": "one- and two-family residential",
+    "02": "multi-family walk-up residential",
+    "03": "multi-family elevator residential",
+    "04": "mixed residential and commercial",
+    "05": "commercial and office",
+    "06": "industrial and manufacturing",
+    "07": "transportation and utility",
+    "08": "public facilities and institutions",
+    "09": "open space and recreation",
+    "10": "parking facilities",
+    "11": "vacant land",
+}
+NYC_BOROUGH_CODES = {
+    "1": "Manhattan",
+    "2": "Bronx",
+    "3": "Brooklyn",
+    "4": "Queens",
+    "5": "Staten Island",
+}
 LONDON_BOROUGH_POINTS = {
     "Barking and Dagenham": (0.1340, 51.5450),
     "Barnet": (-0.2002, 51.6538),
@@ -2310,6 +2334,264 @@ def nyc_borough_name(value: Any) -> str:
     }.get(text, clean_text(value, 40) or "NYC")
 
 
+def compact_numeric_code(value: Any) -> str:
+    text = clean_text(value, 80)
+    if not text:
+        return ""
+    try:
+        return str(int(float(text)))
+    except Exception:
+        digits = re.sub(r"\D+", "", text)
+        return digits or text
+
+
+def nyc_pluto_land_use_label(value: Any) -> str:
+    code = compact_numeric_code(value).zfill(2)
+    return NYC_PLUTO_LAND_USE.get(code, clean_text(value, 80) or "land-use class not stated")
+
+
+def nyc_pluto_land_use_signals(value: Any) -> list[str]:
+    code = compact_numeric_code(value).zfill(2)
+    signals = {"economy", "economic_opportunity", "land_use", "property_market"}
+    if code in {"01", "02", "03"}:
+        signals.add("residential")
+    elif code == "04":
+        signals.update({"mixed_use", "residential", "commercial"})
+    elif code == "05":
+        signals.update({"commercial", "office"})
+    elif code == "06":
+        signals.update({"industrial", "manufacturing"})
+    elif code == "07":
+        signals.update({"transport", "utilities"})
+    elif code == "08":
+        signals.add("civic_services")
+    elif code == "09":
+        signals.add("green_space")
+    elif code == "10":
+        signals.update({"parking", "transport"})
+    elif code == "11":
+        signals.add("vacant_land")
+    return sorted(signals)
+
+
+def nyc_pluto_year_basis(row: dict[str, Any], year: int) -> str | None:
+    year_text = str(year)
+    for field in ["yearalter2", "yearalter1", "yearbuilt"]:
+        if compact_numeric_code(row.get(field)) == year_text:
+            return field
+    return None
+
+
+def make_nyc_pluto_land_use_event(row: dict[str, Any], year: int, retrieved_at: str, *, snapshot_release: bool = False) -> dict[str, Any] | None:
+    lat, lon = safe_float(row.get("latitude")), safe_float(row.get("longitude"))
+    if lat is None or lon is None or not in_bounds((lon, lat), NYC_BOUNDS):
+        return None
+    bbl = compact_numeric_code(row.get("bbl"))
+    if not bbl:
+        return None
+    basis = "PLUTO release/version" if snapshot_release else nyc_pluto_year_basis(row, year)
+    if not basis:
+        return None
+    borough = nyc_borough_name(row.get("borough") or NYC_BOROUGH_CODES.get(compact_numeric_code(row.get("borocode"))))
+    land_use = nyc_pluto_land_use_label(row.get("landuse"))
+    bldg_area = int_text(row.get("bldgarea"))
+    commercial_area = int_text(row.get("comarea"))
+    residential_area = int_text(row.get("resarea"))
+    units = int_text(row.get("unitstotal"))
+    version = clean_text(row.get("version"), 40)
+    return event_record(
+        event_id=f"nyc_pluto_land_use_{'snapshot' if snapshot_release else basis}_{year}_{slug(bbl, 32)}",
+        title=f"PLUTO tax-lot land-use record: {land_use} in {borough}",
+        date=str(year),
+        bucket="economy/land-use/tax lot/property",
+        area=borough,
+        latitude=lat,
+        longitude=lon,
+        source_ids=[NYC_PLUTO_SOURCE_ID],
+        source_record_id=bbl,
+        source_url=socrata_row_url(NYC_PLUTO_SOURCE_ID, "bbl", bbl),
+        source_retrieved_at=retrieved_at,
+        source_dataset_id=NYC_PLUTO_SOURCE_ID,
+        source_date_field=basis,
+        atlas_category="economy",
+        atlas_lens="jobs",
+        affected_signals=nyc_pluto_land_use_signals(row.get("landuse")),
+        summary=clean_text(
+            f"NYC DCP PLUTO tax-lot row {bbl} records land use '{land_use}', building area {bldg_area}, "
+            f"commercial area {commercial_area}, residential area {residential_area}, total units {units}, "
+            f"and {'release year' if snapshot_release else basis}={year}; PLUTO version {version or 'not stated'}.",
+            420,
+        ),
+        observed_change=clean_text(
+            (
+                f"Source-backed current PLUTO release snapshot for parcel land-use context in {year}; not a claim that land use changed in {year}."
+                if snapshot_release
+                else f"Source-backed parcel land-use context dated by PLUTO {basis}={year}; this is a tax-lot attribute record, not a direct claim that land use changed on that date."
+            ),
+            260,
+        ),
+        confidence="documented",
+        limitations=(
+            "PLUTO is a tax-lot snapshot and yearbuilt/yearalter fields are parcel attributes, not a full change-history feed. "
+            "The adapter omits owner name and street address; use BBL/source row for review and do not infer business performance, displacement, or causal outcomes."
+        ),
+    )
+
+
+def make_nyc_business_license_event(row: dict[str, Any], retrieved_at: str) -> dict[str, Any] | None:
+    lat, lon = safe_float(row.get("latitude")), safe_float(row.get("longitude"))
+    if lat is None or lon is None or not in_bounds((lon, lat), NYC_BOUNDS):
+        return None
+    license_number = clean_text(row.get("license_nbr") or row.get("business_unique_id"), 90)
+    date = first_date(row.get("license_creation_date"))
+    if not license_number or not date:
+        return None
+    borough = nyc_borough_name(row.get("address_borough") or row.get("borough") or row.get("boro"))
+    business_category = clean_text(row.get("business_category"), 90) or "regulated business"
+    status = clean_text(row.get("license_status"), 80) or "status not stated"
+    licence_type = clean_text(row.get("license_type"), 60) or "licence type not stated"
+    nta = clean_text(row.get("nta"), 70)
+    bbl = compact_numeric_code(row.get("bbl"))
+    return event_record(
+        event_id=f"nyc_business_license_{slug(license_number, 70)}",
+        title=f"NYC business premises licence: {business_category} in {borough}",
+        date=date,
+        bucket="economy/business licence/high street activity/land use",
+        area=borough,
+        latitude=lat,
+        longitude=lon,
+        source_ids=[NYC_BUSINESS_LICENSE_SOURCE_ID],
+        source_record_id=license_number,
+        source_url=socrata_row_url(NYC_BUSINESS_LICENSE_SOURCE_ID, "license_nbr", license_number),
+        source_retrieved_at=retrieved_at,
+        source_dataset_id=NYC_BUSINESS_LICENSE_SOURCE_ID,
+        source_date_field="license_creation_date",
+        atlas_category="economy",
+        atlas_lens="jobs",
+        affected_signals=["economy", "economic_opportunity", "business", "high_street_activity", "commercial", "land_use"],
+        summary=clean_text(
+            f"NYC DCWP issued {licence_type} licence {license_number} for business category '{business_category}' with status {status}; "
+            f"borough {borough}; NTA {nta or 'not stated'}; BBL {bbl or 'not stated'}.",
+            420,
+        ),
+        observed_change=clean_text(
+            f"Official issued business-premises licence record for {business_category}; creation date {date}.",
+            240,
+        ),
+        confidence="documented",
+        limitations=(
+            "Issued Licenses is a regulated-business administrative feed, not a complete business registry or evidence of opening, closure, employment, sales, or footfall. "
+            "The adapter omits business names, trade names, contact phone numbers, and street address fields before writing atlas events."
+        ),
+    )
+
+
+def fetch_nyc_pluto_land_use(max_per_year_borough: int = 45) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    retrieved_at = utc_now_iso()
+    events: list[dict[str, Any]] = []
+    raw: dict[str, Any] = {
+        "dataset": NYC_PLUTO_SOURCE_ID,
+        "retrieved_at": retrieved_at,
+        "per_year_borough_limit": max_per_year_borough,
+        "counts_by_year_borough": {},
+        "skipped_without_event": 0,
+        "privacy_minimization": "Owner name and street-address fields are not persisted; BBL and source row URL are retained for provenance.",
+    }
+    select = ",".join([
+        "borough", "borocode", "block", "lot", "bbl", "landuse", "bldgclass", "lotarea", "bldgarea",
+        "comarea", "resarea", "officearea", "retailarea", "factryarea", "otherarea", "numbldgs",
+        "numfloors", "unitsres", "unitstotal", "yearbuilt", "yearalter1", "yearalter2", "latitude",
+        "longitude", "version",
+    ])
+    for year in range(2007, 2027):
+        raw["counts_by_year_borough"][str(year)] = {}
+        year_clause = f"(yearbuilt='{year}' OR yearalter1='{year}' OR yearalter2='{year}')"
+        for borocode, borough in NYC_BOROUGH_CODES.items():
+            where = (
+                "latitude IS NOT NULL AND longitude IS NOT NULL AND landuse IS NOT NULL "
+                f"AND borocode='{borocode}' AND {year_clause}"
+            )
+            try:
+                rows = socrata(
+                    "data.cityofnewyork.us",
+                    NYC_PLUTO_SOURCE_ID,
+                    {
+                        "$limit": str(max_per_year_borough),
+                        "$select": select,
+                        "$where": where,
+                        "$order": "block ASC, lot ASC",
+                    },
+                    timeout=120,
+                )
+            except Exception as exc:  # noqa: BLE001
+                raw["counts_by_year_borough"][str(year)][borough] = f"ERROR: {exc}"
+                continue
+            raw["counts_by_year_borough"][str(year)][borough] = len(rows)
+            for row in rows:
+                event = make_nyc_pluto_land_use_event(row, year, retrieved_at)
+                if event:
+                    events.append(event)
+                else:
+                    raw["skipped_without_event"] += 1
+    raw["event_count"] = len(events)
+    raw["fetched"] = len(events)
+    raw["sample_fields"] = select.split(",")
+    return events, raw
+
+
+def fetch_nyc_business_licenses(max_per_year_borough: int = 45) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    retrieved_at = utc_now_iso()
+    events: list[dict[str, Any]] = []
+    raw: dict[str, Any] = {
+        "dataset": NYC_BUSINESS_LICENSE_SOURCE_ID,
+        "retrieved_at": retrieved_at,
+        "per_year_borough_limit": max_per_year_borough,
+        "counts_by_year_borough": {},
+        "skipped_without_event": 0,
+        "privacy_minimization": "Business names, trade names, contact phone numbers, and street-address fields are not persisted.",
+    }
+    select = ",".join([
+        "license_nbr", "business_unique_id", "business_category", "license_type", "license_status",
+        "license_creation_date", "lic_expir_dd", "address_borough", "community_board", "council_district",
+        "bin", "bbl", "nta", "latitude", "longitude",
+    ])
+    boroughs = ["Manhattan", "Bronx", "Brooklyn", "Queens", "Staten Island"]
+    for year in range(2007, 2027):
+        raw["counts_by_year_borough"][str(year)] = {}
+        date_clause = f"license_creation_date between '{year}-01-01T00:00:00' and '{year}-12-31T23:59:59'"
+        for borough in boroughs:
+            where = (
+                f"({date_clause}) AND latitude IS NOT NULL AND longitude IS NOT NULL "
+                f"AND license_type='Premises' AND address_borough='{borough}'"
+            )
+            try:
+                rows = socrata(
+                    "data.cityofnewyork.us",
+                    NYC_BUSINESS_LICENSE_SOURCE_ID,
+                    {
+                        "$limit": str(max_per_year_borough),
+                        "$select": select,
+                        "$where": where,
+                        "$order": "license_creation_date ASC, license_nbr ASC",
+                    },
+                    timeout=90,
+                )
+            except Exception as exc:  # noqa: BLE001
+                raw["counts_by_year_borough"][str(year)][borough] = f"ERROR: {exc}"
+                continue
+            raw["counts_by_year_borough"][str(year)][borough] = len(rows)
+            for row in rows:
+                event = make_nyc_business_license_event(row, retrieved_at)
+                if event:
+                    events.append(event)
+                else:
+                    raw["skipped_without_event"] += 1
+    raw["event_count"] = len(events)
+    raw["fetched"] = len(events)
+    raw["sample_fields"] = select.split(",")
+    return events, raw
+
+
 def street_permit_is_utility_work(row: dict[str, Any]) -> bool:
     text = " ".join(
         clean_text(row.get(key), 160)
@@ -2368,6 +2650,14 @@ def fetch_nyc_events() -> tuple[list[dict[str, Any]], dict[str, Any]]:
                 limitations="Row-level official open-data record; final analytical ETL should de-duplicate repeated administrative updates and attach full source metadata.",
             ))
             added += 1
+
+    nyc_pluto_land_use, nyc_pluto_land_use_raw = fetch_nyc_pluto_land_use(max_per_year_borough=25)
+    raw["sources"][NYC_PLUTO_SOURCE_ID] = nyc_pluto_land_use_raw
+    events.extend(nyc_pluto_land_use)
+
+    nyc_business_licenses, nyc_business_licenses_raw = fetch_nyc_business_licenses(max_per_year_borough=20)
+    raw["sources"][NYC_BUSINESS_LICENSE_SOURCE_ID] = nyc_business_licenses_raw
+    events.extend(nyc_business_licenses)
 
     dob_select = "borough,house__,street_name,job__,job_type,work_type,permit_status,permit_type,filing_date,issuance_date,job_start_date,permit_si_no,gis_latitude,gis_longitude,gis_nta_name"
     dob_rows, dob_meta = socrata_year_sample(
@@ -3048,18 +3338,42 @@ def update_london_seed(new_events: list[dict[str, Any]]) -> None:
     write_json(path, payload)
 
 
-def update_nyc_seed(new_events: list[dict[str, Any]]) -> None:
-    path = DISCOVERY / "new_york/events_seed.json"
-    payload = json.loads(path.read_text(encoding="utf-8"))
-    chronology = [e for e in payload.get("chronology_milestones", []) if not str(e.get("event_id", "")).startswith(GENERATED_PREFIXES)]
-    chronology.extend(new_events)
-    payload["chronology_milestones"] = chronology
-    payload["generated_event_metadata"] = {
+def metadata_count(value: Any) -> int:
+    try:
+        return int(value or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def nyc_generated_event_metadata(new_events: list[dict[str, Any]], chronology: list[dict[str, Any]], nyc_raw: dict[str, Any] | None = None) -> dict[str, Any]:
+    metadata: dict[str, Any] = {
         "expanded_from_official_rows_at": utc_now_iso(),
         "generated_event_count": len(new_events),
         "total_chronology_milestones": len(chronology),
         "generated_event_prefixes": list(GENERATED_PREFIXES),
     }
+    sources = (nyc_raw or {}).get("sources", {})
+    pluto = sources.get(NYC_PLUTO_SOURCE_ID)
+    business_licenses = sources.get(NYC_BUSINESS_LICENSE_SOURCE_ID)
+    if pluto or business_licenses:
+        retrieved_at = sorted(
+            str(source.get("retrieved_at"))
+            for source in [pluto, business_licenses]
+            if isinstance(source, dict) and source.get("retrieved_at")
+        )
+        metadata["nyc_land_use_economy_expanded_from_official_rows_at"] = retrieved_at[-1] if retrieved_at else metadata["expanded_from_official_rows_at"]
+        metadata["nyc_pluto_land_use_event_count"] = metadata_count((pluto or {}).get("event_count", (pluto or {}).get("fetched")))
+        metadata["nyc_business_license_event_count"] = metadata_count((business_licenses or {}).get("event_count", (business_licenses or {}).get("fetched")))
+    return metadata
+
+
+def update_nyc_seed(new_events: list[dict[str, Any]], nyc_raw: dict[str, Any] | None = None) -> None:
+    path = DISCOVERY / "new_york/events_seed.json"
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    chronology = [e for e in payload.get("chronology_milestones", []) if not str(e.get("event_id", "")).startswith(GENERATED_PREFIXES)]
+    chronology.extend(new_events)
+    payload["chronology_milestones"] = chronology
+    payload["generated_event_metadata"] = nyc_generated_event_metadata(new_events, chronology, nyc_raw)
     write_json(path, payload)
 
 
@@ -3079,7 +3393,7 @@ def main() -> None:
     update_london_seed(london_events)
 
     nyc_events, nyc_raw = fetch_nyc_events()
-    update_nyc_seed(nyc_events)
+    update_nyc_seed(nyc_events, nyc_raw)
 
     write_json(RAW / "generated_event_expansion_london_brownfield_summary.json", london_brownfield_raw)
     write_json(RAW / "generated_event_expansion_london_datahub_applications_summary.json", london_datahub_raw)

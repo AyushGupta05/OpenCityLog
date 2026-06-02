@@ -512,7 +512,7 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     london: [
       { aspect: "planning-pressure", rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells" },
       { aspect: "civic-access-gaps", rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells" },
-      { aspect: "utilities-capacity", rendered: ["lensUtilityTraceRendered"], renderedLayers: ["lens-utilities-trace"], featureLayer: "utility_trace", label: "utility traces" },
+      { aspect: "utilities-capacity", year: 2026, rendered: ["lensUtilityTraceRendered"], renderedLayers: ["lens-utilities-trace"], featureLayer: "utility_trace", label: "utility traces" },
     ],
     nyc: [
       { aspect: "planning-pressure", rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells" },
@@ -522,10 +522,17 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
   };
   const checks = checksByCity[cityId] || checksByCity.belfast;
   for (const check of checks) {
-    await page.evaluate((aspect) => window.BimsAtlas?.setActiveAspect?.(aspect), check.aspect);
+    const targetYear = check.year || 2024;
+    await page.evaluate(
+      ({ aspect, year }) => {
+        window.BimsAtlas?.setYear?.(year);
+        window.BimsAtlas?.setActiveAspect?.(aspect);
+      },
+      { aspect: check.aspect, year: targetYear }
+    );
     await page.waitForFunction(
-      (aspect) => window.BimsAtlas?.state?.activeAspect === aspect,
-      check.aspect,
+      ({ aspect, year }) => window.BimsAtlas?.state?.activeAspect === aspect && Number(window.BimsAtlas?.state?.year) === Number(year),
+      { aspect: check.aspect, year: targetYear },
       { timeout: 20000 }
     );
     const coverage = await page.evaluate(() => {
@@ -551,8 +558,8 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
       continue;
     }
     await page.waitForFunction(
-      () => Number(window.BimsAtlas?.state?.lensDetailYearLoaded) === 2024,
-      null,
+      (year) => Number(window.BimsAtlas?.state?.lensDetailYearLoaded) === Number(year),
+      targetYear,
       { timeout: 20000 }
     );
     await page.waitForFunction(
@@ -586,7 +593,7 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     );
     const state = await atlasState(page);
     const rendered = check.rendered.reduce((sum, field) => sum + Number(state[field] || 0), 0);
-    assert(rendered > 0, `city ${cityId}: ${check.label} did not render across the 2024 citywide map.`);
+    assert(rendered > 0, `city ${cityId}: ${check.label} did not render across the ${targetYear} citywide map.`);
     const citywidePng = await page.screenshot({
       path: path.join(outputDir, `paper-atlas-${cityId}-${check.aspect}-citywide.png`),
       fullPage: false,
@@ -602,9 +609,9 @@ async function assertSparseLensCoverageHonesty(page, cityId) {
     nyc: [
       {
         aspect: "economy-land-use",
-        emptyLayers: ["lens-economy-icons", "lens-economy-cells-fill", "lens-economy-frontage"],
-        notePattern: /No direct source-backed land-use-specific economy records match 2024[\s\S]*broad lens matches[\s\S]*No generated marks/i,
-        label: "NYC economy broad-match caveat",
+        rendered: ["lensEconomyCellsRendered"],
+        absentPattern: /No (?:direct )?source-backed land-use-specific economy records match 2024/i,
+        label: "NYC economy PLUTO direct coverage",
       },
     ],
   };

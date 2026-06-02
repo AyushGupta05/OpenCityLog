@@ -1,0 +1,168 @@
+{
+  "dataset": "w7w3-xahh",
+  "retrieved_at": "2026-06-02T08:39:44Z",
+  "per_year_borough_limit": 20,
+  "counts_by_year_borough": {
+    "2007": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2008": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2009": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2010": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2011": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2012": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2013": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2014": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2015": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2016": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2017": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2018": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2019": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2020": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2021": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2022": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2023": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2024": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2025": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    },
+    "2026": {
+      "Manhattan": 20,
+      "Bronx": 20,
+      "Brooklyn": 20,
+      "Queens": 20,
+      "Staten Island": 20
+    }
+  },
+  "skipped_without_event": 4,
+  "privacy_minimization": "Business names, trade names, contact phone numbers, and street-address fields are not persisted.",
+  "event_count": 1996,
+  "fetched": 1996,
+  "sample_fields": [
+    "license_nbr",
+    "business_unique_id",
+    "business_category",
+    "license_type",
+    "license_status",
+    "license_creation_date",
+    "lic_expir_dd",
+    "address_borough",
+    "community_board",
+    "council_district",
+    "bin",
+    "bbl",
+    "nta",
+    "latitude",
+    "longitude"
+  ]
+}
