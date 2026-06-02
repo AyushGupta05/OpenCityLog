@@ -413,6 +413,66 @@ def has_term(text: str, term: str) -> bool:
     return term in text
 
 
+def source_ids_for_item(item: dict[str, Any]) -> set[str]:
+    values: set[str] = set()
+    for key in ["source_dataset_id", "source_id"]:
+        value = item.get(key)
+        if value:
+            values.add(str(value))
+    for value in item.get("source_ids") or []:
+        if value:
+            values.add(str(value))
+    return values
+
+
+def item_text_for_category_override(item: dict[str, Any]) -> str:
+    return " ".join(
+        str(item.get(key) or "")
+        for key in [
+            "event_id",
+            "title",
+            "bucket",
+            "summary",
+            "observed_change",
+            "short_description",
+            "source_date_field",
+            "source_record_id",
+        ]
+    ).lower()
+
+
+def street_permit_seed_is_utility_work(item: dict[str, Any]) -> bool:
+    summary = str(item.get("summary") or "")
+    type_text = re.split(r"\s+on\s+", summary, maxsplit=1, flags=re.I)[0]
+    purpose_match = re.search(r";\s*purpose:\s*(.+?)(?:\.|$)", summary, flags=re.I)
+    purpose_text = purpose_match.group(1) if purpose_match else ""
+    text = " ".join([
+        type_text,
+        purpose_text,
+        str(item.get("bucket") or ""),
+    ]).lower()
+    return bool(re.search(
+        r"\b("
+        r"utility|utilities|water|sewer|sewerage|storm sewer|drain|gas|electric|electrical|"
+        r"power|steam|telecom|fiber|fibre|manhole|hydrant|main|service connection"
+        r")\b",
+        text,
+    ))
+
+
+def source_category_override(item: dict[str, Any]) -> tuple[str, str, set[str]] | None:
+    source_ids = source_ids_for_item(item)
+    event_id = str(item.get("event_id") or "")
+    if "lon-extra-hm-land-registry-price-paid-data" in source_ids and event_id.startswith("lon_hmlr_price_paid_"):
+        return "economy", "jobs", {"economy", "economic_opportunity", "property_market", "residential"}
+    if "lon-extra-food-hygiene-rating-scheme-api" in source_ids and event_id.startswith("lon_fsa_fhrs_rating_"):
+        return "economy", "jobs", {"economy", "economic_opportunity", "high_street_activity", "public_health"}
+    if source_ids & {"tqtj-sjs8", "c9sj-fmsg"} and event_id.startswith(("nyc_street_permit_", "nyc_street_permit_legacy_")):
+        if street_permit_seed_is_utility_work(item):
+            return "utilities", "utilities", {"utilities"}
+    return None
+
+
 def point_for(city: str, text: str, idx: int) -> tuple[str, float, float]:
     lower = text.lower()
     for pattern, label, lng, lat in KEYWORD_POINTS[city]:
@@ -465,6 +525,10 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
         lens = str(item.get("atlas_lens"))
     if isinstance(item.get("affected_signals"), list):
         signals = sorted(set(signals) | {str(signal) for signal in item.get("affected_signals", []) if str(signal).strip()})
+    override = source_category_override(item)
+    if override:
+        category, lens, override_signals = override
+        signals = sorted(set(signals) | override_signals)
 
     provided_geometry = item.get("geometry") if isinstance(item.get("geometry"), dict) else None
     geometry_source = item.get("geometry_source")
@@ -615,15 +679,31 @@ def load_seeds(city: str) -> list[dict[str, Any]]:
     return payload.get("chronology_milestones", []) + payload.get("ongoing_event_patterns", []) + curated + supplemental
 
 
+def is_nyc_open_data_source(city: str, source: dict[str, Any]) -> bool:
+    if city != "nyc":
+        return False
+    text = " ".join(
+        str(source.get(key) or "")
+        for key in ["url", "access_url", "api_endpoint", "metadata_url"]
+    ).lower()
+    return "data.cityofnewyork.us" in text
+
+
 def source_to_registry(city: str, source: dict[str, Any]) -> dict[str, Any]:
     sid = source.get("source_id") or source.get("id") or slug(source.get("title", "source"))
     bucket = source.get("bucket") or "source"
     caveat = safe_public_text(source.get("limitations") or "Catalog-level source entry; check the linked publisher record for completeness, licence, and update details before formal reuse.")
+    nyc_open_data_source = is_nyc_open_data_source(city, source)
     licence = source.get("licence") or "Requires source-level licence review"
+    if nyc_open_data_source:
+        licence = "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data."
+    licence_url = source.get("licence_url") or source.get("license_url")
+    if nyc_open_data_source and (not licence_url or re.search(r"datamine|terms|api/views", str(licence_url), re.I)):
+        licence_url = "https://opendata.cityofnewyork.us/faq/"
     caveats = [caveat]
     if not source.get("retrieved_at"):
         caveats.append("Exact source retrieval date is not recorded in this discovered source catalog entry; review the linked publisher page before formal reuse.")
-    if re.search(r"requires source-level review|verify|terms|dataset-specific", str(licence), re.I):
+    if not nyc_open_data_source and re.search(r"requires source-level review|verify|terms|dataset-specific", str(licence), re.I):
         caveats.append("Licence or terms require source-level review before redistribution or formal analytical reuse.")
     return {
         "source_id": sid,
@@ -632,7 +712,7 @@ def source_to_registry(city: str, source: dict[str, Any]) -> dict[str, Any]:
         "source_family": str(bucket).split("/")[0].strip().lower().replace(" ", "_") or "source",
         "url": source.get("access_url") or source.get("url") or "",
         "licence": licence,
-        "licence_url": source.get("licence_url") or source.get("license_url") or source.get("url") or source.get("access_url") or "",
+        "licence_url": licence_url or source.get("url") or source.get("access_url") or "",
         "coverage_years": source.get("coverage_years") if isinstance(source.get("coverage_years"), dict) else {"start": 1700, "end": 2026},
         "update_frequency": source.get("update_frequency") or source.get("temporal_granularity") or source.get("time_coverage") or "Cadence varies by source; verify publisher metadata.",
         "reliability": "usable_with_caveats",

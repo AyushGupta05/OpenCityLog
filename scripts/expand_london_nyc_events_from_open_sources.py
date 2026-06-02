@@ -1399,9 +1399,9 @@ def make_hmlr_price_paid_event(record: dict[str, Any], geo: dict[str, Any], retr
     ptype = clean_text(record.get("property_type"), 80)
     return event_record(
         event_id=f"lon_hmlr_price_paid_{slug(record['record_id'], 80)}",
-        title=f"HMLR property transaction: {ptype} in {borough}",
+        title=f"HMLR residential property transaction: {ptype} in {borough}",
         date=record["date"],
-        bucket="housing/property market/transaction",
+        bucket="economy/property market/residential transaction",
         area=borough,
         location=clean_text(f"{borough}; postcode district {outcode}", 160),
         latitude=lat,
@@ -1412,6 +1412,9 @@ def make_hmlr_price_paid_event(record: dict[str, Any], geo: dict[str, Any], retr
         source_retrieved_at=retrieved_at,
         source_dataset_id=HMLR_PRICE_PAID_SOURCE_ID,
         source_date_field="transfer deed date",
+        atlas_category="economy",
+        atlas_lens="jobs",
+        affected_signals=["economy", "economic_opportunity", "property_market", "residential"],
         geometry_source="Postcodes.io postcode lookup; full postcode and address fields omitted before publication",
         geometry_precision="postcode-derived point, not a property parcel or exact building location",
         summary=clean_text(
@@ -1711,7 +1714,7 @@ def make_fhrs_event(row: dict[str, Any], authority: dict[str, Any], retrieved_at
         event_id=f"lon_fsa_fhrs_rating_{slug(fhrsid, 80)}",
         title=f"Food hygiene rating record: {business_type} in {authority_name}",
         date=rating_date,
-        bucket="civic services/public health/food hygiene/businesses",
+        bucket="economy/high street activity/food hygiene/businesses",
         area=authority_name,
         location=clean_text(f"{authority_name}; premises point from FHRS", 160),
         latitude=lat,
@@ -1722,9 +1725,9 @@ def make_fhrs_event(row: dict[str, Any], authority: dict[str, Any], retrieved_at
         source_retrieved_at=retrieved_at,
         source_dataset_id=FHRS_SOURCE_ID,
         source_date_field="RatingDate",
-        atlas_category="civic_services",
-        atlas_lens="services",
-        affected_signals=["public_health", "services"],
+        atlas_category="economy",
+        atlas_lens="jobs",
+        affected_signals=["economy", "economic_opportunity", "high_street_activity", "public_health"],
         geometry_source="Food Standards Agency FHRS establishment geocode",
         geometry_precision="public food-business premises point; source coordinates may be incomplete or inaccurate",
         summary=clean_text(
@@ -2307,6 +2310,24 @@ def nyc_borough_name(value: Any) -> str:
     }.get(text, clean_text(value, 40) or "NYC")
 
 
+def street_permit_is_utility_work(row: dict[str, Any]) -> bool:
+    text = " ".join(
+        clean_text(row.get(key), 160)
+        for key in [
+            "permittypedesc",
+            "permitpurposecomments",
+            "permitlocationcomments",
+        ]
+    ).lower()
+    return bool(re.search(
+        r"\b("
+        r"utility|utilities|water|sewer|sewerage|storm sewer|drain|gas|electric|electrical|"
+        r"power|steam|telecom|fiber|fibre|manhole|hydrant|main|service connection"
+        r")\b",
+        text,
+    ))
+
+
 def fetch_nyc_events() -> tuple[list[dict[str, Any]], dict[str, Any]]:
     events: list[dict[str, Any]] = []
     retrieved_at = utc_now_iso()
@@ -2488,11 +2509,12 @@ def fetch_nyc_events() -> tuple[list[dict[str, Any]], dict[str, Any]]:
             continue
         borough = clean_text(row.get("boroughname") or "NYC", 40)
         street = clean_text(row.get("onstreetname") or row.get("fromstreetname") or "street segment", 80)
+        utility_work = street_permit_is_utility_work(row)
         events.append(event_record(
             event_id=f"nyc_street_permit_{slug(rid, 64)}",
             title=f"Street construction permit: {street}, {borough}",
             date=date,
-            bucket="transport/traffic/roadworks",
+            bucket="utilities/utility works/streetworks" if utility_work else "transport/traffic/roadworks",
             area=borough,
             location=f"{street} from {clean_text(row.get('fromstreetname'), 50)} to {clean_text(row.get('tostreetname'), 50)}".strip(),
             source_ids=["tqtj-sjs8"],
@@ -2500,6 +2522,9 @@ def fetch_nyc_events() -> tuple[list[dict[str, Any]], dict[str, Any]]:
             source_url=socrata_row_url("tqtj-sjs8", "permitnumber", rid),
             source_retrieved_at=retrieved_at,
             source_dataset_id="tqtj-sjs8",
+            atlas_category="utilities" if utility_work else None,
+            atlas_lens="utilities" if utility_work else None,
+            affected_signals=["utilities"] if utility_work else None,
             summary=clean_text(f"{row.get('permittypedesc','Street permit')} ({row.get('permitstatusshortdesc','status unknown')}) on {street}; purpose: {row.get('permitpurposecomments') or row.get('permitlocationcomments') or 'not specified'}.", 420),
             observed_change=clean_text(f"Street/right-of-way work permit affecting {street} in {borough}.", 220),
             confidence="documented",
@@ -2521,11 +2546,12 @@ def fetch_nyc_events() -> tuple[list[dict[str, Any]], dict[str, Any]]:
             continue
         borough = clean_text(row.get("boroughname") or "NYC", 40)
         street = clean_text(row.get("onstreetname") or row.get("fromstreetname") or "street segment", 80)
+        utility_work = street_permit_is_utility_work(row)
         events.append(event_record(
             event_id=f"nyc_street_permit_legacy_{slug(rid, 64)}",
             title=f"Legacy street construction permit: {street}, {borough}",
             date=date,
-            bucket="transport/traffic/roadworks",
+            bucket="utilities/utility works/streetworks" if utility_work else "transport/traffic/roadworks",
             area=borough,
             location=f"{street} from {clean_text(row.get('fromstreetname'), 50)} to {clean_text(row.get('tostreetname'), 50)}".strip(),
             source_ids=["c9sj-fmsg"],
@@ -2533,6 +2559,9 @@ def fetch_nyc_events() -> tuple[list[dict[str, Any]], dict[str, Any]]:
             source_url=socrata_row_url("c9sj-fmsg", "permitnumber", rid),
             source_retrieved_at=retrieved_at,
             source_dataset_id="c9sj-fmsg",
+            atlas_category="utilities" if utility_work else None,
+            atlas_lens="utilities" if utility_work else None,
+            affected_signals=["utilities"] if utility_work else None,
             summary=clean_text(f"{row.get('permittypedesc','Street permit')} ({row.get('permitstatusshortdesc','status unknown')}) on {street}; purpose: {row.get('permitpurposecomments') or row.get('permitlocationcomments') or 'not specified'}.", 420),
             observed_change=clean_text(f"Street/right-of-way work permit affecting {street} in {borough}.", 220),
             confidence="documented",

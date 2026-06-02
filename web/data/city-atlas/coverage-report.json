@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-05-31T02:08:53Z",
+  "generated_at": "2026-06-01T18:06:58Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
@@ -10,7 +10,7 @@
     "duplicate_event_id_count": 0,
     "active_source_count": 485,
     "source_catalog_only_count": 254,
-    "source_year_layer_row_count": 2525,
+    "source_year_layer_row_count": 2539,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -5247,7 +5247,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2004,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 1
     },
     {
@@ -5255,7 +5255,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2005,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 1
     },
     {
@@ -5263,7 +5263,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2006,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 3
     },
     {
@@ -5271,7 +5271,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2008,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 2
     },
     {
@@ -5279,7 +5279,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2009,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 7
     },
     {
@@ -5287,7 +5287,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2010,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 5
     },
     {
@@ -5295,7 +5295,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2011,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 6
     },
     {
@@ -5303,7 +5303,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2012,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 7
     },
     {
@@ -5311,7 +5311,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2013,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 1
     },
     {
@@ -5319,7 +5319,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2014,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 3
     },
     {
@@ -5327,7 +5327,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2015,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 10
     },
     {
@@ -5335,7 +5335,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2016,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 26
     },
     {
@@ -5343,7 +5343,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2017,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 33
     },
     {
@@ -5351,7 +5351,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2018,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 71
     },
     {
@@ -5359,7 +5359,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2019,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 124
     },
     {
@@ -5367,7 +5367,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2020,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 76
     },
     {
@@ -5375,7 +5375,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2021,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 123
     },
     {
@@ -5383,7 +5383,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2022,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 335
     },
     {
@@ -5391,7 +5391,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2023,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 767
     },
     {
@@ -5399,7 +5399,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2024,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 2605
     },
     {
@@ -5407,7 +5407,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2025,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 4214
     },
     {
@@ -5415,7 +5415,7 @@
       "source_id": "lon-extra-food-hygiene-rating-scheme-api",
       "source_title": "Food Hygiene Rating Scheme API",
       "year": 2026,
-      "layer": "civic_services",
+      "layer": "economy",
       "event_count": 1480
     },
     {
@@ -5423,7 +5423,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 1995,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5431,7 +5431,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 1996,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5439,7 +5439,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 1997,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5447,7 +5447,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 1998,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5455,7 +5455,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 1999,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5463,7 +5463,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2000,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5471,7 +5471,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2001,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5479,7 +5479,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2002,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5487,7 +5487,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2003,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5495,7 +5495,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2004,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5503,7 +5503,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2005,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5511,7 +5511,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2006,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5519,7 +5519,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2007,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5527,7 +5527,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2008,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5535,7 +5535,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2009,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5543,7 +5543,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2010,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5551,7 +5551,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2011,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5559,7 +5559,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2012,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5567,7 +5567,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2013,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5575,7 +5575,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2014,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5583,7 +5583,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2015,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5591,7 +5591,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2016,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5599,7 +5599,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2017,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5607,7 +5607,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2018,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5615,7 +5615,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2019,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5623,7 +5623,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2020,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5631,7 +5631,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2021,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5639,7 +5639,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2022,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5647,7 +5647,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2023,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5655,7 +5655,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2024,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5663,7 +5663,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2025,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -5671,7 +5671,7 @@
       "source_id": "lon-extra-hm-land-registry-price-paid-data",
       "source_title": "HM Land Registry Price Paid Data",
       "year": 2026,
-      "layer": "built_environment",
+      "layer": "economy",
       "event_count": 800
     },
     {
@@ -12384,7 +12384,15 @@
       "source_title": "Street Construction Permits (2013-2021)",
       "year": 2013,
       "layer": "transport",
-      "event_count": 221
+      "event_count": 146
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "c9sj-fmsg",
+      "source_title": "Street Construction Permits (2013-2021)",
+      "year": 2013,
+      "layer": "utilities",
+      "event_count": 75
     },
     {
       "city_id": "nyc",
@@ -12392,7 +12400,15 @@
       "source_title": "Street Construction Permits (2013-2021)",
       "year": 2014,
       "layer": "transport",
-      "event_count": 221
+      "event_count": 105
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "c9sj-fmsg",
+      "source_title": "Street Construction Permits (2013-2021)",
+      "year": 2014,
+      "layer": "utilities",
+      "event_count": 116
     },
     {
       "city_id": "nyc",
@@ -12400,7 +12416,15 @@
       "source_title": "Street Construction Permits (2013-2021)",
       "year": 2015,
       "layer": "transport",
-      "event_count": 220
+      "event_count": 206
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "c9sj-fmsg",
+      "source_title": "Street Construction Permits (2013-2021)",
+      "year": 2015,
+      "layer": "utilities",
+      "event_count": 14
     },
     {
       "city_id": "nyc",
@@ -12408,7 +12432,15 @@
       "source_title": "Street Construction Permits (2013-2021)",
       "year": 2016,
       "layer": "transport",
-      "event_count": 220
+      "event_count": 203
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "c9sj-fmsg",
+      "source_title": "Street Construction Permits (2013-2021)",
+      "year": 2016,
+      "layer": "utilities",
+      "event_count": 17
     },
     {
       "city_id": "nyc",
@@ -12416,7 +12448,15 @@
       "source_title": "Street Construction Permits (2013-2021)",
       "year": 2017,
       "layer": "transport",
-      "event_count": 220
+      "event_count": 196
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "c9sj-fmsg",
+      "source_title": "Street Construction Permits (2013-2021)",
+      "year": 2017,
+      "layer": "utilities",
+      "event_count": 24
     },
     {
       "city_id": "nyc",
@@ -12424,7 +12464,15 @@
       "source_title": "Street Construction Permits (2013-2021)",
       "year": 2018,
       "layer": "transport",
-      "event_count": 220
+      "event_count": 216
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "c9sj-fmsg",
+      "source_title": "Street Construction Permits (2013-2021)",
+      "year": 2018,
+      "layer": "utilities",
+      "event_count": 4
     },
     {
       "city_id": "nyc",
@@ -12432,7 +12480,15 @@
       "source_title": "Street Construction Permits (2013-2021)",
       "year": 2019,
       "layer": "transport",
-      "event_count": 220
+      "event_count": 215
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "c9sj-fmsg",
+      "source_title": "Street Construction Permits (2013-2021)",
+      "year": 2019,
+      "layer": "utilities",
+      "event_count": 5
     },
     {
       "city_id": "nyc",
@@ -12440,7 +12496,15 @@
       "source_title": "Street Construction Permits (2013-2021)",
       "year": 2020,
       "layer": "transport",
-      "event_count": 221
+      "event_count": 194
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "c9sj-fmsg",
+      "source_title": "Street Construction Permits (2013-2021)",
+      "year": 2020,
+      "layer": "utilities",
+      "event_count": 27
     },
     {
       "city_id": "nyc",
@@ -12448,7 +12512,15 @@
       "source_title": "Street Construction Permits (2013-2021)",
       "year": 2021,
       "layer": "transport",
-      "event_count": 40
+      "event_count": 39
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "c9sj-fmsg",
+      "source_title": "Street Construction Permits (2013-2021)",
+      "year": 2021,
+      "layer": "utilities",
+      "event_count": 1
     },
     {
       "city_id": "nyc",
@@ -20112,7 +20184,15 @@
       "source_title": "Street Construction Permits (2022-Present)",
       "year": 2022,
       "layer": "transport",
-      "event_count": 250
+      "event_count": 208
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "tqtj-sjs8",
+      "source_title": "Street Construction Permits (2022-Present)",
+      "year": 2022,
+      "layer": "utilities",
+      "event_count": 42
     },
     {
       "city_id": "nyc",
@@ -20120,7 +20200,15 @@
       "source_title": "Street Construction Permits (2022-Present)",
       "year": 2023,
       "layer": "transport",
-      "event_count": 250
+      "event_count": 185
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "tqtj-sjs8",
+      "source_title": "Street Construction Permits (2022-Present)",
+      "year": 2023,
+      "layer": "utilities",
+      "event_count": 65
     },
     {
       "city_id": "nyc",
@@ -20128,7 +20216,15 @@
       "source_title": "Street Construction Permits (2022-Present)",
       "year": 2024,
       "layer": "transport",
-      "event_count": 250
+      "event_count": 216
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "tqtj-sjs8",
+      "source_title": "Street Construction Permits (2022-Present)",
+      "year": 2024,
+      "layer": "utilities",
+      "event_count": 34
     },
     {
       "city_id": "nyc",
@@ -20136,7 +20232,15 @@
       "source_title": "Street Construction Permits (2022-Present)",
       "year": 2025,
       "layer": "transport",
-      "event_count": 251
+      "event_count": 101
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "tqtj-sjs8",
+      "source_title": "Street Construction Permits (2022-Present)",
+      "year": 2025,
+      "layer": "utilities",
+      "event_count": 150
     },
     {
       "city_id": "nyc",
@@ -20144,7 +20248,15 @@
       "source_title": "Street Construction Permits (2022-Present)",
       "year": 2026,
       "layer": "transport",
-      "event_count": 250
+      "event_count": 198
+    },
+    {
+      "city_id": "nyc",
+      "source_id": "tqtj-sjs8",
+      "source_title": "Street Construction Permits (2022-Present)",
+      "year": 2026,
+      "layer": "utilities",
+      "event_count": 52
     },
     {
       "city_id": "nyc",
@@ -29116,8 +29228,9 @@
         "2026": 19373
       },
       "event_counts_by_layer": {
-        "built_environment": 104715,
-        "civic_services": 63272,
+        "built_environment": 79115,
+        "civic_services": 53372,
+        "economy": 35500,
         "environment": 28071,
         "transport": 27941,
         "utilities": 4
@@ -29421,27 +29534,52 @@
         {
           "year": 1995,
           "layer": "built_environment",
-          "event_count": 1278
+          "event_count": 478
+        },
+        {
+          "year": 1995,
+          "layer": "economy",
+          "event_count": 800
         },
         {
           "year": 1996,
           "layer": "built_environment",
-          "event_count": 1419
+          "event_count": 619
+        },
+        {
+          "year": 1996,
+          "layer": "economy",
+          "event_count": 800
         },
         {
           "year": 1997,
           "layer": "built_environment",
-          "event_count": 1255
+          "event_count": 455
+        },
+        {
+          "year": 1997,
+          "layer": "economy",
+          "event_count": 800
         },
         {
           "year": 1998,
           "layer": "built_environment",
-          "event_count": 1595
+          "event_count": 795
+        },
+        {
+          "year": 1998,
+          "layer": "economy",
+          "event_count": 800
         },
         {
           "year": 1999,
           "layer": "built_environment",
-          "event_count": 1574
+          "event_count": 774
+        },
+        {
+          "year": 1999,
+          "layer": "economy",
+          "event_count": 800
         },
         {
           "year": 1999,
@@ -29451,22 +29589,42 @@
         {
           "year": 2000,
           "layer": "built_environment",
-          "event_count": 1302
+          "event_count": 502
+        },
+        {
+          "year": 2000,
+          "layer": "economy",
+          "event_count": 800
         },
         {
           "year": 2001,
           "layer": "built_environment",
-          "event_count": 1453
+          "event_count": 653
+        },
+        {
+          "year": 2001,
+          "layer": "economy",
+          "event_count": 800
         },
         {
           "year": 2002,
           "layer": "built_environment",
-          "event_count": 1260
+          "event_count": 460
+        },
+        {
+          "year": 2002,
+          "layer": "economy",
+          "event_count": 800
         },
         {
           "year": 2003,
           "layer": "built_environment",
-          "event_count": 1246
+          "event_count": 446
+        },
+        {
+          "year": 2003,
+          "layer": "economy",
+          "event_count": 800
         },
         {
           "year": 2003,
@@ -29476,22 +29634,22 @@
         {
           "year": 2004,
           "layer": "built_environment",
-          "event_count": 1255
+          "event_count": 455
         },
         {
           "year": 2004,
-          "layer": "civic_services",
-          "event_count": 1
+          "layer": "economy",
+          "event_count": 801
         },
         {
           "year": 2005,
           "layer": "built_environment",
-          "event_count": 1232
+          "event_count": 432
         },
         {
           "year": 2005,
-          "layer": "civic_services",
-          "event_count": 1
+          "layer": "economy",
+          "event_count": 801
         },
         {
           "year": 2005,
@@ -29501,22 +29659,27 @@
         {
           "year": 2006,
           "layer": "built_environment",
-          "event_count": 1251
+          "event_count": 451
         },
         {
           "year": 2006,
-          "layer": "civic_services",
-          "event_count": 3
+          "layer": "economy",
+          "event_count": 803
         },
         {
           "year": 2007,
           "layer": "built_environment",
-          "event_count": 1288
+          "event_count": 488
         },
         {
           "year": 2007,
           "layer": "civic_services",
           "event_count": 1
+        },
+        {
+          "year": 2007,
+          "layer": "economy",
+          "event_count": 800
         },
         {
           "year": 2007,
@@ -29531,12 +29694,17 @@
         {
           "year": 2008,
           "layer": "built_environment",
-          "event_count": 3349
+          "event_count": 2549
         },
         {
           "year": 2008,
           "layer": "civic_services",
-          "event_count": 4
+          "event_count": 2
+        },
+        {
+          "year": 2008,
+          "layer": "economy",
+          "event_count": 802
         },
         {
           "year": 2008,
@@ -29546,12 +29714,17 @@
         {
           "year": 2009,
           "layer": "built_environment",
-          "event_count": 2982
+          "event_count": 2182
         },
         {
           "year": 2009,
           "layer": "civic_services",
-          "event_count": 1410
+          "event_count": 1403
+        },
+        {
+          "year": 2009,
+          "layer": "economy",
+          "event_count": 807
         },
         {
           "year": 2009,
@@ -29566,12 +29739,17 @@
         {
           "year": 2010,
           "layer": "built_environment",
-          "event_count": 2913
+          "event_count": 2113
         },
         {
           "year": 2010,
           "layer": "civic_services",
-          "event_count": 1419
+          "event_count": 1414
+        },
+        {
+          "year": 2010,
+          "layer": "economy",
+          "event_count": 805
         },
         {
           "year": 2010,
@@ -29586,12 +29764,17 @@
         {
           "year": 2011,
           "layer": "built_environment",
-          "event_count": 3414
+          "event_count": 2614
         },
         {
           "year": 2011,
           "layer": "civic_services",
-          "event_count": 1440
+          "event_count": 1434
+        },
+        {
+          "year": 2011,
+          "layer": "economy",
+          "event_count": 806
         },
         {
           "year": 2011,
@@ -29606,12 +29789,17 @@
         {
           "year": 2012,
           "layer": "built_environment",
-          "event_count": 3469
+          "event_count": 2669
         },
         {
           "year": 2012,
           "layer": "civic_services",
-          "event_count": 1439
+          "event_count": 1432
+        },
+        {
+          "year": 2012,
+          "layer": "economy",
+          "event_count": 807
         },
         {
           "year": 2012,
@@ -29626,12 +29814,17 @@
         {
           "year": 2013,
           "layer": "built_environment",
-          "event_count": 3298
+          "event_count": 2498
         },
         {
           "year": 2013,
           "layer": "civic_services",
-          "event_count": 1420
+          "event_count": 1419
+        },
+        {
+          "year": 2013,
+          "layer": "economy",
+          "event_count": 801
         },
         {
           "year": 2013,
@@ -29646,12 +29839,17 @@
         {
           "year": 2014,
           "layer": "built_environment",
-          "event_count": 3541
+          "event_count": 2741
         },
         {
           "year": 2014,
           "layer": "civic_services",
-          "event_count": 1452
+          "event_count": 1449
+        },
+        {
+          "year": 2014,
+          "layer": "economy",
+          "event_count": 803
         },
         {
           "year": 2014,
@@ -29666,12 +29864,17 @@
         {
           "year": 2015,
           "layer": "built_environment",
-          "event_count": 3909
+          "event_count": 3109
         },
         {
           "year": 2015,
           "layer": "civic_services",
-          "event_count": 1436
+          "event_count": 1426
+        },
+        {
+          "year": 2015,
+          "layer": "economy",
+          "event_count": 810
         },
         {
           "year": 2015,
@@ -29686,12 +29889,17 @@
         {
           "year": 2016,
           "layer": "built_environment",
-          "event_count": 4164
+          "event_count": 3364
         },
         {
           "year": 2016,
           "layer": "civic_services",
-          "event_count": 1427
+          "event_count": 1401
+        },
+        {
+          "year": 2016,
+          "layer": "economy",
+          "event_count": 826
         },
         {
           "year": 2016,
@@ -29706,12 +29914,17 @@
         {
           "year": 2017,
           "layer": "built_environment",
-          "event_count": 5489
+          "event_count": 4689
         },
         {
           "year": 2017,
           "layer": "civic_services",
-          "event_count": 1473
+          "event_count": 1440
+        },
+        {
+          "year": 2017,
+          "layer": "economy",
+          "event_count": 833
         },
         {
           "year": 2017,
@@ -29726,12 +29939,17 @@
         {
           "year": 2018,
           "layer": "built_environment",
-          "event_count": 4376
+          "event_count": 3576
         },
         {
           "year": 2018,
           "layer": "civic_services",
-          "event_count": 1497
+          "event_count": 1426
+        },
+        {
+          "year": 2018,
+          "layer": "economy",
+          "event_count": 871
         },
         {
           "year": 2018,
@@ -29751,12 +29969,17 @@
         {
           "year": 2019,
           "layer": "built_environment",
-          "event_count": 4589
+          "event_count": 3789
         },
         {
           "year": 2019,
           "layer": "civic_services",
-          "event_count": 1538
+          "event_count": 1414
+        },
+        {
+          "year": 2019,
+          "layer": "economy",
+          "event_count": 924
         },
         {
           "year": 2019,
@@ -29771,12 +29994,17 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 4014
+          "event_count": 3214
         },
         {
           "year": 2020,
           "layer": "civic_services",
-          "event_count": 1514
+          "event_count": 1438
+        },
+        {
+          "year": 2020,
+          "layer": "economy",
+          "event_count": 876
         },
         {
           "year": 2020,
@@ -29791,12 +30019,17 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 3237
+          "event_count": 2437
         },
         {
           "year": 2021,
           "layer": "civic_services",
-          "event_count": 1546
+          "event_count": 1423
+        },
+        {
+          "year": 2021,
+          "layer": "economy",
+          "event_count": 923
         },
         {
           "year": 2021,
@@ -29811,12 +30044,17 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 2887
+          "event_count": 2087
         },
         {
           "year": 2022,
           "layer": "civic_services",
-          "event_count": 1778
+          "event_count": 1443
+        },
+        {
+          "year": 2022,
+          "layer": "economy",
+          "event_count": 1135
         },
         {
           "year": 2022,
@@ -29831,12 +30069,17 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 2516
+          "event_count": 1716
         },
         {
           "year": 2023,
           "layer": "civic_services",
-          "event_count": 9429
+          "event_count": 8662
+        },
+        {
+          "year": 2023,
+          "layer": "economy",
+          "event_count": 1567
         },
         {
           "year": 2023,
@@ -29851,12 +30094,17 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 3421
+          "event_count": 2621
         },
         {
           "year": 2024,
           "layer": "civic_services",
-          "event_count": 13545
+          "event_count": 10940
+        },
+        {
+          "year": 2024,
+          "layer": "economy",
+          "event_count": 3405
         },
         {
           "year": 2024,
@@ -29876,12 +30124,17 @@
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 2946
+          "event_count": 2146
         },
         {
           "year": 2025,
           "layer": "civic_services",
-          "event_count": 14734
+          "event_count": 10520
+        },
+        {
+          "year": 2025,
+          "layer": "economy",
+          "event_count": 5014
         },
         {
           "year": 2025,
@@ -29896,12 +30149,17 @@
         {
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 12120
+          "event_count": 11320
         },
         {
           "year": 2026,
           "layer": "civic_services",
-          "event_count": 4765
+          "event_count": 3285
+        },
+        {
+          "year": 2026,
+          "layer": "economy",
+          "event_count": 2280
         },
         {
           "year": 2026,
@@ -31845,7 +32103,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2004,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 1
         },
         {
@@ -31853,7 +32111,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2005,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 1
         },
         {
@@ -31861,7 +32119,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2006,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 3
         },
         {
@@ -31869,7 +32127,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2008,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 2
         },
         {
@@ -31877,7 +32135,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2009,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 7
         },
         {
@@ -31885,7 +32143,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2010,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 5
         },
         {
@@ -31893,7 +32151,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2011,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 6
         },
         {
@@ -31901,7 +32159,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2012,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 7
         },
         {
@@ -31909,7 +32167,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2013,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 1
         },
         {
@@ -31917,7 +32175,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2014,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 3
         },
         {
@@ -31925,7 +32183,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2015,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 10
         },
         {
@@ -31933,7 +32191,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2016,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 26
         },
         {
@@ -31941,7 +32199,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2017,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 33
         },
         {
@@ -31949,7 +32207,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2018,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 71
         },
         {
@@ -31957,7 +32215,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2019,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 124
         },
         {
@@ -31965,7 +32223,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2020,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 76
         },
         {
@@ -31973,7 +32231,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2021,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 123
         },
         {
@@ -31981,7 +32239,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2022,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 335
         },
         {
@@ -31989,7 +32247,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2023,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 767
         },
         {
@@ -31997,7 +32255,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2024,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 2605
         },
         {
@@ -32005,7 +32263,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2025,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 4214
         },
         {
@@ -32013,7 +32271,7 @@
           "source_id": "lon-extra-food-hygiene-rating-scheme-api",
           "source_title": "Food Hygiene Rating Scheme API",
           "year": 2026,
-          "layer": "civic_services",
+          "layer": "economy",
           "event_count": 1480
         },
         {
@@ -32021,7 +32279,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 1995,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32029,7 +32287,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 1996,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32037,7 +32295,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 1997,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32045,7 +32303,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 1998,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32053,7 +32311,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 1999,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32061,7 +32319,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2000,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32069,7 +32327,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2001,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32077,7 +32335,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2002,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32085,7 +32343,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2003,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32093,7 +32351,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2004,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32101,7 +32359,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2005,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32109,7 +32367,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2006,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32117,7 +32375,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2007,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32125,7 +32383,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2008,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32133,7 +32391,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2009,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32141,7 +32399,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2010,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32149,7 +32407,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2011,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32157,7 +32415,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2012,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32165,7 +32423,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2013,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32173,7 +32431,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2014,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32181,7 +32439,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2015,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32189,7 +32447,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2016,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32197,7 +32455,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2017,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32205,7 +32463,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2018,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32213,7 +32471,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2019,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32221,7 +32479,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2020,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32229,7 +32487,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2021,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32237,7 +32495,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2022,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32245,7 +32503,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2023,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32253,7 +32511,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2024,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32261,7 +32519,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2025,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -32269,7 +32527,7 @@
           "source_id": "lon-extra-hm-land-registry-price-paid-data",
           "source_title": "HM Land Registry Price Paid Data",
           "year": 2026,
-          "layer": "built_environment",
+          "layer": "economy",
           "event_count": 800
         },
         {
@@ -37327,7 +37585,7 @@
           "first_year": 1995,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 25600
+            "economy": 25600
           },
           "confidence_counts": {
             "documented": 25600
@@ -37548,7 +37806,7 @@
           "first_year": 2004,
           "last_year": 2026,
           "layer_counts": {
-            "civic_services": 9900
+            "economy": 9900
           },
           "confidence_counts": {
             "documented": 9900
@@ -44006,8 +44264,8 @@
         "civic_services": 2927,
         "economy": 228,
         "environment": 20626,
-        "transport": 7519,
-        "utilities": 3
+        "transport": 6893,
+        "utilities": 629
       },
       "event_counts_by_confidence": {
         "documented": 94861
@@ -45246,7 +45504,12 @@
         {
           "year": 2013,
           "layer": "transport",
-          "event_count": 464
+          "event_count": 389
+        },
+        {
+          "year": 2013,
+          "layer": "utilities",
+          "event_count": 75
         },
         {
           "year": 2014,
@@ -45271,7 +45534,12 @@
         {
           "year": 2014,
           "layer": "transport",
-          "event_count": 489
+          "event_count": 373
+        },
+        {
+          "year": 2014,
+          "layer": "utilities",
+          "event_count": 116
         },
         {
           "year": 2015,
@@ -45296,7 +45564,12 @@
         {
           "year": 2015,
           "layer": "transport",
-          "event_count": 470
+          "event_count": 456
+        },
+        {
+          "year": 2015,
+          "layer": "utilities",
+          "event_count": 14
         },
         {
           "year": 2016,
@@ -45321,12 +45594,12 @@
         {
           "year": 2016,
           "layer": "transport",
-          "event_count": 466
+          "event_count": 449
         },
         {
           "year": 2016,
           "layer": "utilities",
-          "event_count": 1
+          "event_count": 18
         },
         {
           "year": 2017,
@@ -45351,7 +45624,12 @@
         {
           "year": 2017,
           "layer": "transport",
-          "event_count": 486
+          "event_count": 462
+        },
+        {
+          "year": 2017,
+          "layer": "utilities",
+          "event_count": 24
         },
         {
           "year": 2018,
@@ -45376,7 +45654,12 @@
         {
           "year": 2018,
           "layer": "transport",
-          "event_count": 508
+          "event_count": 504
+        },
+        {
+          "year": 2018,
+          "layer": "utilities",
+          "event_count": 4
         },
         {
           "year": 2019,
@@ -45401,7 +45684,12 @@
         {
           "year": 2019,
           "layer": "transport",
-          "event_count": 562
+          "event_count": 557
+        },
+        {
+          "year": 2019,
+          "layer": "utilities",
+          "event_count": 5
         },
         {
           "year": 2020,
@@ -45426,12 +45714,12 @@
         {
           "year": 2020,
           "layer": "transport",
-          "event_count": 522
+          "event_count": 495
         },
         {
           "year": 2020,
           "layer": "utilities",
-          "event_count": 1
+          "event_count": 28
         },
         {
           "year": 2021,
@@ -45456,7 +45744,12 @@
         {
           "year": 2021,
           "layer": "transport",
-          "event_count": 305
+          "event_count": 304
+        },
+        {
+          "year": 2021,
+          "layer": "utilities",
+          "event_count": 1
         },
         {
           "year": 2022,
@@ -45481,12 +45774,12 @@
         {
           "year": 2022,
           "layer": "transport",
-          "event_count": 512
+          "event_count": 470
         },
         {
           "year": 2022,
           "layer": "utilities",
-          "event_count": 1
+          "event_count": 43
         },
         {
           "year": 2023,
@@ -45511,7 +45804,12 @@
         {
           "year": 2023,
           "layer": "transport",
-          "event_count": 519
+          "event_count": 454
+        },
+        {
+          "year": 2023,
+          "layer": "utilities",
+          "event_count": 65
         },
         {
           "year": 2024,
@@ -45536,7 +45834,12 @@
         {
           "year": 2024,
           "layer": "transport",
-          "event_count": 516
+          "event_count": 482
+        },
+        {
+          "year": 2024,
+          "layer": "utilities",
+          "event_count": 34
         },
         {
           "year": 2025,
@@ -45561,7 +45864,12 @@
         {
           "year": 2025,
           "layer": "transport",
-          "event_count": 508
+          "event_count": 358
+        },
+        {
+          "year": 2025,
+          "layer": "utilities",
+          "event_count": 150
         },
         {
           "year": 2026,
@@ -45586,7 +45894,12 @@
         {
           "year": 2026,
           "layer": "transport",
-          "event_count": 622
+          "event_count": 570
+        },
+        {
+          "year": 2026,
+          "layer": "utilities",
+          "event_count": 52
         }
       ],
       "source_year_layer_rows": [
@@ -47444,7 +47757,15 @@
           "source_title": "Street Construction Permits (2013-2021)",
           "year": 2013,
           "layer": "transport",
-          "event_count": 221
+          "event_count": 146
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "c9sj-fmsg",
+          "source_title": "Street Construction Permits (2013-2021)",
+          "year": 2013,
+          "layer": "utilities",
+          "event_count": 75
         },
         {
           "city_id": "nyc",
@@ -47452,7 +47773,15 @@
           "source_title": "Street Construction Permits (2013-2021)",
           "year": 2014,
           "layer": "transport",
-          "event_count": 221
+          "event_count": 105
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "c9sj-fmsg",
+          "source_title": "Street Construction Permits (2013-2021)",
+          "year": 2014,
+          "layer": "utilities",
+          "event_count": 116
         },
         {
           "city_id": "nyc",
@@ -47460,7 +47789,15 @@
           "source_title": "Street Construction Permits (2013-2021)",
           "year": 2015,
           "layer": "transport",
-          "event_count": 220
+          "event_count": 206
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "c9sj-fmsg",
+          "source_title": "Street Construction Permits (2013-2021)",
+          "year": 2015,
+          "layer": "utilities",
+          "event_count": 14
         },
         {
           "city_id": "nyc",
@@ -47468,7 +47805,15 @@
           "source_title": "Street Construction Permits (2013-2021)",
           "year": 2016,
           "layer": "transport",
-          "event_count": 220
+          "event_count": 203
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "c9sj-fmsg",
+          "source_title": "Street Construction Permits (2013-2021)",
+          "year": 2016,
+          "layer": "utilities",
+          "event_count": 17
         },
         {
           "city_id": "nyc",
@@ -47476,7 +47821,15 @@
           "source_title": "Street Construction Permits (2013-2021)",
           "year": 2017,
           "layer": "transport",
-          "event_count": 220
+          "event_count": 196
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "c9sj-fmsg",
+          "source_title": "Street Construction Permits (2013-2021)",
+          "year": 2017,
+          "layer": "utilities",
+          "event_count": 24
         },
         {
           "city_id": "nyc",
@@ -47484,7 +47837,15 @@
           "source_title": "Street Construction Permits (2013-2021)",
           "year": 2018,
           "layer": "transport",
-          "event_count": 220
+          "event_count": 216
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "c9sj-fmsg",
+          "source_title": "Street Construction Permits (2013-2021)",
+          "year": 2018,
+          "layer": "utilities",
+          "event_count": 4
         },
         {
           "city_id": "nyc",
@@ -47492,7 +47853,15 @@
           "source_title": "Street Construction Permits (2013-2021)",
           "year": 2019,
           "layer": "transport",
-          "event_count": 220
+          "event_count": 215
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "c9sj-fmsg",
+          "source_title": "Street Construction Permits (2013-2021)",
+          "year": 2019,
+          "layer": "utilities",
+          "event_count": 5
         },
         {
           "city_id": "nyc",
@@ -47500,7 +47869,15 @@
           "source_title": "Street Construction Permits (2013-2021)",
           "year": 2020,
           "layer": "transport",
-          "event_count": 221
+          "event_count": 194
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "c9sj-fmsg",
+          "source_title": "Street Construction Permits (2013-2021)",
+          "year": 2020,
+          "layer": "utilities",
+          "event_count": 27
         },
         {
           "city_id": "nyc",
@@ -47508,7 +47885,15 @@
           "source_title": "Street Construction Permits (2013-2021)",
           "year": 2021,
           "layer": "transport",
-          "event_count": 40
+          "event_count": 39
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "c9sj-fmsg",
+          "source_title": "Street Construction Permits (2013-2021)",
+          "year": 2021,
+          "layer": "utilities",
+          "event_count": 1
         },
         {
           "city_id": "nyc",
@@ -55172,7 +55557,15 @@
           "source_title": "Street Construction Permits (2022-Present)",
           "year": 2022,
           "layer": "transport",
-          "event_count": 250
+          "event_count": 208
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "tqtj-sjs8",
+          "source_title": "Street Construction Permits (2022-Present)",
+          "year": 2022,
+          "layer": "utilities",
+          "event_count": 42
         },
         {
           "city_id": "nyc",
@@ -55180,7 +55573,15 @@
           "source_title": "Street Construction Permits (2022-Present)",
           "year": 2023,
           "layer": "transport",
-          "event_count": 250
+          "event_count": 185
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "tqtj-sjs8",
+          "source_title": "Street Construction Permits (2022-Present)",
+          "year": 2023,
+          "layer": "utilities",
+          "event_count": 65
         },
         {
           "city_id": "nyc",
@@ -55188,7 +55589,15 @@
           "source_title": "Street Construction Permits (2022-Present)",
           "year": 2024,
           "layer": "transport",
-          "event_count": 250
+          "event_count": 216
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "tqtj-sjs8",
+          "source_title": "Street Construction Permits (2022-Present)",
+          "year": 2024,
+          "layer": "utilities",
+          "event_count": 34
         },
         {
           "city_id": "nyc",
@@ -55196,7 +55605,15 @@
           "source_title": "Street Construction Permits (2022-Present)",
           "year": 2025,
           "layer": "transport",
-          "event_count": 251
+          "event_count": 101
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "tqtj-sjs8",
+          "source_title": "Street Construction Permits (2022-Present)",
+          "year": 2025,
+          "layer": "utilities",
+          "event_count": 150
         },
         {
           "city_id": "nyc",
@@ -55204,7 +55621,15 @@
           "source_title": "Street Construction Permits (2022-Present)",
           "year": 2026,
           "layer": "transport",
-          "event_count": 250
+          "event_count": 198
+        },
+        {
+          "city_id": "nyc",
+          "source_id": "tqtj-sjs8",
+          "source_title": "Street Construction Permits (2022-Present)",
+          "year": 2026,
+          "layer": "utilities",
+          "event_count": 52
         },
         {
           "city_id": "nyc",
@@ -55285,7 +55710,7 @@
           "title": "LPC Permit Application Information",
           "provider": "NYC Landmarks Preservation Commission via NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "Dataset metadata licenseId/license is null. NYC Open Data Terms of Use and NYC.gov Terms of Use apply; public datasets are provided for informational purposes and may be updated, corrected, or refreshed by the submitting agency.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 19651,
           "years": [
             2008,
@@ -55326,7 +55751,7 @@
           "title": "NYC Open Data: DOB Job Application Filings",
           "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data / NYC.gov terms; attribute NYC Department of Buildings and NYC Open Data.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 19264,
           "years": [
             2008,
@@ -55364,7 +55789,7 @@
           "title": "NYC Open Data: DOB Certificate Of Occupancy",
           "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "Factual DOB row metadata and source URLs are retained with DOB/NYC Open Data attribution. Check NYC Open Data and NYC.gov terms before bulk redistribution beyond candidate metadata.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 10977,
           "years": [
             2012,
@@ -55398,7 +55823,7 @@
           "title": "NYC Open Data: DOB Certificate Of Occupancy",
           "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data / NYC.gov terms; attribute NYC Department of Buildings and NYC Open Data.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 8723,
           "years": [
             2012,
@@ -55432,7 +55857,7 @@
           "title": "NYC Open Data: Affordable Housing Production by Building",
           "provider": "NYC Department of Housing Preservation and Development (HPD), via NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "No dataset-specific license field exposed in Socrata metadata checked during this run; NYC Open Data Terms of Use / NYC.gov Terms of Use apply.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 7382,
           "years": [
             2014,
@@ -55464,7 +55889,7 @@
           "title": "DOB Permit Issuance",
           "provider": "NYC DOB",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 7180,
           "years": [
             2004,
@@ -55505,7 +55930,7 @@
           "title": "LPC Permit Application Information",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 6400,
           "years": [
             2004,
@@ -55549,7 +55974,7 @@
           "title": "NYC Open Data: DOB Permit Issuance",
           "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data / NYC.gov terms; attribute NYC Department of Buildings and NYC Open Data.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 6400,
           "years": [
             2008,
@@ -55587,7 +56012,7 @@
           "title": "NYC Open Data: LPC Permit Application Information",
           "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 4800,
           "years": [
             2008,
@@ -55627,7 +56052,7 @@
           "title": "NYC Open Data: DOB NOW: Certificate of Occupancy",
           "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "No dataset-specific license field exposed in Socrata metadata checked during this run; NYC Open Data Terms of Use / NYC.gov Terms of Use apply.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 2586,
           "years": [
             2021,
@@ -55652,7 +56077,7 @@
           "title": "Motor Vehicle Collisions - Crashes",
           "provider": "NYPD",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 2389,
           "years": [
             2012,
@@ -55686,7 +56111,7 @@
           "title": "Affordable Housing Production by Building",
           "provider": "NYC HPD",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 2160,
           "years": [
             2014,
@@ -55717,7 +56142,7 @@
           "title": "Street Construction Permits (2013-2021)",
           "provider": "NYC DOT",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1810,
           "years": [
             1904,
@@ -55741,7 +56166,8 @@
           "last_year": 2025,
           "layer_counts": {
             "built_environment": 3,
-            "transport": 1807
+            "transport": 1524,
+            "utilities": 283
           },
           "confidence_counts": {
             "documented": 1810
@@ -55753,7 +56179,7 @@
           "title": "2015 Street Tree Census - Tree Data",
           "provider": "NYC Parks",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1800,
           "years": [
             2015
@@ -55773,7 +56199,7 @@
           "title": "Fire Incident Dispatch Data",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data Terms of Use; dataset metadata does not publish a separate licence field.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1794,
           "years": [
             2005,
@@ -55814,7 +56240,7 @@
           "title": "Housing Database Project Level Files",
           "provider": "NYC DCP",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1700,
           "years": [
             2010,
@@ -55849,7 +56275,7 @@
           "title": "Parks Properties",
           "provider": "NYC Parks",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1599,
           "years": [
             1797,
@@ -56023,7 +56449,7 @@
           "title": "Individual Landmark Sites",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data Terms of Use; dataset metadata does not publish a separate licence field.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1546,
           "years": [
             1965,
@@ -56102,7 +56528,7 @@
           "title": "DOB Certificate Of Occupancy",
           "provider": "NYC DOB",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1309,
           "years": [
             2012,
@@ -56136,7 +56562,7 @@
           "title": "Capital Project Tracker",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1308,
           "years": [
             2013,
@@ -56171,7 +56597,7 @@
           "title": "Street Construction Permits (2022-Present)",
           "provider": "NYC DOT",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1260,
           "years": [
             1904,
@@ -56193,7 +56619,8 @@
           "last_year": 2026,
           "layer_counts": {
             "built_environment": 3,
-            "transport": 1257
+            "transport": 914,
+            "utilities": 343
           },
           "confidence_counts": {
             "documented": 1260
@@ -56205,7 +56632,7 @@
           "title": "DOB NOW: Build - Approved Permits",
           "provider": "NYC DOB",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1236,
           "years": [
             2018,
@@ -56233,7 +56660,7 @@
           "title": "Capital Projects",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1200,
           "years": [
             2013,
@@ -56263,7 +56690,7 @@
           "title": "NYC Open Data: DOB NOW: Build - Approved Permits",
           "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use; Socrata metadata for the checked DOB views does not expose a dataset-specific license field.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1035,
           "years": [
             2021,
@@ -56288,7 +56715,7 @@
           "title": "NYC Open Data: DOB NOW: Build - Job Application Filings",
           "provider": "NYC Department of Buildings (DOB), via NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use; Socrata metadata for the checked DOB views does not expose a dataset-specific license field.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1035,
           "years": [
             2021,
@@ -56354,7 +56781,7 @@
           "title": "DOB NOW: Build - Job Application Filings",
           "provider": "NYC DOB",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 960,
           "years": [
             2019,
@@ -56381,7 +56808,7 @@
           "title": "NYC Permitted Event Information - Historical",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 951,
           "years": [
             2008,
@@ -56421,7 +56848,7 @@
           "title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
           "provider": "NYC Mayor's Office of Operations / NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data / NYC.gov terms apply.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 903,
           "years": [
             2008,
@@ -56460,7 +56887,7 @@
           "title": "311 Service Requests from 2020 to Present",
           "provider": "NYC 311",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 841,
           "years": [
             2012,
@@ -56490,7 +56917,7 @@
           "title": "NYC Parks Capital Project Tracker",
           "provider": "NYC Department of Parks and Recreation via NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data / NYC.gov terms; dataset metadata license field is null.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 654,
           "years": [
             2013,
@@ -56525,7 +56952,7 @@
           "title": "Zoning Application Portal (ZAP) - Project Data",
           "provider": "NYC DCP",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 508,
           "years": [
             1916,
@@ -56557,7 +56984,7 @@
           "title": "Street Network Changes",
           "provider": "NYC DOT",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data Terms of Use; dataset metadata does not publish a separate licence field.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 289,
           "years": [
             1916,
@@ -56592,7 +57019,7 @@
           "title": "NYC Open Data: Individual Landmark Sites",
           "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data FAQ states no restrictions on Open Data use; NYC.gov Terms of Use and dataset-specific metadata still apply.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 277,
           "years": [
             2008,
@@ -56668,7 +57095,7 @@
           "title": "Historic Districts",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data Terms of Use; dataset metadata does not publish a separate licence field.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 157,
           "years": [
             1965,
@@ -56742,7 +57169,7 @@
           "title": "Street Closures due to Construction Activities by Block",
           "provider": "NYC DOT",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 154,
           "years": [
             1904,
@@ -56773,7 +57200,7 @@
           "title": "NYC DOT Street and Highway Capital Reconstruction Projects - Block",
           "provider": "NYC Department of Transportation via NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data terms apply. Attribute NYC Department of Transportation and NYC Open Data; no warranty is implied by the source dataset.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 143,
           "years": [
             2008,
@@ -56808,7 +57235,7 @@
           "title": "Zoning Application Portal (ZAP) - Project Data",
           "provider": "NYC Department of City Planning",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data Terms of Use; cite NYC Department of City Planning and the dataset name.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 95,
           "years": [
             2008,
@@ -56837,7 +57264,7 @@
           "title": "Zoning Application Portal (ZAP) - BBL",
           "provider": "NYC Department of City Planning",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data Terms of Use; cite NYC Department of City Planning and the dataset name.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 72,
           "years": [
             2008,
@@ -56866,7 +57293,7 @@
           "title": "Primary Land Use Tax Lot Output (PLUTO)",
           "provider": "NYC Department of City Planning",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data Terms of Use; cite NYC Department of City Planning and the dataset name.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 72,
           "years": [
             2008,
@@ -56895,7 +57322,7 @@
           "title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
           "provider": "NYC Department of City Planning (DCP), via NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use; no dataset-specific license was found in the Socrata metadata during this pass.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 41,
           "years": [
             2008,
@@ -56927,7 +57354,7 @@
           "title": "NYC Open Data: Designated and Calendared Buildings and Sites",
           "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data / NYC.gov terms; dataset-specific metadata license field was not used as a standalone license. Attribute NYC Landmarks Preservation Commission and NYC Open Data and re-check current dataset metadata before redistribution.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 25,
           "years": [
             2008,
@@ -56956,7 +57383,7 @@
           "title": "NYC Open Data: Historic Districts",
           "provider": "NYC Landmarks Preservation Commission / NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data / NYC.gov terms; dataset-specific metadata applies",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 24,
           "years": [
             2009,
@@ -57057,7 +57484,7 @@
           "title": "NYC Open Data: Privately Owned Public Spaces (POPS)",
           "provider": "NYC Department of City Planning (DCP), via NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data Terms of Use / NYC.gov Terms of Use; no dataset-specific license was found in the Socrata metadata during this pass.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 17,
           "years": [
             2008,
@@ -57158,7 +57585,7 @@
           "title": "Zoning Application Portal (ZAP) - BBL",
           "provider": "NYC DCP",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 8,
           "years": [
             1916,
@@ -57232,7 +57659,7 @@
           "title": "Primary Land Use Tax Lot Output (PLUTO)",
           "provider": "NYC Department of City Planning (DCP)",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 4,
           "years": [
             1811,
@@ -57255,7 +57682,7 @@
           "title": "MapPLUTO",
           "provider": "NYC Department of City Planning (DCP)",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 4,
           "years": [
             1811,
@@ -57343,7 +57770,7 @@
           "title": "DOHMH Restaurant Inspection Results",
           "provider": "NYC Department of Health and Mental Hygiene",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1,
           "years": [
             1975
@@ -57363,7 +57790,7 @@
           "title": "Evictions",
           "provider": "NYC Department of Investigation / Sheriff",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1,
           "years": [
             1975
@@ -57383,7 +57810,7 @@
           "title": "NYC Greenhouse Gas Emissions Municipal Inventory",
           "provider": "NYC Mayor's Office of Climate and Environmental Justice",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1,
           "years": [
             2012
@@ -57423,7 +57850,7 @@
           "title": "Air Quality and Health Impacts",
           "provider": "NYC DOHMH",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 1,
           "years": [
             2012
@@ -57783,7 +58210,7 @@
           "title": "LION Single Line Street Base Map",
           "provider": "NYC DCP",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57797,7 +58224,7 @@
           "title": "Capital Project Schedules and Budgets",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57811,7 +58238,7 @@
           "title": "NYC DOE Public School Location Information",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57825,7 +58252,7 @@
           "title": "DDC Active Projects",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57839,7 +58266,7 @@
           "title": "Community Districts",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57853,7 +58280,7 @@
           "title": "School Cafeteria Inspections 2020-Present",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57867,7 +58294,7 @@
           "title": "NYPD Complaint Data Current Year To Date",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57881,7 +58308,7 @@
           "title": "Harbor Water Quality",
           "provider": "NYC DEP",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57895,7 +58322,7 @@
           "title": "Sandy Inundation Zone",
           "provider": "NYC SBS / NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57909,7 +58336,7 @@
           "title": "Building Footprints / BUILDING",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57923,7 +58350,7 @@
           "title": "NYC Building Energy and Water Data Disclosure for Local Law 84 2023 to Present",
           "provider": "NYC Open Data / Department of Buildings",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; catalog notes may indicate OGL/NYC Open Data Terms or local portal terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57937,7 +58364,7 @@
           "title": "Parking Meters Locations and Status",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57951,7 +58378,7 @@
           "title": "DCP Housing Database",
           "provider": "NYC DCP",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57965,7 +58392,7 @@
           "title": "Bicycle and Pedestrian Count Sensors",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57979,7 +58406,7 @@
           "title": "EMS Incident Dispatch Data",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -57993,7 +58420,7 @@
           "title": "Topobathymetric LiDAR Data 2017",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58007,7 +58434,7 @@
           "title": "Automated Traffic Volume Counts",
           "provider": "NYC DOT",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58021,7 +58448,7 @@
           "title": "Forestry Planting Spaces",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58035,7 +58462,7 @@
           "title": "City Council Districts",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58049,7 +58476,7 @@
           "title": "ACS 5-Year Demographic Profiles at NTA level",
           "provider": "NYC DCP / U.S. Census Bureau",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58063,7 +58490,7 @@
           "title": "Exclusive Pedestrian Signal / Barnes Dance Locations",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58077,7 +58504,7 @@
           "title": "2050s Sea Level Rise Projections",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58091,7 +58518,7 @@
           "title": "DSNY Litter Basket Inventory",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58105,7 +58532,7 @@
           "title": "Housing Database by 2020 Census Block",
           "provider": "NYC DCP",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58119,7 +58546,7 @@
           "title": "Storefronts Reported Vacant or Not",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58133,7 +58560,7 @@
           "title": "NYC Stormwater Flood Maps",
           "provider": "NYC DEP",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58147,7 +58574,7 @@
           "title": "2020 Neighborhood Tabulation Areas",
           "provider": "NYC DCP",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58161,7 +58588,7 @@
           "title": "Digital Tax Map: Subterranean Lots",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58175,7 +58602,7 @@
           "title": "Traffic Volume Counts (Historical)",
           "provider": "NYC DOT",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58189,7 +58616,7 @@
           "title": "Historical DOB Permit Issuance",
           "provider": "NYC DOB / NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58203,7 +58630,7 @@
           "title": "Tree Canopy Change 2010-2017",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58217,7 +58644,7 @@
           "title": "Street Network Changes (Historical)",
           "provider": "NYC DOT",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58231,7 +58658,7 @@
           "title": "Bi-Annual Pedestrian Counts",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58245,7 +58672,7 @@
           "title": "Bicycle and Pedestrian Counts",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58259,7 +58686,7 @@
           "title": "Sidewalk Management Database - Inspection",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58273,7 +58700,7 @@
           "title": "1 Foot Digital Elevation Model DEM",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58287,7 +58714,7 @@
           "title": "Childcare Center Inspections Historical",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58301,7 +58728,7 @@
           "title": "ParkNYC Block Faces",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58315,7 +58742,7 @@
           "title": "DOB Complaints Received",
           "provider": "NYC DOB",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58329,7 +58756,7 @@
           "title": "DSNY Monthly Tonnage Data",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58343,7 +58770,7 @@
           "title": "Digital Tax Map: Condominium Units",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58357,7 +58784,7 @@
           "title": "Hurricane Evacuation Zones",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58371,7 +58798,7 @@
           "title": "Street Closures due to Construction Activities by Block and Intersection",
           "provider": "NYC DOT",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58385,7 +58812,7 @@
           "title": "NYC Zoning Tax Lot Database",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58399,7 +58826,7 @@
           "title": "Active Projects - Public Buildings Historical",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58413,7 +58840,7 @@
           "title": "Bicycle Counts for East River Bridges (Historical)",
           "provider": "NYC DOT",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58427,7 +58854,7 @@
           "title": "Active NYC Health Code Regulated Child Care Programs",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58441,7 +58868,7 @@
           "title": "Sea Level Rise Maps, 2050s 100-Year Floodplain",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58455,7 +58882,7 @@
           "title": "Land Cover Raster Data 2017, 6-inch Resolution",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58469,7 +58896,7 @@
           "title": "Forestry Tree Points",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58483,7 +58910,7 @@
           "title": "Affordable Housing Production by Project",
           "provider": "NYC HPD",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58497,7 +58924,7 @@
           "title": "E-Designations",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58511,7 +58938,7 @@
           "title": "Curb Metal Protruding Data",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58525,7 +58952,7 @@
           "title": "DOT Traffic Speeds",
           "provider": "NYC DOT",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58539,7 +58966,7 @@
           "title": "DOB Job Application Filings",
           "provider": "NYC Department of Buildings (DOB)",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58553,7 +58980,7 @@
           "title": "Food Scrap Drop-Off Locations in NYC",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58567,7 +58994,7 @@
           "title": "Fire Companies",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58581,7 +59008,7 @@
           "title": "Centerline (CSCL)",
           "provider": "NYC Office of Technology and Innovation",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58595,7 +59022,7 @@
           "title": "Building Footprints Historic / BUILDING_HISTORIC",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58609,7 +59036,7 @@
           "title": "City Council Districts, Water Areas Included",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58623,7 +59050,7 @@
           "title": "Facilities Database",
           "provider": "NYC DCP",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58637,7 +59064,7 @@
           "title": "DOT Street Lights and Traffic Signals 311 Requests",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58651,7 +59078,7 @@
           "title": "NYC Orthoimagery Tile Index",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58665,7 +59092,7 @@
           "title": "Imagery and Map Services",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58679,7 +59106,7 @@
           "title": "Digital Tax Map: Air Lots",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58693,7 +59120,7 @@
           "title": "Voting/Poll Sites",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58707,7 +59134,7 @@
           "title": "Zoning GIS Data: Geodatabase",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58721,7 +59148,7 @@
           "title": "Vision Zero View Leading Pedestrian Interval Signals",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58735,7 +59162,7 @@
           "title": "NYC Flood Vulnerability Index",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58749,7 +59176,7 @@
           "title": "Georeferenced NYC Zoning Maps",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58763,7 +59190,7 @@
           "title": "Designated and Calendared Buildings and Sites",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58833,7 +59260,7 @@
           "title": "NYC Orthoimagery / Aerial imagery archives",
           "provider": "NYC OTI / DoITT, NYC Open Data",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58875,7 +59302,7 @@
           "title": "Parking Regulation Locations and Signs",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58889,7 +59316,7 @@
           "title": "Historical Urban Event Evidence Catalog - 311 complaints and service requests",
           "provider": "NYC Open Data / NYC agency source family",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data has no general restrictions on reuse; privacy care required.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58903,7 +59330,7 @@
           "title": "Historical Urban Event Evidence Catalog - Certificates of occupancy and housing delivery rollups",
           "provider": "NYC Open Data / NYC agency source family",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58917,7 +59344,7 @@
           "title": "Historical Urban Event Evidence Catalog - Digital Tax Map / tax lot geometry",
           "provider": "NYC Open Data / NYC agency source family",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58931,7 +59358,7 @@
           "title": "Historical Urban Event Evidence Catalog - DOB construction filings and permits",
           "provider": "NYC Open Data / NYC agency source family",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58973,7 +59400,7 @@
           "title": "Historical Urban Event Evidence Catalog - NYC planimetrics and 3D model",
           "provider": "NYC Open Data / NYC agency source family",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -58987,7 +59414,7 @@
           "title": "Historical Urban Event Evidence Catalog - PLUTO / MapPLUTO and land-use lot files",
           "provider": "NYC Open Data / NYC agency source family",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data unrestricted reuse stated in portal FAQ; verify dataset-level metadata.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59001,7 +59428,7 @@
           "title": "Historical Urban Event Evidence Catalog - Sales, valuations, and rent context",
           "provider": "NYC Open Data / NYC agency source family",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data terms; survey/report products have their own usage conventions.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59015,7 +59442,7 @@
           "title": "Historical Urban Event Evidence Catalog - Street network and roadway geometry",
           "provider": "NYC Open Data / NYC agency source family",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59029,7 +59456,7 @@
           "title": "Historical Urban Event Evidence Catalog - Traffic volume and vehicle composition",
           "provider": "NYC Open Data / NYC agency source family",
           "reliability": "usable_with_caveats",
-          "licence": "NYC Open Data terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59141,7 +59568,7 @@
           "title": "Digital Tax Map: Condominiums",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59155,7 +59582,7 @@
           "title": "DOB NOW: Certificate of Occupancy",
           "provider": "NYC DOB",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59169,7 +59596,7 @@
           "title": "License Applications",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59183,7 +59610,7 @@
           "title": "NYCCAS Air Pollution Rasters",
           "provider": "NYC DOHMH",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59197,7 +59624,7 @@
           "title": "Hyperlocal Temperature Monitoring",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59211,7 +59638,7 @@
           "title": "NYPD Complaint Data Historic",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59225,7 +59652,7 @@
           "title": "Street Sign Work Orders",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59239,7 +59666,7 @@
           "title": "Sidewalk Weekly Construction Schedule",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59253,7 +59680,7 @@
           "title": "NYC Community Boards",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59267,7 +59694,7 @@
           "title": "Active Projects - Infrastructure Historical",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59281,7 +59708,7 @@
           "title": "School Zones Map 2024-2025",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59295,7 +59722,7 @@
           "title": "Department of Finance Digital Tax Map",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59309,7 +59736,7 @@
           "title": "New York City Population by Neighborhood Tabulation Areas",
           "provider": "NYC DCP / U.S. Census Bureau",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59323,7 +59750,7 @@
           "title": "Public Recycling Bins",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59337,7 +59764,7 @@
           "title": "Film Permits",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59351,7 +59778,7 @@
           "title": "Incidents Responded to by Fire Companies",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59365,7 +59792,7 @@
           "title": "NYC Permitted Event Information",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59379,7 +59806,7 @@
           "title": "Sidewalk Management Database - Built",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59393,7 +59820,7 @@
           "title": "NYPD Arrest Data Year to Date",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59407,7 +59834,7 @@
           "title": "Hurricane Inundation by Evacuation Zone",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59421,7 +59848,7 @@
           "title": "Issued Licenses",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59435,7 +59862,7 @@
           "title": "Capital Project Detail Data - Dollars",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59449,7 +59876,7 @@
           "title": "Citywide Mobility Survey annual datasets",
           "provider": "NYC DOT",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59463,7 +59890,7 @@
           "title": "Interagency Coordination and Construction Permits Data / MOSYS",
           "provider": "NYC Open Data / City agency",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review before redistribution; official/open source terms vary by publisher.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,
@@ -59477,7 +59904,7 @@
           "title": "Housing Maintenance Code Complaints and Problems",
           "provider": "NYC HPD",
           "reliability": "usable_with_caveats",
-          "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms.",
+          "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
           "event_count": 0,
           "years": [],
           "first_year": null,

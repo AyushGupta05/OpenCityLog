@@ -14,6 +14,7 @@ from scripts.expand_london_nyc_events_from_open_sources import (
     nyc_borough_name,
     point_from_geojson,
     socrata_row_url,
+    street_permit_is_utility_work,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -125,6 +126,9 @@ class OpenSourceExpansionHelpersTest(unittest.TestCase):
         self.assertNotIn("FLAT 1", rendered)
         self.assertNotIn("625000", rendered)
         self.assertEqual(event["source_date_field"], "transfer deed date")
+        self.assertEqual(event["atlas_category"], "economy")
+        self.assertEqual(event["atlas_lens"], "jobs")
+        self.assertIn("residential", event["affected_signals"])
 
     def test_ukhpi_event_is_aggregate_not_address_level(self):
         event = make_ukhpi_event(
@@ -175,14 +179,30 @@ class OpenSourceExpansionHelpersTest(unittest.TestCase):
         self.assertIsNotNone(event)
         self.assertEqual(event["event_id"], "lon_fsa_fhrs_rating_1824267")
         self.assertEqual(event["source_date_field"], "RatingDate")
-        self.assertEqual(event["atlas_category"], "civic_services")
-        self.assertEqual(event["atlas_lens"], "services")
+        self.assertEqual(event["atlas_category"], "economy")
+        self.assertEqual(event["atlas_lens"], "jobs")
+        self.assertIn("high_street_activity", event["affected_signals"])
         self.assertIn("public_health", event["affected_signals"])
         self.assertIn("5 out of 5", event["summary"])
         self.assertNotIn("1 REBEL", rendered)
         self.assertNotIn("Lancing Street", rendered)
         self.assertNotIn("NW1 1NA", rendered)
         self.assertNotIn("020 0000 0000", rendered)
+
+    def test_street_permit_utility_detector_only_matches_utility_work_fields(self):
+        self.assertTrue(street_permit_is_utility_work({
+            "permittypedesc": "REPAIR SEWER - PROTECTED",
+            "onstreetname": "WARREN STREET",
+        }))
+        self.assertTrue(street_permit_is_utility_work({
+            "permittypedesc": "UTILITY MANHOLE EMBARGO PERMIT",
+            "permitpurposecomments": "OA 16M66",
+        }))
+        self.assertFalse(street_permit_is_utility_work({
+            "permittypedesc": "MISCELLANEOUS - MINOR SALES",
+            "permitpurposecomments": "sidewalk protection",
+            "onstreetname": "WATER STREET",
+        }))
 
     def test_generated_atlas_preserves_row_level_provenance(self):
         index_path = ROOT / "web/data/city-atlas/cities/london/events.json"

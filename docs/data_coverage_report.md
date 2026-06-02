@@ -1,14 +1,14 @@
 # City Atlas Coverage Report
 
-Generated: 2026-05-31T02:08:53Z
+Generated: 2026-06-01T18:06:58Z
 
 This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.
 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Catalog gaps |
 | --- | ---: | ---: | ---: | --- | --- | --- |
 | Belfast, Northern Ireland | 33146 | 211 | 31 | 2007-2026 | transport 17105, built_environment 13827, utilities 855 | 31 catalog-only source(s) |
-| London, England | 224003 | 193 | 101 | 1801-2026 | built_environment 104715, civic_services 63272, environment 28071 | 101 catalog-only source(s) |
-| New York City, New York | 94861 | 81 | 122 | 1797-2026 | built_environment 63558, environment 20626, transport 7519 | 122 catalog-only source(s) |
+| London, England | 224003 | 193 | 101 | 1801-2026 | built_environment 79115, civic_services 53372, economy 35500 | 101 catalog-only source(s) |
+| New York City, New York | 94861 | 81 | 122 | 1797-2026 | built_environment 63558, environment 20626, transport 6893 | 122 catalog-only source(s) |
 
 ## Belfast, Northern Ireland
 
@@ -42,11 +42,11 @@ Backed events: 224003. Unique event IDs: 224003. Duplicate IDs: 0.
 | Police.uk crime and outcomes API | 27362 | 1829-2026 | environment 26697, transport 665 | usable_with_caveats |
 | London Fire Brigade incident records | 27002 | 2005-2026 | civic_services 25510, environment 1339, transport 152 | usable_with_caveats |
 | Road Safety Open Data - STATS19 collision records | 27000 | 2020-2025 | transport 27000 | usable_with_caveats |
-| HM Land Registry Price Paid Data | 25600 | 1995-2026 | built_environment 25600 | usable_with_caveats |
+| HM Land Registry Price Paid Data | 25600 | 1995-2026 | economy 25600 | usable_with_caveats |
 | Planning Data: Listed Building Outlines | 13875 | 1949-2026 | built_environment 13874, civic_services 1 | usable_with_caveats |
 | UK House Price Index | 12342 | 1995-2026 | built_environment 12342 | usable_with_caveats |
 | Planning permissions on the London Development Database (LDD) | 11442 | 2008-2020 | built_environment 11382, civic_services 44, transport 12 | usable_with_caveats |
-| Food Hygiene Rating Scheme API | 9900 | 2004-2026 | civic_services 9900 | usable_with_caveats |
+| Food Hygiene Rating Scheme API | 9900 | 2004-2026 | economy 9900 | usable_with_caveats |
 | Planning Data: Brownfield Land | 5643 | 2017-2026 | built_environment 5643 | usable_with_caveats |
 | Planning London Datahub applications API | 4500 | 2008-2025 | built_environment 4500 | usable_with_caveats |
 

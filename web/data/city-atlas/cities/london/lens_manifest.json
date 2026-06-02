@@ -1140,18 +1140,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59104,
-        "compatible_event_count": 59104,
+        "event_count": 59113,
+        "compatible_event_count": 59113,
         "review_required_event_count": 0,
-        "source_count": 25,
-        "compatible_source_count": 25,
+        "source_count": 27,
+        "compatible_source_count": 27,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1959,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59104
+          "documented": 59113
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1200,7 +1200,9 @@
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
+          "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
+          "lon-extra-uk-house-price-index",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -1227,7 +1229,9 @@
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
+          "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
+          "lon-extra-uk-house-price-index",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -1423,18 +1427,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59104,
-        "compatible_event_count": 59104,
+        "event_count": 59113,
+        "compatible_event_count": 59113,
         "review_required_event_count": 0,
-        "source_count": 25,
-        "compatible_source_count": 25,
+        "source_count": 27,
+        "compatible_source_count": 27,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1959,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59104
+          "documented": 59113
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1483,7 +1487,9 @@
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
+          "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
+          "lon-extra-uk-house-price-index",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -1510,7 +1516,9 @@
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
+          "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
+          "lon-extra-uk-house-price-index",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -1706,18 +1714,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59104,
-        "compatible_event_count": 59104,
+        "event_count": 59113,
+        "compatible_event_count": 59113,
         "review_required_event_count": 0,
-        "source_count": 25,
-        "compatible_source_count": 25,
+        "source_count": 27,
+        "compatible_source_count": 27,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1959,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59104
+          "documented": 59113
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1766,7 +1774,9 @@
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
+          "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
+          "lon-extra-uk-house-price-index",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -1793,7 +1803,9 @@
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
+          "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
+          "lon-extra-uk-house-price-index",
           "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
@@ -2017,9 +2029,11 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 19,
+          "missing_visible_years": [
+            2021
+          ],
+          "source_backed_record_year_count": 19,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -2336,9 +2350,11 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 19,
+          "missing_visible_years": [
+            2021
+          ],
+          "source_backed_record_year_count": 19,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -2655,9 +2671,11 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 19,
+          "missing_visible_years": [
+            2021
+          ],
+          "source_backed_record_year_count": 19,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -2972,30 +2990,9 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 0,
-          "missing_visible_years": [
-            2007,
-            2008,
-            2009,
-            2010,
-            2011,
-            2012,
-            2013,
-            2014,
-            2015,
-            2016,
-            2017,
-            2018,
-            2019,
-            2020,
-            2021,
-            2022,
-            2023,
-            2024,
-            2025,
-            2026
-          ],
-          "source_backed_record_year_count": 0,
+          "visible_year_count": 20,
+          "missing_visible_years": [],
+          "source_backed_record_year_count": 20,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -3254,30 +3251,9 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 0,
-          "missing_visible_years": [
-            2007,
-            2008,
-            2009,
-            2010,
-            2011,
-            2012,
-            2013,
-            2014,
-            2015,
-            2016,
-            2017,
-            2018,
-            2019,
-            2020,
-            2021,
-            2022,
-            2023,
-            2024,
-            2025,
-            2026
-          ],
-          "source_backed_record_year_count": 0,
+          "visible_year_count": 20,
+          "missing_visible_years": [],
+          "source_backed_record_year_count": 20,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -3536,30 +3512,9 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 0,
-          "missing_visible_years": [
-            2007,
-            2008,
-            2009,
-            2010,
-            2011,
-            2012,
-            2013,
-            2014,
-            2015,
-            2016,
-            2017,
-            2018,
-            2019,
-            2020,
-            2021,
-            2022,
-            2023,
-            2024,
-            2025,
-            2026
-          ],
-          "source_backed_record_year_count": 0,
+          "visible_year_count": 20,
+          "missing_visible_years": [],
+          "source_backed_record_year_count": 20,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }

@@ -599,26 +599,12 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
 
 async function assertSparseLensCoverageHonesty(page, cityId) {
   const checksByCity = {
-    london: [
-      {
-        aspect: "economy-land-use",
-        emptyLayers: ["lens-economy-icons", "lens-economy-cells-fill", "lens-economy-frontage"],
-        notePattern: /No direct source-backed land-use-specific economy records match 2024[\s\S]*broad lens matches[\s\S]*No generated marks/i,
-        label: "London economy broad-match caveat",
-      },
-    ],
     nyc: [
       {
         aspect: "economy-land-use",
         emptyLayers: ["lens-economy-icons", "lens-economy-cells-fill", "lens-economy-frontage"],
         notePattern: /No direct source-backed land-use-specific economy records match 2024[\s\S]*broad lens matches[\s\S]*No generated marks/i,
         label: "NYC economy broad-match caveat",
-      },
-      {
-        aspect: "utilities-capacity",
-        emptyLayers: ["lens-utilities-icons", "lens-utilities-trace", "lens-utility-asset-icons"],
-        notePattern: /No direct source-backed utility records match 2024[\s\S]*No generated marks/i,
-        label: "NYC utility no-filler caveat",
       },
     ],
   };
