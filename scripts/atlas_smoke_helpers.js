@@ -57,6 +57,14 @@ async function atlasState(page) {
     const map = atlas?.state?.map;
     const center = map?.getCenter?.();
     const layerVisible = (id) => Boolean(map?.getLayer?.(id)) && map.getLayoutProperty(id, "visibility") !== "none";
+    const sourceLoaded = (id) => {
+      if (!map?.getSource?.(id)) return false;
+      try {
+        return map.isSourceLoaded?.(id) === true;
+      } catch {
+        return false;
+      }
+    };
     const renderedLayerCount = (id) => {
       if (!map?.getLayer?.(id)) return 0;
       try {
@@ -233,7 +241,7 @@ async function atlasState(page) {
       lensEconomyFrontageRendered: renderedLayerCount("lens-economy-frontage"),
       lensUtilityTraceRendered: renderedLayerCount("lens-utilities-trace"),
       lensUtilityAssetsRendered: renderedLayerCount("lens-utility-asset-icons"),
-      lensDetailSourceLoaded: Boolean(map?.isSourceLoaded?.("lens-detail-overlays")),
+      lensDetailSourceLoaded: sourceLoaded("lens-detail-overlays"),
       lensDetailYearLoaded: atlas?.state?.lensDetailYearLoaded || null,
       transportRoadVisible: layerVisible("lens-transport-roads"),
       transportRoadRendered: renderedLayerCount("lens-transport-roads"),

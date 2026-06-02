@@ -862,7 +862,7 @@
       "map", "appStatus", "toast", "toastText",
       "cityToggle", "cityNameLabel", "cityMenu",
       "searchInput", "searchResults",
-      "changelogToggle", "changelogPanel", "eventList", "eventListCount", "eventListMeta", "eventListMore",
+      "changelogToggle", "changelogPanel", "eventList", "eventListCount", "eventListMeta", "eventListMore", "eventListCollapseBtn",
       "exportCsvBtn", "exportGeojsonBtn",
       "compareBtn", "comparePanel", "compareClose", "compareBeforeYear", "compareAfterYear", "compareStats", "compareNote",
       "recenterBtn", "tiltBtn",
@@ -972,6 +972,7 @@
 
     // Restored atlas controls
     els.changelogToggle?.addEventListener("click", () => setChangelogOpen(!state.changelogOpen));
+    els.eventListCollapseBtn?.addEventListener("click", () => setChangelogOpen(false));
     els.eventListMore?.addEventListener("click", () => {
       state.eventListLimit += EVENT_LIST_BATCH_SIZE;
       renderEventList();
@@ -14760,6 +14761,20 @@
     return events;
   }
 
+  function sourceEventsForLensYear(year, lens = activeMapLens(), category = lens?.category || lens?.layerId || state.activeLens) {
+    let events = (state.loadedEvents.get(Number(year) || year) || [])
+      .filter((event) => event.lngLat)
+      .filter((event) => !category || event.category === category)
+      .filter((event) => !lens || eventMatchesActiveLens(event, lens))
+      .filter((event) => eventMatchesAreaFilter(event))
+      .filter((event) => state.confidenceFilter === "all" || event.confidence === state.confidenceFilter)
+      .filter((event) => state.showInferred || event.confidence !== "inferred");
+    if (state.search) {
+      events = events.filter((event) => eventMatchesSearchQuery(event, state.search));
+    }
+    return events;
+  }
+
   function lensFeatureFromEvent(event, role) {
     const layer = LAYER_BY_ID.get(event.category) || LAYERS[1];
     const lensLayer = lensLayerForEvent(event, activeMapLens());
@@ -19834,12 +19849,22 @@
     els.detailPanel?.setAttribute("aria-labelledby", "detailTitle");
     const body = els.detailInner?.querySelector(".detail-body");
     const event = state.selectedEvent;
-    if (body && event && !body.querySelector(".detail-meaning-card")) {
-      const context = buildLensContext(event);
+    if (!body || !event) return;
+    const context = buildLensContext(event);
+    if (!body.querySelector(".detail-meaning-card")) {
       const card = document.createElement("section");
       card.className = "detail-meaning-card";
       card.innerHTML = renderDetailMeaningCard(event, context);
       body.insertBefore(card, body.firstChild);
+    }
+    if (!body.querySelector(".detail-cross-lens-card")) {
+      ensureDetailEvidenceLoaded(event);
+      const card = document.createElement("section");
+      card.className = "detail-cross-lens-card";
+      card.innerHTML = renderCrossLensChangeSnapshot(event, context);
+      const meaningCard = body.querySelector(".detail-meaning-card");
+      body.insertBefore(card, meaningCard?.nextSibling || body.firstChild);
+      wireCrossLensSnapshot(card);
     }
   }
 
@@ -19900,7 +19925,7 @@
     const summary = event.shortDescription || event.details || event.summary || event.title;
     const caveat = event.confidence === "inferred"
       ? "This is an inferred mapped-visibility record. Treat the date as map evidence, not a confirmed construction or opening date."
-      : "This is an observed record from public evidence. Nearby lens context is descriptive and does not claim causation or forecast impact.";
+      : "This is an observed record from public evidence. Nearby lens context is descriptive; it is evidence context only, not a causal claim.";
     const contextLine = context?.lens
       ? `${context.lens.label} shows nearby source-backed records and mapped context within ${formatRadius(context.radiusM)}.`
       : "The active lens shows nearby source-backed records and mapped context.";
@@ -19920,6 +19945,84 @@
       </dl>
       <div class="detail-meaning-note">${escapeHtml(caveat)}</div>
     `;
+  }
+
+  function renderCrossLensChangeSnapshot(event, context = buildLensContext(event)) {
+    const { before, after } = detailEvidenceYears(event);
+    const loaded = [before, after]
+      .filter((year) => state.chunks.has(year))
+      .every((year) => state.loadedEvents.has(year));
+    const activeCategory = context?.category || activeMapLens()?.category || state.activeLens;
+    const rows = LAYERS.map((layer) => crossLensChangeRow(layer, event, before, after, loaded, activeCategory));
+    const sourceText = loaded
+      ? `Nearby source-backed records in ${before} and ${after}, using each lens study radius.`
+      : `Loading nearby records for ${before} and ${after}.`;
+    return `
+      <div class="detail-cross-lens-head">
+        <div>
+          <strong>Changes by lens</strong>
+          <p>${escapeHtml(sourceText)} Counts are descriptive context, not causal outcomes.</p>
+        </div>
+        <span>source counts</span>
+      </div>
+      <div class="cross-lens-grid" aria-label="Nearby source-backed changes by lens">
+        <div class="cross-lens-header" aria-hidden="true">
+          <span>Lens</span><span>${before}</span><span>${after}</span><span>Change</span>
+        </div>
+        ${rows.map(renderCrossLensRow).join("")}
+      </div>
+    `;
+  }
+
+  function crossLensChangeRow(layer, event, before, after, loaded, activeCategory) {
+    const lenses = LENS_ASPECTS_BY_CATEGORY.get(layer.id) || [];
+    const aspect = lenses[0] || null;
+    const radiusM = aspect ? lensEffectiveRadiusM(aspect) : lensEffectiveRadiusM(activeMapLens());
+    const center = event?.lngLat || currentMapCenter();
+    const beforeEvents = loaded ? sourceEventsForLensYear(before, aspect, layer.id) : [];
+    const afterEvents = loaded ? sourceEventsForLensYear(after, aspect, layer.id) : [];
+    const beforeNear = loaded ? eventsNear(center, beforeEvents, radiusM).length : null;
+    const afterNear = loaded ? eventsNear(center, afterEvents, radiusM).length : null;
+    const change = loaded ? afterNear - beforeNear : null;
+    return {
+      layer,
+      aspect,
+      before: beforeNear,
+      after: afterNear,
+      change,
+      radiusM,
+      active: layer.id === activeCategory,
+    };
+  }
+
+  function renderCrossLensRow(row) {
+    const { layer, aspect } = row;
+    const label = aspect ? `${layer.label}: ${aspect.label}` : layer.label;
+    const disabled = aspect ? "" : "disabled";
+    const title = aspect
+      ? `Switch to ${lensDomainLabel(aspect)} / ${aspect.label} (${formatRadius(row.radiusM)} study radius)`
+      : "No dedicated map lens is available for this category yet";
+    const before = row.before === null ? "..." : compactNumber(row.before);
+    const after = row.after === null ? "..." : compactNumber(row.after);
+    const change = row.change === null ? "..." : formatSignedNumber(row.change);
+    return `
+      <button class="cross-lens-row" type="button" style="--accent:${escapeAttr(layer.color)}" data-aspect="${escapeAttr(aspect?.id || "")}" data-active="${row.active}" ${disabled} title="${escapeAttr(title)}" aria-label="${escapeAttr(`${label}. ${before} before, ${after} current, change ${change}. ${title}`)}">
+        <span class="cross-lens-name"><i aria-hidden="true"></i><b>${escapeHtml(layer.label)}</b><small>${escapeHtml(aspect?.shortLabel || aspect?.label || "No lens")}</small></span>
+        <span>${escapeHtml(before)}</span>
+        <span>${escapeHtml(after)}</span>
+        <strong data-positive="${row.change !== null && row.change >= 0}">${escapeHtml(change)}</strong>
+      </button>
+    `;
+  }
+
+  function wireCrossLensSnapshot(root) {
+    root?.querySelectorAll(".cross-lens-row[data-aspect]").forEach((button) => {
+      const aspectId = button.getAttribute("data-aspect");
+      if (!aspectId) return;
+      const choose = () => setActiveAspect(aspectId);
+      button.addEventListener("click", choose);
+      addPressHandler(button, choose);
+    });
   }
 
   function renderSourceRow(source) {
@@ -21106,6 +21209,8 @@
     }
     els.changelogPanel?.setAttribute("data-open", String(state.changelogOpen));
     els.changelogToggle?.setAttribute("aria-pressed", String(state.changelogOpen));
+    els.changelogToggle?.setAttribute("aria-expanded", String(state.changelogOpen));
+    els.eventListCollapseBtn?.setAttribute("aria-expanded", String(state.changelogOpen));
     if (state.changelogOpen) renderEventList();
   }
 

@@ -251,7 +251,12 @@ async function assertDesktopCitywideCoverage(page) {
       () => {
         const state = window.BimsAtlas?.state;
         if (!state?.map || state.activeLens === "transport") return true;
-        return state.map.isSourceLoaded?.("lens-detail-overlays") === true;
+        if (!state.map.getSource?.("lens-detail-overlays")) return false;
+        try {
+          return state.map.isSourceLoaded?.("lens-detail-overlays") === true;
+        } catch (_error) {
+          return false;
+        }
       },
       null,
       { timeout: 20000 }
@@ -349,7 +354,15 @@ async function assertDesktopCitywideCoverage(page) {
   await page.waitForFunction(
     () => Number(window.BimsAtlas?.state?.year) === 2010
       && window.BimsAtlas?.state?.activeAspect === "planning-delta"
-      && window.BimsAtlas?.state?.map?.isSourceLoaded?.("lens-detail-overlays") === true
+      && (() => {
+        const map = window.BimsAtlas?.state?.map;
+        if (!map?.getSource?.("lens-detail-overlays")) return false;
+        try {
+          return map.isSourceLoaded?.("lens-detail-overlays") === true;
+        } catch (_error) {
+          return false;
+        }
+      })()
       && document.querySelector("#mapStudyChip")?.dataset.scope === "city",
     null,
     { timeout: 20000 }
@@ -364,7 +377,15 @@ async function assertDesktopCitywideCoverage(page) {
     () => Number(window.BimsAtlas?.state?.year) === 2024
       && window.BimsAtlas?.state?.activeAspect === "planning-delta"
       && Number(window.BimsAtlas?.state?.lensDetailYearLoaded) === 2024
-      && window.BimsAtlas?.state?.map?.isSourceLoaded?.("lens-detail-overlays") === true,
+      && (() => {
+        const map = window.BimsAtlas?.state?.map;
+        if (!map?.getSource?.("lens-detail-overlays")) return false;
+        try {
+          return map.isSourceLoaded?.("lens-detail-overlays") === true;
+        } catch (_error) {
+          return false;
+        }
+      })(),
     null,
     { timeout: 20000 }
   );
@@ -479,7 +500,15 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
       { timeout: 20000 }
     );
     await page.waitForFunction(
-      () => window.BimsAtlas?.state?.map?.isSourceLoaded?.("lens-detail-overlays") === true,
+      () => {
+        const map = window.BimsAtlas?.state?.map;
+        if (!map?.getSource?.("lens-detail-overlays")) return false;
+        try {
+          return map.isSourceLoaded?.("lens-detail-overlays") === true;
+        } catch (_error) {
+          return false;
+        }
+      },
       null,
       { timeout: 20000 }
     );
@@ -502,6 +531,11 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     const state = await atlasState(page);
     const rendered = check.rendered.reduce((sum, field) => sum + Number(state[field] || 0), 0);
     assert(rendered > 0, `city ${cityId}: ${check.label} did not render across the 2024 citywide map.`);
+    const citywidePng = await page.screenshot({
+      path: path.join(outputDir, `paper-atlas-${cityId}-${check.aspect}-citywide.png`),
+      fullPage: false,
+    });
+    assertDetailedPng(citywidePng, assert, `city ${cityId} ${check.aspect} citywide`);
     await assertPannedSourceBackedLensCoverage(page, cityId, check);
   }
 }
@@ -567,12 +601,20 @@ async function assertPannedSourceBackedLensCoverage(page, cityId, check) {
   }, check);
   assert(samples.length > 0, `city ${cityId} ${check.aspect}: no source-backed ${check.featureLayer} samples available for panned coverage.`);
 
-  for (const sample of samples) {
+  for (const [index, sample] of samples.entries()) {
     await page.evaluate((target) => {
       window.BimsAtlas?.state?.map?.jumpTo?.({ center: target.lngLat, zoom: 12.8, pitch: 0, bearing: 0 });
     }, sample);
     await page.waitForFunction(
-      () => window.BimsAtlas?.state?.map?.isSourceLoaded?.("lens-detail-overlays") === true,
+      () => {
+        const map = window.BimsAtlas?.state?.map;
+        if (!map?.getSource?.("lens-detail-overlays")) return false;
+        try {
+          return map.isSourceLoaded?.("lens-detail-overlays") === true;
+        } catch (_error) {
+          return false;
+        }
+      },
       null,
       { timeout: 20000 }
     );
@@ -589,6 +631,10 @@ async function assertPannedSourceBackedLensCoverage(page, cityId, check) {
       }, 0);
     }, check.renderedLayers);
     assert(rendered > 0, `city ${cityId} ${check.aspect}: ${check.label} did not render after panning to ${sample.label}.`);
+    await page.screenshot({
+      path: path.join(outputDir, `paper-atlas-${cityId}-${check.aspect}-pan-${index + 1}.png`),
+      fullPage: false,
+    });
   }
 
   await page.evaluate(() => window.BimsAtlas?.recenterMap?.());

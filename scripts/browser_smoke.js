@@ -190,6 +190,30 @@ async function runSmoke() {
   assert(initial.layersCount === "6/6 on", "All paper-atlas layers should be active on first load.");
   assert(initial.detailOpen && initial.detailTitle.length > 8, "Selected event detail panel did not render.");
   assert(initial.detailLensEvidenceRows === 6 && initial.detailEvidenceButtons > 0, "Detail panel did not render before/after evidence across lenses.");
+  const crossLensSnapshot = await page.evaluate(() => {
+    const rows = [...document.querySelectorAll(".cross-lens-row[data-aspect]")].map((row) => {
+      const values = [...row.querySelectorAll(":scope > span:not(.cross-lens-name), :scope > strong")]
+        .map((cell) => cell.textContent.trim());
+      return {
+        aspect: row.getAttribute("data-aspect"),
+        active: row.getAttribute("data-active") === "true",
+        values,
+        hasCount: values.some((value) => !/^(0|\.\.\.)$/.test(value)),
+      };
+    });
+    return {
+      rowCount: rows.length,
+      nonActiveRowsWithCounts: rows.filter((row) => !row.active && row.hasCount).length,
+      hasPlanningButton: rows.some((row) => row.aspect === "planning-pressure"),
+    };
+  });
+  assert(crossLensSnapshot.rowCount >= 6, "Detail cross-lens source-count card did not render all lens rows.");
+  assert(crossLensSnapshot.nonActiveRowsWithCounts >= 2, "Detail cross-lens source-count card is filtered down to the active lens.");
+  assert(crossLensSnapshot.hasPlanningButton, "Detail cross-lens card did not expose a Planning Activity button.");
+  await page.evaluate(() => document.querySelector(".cross-lens-row[data-aspect='planning-pressure']")?.click());
+  await page.waitForFunction(() => window.BimsAtlas?.state?.activeAspect === "planning-pressure", null, { timeout: 10000 });
+  await page.evaluate(() => window.BimsAtlas?.setActiveAspect?.("transport-speed"));
+  await page.waitForFunction(() => window.BimsAtlas?.state?.activeAspect === "transport-speed", null, { timeout: 10000 });
   assert(initial.welcomeOpen === "false" && initial.welcomeVisibility === "hidden", "Welcome card did not close cleanly.");
   assert(!/CivicReplay|Run Simulation|Scenario Studio|10-year/i.test(initial.bodyText), "Legacy simulator copy is visible.");
 
