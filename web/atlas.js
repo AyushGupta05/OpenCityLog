@@ -1613,7 +1613,7 @@
   }
 
   function preserveCitywideLensCamera() {
-    return Boolean(!state.search && !state.areaFilter && citywideOverviewActive());
+    return Boolean(!state.search && !state.areaFilter && (state.citywideLensMode || citywideOverviewActive()));
   }
 
   function syncCitywideLensModeFromCamera() {
