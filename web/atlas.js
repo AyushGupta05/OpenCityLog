@@ -5182,7 +5182,7 @@
     updatePointLensLayer("lens-utilities-icons", "utilities");
     bindLensInteractionLayers();
 
-    const showTransportRoads = isActiveMapLens("transport") && activeMapLens().id !== "transport-access" && !activeTransportLensYearMissing();
+    const showTransportRoads = isActiveMapLens("transport") && !activeTransportLensYearMissing();
     const showTransportBase = showTransportRoads;
     for (const layerId of ["lens-transport-base-case", "lens-transport-base"]) {
       if (!state.map.getLayer(layerId)) continue;

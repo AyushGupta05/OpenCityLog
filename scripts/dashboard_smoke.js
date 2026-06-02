@@ -315,6 +315,7 @@ async function assertDesktopCitywideCoverage(page) {
       };
       const renderedSourceBackedDetail = (detailLayersByLens[activeLens] || [])
         .reduce((sum, layerId) => sum + renderedLayerCount(layerId), 0);
+      const renderedTransportYearRoads = renderedLayerCount("lens-transport-roads");
       const bounds = atlas?.state?.city?.bounds || [];
       const [west, south, east, north] = bounds.map(Number);
       const cells = new Set();
@@ -332,8 +333,10 @@ async function assertDesktopCitywideCoverage(page) {
         activeLens,
         activeAspect,
         visibleMapContract: Boolean(activeCoverageRow?.visible_map_contract),
+        eventCount: Number(activeCoverageRow?.event_count || 0),
         detailFeatureCount: Number(activeCoverageRow?.detail_feature_count || 0),
         renderedSourceBackedDetail,
+        renderedTransportYearRoads,
         markerCells: cells.size,
         chip: document.querySelector("#mapStudyChipText")?.textContent.trim() || "",
       };
@@ -344,6 +347,9 @@ async function assertDesktopCitywideCoverage(page) {
     assert(citywideState.markerCells >= 3, `desktop citywide ${lens.id}: map markers are clustered too tightly for a citywide view.`);
     if (citywideState.visibleMapContract && citywideState.detailFeatureCount > 0) {
       assert(citywideState.renderedSourceBackedDetail > 0, `desktop citywide ${lens.id}: source-backed lens detail exists but rendered no citywide features.`);
+    }
+    if (citywideState.visibleMapContract && citywideState.activeLens === "transport" && citywideState.eventCount > 0) {
+      assert(citywideState.renderedTransportYearRoads > 0, `desktop citywide ${lens.id}: source-backed transport records exist but rendered no year-specific road features.`);
     }
   }
 
