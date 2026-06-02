@@ -3,6 +3,7 @@ const path = require("path");
 const {
   LENS_DEFINITIONS,
   LENS_SLUGS,
+  eventDirectlyMatchesLensCategory,
   eventMatchesLens,
   licenseNeedsReview,
   sourceHasMinimumLicense,
@@ -108,6 +109,19 @@ function eventSourceIds(event) {
   return event.source_ids || event.sourceIds || [];
 }
 
+function sortedUniqueSourceIds(events) {
+  const sourceIds = new Set();
+  for (const event of events || []) {
+    for (const sourceId of eventSourceIds(event)) sourceIds.add(sourceId);
+  }
+  return [...sourceIds].sort();
+}
+
+function arraysEqual(left = [], right = []) {
+  if (left.length !== right.length) return false;
+  return left.every((value, index) => value === right[index]);
+}
+
 function lensDetailPath(citySummary, cityArtifact, year) {
   const template = citySummary.artifact_paths?.lens_detail_template || cityArtifact.artifact_paths?.lens_detail_template;
   return template ? template.replace("{year}", String(year)) : "";
@@ -125,16 +139,21 @@ function readLensDetail(root, citySummary, cityArtifact, year, cache) {
   return features;
 }
 
-function actualCompatibleEventCount(root, row, eventsIndex, sourceById, eventCache) {
+function compatibleLensEventsForRow(root, row, eventsIndex, sourceById, eventCache) {
   const chunk = (eventsIndex.chunks || []).find((item) => Number(item.year) === Number(row.year));
-  if (!chunk?.json_path || !fs.existsSync(resolve(root, chunk.json_path))) return 0;
+  if (!chunk?.json_path || !fs.existsSync(resolve(root, chunk.json_path))) return [];
   if (!eventCache.has(row.year)) {
     eventCache.set(row.year, readJson(resolve(root, chunk.json_path)).events || []);
   }
   const lens = LENS_BY_SLUG.get(row.lens_slug);
   return (eventCache.get(row.year) || [])
     .filter((event) => eventMatchesLens(event, lens, sourceById) && eventHasCompatibleSources(event, sourceById))
-    .length;
+}
+
+function directCompatibleLensEventsForRow(root, row, eventsIndex, sourceById, eventCache) {
+  const lens = LENS_BY_SLUG.get(row.lens_slug);
+  return compatibleLensEventsForRow(root, row, eventsIndex, sourceById, eventCache)
+    .filter((event) => eventDirectlyMatchesLensCategory(event, lens));
 }
 
 function validateReferenceScreens(root, referenceDir, failures) {
@@ -292,19 +311,32 @@ function validateCoverageRow(failures, root, row, citySummary, cityArtifact, sou
     assert(failures, row.category === lens.category, `${label} category mismatch`);
   }
   assert(failures, row.required_year === true, `${label} must be marked required_year`);
-  assert(failures, row.visible_map_contract === (Number(row.event_count || 0) > 0), `${label} visibility must follow real source-backed event records`);
+  assert(failures, row.visible_map_contract === (Number(row.direct_event_count || 0) > 0), `${label} visibility must follow direct same-category source-backed event records`);
   assert(failures, !/context/i.test(row.status || ""), `${label} must not use generated filler status`);
   assert(failures, row.compatible_event_count === row.event_count, `${label} compatible_event_count must match launched event_count`);
-  assert(failures, row.headline_count_included === row.event_count, `${label} headline_count_included must equal event_count`);
+  assert(failures, row.broad_match_event_count === row.event_count, `${label} broad_match_event_count must preserve event_count semantics`);
+  assert(failures, row.broad_match_compatible_event_count === row.compatible_event_count, `${label} broad_match_compatible_event_count must preserve compatible_event_count semantics`);
+  assert(failures, row.direct_compatible_event_count === row.direct_event_count, `${label} direct_compatible_event_count must match direct_event_count`);
+  assert(failures, Number(row.direct_event_count || 0) <= Number(row.event_count || 0), `${label} direct_event_count must not exceed event_count`);
+  assert(failures, row.headline_count_included === row.direct_event_count, `${label} headline_count_included must equal direct_event_count`);
   assert(failures, Number(row.coverage_context_feature_count || 0) === 0, `${label} must not expose generated filler features`);
   assert(failures, Number(row.headline_count_excluded_context_features || 0) === 0, `${label} must not hide generated context features from headline counts`);
   assert(failures, Array.isArray(row.limitations) && row.limitations.length > 0, `${label} missing limitations`);
   assert(failures, row.exports?.markdown === true && row.exports?.csv === true && row.exports?.geojson === true, `${label} missing required exports`);
 
-  const actualEventCount = actualCompatibleEventCount(root, row, eventsIndex, sourceById, eventCache);
-  assert(failures, row.event_count === actualEventCount, `${label} event_count ${row.event_count} does not match source-backed events ${actualEventCount}`);
+  const actualCompatibleEvents = compatibleLensEventsForRow(root, row, eventsIndex, sourceById, eventCache);
+  const actualDirectCompatibleEvents = directCompatibleLensEventsForRow(root, row, eventsIndex, sourceById, eventCache);
+  const actualBroadSourceIds = sortedUniqueSourceIds(actualCompatibleEvents);
+  const actualDirectSourceIds = sortedUniqueSourceIds(actualDirectCompatibleEvents);
+  assert(failures, row.event_count === actualCompatibleEvents.length, `${label} event_count ${row.event_count} does not match source-backed events ${actualCompatibleEvents.length}`);
+  assert(failures, row.direct_event_count === actualDirectCompatibleEvents.length, `${label} direct_event_count ${row.direct_event_count} does not match direct same-category events ${actualDirectCompatibleEvents.length}`);
 
   const sourceIds = row.source_ids || [];
+  assert(failures, Number(row.broad_match_source_count || 0) === sourceIds.length, `${label} broad_match_source_count must match source_ids length`);
+  assert(failures, arraysEqual(row.broad_match_source_ids || [], sourceIds), `${label} broad_match_source_ids must match source_ids`);
+  assert(failures, arraysEqual(sourceIds.slice().sort(), actualBroadSourceIds), `${label} source_ids must match compatible broad source-backed events`);
+  assert(failures, Number(row.direct_source_count || 0) === (row.direct_source_ids || []).length, `${label} direct_source_count must match direct_source_ids length`);
+  assert(failures, arraysEqual((row.direct_source_ids || []).slice().sort(), actualDirectSourceIds), `${label} direct_source_ids must match direct same-category source-backed events`);
   if (row.event_count > 0) {
     assert(failures, sourceIds.length > 0, `${label} missing source_ids`);
     for (const sourceId of sourceIds) {
@@ -324,8 +356,15 @@ function validateCoverageRow(failures, root, row, citySummary, cityArtifact, sou
     if (artifactPath) assert(failures, fs.existsSync(resolve(root, artifactPath)), `${label} map artifact missing: ${artifactPath}`);
   }
 
+  if (row.direct_event_count > 0) {
+    assert(failures, row.status === "source_backed_records", `${label} with direct records must use source_backed_records status`);
+    return;
+  }
+
   if (row.event_count > 0) {
-    assert(failures, row.status === "source_backed_records", `${label} with records must use source_backed_records status`);
+    assert(failures, row.status === "adjacent_source_backed_records", `${label} with broad-only records must use adjacent_source_backed_records status`);
+    assert(failures, row.visible_map_contract === false, `${label} broad-only records must not be visible as direct map coverage`);
+    assert(failures, /adjacent[- ]evidence/i.test((row.limitations || []).join(" ")), `${label} broad-only row missing adjacent-evidence limitation`);
     return;
   }
 

@@ -157,7 +157,7 @@ The generated lens-year coverage artifacts are:
 - `web/data/city-atlas/cities/london/lens_year_coverage.json`
 - `web/data/city-atlas/cities/nyc/lens_year_coverage.json`
 
-Each city artifact contains 300 rows: 15 mandatory lenses times the required years 2007-2026. A row with `source_backed_records` has compatible same-lens event records for that year and may be visible on the map. A row with `missing_source_backed_view` has `event_count: 0`, `source_count: 0`, and `visible_map_contract: false`; no generated marks, context surfaces, or filler geometry are emitted for that lens/year.
+Each city artifact contains 300 rows: 15 mandatory lenses times the required years 2007-2026. A row with `source_backed_records` has direct same-category event evidence for that lens/year and may be visible on the map. The row also separates `broad_match_*` counts from `direct_*` counts, where `direct_*` means same-category event evidence for that lens. A row with broad matches but `direct_event_count: 0` is labelled `adjacent_source_backed_records`, has `visible_map_contract: false`, and must not be presented as complete direct lens coverage. A row with `missing_source_backed_view` has `event_count: 0`, `source_count: 0`, and `visible_map_contract: false`; no generated marks, context surfaces, or filler geometry are emitted for that lens/year.
 
 Run:
 
@@ -166,7 +166,7 @@ npm run build:lens-contract
 npm run verify:lens-contract
 ```
 
-The verifier fails if a launched city is missing any lens, required 2007-2026 lens-year row, full-city boundary source, licence URL, attribution, compatible source count, freshness, export flag, reference-screen coverage, required year artifact, or basic provenance fields. Same-lens event count may be zero only when the row is explicitly labelled `missing_source_backed_view`, is not visible on the map, has no borrowed context sources, and states that no marks or coverage surfaces are generated.
+The verifier fails if a launched city is missing any lens, required 2007-2026 lens-year row, full-city boundary source, licence URL, attribution, compatible source count, direct/source-count relationship, freshness, export flag, reference-screen coverage, required year artifact, or basic provenance fields. Broad-only event rows must be labelled `adjacent_source_backed_records`, hidden from direct map/headline coverage, and caveated as adjacent evidence. Broad event count may be zero only when the row is explicitly labelled `missing_source_backed_view`, is not visible on the map, has no borrowed context sources, and states that no marks or coverage surfaces are generated.
 
 ## Public Reference Pages
 

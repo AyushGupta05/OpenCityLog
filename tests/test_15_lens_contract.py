@@ -85,7 +85,7 @@ def write_fixture_atlas(atlas: Path, lens_slugs: list[str] = LENS_SLUGS) -> None
         "source_id": "fixture-source",
         "title": "Fixture public source",
         "provider": "Fixture public agency",
-        "source_family": "planning",
+        "source_family": "fixture-records",
         "city_ids": ["fixture"],
         "licence": "Open Government Licence v3.0",
         "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
@@ -283,12 +283,13 @@ def fixture_events_for_year(year: int) -> list[dict]:
     ]
     events = []
     for index, (category, lens) in enumerate(categories):
+        title_category = "retail economy" if category == "economy" else category
         events.append({
             "schema_version": "1.0.0",
             "city_id": "fixture",
             "event_id": f"fixture-{year}-{category}",
-            "title": f"Fixture {category} record {year}",
-            "short_description": f"Fixture source-backed {category} row.",
+            "title": f"Fixture {title_category} record {year}",
+            "short_description": f"Fixture source-backed {title_category} row.",
             "year": year,
             "effective_date": f"{year}-01-01",
             "date_precision": "day",
@@ -339,6 +340,10 @@ def lens_year_coverage_rows(atlas: Path) -> dict:
                 "status": "source_backed_records",
                 "event_count": 1,
                 "compatible_event_count": 1,
+                "broad_match_event_count": 1,
+                "broad_match_compatible_event_count": 1,
+                "direct_event_count": 1,
+                "direct_compatible_event_count": 1,
                 "detail_feature_count": 0,
                 "coverage_context_feature_count": 0,
                 "headline_count_included": 1,
@@ -347,6 +352,10 @@ def lens_year_coverage_rows(atlas: Path) -> dict:
                 "source_count": 1,
                 "source_ids": ["fixture-source"],
                 "compatible_source_ids": ["fixture-source"],
+                "broad_match_source_count": 1,
+                "broad_match_source_ids": ["fixture-source"],
+                "direct_source_count": 1,
+                "direct_source_ids": ["fixture-source"],
                 "evidence_basis": "Fixture source-backed event row.",
                 "map_artifacts": {
                     "events_json": str(atlas / "cities" / "fixture" / f"events_{year}.json"),

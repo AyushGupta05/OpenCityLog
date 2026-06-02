@@ -108,6 +108,35 @@ async function assertMissingSourceOnlyForAspect(page, { year, aspect, patterns =
   }
 }
 
+async function assertAdjacentSourceOnlyForAspect(page, { year, aspect, patterns = [] }) {
+  await page.evaluate(async ({ targetYear, targetAspect }) => {
+    await window.BimsAtlas?.setYear?.(targetYear);
+    await window.BimsAtlas?.setActiveAspect?.(targetAspect);
+  }, { targetYear: year, targetAspect: aspect });
+  await page.waitForFunction(
+    ({ targetYear, targetAspect }) => Number(window.BimsAtlas?.state?.year) === targetYear
+      && window.BimsAtlas?.state?.activeAspect === targetAspect
+      && /broad source-backed|No direct source-backed/i.test(document.querySelector("#lensLegend")?.textContent || ""),
+    { targetYear: year, targetAspect: aspect },
+    { timeout: 20000 }
+  );
+  const state = await atlasState(page);
+  const legendText = state.lensLegendText.replace(/\s+/g, " ");
+  assert(state.lensYearCoverageLoaded && !state.lensYearCoverageError, `Lens-year coverage metadata did not load: ${state.lensYearCoverageError}`);
+  assert(state.lensYearCoverageStatus === "adjacent_source_backed_records", `${aspect} ${year} should be adjacent evidence only, got ${state.lensYearCoverageStatus || "missing"}.`);
+  assert(!state.lensYearCoverageVisible, `${aspect} ${year} must not stay visible without direct same-category records.`);
+  assert(state.lensYearCoverageEventCount > 0, `${aspect} ${year} should retain broad source-backed matches for audit.`);
+  assert(state.lensYearCoverageDirectCount === 0, `${aspect} ${year} should have zero direct same-category records.`);
+  assert(state.lensYearCoverageContextCount === 0, `${aspect} ${year} must not expose generated filler features.`);
+  assert(/^0\b/.test(state.visibleText), `${aspect} ${year} should expose zero visible direct records, got ${state.visibleText}.`);
+  assert(state.eventRows === 0, `${aspect} ${year} should not list broad-only records as visible events.`);
+  assert(/broad source-backed|No direct source-backed/i.test(legendText), `${aspect} ${year} did not expose an adjacent-evidence warning: ${legendText}`);
+  assert(/No direct map marks|No generated marks|no filler geometry/i.test(legendText), `${aspect} ${year} warning did not state that direct/filler geometry is absent: ${legendText}`);
+  for (const pattern of patterns) {
+    assert(pattern.test(legendText), `${aspect} ${year} warning did not match ${pattern}: ${legendText}`);
+  }
+}
+
 async function assertNoGapWarningForAspect(page, year, aspectId) {
   await page.evaluate(async ({ targetYear, targetAspect }) => {
     await window.BimsAtlas?.setYear?.(targetYear);
@@ -164,25 +193,36 @@ async function runSmoke() {
     const aspects = [...document.querySelectorAll(".lens-choice")].map((button) => button.getAttribute("data-aspect")).filter(Boolean);
     const years = Array.from({ length: 20 }, (_, index) => 2007 + index);
       const missing = [];
+      const adjacent = [];
+      const zeroMissing = [];
       const contextRows = [];
+      const visibleWithoutDirect = [];
       for (const aspect of aspects) {
         for (const year of years) {
           const row = state?.lensYearCoverageByKey?.get?.(`${aspect}:${year}`);
           if (!row?.visible_map_contract) missing.push(`${aspect}:${year}:${row?.status || "missing"}`);
+          if (row?.status === "adjacent_source_backed_records") adjacent.push(`${aspect}:${year}`);
+          if (row?.status === "missing_source_backed_view") zeroMissing.push(`${aspect}:${year}`);
           if (/context/i.test(row?.status || "") || Number(row?.coverage_context_feature_count || 0) > 0) contextRows.push(`${aspect}:${year}`);
+          if (row?.visible_map_contract && Number(row?.direct_event_count || 0) <= 0) visibleWithoutDirect.push(`${aspect}:${year}`);
         }
       }
       return {
         aspectCount: aspects.length,
         rowCount: state?.lensYearCoverage?.row_count || state?.lensYearCoverage?.rows?.length || 0,
         missing,
+        adjacent,
+        zeroMissing,
         contextRows,
+        visibleWithoutDirect,
       };
     });
   assert(lensYearAudit.aspectCount === 15, "Lens switcher did not expose the 15 mandatory lens aspects.");
   assert(lensYearAudit.rowCount === 300, `Lens-year coverage should expose 300 city rows, got ${lensYearAudit.rowCount}.`);
   assert(lensYearAudit.contextRows.length === 0, `Lens-year coverage still exposes context filler rows: ${lensYearAudit.contextRows.slice(0, 8).join(", ")}`);
-  assert(lensYearAudit.missing.length === 3, `Belfast should expose exactly the three real missing 2007 transport lens-years, got ${lensYearAudit.missing.slice(0, 8).join(", ")}`);
+  assert(lensYearAudit.visibleWithoutDirect.length === 0, `Lens-year coverage still exposes broad-only rows as visible: ${lensYearAudit.visibleWithoutDirect.slice(0, 8).join(", ")}`);
+  assert(lensYearAudit.zeroMissing.length === 3, `Belfast should expose exactly the three zero-broad 2007 transport lens-years, got ${lensYearAudit.zeroMissing.slice(0, 8).join(", ")}`);
+  assert(lensYearAudit.missing.length === lensYearAudit.zeroMissing.length + lensYearAudit.adjacent.length, `Non-visible lens rows should be zero-broad or adjacent-evidence only, got ${lensYearAudit.missing.slice(0, 8).join(", ")}`);
   assert(/Flow-proxy|Road flow proxy/i.test(initial.lensLegendText), "Transport lens legend did not render the source-derived flow copy.");
   assert(initial.transportRoadVisible, "Transport road lens should be visible while the transport layer is enabled.");
   assert(initial.transportRoadYearLoaded === Number(initial.year), "Transport road lens did not load the current timeline year.");
@@ -458,6 +498,7 @@ async function runSmoke() {
   for (const check of missingWarningChecks) {
     await assertMissingSourceOnlyForAspect(page, check);
   }
+  await assertAdjacentSourceOnlyForAspect(page, { year: 2010, aspect: "civic-access-gaps" });
   await page.evaluate(async () => {
     await window.BimsAtlas?.setYear?.(2024);
     await window.BimsAtlas?.setActiveAspect?.("transport-speed");
@@ -535,11 +576,22 @@ async function runSmoke() {
     null,
     { timeout: 10000 }
   );
+  await page.waitForFunction(
+    () => {
+      const atlas = window.BimsAtlas;
+      for (const [id] of atlas?.state?.markers || []) {
+        if (atlas?.state?.eventById?.get(id)?.category === "transport") return false;
+      }
+      return true;
+    },
+    null,
+    { timeout: 10000 }
+  );
   const afterFilterOff = await atlasState(page);
   assert(afterFilterOff.layersCount === "5/6 on", "Layer click did not update the active layer count.");
   assert(afterFilterOff.transportOn === "false", "Transport layer did not toggle off.");
   assert(!afterFilterOff.transportRoadVisible && /Layer off/i.test(afterFilterOff.lensLegendText), "Layer filter did not hide the transport lens and update the legend.");
-  assert(afterFilterOff.pinCount > 0 && afterFilterOff.transportPinCount === 0, "Transport layer filter did not remove transport map pins.");
+  assert(afterFilterOff.transportPinCount === 0, "Transport layer filter did not remove transport map pins.");
 
   await page.locator(".layer-row[data-layer='transport']").click();
   await page.waitForFunction(

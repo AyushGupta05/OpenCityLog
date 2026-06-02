@@ -1023,9 +1023,11 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 19,
+          "missing_visible_years": [
+            2007
+          ],
+          "source_backed_record_year_count": 19,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
         }
@@ -1300,9 +1302,11 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 19,
+          "missing_visible_years": [
+            2007
+          ],
+          "source_backed_record_year_count": 19,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
         }
@@ -1577,9 +1581,11 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 19,
+          "missing_visible_years": [
+            2007
+          ],
+          "source_backed_record_year_count": 19,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
         }
@@ -2709,9 +2715,30 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 0,
+          "missing_visible_years": [
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "source_backed_record_year_count": 0,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
         }
@@ -2968,9 +2995,14 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 16,
+          "missing_visible_years": [
+            2007,
+            2020,
+            2021,
+            2022
+          ],
+          "source_backed_record_year_count": 16,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
         }
@@ -3227,9 +3259,14 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 16,
+          "missing_visible_years": [
+            2007,
+            2020,
+            2021,
+            2022
+          ],
+          "source_backed_record_year_count": 16,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
         }
@@ -3486,9 +3523,27 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 3,
+          "missing_visible_years": [
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2017,
+            2018,
+            2019,
+            2021,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "source_backed_record_year_count": 3,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
         }
@@ -3763,9 +3818,27 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 3,
+          "missing_visible_years": [
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2017,
+            2018,
+            2019,
+            2021,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "source_backed_record_year_count": 3,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
         }
@@ -4040,9 +4113,27 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 3,
+          "missing_visible_years": [
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2017,
+            2018,
+            2019,
+            2021,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "source_backed_record_year_count": 3,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
         }

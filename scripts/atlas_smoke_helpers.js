@@ -187,6 +187,8 @@ async function atlasState(page) {
       lensYearCoverageError: atlas?.state?.lensYearCoverageError || "",
       lensYearCoverageStatus: activeCoverageRow?.status || "",
       lensYearCoverageEventCount: Number(activeCoverageRow?.event_count || 0),
+      lensYearCoverageBroadCount: Number(activeCoverageRow?.broad_match_event_count || activeCoverageRow?.event_count || 0),
+      lensYearCoverageDirectCount: Number(activeCoverageRow?.direct_event_count || 0),
       lensYearCoverageContextCount: Number(activeCoverageRow?.coverage_context_feature_count || 0),
       lensYearCoverageVisible: Boolean(activeCoverageRow?.visible_map_contract),
       areaFilterValue: document.querySelector("#areaFilterInput")?.value || "",

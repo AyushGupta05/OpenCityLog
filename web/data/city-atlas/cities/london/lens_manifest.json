@@ -1166,9 +1166,15 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 15,
+          "missing_visible_years": [
+            2007,
+            2013,
+            2015,
+            2017,
+            2019
+          ],
+          "source_backed_record_year_count": 15,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -1443,9 +1449,15 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 15,
+          "missing_visible_years": [
+            2007,
+            2013,
+            2015,
+            2017,
+            2019
+          ],
+          "source_backed_record_year_count": 15,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -1720,9 +1732,15 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 15,
+          "missing_visible_years": [
+            2007,
+            2013,
+            2015,
+            2017,
+            2019
+          ],
+          "source_backed_record_year_count": 15,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -2954,9 +2972,30 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 0,
+          "missing_visible_years": [
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "source_backed_record_year_count": 0,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -3215,9 +3254,30 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 0,
+          "missing_visible_years": [
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "source_backed_record_year_count": 0,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -3476,9 +3536,30 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 0,
+          "missing_visible_years": [
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ],
+          "source_backed_record_year_count": 0,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -3737,9 +3818,28 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 2,
+          "missing_visible_years": [
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2025,
+            2026
+          ],
+          "source_backed_record_year_count": 2,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -3998,9 +4098,28 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 2,
+          "missing_visible_years": [
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2025,
+            2026
+          ],
+          "source_backed_record_year_count": 2,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -4259,9 +4378,28 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 20,
-          "missing_visible_years": [],
-          "source_backed_record_year_count": 20,
+          "visible_year_count": 2,
+          "missing_visible_years": [
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2025,
+            2026
+          ],
+          "source_backed_record_year_count": 2,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }

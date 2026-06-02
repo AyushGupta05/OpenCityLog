@@ -1711,9 +1711,11 @@
 
   function renderMarkers() {
     if (!state.map) return;
-    const selected = state.selectedEvent?.lngLat ? state.selectedEvent : null;
     const center = currentMapCenter();
     const eventsForFilters = filteredEvents();
+    const selected = state.selectedEvent?.lngLat && eventsForFilters.some((event) => event.id === state.selectedEvent.id)
+      ? state.selectedEvent
+      : null;
     const citywide = citywideOverviewActive();
     const citywideScope = citywide ? "city" : "study";
     const markerLimit = citywide ? citywideMarkerLimit(activeMapLens()) : MAX_MARKERS;
@@ -5288,6 +5290,8 @@
   function lensDetailFeaturesForCategory(category, year = currentTimelineYear()) {
     const detailLayers = lensDetailLayersForCategory(category);
     if (!detailLayers || !lensDetailYearPath(state.year)) return [];
+    const row = activeLensYearCoverageRow(activeMapLens(), year);
+    if (row && Object.prototype.hasOwnProperty.call(row, "direct_event_count") && row.visible_map_contract === false) return [];
     return (state.lensDetailFeatures || []).filter((feature) => {
       const props = feature.properties || {};
       return detailLayers.has(props.layer)
@@ -5816,6 +5820,8 @@
   function shouldLoadLensDetail() {
     const lens = activeMapLens();
     const category = lens?.category || lens?.layerId || lens?.id;
+    const row = activeLensYearCoverageRow(lens, state.year);
+    if (row && Object.prototype.hasOwnProperty.call(row, "direct_event_count") && row.visible_map_contract === false) return false;
     return Boolean(lens && category !== "transport" && state.activeLayers.has(category));
   }
 
@@ -5937,19 +5943,25 @@
   }
 
   function shouldLoadTransportStops() {
-    return ["transport-speed", "transport-access", "transport-reliability", "civic-access-gaps"].includes(activeMapLens()?.id);
+    return activeLensYearAllowsMapContext() && ["transport-speed", "transport-access", "transport-reliability", "civic-access-gaps"].includes(activeMapLens()?.id);
   }
 
   function shouldLoadEconomyAnchors() {
-    return ["economy-vitality", "economy-gravity"].includes(activeMapLens()?.id) && state.activeLayers.has("economy");
+    return activeLensYearAllowsMapContext() && ["economy-vitality", "economy-gravity"].includes(activeMapLens()?.id) && state.activeLayers.has("economy");
   }
 
   function shouldLoadCivicServiceContext() {
-    return ["civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeMapLens()?.id) && state.activeLayers.has("civic_services");
+    return activeLensYearAllowsMapContext() && ["civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeMapLens()?.id) && state.activeLayers.has("civic_services");
   }
 
   function shouldLoadUtilityNetwork() {
-    return Boolean(activeMapLens()?.id?.startsWith("utilities-") && state.activeLayers.has("utilities"));
+    return Boolean(activeLensYearAllowsMapContext() && activeMapLens()?.id?.startsWith("utilities-") && state.activeLayers.has("utilities"));
+  }
+
+  function activeLensYearAllowsMapContext(lens = activeMapLens(), year = state.year) {
+    const row = activeLensYearCoverageRow(lens, year);
+    if (row && Object.prototype.hasOwnProperty.call(row, "direct_event_count")) return row.visible_map_contract !== false;
+    return true;
   }
 
   function updateCivicServiceFeatureCache(path) {
@@ -14849,7 +14861,7 @@
         events.filter((event) => event.id === state.selectedEventId || event.confidence !== "inferred" || state.showInferred),
         limit,
       );
-      if (state.selectedEvent && state.selectedEvent.category === state.activeLens && events.every((event) => event.id !== state.selectedEvent.id)) {
+      if (selectedEventMatchesCurrentPrimaryLens() && events.every((event) => event.id !== state.selectedEvent.id)) {
         events.unshift(state.selectedEvent);
       }
       return events.slice(0, limit);
@@ -14866,10 +14878,27 @@
       })
       .slice(0, limit)
       .map((item) => item.event);
-    if (state.selectedEvent && state.selectedEvent.category === state.activeLens && events.every((event) => event.id !== state.selectedEvent.id)) {
+    if (selectedEventMatchesCurrentPrimaryLens() && events.every((event) => event.id !== state.selectedEvent.id)) {
       events.unshift(state.selectedEvent);
     }
     return events;
+  }
+
+  function selectedEventMatchesCurrentPrimaryLens() {
+    const event = state.selectedEvent;
+    if (!event?.lngLat || event.year !== state.year || event.category !== state.activeLens) return false;
+    return eventMatchesCurrentPrimarySelection(event);
+  }
+
+  function eventMatchesCurrentPrimarySelection(event) {
+    if (!event || event.year !== state.year) return false;
+    if (!state.activeLayers.has(event.category)) return false;
+    if (!eventMatchesPrimaryLensCoverage(event, activeMapLens(), state.year)) return false;
+    if (!eventMatchesAreaFilter(event)) return false;
+    if (state.confidenceFilter !== "all" && event.confidence !== state.confidenceFilter) return false;
+    if (!state.showInferred && event.confidence === "inferred") return false;
+    if (state.search && !eventMatchesSearchQuery(event, state.search)) return false;
+    return true;
   }
 
   function lensEventsForYear(year) {
@@ -14884,7 +14913,7 @@
     let events = (state.loadedEvents.get(Number(year) || year) || [])
       .filter((event) => event.lngLat)
       .filter((event) => !category || event.category === category)
-      .filter((event) => !lens || eventMatchesActiveLens(event, lens))
+      .filter((event) => !lens || eventMatchesPrimaryLensCoverage(event, lens, year))
       .filter((event) => eventMatchesAreaFilter(event))
       .filter((event) => state.confidenceFilter === "all" || event.confidence === state.confidenceFilter)
       .filter((event) => state.showInferred || event.confidence !== "inferred");
@@ -15534,7 +15563,7 @@
   function visibleEventsForYear(year) {
     const arr = state.loadedEvents.get(year) || [];
     return arr.filter((e) => state.activeLayers.has(e.category))
-      .filter((e) => eventMatchesActiveLens(e))
+      .filter((e) => eventMatchesPrimaryLensCoverage(e, activeMapLens(), year))
       .filter((e) => eventMatchesAreaFilter(e))
       .filter((e) => state.confidenceFilter === "all" || e.confidence === state.confidenceFilter)
       .filter((e) => state.showInferred || e.confidence !== "inferred");
@@ -15557,7 +15586,10 @@
     if (category !== "transport") return false;
     const row = activeLensYearCoverageRow(lens, year);
     if (!row) return false;
-    return row?.status === "missing_source_backed_view" || Number(row?.event_count || 0) <= 0;
+    return row.status === "missing_source_backed_view"
+      || row.status === "adjacent_source_backed_records"
+      || row.visible_map_contract === false
+      || Number(row?.direct_event_count ?? row?.event_count ?? 0) <= 0;
   }
 
   function lensYearCoverageIsContext(row) {
@@ -15570,14 +15602,23 @@
       const label = lens?.label || row.public_label || String(category || "lens").replace(/_/g, " ");
       return `No source-backed ${label} records match ${row.year}. No coverage surface or filler geometry is generated for this lens/year.`;
     }
-    const count = Number(row.compatible_event_count || row.event_count || 0);
-    return `${compactNumber(count)} source-backed ${lens?.label || "lens"} record${count === 1 ? "" : "s"} match ${row.year}; confidence, limitations, sources, licences, and transform notes are in the evidence panel and exports.`;
+    const directCount = Number(row.direct_compatible_event_count ?? row.direct_event_count ?? row.compatible_event_count ?? row.event_count ?? 0);
+    if (row.status === "adjacent_source_backed_records" || row.visible_map_contract === false || directCount <= 0) {
+      const broadCount = Number(row.broad_match_compatible_event_count ?? row.compatible_event_count ?? row.event_count ?? 0);
+      const label = lens?.label || row.public_label || String(category || "lens").replace(/_/g, " ");
+      return `${compactNumber(broadCount)} broad source-backed ${label} match${broadCount === 1 ? "" : "es"} are available for ${row.year}, but none are direct same-category records for this lens/year. No direct map marks, headline counts, coverage surface, or filler geometry are generated.`;
+    }
+    return `${compactNumber(directCount)} direct source-backed ${lens?.label || "lens"} record${directCount === 1 ? "" : "s"} match ${row.year}; broad matches, confidence, limitations, sources, licences, and transform notes are in the evidence panel and exports.`;
   }
 
   function compactLensYearCoverageNote(row = activeLensYearCoverageRow(), lens = activeMapLens(), category = lens?.category || lens?.layerId || state.activeLens) {
     if (row?.status === "missing_source_backed_view" || Number(row?.event_count || 0) <= 0) {
       const label = lens?.label || row?.public_label || String(category || "lens").replace(/_/g, " ");
       return `No ${row?.year || state.year} ${label} records; no filler geometry.`;
+    }
+    if (row?.status === "adjacent_source_backed_records" || row?.visible_map_contract === false || Number(row?.direct_event_count ?? row?.event_count ?? 0) <= 0) {
+      const label = lens?.label || row?.public_label || String(category || "lens").replace(/_/g, " ");
+      return `Broad ${row?.year || state.year} ${label} matches only; no direct records or filler geometry.`;
     }
     return "";
   }
@@ -15602,6 +15643,25 @@
     return Boolean(LENS_GROUP_PATTERNS[group]?.test(haystack));
   }
 
+  function eventMatchesDirectLensCategory(event, lens = activeMapLens()) {
+    if (!event || !lens) return false;
+    const category = lens.category || lens.layerId || state.activeLens;
+    if (!category || event.category !== category) return false;
+    if (lens.id === "economy-land-use") return economyLandUseSpecificEvent(event);
+    return true;
+  }
+
+  function eventMatchesPrimaryLensCoverage(event, lens = activeMapLens(), year = state.year) {
+    const row = activeLensYearCoverageRow(lens, year);
+    if (row && Object.prototype.hasOwnProperty.call(row, "direct_event_count")) {
+      return row.visible_map_contract !== false
+        && Number(row.direct_event_count || 0) > 0
+        && eventHasCompatibleSources(event)
+        && eventMatchesDirectLensCategory(event, lens);
+    }
+    return eventMatchesActiveLens(event, lens);
+  }
+
   function lensGroup(lens = activeMapLens()) {
     const contract = activeLensContractRow(lens);
     return contract?.group || LENS_GROUP_BY_CATEGORY[lens?.category || lens?.layerId || state.activeLens] || "";
@@ -15620,6 +15680,31 @@
         ].filter(Boolean).join(" ");
       })
       .join(" ");
+  }
+
+  function sourceNeedsReview(source) {
+    const text = [
+      source?.licence,
+      source?.license,
+      source?.licence_url,
+      source?.license_url,
+      source?.caveats && source.caveats.join(" "),
+    ].filter(Boolean).join(" ");
+    return /requires source-level review|not specified|pending|verify before redistribution|terms vary|review-required|unclear/i.test(text);
+  }
+
+  function sourceHasMinimumLicense(source) {
+    return Boolean(
+      source
+        && (source.licence || source.license)
+        && (source.licence_url || source.license_url)
+        && source.attribution_text,
+    );
+  }
+
+  function eventHasCompatibleSources(event) {
+    const sources = (event?.sourceIds || []).map((sourceId) => state.sourceById.get(sourceId));
+    return sources.length > 0 && sources.every((source) => sourceHasMinimumLicense(source) && !sourceNeedsReview(source));
   }
 
   function filteredEvents() {
@@ -15825,14 +15910,39 @@
       ? `${yearContract.required_years.start}-${yearContract.required_years.end}`
       : "2007-2026";
     const visibleYears = Number(yearContract.visible_year_count || 0);
+    const directCoverage = directLensCoverageSummary(lens, coverage);
+    const broadOnlyCount = Math.max(0, directCoverage.broadEventCount - directCoverage.eventCount);
     els.lensAspectSwitcher.innerHTML = `
       <div class="lens-contract-strip" role="status">
-        <span><strong>${escapeHtml(compactNumber(coverage.compatible_event_count || coverage.event_count || 0))}</strong> source-backed records</span>
-        <span><strong>${escapeHtml(compactNumber(coverage.compatible_source_count || coverage.source_count || 0))}</strong> compatible sources</span>
+        <span><strong>${escapeHtml(compactNumber(directCoverage.eventCount))}</strong> direct records</span>
+        <span><strong>${escapeHtml(compactNumber(directCoverage.sourceCount))}</strong> direct sources</span>
+        ${broadOnlyCount ? `<span><strong>${escapeHtml(compactNumber(broadOnlyCount))}</strong> broad-only matches</span>` : ""}
         <span><strong>${escapeHtml(compactNumber(visibleYears))}</strong> visible years ${escapeHtml(requiredYears)}</span>
         <span>${escapeHtml(yearRange)}</span>
       </div>
     `;
+  }
+
+  function directLensCoverageSummary(lens, fallbackCoverage = {}) {
+    const rows = Array.isArray(state.lensYearCoverage?.rows)
+      ? state.lensYearCoverage.rows.filter((row) => row.lens_slug === lens?.id)
+      : [];
+    if (!rows.length) {
+      return {
+        eventCount: Number(fallbackCoverage.compatible_event_count || fallbackCoverage.event_count || 0),
+        broadEventCount: Number(fallbackCoverage.compatible_event_count || fallbackCoverage.event_count || 0),
+        sourceCount: Number(fallbackCoverage.compatible_source_count || fallbackCoverage.source_count || 0),
+      };
+    }
+    const sourceIds = new Set();
+    let eventCount = 0;
+    let broadEventCount = 0;
+    for (const row of rows) {
+      eventCount += Number(row.direct_compatible_event_count ?? row.direct_event_count ?? 0);
+      broadEventCount += Number(row.broad_match_compatible_event_count ?? row.compatible_event_count ?? row.event_count ?? 0);
+      for (const sourceId of row.direct_source_ids || []) sourceIds.add(sourceId);
+    }
+    return { eventCount, broadEventCount, sourceCount: sourceIds.size };
   }
 
   function renderLensLegend() {
@@ -16409,7 +16519,10 @@
       };
     }
     if (category === "transport") {
-      const missingTransportNote = (yearCoverage?.status === "missing_source_backed_view" || Number(yearCoverage?.event_count || 0) <= 0)
+      const missingTransportNote = (yearCoverage?.status === "missing_source_backed_view"
+        || yearCoverage?.status === "adjacent_source_backed_records"
+        || yearCoverage?.visible_map_contract === false
+        || Number(yearCoverage?.direct_event_count ?? yearCoverage?.event_count ?? 0) <= 0)
         ? lensYearCoverageNote(yearCoverage, lens, category)
         : lens.empty;
       if (!transportRoadYearPath(state.year)) return { label: "No linework", empty: true, note: missingTransportNote };
@@ -16557,7 +16670,10 @@
       utilities: "utility",
       transport: "transport",
     }[category] || String(category || "lens").replace(/_/g, " ");
-    const directCount = lensEvidenceEventsForYear(lens, category, year).length;
+    const contractDirectCount = Number(row?.direct_event_count);
+    const directCount = Number.isFinite(contractDirectCount)
+      ? contractDirectCount
+      : lensEvidenceEventsForYear(lens, category, year).length;
     const compatibleCount = Number(row?.compatible_event_count || row?.event_count || 0);
     const broadOnly = compatibleCount > directCount && directCount === 0
       ? ` Coverage metadata has ${compactNumber(compatibleCount)} broad lens match${compatibleCount === 1 ? "" : "es"}, but none are direct ${label} records for this lens/year.`
@@ -16585,6 +16701,8 @@
     if (!lens) return false;
     const category = lens.category || lens.layerId || state.activeLens;
     if (!category || category === "transport") return false;
+    const row = activeLensYearCoverageRow(lens, year);
+    if (row?.status === "adjacent_source_backed_records" || (row?.visible_map_contract === false && Number(row?.event_count || 0) > 0 && Number(row?.direct_event_count || 0) <= 0)) return true;
     if (Number(year) === currentTimelineYear() && lensDetailFeaturesCoverCategory(category)) return false;
     return lensEvidenceEventsForYear(lens, category, year).length === 0;
   }
@@ -20836,7 +20954,7 @@
     const loaded = state.loadedEvents.get(year);
     if (loaded) {
       return loaded
-        .filter((event) => state.activeLayers.has(event.category) && eventMatchesActiveLens(event))
+        .filter((event) => state.activeLayers.has(event.category) && eventMatchesPrimaryLensCoverage(event, activeMapLens(), year))
         .filter((event) => eventMatchesAreaFilter(event))
         .length;
     }
@@ -20937,15 +21055,26 @@
       if (!opts.silent) toast("Event not found in the current year");
       return;
     }
+    if (event.year !== state.year) {
+      await setYear(event.year);
+    }
+    if (!eventMatchesCurrentPrimarySelection(event)) {
+      state.selectedEventId = null;
+      state.selectedEvent = null;
+      els.detailPanel?.setAttribute("data-open", "false");
+      if (!opts.silent) toast("Event is outside the active direct lens coverage");
+      renderDetail();
+      renderEventList();
+      renderMarkers();
+      syncTopline();
+      return;
+    }
     const shouldFocusCamera = !opts.keepCamera && event.lngLat;
     if (shouldFocusCamera) state.citywideLensMode = false;
     state.selectedEventId = event.id;
     state.selectedEvent = event;
     els.detailPanel?.setAttribute("data-open", "true");
     if (isMobileViewport()) setChangelogOpen(false);
-    if (event.year !== state.year) {
-      await setYear(event.year);
-    }
     renderDetail();
     renderMapStudyChip();
     renderEventList();
@@ -21115,16 +21244,14 @@
     const category = lens?.category || lens?.layerId || state.activeLens;
     if (!category || !state.loadedEvents.has(state.year)) return;
     const events = visibleEventsForYear(state.year);
-    if (state.selectedEvent?.year === state.year && state.selectedEvent.lngLat) {
-      if (state.selectedEvent.category === category) return;
-      const nearbySameCategory = events.some((event) => event.category === category
-        && event.lngLat
-        && lngLatDistanceMeters(state.selectedEvent.lngLat, event.lngLat) <= lensEffectiveRadiusM(lens) * 1.55);
-      if (nearbySameCategory) return;
-    }
+    if (state.selectedEvent?.year === state.year && events.some((event) => event.id === state.selectedEvent.id)) return;
     const next = events.find((event) => event.category === category && event.confidence === "documented" && event.lngLat)
       || events.find((event) => event.category === category && event.lngLat);
-    if (!next) return;
+    if (!next) {
+      state.selectedEventId = null;
+      state.selectedEvent = null;
+      return;
+    }
     state.selectedEventId = next.id;
     state.selectedEvent = next;
   }

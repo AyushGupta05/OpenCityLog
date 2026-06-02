@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const {
   LENS_DEFINITIONS,
+  eventDirectlyMatchesLensCategory,
   eventMatchesLens,
   licenseNeedsReview,
   sourceHasMinimumLicense,
@@ -292,8 +293,9 @@ function detailCountsForLens(root, city, lens, year, cache, sourceById) {
   };
 }
 
-function yearCoverageStatus(eventCount, detailCounts) {
-  if (eventCount > 0) return "source_backed_records";
+function yearCoverageStatus(broadEventCount, directEventCount) {
+  if (directEventCount > 0) return "source_backed_records";
+  if (broadEventCount > 0) return "adjacent_source_backed_records";
   return "missing_source_backed_view";
 }
 
@@ -305,7 +307,14 @@ function rowLimitations(status, lens, year) {
   if (status === "source_backed_records") {
     return [
       ...common,
-      "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse.",
+      "Direct map marks and headline counts use same-category event geometry and derived lens-detail geometry where available; inspect evidence before reuse.",
+    ];
+  }
+  if (status === "adjacent_source_backed_records") {
+    return [
+      ...common,
+      `Broad source-backed ${lens.label} lens matches are available for ${year}, but no direct same-category ${lens.category} records are currently ingested.`,
+      "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review.",
     ];
   }
   return [
@@ -326,15 +335,24 @@ function buildLensYearCoverage(root, citySummary, city, eventsIndex, events, sou
       const compatibleEvents = yearEvents.filter((event) => (
         eventMatchesLens(event, lens, sourceById) && eventHasCompatibleSources(event, sourceById)
       ));
+      const directCompatibleEvents = compatibleEvents.filter((event) => eventDirectlyMatchesLensCategory(event, lens));
       const confidenceCounts = {};
       const eventSourceIds = new Set();
       for (const event of compatibleEvents) {
         confidenceCounts[event.confidence] = (confidenceCounts[event.confidence] || 0) + 1;
         for (const sourceId of event.source_ids || []) eventSourceIds.add(sourceId);
       }
-      const detailCounts = detailCountsForLens(root, city, lens, year, detailCache, sourceById);
-      const status = yearCoverageStatus(compatibleEvents.length, detailCounts);
+      const directSourceIds = new Set();
+      for (const event of directCompatibleEvents) {
+        for (const sourceId of event.source_ids || []) directSourceIds.add(sourceId);
+      }
+      const rawDetailCounts = detailCountsForLens(root, city, lens, year, detailCache, sourceById);
+      const status = yearCoverageStatus(compatibleEvents.length, directCompatibleEvents.length);
+      const detailCounts = directCompatibleEvents.length
+        ? rawDetailCounts
+        : { detail_feature_count: 0, coverage_context_feature_count: 0, source_ids: [] };
       const sourceIds = compatibleEvents.length ? [...eventSourceIds].sort() : [];
+      const directSourceList = directCompatibleEvents.length ? [...directSourceIds].sort() : [];
       rows.push({
         city_id: citySummary.city_id,
         display_name: city.display_name,
@@ -344,20 +362,28 @@ function buildLensYearCoverage(root, citySummary, city, eventsIndex, events, sou
         category: lens.category,
         year,
         required_year: true,
-        visible_map_contract: status === "source_backed_records",
+        visible_map_contract: directCompatibleEvents.length > 0,
         status,
         event_count: compatibleEvents.length,
         compatible_event_count: compatibleEvents.length,
+        broad_match_event_count: compatibleEvents.length,
+        broad_match_compatible_event_count: compatibleEvents.length,
+        direct_event_count: directCompatibleEvents.length,
+        direct_compatible_event_count: directCompatibleEvents.length,
         detail_feature_count: detailCounts.detail_feature_count,
         coverage_context_feature_count: detailCounts.coverage_context_feature_count,
-        headline_count_included: compatibleEvents.length,
+        headline_count_included: directCompatibleEvents.length,
         headline_count_excluded_context_features: detailCounts.coverage_context_feature_count,
         confidence_counts: confidenceCounts,
         source_count: sourceIds.length,
         source_ids: sourceIds,
         compatible_source_ids: sourceIds,
+        broad_match_source_count: sourceIds.length,
+        broad_match_source_ids: sourceIds,
+        direct_source_count: directSourceList.length,
+        direct_source_ids: directSourceList,
         evidence_basis: compatibleEvents.length
-          ? `Source-backed ${lens.label} event rows in web/data/city-atlas/cities/${citySummary.city_id}/events_${year}.json matched by lib/atlas-lenses.js#eventMatchesLens.`
+          ? `Source-backed ${lens.label} event rows in web/data/city-atlas/cities/${citySummary.city_id}/events_${year}.json matched by lib/atlas-lenses.js#eventMatchesLens; ${directCompatibleEvents.length} direct same-category ${lens.category} row(s) matched.`
           : `No same-lens source-backed event rows matched for ${year}; no generated filler geometry is emitted.`,
         map_artifacts: {
           events_json: `web/data/city-atlas/cities/${citySummary.city_id}/events_${year}.json`,

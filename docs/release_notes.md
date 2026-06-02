@@ -35,6 +35,10 @@
   methodology anchors, and export capability flags.
 - Lens-year coverage artifacts enforce the mandatory 15 lenses across every
   year from 2007 through 2026.
+- Broad lens matches are separated from direct same-category evidence through
+  `broad_match_*` and `direct_*` fields. Broad-only rows use
+  `adjacent_source_backed_records` and stay hidden from direct map/headline
+  coverage.
 - Zero-event lens-years are labelled `missing_source_backed_view` with
   `event_count: 0`, `source_count: 0`, and no generated map marks, context
   surfaces, or filler geometry.

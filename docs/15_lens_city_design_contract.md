@@ -54,6 +54,8 @@ Every launched city must also expose contract metadata for every mandatory lens 
 - No generated marks, context surfaces, or filler geometry are emitted.
 - The map, timeline, legend, list state, evidence text, and exports must state that the year has no source-backed event records for that lens.
 
+When broad source-backed lens matching admits adjacent evidence, the artifact must also expose `direct_event_count`, `direct_compatible_event_count`, `direct_source_count`, and `direct_source_ids`. Direct counts mean same-category event rows for the lens. Broad matches with `direct_event_count: 0` must use `adjacent_source_backed_records`, keep `visible_map_contract: false`, keep direct headline counts at zero, and be shown only with an explicit adjacent-evidence caveat.
+
 ## Visual Grammar
 
 The 15 reference screenshots define the shared grammar:
