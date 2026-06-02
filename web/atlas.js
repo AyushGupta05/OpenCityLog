@@ -1715,8 +1715,13 @@
     const center = currentMapCenter();
     const eventsForFilters = filteredEvents();
     const citywide = citywideOverviewActive();
+    const citywideScope = citywide ? "city" : "study";
+    const markerLimit = citywide ? citywideMarkerLimit(activeMapLens()) : MAX_MARKERS;
+    const localCitywideLimit = Math.max(16, Math.floor(markerLimit * 0.46));
+    const activeCitywideLimit = Math.max(14, Math.floor(markerLimit * 0.5));
+    const scopedCitywideLimit = Math.max(10, Math.floor(markerLimit * 0.52));
     const localVisibleEvents = citywide
-      ? stratifiedCityEvents(eventsForFilters.filter((event) => event.lngLat && event.confidence !== "inferred"), Math.max(24, Math.floor(MAX_MARKERS / 2)))
+      ? stratifiedCityEvents(eventsForFilters.filter((event) => event.lngLat && event.confidence !== "inferred"), localCitywideLimit)
       : eventsForFilters
       .filter((event) => event.lngLat && event.confidence !== "inferred")
       .map((event) => ({ event, distance: lngLatDistanceMeters(center, event.lngLat) }))
@@ -1724,12 +1729,14 @@
       .slice(0, 18)
       .map((item) => item.event);
     const leadingActiveEvents = citywide
-      ? stratifiedCityEvents(eventsForFilters.filter((event) => event.lngLat && event.category === state.activeLens && event.confidence !== "inferred"), Math.max(18, Math.floor(MAX_MARKERS / 3)))
+      ? stratifiedCityEvents(eventsForFilters.filter((event) => event.lngLat && event.category === state.activeLens && event.confidence !== "inferred"), activeCitywideLimit)
       : eventsForFilters
       .filter((event) => event.lngLat && event.category === state.activeLens && event.confidence !== "inferred")
       .slice(0, Math.max(12, Math.floor(MAX_MARKERS / 3)));
     const scopedEvents = POINT_LENS_IDS.has(state.activeLens)
-      ? lensPointEventsForActiveLens()
+      ? citywide
+        ? stratifiedCityEvents(lensPointEventsForActiveLens().filter((event) => event.lngLat), scopedCitywideLimit)
+        : lensPointEventsForActiveLens()
       : eventsForFilters.filter((event) => event.lngLat);
     const guideDominantAspect = ["civic-access-gaps", "civic-catchment", "civic-demand", "economy-vitality", "economy-gravity", "utilities-capacity"].includes(activeMapLens()?.id);
     const markerCandidates = selected && guideDominantAspect && !citywide
@@ -1744,7 +1751,7 @@
         seenMarkerIds.add(event.id);
         return true;
       })
-      .slice(0, MAX_MARKERS);
+      .slice(0, markerLimit);
     const eventIds = new Set(events.map((e) => e.id));
 
     // Remove markers that are no longer visible
@@ -1763,11 +1770,13 @@
         el.style.zIndex = markerZIndex(event);
         el.dataset.active = String(event.id === state.selectedEventId);
         el.dataset.eventId = event.id;
+        el.dataset.scope = citywideScope;
         const pin = el.querySelector(".pin");
         if (pin) {
           pin.style.setProperty("--accent", markerAccent(event));
           pin.dataset.lens = markerLensToken(event);
           pin.dataset.eventId = event.id;
+          pin.dataset.scope = citywideScope;
         }
         pin?.setAttribute("data-active", String(event.id === state.selectedEventId));
         pin?.setAttribute("aria-pressed", String(event.id === state.selectedEventId));
@@ -1781,8 +1790,9 @@
       el.style.zIndex = markerZIndex(event);
       el.dataset.active = String(event.id === state.selectedEventId);
       el.dataset.eventId = event.id;
+      el.dataset.scope = citywideScope;
       el.innerHTML = `
-        <div class="pin" data-active="${event.id === state.selectedEventId}" data-event-id="${escapeAttr(event.id)}" data-lens="${escapeAttr(markerLensToken(event))}" style="--accent:${escapeAttr(markerAccent(event, layer))}" role="button" tabindex="0" aria-pressed="${event.id === state.selectedEventId}" aria-label="${escapeAttr(`${event.title}, ${event.year}`)}">
+        <div class="pin" data-active="${event.id === state.selectedEventId}" data-event-id="${escapeAttr(event.id)}" data-lens="${escapeAttr(markerLensToken(event))}" data-scope="${citywideScope}" style="--accent:${escapeAttr(markerAccent(event, layer))}" role="button" tabindex="0" aria-pressed="${event.id === state.selectedEventId}" aria-label="${escapeAttr(`${event.title}, ${event.year}`)}">
           <div class="pin-label">${escapeHtml(truncate(event.title, 60))} · ${event.year}</div>
         </div>`;
       const selectMarker = (domEvent) => {
@@ -1798,6 +1808,16 @@
         .addTo(state.map);
       state.markers.set(event.id, marker);
     }
+  }
+
+  function citywideMarkerLimit(lens = activeMapLens()) {
+    const id = lens?.id || "";
+    if (id.startsWith("transport-")) return 68;
+    if (id.startsWith("planning-")) return 58;
+    if (id.startsWith("civic-")) return 48;
+    if (id.startsWith("economy-")) return 48;
+    if (id.startsWith("utilities-")) return 42;
+    return 54;
   }
 
   function markerZIndex(event) {
@@ -2783,9 +2803,9 @@
     addLensGuideLayers();
     addTransportEventLensLayers();
     addPointLensLayer("lens-built-site-icons", "built_environment", "lens-icon-built", 9.6, 0.72, false, 13.2);
-    addPointLensLayer("lens-civic-icons", "civic_services", "lens-icon-civic", 10.2, 0.78, true);
-    addPointLensLayer("lens-economy-icons", "economy", "lens-icon-economy", 9.8, 0.76, true);
-    addPointLensLayer("lens-utilities-icons", "utilities", "lens-icon-utilities", 10.6, 0.78, true);
+    addPointLensLayer("lens-civic-icons", "civic_services", "lens-icon-civic", 10.2, 0.78, true, 7.4);
+    addPointLensLayer("lens-economy-icons", "economy", "lens-icon-economy", 9.8, 0.76, true, 7.4);
+    addPointLensLayer("lens-utilities-icons", "utilities", "lens-icon-utilities", 10.6, 0.78, true, 7.4);
     bindLensInteractionLayers();
 
     if (
@@ -4429,9 +4449,10 @@
     ];
     return [
       "interpolate", ["linear"], ["zoom"],
-      5.5, ["*", 1.45, featureOpacity],
-      9, ["*", 1.12, featureOpacity],
-      13, featureOpacity,
+      5.5, ["min", 0.82, ["*", 1.72, featureOpacity]],
+      8.8, ["min", 0.78, ["*", 1.36, featureOpacity]],
+      11.5, ["min", 0.72, ["*", 1.12, featureOpacity]],
+      13, ["min", 0.7, featureOpacity],
     ];
   }
 
@@ -4444,9 +4465,10 @@
     ];
     return [
       "interpolate", ["linear"], ["zoom"],
-      5.5, ["*", 1.6, featureOpacity],
-      9, ["*", 1.18, featureOpacity],
-      13, featureOpacity,
+      5.5, ["min", 0.96, ["*", 1.95, featureOpacity]],
+      8.8, ["min", 0.94, ["*", 1.48, featureOpacity]],
+      11.5, ["min", 0.92, ["*", 1.16, featureOpacity]],
+      13, ["min", 0.9, featureOpacity],
     ];
   }
 
@@ -5175,11 +5197,8 @@
     updateLensDetailLayers();
     updateUtilityNetworkLayers();
     updateLensGuideLayers();
-    updatePointLensLayer("lens-built-site-icons", "built_environment");
+    refreshPointLensLayerVisibility();
     updateTransportEventLensLayers();
-    updatePointLensLayer("lens-civic-icons", "civic_services");
-    updatePointLensLayer("lens-economy-icons", "economy");
-    updatePointLensLayer("lens-utilities-icons", "utilities");
     bindLensInteractionLayers();
 
     const showTransportRoads = isActiveMapLens("transport") && !activeTransportLensYearMissing();
@@ -5223,12 +5242,84 @@
     }
   }
 
+  function refreshPointLensLayerVisibility() {
+    updatePointLensLayer("lens-built-site-icons", "built_environment");
+    updatePointLensLayer("lens-civic-icons", "civic_services");
+    updatePointLensLayer("lens-economy-icons", "economy");
+    updatePointLensLayer("lens-utilities-icons", "utilities");
+  }
+
   function updatePointLensLayer(layerId, category) {
     if (!state.map?.getLayer(layerId)) return;
-    state.map.setFilter(layerId, lensCategoryFilter(category));
-    const detailBacked = category !== "built_environment" && Boolean(lensDetailYearPath(state.year));
+    state.map.setFilter(layerId, lensPointCategoryFilter(category));
+    const detailBacked = category !== "built_environment" && lensDetailFeaturesCoverCategory(category);
     const hiddenByAspect = category === "built_environment" && activeMapLens().id === "planning-pressure";
-    state.map.setLayoutProperty(layerId, "visibility", isActiveMapLens(category) && !detailBacked && !hiddenByAspect ? "visible" : "none");
+    const hasDirectEvidence = lensPointLayerHasDirectEvidence(category);
+    state.map.setLayoutProperty(layerId, "visibility", isActiveMapLens(category) && hasDirectEvidence && !detailBacked && !hiddenByAspect ? "visible" : "none");
+  }
+
+  function lensPointLayerHasDirectEvidence(category) {
+    return lensEvidenceEventsForYear(activeMapLens(), category, state.year).some((event) => event.lngLat);
+  }
+
+  function lensPointCategoryFilter(category) {
+    const baseFilter = lensCategoryFilter(category);
+    const lens = activeMapLens();
+    if (lens?.id !== "economy-land-use") return baseFilter;
+    const eventIds = lensEvidenceEventsForYear(lens, category, state.year)
+      .filter((event) => event.lngLat)
+      .map((event) => event.id);
+    if (!eventIds.length) return ["all", baseFilter, ["==", ["get", "event_id"], "__none__"]];
+    return ["all", baseFilter, ["match", ["get", "event_id"], eventIds, true, false]];
+  }
+
+  function lensDetailFeaturesCoverCategory(category) {
+    return lensDetailFeaturesForCategory(category).length > 0;
+  }
+
+  function lensDetailLayersForCategory(category) {
+    return {
+      civic_services: new Set(["civic_coverage_cell", "civic_facility"]),
+      economy: new Set(["economy_activity_cell", "economy_frontage"]),
+      utilities: new Set(["utility_trace", "utility_asset"]),
+    }[category] || null;
+  }
+
+  function lensDetailFeaturesForCategory(category, year = currentTimelineYear()) {
+    const detailLayers = lensDetailLayersForCategory(category);
+    if (!detailLayers || !lensDetailYearPath(state.year)) return [];
+    return (state.lensDetailFeatures || []).filter((feature) => {
+      const props = feature.properties || {};
+      return detailLayers.has(props.layer)
+        && Number(props.year || 0) === year
+        && lensDetailFeaturePassesActiveFilters(feature);
+    });
+  }
+
+  function lensDetailFeaturePassesActiveFilters(feature) {
+    const props = feature?.properties || {};
+    if (!lensDetailFeatureMatchesArea(feature)) return false;
+    if (state.confidenceFilter !== "all" && props.confidence !== state.confidenceFilter) return false;
+    if (!state.showInferred && props.confidence === "inferred") return false;
+    return true;
+  }
+
+  function lensDetailRecordCountForCategory(category, year = currentTimelineYear()) {
+    const ids = new Set();
+    let fallbackCount = 0;
+    for (const feature of lensDetailFeaturesForCategory(category, year)) {
+      const props = feature.properties || {};
+      const eventIds = String(props.event_ids_all || props.event_ids || "")
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean);
+      if (eventIds.length) {
+        eventIds.forEach((id) => ids.add(id));
+      } else {
+        fallbackCount += Math.max(1, Number(props.event_count || 1));
+      }
+    }
+    return ids.size || fallbackCount;
   }
 
   function updateLensDetailLayers() {
@@ -5275,16 +5366,16 @@
     }
     setLayerPaintIfPresent("lens-planning-cells-fill", "fill-color", planningCellColorExpression());
     setLayerPaintIfPresent("lens-planning-cells-outline", "line-color", planningCellColorExpression());
-    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.006, 0.04) : aspect.id === "planning-delta" ? lensDetailFillOpacity(0.018, 0.13) : aspect.id === "planning-parcels" ? lensDetailFillOpacity(0.006, 0.032) : lensDetailFillOpacity(0.18, 0.58));
-    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.018, 0.085) : aspect.id === "planning-delta" ? lensDetailLineOpacity(0.045, 0.18) : aspect.id === "planning-parcels" ? lensDetailLineOpacity(0.035, 0.12) : lensDetailLineOpacity(0.28, 0.82));
+    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.035, 0.18) : aspect.id === "planning-delta" ? lensDetailFillOpacity(0.03, 0.16) : aspect.id === "planning-parcels" ? lensDetailFillOpacity(0.024, 0.12) : lensDetailFillOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.12, 0.36) : aspect.id === "planning-delta" ? lensDetailLineOpacity(0.08, 0.32) : aspect.id === "planning-parcels" ? lensDetailLineOpacity(0.07, 0.24) : lensDetailLineOpacity(0.28, 0.82));
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-color", civicCellColorExpression());
-    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.05, 0.2) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.03, 0.12) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.02, 0.1) : lensDetailFillOpacity(0.16, 0.5));
-    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.08, 0.26) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.04, 0.12) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.04, 0.14) : lensDetailLineOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.08, 0.28) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.06, 0.22) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.045, 0.18) : lensDetailFillOpacity(0.16, 0.5));
+    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.11, 0.34) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.07, 0.2) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.07, 0.22) : lensDetailLineOpacity(0.18, 0.58));
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-outline", "line-color", economyCellColorExpression());
-    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.015, 0.065) : lensDetailFillOpacity(0.04, 0.16));
-    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.025, 0.12) : lensDetailLineOpacity(0.06, 0.28));
+    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.04, 0.16) : lensDetailFillOpacity(0.08, 0.26));
+    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.08, 0.26) : lensDetailLineOpacity(0.1, 0.34));
     setLayerPaintIfPresent("lens-economy-frontage", "line-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-frontage-case", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.42, 0.78) : lensDetailLineOpacity(0.24, 0.58));
     setLayerPaintIfPresent("lens-economy-frontage", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.72, 1) : lensDetailLineOpacity(0.36, 0.92));
@@ -6062,6 +6153,9 @@
     if (!path) {
       state.lensDetailFeaturePathLoaded = null;
       state.lensDetailFeatures = [];
+      updateLensDetailLayers();
+      refreshPointLensLayerVisibility();
+      refreshLensDetailDependentUi();
       updateLensGuideSource();
       renderLayers();
       renderLensLegend();
@@ -6069,6 +6163,9 @@
     }
     if (state.lensDetailFeaturePathLoaded === path) {
       refreshLensDetailYearSourceFromCache();
+      updateLensDetailLayers();
+      refreshPointLensLayerVisibility();
+      refreshLensDetailDependentUi();
       return;
     }
     state.lensDetailFeaturePathLoaded = path;
@@ -6082,6 +6179,9 @@
         if (state.lensDetailFeaturePathLoaded !== path) return;
         state.lensDetailFeatures = Array.isArray(payload.features) ? payload.features.filter((feature) => feature.geometry) : [];
         refreshLensDetailYearSourceFromCache();
+        updateLensDetailLayers();
+        refreshPointLensLayerVisibility();
+        refreshLensDetailDependentUi();
         updateLensGuideSource();
         renderLayers();
         renderLensLegend();
@@ -6091,11 +6191,19 @@
         if (state.lensDetailFeaturePathLoaded !== path) return;
         state.lensDetailFeatures = [];
         refreshLensDetailYearSourceFromCache();
+        updateLensDetailLayers();
+        refreshPointLensLayerVisibility();
+        refreshLensDetailDependentUi();
         console.warn("[atlas] lens detail cache unavailable", error);
         updateLensGuideSource();
         renderLayers();
         renderLensLegend();
       });
+  }
+
+  function refreshLensDetailDependentUi() {
+    renderActiveLensHeader();
+    renderCoverageNote();
   }
 
   function refreshLensDetailYearSourceFromCache() {
@@ -16381,7 +16489,23 @@
       const evidenceEvents = lensEvidenceEventsForYear(lens, category, state.year);
       const count = evidenceEvents.length;
       const renderableCount = evidenceEvents.filter(isLensDetailEligibleEvent).length;
+      const detailFeatureCount = lensDetailFeaturesForCategory(category).length;
+      const detailRecordCount = lensDetailRecordCountForCategory(category);
+      if (!count && detailFeatureCount) {
+        return {
+          label: `Cells/frontages + ${compactNumber(detailRecordCount)} records`,
+          empty: false,
+          note: `${lens.caveat} Detail cells/frontages aggregate source-backed economy records from the citywide detail layer; direct land-use category counts may be stricter for this aspect.`,
+        };
+      }
       if (!count) return { label: "No records", empty: true, note: missingSameCategoryCoverageNote(lens, category) };
+      if (!renderableCount && detailFeatureCount) {
+        return {
+          label: `Cells/frontages + ${compactNumber(detailRecordCount)} records`,
+          empty: false,
+          note: `${lensGeometryNote(lens, count, renderableCount)} Detail cells/frontages aggregate source-backed economy records from the citywide detail layer.`,
+        };
+      }
       if (!renderableCount) {
         const recordLabel = lens.id === "economy-land-use" ? "Land-use-specific economy records" : "Economy records";
         return { label: "No site geometry", empty: true, note: `${recordLabel} exist for this year, but only aggregate or non-site geometry is available.` };
@@ -16433,8 +16557,13 @@
       utilities: "utility",
       transport: "transport",
     }[category] || String(category || "lens").replace(/_/g, " ");
-    const prefix = `No source-backed ${label} records match ${year} for this lens.`;
-    return `${prefix} No generated marks, context surfaces, or filler geometry are shown for this lens/year.`;
+    const directCount = lensEvidenceEventsForYear(lens, category, year).length;
+    const compatibleCount = Number(row?.compatible_event_count || row?.event_count || 0);
+    const broadOnly = compatibleCount > directCount && directCount === 0
+      ? ` Coverage metadata has ${compactNumber(compatibleCount)} broad lens match${compatibleCount === 1 ? "" : "es"}, but none are direct ${label} records for this lens/year.`
+      : "";
+    const prefix = `No direct source-backed ${label} records match ${year} for this lens.`;
+    return `${prefix}${broadOnly} No generated marks, context surfaces, or filler geometry are shown for this lens/year.`;
   }
 
   function compactMissingSameCategoryCoverageNote(lens, category = lens?.category || lens?.layerId || state.activeLens, year = state.year) {
@@ -16445,7 +16574,7 @@
       economy: lens?.id === "economy-land-use" ? "land-use-specific economy" : "economy",
       utilities: "utility",
     }[category] || "lens";
-    return `No source-backed ${year} ${label} records; no filler geometry.`;
+    return `No direct source-backed ${year} ${label} records; no filler geometry.`;
   }
 
   function activeLensMissingSameCategoryCoverage(lens = activeMapLens()) {
@@ -16456,6 +16585,7 @@
     if (!lens) return false;
     const category = lens.category || lens.layerId || state.activeLens;
     if (!category || category === "transport") return false;
+    if (Number(year) === currentTimelineYear() && lensDetailFeaturesCoverCategory(category)) return false;
     return lensEvidenceEventsForYear(lens, category, year).length === 0;
   }
 

@@ -319,6 +319,7 @@ async function assertDesktopCitywideCoverage(page) {
       const bounds = atlas?.state?.city?.bounds || [];
       const [west, south, east, north] = bounds.map(Number);
       const cells = new Set();
+      const cityPins = [...document.querySelectorAll(".pin[data-scope='city']")].length;
       for (const [id, marker] of atlas?.state?.markers || []) {
         const event = atlas?.state?.eventById?.get(id);
         if (!event?.lngLat || !Number.isFinite(west) || !Number.isFinite(east) || !Number.isFinite(south) || !Number.isFinite(north)) continue;
@@ -337,6 +338,8 @@ async function assertDesktopCitywideCoverage(page) {
         detailFeatureCount: Number(activeCoverageRow?.detail_feature_count || 0),
         renderedSourceBackedDetail,
         renderedTransportYearRoads,
+        markerCount: atlas?.state?.markers?.size || 0,
+        cityPins,
         markerCells: cells.size,
         chip: document.querySelector("#mapStudyChipText")?.textContent.trim() || "",
       };
@@ -345,6 +348,8 @@ async function assertDesktopCitywideCoverage(page) {
     assert(citywideState.renderedGuides === 0, `desktop citywide ${lens.id}: generated guide layers rendered ${citywideState.renderedGuides} features.`);
     assert(citywideState.contextRows === 0, `desktop citywide ${lens.id}: lens-year coverage still includes context filler rows.`);
     assert(citywideState.markerCells >= 3, `desktop citywide ${lens.id}: map markers are clustered too tightly for a citywide view.`);
+    assert(citywideState.markerCount <= 68, `desktop citywide ${lens.id}: citywide markers exceed visual budget (${citywideState.markerCount}).`);
+    assert(citywideState.cityPins === citywideState.markerCount, `desktop citywide ${lens.id}: citywide markers were not scoped for quiet styling.`);
     if (citywideState.visibleMapContract && citywideState.detailFeatureCount > 0) {
       assert(citywideState.renderedSourceBackedDetail > 0, `desktop citywide ${lens.id}: source-backed lens detail exists but rendered no citywide features.`);
     }
@@ -545,6 +550,65 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     });
     assertDetailedPng(citywidePng, assert, `city ${cityId} ${check.aspect} citywide`);
     await assertPannedSourceBackedLensCoverage(page, cityId, check);
+  }
+  await assertSparseLensCoverageHonesty(page, cityId);
+}
+
+async function assertSparseLensCoverageHonesty(page, cityId) {
+  const checksByCity = {
+    london: [
+      {
+        aspect: "economy-land-use",
+        emptyLayers: ["lens-economy-icons", "lens-economy-cells-fill", "lens-economy-frontage"],
+        notePattern: /No direct source-backed land-use-specific economy records match 2024[\s\S]*broad lens matches[\s\S]*No generated marks/i,
+        label: "London economy broad-match caveat",
+      },
+    ],
+    nyc: [
+      {
+        aspect: "economy-land-use",
+        rendered: ["lensEconomyCellsRendered", "lensEconomyIconsRendered"],
+        absentPattern: /No direct source-backed land-use-specific economy records match 2024/i,
+        label: "NYC economy source-backed detail",
+      },
+      {
+        aspect: "utilities-capacity",
+        emptyLayers: ["lens-utilities-icons", "lens-utilities-trace", "lens-utility-asset-icons"],
+        notePattern: /No direct source-backed utility records match 2024[\s\S]*No generated marks/i,
+        label: "NYC utility no-filler caveat",
+      },
+    ],
+  };
+  for (const check of checksByCity[cityId] || []) {
+    await page.evaluate((aspect) => window.BimsAtlas?.setActiveAspect?.(aspect), check.aspect);
+    await page.waitForFunction(
+      (aspect) => window.BimsAtlas?.state?.activeAspect === aspect
+        && document.querySelector("#mapStudyChip")?.dataset.scope === "city",
+      check.aspect,
+      { timeout: 20000 }
+    );
+    await page.waitForTimeout(900);
+    const state = await atlasState(page);
+    if (check.rendered) {
+      const rendered = check.rendered.reduce((sum, field) => sum + Number(state[field] || 0), 0);
+      assert(rendered > 0, `city ${cityId}: ${check.label} did not render source-backed sparse/detail marks.`);
+    }
+    if (check.emptyLayers) {
+      const rendered = await page.evaluate((layers) => {
+        const map = window.BimsAtlas?.state?.map;
+        return layers.reduce((sum, layerId) => {
+          if (!map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") return sum;
+          try {
+            return sum + map.queryRenderedFeatures({ layers: [layerId] }).length;
+          } catch (_error) {
+            return sum;
+          }
+        }, 0);
+      }, check.emptyLayers);
+      assert(rendered === 0, `city ${cityId}: ${check.label} rendered ${rendered} filler-like marks.`);
+    }
+    if (check.notePattern) assert(check.notePattern.test(state.bodyText), `city ${cityId}: ${check.label} note is missing.`);
+    if (check.absentPattern) assert(!check.absentPattern.test(state.bodyText), `city ${cityId}: ${check.label} still shows a no-records contradiction.`);
   }
 }
 

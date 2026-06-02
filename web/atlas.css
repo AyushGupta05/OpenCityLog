@@ -179,10 +179,28 @@ button { font-family: inherit; }
   opacity: 0.42;
   transform: scale(0.72);
 }
+.pin[data-scope="city"]:not([data-active="true"]) {
+  opacity: 0.24;
+  transform: scale(0.54);
+}
+.pin[data-scope="city"]:not([data-active="true"])::before {
+  inset: -6px;
+  opacity: 0.08;
+}
+.pin[data-scope="city"]:not([data-active="true"])::after {
+  width: 8px;
+  height: 8px;
+  box-shadow: 0 0 0 1px rgba(255,253,247,0.86);
+}
 .pin:not([data-active="true"]):hover,
 .pin:not([data-active="true"]):focus-visible {
   opacity: 0.92;
   transform: scale(1);
+}
+.pin[data-scope="city"]:not([data-active="true"]):hover,
+.pin[data-scope="city"]:not([data-active="true"]):focus-visible {
+  opacity: 0.86;
+  transform: scale(0.9);
 }
 .pin[data-active="true"] {
   transform: translateY(-8px) scale(1);
@@ -305,6 +323,9 @@ button { font-family: inherit; }
   margin-top: 1px;
   color: var(--muted);
   font-size: 9px;
+}
+.pin[data-scope="city"] .pin-label {
+  max-width: 220px;
 }
 .pin:hover .pin-label,
 .pin[data-active="true"] .pin-label {

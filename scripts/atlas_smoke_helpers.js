@@ -95,6 +95,7 @@ async function atlasState(page) {
       return {
         text: pin.textContent.trim(),
         active: pin.getAttribute("data-active") === "true",
+        scope: pin.getAttribute("data-scope") || pin.closest(".pin-wrap")?.dataset.scope || "",
         x: Math.round(rect.left + rect.width / 2),
         y: Math.round(rect.top + rect.height / 2),
         inViewport: rect.right >= 0 && rect.left <= window.innerWidth && rect.bottom >= 0 && rect.top <= window.innerHeight,
@@ -237,6 +238,9 @@ async function atlasState(page) {
       lensPlanningCellsRendered: renderedLayerCount("lens-planning-cells-fill"),
       lensBuiltFootprintsRendered: renderedLayerCount("lens-built-footprints-fill"),
       lensBuiltFootprintsYearRendered: renderedLayerCount("lens-built-footprints-year"),
+      lensCivicIconsRendered: renderedLayerCount("lens-civic-icons"),
+      lensEconomyIconsRendered: renderedLayerCount("lens-economy-icons"),
+      lensUtilitiesIconsRendered: renderedLayerCount("lens-utilities-icons"),
       lensCivicCoverageRendered: renderedLayerCount("lens-civic-coverage-fill"),
       lensEconomyCellsRendered: renderedLayerCount("lens-economy-cells-fill"),
       lensEconomyFrontageRendered: renderedLayerCount("lens-economy-frontage"),
