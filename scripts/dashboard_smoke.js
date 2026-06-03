@@ -749,6 +749,8 @@ async function directGuideState(page) {
       ? "planning_cell"
       : activeAspect === "economy-land-use"
       ? "economy_activity_cell"
+      : ["civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+      ? "civic_coverage_cell"
       : "";
     const matchingDetailCount = detailLayer
       ? (state?.lensDetailFeatures || []).filter((feature) => {
@@ -792,7 +794,7 @@ async function directGuideState(page) {
     return {
       activeAspect,
       year,
-      canRenderGuide: ["planning-pressure", "economy-land-use"].includes(activeAspect)
+      canRenderGuide: ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
         && row?.status === "source_backed_records"
         && row?.visible_map_contract !== false
         && matchingDetailCount > 0,
@@ -850,19 +852,19 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
   const checksByCity = {
     belfast: [
       { aspect: "planning-pressure", year: 2014, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells" },
-      { aspect: "civic-access-gaps", year: 2008, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells" },
+      { aspect: "civic-access-gaps", year: 2008, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells", guideExpected: true },
       { aspect: "economy-land-use", year: 2015, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], featureLayer: "economy_activity_cell", label: "economy cells", allowAdjacent: true },
       { aspect: "utilities-capacity", year: 2013, rendered: ["lensUtilityTraceRendered", "lensUtilityAssetsRendered"], renderedLayers: ["lens-utilities-trace", "lens-utility-asset-icons"], featureLayer: "utility_trace", label: "utility traces/assets" },
     ],
     london: [
       { aspect: "planning-pressure", year: 2026, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells", guideExpected: true },
-      { aspect: "civic-access-gaps", year: 2009, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells" },
+      { aspect: "civic-access-gaps", year: 2009, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells", guideExpected: true },
       { aspect: "economy-land-use", year: 2026, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], featureLayer: "economy_activity_cell", label: "economy cells", guideExpected: true },
       { aspect: "utilities-capacity", year: 2020, rendered: ["lensUtilityTraceRendered"], renderedLayers: ["lens-utilities-trace"], featureLayer: "utility_trace", label: "utility traces" },
     ],
     nyc: [
       { aspect: "planning-pressure", year: 2026, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells", guideExpected: true },
-      { aspect: "civic-access-gaps", rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells" },
+      { aspect: "civic-access-gaps", rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells", guideExpected: true },
       { aspect: "economy-land-use", year: 2026, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], featureLayer: "economy_activity_cell", label: "economy cells", guideExpected: true },
     ],
   };

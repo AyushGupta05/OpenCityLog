@@ -65,6 +65,8 @@ async function guideSignalState(page) {
       ? "planning_cell"
       : activeAspect === "economy-land-use"
       ? "economy_activity_cell"
+      : ["civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+      ? "civic_coverage_cell"
       : "";
     const matchingDetailCount = detailLayer
       ? (state?.lensDetailFeatures || []).filter((feature) => {
@@ -77,7 +79,7 @@ async function guideSignalState(page) {
     const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
     return {
       activeAspect,
-      canRenderGuide: ["planning-pressure", "economy-land-use"].includes(activeAspect)
+      canRenderGuide: ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
         && row?.status === "source_backed_records"
         && row?.visible_map_contract !== false
         && matchingDetailCount > 0,
@@ -137,6 +139,8 @@ async function assertGeneratedGuideSignal(page, label) {
       ? "planning_cell"
       : activeAspect === "economy-land-use"
       ? "economy_activity_cell"
+      : ["civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+      ? "civic_coverage_cell"
       : "";
     const matchingDetailCount = detailLayer
       ? (state?.lensDetailFeatures || []).filter((feature) => {
@@ -147,7 +151,7 @@ async function assertGeneratedGuideSignal(page, label) {
     const features = state?.lensGuideFeatureCache?.features || [];
     const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
     const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
-    const canRenderGuide = ["planning-pressure", "economy-land-use"].includes(activeAspect)
+    const canRenderGuide = ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
       && row?.status === "source_backed_records"
       && row?.visible_map_contract !== false
       && matchingDetailCount > 0;

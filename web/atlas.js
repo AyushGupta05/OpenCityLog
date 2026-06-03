@@ -5413,7 +5413,7 @@
     const quietDetailUnderCitywideSummary = citywideOverviewActive() && hasCitywideGuideSummaryForActiveLens();
     const showPlanningCells = isActiveMapLens("built_environment");
     const showCivicCells = isActiveMapLens("civic_services");
-    const showCivicFacilityIcons = isActiveMapLens("civic_services");
+    const showCivicFacilityIcons = isActiveMapLens("civic_services") && !quietDetailUnderCitywideSummary;
     const showEconomyCells = isActiveMapLens("economy");
     const showEconomyFrontage = isActiveMapLens("economy") && aspect.id !== "economy-land-use";
     const showUtilityDetail = isActiveMapLens("utilities");
@@ -5456,8 +5456,8 @@
     setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.035, 0.12) : aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.12, 0.36) : aspect.id === "planning-delta" ? lensDetailLineOpacity(0.08, 0.32) : aspect.id === "planning-parcels" ? lensDetailLineOpacity(0.07, 0.24) : lensDetailLineOpacity(0.28, 0.82));
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-color", civicCellColorExpression());
-    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.08, 0.28) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.06, 0.22) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.045, 0.18) : lensDetailFillOpacity(0.16, 0.5));
-    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.11, 0.34) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.07, 0.2) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.07, 0.22) : lensDetailLineOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailFillOpacity(0.012, 0.055) : aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.08, 0.28) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.06, 0.22) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.045, 0.18) : lensDetailFillOpacity(0.16, 0.5));
+    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailLineOpacity(0.02, 0.08) : aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.11, 0.34) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.07, 0.2) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.07, 0.22) : lensDetailLineOpacity(0.18, 0.58));
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-outline", "line-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.08, 0.24) : aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.04, 0.16) : lensDetailFillOpacity(0.08, 0.26));
@@ -5524,7 +5524,7 @@
     const lens = activeMapLens();
     const showGuide = Boolean(lens && state.activeLayers.has(lens.category || state.activeLens));
     const showRings = showGuide && ["transport-speed", "transport-reliability", "planning-pressure", "planning-delta", "planning-parcels", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens.id);
-    const showCells = showGuide && ["transport-access", "planning-pressure", "planning-delta", "planning-parcels", "civic-catchment", "civic-demand", "economy-land-use", "utilities-resilience"].includes(lens.id);
+    const showCells = showGuide && ["transport-access", "planning-pressure", "planning-delta", "planning-parcels", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-land-use", "utilities-resilience"].includes(lens.id);
     const showFlows = showGuide && ["transport-speed", "transport-access", "transport-reliability", "planning-pressure", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-vitality", "economy-gravity", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id);
     const showNodes = showGuide && ["transport-speed", "transport-access", "transport-reliability", "planning-pressure", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-vitality", "economy-gravity", "utilities-resilience", "utilities-capacity", "utilities-works"].includes(lens.id);
     const visibility = {
@@ -5692,7 +5692,22 @@
         ["match", ["get", "sublayer_id"], active, true, false],
       ];
     }
-    if (lens?.id === "economy-land-use") return guideSublayerFilter(base, lens);
+    if (lens?.id === "civic-catchment") return guideSublayerFilter(base, lens);
+    if (lens?.id === "economy-land-use") return ["all", base, ["==", ["get", "lens_id"], "economy-land-use"]];
+    if (lens?.id === "civic-demand") {
+      return [
+        "all",
+        base,
+        ["match", ["get", "layer_id"], activeSublayerIdsForLens(lens), true, false],
+      ];
+    }
+    if (lens?.id === "civic-access-gaps") {
+      return [
+        "all",
+        base,
+        civicAccessActiveSublayerFilter(["coverage"]),
+      ];
+    }
     return ["all", base, ["==", ["get", "lens_id"], lens?.id || ""]];
   }
 
@@ -6429,21 +6444,57 @@
     const lens = activeMapLens();
     const category = lens?.category || lens?.layerId || state.activeLens;
     if (!lens || !category || !state.activeLayers.has(category)) return emptyFeatureCollection();
-    if (!["planning-pressure", "economy-land-use"].includes(lens.id)) return emptyFeatureCollection();
+    if (!sourceBackedGuideLensSupported(lens)) return emptyFeatureCollection();
     const year = currentTimelineYear();
     if (!lensCoverageHasDirectMapGeometry(activeLensYearCoverageRow(lens, year))) return emptyFeatureCollection();
-    const detailLayer = lens.id === "planning-pressure" ? "planning_cell" : "economy_activity_cell";
-    const detailFeatures = (state.lensDetailFeatures || [])
-      .filter((feature) => {
-        const props = feature?.properties || {};
-        return props.layer === detailLayer
-          && Number(props.year || props.visible_year || 0) === year
-          && lensDetailFeaturePassesActiveFilters(feature);
-      });
+    const detailFeatures = sourceBackedGuideDetailFeatures(lens, year);
     const features = sourceBackedCitywideGuideFeatures(detailFeatures, lens, year)
       .concat(detailFeatures.length <= 12 ? detailFeatures.map((feature) => sourceBackedDetailGuideFeature(feature, lens, year)) : [])
       .filter((feature) => guideFeatureHasProvenance(feature, lens));
     return { type: "FeatureCollection", features };
+  }
+
+  function sourceBackedGuideLensSupported(lens = activeMapLens()) {
+    return ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens?.id);
+  }
+
+  function sourceBackedGuideDetailFeatures(lens, year) {
+    const layers = sourceBackedGuideDetailLayers(lens);
+    if (!layers.length) return [];
+    if (!sourceBackedGuideLayerVisible(lens)) return [];
+    let features = (state.lensDetailFeatures || [])
+      .filter((feature) => {
+        const props = feature?.properties || {};
+        return layers.includes(props.layer)
+          && Number(props.year || props.visible_year || 0) === year
+          && lensDetailFeaturePassesActiveFilters(feature);
+      });
+    if (sourceBackedGuideUsesSublayerFilter(lens)) {
+      const active = new Set(activeSublayerIdsForLens(lens));
+      features = features.filter((feature) => active.has(sourceBackedGuideSublayerId(feature?.properties || {}, lens)));
+    }
+    if (lens?.category === "civic_services" && features.some((feature) => feature.properties?.layer === "civic_coverage_cell")) {
+      return features.filter((feature) => feature.properties?.layer === "civic_coverage_cell");
+    }
+    return features;
+  }
+
+  function sourceBackedGuideUsesSublayerFilter(lens) {
+    return lens?.id === "civic-catchment";
+  }
+
+  function sourceBackedGuideLayerVisible(lens) {
+    const active = activeSublayerIdsForLens(lens);
+    if (lens?.id === "civic-access-gaps") return active.includes("coverage");
+    if (lens?.id === "civic-demand") return active.includes("demand_grid");
+    return true;
+  }
+
+  function sourceBackedGuideDetailLayers(lens) {
+    if (lens?.id === "planning-pressure") return ["planning_cell"];
+    if (lens?.id === "economy-land-use") return ["economy_activity_cell"];
+    if (["civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens?.id)) return ["civic_coverage_cell", "civic_facility"];
+    return [];
   }
 
   function guideFeatureHasProvenance(feature, lens = activeMapLens()) {
@@ -6476,13 +6527,9 @@
     const sourceCount = Math.max(1, Number(props.source_count || sourceIds.length || 1));
     const seed = stableUnit(`${props.id || firstEventId || props.source_ids || ""}:${lens.id}:detail-guide`);
     const baseIntensity = clamp01(Number(props.intensity || 0.36) + Math.min(0.24, eventCount * 0.018) + Math.min(0.1, sourceCount * 0.022) + seed * 0.035);
-    const style = lens.id === "planning-pressure" ? "planning_footprint" : "land_use_tile";
-    const sublayerId = lens.id === "planning-pressure"
-      ? planningPressureDriverKey(props)
-      : economyLandUseCategory(props)?.id || "other_mixed";
-    const color = lens.id === "planning-pressure"
-      ? planningDriverColor(sublayerId)
-      : economyLandUseCategory(props)?.color || "#f6e4c2";
+    const style = sourceBackedGuideSurfaceStyle(lens);
+    const sublayerId = sourceBackedGuideSublayerId(props, lens);
+    const color = sourceBackedGuideColor(sublayerId, lens);
     return {
       type: "Feature",
       properties: {
@@ -6508,8 +6555,10 @@
         geometry_precision_mix: props.geometry_precision_mix || "Source-backed lens detail geometry.",
         direct_evidence_counted: true,
         headline_count_included: true,
+        layer_id: sourceBackedGuideLayerId(lens, sublayerId),
         sublayer_id: sublayerId,
         land_use_category: lens.id === "economy-land-use" ? sublayerId : "",
+        service_type: lens.category === "civic_services" ? sublayerId : "",
         planning_status: lens.id === "planning-pressure" ? (props.lifecycle_status || props.status || "documented") : "",
         intensity: Number(baseIntensity.toFixed(3)),
         score: Number((baseIntensity + Math.min(0.2, eventCount * 0.018) + Math.min(0.12, sourceCount * 0.025) + seed * 0.05).toFixed(3)),
@@ -6534,15 +6583,13 @@
       if (!eventIds.length || !sourceIds.length) continue;
       const local = lngLatToLocalMeters(point, origin);
       if (!Number.isFinite(local[0]) || !Number.isFinite(local[1])) continue;
-      const sublayerId = lens.id === "planning-pressure"
-        ? planningPressureDriverKey(props)
-        : economyLandUseCategory(props)?.id || "other_mixed";
+      const sublayerId = sourceBackedGuideSublayerId(props, lens);
       const bucket = `${Math.round(local[0] / bucketM)}:${Math.round(local[1] / bucketM)}:${sublayerId}`;
       const entry = buckets.get(bucket) || {
         bucket,
         sublayerId,
         layer: props.layer || "",
-        color: lens.id === "planning-pressure" ? planningDriverColor(sublayerId) : economyLandUseCategory(props)?.color || "#f6e4c2",
+        color: sourceBackedGuideColor(sublayerId, lens),
         count: 0,
         eventCount: 0,
         sourceCount: 0,
@@ -6596,13 +6643,13 @@
     const seed = stableUnit(`${entry.bucket}:${lens.id}:${year}`);
     const countBoost = Math.min(0.16, Math.sqrt(Math.max(1, entry.count)) * 0.026);
     const intensity = clamp01(0.2 + entry.maxIntensity * 0.46 + Math.min(0.26, Math.log1p(entry.eventCount) * 0.085) + countBoost + seed * 0.035);
-    const halfLong = bucketM * (lens.id === "planning-pressure" ? 0.58 : 0.64) * (0.92 + intensity * 0.18);
-    const halfShort = bucketM * (lens.id === "planning-pressure" ? 0.42 : 0.5) * (0.9 + intensity * 0.16);
-    const angle = (seed - 0.5) * (lens.id === "planning-pressure" ? 0.28 : 0.18);
+    const halfLong = bucketM * sourceBackedGuideLongScale(lens) * (0.92 + intensity * 0.18);
+    const halfShort = bucketM * sourceBackedGuideShortScale(lens) * (0.9 + intensity * 0.16);
+    const angle = (seed - 0.5) * (lens.id === "planning-pressure" ? 0.28 : lens.category === "civic_services" ? 0.22 : 0.18);
     const eventIds = [...entry.eventIds].slice(0, 36);
     const sourceIds = [...entry.sourceIds].slice(0, 18);
     const confidence = dominantGuideConfidence(entry.confidenceCounts);
-    const style = lens.id === "planning-pressure" ? "planning_footprint" : "land_use_tile";
+    const style = sourceBackedGuideSurfaceStyle(lens);
     const label = entry.labels[0] || `${entry.eventCount} source-backed ${lens.label || "lens"} records`;
     return {
       type: "Feature",
@@ -6632,8 +6679,10 @@
         aggregation_note: `Citywide ${Math.round(bucketM)}m evidence-grid summary generated from loaded source-backed lens detail cells.`,
         direct_evidence_counted: true,
         headline_count_included: true,
+        layer_id: sourceBackedGuideLayerId(lens, entry.sublayerId),
         sublayer_id: entry.sublayerId,
         land_use_category: lens.id === "economy-land-use" ? entry.sublayerId : "",
+        service_type: lens.category === "civic_services" ? entry.sublayerId : "",
         planning_status: lens.id === "planning-pressure" ? entry.sublayerId : "",
         intensity: Number(intensity.toFixed(3)),
         score: Number((intensity + Math.min(0.2, entry.count * 0.012) + seed * 0.035).toFixed(3)),
@@ -6645,22 +6694,81 @@
 
   function citywideGuideBucketMeters(lens) {
     const bounds = cityBoundsValues();
-    if (!bounds) return lens?.id === "planning-pressure" ? 560 : 640;
+    if (!bounds) return lens?.id === "planning-pressure" ? 560 : lens?.category === "civic_services" ? 620 : 640;
     const midLat = (bounds.south + bounds.north) / 2;
     const widthM = lngLatDistanceMeters([bounds.west, midLat], [bounds.east, midLat]);
     const heightM = lngLatDistanceMeters([(bounds.west + bounds.east) / 2, bounds.south], [(bounds.west + bounds.east) / 2, bounds.north]);
     const basis = Math.max(widthM, heightM);
-    const divisor = lens?.id === "planning-pressure" ? 74 : 82;
+    const divisor = lens?.id === "planning-pressure" ? 74 : lens?.category === "civic_services" ? 78 : 82;
     const raw = basis / divisor;
-    const min = lens?.id === "planning-pressure" ? 360 : 420;
-    const max = lens?.id === "planning-pressure" ? 1180 : 1050;
+    const min = lens?.id === "planning-pressure" ? 360 : lens?.category === "civic_services" ? 390 : 420;
+    const max = lens?.id === "planning-pressure" ? 1180 : lens?.category === "civic_services" ? 1120 : 1050;
     return Math.max(min, Math.min(max, raw));
   }
 
   function citywideGuideFeatureLimit(lens) {
     if (lens?.id === "planning-pressure") return 1150;
     if (lens?.id === "economy-land-use") return 1250;
+    if (lens?.category === "civic_services") return 1180;
     return 900;
+  }
+
+  function sourceBackedGuideSurfaceStyle(lens) {
+    if (lens?.id === "planning-pressure") return "planning_footprint";
+    if (lens?.id === "economy-land-use") return "land_use_tile";
+    if (lens?.id === "civic-demand") return "demand_surface";
+    if (lens?.id === "civic-catchment") return "catchment_area";
+    if (lens?.id === "civic-access-gaps") return "access_fabric";
+    return "source_backed_cell";
+  }
+
+  function sourceBackedGuideSublayerId(props = {}, lens = activeMapLens()) {
+    if (lens?.id === "planning-pressure") return planningPressureDriverKey(props);
+    if (lens?.id === "economy-land-use") return economyLandUseCategory(props)?.id || "other_mixed";
+    if (lens?.category === "civic_services") return civicServiceSublayerKey(props);
+    return props.sublayer_id || props.layer || "source_backed";
+  }
+
+  function sourceBackedGuideLayerId(lens, sublayerId) {
+    if (lens?.id === "civic-access-gaps") return "coverage";
+    if (lens?.id === "civic-demand") return "demand_grid";
+    return sublayerId || "";
+  }
+
+  function sourceBackedGuideColor(sublayerId, lens = activeMapLens()) {
+    if (lens?.id === "planning-pressure") return planningDriverColor(sublayerId);
+    if (lens?.id === "economy-land-use") return economyLandUseCategories().find((category) => category.id === sublayerId)?.color || "#f6e4c2";
+    if (lens?.id === "civic-access-gaps") {
+      return {
+        health: "#ef8f21",
+        safety: "#ed4a2e",
+        libraries: "#d69a3c",
+        leisure: "#348f67",
+        council: "#2e9a8f",
+        civic_services: "#e4b33c",
+      }[sublayerId] || "#e4b33c";
+    }
+    if (lens?.id === "civic-catchment") return civicCatchmentSublayerFillColor(sublayerId);
+    if (lens?.id === "civic-demand") return civicServiceSublayerColor(sublayerId);
+    return "#8ab7bd";
+  }
+
+  function sourceBackedGuideLongScale(lens) {
+    if (lens?.id === "planning-pressure") return 0.58;
+    if (lens?.id === "economy-land-use") return 0.64;
+    if (lens?.id === "civic-catchment") return 1.04;
+    if (lens?.id === "civic-demand") return 0.94;
+    if (lens?.id === "civic-access-gaps") return 1.02;
+    return 0.6;
+  }
+
+  function sourceBackedGuideShortScale(lens) {
+    if (lens?.id === "planning-pressure") return 0.42;
+    if (lens?.id === "economy-land-use") return 0.5;
+    if (lens?.id === "civic-catchment") return 0.78;
+    if (lens?.id === "civic-demand") return 0.66;
+    if (lens?.id === "civic-access-gaps") return 0.56;
+    return 0.45;
   }
 
   function splitGuidePropertyList(value) {
