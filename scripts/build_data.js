@@ -315,6 +315,25 @@ function sourceRegistryReviewedAt(source) {
   return source?.registry_reviewed_at || null;
 }
 
+function sourceCanonicalUrl(source) {
+  return source?.url || source?.access_url || source?.source_url || null;
+}
+
+function evidenceUrlForSource(item, source) {
+  const registryUrl = sourceCanonicalUrl(source);
+  const currentUrl = item?.url || null;
+  if (!registryUrl) return currentUrl;
+  if (!currentUrl) return registryUrl;
+  const sourceId = String(item?.source_id || "");
+  if (
+    sourceId.startsWith("dfi-planning-statistics-2024-25-round")
+    && /\/articles\/planning-activity-statistics\b/.test(currentUrl)
+  ) {
+    return registryUrl;
+  }
+  return currentUrl;
+}
+
 function enrichEventSourceAccess(event, sourceById) {
   const sourceIds = Array.isArray(event.source_ids) ? event.source_ids : [];
   const exactAccessBySource = new Map();
@@ -330,10 +349,14 @@ function enrichEventSourceAccess(event, sourceById) {
 
   return {
     ...event,
-    evidence: (event.evidence || []).map((item) => ({
-      ...item,
-      accessed_at: item.accessed_at || exactAccessBySource.get(item.source_id) || null,
-    })),
+    evidence: (event.evidence || []).map((item) => {
+      const source = sourceById.get(item.source_id);
+      return {
+        ...item,
+        url: evidenceUrlForSource(item, source),
+        accessed_at: item.accessed_at || exactAccessBySource.get(item.source_id) || null,
+      };
+    }),
     provenance: {
       ...(event.provenance || {}),
       ...(firstExactAccess ? { source_retrieved_at: firstExactAccess } : {}),

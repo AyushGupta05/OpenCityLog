@@ -4591,14 +4591,16 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
         "end": 2025
       },
       "update_frequency": "Source-specific publication/update cadence",
-      "url": "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
+      "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4616,7 +4618,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -4624,6 +4626,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4641,7 +4645,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -4649,6 +4653,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4666,7 +4672,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2025,
@@ -4674,6 +4680,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4691,7 +4699,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -4699,6 +4707,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4716,7 +4726,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -4724,6 +4734,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4741,7 +4753,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -4749,6 +4761,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4766,7 +4780,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -4774,6 +4788,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4791,7 +4807,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -4799,6 +4815,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4816,7 +4834,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -4824,6 +4842,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4841,7 +4861,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -4849,6 +4869,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4866,7 +4888,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -4874,6 +4896,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4891,7 +4915,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -4899,6 +4923,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4916,7 +4942,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -4924,6 +4950,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4941,7 +4969,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -4949,6 +4977,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4966,7 +4996,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -4974,6 +5004,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -4991,7 +5023,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2025,
@@ -4999,6 +5031,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -5016,7 +5050,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2025,
@@ -5024,6 +5058,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -5041,7 +5077,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -5049,6 +5085,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",
@@ -5066,7 +5104,7 @@
       "city_ids": [
         "belfast"
       ],
-      "licence": "Open Government Licence v3.0 where applicable to Department for Infrastructure public-sector information; verify release-specific terms before redistribution.",
+      "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
       "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
       "coverage_years": {
         "start": 2024,
@@ -5074,6 +5112,8 @@
       },
       "update_frequency": "Source-specific publication/update cadence",
       "url": "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
       "local_paths": [],
       "reliability": "usable_with_caveats",
       "source_confidence": "documented",

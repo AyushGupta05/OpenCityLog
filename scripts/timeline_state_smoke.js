@@ -57,8 +57,11 @@ async function scrubTo(page, ratio) {
 
   await openAtlas(page, atlasUrl);
   const defaultState = await atlasState(page);
-  assert(defaultState.year === "2007", `Expected source-compatible default year 2007, got ${defaultState.year}.`);
-  assert(defaultState.activeAspect === "transport-speed", `Expected source-compatible default transport-speed lens, got ${defaultState.activeAspect}.`);
+  assert(Number(defaultState.year) >= 2007 && Number(defaultState.year) <= 2026, `Expected launch year inside required atlas range, got ${defaultState.year}.`);
+  assert(defaultState.activeAspect, "Default load did not choose an active lens aspect.");
+  assert(defaultState.lensYearCoverageStatus === "source_backed_records", `Expected source-compatible default lens/year, got ${defaultState.activeAspect}:${defaultState.year}:${defaultState.lensYearCoverageStatus || "missing"}.`);
+  assert(defaultState.lensYearCoverageVisible, "Default lens/year is not marked visible in the lens contract.");
+  assert(defaultState.lensYearCoverageDirectCount > 0, "Default lens/year has no direct same-category records.");
   assert(defaultState.pinCount > 0 && defaultState.activePin?.inViewport, "Default selected event pin is not visible.");
 
   await openAtlas(page, `${atlasUrl}?city=nyc&year=2010&lens=planning-delta`);

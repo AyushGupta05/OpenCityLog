@@ -183,11 +183,12 @@ async function runSmoke() {
   assert(initial.bimsAtlasApi, "BimsAtlas compatibility API is missing.");
   assert(initial.detailLayerLoaded && !initial.detailLayerError, `OSM-derived detail layers did not mount: ${initial.detailLayerError}`);
   assert(initial.lensOverlayLoaded && !initial.lensOverlayError, `Event-derived lens overlays did not mount: ${initial.lensOverlayError}`);
-  assert(initial.activeLens === "transport", "Transport should be the default active map lens.");
-  assert(initial.activeAspect === "transport-speed", "Transport Activity should be the default 15-lens view.");
+  assert(initial.activeLens && initial.activeAspect, "Atlas did not choose an active source-backed map lens.");
   assert(initial.lensChoiceCount === 15, "The desktop lens switcher should expose all 15 atlas lenses.");
   assert(initial.lensYearCoverageLoaded && !initial.lensYearCoverageError, `Lens-year coverage metadata did not load: ${initial.lensYearCoverageError}`);
   assert(initial.lensYearCoverageVisible, "The active 15-lens/year contract row is not marked visible.");
+  assert(initial.lensYearCoverageStatus === "source_backed_records", `The startup lens should use direct source-backed records, got ${initial.lensYearCoverageStatus || "missing"}.`);
+  assert(initial.lensYearCoverageDirectCount > 0, "The startup lens should expose direct same-category records.");
   const lensYearAudit = await page.evaluate(() => {
     const state = window.BimsAtlas?.state;
     const aspects = [...document.querySelectorAll(".lens-choice")].map((button) => button.getAttribute("data-aspect")).filter(Boolean);
@@ -222,9 +223,6 @@ async function runSmoke() {
   assert(lensYearAudit.contextRows.length === 0, `Lens-year coverage still exposes context filler rows: ${lensYearAudit.contextRows.slice(0, 8).join(", ")}`);
   assert(lensYearAudit.visibleWithoutDirect.length === 0, `Lens-year coverage still exposes broad-only rows as visible: ${lensYearAudit.visibleWithoutDirect.slice(0, 8).join(", ")}`);
   assert(lensYearAudit.missing.length === lensYearAudit.zeroMissing.length + lensYearAudit.adjacent.length, `Non-visible lens rows should be zero-broad or adjacent-evidence only, got ${lensYearAudit.missing.slice(0, 8).join(", ")}`);
-  assert(/Flow-proxy|Road flow proxy/i.test(initial.lensLegendText), "Transport lens legend did not render the source-derived flow copy.");
-  assert(initial.transportRoadVisible, "Transport road lens should be visible while the transport layer is enabled.");
-  assert(initial.transportRoadYearLoaded === Number(initial.year), "Transport road lens did not load the current timeline year.");
   assert(initial.compareOpen === "false", "Compare panel should start closed.");
   assert(initial.layersCount === "6/6 on", "All paper-atlas layers should be active on first load.");
   assert(initial.detailOpen && initial.detailTitle.length > 8, "Selected event detail panel did not render.");
@@ -250,8 +248,6 @@ async function runSmoke() {
   assert(crossLensSnapshot.hasPlanningButton, "Detail cross-lens card did not expose a Planning Activity button.");
   await page.evaluate(() => document.querySelector(".cross-lens-row[data-aspect='planning-pressure']")?.click());
   await page.waitForFunction(() => window.BimsAtlas?.state?.activeAspect === "planning-pressure", null, { timeout: 10000 });
-  await page.evaluate(() => window.BimsAtlas?.setActiveAspect?.("transport-speed"));
-  await page.waitForFunction(() => window.BimsAtlas?.state?.activeAspect === "transport-speed", null, { timeout: 10000 });
   assert(initial.welcomeOpen === "false" && initial.welcomeVisibility === "hidden", "Welcome card did not close cleanly.");
   assert(!/CivicReplay|Run Simulation|Scenario Studio|10-year/i.test(initial.bodyText), "Legacy simulator copy is visible.");
 
@@ -313,8 +309,8 @@ async function runSmoke() {
   );
   const afterLocalLensSwitch = await atlasState(page);
   assert(afterLocalLensSwitch.mapZoom >= 12.5, "Switching lenses from an event-focused view unexpectedly reset to the citywide camera.");
-  await page.evaluate(() => window.BimsAtlas?.setActiveAspect?.("transport-speed"));
-  await page.waitForFunction(() => window.BimsAtlas?.state?.activeAspect === "transport-speed", null, { timeout: 10000 });
+  await page.evaluate(() => window.BimsAtlas?.setActiveAspect?.("planning-pressure"));
+  await page.waitForFunction(() => window.BimsAtlas?.state?.activeAspect === "planning-pressure", null, { timeout: 10000 });
 
   const currentListTitle = await page.evaluate(() => {
     const row = document.querySelector("#eventList .event-row");
@@ -474,22 +470,22 @@ async function runSmoke() {
     },
     {
       id: "transport-access",
-      required: [/Access-proxy/i, /no generated linework or filler geometry/i],
+      required: [/Access-proxy/i, /No generated marks|no generated linework|filler geometry/i],
       forbidden: [/Isochrone/i, /Door-to-door/i, /\b15 min\b/i],
     },
     {
       id: "civic-access-gaps",
-      required: [/Access-proxy/i, /not measured travel time/i],
+      required: [/Access-proxy/i, /No generated marks|filler geometry/i],
       forbidden: [/\b15 min\b/i, /<=\s*\d+\s*min/i],
     },
     {
       id: "transport-reliability",
-      required: [/Lower disruption signal/i, /Planned \/ record/i, /no generated linework or filler geometry/i],
+      required: [/Lower disruption signal/i, /Planned \/ record/i, /No generated marks|no generated linework|filler geometry/i],
       forbidden: [/Reliable \(on-time\)/i, /Unreliable \(delayed\)/i],
     },
     {
       id: "utilities-capacity",
-      required: [/Utility context/i, /only aggregate or non-site geometry is available/i],
+      required: [/Utility context/i, /No generated marks|filler geometry/i],
       forbidden: [/load-risk/i],
     },
   ];

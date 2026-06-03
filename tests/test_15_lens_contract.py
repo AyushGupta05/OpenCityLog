@@ -240,8 +240,10 @@ if (eventMatchesLens(metroPunctuality, "transport-speed", sourceById)) throw new
             for row in coverage.get("rows", [])
             if row.get("lens_slug") == "transport-speed" and row.get("year") == 2024
         )
-        self.assertEqual(speed_2024.get("status"), "missing_source_backed_view")
+        self.assertEqual(speed_2024.get("status"), "adjacent_source_backed_records")
+        self.assertFalse(speed_2024.get("visible_map_contract"))
         self.assertEqual(speed_2024.get("direct_event_count"), 0)
+        self.assertGreater(speed_2024.get("event_count"), 0)
 
         roads_path = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "transport_roads_2024.geojson"
         roads = read_json(roads_path)
@@ -251,6 +253,74 @@ if (eventMatchesLens(metroPunctuality, "transport-speed", sourceById)) throw new
             "Missing Belfast transport lens-years must not expose OSM road activity filler",
         )
         self.assertTrue(roads.get("metadata", {}).get("suppressed"))
+
+    def test_belfast_dfi_2024_25_planning_sources_are_reviewed_ogl_records(self) -> None:
+        source_registry = read_json(REPO_ROOT / "config" / "source_registry.json")
+        sources = [
+            source
+            for source in source_registry.get("sources", [])
+            if source.get("source_id", "").startswith("dfi-planning-statistics-2024-25-round")
+        ]
+        self.assertEqual(len(sources), 20)
+        for source in sources:
+            with self.subTest(source_id=source.get("source_id")):
+                self.assertFalse(source_needs_review(source))
+                self.assertIn("Open Government Licence v3.0", source.get("licence", ""))
+                self.assertEqual(
+                    source.get("url"),
+                    "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+                )
+                self.assertEqual(source.get("retrieved_at"), "2026-06-03")
+                self.assertEqual(source.get("accessed_at"), "2026-06-03")
+
+    def test_belfast_dfi_planning_2024_2025_generates_source_backed_admin_coverage(self) -> None:
+        coverage = read_json(
+            REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "lens_year_coverage.json"
+        )
+        for year, expected_minimum in [(2024, 300), (2025, 120)]:
+            for lens_slug in ["planning-pressure", "planning-delta", "planning-parcels"]:
+                with self.subTest(year=year, lens_slug=lens_slug):
+                    row = next(
+                        row
+                        for row in coverage.get("rows", [])
+                        if row.get("lens_slug") == lens_slug and row.get("year") == year
+                    )
+                    self.assertEqual(row.get("status"), "source_backed_records")
+                    self.assertTrue(row.get("visible_map_contract"))
+                    self.assertGreaterEqual(row.get("direct_event_count"), expected_minimum)
+                    self.assertTrue(
+                        any(
+                            source_id.startswith("dfi-planning-statistics-2024-25-round")
+                            for source_id in row.get("source_ids", [])
+                        )
+                    )
+
+        events = read_json(REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json")
+        dfi_event = next(
+            event
+            for event in events.get("events", [])
+            if any(
+                source_id.startswith("dfi-planning-statistics-2024-25-round")
+                for source_id in event.get("source_ids", [])
+            )
+        )
+        caveats = " ".join(dfi_event.get("caveats", [])).lower()
+        self.assertEqual(dfi_event.get("source_date_field"), "DecisionIssuedDate")
+        self.assertIn("approval is not evidence", caveats)
+        self.assertIn("causal outcomes", caveats)
+
+        dfi_evidence_urls = [
+            item.get("url")
+            for item in dfi_event.get("evidence", [])
+            if item.get("source_id", "").startswith("dfi-planning-statistics-2024-25-round")
+            and item.get("kind") == "source_url"
+        ]
+        self.assertEqual(
+            set(dfi_evidence_urls),
+            {
+                "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+            },
+        )
 
     def test_nyc_pluto_economy_source_stays_out_of_transport_hotspots(self) -> None:
         overlay_path = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "nyc" / "lens_overlays.geojson"
