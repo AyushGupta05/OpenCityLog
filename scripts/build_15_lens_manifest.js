@@ -4,6 +4,7 @@ const {
   LENS_DEFINITIONS,
   eventDirectlyMatchesLensCategory,
   eventMatchesLens,
+  eventWithholdsMapGeometry,
   licenseNeedsReview,
   sourceHasMinimumLicense,
   sourceWithholdsMapGeometry,
@@ -207,6 +208,7 @@ function eventHasCompatibleSources(event, sourceById) {
 function eventHasMapEligibleSources(event, sourceById) {
   const sourceIds = event.source_ids || event.sourceIds || [];
   return eventHasCompatibleSources(event, sourceById)
+    && !eventWithholdsMapGeometry(event)
     && sourceIds.every((sourceId) => !sourceWithholdsMapGeometry(sourceById.get(sourceId)));
 }
 
@@ -318,7 +320,7 @@ function rowLimitations(status, lens, year, visibleMapContract = false, withheld
     ];
     if (!visibleMapContract || withheldGeometryEventCount > 0) {
       directLimitations.push(
-        `${withheldGeometryEventCount} source-backed ${lens.label} record(s) have map geometry withheld for rights review; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces.`,
+        `${withheldGeometryEventCount} source-backed ${lens.label} record(s) are evidence-only for map purposes because geometry is withheld for rights review, non-site scope, or aggregate/reference-location limits; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces.`,
       );
     }
     return directLimitations;

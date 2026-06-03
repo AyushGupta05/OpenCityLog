@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const {
   LENS_DEFINITIONS,
+  eventWithholdsMapGeometry,
   licenseNeedsReview,
   sourceHasMinimumLicense,
   sourceWithholdsMapGeometry,
@@ -113,6 +114,7 @@ function eventHasCompatibleSources(event, sourceById) {
 function eventHasMapEligibleSources(event, sourceById) {
   const ids = event.sourceIds || event.source_ids || [];
   return eventHasCompatibleSources(event, sourceById)
+    && !eventWithholdsMapGeometry(event)
     && ids.every((sourceId) => !sourceWithholdsMapGeometry(sourceById.get(sourceId)));
 }
 
@@ -241,7 +243,7 @@ function loadEvents(city, eventsIndex, sourceById = new Map()) {
       if (!Number.isFinite(year)) continue;
       const confidence = String(event.confidence || "documented").toLowerCase();
       const sourceIds = Array.isArray(event.source_ids) ? event.source_ids : [];
-      if (!eventHasMapEligibleSources({ sourceIds }, sourceById)) continue;
+      if (!eventHasMapEligibleSources(event, sourceById)) continue;
       const evidence = Array.isArray(event.evidence) ? event.evidence : [];
       const provenance = event.provenance || {};
       const text = [

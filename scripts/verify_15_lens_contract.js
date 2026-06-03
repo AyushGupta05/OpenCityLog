@@ -5,6 +5,7 @@ const {
   LENS_SLUGS,
   eventDirectlyMatchesLensCategory,
   eventMatchesLens,
+  eventWithholdsMapGeometry,
   licenseNeedsReview,
   sourceHasMinimumLicense,
   sourceWithholdsMapGeometry,
@@ -160,6 +161,7 @@ function directCompatibleLensEventsForRow(root, row, eventsIndex, sourceById, ev
 function eventHasMapEligibleSources(event, sourceById) {
   const sourceIds = event.source_ids || event.sourceIds || [];
   return eventHasCompatibleSources(event, sourceById)
+    && !eventWithholdsMapGeometry(event)
     && sourceIds.every((sourceId) => !sourceWithholdsMapGeometry(sourceById.get(sourceId)));
 }
 

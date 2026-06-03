@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const {
+  eventWithholdsMapGeometry,
   licenseNeedsReview,
   sourceHasMinimumLicense,
   sourceWithholdsMapGeometry,
@@ -573,6 +574,11 @@ function validateEvent(failures, event, city, sourceById, chunkPath) {
     assert(failures, event.geometry_status === "withheld_rights_review" || event.provenance?.geometry_status === "withheld_rights_review", `${prefix} missing withheld geometry status`);
     assert(failures, /withheld|rights/i.test(`${event.map_geometry_withheld_reason || ""} ${(event.caveats || []).join(" ")}`), `${prefix} missing withheld geometry caveat`);
   }
+  if (eventWithholdsMapGeometry(event)) {
+    assert(failures, !event.geometry, `${prefix} exposes event-level map-withheld geometry`);
+    assert(failures, /^withheld_/.test(String(event.geometry_status || event.provenance?.geometry_status || "")), `${prefix} missing event-level withheld geometry status`);
+    assert(failures, /withheld|reference|aggregate|evidence/i.test(`${event.map_geometry_withheld_reason || ""} ${(event.caveats || []).join(" ")}`), `${prefix} missing event-level withheld geometry caveat`);
+  }
 
   for (const evidence of event.evidence || []) {
     assert(failures, event.source_ids.includes(evidence.source_id), `${prefix} evidence source ${evidence.source_id} not listed in source_ids`);
@@ -699,6 +705,7 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
           const mapWithheldSourceIds = (event?.source_ids || [])
             .filter((sourceId) => sourceWithholdsMapGeometry(effectiveSourceById.get(sourceId)));
           assert(failures, mapWithheldSourceIds.length === 0, `${chunk.geojson_path} exposes map-withheld source geometry for ${feature.id || feature.properties?.event_id}`);
+          assert(failures, !eventWithholdsMapGeometry(event), `${chunk.geojson_path} exposes event-level map-withheld geometry for ${feature.id || feature.properties?.event_id}`);
         }
       }
     }

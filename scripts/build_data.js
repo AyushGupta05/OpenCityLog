@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const {
+  eventMapGeometryStatus,
   licenseNeedsReview,
   sourceWithholdsMapGeometry,
 } = require("../lib/atlas-lenses");
@@ -368,22 +369,34 @@ function mapGeometryWithheldReason(sourceIds, sourceById) {
 }
 
 function withMapGeometryPolicy(event, sourceIds, sourceById) {
-  if (!eventSourcesWithholdMapGeometry(sourceIds, sourceById)) return event;
-  const reason = mapGeometryWithheldReason(sourceIds, sourceById);
+  const eventStatus = eventMapGeometryStatus(event);
+  const eventGeometryWithheld = Boolean(eventStatus);
+  const sourceGeometryWithheld = eventSourcesWithholdMapGeometry(sourceIds, sourceById);
+  if (!eventGeometryWithheld && !sourceGeometryWithheld) return event;
+  const reason = sourceGeometryWithheld
+    ? mapGeometryWithheldReason(sourceIds, sourceById)
+    : "Map geometry is withheld because the available location is a city/area reference, aggregate geography, or dataset marker rather than source-backed site geometry; the event remains available as administrative source evidence.";
+  const status = sourceGeometryWithheld ? "withheld_rights_review" : eventStatus;
+  const precision = sourceGeometryWithheld
+    ? "Map geometry withheld; use affected_area label, source row, and evidence URL for spatial interpretation until coordinate redistribution is cleared."
+    : "Map geometry withheld; use affected_area label, source row, and evidence URL for spatial interpretation because the supplied location is not row-level site geometry.";
+  const geometrySource = sourceGeometryWithheld
+    ? "Source row includes location fields, but generated atlas map geometry is withheld pending OSNI/LPS mapping-rights confirmation."
+    : "Generated atlas map geometry is withheld because the location represents a city/area reference, aggregate geography, or dataset marker rather than a source-backed site geometry.";
   return {
     ...event,
     geometry: null,
-    geometry_status: "withheld_rights_review",
-    map_geometry_status: "withheld_rights_review",
+    geometry_status: status,
+    map_geometry_status: status,
     map_geometry_withheld_reason: reason,
     caveats: [...new Set([...(event.caveats || []), reason])],
     provenance: {
       ...(event.provenance || {}),
-      geometry_status: "withheld_rights_review",
-      map_geometry_status: "withheld_rights_review",
+      geometry_status: status,
+      map_geometry_status: status,
       map_geometry_withheld_reason: reason,
-      geometry_source: "Source row includes location fields, but generated atlas map geometry is withheld pending OSNI/LPS mapping-rights confirmation.",
-      geometry_precision: "Map geometry withheld; use affected_area label, source row, and evidence URL for spatial interpretation until coordinate redistribution is cleared.",
+      geometry_source: geometrySource,
+      geometry_precision: precision,
     },
   };
 }

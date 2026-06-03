@@ -1233,8 +1233,10 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
+            "visible_year_count": 19,
+            "missing_visible_years": [
+              2007
+            ],
             "source_backed_record_year_count": 20,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
@@ -1254,8 +1256,10 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
+            "visible_year_count": 19,
+            "missing_visible_years": [
+              2007
+            ],
             "source_backed_record_year_count": 20,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
@@ -1275,8 +1279,10 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
+            "visible_year_count": 19,
+            "missing_visible_years": [
+              2007
+            ],
             "source_backed_record_year_count": 20,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
@@ -1296,8 +1302,21 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
+            "visible_year_count": 8,
+            "missing_visible_years": [
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2019
+            ],
             "source_backed_record_year_count": 20,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
@@ -1317,8 +1336,21 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
+            "visible_year_count": 8,
+            "missing_visible_years": [
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2019
+            ],
             "source_backed_record_year_count": 20,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
@@ -1338,8 +1370,21 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
+            "visible_year_count": 8,
+            "missing_visible_years": [
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2019
+            ],
             "source_backed_record_year_count": 20,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
@@ -1422,9 +1467,14 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 19,
+            "visible_year_count": 14,
             "missing_visible_years": [
-              2007
+              2007,
+              2017,
+              2019,
+              2020,
+              2023,
+              2026
             ],
             "source_backed_record_year_count": 19,
             "source_backed_context_year_count": 0,
@@ -1445,9 +1495,14 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 19,
+            "visible_year_count": 14,
             "missing_visible_years": [
-              2007
+              2007,
+              2017,
+              2019,
+              2020,
+              2023,
+              2026
             ],
             "source_backed_record_year_count": 19,
             "source_backed_context_year_count": 0,
@@ -1468,9 +1523,14 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 19,
+            "visible_year_count": 14,
             "missing_visible_years": [
-              2007
+              2007,
+              2017,
+              2019,
+              2020,
+              2023,
+              2026
             ],
             "source_backed_record_year_count": 19,
             "source_backed_context_year_count": 0,

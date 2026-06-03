@@ -139,6 +139,10 @@ class DiscoveryCityAtlasNormalizationTest(unittest.TestCase):
         )
 
         self.assertNotEqual(event["category"], "economy")
+        self.assertIsNone(event["geometry"])
+        self.assertEqual(event["geometry_status"], "withheld_non_site_scope")
+        self.assertEqual(event["provenance"]["geometry_status"], "withheld_non_site_scope")
+        self.assertIn("Map geometry is withheld", " ".join(event["caveats"]))
 
     def test_nyc_street_permit_utility_override_ignores_street_name_only_match(self):
         source_by_id = {
@@ -389,6 +393,8 @@ class DiscoveryCityAtlasNormalizationTest(unittest.TestCase):
         event = normalize_source_event("london", source, 3)
         self.assertEqual(event["category"], "utilities")
         self.assertEqual(event["source_ids"], ["utilities"])
+        self.assertIsNone(event["geometry"])
+        self.assertEqual(event["geometry_status"], "withheld_non_site_scope")
         self.assertEqual(evidence_for_source(source)["url"], "https://example.test/utilities.json")
 
         category, lens, signals = category_and_lens("parks property", "flood tree canopy")
@@ -413,6 +419,8 @@ class DiscoveryCityAtlasNormalizationTest(unittest.TestCase):
         self.assertEqual(seeded["date_precision"], "range")
         self.assertEqual(seeded["affected_area"], {"label": "Queens corridor"})
         self.assertEqual(seeded["source_ids"], ["roads"])
+        self.assertIsNone(seeded["geometry"])
+        self.assertEqual(seeded["geometry_status"], "withheld_non_site_scope")
         self.assertIn("not evidence of", seeded["explanation"])
 
 

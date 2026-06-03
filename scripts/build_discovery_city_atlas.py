@@ -25,6 +25,12 @@ ARCHITECTURE_MILESTONES = ROOT / "data/manual_drops/architecture_milestones/arch
 SUPPLEMENTAL_LENS_GAP_EVENTS = ROOT / "data/manual_drops/lens_gap_events/lens_gap_events_2007_2015.json"
 GENERATED_AT = os.environ.get("BIMS_DATA_GENERATED_AT") or datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 SCHEMA = "1.0.0"
+NON_SITE_MAP_GEOMETRY_STATUS = "withheld_non_site_scope"
+NON_SITE_MAP_GEOMETRY_REASON = (
+    "Map geometry is withheld because the available location is a city/area reference, "
+    "aggregate geography, or dataset marker rather than source-backed site geometry; "
+    "the event remains available as administrative source evidence."
+)
 
 CITY_META = {
     "london": {
@@ -514,6 +520,79 @@ def point_for(city: str, text: str, idx: int) -> tuple[str, float, float]:
     return label, round(lng + jitter_lng, 6), round(lat + jitter_lat, 6)
 
 
+def event_map_geometry_status(event: dict[str, Any]) -> str | None:
+    explicit = str(
+        event.get("map_geometry_status")
+        or event.get("geometry_status")
+        or event.get("provenance", {}).get("map_geometry_status")
+        or event.get("provenance", {}).get("geometry_status")
+        or ""
+    ).lower()
+    if explicit.startswith("withheld_"):
+        return explicit
+    provenance = event.get("provenance") if isinstance(event.get("provenance"), dict) else {}
+    combined = " ".join(
+        str(value or "").lower()
+        for value in [
+            provenance.get("geometry_source"),
+            provenance.get("geometry_precision"),
+            provenance.get("source_basis"),
+        ]
+    )
+    identity = " ".join(
+        str(value or "").lower()
+        for value in [
+            " ".join(str(source_id) for source_id in event.get("source_ids", [])),
+            event.get("event_id"),
+            event.get("title"),
+            event.get("short_description"),
+        ]
+    )
+    if re.search(
+        r"atlas reference point|lacks row-level coordinates|source seed lacks row-level coordinates|"
+        r"not an exact event geometry|not exact event geometry|area/city reference marker|"
+        r"city/area keywords|borough aggregate|borough centroid for atlas navigation|"
+        r"aggregate (?:row|record)|statistical housing-market record|house price index|"
+        r"uk[-_\s]?hpi|dataset/layer marker|current-state source marker|"
+        r"represents a dataset/layer|not a project site, footprint, route, parcel, or facility coordinate",
+        combined,
+    ) or re.search(
+        r"\blon-extra-uk-house-price-index\b|house price index|uk[-_\s]?hpi",
+        identity,
+    ):
+        return NON_SITE_MAP_GEOMETRY_STATUS
+    return None
+
+
+def apply_map_geometry_policy(event: dict[str, Any], status: str | None = None) -> dict[str, Any]:
+    resolved_status = status or event_map_geometry_status(event)
+    if not resolved_status:
+        return event
+    reason = (
+        event.get("map_geometry_withheld_reason")
+        or event.get("provenance", {}).get("map_geometry_withheld_reason")
+        or NON_SITE_MAP_GEOMETRY_REASON
+    )
+    provenance = dict(event.get("provenance") or {})
+    event["geometry"] = None
+    event["geometry_status"] = resolved_status
+    event["map_geometry_status"] = resolved_status
+    event["map_geometry_withheld_reason"] = reason
+    caveats = [str(item) for item in event.get("caveats", []) if str(item).strip()]
+    if reason not in caveats:
+        caveats.append(reason)
+    event["caveats"] = caveats
+    provenance.update({
+        "geometry_status": resolved_status,
+        "map_geometry_status": resolved_status,
+        "map_geometry_withheld_reason": reason,
+        "geometry_source": "Generated atlas map geometry is withheld because the location represents a city/area reference, aggregate geography, or dataset marker rather than source-backed site geometry.",
+        "geometry_precision": "Map geometry withheld; use affected_area label, source row, and evidence URL for spatial interpretation because the supplied location is not row-level site geometry.",
+    })
+    event["provenance"] = provenance
+    return event
+
+
 def source_url_for(source: dict[str, Any]) -> str | None:
     api_endpoint = source.get("api_endpoint")
     if isinstance(api_endpoint, str) and api_endpoint.startswith("http"):
@@ -625,7 +704,7 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
     effective_date = str(range_start or date)
     if precision == "range" and not effective_date_range:
         precision = date_precision(effective_date)
-    return {
+    event = {
         "schema_version": SCHEMA,
         "city_id": city,
         "record_kind": "event",
@@ -662,6 +741,7 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
             "geometry_precision": geometry_precision,
         },
     }
+    return apply_map_geometry_policy(event, NON_SITE_MAP_GEOMETRY_STATUS if used_atlas_reference_point else None)
 
 
 def normalize_source_event(city: str, source: dict[str, Any], idx: int) -> dict[str, Any]:
@@ -671,9 +751,10 @@ def normalize_source_event(city: str, source: dict[str, Any], idx: int) -> dict[
     category, lens, signals = category_and_lens(bucket, title)
     label, lng, lat = point_for(city, f"{title} {bucket} {source.get('spatial_granularity','')}", idx + 10000)
     seeds = source.get("suggested_event_seeds") or []
-    return {
+    event = {
         "schema_version": SCHEMA,
         "city_id": city,
+        "record_kind": "event",
         "event_id": f"{city}-current-layer-{slug(sid)}",
         "title": f"Current data layer: {title}",
         "short_description": short_description(source.get("description") or source.get("limitations"), f"Current source layer for {title}."),
@@ -681,6 +762,7 @@ def normalize_source_event(city: str, source: dict[str, Any], idx: int) -> dict[
         "effective_date": "2026",
         "effective_date_range": None,
         "date_precision": "year",
+        "source_date_field": "source catalog review year",
         "category": category,
         "lens": lens,
         "geometry": {"type": "Point", "coordinates": [lng, lat]},
@@ -693,8 +775,19 @@ def normalize_source_event(city: str, source: dict[str, Any], idx: int) -> dict[
         "impact_deltas": [],
         "traffic_metrics": None,
         "caveats": [source.get("limitations") or "Source-specific completeness and licensing must be reviewed before analytical ETL.", "Current-state source marker: represents a dataset/layer, not a single physical event."],
-        "provenance": {"transform": "scripts/build_discovery_city_atlas.py#normalize_source_event", "source_catalog_id": sid},
+        "provenance": {
+            "transform": "scripts/build_discovery_city_atlas.py#normalize_source_event",
+            "source_catalog_id": sid,
+            "source_date_field": "source catalog review year",
+            "source_record_id": sid,
+            "source_url": source_url_for(source),
+            "source_retrieved_at": source.get("retrieved_at"),
+            "source_dataset_id": sid,
+            "geometry_source": "Current-state source marker selected from city/area keywords.",
+            "geometry_precision": "Current-state source marker represents a dataset/layer marker, not a single physical event geometry.",
+        },
     }
+    return apply_map_geometry_policy(event, NON_SITE_MAP_GEOMETRY_STATUS)
 
 
 def load_seeds(city: str) -> list[dict[str, Any]]:
@@ -807,18 +900,30 @@ def source_families(sources: list[dict[str, Any]], events: list[dict[str, Any]])
         bucket = str(s.get("bucket") or "other").split("/")[0].strip().lower().replace(" ", "_") or "other"
         grouped[bucket].append(s["source_id"])
     counts = Counter()
+    years_by_source: dict[str, set[int]] = defaultdict(set)
     for e in events:
         for sid in e.get("source_ids", []):
             counts[sid] += 1
+            if isinstance(e.get("year"), int):
+                years_by_source[sid].add(e["year"])
     families = []
     for family, ids in sorted(grouped.items()):
+        family_years = sorted({year for source_id in ids for year in years_by_source.get(source_id, set())})
+        event_count = sum(counts[source_id] for source_id in ids)
+        notes = (
+            f"{len(ids)} discovered source(s); {event_count} emitted event row(s). "
+            "Event count contains observed or source-backed event records; "
+            "source catalog layers stay in sources.json."
+        )
+        if not family_years:
+            notes += " No event rows currently support a year range for this source family."
         families.append({
             "family_id": family,
             "label": family.replace("_", " ").title(),
             "source_ids": ids[:40],
             "availability": "partial_local",
-            "years": list(range(1800, 2027)),
-            "notes": f"{len(ids)} discovered source(s). Event count contains observed or source-backed event records; source catalog layers stay in sources.json.",
+            "years": family_years,
+            "notes": notes,
         })
     return families
 
@@ -862,11 +967,50 @@ def build_city(city: str) -> dict[str, Any]:
     chunks = []
     for year in sorted(by_year):
         year_events = by_year[year]
+        map_events = [event for event in year_events if event.get("geometry")]
+        withheld_geometry_event_count = len(year_events) - len(map_events)
         json_path = city_dir / f"events_{year}.json"
         geojson_path = city_dir / f"events_{year}.geojson"
-        write_json(json_path, {"schema_version": SCHEMA, "city_id": city, "year": year, "event_count": len(year_events), "events": year_events})
-        write_json(geojson_path, {"type": "FeatureCollection", "schema_version": SCHEMA, "city_id": city, "year": year, "features": [{"type":"Feature","id":e["event_id"],"properties":{k:e.get(k) for k in ["city_id","event_id","title","short_description","year","effective_date","date_precision","category","lens","confidence","source_ids","explanation"]},"geometry":e.get("geometry")} for e in year_events]})
-        chunks.append({"year": year, "event_count": len(year_events), "counts_by_category": dict(Counter(e["category"] for e in year_events)), "counts_by_confidence": dict(Counter(e["confidence"] for e in year_events)), "counts_by_category_confidence": nested_counts(year_events, "category", "confidence"), "json_path": str(json_path.relative_to(ROOT)).replace("\\", "/"), "geojson_path": str(geojson_path.relative_to(ROOT)).replace("\\", "/")})
+        write_json(json_path, {
+            "schema_version": SCHEMA,
+            "city_id": city,
+            "year": year,
+            "event_count": len(year_events),
+            "map_feature_count": len(map_events),
+            "withheld_geometry_event_count": withheld_geometry_event_count,
+            "events": year_events,
+        })
+        write_json(geojson_path, {
+            "type": "FeatureCollection",
+            "schema_version": SCHEMA,
+            "city_id": city,
+            "year": year,
+            "map_feature_count": len(map_events),
+            "withheld_geometry_event_count": withheld_geometry_event_count,
+            "features": [
+                {
+                    "type": "Feature",
+                    "id": e["event_id"],
+                    "properties": {
+                        k: e.get(k)
+                        for k in ["city_id", "event_id", "title", "short_description", "year", "effective_date", "date_precision", "category", "lens", "confidence", "source_ids", "explanation"]
+                    },
+                    "geometry": e.get("geometry"),
+                }
+                for e in map_events
+            ],
+        })
+        chunks.append({
+            "year": year,
+            "event_count": len(year_events),
+            "map_feature_count": len(map_events),
+            "withheld_geometry_event_count": withheld_geometry_event_count,
+            "counts_by_category": dict(Counter(e["category"] for e in year_events)),
+            "counts_by_confidence": dict(Counter(e["confidence"] for e in year_events)),
+            "counts_by_category_confidence": nested_counts(year_events, "category", "confidence"),
+            "json_path": str(json_path.relative_to(ROOT)).replace("\\", "/"),
+            "geojson_path": str(geojson_path.relative_to(ROOT)).replace("\\", "/"),
+        })
 
     families = source_families(sources, events)
     counts_by_category = dict(Counter(e["category"] for e in events))

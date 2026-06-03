@@ -1,5 +1,8 @@
 const fs = require("fs");
 const path = require("path");
+const {
+  eventMapGeometryStatus,
+} = require("../lib/atlas-lenses");
 
 const DEFAULT_ATLAS_DIR = "web/data/city-atlas";
 const MAX_TITLE_LENGTH = 140;
@@ -230,6 +233,45 @@ function featureForEvent(event) {
   };
 }
 
+function mapGeometryWithheldReason(status) {
+  if (status === "withheld_rights_review") {
+    return "Map geometry is withheld pending source-level geometry redistribution review; the event remains available as administrative source evidence.";
+  }
+  return "Map geometry is withheld because the available location is a city/area reference, aggregate geography, or dataset marker rather than source-backed site geometry; the event remains available as administrative source evidence.";
+}
+
+function applyMapGeometryPolicy(event) {
+  const status = eventMapGeometryStatus(event);
+  if (!status) return false;
+  const reason = event.map_geometry_withheld_reason || event.provenance?.map_geometry_withheld_reason || mapGeometryWithheldReason(status);
+  const precision = status === "withheld_rights_review"
+    ? "Map geometry withheld; use affected_area label, source row, and evidence URL for spatial interpretation until coordinate redistribution is cleared."
+    : "Map geometry withheld; use affected_area label, source row, and evidence URL for spatial interpretation because the supplied location is not row-level site geometry.";
+  const geometrySource = status === "withheld_rights_review"
+    ? "Source row includes location fields, but generated atlas map geometry is withheld pending geometry redistribution review."
+    : "Generated atlas map geometry is withheld because the location represents a city/area reference, aggregate geography, or dataset marker rather than source-backed site geometry.";
+  const changed = Boolean(event.geometry)
+    || event.geometry_status !== status
+    || event.map_geometry_status !== status
+    || event.provenance?.geometry_status !== status
+    || event.provenance?.map_geometry_status !== status
+    || event.map_geometry_withheld_reason !== reason;
+  event.geometry = null;
+  event.geometry_status = status;
+  event.map_geometry_status = status;
+  event.map_geometry_withheld_reason = reason;
+  event.caveats = [...new Set([...(Array.isArray(event.caveats) ? event.caveats : []), reason])];
+  event.provenance = {
+    ...(event.provenance || {}),
+    geometry_status: status,
+    map_geometry_status: status,
+    map_geometry_withheld_reason: reason,
+    geometry_source: geometrySource,
+    geometry_precision: precision,
+  };
+  return changed;
+}
+
 function normalizeCity(root, cityDir) {
   const eventsIndexPath = path.join(cityDir, "events.json");
   if (!fs.existsSync(eventsIndexPath)) return null;
@@ -255,7 +297,8 @@ function normalizeCity(root, cityDir) {
       const nextTitle = uniqueTitleForEvent(event, group, usedTitles);
       const nextSubtitle = baseSubtitle(event);
       const nextDetails = baseDetails(event);
-      if (event.title !== nextTitle || event.subtitle !== nextSubtitle || event.details !== nextDetails) {
+      const mapGeometryChanged = applyMapGeometryPolicy(event);
+      if (event.title !== nextTitle || event.subtitle !== nextSubtitle || event.details !== nextDetails || mapGeometryChanged) {
         event.title = nextTitle;
         event.subtitle = nextSubtitle;
         event.details = nextDetails;

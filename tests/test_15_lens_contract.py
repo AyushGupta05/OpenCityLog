@@ -380,6 +380,34 @@ if (eventMatchesLens(metroPunctuality, "transport-speed", sourceById)) throw new
             "NYC PLUTO economy records with secondary transport signals must not be emitted as transport hotspots",
         )
 
+    def test_non_site_reference_geometry_is_evidence_only(self) -> None:
+        cases = [
+            (
+                "nyc",
+                1811,
+                "nyc-milestone-1811-commissioners-plan-grid-adopted-0",
+            ),
+            (
+                "london",
+                1995,
+                "lon_hmlr_ukhpi_e09000001-1995-01",
+            ),
+        ]
+        for city_id, year, event_id in cases:
+            with self.subTest(city_id=city_id, year=year, event_id=event_id):
+                city_dir = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / city_id
+                events = read_json(city_dir / f"events_{year}.json")
+                event = next(row for row in events.get("events", []) if row.get("event_id") == event_id)
+                self.assertIsNone(event.get("geometry"))
+                self.assertEqual(event.get("geometry_status"), "withheld_non_site_scope")
+                self.assertEqual(event.get("provenance", {}).get("geometry_status"), "withheld_non_site_scope")
+                self.assertGreater(events.get("withheld_geometry_event_count", 0), 0)
+
+                geojson = read_json(city_dir / f"events_{year}.geojson")
+                feature_ids = {feature.get("id") or feature.get("properties", {}).get("event_id") for feature in geojson.get("features", [])}
+                self.assertNotIn(event_id, feature_ids)
+                self.assertEqual(geojson.get("map_feature_count"), len(geojson.get("features", [])))
+
     def test_generated_lens_geometry_excludes_review_required_or_map_withheld_sources(self) -> None:
         detail_paths = {
             "belfast": ["lens_overlays.geojson", "lens_detail_2015.geojson", "lens_detail_2024.geojson", "lens_detail_2025.geojson"],

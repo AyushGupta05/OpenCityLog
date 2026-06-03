@@ -1092,7 +1092,7 @@
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
         "Direct map marks and headline counts use same-category event geometry and derived lens-detail geometry where available; inspect evidence before reuse.",
-        "348 source-backed Planning Activity record(s) have map geometry withheld for rights review; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces."
+        "348 source-backed Planning Activity record(s) are evidence-only for map purposes because geometry is withheld for rights review, non-site scope, or aggregate/reference-location limits; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces."
       ],
       "exports": {
         "markdown": true,
@@ -1202,7 +1202,7 @@
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
         "Direct map marks and headline counts use same-category event geometry and derived lens-detail geometry where available; inspect evidence before reuse.",
-        "165 source-backed Planning Activity record(s) have map geometry withheld for rights review; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces."
+        "165 source-backed Planning Activity record(s) are evidence-only for map purposes because geometry is withheld for rights review, non-site scope, or aggregate/reference-location limits; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces."
       ],
       "exports": {
         "markdown": true,
@@ -2337,7 +2337,7 @@
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
         "Direct map marks and headline counts use same-category event geometry and derived lens-detail geometry where available; inspect evidence before reuse.",
-        "348 source-backed Development Sites record(s) have map geometry withheld for rights review; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces."
+        "348 source-backed Development Sites record(s) are evidence-only for map purposes because geometry is withheld for rights review, non-site scope, or aggregate/reference-location limits; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces."
       ],
       "exports": {
         "markdown": true,
@@ -2447,7 +2447,7 @@
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
         "Direct map marks and headline counts use same-category event geometry and derived lens-detail geometry where available; inspect evidence before reuse.",
-        "165 source-backed Development Sites record(s) have map geometry withheld for rights review; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces."
+        "165 source-backed Development Sites record(s) are evidence-only for map purposes because geometry is withheld for rights review, non-site scope, or aggregate/reference-location limits; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces."
       ],
       "exports": {
         "markdown": true,
@@ -3582,7 +3582,7 @@
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
         "Direct map marks and headline counts use same-category event geometry and derived lens-detail geometry where available; inspect evidence before reuse.",
-        "348 source-backed Built Change record(s) have map geometry withheld for rights review; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces."
+        "348 source-backed Built Change record(s) are evidence-only for map purposes because geometry is withheld for rights review, non-site scope, or aggregate/reference-location limits; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces."
       ],
       "exports": {
         "markdown": true,
@@ -3692,7 +3692,7 @@
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
         "Direct map marks and headline counts use same-category event geometry and derived lens-detail geometry where available; inspect evidence before reuse.",
-        "165 source-backed Built Change record(s) have map geometry withheld for rights review; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces."
+        "165 source-backed Built Change record(s) are evidence-only for map purposes because geometry is withheld for rights review, non-site scope, or aggregate/reference-location limits; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces."
       ],
       "exports": {
         "markdown": true,
