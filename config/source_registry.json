@@ -8321,6 +8321,34 @@
       ]
     },
     {
+      "source_id": "osni-open-data-largescale-boundaries-local-government-districts-2012",
+      "title": "OSNI Open Data - Largescale Boundaries - Local Government Districts (2012)",
+      "provider": "Land and Property Services / OpenDataNI",
+      "source_family": "statistics",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "UK Open Government Licence (OGL) v3.0; contains Ordnance Survey of Northern Ireland data.",
+      "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "coverage_years": {
+        "start": 2012,
+        "end": 2026
+      },
+      "update_frequency": "Boundary dataset; check publisher page for newer administrative boundary releases before reuse.",
+      "url": "https://ckan.publishing.service.gov.uk/dataset/osni-open-data-largescale-boundaries-local-government-districts-20123",
+      "local_paths": [
+        "data/raw/boundaries/belfast_osni_lgd_boundary_2012.geojson"
+      ],
+      "reliability": "strong",
+      "source_confidence": "documented",
+      "attribution_text": "Contains public sector information licensed under the Open Government Licence v3.0 and Ordnance Survey of Northern Ireland attribution.",
+      "provenance_notes": "Official Belfast local-government district boundary used only to scope atlas map geometry and road context to Belfast City Council rather than the wider urban region.",
+      "caveats": [
+        "Administrative boundaries are scope geometry for the atlas; they are not evidence that an event occurred, construction happened, or a planning outcome changed."
+      ],
+      "accessed_at": "2026-06-03"
+    },
+    {
       "source_id": "osm-overpass",
       "title": "OpenStreetMap extracts via Overpass API",
       "provider": "OpenStreetMap contributors and Overpass API",

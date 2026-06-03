@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_city_manifest",
-  "generated_at": "2026-06-02T10:31:27Z",
+  "generated_at": "2026-06-03T19:45:00Z",
   "city_id": "london",
   "display_name": "London, England",
   "contract_source": "docs/15_lens_city_design_contract.md",

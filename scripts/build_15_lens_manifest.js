@@ -30,15 +30,15 @@ const CITY_SCOPE = {
   belfast: {
     official_boundary: {
       label: "Belfast City Council boundary",
-      source_name: "OpenDataNI / Spatial NI local government boundary datasets",
+      source_name: "OSNI Open Data - Largescale Boundaries - Local Government Districts (2012)",
       publisher: "Land and Property Services / OpenDataNI",
-      source_url: "https://www.opendatani.gov.uk/",
+      source_url: "https://ckan.publishing.service.gov.uk/dataset/osni-open-data-largescale-boundaries-local-government-districts-20123",
       source_type: "official boundary dataset",
-      licence: "Open Government Licence v3.0 where the resource is marked OGL",
+      licence: "UK Open Government Licence (OGL) v3.0; contains Ordnance Survey of Northern Ireland data.",
       licence_url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-      attribution_text: "Contains public sector information licensed under the Open Government Licence v3.0.",
-      accessed_at: "2026-05-25",
-      source_ids: ["opendatani-spatial-ni"],
+      attribution_text: "Contains public sector information licensed under the Open Government Licence v3.0 and Ordnance Survey of Northern Ireland attribution.",
+      accessed_at: "2026-06-03",
+      source_ids: ["osni-open-data-largescale-boundaries-local-government-districts-2012"],
     },
     admin_overlays: [
       "Belfast District Electoral Areas and wards where Spatial NI/NISRA source-backed boundaries are available.",

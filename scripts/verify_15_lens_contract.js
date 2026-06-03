@@ -253,6 +253,8 @@ function validateCityManifest(root, atlasRoot, schema, lensYearCoverageSchema, c
   const cityArtifact = readJson(cityPath);
   const manifest = readJson(manifestPath);
   const eventsIndex = readJson(eventsPath);
+  const cityPaths = cityArtifact.artifact_paths || {};
+  const summaryPaths = citySummary.artifact_paths || {};
   const schemaFailures = [];
   validateValue(manifest, schema, rel(root, manifestPath), schemaFailures, schema);
   schemaFailures.forEach((message) => fail(failures, message));
@@ -266,9 +268,21 @@ function validateCityManifest(root, atlasRoot, schema, lensYearCoverageSchema, c
   assert(failures, manifest.visual_reference_set === "tmp/reference-screens", `${citySummary.city_id} manifest visual reference mismatch`);
   assert(failures, manifest.lens_count === 15, `${citySummary.city_id} must have 15 lenses`);
   assert(failures, Boolean(manifest.lens_year_coverage_path), `${citySummary.city_id} manifest missing lens_year_coverage_path`);
+  for (const key of ["lens_manifest", "lens_year_coverage"]) {
+    assert(failures, Boolean(summaryPaths[key]), `Atlas index ${citySummary.city_id} missing artifact_paths.${key}`);
+    assert(failures, Boolean(cityPaths[key]), `City artifact ${citySummary.city_id} missing artifact_paths.${key}`);
+    if (summaryPaths[key] && cityPaths[key]) {
+      assert(failures, summaryPaths[key] === cityPaths[key], `${citySummary.city_id} artifact_paths.${key} differs between index and city artifact`);
+    }
+  }
   assert(failures, manifest.launched_city === true, `${citySummary.city_id} must be marked launched_city true`);
   assert(failures, Boolean(manifest.official_scope?.official_boundary?.licence), `${citySummary.city_id} missing official boundary licence`);
   assert(failures, Boolean(manifest.official_scope?.official_boundary?.source_url), `${citySummary.city_id} missing official boundary source_url`);
+  for (const sourceId of manifest.official_scope?.official_boundary?.source_ids || []) {
+    const source = sourceById.get(sourceId);
+    assert(failures, Boolean(source), `${citySummary.city_id} official boundary source ${sourceId} is not registered in sources artifact`);
+    if (source) validateSourceMinimumLicense(failures, `${citySummary.city_id} official boundary`, sourceId, source);
+  }
   assert(failures, Boolean(manifest.official_scope?.scope_note), `${citySummary.city_id} missing official scope note`);
   validateAreaFacets(failures, citySummary.city_id, eventsIndex);
   validateRequiredYearArtifacts(root, failures, citySummary, cityArtifact, eventsIndex);

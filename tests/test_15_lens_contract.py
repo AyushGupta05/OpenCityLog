@@ -267,9 +267,9 @@ for (const coord of outsideEndpointClip.geometry.coordinates) {
   }
 }
 
-function assertScopedRoads(cityId, minimumDropped) {
+function assertScopedRoads(cityId, minimumDropped, paths = {}) {
   const boundary = loadCityScopeBoundary(cityId);
-  const { roads, scopeFilter } = loadScopedRoadFeatures({ city_id: cityId }, {});
+  const { roads, scopeFilter } = loadScopedRoadFeatures({ city_id: cityId }, paths);
   if (!scopeFilter) throw new Error(`${cityId} missing scope filter metadata`);
   if (scopeFilter.dropped_out_of_scope_feature_count < minimumDropped) {
     throw new Error(`${cityId} dropped too few bbox road features: ${scopeFilter.dropped_out_of_scope_feature_count}`);
@@ -295,8 +295,37 @@ function assertScopedRoads(cityId, minimumDropped) {
 
 assertScopedRoads("nyc", 1000);
 assertScopedRoads("london", 1);
+assertScopedRoads("belfast", 1, { detail_layers: "web/data/city-atlas/cities/belfast/detail_layers.geojson" });
 """
         subprocess.run(["node", "-e", script], cwd=REPO_ROOT, check=True)
+
+    def test_belfast_city_bounds_match_official_lgd_scope(self) -> None:
+        city = read_json(REPO_ROOT / "config" / "cities" / "belfast.json")
+        boundary = read_json(REPO_ROOT / "data" / "raw" / "boundaries" / "belfast_osni_lgd_boundary_2012.geojson")
+        coords: list[list[float]] = []
+
+        def walk(item: object) -> None:
+            if not isinstance(item, list) or not item:
+                return
+            if isinstance(item[0], (int, float)):
+                coords.append(item)  # type: ignore[arg-type]
+                return
+            for child in item:
+                walk(child)
+
+        for feature in boundary.get("features", []):
+            walk(feature.get("geometry", {}).get("coordinates", []))
+
+        self.assertGreater(len(coords), 0)
+        lons = [coord[0] for coord in coords]
+        lats = [coord[1] for coord in coords]
+        expected_bounds = [min(lons), min(lats), max(lons), max(lats)]
+        rounded_expected = [round(value, 6) for value in expected_bounds]
+        self.assertEqual(city.get("bounds"), rounded_expected)
+        self.assertEqual(city.get("default_center"), [
+            round((expected_bounds[0] + expected_bounds[2]) / 2, 6),
+            round((expected_bounds[1] + expected_bounds[3]) / 2, 6),
+        ])
 
     def test_belfast_2007_access_event_preserves_per_source_evidence_urls(self) -> None:
         events_path = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2007.json"

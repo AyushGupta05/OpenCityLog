@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-06-02T10:31:27Z",
+  "generated_at": "2026-06-03T19:45:00Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
@@ -9,7 +9,7 @@
     "total_unique_events": 356388,
     "duplicate_event_id_count": 0,
     "active_source_count": 490,
-    "source_catalog_only_count": 253,
+    "source_catalog_only_count": 254,
     "source_year_layer_row_count": 2548,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
@@ -20411,9 +20411,9 @@
       "unique_event_count": 33149,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 246,
+      "source_count": 247,
       "active_source_count": 215,
-      "source_catalog_only_count": 31,
+      "source_catalog_only_count": 32,
       "year_range": {
         "first_event_year": 2007,
         "last_event_year": 2026
@@ -29031,6 +29031,20 @@
           "coverage_status": "source_catalog_only"
         },
         {
+          "source_id": "osni-open-data-largescale-boundaries-local-government-districts-2012",
+          "title": "OSNI Open Data - Largescale Boundaries - Local Government Districts (2012)",
+          "provider": "Land and Property Services / OpenDataNI",
+          "reliability": "strong",
+          "licence": "UK Open Government Licence (OGL) v3.0; contains Ordnance Survey of Northern Ireland data.",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
           "source_id": "qub_energy_lab_2022",
           "title": "qub_energy_lab_2022",
           "provider": "Queen's University Belfast",
@@ -29268,6 +29282,12 @@
             "source_id": "opendatani-spatial-ni",
             "title": "OpenDataNI and Spatial NI datasets",
             "provider": "Northern Ireland public-sector data publishers",
+            "reliability": "strong"
+          },
+          {
+            "source_id": "osni-open-data-largescale-boundaries-local-government-districts-2012",
+            "title": "OSNI Open Data - Largescale Boundaries - Local Government Districts (2012)",
+            "provider": "Land and Property Services / OpenDataNI",
             "reliability": "strong"
           },
           {

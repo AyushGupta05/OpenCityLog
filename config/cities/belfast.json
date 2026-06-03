@@ -7,16 +7,16 @@
   "region": "Northern Ireland",
   "timezone": "Europe/London",
   "bounds": [
-    -6.12,
-    54.45,
-    -5.74,
-    54.75
+    -6.060137,
+    54.530576,
+    -5.80736,
+    54.665004
   ],
   "default_center": [
-    -5.9301,
-    54.5973
+    -5.933749,
+    54.59779
   ],
-  "default_zoom": 11.5,
+  "default_zoom": 11.8,
   "available_years": {
     "schema_supported_start": 2000,
     "schema_supported_end": 2026,
@@ -335,12 +335,14 @@
       "label": "Population, census, deprivation, and statistical boundaries",
       "source_ids": [
         "nisra-statistics",
-        "opendatani-spatial-ni"
+        "opendatani-spatial-ni",
+        "osni-open-data-largescale-boundaries-local-government-districts-2012"
       ],
       "availability": "planned",
       "years": [
         2001,
         2011,
+        2012,
         2017,
         2021,
         2026

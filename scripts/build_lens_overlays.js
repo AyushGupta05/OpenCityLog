@@ -59,6 +59,12 @@ const UTILITY_TRACE_RADIUS_KM = 0.62;
 const LENS_YEAR_CONTRACT_START = 2007;
 const LENS_YEAR_CONTRACT_END = 2026;
 const CITY_SCOPE_BOUNDARY_SOURCES = {
+  belfast: {
+    path: "data/raw/boundaries/belfast_osni_lgd_boundary_2012.geojson",
+    source_name: "OSNI Open Data - Largescale Boundaries - Local Government Districts (2012)",
+    source_url: "https://ckan.publishing.service.gov.uk/dataset/osni-open-data-largescale-boundaries-local-government-districts-20123",
+    licence: "UK Open Government Licence (OGL) v3.0; contains Ordnance Survey of Northern Ireland data.",
+  },
   london: {
     path: "data/raw/boundaries/london_ons_region_boundary_2024.geojson",
     source_name: "Regions (December 2024) Boundaries EN BGC",

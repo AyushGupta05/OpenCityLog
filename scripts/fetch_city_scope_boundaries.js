@@ -6,6 +6,18 @@ const outDir = path.join(rootDir, "data", "raw", "boundaries");
 const fetchedAt = process.env.BIMS_BOUNDARY_FETCHED_AT || new Date().toISOString();
 
 const BOUNDARY_SOURCES = {
+  belfast: {
+    city_id: "belfast",
+    output: "belfast_osni_lgd_boundary_2012.geojson",
+    source_name: "OSNI Open Data - Largescale Boundaries - Local Government Districts (2012)",
+    source_id: "osni-open-data-largescale-boundaries-local-government-districts-2012",
+    publisher: "Land and Property Services / OpenDataNI",
+    source_url: "https://ckan.publishing.service.gov.uk/dataset/osni-open-data-largescale-boundaries-local-government-districts-20123",
+    download_url: "https://services3.arcgis.com/HRuPlEcokYlz4mdz/arcgis/rest/services/Admin_Boundaries/FeatureServer/4/query?where=LGDNAME%3D%27Belfast%27&outFields=*&returnGeometry=true&f=geojson&outSR=4326",
+    licence: "UK Open Government Licence (OGL) v3.0; contains Ordnance Survey of Northern Ireland data.",
+    licence_url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    boundary_scope: "Belfast Local Government District 2012 boundary, delineated under the Local Government (Boundaries) Order (Northern Ireland) 2012 and used from the 2014 elections.",
+  },
   london: {
     city_id: "london",
     output: "london_ons_region_boundary_2024.geojson",
