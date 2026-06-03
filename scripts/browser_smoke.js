@@ -35,8 +35,8 @@ async function downloadTextFromClick(page, selector) {
   return fs.readFileSync(filePath, "utf8");
 }
 
-async function assertNoGeneratedGuideSignal(page, label) {
-  const guideState = await page.evaluate(() => {
+async function guideSignalState(page) {
+  return page.evaluate(() => {
     const state = window.BimsAtlas?.state;
     const map = state?.map;
     const guideLayers = [
@@ -56,14 +56,129 @@ async function assertNoGeneratedGuideSignal(page, label) {
         // Empty guide layers are acceptable in strict source-only mode.
       }
     }
+    const activeAspect = state?.activeAspect || "";
+    const year = Number(state?.year);
+    const row = state?.lensYearCoverageByKey?.get?.(`${activeAspect}:${year}`);
+    const detailLayer = activeAspect === "planning-pressure"
+      ? "planning_cell"
+      : activeAspect === "economy-land-use"
+      ? "economy_activity_cell"
+      : "";
+    const matchingDetailCount = detailLayer
+      ? (state?.lensDetailFeatures || []).filter((feature) => {
+        const props = feature?.properties || {};
+        return props.layer === detailLayer && Number(props.year || props.visible_year || 0) === year;
+      }).length
+      : 0;
+    const features = state?.lensGuideFeatureCache?.features || [];
+    const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
+    const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
     return {
-      activeAspect: state?.activeAspect || "",
-      guideFeatureCount: state?.lensGuideFeatureCache?.features?.length || 0,
+      activeAspect,
+      canRenderGuide: ["planning-pressure", "economy-land-use"].includes(activeAspect)
+        && row?.status === "source_backed_records"
+        && row?.visible_map_contract !== false
+        && matchingDetailCount > 0,
+      guideFeatureCount: features.length,
       rendered,
+      invalidFeatureCount: features.filter((feature) => {
+        const props = feature?.properties || {};
+        const eventIds = splitIds(props.event_ids || props.event_id);
+        const sourceIds = splitIds(props.source_ids || props.source_id);
+        return !feature?.geometry
+          || !props.kind
+          || !props.surface_style
+          || !props.source_kind
+          || !props.evidence_role
+          || !props.context_year
+          || !props.detail_layer
+          || !props.generated_from
+          || !props.source_urls
+          || !props.confidence
+          || forbiddenContext.test(`${props.source_kind} ${props.evidence_role}`)
+          || !eventIds.length
+          || !sourceIds.length
+          || !eventIds.every((id) => state?.eventById?.has?.(id))
+          || !sourceIds.every((id) => state?.sourceById?.has?.(id));
+      }).length,
     };
   });
-  assert(guideState.guideFeatureCount === 0, `${label}: generated guide feature cache is not empty (${guideState.guideFeatureCount}).`);
-  assert(guideState.rendered === 0, `${label}: generated guide layers rendered ${guideState.rendered} features.`);
+}
+
+async function assertGeneratedGuideSignal(page, label) {
+  await page.waitForFunction(() => {
+    const state = window.BimsAtlas?.state;
+    const map = state?.map;
+    const guideLayers = [
+      "lens-guide-flow",
+      "lens-guide-cell-fill",
+      "lens-guide-area-line",
+      "lens-guide-ring-line",
+      "lens-guide-node",
+      "lens-guide-icon-node",
+    ];
+    let rendered = 0;
+    for (const layerId of guideLayers) {
+      if (!map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") continue;
+      try {
+        rendered += map.queryRenderedFeatures({ layers: [layerId] }).length;
+      } catch {
+        // Wait for the source/layer to settle.
+      }
+    }
+    const activeAspect = state?.activeAspect || "";
+    const year = Number(state?.year);
+    const row = state?.lensYearCoverageByKey?.get?.(`${activeAspect}:${year}`);
+    const detailLayer = activeAspect === "planning-pressure"
+      ? "planning_cell"
+      : activeAspect === "economy-land-use"
+      ? "economy_activity_cell"
+      : "";
+    const matchingDetailCount = detailLayer
+      ? (state?.lensDetailFeatures || []).filter((feature) => {
+        const props = feature?.properties || {};
+        return props.layer === detailLayer && Number(props.year || props.visible_year || 0) === year;
+      }).length
+      : 0;
+    const features = state?.lensGuideFeatureCache?.features || [];
+    const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
+    const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
+    const canRenderGuide = ["planning-pressure", "economy-land-use"].includes(activeAspect)
+      && row?.status === "source_backed_records"
+      && row?.visible_map_contract !== false
+      && matchingDetailCount > 0;
+    const invalidFeatureCount = features.filter((feature) => {
+      const props = feature?.properties || {};
+      const eventIds = splitIds(props.event_ids || props.event_id);
+      const sourceIds = splitIds(props.source_ids || props.source_id);
+      return !feature?.geometry
+        || !props.kind
+        || !props.surface_style
+        || !props.source_kind
+        || !props.evidence_role
+        || !props.context_year
+        || !props.detail_layer
+        || !props.generated_from
+        || !props.source_urls
+        || !props.confidence
+        || forbiddenContext.test(`${props.source_kind} ${props.evidence_role}`)
+        || !eventIds.length
+        || !sourceIds.length
+        || !eventIds.every((id) => state?.eventById?.has?.(id))
+        || !sourceIds.every((id) => state?.sourceById?.has?.(id));
+    }).length;
+    if (canRenderGuide) return features.length > 0 && invalidFeatureCount === 0 && rendered > 0;
+    return features.length === 0 && rendered === 0;
+  }, null, { timeout: 8000 }).catch(() => {});
+  const guideState = await guideSignalState(page);
+  if (guideState.canRenderGuide) {
+    assert(guideState.guideFeatureCount > 0, `${label}: direct-detail guide cache is empty for ${guideState.activeAspect}.`);
+    assert(guideState.invalidFeatureCount === 0, `${label}: ${guideState.invalidFeatureCount} guide feature(s) lack provenance fields.`);
+    assert(guideState.rendered > 0, `${label}: direct-detail guide features did not render for ${guideState.activeAspect}.`);
+    return;
+  }
+  assert(guideState.guideFeatureCount === 0, `${label}: unsupported guide feature cache is not empty (${guideState.guideFeatureCount}).`);
+  assert(guideState.rendered === 0, `${label}: unsupported guide layers rendered ${guideState.rendered} features.`);
 }
 
 async function assertAspectCopy(page, aspectId, { required = [], forbidden = [] } = {}) {
@@ -525,7 +640,7 @@ async function runSmoke() {
     }, check.id);
     assert(activeAspect === check.id, `Atlas did not activate ${check.id}; active aspect is ${activeAspect || "missing"}.`);
     await page.waitForTimeout(250);
-    await assertNoGeneratedGuideSignal(page, check.id);
+    await assertGeneratedGuideSignal(page, check.id);
   }
 
   const provenanceCopyChecks = [
@@ -643,7 +758,7 @@ async function runSmoke() {
       check.layer,
       { timeout: 15000 }
     );
-    await assertNoGeneratedGuideSignal(page, `${check.id} ${check.year}`);
+    await assertGeneratedGuideSignal(page, `${check.id} ${check.year}`);
     const lensState = await atlasState(page);
     assert(lensState.activeLens === check.id, `Map lens did not switch to ${check.id}.`);
     assert(Number(lensState.year) === check.year, `${check.id} map lens did not switch to source-compatible year ${check.year}.`);
@@ -679,7 +794,7 @@ async function runSmoke() {
     null,
     { timeout: 15000 }
   );
-  await assertNoGeneratedGuideSignal(page, "transport 2007");
+  await assertGeneratedGuideSignal(page, "transport 2007");
   const transportLensState = await atlasState(page);
   const transportFilteredIds = await page.evaluate(() => (window.BimsAtlas?.filteredEvents?.() || []).map((event) => event.id));
   assert(transportFilteredIds.includes("belfast_m1_blacks_stockmans_road_scheme_delay_2007"), "2007 transport-speed did not retain the source-backed road-scheme evidence event.");

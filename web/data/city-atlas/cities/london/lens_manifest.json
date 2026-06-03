@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_city_manifest",
-  "generated_at": "2026-06-03T21:25:00Z",
+  "generated_at": "2026-06-03T20:35:16Z",
   "city_id": "london",
   "display_name": "London, England",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -1686,18 +1686,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 65237,
-        "compatible_event_count": 65237,
+        "event_count": 10085,
+        "compatible_event_count": 10085,
         "review_required_event_count": 0,
-        "source_count": 7,
-        "compatible_source_count": 7,
+        "source_count": 5,
+        "compatible_source_count": 5,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2004,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 65237
+          "documented": 10085
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1705,18 +1705,20 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 27061,
+        "excluded_review_required_event_count": 58,
         "year_contract": {
           "required_years": {
             "start": 2007,
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 19,
+          "visible_year_count": 17,
           "missing_visible_years": [
-            2021
+            2021,
+            2023,
+            2024
           ],
-          "source_backed_record_year_count": 19,
+          "source_backed_record_year_count": 17,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -1724,7 +1726,7 @@
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "2004-2026",
-        "update_cadence": "GIAS download page states public downloads are updated daily.; Institutional history page; cadence set by publisher.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source rows contain timestamp; atlas adapter displays month precision for privacy minimization.; Source-specific publication/update cadence; rating/inspection publication date"
+        "update_cadence": "GIAS download page states public downloads are updated daily.; Institutional history page; cadence set by publisher.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source-specific publication/update cadence; rating/inspection publication date"
       },
       "provenance": {
         "source_ids": [
@@ -1732,8 +1734,6 @@
           "lon-extra-food-hygiene-rating-scheme-api",
           "london-development-database-archive",
           "planning-data-certificate-of-immunity",
-          "police-data-api",
-          "police-data-stop-search",
           "wembley_stadium_history_2007"
         ],
         "compatible_source_ids": [
@@ -1741,8 +1741,6 @@
           "lon-extra-food-hygiene-rating-scheme-api",
           "london-development-database-archive",
           "planning-data-certificate-of-immunity",
-          "police-data-api",
-          "police-data-stop-search",
           "wembley_stadium_history_2007"
         ],
         "review_required_source_ids": [],
@@ -1795,32 +1793,6 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
             "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "police-data-api",
-            "title": "Police.uk crime and outcomes API",
-            "publisher": "Home Office / Police.uk / Metropolitan Police Service data contributors",
-            "source_family": "public_services",
-            "licence": "Open Government Licence v3.0.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Home Office / Police.uk / Metropolitan Police Service data contributors",
-            "accessed_at": "2026-05-08T00:00:00+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "police-data-stop-search",
-            "title": "Police.uk stop and search custom CSV downloads",
-            "publisher": "Home Office / Police.uk / police force data contributors",
-            "source_family": "public_services",
-            "licence": "Open Government Licence v3.0.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Home Office / Police.uk / police force data contributors",
-            "accessed_at": "2026-05-08T00:00:00+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1864,18 +1836,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 65237,
-        "compatible_event_count": 65237,
+        "event_count": 10085,
+        "compatible_event_count": 10085,
         "review_required_event_count": 0,
-        "source_count": 7,
-        "compatible_source_count": 7,
+        "source_count": 5,
+        "compatible_source_count": 5,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2004,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 65237
+          "documented": 10085
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1883,18 +1855,20 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 27061,
+        "excluded_review_required_event_count": 58,
         "year_contract": {
           "required_years": {
             "start": 2007,
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 19,
+          "visible_year_count": 17,
           "missing_visible_years": [
-            2021
+            2021,
+            2023,
+            2024
           ],
-          "source_backed_record_year_count": 19,
+          "source_backed_record_year_count": 17,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
@@ -1902,7 +1876,7 @@
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "2004-2026",
-        "update_cadence": "GIAS download page states public downloads are updated daily.; Institutional history page; cadence set by publisher.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source rows contain timestamp; atlas adapter displays month precision for privacy minimization.; Source-specific publication/update cadence; rating/inspection publication date"
+        "update_cadence": "GIAS download page states public downloads are updated daily.; Institutional history page; cadence set by publisher.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source-specific publication/update cadence; rating/inspection publication date"
       },
       "provenance": {
         "source_ids": [
@@ -1910,8 +1884,6 @@
           "lon-extra-food-hygiene-rating-scheme-api",
           "london-development-database-archive",
           "planning-data-certificate-of-immunity",
-          "police-data-api",
-          "police-data-stop-search",
           "wembley_stadium_history_2007"
         ],
         "compatible_source_ids": [
@@ -1919,8 +1891,6 @@
           "lon-extra-food-hygiene-rating-scheme-api",
           "london-development-database-archive",
           "planning-data-certificate-of-immunity",
-          "police-data-api",
-          "police-data-stop-search",
           "wembley_stadium_history_2007"
         ],
         "review_required_source_ids": [],
@@ -1973,32 +1943,6 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
             "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "police-data-api",
-            "title": "Police.uk crime and outcomes API",
-            "publisher": "Home Office / Police.uk / Metropolitan Police Service data contributors",
-            "source_family": "public_services",
-            "licence": "Open Government Licence v3.0.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Home Office / Police.uk / Metropolitan Police Service data contributors",
-            "accessed_at": "2026-05-08T00:00:00+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "police-data-stop-search",
-            "title": "Police.uk stop and search custom CSV downloads",
-            "publisher": "Home Office / Police.uk / police force data contributors",
-            "source_family": "public_services",
-            "licence": "Open Government Licence v3.0.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Home Office / Police.uk / police force data contributors",
-            "accessed_at": "2026-05-08T00:00:00+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false

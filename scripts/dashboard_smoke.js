@@ -420,6 +420,47 @@ async function assertDesktopCitywideCoverage(page) {
     assert(state.panelOverlaps.length === 0, `desktop citywide ${lens.id}: panels overlap (${state.panelOverlaps.join(", ")}).`);
     assert(state.contentOverflows.length === 0, `desktop citywide ${lens.id}: key content clips horizontally (${state.contentOverflows.join(", ")}).`);
     assert(state.lensLegendText.length > 24, `desktop citywide ${lens.id}: legend did not render.`);
+    await page.waitForFunction(() => {
+      const atlas = window.BimsAtlas;
+      const state = atlas?.state;
+      const activeAspect = state?.activeAspect || "";
+      const year = Number(state?.year);
+      const row = state?.lensYearCoverageByKey?.get?.(`${activeAspect}:${year}`);
+      const detailLayer = activeAspect === "planning-pressure"
+        ? "planning_cell"
+        : activeAspect === "economy-land-use"
+        ? "economy_activity_cell"
+        : "";
+      const matchingDetailCount = detailLayer
+        ? (state?.lensDetailFeatures || []).filter((feature) => {
+          const props = feature?.properties || {};
+          return props.layer === detailLayer && Number(props.year || props.visible_year || 0) === year;
+        }).length
+        : 0;
+      const canRenderGuide = ["planning-pressure", "economy-land-use"].includes(activeAspect)
+        && row?.status === "source_backed_records"
+        && row?.visible_map_contract !== false
+        && matchingDetailCount > 0;
+      if (!canRenderGuide) return true;
+      const map = state?.map;
+      const guideLayers = [
+        "lens-guide-flow",
+        "lens-guide-cell-fill",
+        "lens-guide-area-line",
+        "lens-guide-ring-line",
+        "lens-guide-node",
+      ];
+      let rendered = 0;
+      for (const layer of guideLayers) {
+        if (!map?.getLayer?.(layer) || map.getLayoutProperty(layer, "visibility") === "none") continue;
+        try {
+          rendered += map.queryRenderedFeatures({ layers: [layer] }).length;
+        } catch (_error) {
+          // Wait for guide source/layer state to settle.
+        }
+      }
+      return (state?.lensGuideFeatureCache?.features?.length || 0) > 0 && rendered > 0;
+    }, null, { timeout: 8000 }).catch(() => {});
     const citywideState = await page.evaluate(() => {
       const atlas = window.BimsAtlas;
       const map = atlas?.state?.map;
@@ -444,6 +485,44 @@ async function assertDesktopCitywideCoverage(page) {
       const activeLens = atlas?.state?.activeLens || "";
       const activeCoverageRow = coverageRows.find((row) => row?.lens_slug === activeAspect && Number(row?.year) === Number(atlas?.state?.year)) || null;
       const contextRows = coverageRows.filter((row) => /context/i.test(row?.status || "") || Number(row?.coverage_context_feature_count || 0) > 0).length;
+      const guideFeatures = atlas?.state?.lensGuideFeatureCache?.features || [];
+      const detailLayerForGuide = activeAspect === "planning-pressure"
+        ? "planning_cell"
+        : activeAspect === "economy-land-use"
+        ? "economy_activity_cell"
+        : "";
+      const matchingDetailCount = detailLayerForGuide
+        ? (atlas?.state?.lensDetailFeatures || []).filter((feature) => {
+          const props = feature?.properties || {};
+          return props.layer === detailLayerForGuide && Number(props.year || props.visible_year || 0) === Number(atlas?.state?.year);
+        }).length
+        : 0;
+      const canRenderGuide = ["planning-pressure", "economy-land-use"].includes(activeAspect)
+        && activeCoverageRow?.status === "source_backed_records"
+        && activeCoverageRow?.visible_map_contract !== false
+        && matchingDetailCount > 0;
+      const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
+      const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
+      const invalidGuideCount = guideFeatures.filter((feature) => {
+        const props = feature?.properties || {};
+        const eventIds = splitIds(props.event_ids || props.event_id);
+        const sourceIds = splitIds(props.source_ids || props.source_id);
+        return !feature?.geometry
+          || !props.kind
+          || !props.surface_style
+          || !props.source_kind
+          || !props.evidence_role
+          || !props.context_year
+          || !props.detail_layer
+          || !props.generated_from
+          || !props.source_urls
+          || !props.confidence
+          || forbiddenContext.test(`${props.source_kind} ${props.evidence_role}`)
+          || !eventIds.length
+          || !sourceIds.length
+          || !eventIds.every((id) => atlas?.state?.eventById?.has?.(id))
+          || !sourceIds.every((id) => atlas?.state?.sourceById?.has?.(id));
+      }).length;
       const renderedLayerCount = (layerId) => {
         if (!map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") return 0;
         try {
@@ -479,6 +558,9 @@ async function assertDesktopCitywideCoverage(page) {
       return {
         renderedGuides,
         contextRows,
+        canRenderGuide,
+        guideFeatureCount: guideFeatures.length,
+        invalidGuideCount,
         activeLens,
         activeAspect,
         visibleMapContract: Boolean(activeCoverageRow?.visible_map_contract),
@@ -495,7 +577,14 @@ async function assertDesktopCitywideCoverage(page) {
       };
     });
     assert(/Citywide extent/i.test(citywideState.chip), `desktop citywide ${lens.id}: citywide chip is not visible.`);
-    assert(citywideState.renderedGuides === 0, `desktop citywide ${lens.id}: generated guide layers rendered ${citywideState.renderedGuides} features.`);
+    if (citywideState.canRenderGuide) {
+      assert(citywideState.guideFeatureCount > 0, `desktop citywide ${lens.id}: direct-detail guide cache is empty.`);
+      assert(citywideState.invalidGuideCount === 0, `desktop citywide ${lens.id}: direct-detail guide has ${citywideState.invalidGuideCount} feature(s) missing provenance fields.`);
+      assert(citywideState.renderedGuides > 0, `desktop citywide ${lens.id}: direct-detail guide did not render.`);
+    } else {
+      assert(citywideState.guideFeatureCount === 0, `desktop citywide ${lens.id}: unsupported guide cache has ${citywideState.guideFeatureCount} features.`);
+      assert(citywideState.renderedGuides === 0, `desktop citywide ${lens.id}: unsupported guide layers rendered ${citywideState.renderedGuides} features.`);
+    }
     assert(citywideState.contextRows === 0, `desktop citywide ${lens.id}: lens-year coverage still includes context filler rows.`);
     if (citywideState.markerCount >= 3 && citywideState.renderedSourceBackedDetail === 0 && citywideState.renderedTransportYearRoads === 0) {
       assert(citywideState.markerCells >= 3, `desktop citywide ${lens.id}: map markers are clustered too tightly for a marker-driven citywide view.`);
@@ -645,6 +734,103 @@ async function assertDesktopCitywideCoverage(page) {
   await page.waitForFunction(() => document.querySelector("#mapStudyChip")?.dataset.scope === "city", null, { timeout: 10000 });
 }
 
+async function directGuideState(page) {
+  return page.evaluate(() => {
+    const state = window.BimsAtlas?.state;
+    const map = state?.map;
+    const activeAspect = state?.activeAspect || "";
+    const year = Number(state?.year);
+    const row = state?.lensYearCoverageByKey?.get?.(`${activeAspect}:${year}`);
+    const detailLayer = activeAspect === "planning-pressure"
+      ? "planning_cell"
+      : activeAspect === "economy-land-use"
+      ? "economy_activity_cell"
+      : "";
+    const matchingDetailCount = detailLayer
+      ? (state?.lensDetailFeatures || []).filter((feature) => {
+        const props = feature?.properties || {};
+        return props.layer === detailLayer && Number(props.year || props.visible_year || 0) === year;
+      }).length
+      : 0;
+    const guideLayers = ["lens-guide-flow", "lens-guide-cell-fill", "lens-guide-area-line", "lens-guide-ring-line", "lens-guide-node"];
+    let renderedGuides = 0;
+    for (const layer of guideLayers) {
+      if (!map?.getLayer?.(layer) || map.getLayoutProperty(layer, "visibility") === "none") continue;
+      try {
+        renderedGuides += map.queryRenderedFeatures({ layers: [layer] }).length;
+      } catch (_error) {
+        // Empty or settling guide layers are handled by assertions below.
+      }
+    }
+    const guideFeatures = state?.lensGuideFeatureCache?.features || [];
+    const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
+    const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
+    const invalidGuideCount = guideFeatures.filter((feature) => {
+      const props = feature?.properties || {};
+      const eventIds = splitIds(props.event_ids || props.event_id);
+      const sourceIds = splitIds(props.source_ids || props.source_id);
+      return !feature?.geometry
+        || !props.kind
+        || !props.surface_style
+        || !props.source_kind
+        || !props.evidence_role
+        || !props.context_year
+        || !props.detail_layer
+        || !props.generated_from
+        || !props.source_urls
+        || !props.confidence
+        || forbiddenContext.test(`${props.source_kind} ${props.evidence_role}`)
+        || !eventIds.length
+        || !sourceIds.length
+        || !eventIds.every((id) => state?.eventById?.has?.(id))
+        || !sourceIds.every((id) => state?.sourceById?.has?.(id));
+    }).length;
+    return {
+      activeAspect,
+      year,
+      canRenderGuide: ["planning-pressure", "economy-land-use"].includes(activeAspect)
+        && row?.status === "source_backed_records"
+        && row?.visible_map_contract !== false
+        && matchingDetailCount > 0,
+      guideFeatureCount: guideFeatures.length,
+      renderedGuides,
+      invalidGuideCount,
+    };
+  });
+}
+
+async function assertDirectGuideSurface(page, label, { expected }) {
+  if (expected) {
+    await page.waitForFunction(() => {
+      const state = window.BimsAtlas?.state;
+      const map = state?.map;
+      const guideFeatures = state?.lensGuideFeatureCache?.features || [];
+      if (!guideFeatures.length) return false;
+      const guideLayers = ["lens-guide-cell-fill", "lens-guide-area-line", "lens-guide-flow", "lens-guide-node"];
+      let rendered = 0;
+      for (const layer of guideLayers) {
+        if (!map?.getLayer?.(layer) || map.getLayoutProperty(layer, "visibility") === "none") continue;
+        try {
+          rendered += map.queryRenderedFeatures({ layers: [layer] }).length;
+        } catch (_error) {
+          // Wait for guide source/layer state to settle.
+        }
+      }
+      return rendered > 0;
+    }, null, { timeout: 12000 }).catch(() => {});
+  }
+  const state = await directGuideState(page);
+  if (expected) {
+    assert(state.canRenderGuide, `${label}: direct guide was not eligible for ${state.activeAspect} ${state.year}.`);
+    assert(state.guideFeatureCount > 0, `${label}: direct guide cache is empty.`);
+    assert(state.renderedGuides > 0, `${label}: direct guide did not render.`);
+    assert(state.invalidGuideCount === 0, `${label}: direct guide has ${state.invalidGuideCount} invalid feature(s).`);
+    return;
+  }
+  assert(state.guideFeatureCount === 0, `${label}: non-eligible guide cache has ${state.guideFeatureCount} feature(s).`);
+  assert(state.renderedGuides === 0, `${label}: non-eligible guide rendered ${state.renderedGuides} feature(s).`);
+}
+
 async function assertCitySourceBackedLensCoverage(page, cityId) {
   await page.evaluate(async () => {
     await window.BimsAtlas?.setAreaFilter?.("");
@@ -665,14 +851,15 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
       { aspect: "utilities-capacity", year: 2013, rendered: ["lensUtilityTraceRendered", "lensUtilityAssetsRendered"], renderedLayers: ["lens-utilities-trace", "lens-utility-asset-icons"], featureLayer: "utility_trace", label: "utility traces/assets" },
     ],
     london: [
-      { aspect: "planning-pressure", rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells" },
-      { aspect: "civic-access-gaps", rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells" },
+      { aspect: "planning-pressure", year: 2026, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells", guideExpected: true },
+      { aspect: "civic-access-gaps", year: 2009, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells" },
+      { aspect: "economy-land-use", year: 2026, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], featureLayer: "economy_activity_cell", label: "economy cells", guideExpected: true },
       { aspect: "utilities-capacity", year: 2020, rendered: ["lensUtilityTraceRendered"], renderedLayers: ["lens-utilities-trace"], featureLayer: "utility_trace", label: "utility traces" },
     ],
     nyc: [
-      { aspect: "planning-pressure", rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells" },
+      { aspect: "planning-pressure", year: 2026, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells", guideExpected: true },
       { aspect: "civic-access-gaps", rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells" },
-      { aspect: "economy-land-use", rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], featureLayer: "economy_activity_cell", label: "economy cells", allowAdjacent: true },
+      { aspect: "economy-land-use", year: 2026, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], featureLayer: "economy_activity_cell", label: "economy cells", guideExpected: true },
     ],
   };
   const checks = checksByCity[cityId] || checksByCity.belfast;
@@ -712,6 +899,7 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
       const state = await atlasState(page);
       assert(state.pinCount === 0, `city ${cityId}: ${check.aspect} is ${coverage.status || "non-visible"} but rendered ${state.pinCount} pin(s).`);
       assert(coverage.directCount === 0, `city ${cityId}: ${check.aspect} is non-visible but reports ${coverage.directCount} direct record(s).`);
+      if (check.guideExpected === false) await assertDirectGuideSurface(page, `city ${cityId}: ${check.aspect}`, { expected: false });
       continue;
     }
     await page.waitForFunction(
@@ -752,6 +940,9 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     const state = await atlasState(page);
     const rendered = check.rendered.reduce((sum, field) => sum + Number(state[field] || 0), 0);
     assert(rendered > 0, `city ${cityId}: ${check.label} did not render across the ${targetYear} citywide map.`);
+    if (typeof check.guideExpected === "boolean") {
+      await assertDirectGuideSurface(page, `city ${cityId}: ${check.aspect}`, { expected: check.guideExpected });
+    }
     const citywidePng = await page.screenshot({
       path: path.join(outputDir, `paper-atlas-${cityId}-${check.aspect}-citywide.png`),
       fullPage: false,
@@ -764,9 +955,38 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
 
 async function assertSparseLensCoverageHonesty(page, cityId) {
   const checksByCity = {
+    belfast: [
+      {
+        aspect: "planning-pressure",
+        year: 2024,
+        guideExpected: false,
+        label: "Belfast withheld planning guide",
+      },
+      {
+        aspect: "economy-land-use",
+        year: 2024,
+        guideExpected: false,
+        label: "Belfast 2024 economy guide",
+      },
+      {
+        aspect: "economy-land-use",
+        year: 2026,
+        guideExpected: false,
+        label: "Belfast 2026 economy guide",
+      },
+    ],
+    london: [
+      {
+        aspect: "civic-access-gaps",
+        year: 2024,
+        guideExpected: false,
+        label: "London 2024 police-excluded civic access guide",
+      },
+    ],
     nyc: [
       {
         aspect: "economy-land-use",
+        year: 2024,
         rendered: ["lensEconomyCellsRendered"],
         absentPattern: /No (?:direct )?source-backed land-use-specific economy records match 2024/i,
         label: "NYC economy PLUTO direct coverage",
@@ -774,15 +994,22 @@ async function assertSparseLensCoverageHonesty(page, cityId) {
     ],
   };
   for (const check of checksByCity[cityId] || []) {
-    await page.evaluate((aspect) => window.BimsAtlas?.setActiveAspect?.(aspect), check.aspect);
+    await page.evaluate(async ({ aspect, year }) => {
+      if (year) await window.BimsAtlas?.setYear?.(year);
+      await window.BimsAtlas?.setActiveAspect?.(aspect);
+    }, { aspect: check.aspect, year: check.year });
     await page.waitForFunction(
-      (aspect) => window.BimsAtlas?.state?.activeAspect === aspect
+      ({ aspect, year }) => window.BimsAtlas?.state?.activeAspect === aspect
+        && (!year || Number(window.BimsAtlas?.state?.year) === Number(year))
         && document.querySelector("#mapStudyChip")?.dataset.scope === "city",
-      check.aspect,
+      { aspect: check.aspect, year: check.year },
       { timeout: 20000 }
     );
     await page.waitForTimeout(900);
     const state = await atlasState(page);
+    if (typeof check.guideExpected === "boolean") {
+      await assertDirectGuideSurface(page, `city ${cityId}: ${check.label}`, { expected: check.guideExpected });
+    }
     if (check.rendered) {
       const rendered = check.rendered.reduce((sum, field) => sum + Number(state[field] || 0), 0);
       assert(rendered > 0, `city ${cityId}: ${check.label} did not render source-backed sparse/detail marks.`);

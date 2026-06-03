@@ -123,6 +123,14 @@ const sourceById = new Map([[
     provider: "City planning authority",
     provenance_notes: "Planning, zoning, permit and development-application records.",
   },
+], [
+  "police-data-stop-search",
+  {
+    source_family: "civic_services",
+    title: "Police.uk stop and search custom CSV downloads",
+    provider: "Home Office / Police.uk",
+    provenance_notes: "Public-safety operational management information, not service access, catchment, or facility coverage.",
+  },
 ]]);
 const metroActivity = {
   category: "transport",
@@ -190,6 +198,19 @@ const heatComplaint = {
 if (eventMatchesLens(heatComplaint, "planning-pressure", sourceById)) throw new Error("Civic 311 heat complaint matched planning through text");
 if (eventDirectlyMatchesLensCategory(heatComplaint, "planning-pressure")) throw new Error("Civic 311 heat complaint directly matched planning");
 if (!eventMatchesLens(heatComplaint, "civic-access-gaps", sourceById)) throw new Error("Civic 311 complaint should remain civic evidence");
+
+const policeStopSearch = {
+  category: "civic_services",
+  lens: "services",
+  title: "Police.uk stop-and-search record: Anything to threaten or harm anyone",
+  summary: "Operational public-safety management information.",
+  affected_signals: ["civic_services", "services", "public_safety"],
+  source_ids: ["police-data-stop-search"],
+  excluded_lens_slugs: ["civic-access-gaps", "civic-catchment"],
+};
+if (eventMatchesLens(policeStopSearch, "civic-access-gaps", sourceById)) throw new Error("Police stop/search matched civic access gaps");
+if (eventMatchesLens(policeStopSearch, "civic-catchment", sourceById)) throw new Error("Police stop/search matched civic catchment");
+if (!eventMatchesLens(policeStopSearch, "civic-demand", sourceById)) throw new Error("Police stop/search should remain civic-demand evidence");
 
 const planningSourceRecord = {
   category: "civic_services",
@@ -564,6 +585,45 @@ assertScopedRoads("belfast", 1, { detail_layers: "web/data/city-atlas/cities/bel
             [],
             "NYC 311 heat/hot-water service complaints must stay civic and out of direct planning/built-environment events",
         )
+
+    def test_london_public_safety_operational_sources_stay_out_of_access_and_catchment(self) -> None:
+        city_dir = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "london"
+        operational_sources = {
+            "police-data-api",
+            "police-data-stop-search",
+            "london-fire-brigade-incidents",
+        }
+        coverage = read_json(city_dir / "lens_year_coverage.json")
+        rows = coverage.get("rows", [])
+        for lens_slug in ("civic-access-gaps", "civic-catchment"):
+            with self.subTest(lens_slug=lens_slug):
+                source_ids = set()
+                for row in rows:
+                    if row.get("lens_slug") != lens_slug:
+                        continue
+                    source_ids.update(row.get("source_ids") or [])
+                    source_ids.update(row.get("direct_source_ids") or [])
+                self.assertFalse(source_ids & operational_sources)
+
+        demand_sources = set()
+        for row in rows:
+            if row.get("lens_slug") == "civic-demand":
+                demand_sources.update(row.get("source_ids") or [])
+                demand_sources.update(row.get("direct_source_ids") or [])
+        self.assertTrue({"police-data-api", "police-data-stop-search"} <= demand_sources)
+
+        offenders = []
+        for path in city_dir.glob("lens_detail_*.geojson"):
+            for feature in read_json(path).get("features", []):
+                props = feature.get("properties", {})
+                if props.get("layer") not in {"civic_coverage_cell", "civic_facility"}:
+                    continue
+                source_ids = source_ids_from_properties(props)
+                if source_ids & operational_sources and "civic-access-gaps" not in str(props.get("excluded_lens_slugs") or ""):
+                    offenders.append(f"{path.name}:{props.get('id')}")
+                    if len(offenders) >= 8:
+                        break
+        self.assertEqual(offenders, [])
 
     def test_non_site_reference_geometry_is_evidence_only(self) -> None:
         cases = [

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_lens_year_coverage",
-  "generated_at": "2026-06-03T21:25:00Z",
+  "generated_at": "2026-06-03T20:35:16Z",
   "city_id": "london",
   "display_name": "London, England",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -14,8 +14,8 @@
   "required_row_count": 300,
   "row_count": 300,
   "status_counts": {
-    "source_backed_records": 258,
-    "adjacent_source_backed_records": 24,
+    "source_backed_records": 254,
+    "adjacent_source_backed_records": 28,
     "missing_source_backed_view": 18
   },
   "rows": [
@@ -11527,51 +11527,42 @@
       "category": "civic_services",
       "year": 2023,
       "required_year": true,
-      "visible_map_contract": true,
-      "status": "source_backed_records",
-      "event_count": 14852,
-      "compatible_event_count": 14852,
-      "map_event_count": 14852,
-      "map_direct_event_count": 14084,
+      "visible_map_contract": false,
+      "status": "adjacent_source_backed_records",
+      "event_count": 768,
+      "compatible_event_count": 768,
+      "map_event_count": 768,
+      "map_direct_event_count": 0,
       "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 14852,
-      "broad_match_compatible_event_count": 14852,
-      "direct_event_count": 14084,
-      "direct_compatible_event_count": 14084,
-      "detail_feature_count": 15879,
+      "broad_match_event_count": 768,
+      "broad_match_compatible_event_count": 768,
+      "direct_event_count": 0,
+      "direct_compatible_event_count": 0,
+      "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 14084,
+      "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 14852
+        "documented": 768
       },
-      "source_count": 4,
+      "source_count": 2,
       "source_ids": [
         "dfe-gias-establishment-register",
-        "lon-extra-food-hygiene-rating-scheme-api",
-        "police-data-api",
-        "police-data-stop-search"
+        "lon-extra-food-hygiene-rating-scheme-api"
       ],
       "compatible_source_ids": [
         "dfe-gias-establishment-register",
-        "lon-extra-food-hygiene-rating-scheme-api",
-        "police-data-api",
-        "police-data-stop-search"
+        "lon-extra-food-hygiene-rating-scheme-api"
       ],
-      "broad_match_source_count": 4,
+      "broad_match_source_count": 2,
       "broad_match_source_ids": [
         "dfe-gias-establishment-register",
-        "lon-extra-food-hygiene-rating-scheme-api",
-        "police-data-api",
-        "police-data-stop-search"
+        "lon-extra-food-hygiene-rating-scheme-api"
       ],
-      "direct_source_count": 2,
-      "direct_source_ids": [
-        "police-data-api",
-        "police-data-stop-search"
-      ],
-      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens; 14084 direct same-category civic_services row(s) matched; 14084 direct row(s) have map-eligible geometry.",
+      "direct_source_count": 0,
+      "direct_source_ids": [],
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category civic_services row(s) matched; 0 direct row(s) have map-eligible geometry.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2023.geojson",
@@ -11580,7 +11571,8 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Direct map marks and headline counts use same-category event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
+        "Broad source-backed Service Coverage Context lens matches are available for 2023, but no direct same-category civic_services records are currently ingested.",
+        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
       ],
       "exports": {
         "markdown": true,
@@ -11598,48 +11590,39 @@
       "category": "civic_services",
       "year": 2024,
       "required_year": true,
-      "visible_map_contract": true,
-      "status": "source_backed_records",
-      "event_count": 21249,
-      "compatible_event_count": 21249,
-      "map_event_count": 21249,
-      "map_direct_event_count": 18644,
+      "visible_map_contract": false,
+      "status": "adjacent_source_backed_records",
+      "event_count": 2605,
+      "compatible_event_count": 2605,
+      "map_event_count": 2605,
+      "map_direct_event_count": 0,
       "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 21249,
-      "broad_match_compatible_event_count": 21249,
-      "direct_event_count": 18644,
-      "direct_compatible_event_count": 18644,
-      "detail_feature_count": 21000,
+      "broad_match_event_count": 2605,
+      "broad_match_compatible_event_count": 2605,
+      "direct_event_count": 0,
+      "direct_compatible_event_count": 0,
+      "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 18644,
+      "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 21249
+        "documented": 2605
       },
-      "source_count": 3,
+      "source_count": 1,
       "source_ids": [
-        "lon-extra-food-hygiene-rating-scheme-api",
-        "police-data-api",
-        "police-data-stop-search"
+        "lon-extra-food-hygiene-rating-scheme-api"
       ],
       "compatible_source_ids": [
-        "lon-extra-food-hygiene-rating-scheme-api",
-        "police-data-api",
-        "police-data-stop-search"
+        "lon-extra-food-hygiene-rating-scheme-api"
       ],
-      "broad_match_source_count": 3,
+      "broad_match_source_count": 1,
       "broad_match_source_ids": [
-        "lon-extra-food-hygiene-rating-scheme-api",
-        "police-data-api",
-        "police-data-stop-search"
+        "lon-extra-food-hygiene-rating-scheme-api"
       ],
-      "direct_source_count": 2,
-      "direct_source_ids": [
-        "police-data-api",
-        "police-data-stop-search"
-      ],
-      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens; 18644 direct same-category civic_services row(s) matched; 18644 direct row(s) have map-eligible geometry.",
+      "direct_source_count": 0,
+      "direct_source_ids": [],
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category civic_services row(s) matched; 0 direct row(s) have map-eligible geometry.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2024.geojson",
@@ -11648,7 +11631,8 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Direct map marks and headline counts use same-category event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
+        "Broad source-backed Service Coverage Context lens matches are available for 2024, but no direct same-category civic_services records are currently ingested.",
+        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
       ],
       "exports": {
         "markdown": true,
@@ -11668,50 +11652,42 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 22446,
-      "compatible_event_count": 22446,
-      "map_event_count": 22446,
-      "map_direct_event_count": 18232,
+      "event_count": 4215,
+      "compatible_event_count": 4215,
+      "map_event_count": 4215,
+      "map_direct_event_count": 1,
       "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 22446,
-      "broad_match_compatible_event_count": 22446,
-      "direct_event_count": 18232,
-      "direct_compatible_event_count": 18232,
-      "detail_feature_count": 20557,
+      "broad_match_event_count": 4215,
+      "broad_match_compatible_event_count": 4215,
+      "direct_event_count": 1,
+      "direct_compatible_event_count": 1,
+      "detail_feature_count": 2,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 18232,
+      "headline_count_included": 1,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 22446
+        "documented": 4215
       },
-      "source_count": 4,
+      "source_count": 2,
       "source_ids": [
         "lon-extra-food-hygiene-rating-scheme-api",
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
       "compatible_source_ids": [
         "lon-extra-food-hygiene-rating-scheme-api",
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
-      "broad_match_source_count": 4,
+      "broad_match_source_count": 2,
       "broad_match_source_ids": [
         "lon-extra-food-hygiene-rating-scheme-api",
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
-      "direct_source_count": 3,
+      "direct_source_count": 1,
       "direct_source_ids": [
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
-      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens; 18232 direct same-category civic_services row(s) matched; 18232 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens; 1 direct same-category civic_services row(s) matched; 1 direct row(s) have map-eligible geometry.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2025.geojson",
@@ -11740,50 +11716,42 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 5675,
-      "compatible_event_count": 5675,
-      "map_event_count": 5675,
-      "map_direct_event_count": 4195,
+      "event_count": 1482,
+      "compatible_event_count": 1482,
+      "map_event_count": 1482,
+      "map_direct_event_count": 2,
       "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 5675,
-      "broad_match_compatible_event_count": 5675,
-      "direct_event_count": 4195,
-      "direct_compatible_event_count": 4195,
-      "detail_feature_count": 4846,
+      "broad_match_event_count": 1482,
+      "broad_match_compatible_event_count": 1482,
+      "direct_event_count": 2,
+      "direct_compatible_event_count": 2,
+      "detail_feature_count": 4,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 4195,
+      "headline_count_included": 2,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 5675
+        "documented": 1482
       },
-      "source_count": 4,
+      "source_count": 2,
       "source_ids": [
         "lon-extra-food-hygiene-rating-scheme-api",
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
       "compatible_source_ids": [
         "lon-extra-food-hygiene-rating-scheme-api",
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
-      "broad_match_source_count": 4,
+      "broad_match_source_count": 2,
       "broad_match_source_ids": [
         "lon-extra-food-hygiene-rating-scheme-api",
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
-      "direct_source_count": 3,
+      "direct_source_count": 1,
       "direct_source_ids": [
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
-      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens; 4195 direct same-category civic_services row(s) matched; 4195 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens; 2 direct same-category civic_services row(s) matched; 2 direct row(s) have map-eligible geometry.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2026.geojson",
@@ -12863,51 +12831,42 @@
       "category": "civic_services",
       "year": 2023,
       "required_year": true,
-      "visible_map_contract": true,
-      "status": "source_backed_records",
-      "event_count": 14852,
-      "compatible_event_count": 14852,
-      "map_event_count": 14852,
-      "map_direct_event_count": 14084,
+      "visible_map_contract": false,
+      "status": "adjacent_source_backed_records",
+      "event_count": 768,
+      "compatible_event_count": 768,
+      "map_event_count": 768,
+      "map_direct_event_count": 0,
       "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 14852,
-      "broad_match_compatible_event_count": 14852,
-      "direct_event_count": 14084,
-      "direct_compatible_event_count": 14084,
-      "detail_feature_count": 15879,
+      "broad_match_event_count": 768,
+      "broad_match_compatible_event_count": 768,
+      "direct_event_count": 0,
+      "direct_compatible_event_count": 0,
+      "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 14084,
+      "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 14852
+        "documented": 768
       },
-      "source_count": 4,
+      "source_count": 2,
       "source_ids": [
         "dfe-gias-establishment-register",
-        "lon-extra-food-hygiene-rating-scheme-api",
-        "police-data-api",
-        "police-data-stop-search"
+        "lon-extra-food-hygiene-rating-scheme-api"
       ],
       "compatible_source_ids": [
         "dfe-gias-establishment-register",
-        "lon-extra-food-hygiene-rating-scheme-api",
-        "police-data-api",
-        "police-data-stop-search"
+        "lon-extra-food-hygiene-rating-scheme-api"
       ],
-      "broad_match_source_count": 4,
+      "broad_match_source_count": 2,
       "broad_match_source_ids": [
         "dfe-gias-establishment-register",
-        "lon-extra-food-hygiene-rating-scheme-api",
-        "police-data-api",
-        "police-data-stop-search"
+        "lon-extra-food-hygiene-rating-scheme-api"
       ],
-      "direct_source_count": 2,
-      "direct_source_ids": [
-        "police-data-api",
-        "police-data-stop-search"
-      ],
-      "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens; 14084 direct same-category civic_services row(s) matched; 14084 direct row(s) have map-eligible geometry.",
+      "direct_source_count": 0,
+      "direct_source_ids": [],
+      "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/london/events_2023.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category civic_services row(s) matched; 0 direct row(s) have map-eligible geometry.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2023.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2023.geojson",
@@ -12916,7 +12875,8 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Direct map marks and headline counts use same-category event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
+        "Broad source-backed Service Catchments lens matches are available for 2023, but no direct same-category civic_services records are currently ingested.",
+        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
       ],
       "exports": {
         "markdown": true,
@@ -12934,48 +12894,39 @@
       "category": "civic_services",
       "year": 2024,
       "required_year": true,
-      "visible_map_contract": true,
-      "status": "source_backed_records",
-      "event_count": 21249,
-      "compatible_event_count": 21249,
-      "map_event_count": 21249,
-      "map_direct_event_count": 18644,
+      "visible_map_contract": false,
+      "status": "adjacent_source_backed_records",
+      "event_count": 2605,
+      "compatible_event_count": 2605,
+      "map_event_count": 2605,
+      "map_direct_event_count": 0,
       "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 21249,
-      "broad_match_compatible_event_count": 21249,
-      "direct_event_count": 18644,
-      "direct_compatible_event_count": 18644,
-      "detail_feature_count": 21000,
+      "broad_match_event_count": 2605,
+      "broad_match_compatible_event_count": 2605,
+      "direct_event_count": 0,
+      "direct_compatible_event_count": 0,
+      "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 18644,
+      "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 21249
+        "documented": 2605
       },
-      "source_count": 3,
+      "source_count": 1,
       "source_ids": [
-        "lon-extra-food-hygiene-rating-scheme-api",
-        "police-data-api",
-        "police-data-stop-search"
+        "lon-extra-food-hygiene-rating-scheme-api"
       ],
       "compatible_source_ids": [
-        "lon-extra-food-hygiene-rating-scheme-api",
-        "police-data-api",
-        "police-data-stop-search"
+        "lon-extra-food-hygiene-rating-scheme-api"
       ],
-      "broad_match_source_count": 3,
+      "broad_match_source_count": 1,
       "broad_match_source_ids": [
-        "lon-extra-food-hygiene-rating-scheme-api",
-        "police-data-api",
-        "police-data-stop-search"
+        "lon-extra-food-hygiene-rating-scheme-api"
       ],
-      "direct_source_count": 2,
-      "direct_source_ids": [
-        "police-data-api",
-        "police-data-stop-search"
-      ],
-      "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens; 18644 direct same-category civic_services row(s) matched; 18644 direct row(s) have map-eligible geometry.",
+      "direct_source_count": 0,
+      "direct_source_ids": [],
+      "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/london/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category civic_services row(s) matched; 0 direct row(s) have map-eligible geometry.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2024.geojson",
@@ -12984,7 +12935,8 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Direct map marks and headline counts use same-category event geometry and derived lens-detail geometry where available; inspect evidence before reuse."
+        "Broad source-backed Service Catchments lens matches are available for 2024, but no direct same-category civic_services records are currently ingested.",
+        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
       ],
       "exports": {
         "markdown": true,
@@ -13004,50 +12956,42 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 22446,
-      "compatible_event_count": 22446,
-      "map_event_count": 22446,
-      "map_direct_event_count": 18232,
+      "event_count": 4215,
+      "compatible_event_count": 4215,
+      "map_event_count": 4215,
+      "map_direct_event_count": 1,
       "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 22446,
-      "broad_match_compatible_event_count": 22446,
-      "direct_event_count": 18232,
-      "direct_compatible_event_count": 18232,
-      "detail_feature_count": 20557,
+      "broad_match_event_count": 4215,
+      "broad_match_compatible_event_count": 4215,
+      "direct_event_count": 1,
+      "direct_compatible_event_count": 1,
+      "detail_feature_count": 2,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 18232,
+      "headline_count_included": 1,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 22446
+        "documented": 4215
       },
-      "source_count": 4,
+      "source_count": 2,
       "source_ids": [
         "lon-extra-food-hygiene-rating-scheme-api",
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
       "compatible_source_ids": [
         "lon-extra-food-hygiene-rating-scheme-api",
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
-      "broad_match_source_count": 4,
+      "broad_match_source_count": 2,
       "broad_match_source_ids": [
         "lon-extra-food-hygiene-rating-scheme-api",
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
-      "direct_source_count": 3,
+      "direct_source_count": 1,
       "direct_source_ids": [
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
-      "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens; 18232 direct same-category civic_services row(s) matched; 18232 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/london/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens; 1 direct same-category civic_services row(s) matched; 1 direct row(s) have map-eligible geometry.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2025.geojson",
@@ -13076,50 +13020,42 @@
       "required_year": true,
       "visible_map_contract": true,
       "status": "source_backed_records",
-      "event_count": 5675,
-      "compatible_event_count": 5675,
-      "map_event_count": 5675,
-      "map_direct_event_count": 4195,
+      "event_count": 1482,
+      "compatible_event_count": 1482,
+      "map_event_count": 1482,
+      "map_direct_event_count": 2,
       "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 5675,
-      "broad_match_compatible_event_count": 5675,
-      "direct_event_count": 4195,
-      "direct_compatible_event_count": 4195,
-      "detail_feature_count": 4846,
+      "broad_match_event_count": 1482,
+      "broad_match_compatible_event_count": 1482,
+      "direct_event_count": 2,
+      "direct_compatible_event_count": 2,
+      "detail_feature_count": 4,
       "coverage_context_feature_count": 0,
-      "headline_count_included": 4195,
+      "headline_count_included": 2,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 5675
+        "documented": 1482
       },
-      "source_count": 4,
+      "source_count": 2,
       "source_ids": [
         "lon-extra-food-hygiene-rating-scheme-api",
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
       "compatible_source_ids": [
         "lon-extra-food-hygiene-rating-scheme-api",
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
-      "broad_match_source_count": 4,
+      "broad_match_source_count": 2,
       "broad_match_source_ids": [
         "lon-extra-food-hygiene-rating-scheme-api",
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
-      "direct_source_count": 3,
+      "direct_source_count": 1,
       "direct_source_ids": [
-        "planning-data-certificate-of-immunity",
-        "police-data-api",
-        "police-data-stop-search"
+        "planning-data-certificate-of-immunity"
       ],
-      "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens; 4195 direct same-category civic_services row(s) matched; 4195 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/london/events_2026.json matched by lib/atlas-lenses.js#eventMatchesLens; 2 direct same-category civic_services row(s) matched; 2 direct row(s) have map-eligible geometry.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/london/events_2026.json",
         "events_geojson": "web/data/city-atlas/cities/london/events_2026.geojson",

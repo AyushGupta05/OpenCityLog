@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_manifest_index",
-  "generated_at": "2026-06-03T21:25:00Z",
+  "generated_at": "2026-06-03T20:35:16Z",
   "contract_source": "docs/15_lens_city_design_contract.md",
   "visual_reference_set": "tmp/reference-screens",
   "lens_count": 15,
@@ -918,10 +918,10 @@
         {
           "slug": "civic-access-gaps",
           "public_label": "Service Coverage Context",
-          "event_count": 65237,
-          "compatible_event_count": 65237,
-          "source_count": 7,
-          "compatible_source_count": 7,
+          "event_count": 10085,
+          "compatible_event_count": 10085,
+          "source_count": 5,
+          "compatible_source_count": 5,
           "last_retrieved_or_reviewed": "2026-05-27",
           "year_contract": {
             "required_years": {
@@ -929,11 +929,13 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 19,
+            "visible_year_count": 17,
             "missing_visible_years": [
-              2021
+              2021,
+              2023,
+              2024
             ],
-            "source_backed_record_year_count": 19,
+            "source_backed_record_year_count": 17,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
           }
@@ -941,10 +943,10 @@
         {
           "slug": "civic-catchment",
           "public_label": "Service Catchments",
-          "event_count": 65237,
-          "compatible_event_count": 65237,
-          "source_count": 7,
-          "compatible_source_count": 7,
+          "event_count": 10085,
+          "compatible_event_count": 10085,
+          "source_count": 5,
+          "compatible_source_count": 5,
           "last_retrieved_or_reviewed": "2026-05-27",
           "year_contract": {
             "required_years": {
@@ -952,11 +954,13 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 19,
+            "visible_year_count": 17,
             "missing_visible_years": [
-              2021
+              2021,
+              2023,
+              2024
             ],
-            "source_backed_record_year_count": 19,
+            "source_backed_record_year_count": 17,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
           }

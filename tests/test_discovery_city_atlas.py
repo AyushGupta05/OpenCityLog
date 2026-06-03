@@ -114,6 +114,34 @@ class DiscoveryCityAtlasNormalizationTest(unittest.TestCase):
         self.assertIn("high_street_activity", event["affected_signals"])
         self.assertIn("public_health", event["affected_signals"])
 
+    def test_london_public_safety_operational_seed_excludes_access_and_catchment_lenses(self):
+        event = normalize_seed(
+            "london",
+            {
+                "event_id": "lon_police_stop_search_fixture",
+                "title": "Police.uk stop-and-search record: Anything to threaten or harm anyone",
+                "date": "2025-01-01",
+                "bucket": "public safety/police stop and search",
+                "source_dataset_id": "police-data-stop-search",
+                "source_record_id": "fixture-stop-search",
+                "latitude": 51.5072,
+                "longitude": -0.1276,
+                "summary": "Operational public-safety management-information row.",
+            },
+            1,
+            {
+                "police-data-stop-search": {
+                    "source_id": "police-data-stop-search",
+                    "title": "Police.uk stop and search custom CSV downloads",
+                    "access_url": "https://data.police.uk/data/",
+                }
+            },
+        )
+
+        self.assertEqual(event["category"], "civic_services")
+        self.assertIn("civic-access-gaps", event["excluded_lens_slugs"])
+        self.assertIn("civic-catchment", event["excluded_lens_slugs"])
+
     def test_nyc_311_heat_hot_water_stays_civic_not_planning(self):
         event = normalize_seed(
             "nyc",

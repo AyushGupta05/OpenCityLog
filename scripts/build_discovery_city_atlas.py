@@ -433,6 +433,31 @@ def source_ids_for_item(item: dict[str, Any]) -> set[str]:
     return values
 
 
+PUBLIC_SAFETY_OPERATIONAL_SOURCE_IDS = {
+    "police-data-api",
+    "police-data-stop-search",
+    "london-fire-brigade-incidents",
+}
+
+PUBLIC_SAFETY_OPERATIONAL_EXCLUDED_LENSES = {
+    "civic-access-gaps",
+    "civic-catchment",
+}
+
+
+def lens_exclusions_for_item(item: dict[str, Any], source_ids: list[str] | set[str]) -> list[str]:
+    exclusions: set[str] = set()
+    for key in ["excluded_lens_slugs", "excludedLensSlugs", "lens_exclusions"]:
+        value = item.get(key)
+        if isinstance(value, list):
+            exclusions.update(str(part).strip() for part in value if str(part).strip())
+        elif isinstance(value, str):
+            exclusions.update(part.strip() for part in re.split(r"[,|]", value) if part.strip())
+    if set(source_ids) & PUBLIC_SAFETY_OPERATIONAL_SOURCE_IDS:
+        exclusions.update(PUBLIC_SAFETY_OPERATIONAL_EXCLUDED_LENSES)
+    return sorted(exclusions)
+
+
 def item_text_for_category_override(item: dict[str, Any]) -> str:
     return " ".join(
         str(item.get(key) or "")
@@ -694,6 +719,7 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
             evidence.append(evidence_for_source(src, item))
     primary_source = source_by_id.get(source_ids[0]) if source_ids else None
     primary_evidence = evidence[0] if evidence else {}
+    excluded_lens_slugs = lens_exclusions_for_item(item, source_ids)
     explanation = safe_public_text(item.get("observed_change") or item.get("summary") or item.get("significance") or item.get("event_seed") or "Chronology seed from the civic open-data discovery package.")
     concise = short_description(item.get("short_description") or item.get("summary") or item.get("observed_change"), explanation)
     source_date_field = source_date_field_for(item)
@@ -749,6 +775,8 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
             "geometry_precision": geometry_precision,
         },
     }
+    if excluded_lens_slugs:
+        event["excluded_lens_slugs"] = excluded_lens_slugs
     return apply_map_geometry_policy(event, NON_SITE_MAP_GEOMETRY_STATUS if used_atlas_reference_point else None)
 
 
@@ -759,6 +787,7 @@ def normalize_source_event(city: str, source: dict[str, Any], idx: int) -> dict[
     category, lens, signals = category_and_lens(bucket, title)
     label, lng, lat = point_for(city, f"{title} {bucket} {source.get('spatial_granularity','')}", idx + 10000)
     seeds = source.get("suggested_event_seeds") or []
+    excluded_lens_slugs = lens_exclusions_for_item({"source_id": sid, "source_ids": [sid]}, [sid])
     event = {
         "schema_version": SCHEMA,
         "city_id": city,
@@ -795,6 +824,8 @@ def normalize_source_event(city: str, source: dict[str, Any], idx: int) -> dict[
             "geometry_precision": "Current-state source marker represents a dataset/layer marker, not a single physical event geometry.",
         },
     }
+    if excluded_lens_slugs:
+        event["excluded_lens_slugs"] = excluded_lens_slugs
     return apply_map_geometry_policy(event, NON_SITE_MAP_GEOMETRY_STATUS)
 
 

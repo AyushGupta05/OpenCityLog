@@ -195,6 +195,8 @@ LONDON_ONS_BOROUGHS = {
     "E09000033": "Westminster",
 }
 
+PUBLIC_SAFETY_OPERATIONAL_EXCLUDED_LENSES = ["civic-access-gaps", "civic-catchment"]
+
 DFT_ROAD_COLLISION_URLS = [
     {
         "label": "Road Safety Data - Collisions - last 5 years",
@@ -1194,6 +1196,7 @@ def make_lfb_event(row: dict[str, Any], source_url: str, retrieved_at: str) -> d
         source_url=source_url,
         source_retrieved_at=retrieved_at,
         source_dataset_id="london-fire-brigade-incidents",
+        excluded_lens_slugs=PUBLIC_SAFETY_OPERATIONAL_EXCLUDED_LENSES,
         summary=clean_text(f"LFB {incident_group} record: {stop_code or descriptor}; property category {row.get('PropertyCategory') or 'unknown'}; ward {ward}; first pump attendance {row.get('FirstPumpArriving_AttendanceTime') or 'not recorded'} seconds.", 420),
         observed_change=clean_text(f"Emergency service incident record ({descriptor}) with spatial evidence at borough/ward/postcode scale.", 260),
         confidence="documented",
@@ -2120,6 +2123,7 @@ def fetch_london_police_street_crimes(max_per_month_force: int = 380, date_from:
                             source_retrieved_at=retrieved_at,
                             source_dataset_id=source_id,
                             source_date_field="Month",
+                            excluded_lens_slugs=PUBLIC_SAFETY_OPERATIONAL_EXCLUDED_LENSES,
                             summary=clean_text(f"{crime_type} record reported by {force}; approximate location {location or 'not stated'}; LSOA {lsoa_name or row.get('LSOA code') or 'not recorded'}; latest outcome {outcome or 'not recorded'}.", 420),
                             observed_change=clean_text(f"Police.uk anonymized street-level crime/ASB record for {month}.", 220),
                             confidence="documented",
@@ -2247,6 +2251,7 @@ def fetch_london_police_stop_searches(max_per_month_force: int = 320, date_from:
                             source_retrieved_at=retrieved_at,
                             source_dataset_id=source_id,
                             source_date_field="Date (month-truncated by adapter)",
+                            excluded_lens_slugs=PUBLIC_SAFETY_OPERATIONAL_EXCLUDED_LENSES,
                             summary=clean_text(f"{search_type}; object of search {object_of_search}; outcome {outcome}; legislation {legislation}; part of a policing operation: {operation_flag}. Demographic fields are intentionally omitted.", 420),
                             observed_change=clean_text(f"Police.uk stop-and-search record for {force}, displayed at month precision.", 220),
                             confidence="documented",

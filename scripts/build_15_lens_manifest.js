@@ -257,6 +257,15 @@ function featureSourceIds(feature) {
     .filter(Boolean);
 }
 
+function featureExcludedFromLens(feature, lens) {
+  const raw = feature?.properties?.excluded_lens_slugs || "";
+  return String(raw)
+    .split(/[,|]/)
+    .map((value) => value.trim().toLowerCase())
+    .filter(Boolean)
+    .includes(String(lens?.slug || "").toLowerCase());
+}
+
 function lensDetailPath(root, city, year) {
   const template = city.artifact_paths?.lens_detail_template;
   return template ? resolve(root, template.replace("{year}", String(year))) : null;
@@ -291,6 +300,7 @@ function detailCountsForLens(root, city, lens, year, cache, sourceById) {
   for (const feature of loadLensDetailFeatures(root, city, year, cache)) {
     const props = feature.properties || {};
     if (props.category !== lens.category || !layers.has(props.layer)) continue;
+    if (featureExcludedFromLens(feature, lens)) continue;
     if (props.coverage_status === "no_same_category_records" || props.evidence_role === "context_not_year_specific_change_evidence") continue;
     detailFeatureCount += 1;
     for (const sourceId of featureSourceIds(feature)) sourceIds.add(sourceId);

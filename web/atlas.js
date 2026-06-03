@@ -5315,10 +5315,18 @@
 
   function lensDetailFeaturePassesActiveFilters(feature) {
     const props = feature?.properties || {};
+    if (detailFeatureExcludedFromLens(feature)) return false;
     if (!lensDetailFeatureMatchesArea(feature)) return false;
     if (state.confidenceFilter !== "all" && props.confidence !== state.confidenceFilter) return false;
     if (!state.showInferred && props.confidence === "inferred") return false;
     return true;
+  }
+
+  function detailFeatureExcludedFromLens(feature, lens = activeMapLens()) {
+    const raw = feature?.properties?.excluded_lens_slugs || "";
+    const values = Array.isArray(raw) ? raw : String(raw).split(/[,|]/);
+    const exclusions = values.map((value) => String(value).trim().toLowerCase()).filter(Boolean);
+    return exclusions.includes(String(lens?.id || lens?.slug || state.activeAspect || "").toLowerCase());
   }
 
   function lensDetailRecordCountForCategory(category, year = currentTimelineYear()) {
@@ -6323,10 +6331,96 @@
   }
 
   function lensGuideFeatureCollection() {
-    // Strict source-only atlas mode: generated study rings, flow arrows, nodes,
-    // and context surfaces must not be cached or rendered as map evidence.
-    // Source-backed lens detail and transport-road layers remain the map contract.
-    return emptyFeatureCollection();
+    const lens = activeMapLens();
+    const category = lens?.category || lens?.layerId || state.activeLens;
+    if (!lens || !category || !state.activeLayers.has(category)) return emptyFeatureCollection();
+    if (!["planning-pressure", "economy-land-use"].includes(lens.id)) return emptyFeatureCollection();
+    const year = currentTimelineYear();
+    if (!lensCoverageHasDirectMapGeometry(activeLensYearCoverageRow(lens, year))) return emptyFeatureCollection();
+    const detailLayer = lens.id === "planning-pressure" ? "planning_cell" : "economy_activity_cell";
+    const features = (state.lensDetailFeatures || [])
+      .filter((feature) => {
+        const props = feature?.properties || {};
+        return props.layer === detailLayer
+          && Number(props.year || props.visible_year || 0) === year
+          && lensDetailFeaturePassesActiveFilters(feature);
+      })
+      .map((feature) => sourceBackedDetailGuideFeature(feature, lens, year))
+      .filter((feature) => guideFeatureHasProvenance(feature, lens));
+    return { type: "FeatureCollection", features };
+  }
+
+  function guideFeatureHasProvenance(feature, lens = activeMapLens()) {
+    if (!feature?.geometry) return false;
+    const props = feature.properties || {};
+    if (props.lens_id !== lens?.id) return false;
+    if (!props.kind || !props.surface_style || !props.source_kind || !props.evidence_role || !props.context_year) return false;
+    if (!props.detail_layer || !props.generated_from || !props.source_urls || !props.confidence) return false;
+    if (/mapped_context|current_context|road_infill|building_context|context_not_year_specific/i.test(`${props.source_kind} ${props.evidence_role}`)) return false;
+    const eventIds = detailEventIds(props);
+    const sourceIds = String(props.source_ids || props.source_id || "")
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean);
+    if (!eventIds.length || !sourceIds.length) return false;
+    if (!eventIds.every((eventId) => state.eventById.has(eventId))) return false;
+    if (!sourceIds.every((sourceId) => state.sourceById.has(sourceId))) return false;
+    return true;
+  }
+
+  function sourceBackedDetailGuideFeature(feature, lens, year) {
+    const props = feature?.properties || {};
+    const eventIds = detailEventIds(props);
+    const firstEventId = eventIds[0] || "";
+    const sourceIds = String(props.source_ids || props.source_id || "")
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean);
+    const eventCount = Math.max(1, Number(props.event_count || eventIds.length || 1));
+    const sourceCount = Math.max(1, Number(props.source_count || sourceIds.length || 1));
+    const seed = stableUnit(`${props.id || firstEventId || props.source_ids || ""}:${lens.id}:detail-guide`);
+    const baseIntensity = clamp01(Number(props.intensity || 0.36) + Math.min(0.24, eventCount * 0.018) + Math.min(0.1, sourceCount * 0.022) + seed * 0.035);
+    const style = lens.id === "planning-pressure" ? "planning_footprint" : "land_use_tile";
+    const sublayerId = lens.id === "planning-pressure"
+      ? planningPressureDriverKey(props)
+      : economyLandUseCategory(props)?.id || "other_mixed";
+    const color = lens.id === "planning-pressure"
+      ? planningDriverColor(sublayerId)
+      : economyLandUseCategory(props)?.color || "#f6e4c2";
+    return {
+      type: "Feature",
+      properties: {
+        ...props,
+        kind: "surface_cell",
+        lens_id: lens.id,
+        surface_style: style,
+        source_kind: "source_backed_lens_detail",
+        evidence_role: "selected_year_direct_lens_detail",
+        context_year: String(year),
+        detail_layer: props.layer || "",
+        event_id: firstEventId,
+        event_ids: eventIds.join(","),
+        source_ids: sourceIds.join(","),
+        source_urls: props.source_urls || "",
+        confidence: props.confidence || "documented",
+        generated_from: props.generated_from || "",
+        event_count: eventCount,
+        source_count: sourceCount,
+        title: props.title || `${eventCount} source-backed ${lens.label || "lens"} records`,
+        timing_note: props.timing_note || "Filtered by event effective year.",
+        caveat: props.caveat || lens.caveat || "",
+        geometry_precision_mix: props.geometry_precision_mix || "Source-backed lens detail geometry.",
+        direct_evidence_counted: true,
+        headline_count_included: true,
+        sublayer_id: sublayerId,
+        land_use_category: lens.id === "economy-land-use" ? sublayerId : "",
+        planning_status: lens.id === "planning-pressure" ? (props.lifecycle_status || props.status || "documented") : "",
+        intensity: Number(baseIntensity.toFixed(3)),
+        score: Number((baseIntensity + Math.min(0.2, eventCount * 0.018) + Math.min(0.12, sourceCount * 0.025) + seed * 0.05).toFixed(3)),
+        color,
+      },
+      geometry: feature.geometry,
+    };
   }
 
   function annotateMissingCoverageGuideFeatures(features, lens, year) {
@@ -14964,6 +15058,7 @@
       "all",
       ["==", ["get", "layer"], layer],
       ["==", ["to-number", ["get", "year"], 0], currentTimelineYear()],
+      ["!", ["in", activeMapLens()?.id || state.activeAspect || "", ["to-string", ["coalesce", ["get", "excluded_lens_slugs"], ""]]]],
       ...lensDetailConfidenceFilter(),
     ];
     if (sublayerId && !state.activeAspectLayers.has(sublayerId)) clauses.push(["==", ["get", "layer"], "__none__"]);

@@ -631,6 +631,11 @@ function loadEvents(city, eventsIndex, sourceById = new Map()) {
       if (!Number.isFinite(year)) continue;
       const confidence = String(event.confidence || "documented").toLowerCase();
       const sourceIds = Array.isArray(event.source_ids) ? event.source_ids : [];
+      const excludedLensSlugs = [
+        ...(Array.isArray(event.excluded_lens_slugs) ? event.excluded_lens_slugs : []),
+        ...(Array.isArray(event.excludedLensSlugs) ? event.excludedLensSlugs : []),
+        ...(Array.isArray(event.lens_exclusions) ? event.lens_exclusions : []),
+      ].map((item) => String(item).trim()).filter(Boolean);
       if (!eventHasMapEligibleSources(event, sourceById)) continue;
       const evidence = Array.isArray(event.evidence) ? event.evidence : [];
       const provenance = event.provenance || {};
@@ -661,6 +666,7 @@ function loadEvents(city, eventsIndex, sourceById = new Map()) {
         sourceIds,
         sourceUrls: evidence.map((item) => item.url).filter(Boolean).slice(0, 4),
         signals,
+        excludedLensSlugs,
         excludeTransportRoadScoring: event.exclude_transport_road_scoring === true,
         text,
         weight: confidenceWeight(confidence),
@@ -1180,6 +1186,9 @@ function addEventToBucket(bucket, event, classification) {
   for (const url of event.sourceUrls || []) {
     if (bucket.sourceUrls.size < 4) bucket.sourceUrls.add(url);
   }
+  for (const slug of event.excludedLensSlugs || []) {
+    bucket.excludedLensSlugs.add(slug);
+  }
 }
 
 function meterFactors(refLat) {
@@ -1222,7 +1231,7 @@ function gridForCoord(coord, sizeM, refLat) {
 
 function detailBaseProperties(cityId, layer, category, year, bucket, representation, caveat) {
   const confidence = dominantKey(bucket.confidenceCounts);
-  return {
+  const properties = {
     id: bucket.id,
     layer,
     category,
@@ -1243,6 +1252,10 @@ function detailBaseProperties(cityId, layer, category, year, bucket, representat
     caveat,
     generated_from: `web/data/city-atlas/cities/${cityId}/events_${year}.json`,
   };
+  if (bucket.excludedLensSlugs?.size) {
+    properties.excluded_lens_slugs = Array.from(bucket.excludedLensSlugs).sort().join(",");
+  }
+  return properties;
 }
 
 function buildCellFeatures(city, yearEvents, refLat) {
@@ -1274,6 +1287,7 @@ function buildCellFeatures(city, yearEvents, refLat) {
         geometryPrecisionCounts: {},
         sourceIds: new Set(),
         sourceUrls: new Set(),
+        excludedLensSlugs: new Set(),
         eventIds: [],
         eventIdsAll: [],
         titles: [],
@@ -1328,6 +1342,7 @@ function buildPointDetailFeatures(city, yearEvents, category, layer, representat
         count: 1,
         sourceIds: new Set(event.sourceIds || []),
         sourceUrls: new Set(event.sourceUrls || []),
+        excludedLensSlugs: new Set(event.excludedLensSlugs || []),
         eventIds: [event.id],
         eventIdsAll: [event.id],
         confidenceCounts: { [event.confidence || "documented"]: 1 },
@@ -1398,6 +1413,7 @@ function buildRoadTraceFeatures(city, yearEvents, roads, category, layer, radius
         geometryPrecisionCounts: {},
         sourceIds: new Set(),
         sourceUrls: new Set(),
+        excludedLensSlugs: new Set(),
         eventIds: [],
         eventIdsAll: [],
         titles: [],
