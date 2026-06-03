@@ -4199,6 +4199,114 @@
       ]
     },
     {
+      "source_id": "ni_assembly_colin_transport_infrastructure_2008",
+      "title": "Northern Ireland Assembly AIMS Open Data written answer AQW 3166/08: Colin public-transport infrastructure",
+      "provider": "Northern Ireland Assembly",
+      "source_family": "transport",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Open Government Licence v3.0 for public sector information.",
+      "licence_url": "https://data.niassembly.gov.uk/licence.aspx",
+      "coverage_years": {
+        "start": 2005,
+        "end": 2008
+      },
+      "update_frequency": "Static Assembly written answer.",
+      "url": "https://data.niassembly.gov.uk/questions.asmx/GetQuestionDetails?documentId=17322",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Contains Parliamentary information licensed under the Open Government Licence v3.0; attribute Northern Ireland Assembly AIMS Open Data and the Minister for Regional Development.",
+      "provenance_notes": "AIMS Open Data documentId=17322 records written answer AQW 3166/08. The answer describes Colin-area public transport provision, Metro network changes introduced in February 2005, BMTP proposals, and completed west Belfast public-transport infrastructure including 4.4 km of priority lanes and 220 park-and-ride spaces at Blacks Road.",
+      "caveats": [
+        "Written-answer transport-access context only. It is not a stop-level accessibility dataset, full route geometry, timetable-frequency dataset, measured journey-speed series, measured reliability series, or causal access outcome."
+      ]
+    },
+    {
+      "source_id": "ni_assembly_colin_public_transport_routes_2008",
+      "title": "Northern Ireland Assembly AIMS Open Data written answer AQW 3386/08: Colin public-transport routes",
+      "provider": "Northern Ireland Assembly",
+      "source_family": "transport",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Open Government Licence v3.0 for public sector information.",
+      "licence_url": "https://data.niassembly.gov.uk/licence.aspx",
+      "coverage_years": {
+        "start": 2007,
+        "end": 2008
+      },
+      "update_frequency": "Static Assembly written answer.",
+      "url": "https://data.niassembly.gov.uk/questions.asmx/GetQuestionDetails?documentId=17910",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Contains Parliamentary information licensed under the Open Government Licence v3.0; attribute Northern Ireland Assembly AIMS Open Data and the Minister for Regional Development.",
+      "provenance_notes": "AIMS Open Data documentId=17910 records written answer AQW 3386/08. The answer states that a public transport system already existed in the Colin area and lists Metro services 10a-10h, 81-82a, Ulsterbus 530-532, and additional express services with route details.",
+      "caveats": [
+        "Written-answer route table only. It is not stop-level route geometry, a timetable-frequency dataset, measured accessibility, measured reliability, measured speed, or causal transport outcome evidence."
+      ]
+    },
+    {
+      "source_id": "ni_assembly_m1_blacks_stockmans_scheme_delay_2007",
+      "title": "Northern Ireland Assembly AIMS Open Data written answer AQW 203/08: M1 Blacks Road to Stockmans Lane road scheme delay",
+      "provider": "Northern Ireland Assembly",
+      "source_family": "transport",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Open Government Licence v3.0 for public sector information.",
+      "licence_url": "https://data.niassembly.gov.uk/licence.aspx",
+      "coverage_years": {
+        "start": 2007,
+        "end": 2007
+      },
+      "update_frequency": "Static Assembly written answer.",
+      "url": "https://data.niassembly.gov.uk/questions.asmx/GetQuestionDetails?documentId=10437",
+      "retrieved_at": "2026-06-03",
+      "accessed_at": "2026-06-03",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Contains Parliamentary information licensed under the Open Government Licence v3.0; attribute Northern Ireland Assembly AIMS Open Data and the Minister for Regional Development.",
+      "provenance_notes": "AIMS Open Data documentId=10437 records written answer AQW 203/08. The answer states that the M1 Blacks Road to Stockmans Lane major road scheme exceeded the expected completion date by four weeks because of embankment-slip repair and enhanced temporary traffic-management arrangements.",
+      "caveats": [
+        "Road-scheme delay context only. It is not a measured journey-speed dataset, traffic-volume series, full works geometry, stop-access record, service reliability metric, or causal road-user outcome."
+      ]
+    },
+    {
+      "source_id": "ni_assembly_translink_metro_punctuality_2007",
+      "title": "Northern Ireland Assembly AIMS Open Data written answer AQW 5850/08: Metro punctuality, 2005-2007",
+      "provider": "Northern Ireland Assembly",
+      "source_family": "transport",
+      "city_ids": [
+        "belfast"
+      ],
+      "licence": "Open Government Licence v3.0 for public sector information.",
+      "licence_url": "https://data.niassembly.gov.uk/licence.aspx",
+      "coverage_years": {
+        "start": 2005,
+        "end": 2007
+      },
+      "update_frequency": "Static Assembly written answer.",
+      "url": "https://data.niassembly.gov.uk/questions.asmx/GetQuestionDetails?documentId=23347",
+      "retrieved_at": "2026-06-02",
+      "accessed_at": "2026-06-02",
+      "local_paths": [],
+      "reliability": "usable_with_caveats",
+      "source_confidence": "documented",
+      "attribution_text": "Contains Parliamentary information licensed under the Open Government Licence v3.0; attribute Northern Ireland Assembly AIMS Open Data, the Minister for Regional Development, and Translink as table source.",
+      "provenance_notes": "AIMS Open Data documentId=23347 records written answer AQW 5850/08. The answer gives Metro punctuality percentages for 2005, 2006, and 2007 and states that South Belfast-only data was not held.",
+      "caveats": [
+        "AIMS punctuality table only. South Belfast-only performance was not held. It is not route-level reliability, stop-level performance, journey-speed, access, capacity, or causal transport-effect evidence."
+      ]
+    },
+    {
       "source_id": "dfi_saltwater_square_2026",
       "title": "dfi_saltwater_square_2026",
       "provider": "Department for Infrastructure",

@@ -118,14 +118,25 @@ function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
 }
 
-function normalizeCategory(value, lens, signals = []) {
-  const text = String(value || lens || "").toLowerCase();
-  if (text === "traffic" || text === "mobility" || signals.includes("traffic") || signals.includes("mobility")) return "transport";
+function categoryFromText(value) {
+  const text = String(value || "").toLowerCase();
+  if (!text) return "";
+  if (text === "traffic" || text === "mobility" || text === "transport" || text === "public_transport") return "transport";
   if (text === "planning" || text === "buildings" || text === "building" || text === "built_environment") return "built_environment";
   if (text === "services" || text === "public_services" || text === "civic" || text === "civic_services") return "civic_services";
   if (text === "jobs" || text === "business" || text === "economy") return "economy";
   if (text === "green_space" || text === "environment") return "environment";
   if (text === "electricity" || text === "utilities") return "utilities";
+  return "";
+}
+
+function normalizeCategory(value, lens, signals = []) {
+  const explicitCategory = categoryFromText(value);
+  if (explicitCategory) return explicitCategory;
+  const lensCategory = categoryFromText(lens);
+  if (lensCategory) return lensCategory;
+  const transportSignals = ["traffic", "mobility", "transport", "public_transport", "bus", "rail", "service_activity", "service_reliability", "punctuality", "passenger_charter", "bus_kilometres", "passenger_journeys"];
+  if (transportSignals.some((signal) => signals.includes(signal))) return "transport";
   return "built_environment";
 }
 
@@ -208,7 +219,7 @@ function nearbyCellKeys(coord, size, radius = 2) {
   return cells;
 }
 
-function loadEvents(city, eventsIndex) {
+function loadEvents(city, eventsIndex, sourceById = new Map()) {
   const out = [];
   for (const chunk of eventsIndex.chunks || []) {
     if (!chunk.json_path) continue;
@@ -223,6 +234,7 @@ function loadEvents(city, eventsIndex) {
       if (!Number.isFinite(year)) continue;
       const confidence = String(event.confidence || "documented").toLowerCase();
       const sourceIds = Array.isArray(event.source_ids) ? event.source_ids : [];
+      if (!eventHasCompatibleSources({ sourceIds }, sourceById)) continue;
       const evidence = Array.isArray(event.evidence) ? event.evidence : [];
       const provenance = event.provenance || {};
       const text = [
@@ -252,6 +264,7 @@ function loadEvents(city, eventsIndex) {
         sourceIds,
         sourceUrls: evidence.map((item) => item.url).filter(Boolean).slice(0, 4),
         signals,
+        excludeTransportRoadScoring: event.exclude_transport_road_scoring === true,
         text,
         weight: confidenceWeight(confidence),
         coord,
@@ -265,6 +278,7 @@ function loadEvents(city, eventsIndex) {
 function buildHotspotFeatures(cityId, events) {
   const buckets = new Map();
   for (const event of events) {
+    if (event.excludeTransportRoadScoring) continue;
     const key = `${event.year}|${event.category}|${cellKey(event.coord, HOTSPOT_CELL_DEG)}`;
     let bucket = buckets.get(key);
     if (!bucket) {
@@ -359,7 +373,16 @@ function nearbyRoads(index, coord) {
 }
 
 function transportEvents(events) {
-  return events.filter((event) => event.category === "transport" || event.signals.includes("traffic") || event.signals.includes("mobility"));
+  return events.filter((event) => !event.excludeTransportRoadScoring && (event.category === "transport" || event.signals.includes("traffic") || event.signals.includes("mobility")));
+}
+
+function transportRoadEvidenceYears(events, years) {
+  const yearSet = new Set(years);
+  const out = new Set();
+  for (const event of transportEvents(events)) {
+    if (yearSet.has(event.year)) out.add(event.year);
+  }
+  return out;
 }
 
 function accumulateRoadScores(city, roads, events, years) {
@@ -367,6 +390,7 @@ function accumulateRoadScores(city, roads, events, years) {
   const scoresByYear = new Map(years.map((year) => [year, new Map()]));
   const roadIndex = buildRoadIndex(roads);
   const transport = transportEvents(events);
+  const roadEvidenceYears = transportRoadEvidenceYears(events, years);
 
   for (const event of transport) {
     const candidates = nearbyRoads(roadIndex, event.coord);
@@ -394,6 +418,7 @@ function accumulateRoadScores(city, roads, events, years) {
       for (let offset = 0; offset <= TRAFFIC_WINDOW_YEARS; offset += 1) {
         const year = visibleYear + offset;
         if (!yearSet.has(year)) continue;
+        if (!roadEvidenceYears.has(year)) continue;
         const rankWeight = clamp(Number(props.rank || 1) / 4, 0.25, 1);
         const yearScores = scoresByYear.get(year);
         const current = yearScores.get(road.index) || { raw: 0, count: 0 };
@@ -487,15 +512,18 @@ function writeTransportRoadYears(city, paths, events, years, outDir) {
 
   const base = writeTransportRoadBase(city, roads, outDir);
   const scoresByYear = accumulateRoadScores(city, roads, events, years);
+  const roadEvidenceYears = transportRoadEvidenceYears(events, years);
   const roadByIndex = new Map(roads.map((road) => [road.index, road]));
 
   for (const year of years) {
     const scores = scoresByYear.get(year) || new Map();
     const maxRaw = Math.max(0, ...Array.from(scores.values()).map((score) => score.raw));
-    const features = Array.from(scores.entries())
-      .filter(([, score]) => score.raw > 0)
-      .map(([roadIndex, score]) => roadOutputFeature(city, roadByIndex.get(roadIndex), score, maxRaw, year))
-      .sort((a, b) => Number(b.properties.transport_activity) - Number(a.properties.transport_activity) || String(a.properties.id).localeCompare(String(b.properties.id)));
+    const features = roadEvidenceYears.has(year)
+      ? Array.from(scores.entries())
+        .filter(([, score]) => score.raw > 0)
+        .map(([roadIndex, score]) => roadOutputFeature(city, roadByIndex.get(roadIndex), score, maxRaw, year))
+        .sort((a, b) => Number(b.properties.transport_activity) - Number(a.properties.transport_activity) || String(a.properties.id).localeCompare(String(b.properties.id)))
+      : [];
     writeJson(path.join(outDir, `transport_roads_${year}.geojson`), {
       type: "FeatureCollection",
       name: `${city.city_id}_transport_roads_${year}`,
@@ -506,6 +534,8 @@ function writeTransportRoadYears(city, paths, events, years, outDir) {
         road_source: city.city_id === "belfast" ? "detail_layers.geojson" : `data/raw/overpass/${city.city_id}_major_roads_osm_2026.geojson`,
         method: "Road features are colored from nearby source-backed transport records in a rolling three-year window.",
         caveat: "Transport road colors are activity hotspots, not measured traffic counts or live congestion.",
+        suppressed: !roadEvidenceYears.has(year),
+        suppression_reason: roadEvidenceYears.has(year) ? null : "No same-year source-backed, road-scorable transport event records support a selected-year transport activity overlay.",
       },
       features,
     });
@@ -1076,7 +1106,7 @@ function buildCity(city) {
   }
   years.sort((a, b) => a - b);
   const sourceById = sourceByIdFromCity(paths);
-  const events = loadEvents(buildCityRecord, eventsIndex);
+  const events = loadEvents(buildCityRecord, eventsIndex, sourceById);
   const hotspotFeatures = buildHotspotFeatures(buildCityRecord.city_id, events);
   const overlayRelativePath = `web/data/city-atlas/cities/${buildCityRecord.city_id}/lens_overlays.geojson`;
   writeJson(path.join(cityDir, "lens_overlays.geojson"), {

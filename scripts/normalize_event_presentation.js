@@ -199,26 +199,33 @@ function loadEvents(root, eventsIndex) {
 }
 
 function featureForEvent(event) {
+  const properties = {
+    city_id: event.city_id,
+    event_id: event.event_id,
+    title: event.title,
+    subtitle: event.subtitle,
+    details: event.details,
+    year: event.year,
+    effective_date: event.effective_date,
+    date_precision: event.date_precision,
+    short_description: event.short_description,
+    category: event.category,
+    lens: event.lens,
+    confidence: event.confidence,
+    source_ids: event.source_ids,
+    affected_area_label: event.affected_area?.label || null,
+    explanation: event.explanation,
+  };
+  if (Array.isArray(event.excluded_lens_slugs) && event.excluded_lens_slugs.length) {
+    properties.excluded_lens_slugs = event.excluded_lens_slugs;
+  }
+  if (event.exclude_transport_road_scoring === true) {
+    properties.exclude_transport_road_scoring = true;
+  }
   return {
     type: "Feature",
     id: event.event_id,
-    properties: {
-      city_id: event.city_id,
-      event_id: event.event_id,
-      title: event.title,
-      subtitle: event.subtitle,
-      details: event.details,
-      year: event.year,
-      effective_date: event.effective_date,
-      date_precision: event.date_precision,
-      short_description: event.short_description,
-      category: event.category,
-      lens: event.lens,
-      confidence: event.confidence,
-      source_ids: event.source_ids,
-      affected_area_label: event.affected_area?.label || null,
-      explanation: event.explanation,
-    },
+    properties,
     geometry: event.geometry || null,
   };
 }

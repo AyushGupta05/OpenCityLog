@@ -45,20 +45,19 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 52966,
-        "compatible_event_count": 52966,
+        "event_count": 51867,
+        "compatible_event_count": 51867,
         "review_required_event_count": 0,
-        "source_count": 70,
-        "compatible_source_count": 70,
+        "source_count": 29,
+        "compatible_source_count": 29,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1951,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 52956,
-          "inferred": 2,
-          "corroborated": 8
+          "documented": 51863,
+          "corroborated": 4
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -66,7 +65,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 52050,
+        "excluded_review_required_event_count": 53149,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -81,17 +80,14 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
+        "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "1951-2026",
-        "update_cadence": "Annual monitoring report.; Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
       },
       "provenance": {
         "source_ids": [
           "camden-local-list-open-data",
-          "camden-west-end-project-pages",
-          "city-of-london-public-realm-project-pages",
           "dfe-gias-establishment-register",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-2025",
@@ -108,11 +104,8 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "opdc-public-realm-project-pages",
           "pins-hs2-phase-one-planning-appeals",
           "planning-data-archaeological-priority-area",
           "planning-data-article-4-direction-area",
@@ -121,49 +114,11 @@
           "planning-data-conservation-area",
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
-          "src_bac_grand_hall_reopened",
-          "src_barts_royal_london_history",
-          "src_bca_windrush_square_opened",
-          "src_better_hillingdon_platinum_jubilee",
-          "src_brent_civic_centre_update",
-          "src_bromley_west_wickham_library",
-          "src_courtauld_gallery_reopens",
-          "src_design_museum_new_home",
-          "src_fairfield_halls_reopened",
-          "src_gla_city_hall_building",
-          "src_hackney_stoke_newington_ypc",
-          "src_hackney_young_centres",
-          "src_hounslow_meadowbank_hub",
-          "src_imperial_sph_opened",
-          "src_lambeth_town_hall_reopened",
-          "src_lcf_east_bank_move",
-          "src_lse_centre_building",
-          "src_lse_marshall_building",
-          "src_npg_reopening",
-          "src_qmul_graduate_centre_opened",
-          "src_rca_battersea_unveiled",
-          "src_sadlers_wells_east_mayor_opening",
-          "src_science_museum_medicine_galleries",
-          "src_southbank_concrete_dreams",
-          "src_southbank_visual_arts_2018",
-          "src_southwark_canada_water_leisure",
-          "src_tate_modern_blavatnik_opened",
-          "src_ucl_east_official_opening",
-          "src_uclh_grafton_way_fully_open",
-          "src_uclh_grafton_way_royal_opening",
-          "src_uclh_rnent_eastman_hospital",
-          "src_wandsworth_putney_library",
-          "src_young_va_open",
-          "tfl-road-disruptions",
-          "uk_parliament_hansard_thames_tideway_2013",
-          "westminster-authority-monitoring-public-realm"
+          "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
-          "camden-west-end-project-pages",
-          "city-of-london-public-realm-project-pages",
           "dfe-gias-establishment-register",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-2025",
@@ -180,11 +135,8 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "opdc-public-realm-project-pages",
           "pins-hs2-phase-one-planning-appeals",
           "planning-data-archaeological-priority-area",
           "planning-data-article-4-direction-area",
@@ -193,42 +145,7 @@
           "planning-data-conservation-area",
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
-          "src_bac_grand_hall_reopened",
-          "src_barts_royal_london_history",
-          "src_bca_windrush_square_opened",
-          "src_better_hillingdon_platinum_jubilee",
-          "src_brent_civic_centre_update",
-          "src_bromley_west_wickham_library",
-          "src_courtauld_gallery_reopens",
-          "src_design_museum_new_home",
-          "src_fairfield_halls_reopened",
-          "src_gla_city_hall_building",
-          "src_hackney_stoke_newington_ypc",
-          "src_hackney_young_centres",
-          "src_hounslow_meadowbank_hub",
-          "src_imperial_sph_opened",
-          "src_lambeth_town_hall_reopened",
-          "src_lcf_east_bank_move",
-          "src_lse_centre_building",
-          "src_lse_marshall_building",
-          "src_npg_reopening",
-          "src_qmul_graduate_centre_opened",
-          "src_rca_battersea_unveiled",
-          "src_sadlers_wells_east_mayor_opening",
-          "src_science_museum_medicine_galleries",
-          "src_southbank_concrete_dreams",
-          "src_southbank_visual_arts_2018",
-          "src_southwark_canada_water_leisure",
-          "src_tate_modern_blavatnik_opened",
-          "src_ucl_east_official_opening",
-          "src_uclh_grafton_way_fully_open",
-          "src_uclh_grafton_way_royal_opening",
-          "src_uclh_rnent_eastman_hospital",
-          "src_wandsworth_putney_library",
-          "src_young_va_open",
-          "tfl-road-disruptions",
-          "uk_parliament_hansard_thames_tideway_2013",
-          "westminster-authority-monitoring-public-realm"
+          "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -246,32 +163,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "camden-west-end-project-pages",
-            "title": "Camden West End Project pages",
-            "publisher": "London Borough of Camden",
-            "source_family": "planning",
-            "licence": "Camden Council website terms apply; store factual milestone metadata and source URLs only.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "London Borough of Camden",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "city-of-london-public-realm-project-pages",
-            "title": "City of London public-realm project and press pages",
-            "publisher": "City of London Corporation",
-            "source_family": "planning",
-            "licence": "City of London Corporation website terms apply; store factual milestone metadata and source URLs only.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "City of London Corporation",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "dfe-gias-establishment-register",
             "title": "Get Information About Schools establishment extract",
             "publisher": "Department for Education",
@@ -279,19 +170,6 @@
             "licence": "GOV.UK/GIAS public data is available under Open Government Licence v3.0 except where otherwise stated.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Department for Education",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
             "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
@@ -382,6 +260,45 @@
             "source_family": "planning",
             "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
             "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+            "attribution_text": "Historic England",
+            "accessed_at": "2026-05-20",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-10",
+            "title": "National Heritage List for England (NHLE) open data",
+            "publisher": "Historic England",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1000092",
+            "attribution_text": "Historic England",
+            "accessed_at": "2026-05-20",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+            "title": "National Heritage List for England (NHLE) open data",
+            "publisher": "Historic England",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
+            "attribution_text": "Historic England",
+            "accessed_at": "2026-05-20",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-6",
+            "title": "National Heritage List for England (NHLE) open data",
+            "publisher": "Historic England",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1002006",
             "attribution_text": "Historic England",
             "accessed_at": "2026-05-20",
             "reliability": "usable_with_caveats",
@@ -414,20 +331,19 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 52966,
-        "compatible_event_count": 52966,
+        "event_count": 51867,
+        "compatible_event_count": 51867,
         "review_required_event_count": 0,
-        "source_count": 70,
-        "compatible_source_count": 70,
+        "source_count": 29,
+        "compatible_source_count": 29,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1951,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 52956,
-          "inferred": 2,
-          "corroborated": 8
+          "documented": 51863,
+          "corroborated": 4
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -435,7 +351,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 52050,
+        "excluded_review_required_event_count": 53149,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -450,17 +366,14 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
+        "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "1951-2026",
-        "update_cadence": "Annual monitoring report.; Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
       },
       "provenance": {
         "source_ids": [
           "camden-local-list-open-data",
-          "camden-west-end-project-pages",
-          "city-of-london-public-realm-project-pages",
           "dfe-gias-establishment-register",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-2025",
@@ -477,11 +390,8 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "opdc-public-realm-project-pages",
           "pins-hs2-phase-one-planning-appeals",
           "planning-data-archaeological-priority-area",
           "planning-data-article-4-direction-area",
@@ -490,49 +400,11 @@
           "planning-data-conservation-area",
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
-          "src_bac_grand_hall_reopened",
-          "src_barts_royal_london_history",
-          "src_bca_windrush_square_opened",
-          "src_better_hillingdon_platinum_jubilee",
-          "src_brent_civic_centre_update",
-          "src_bromley_west_wickham_library",
-          "src_courtauld_gallery_reopens",
-          "src_design_museum_new_home",
-          "src_fairfield_halls_reopened",
-          "src_gla_city_hall_building",
-          "src_hackney_stoke_newington_ypc",
-          "src_hackney_young_centres",
-          "src_hounslow_meadowbank_hub",
-          "src_imperial_sph_opened",
-          "src_lambeth_town_hall_reopened",
-          "src_lcf_east_bank_move",
-          "src_lse_centre_building",
-          "src_lse_marshall_building",
-          "src_npg_reopening",
-          "src_qmul_graduate_centre_opened",
-          "src_rca_battersea_unveiled",
-          "src_sadlers_wells_east_mayor_opening",
-          "src_science_museum_medicine_galleries",
-          "src_southbank_concrete_dreams",
-          "src_southbank_visual_arts_2018",
-          "src_southwark_canada_water_leisure",
-          "src_tate_modern_blavatnik_opened",
-          "src_ucl_east_official_opening",
-          "src_uclh_grafton_way_fully_open",
-          "src_uclh_grafton_way_royal_opening",
-          "src_uclh_rnent_eastman_hospital",
-          "src_wandsworth_putney_library",
-          "src_young_va_open",
-          "tfl-road-disruptions",
-          "uk_parliament_hansard_thames_tideway_2013",
-          "westminster-authority-monitoring-public-realm"
+          "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
-          "camden-west-end-project-pages",
-          "city-of-london-public-realm-project-pages",
           "dfe-gias-establishment-register",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-2025",
@@ -549,11 +421,8 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "opdc-public-realm-project-pages",
           "pins-hs2-phase-one-planning-appeals",
           "planning-data-archaeological-priority-area",
           "planning-data-article-4-direction-area",
@@ -562,42 +431,7 @@
           "planning-data-conservation-area",
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
-          "src_bac_grand_hall_reopened",
-          "src_barts_royal_london_history",
-          "src_bca_windrush_square_opened",
-          "src_better_hillingdon_platinum_jubilee",
-          "src_brent_civic_centre_update",
-          "src_bromley_west_wickham_library",
-          "src_courtauld_gallery_reopens",
-          "src_design_museum_new_home",
-          "src_fairfield_halls_reopened",
-          "src_gla_city_hall_building",
-          "src_hackney_stoke_newington_ypc",
-          "src_hackney_young_centres",
-          "src_hounslow_meadowbank_hub",
-          "src_imperial_sph_opened",
-          "src_lambeth_town_hall_reopened",
-          "src_lcf_east_bank_move",
-          "src_lse_centre_building",
-          "src_lse_marshall_building",
-          "src_npg_reopening",
-          "src_qmul_graduate_centre_opened",
-          "src_rca_battersea_unveiled",
-          "src_sadlers_wells_east_mayor_opening",
-          "src_science_museum_medicine_galleries",
-          "src_southbank_concrete_dreams",
-          "src_southbank_visual_arts_2018",
-          "src_southwark_canada_water_leisure",
-          "src_tate_modern_blavatnik_opened",
-          "src_ucl_east_official_opening",
-          "src_uclh_grafton_way_fully_open",
-          "src_uclh_grafton_way_royal_opening",
-          "src_uclh_rnent_eastman_hospital",
-          "src_wandsworth_putney_library",
-          "src_young_va_open",
-          "tfl-road-disruptions",
-          "uk_parliament_hansard_thames_tideway_2013",
-          "westminster-authority-monitoring-public-realm"
+          "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -615,32 +449,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "camden-west-end-project-pages",
-            "title": "Camden West End Project pages",
-            "publisher": "London Borough of Camden",
-            "source_family": "planning",
-            "licence": "Camden Council website terms apply; store factual milestone metadata and source URLs only.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "London Borough of Camden",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "city-of-london-public-realm-project-pages",
-            "title": "City of London public-realm project and press pages",
-            "publisher": "City of London Corporation",
-            "source_family": "planning",
-            "licence": "City of London Corporation website terms apply; store factual milestone metadata and source URLs only.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "City of London Corporation",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "dfe-gias-establishment-register",
             "title": "Get Information About Schools establishment extract",
             "publisher": "Department for Education",
@@ -648,19 +456,6 @@
             "licence": "GOV.UK/GIAS public data is available under Open Government Licence v3.0 except where otherwise stated.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Department for Education",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
             "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
@@ -751,6 +546,45 @@
             "source_family": "planning",
             "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
             "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+            "attribution_text": "Historic England",
+            "accessed_at": "2026-05-20",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-10",
+            "title": "National Heritage List for England (NHLE) open data",
+            "publisher": "Historic England",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1000092",
+            "attribution_text": "Historic England",
+            "accessed_at": "2026-05-20",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+            "title": "National Heritage List for England (NHLE) open data",
+            "publisher": "Historic England",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
+            "attribution_text": "Historic England",
+            "accessed_at": "2026-05-20",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-6",
+            "title": "National Heritage List for England (NHLE) open data",
+            "publisher": "Historic England",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1002006",
             "attribution_text": "Historic England",
             "accessed_at": "2026-05-20",
             "reliability": "usable_with_caveats",
@@ -783,20 +617,19 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 52966,
-        "compatible_event_count": 52966,
+        "event_count": 51867,
+        "compatible_event_count": 51867,
         "review_required_event_count": 0,
-        "source_count": 70,
-        "compatible_source_count": 70,
+        "source_count": 29,
+        "compatible_source_count": 29,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1951,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 52956,
-          "inferred": 2,
-          "corroborated": 8
+          "documented": 51863,
+          "corroborated": 4
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -804,7 +637,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 52050,
+        "excluded_review_required_event_count": 53149,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -819,17 +652,14 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
+        "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "1951-2026",
-        "update_cadence": "Annual monitoring report.; Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
       },
       "provenance": {
         "source_ids": [
           "camden-local-list-open-data",
-          "camden-west-end-project-pages",
-          "city-of-london-public-realm-project-pages",
           "dfe-gias-establishment-register",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-2025",
@@ -846,11 +676,8 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "opdc-public-realm-project-pages",
           "pins-hs2-phase-one-planning-appeals",
           "planning-data-archaeological-priority-area",
           "planning-data-article-4-direction-area",
@@ -859,49 +686,11 @@
           "planning-data-conservation-area",
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
-          "src_bac_grand_hall_reopened",
-          "src_barts_royal_london_history",
-          "src_bca_windrush_square_opened",
-          "src_better_hillingdon_platinum_jubilee",
-          "src_brent_civic_centre_update",
-          "src_bromley_west_wickham_library",
-          "src_courtauld_gallery_reopens",
-          "src_design_museum_new_home",
-          "src_fairfield_halls_reopened",
-          "src_gla_city_hall_building",
-          "src_hackney_stoke_newington_ypc",
-          "src_hackney_young_centres",
-          "src_hounslow_meadowbank_hub",
-          "src_imperial_sph_opened",
-          "src_lambeth_town_hall_reopened",
-          "src_lcf_east_bank_move",
-          "src_lse_centre_building",
-          "src_lse_marshall_building",
-          "src_npg_reopening",
-          "src_qmul_graduate_centre_opened",
-          "src_rca_battersea_unveiled",
-          "src_sadlers_wells_east_mayor_opening",
-          "src_science_museum_medicine_galleries",
-          "src_southbank_concrete_dreams",
-          "src_southbank_visual_arts_2018",
-          "src_southwark_canada_water_leisure",
-          "src_tate_modern_blavatnik_opened",
-          "src_ucl_east_official_opening",
-          "src_uclh_grafton_way_fully_open",
-          "src_uclh_grafton_way_royal_opening",
-          "src_uclh_rnent_eastman_hospital",
-          "src_wandsworth_putney_library",
-          "src_young_va_open",
-          "tfl-road-disruptions",
-          "uk_parliament_hansard_thames_tideway_2013",
-          "westminster-authority-monitoring-public-realm"
+          "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
-          "camden-west-end-project-pages",
-          "city-of-london-public-realm-project-pages",
           "dfe-gias-establishment-register",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-2025",
@@ -918,11 +707,8 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "opdc-public-realm-project-pages",
           "pins-hs2-phase-one-planning-appeals",
           "planning-data-archaeological-priority-area",
           "planning-data-article-4-direction-area",
@@ -931,42 +717,7 @@
           "planning-data-conservation-area",
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
-          "src_bac_grand_hall_reopened",
-          "src_barts_royal_london_history",
-          "src_bca_windrush_square_opened",
-          "src_better_hillingdon_platinum_jubilee",
-          "src_brent_civic_centre_update",
-          "src_bromley_west_wickham_library",
-          "src_courtauld_gallery_reopens",
-          "src_design_museum_new_home",
-          "src_fairfield_halls_reopened",
-          "src_gla_city_hall_building",
-          "src_hackney_stoke_newington_ypc",
-          "src_hackney_young_centres",
-          "src_hounslow_meadowbank_hub",
-          "src_imperial_sph_opened",
-          "src_lambeth_town_hall_reopened",
-          "src_lcf_east_bank_move",
-          "src_lse_centre_building",
-          "src_lse_marshall_building",
-          "src_npg_reopening",
-          "src_qmul_graduate_centre_opened",
-          "src_rca_battersea_unveiled",
-          "src_sadlers_wells_east_mayor_opening",
-          "src_science_museum_medicine_galleries",
-          "src_southbank_concrete_dreams",
-          "src_southbank_visual_arts_2018",
-          "src_southwark_canada_water_leisure",
-          "src_tate_modern_blavatnik_opened",
-          "src_ucl_east_official_opening",
-          "src_uclh_grafton_way_fully_open",
-          "src_uclh_grafton_way_royal_opening",
-          "src_uclh_rnent_eastman_hospital",
-          "src_wandsworth_putney_library",
-          "src_young_va_open",
-          "tfl-road-disruptions",
-          "uk_parliament_hansard_thames_tideway_2013",
-          "westminster-authority-monitoring-public-realm"
+          "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -984,32 +735,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "camden-west-end-project-pages",
-            "title": "Camden West End Project pages",
-            "publisher": "London Borough of Camden",
-            "source_family": "planning",
-            "licence": "Camden Council website terms apply; store factual milestone metadata and source URLs only.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "London Borough of Camden",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "city-of-london-public-realm-project-pages",
-            "title": "City of London public-realm project and press pages",
-            "publisher": "City of London Corporation",
-            "source_family": "planning",
-            "licence": "City of London Corporation website terms apply; store factual milestone metadata and source URLs only.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "City of London Corporation",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "dfe-gias-establishment-register",
             "title": "Get Information About Schools establishment extract",
             "publisher": "Department for Education",
@@ -1017,19 +742,6 @@
             "licence": "GOV.UK/GIAS public data is available under Open Government Licence v3.0 except where otherwise stated.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Department for Education",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
             "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
@@ -1120,6 +832,45 @@
             "source_family": "planning",
             "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
             "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
+            "attribution_text": "Historic England",
+            "accessed_at": "2026-05-20",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-10",
+            "title": "National Heritage List for England (NHLE) open data",
+            "publisher": "Historic England",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1000092",
+            "attribution_text": "Historic England",
+            "accessed_at": "2026-05-20",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
+            "title": "National Heritage List for England (NHLE) open data",
+            "publisher": "Historic England",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
+            "attribution_text": "Historic England",
+            "accessed_at": "2026-05-20",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-6",
+            "title": "National Heritage List for England (NHLE) open data",
+            "publisher": "Historic England",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1002006",
             "attribution_text": "Historic England",
             "accessed_at": "2026-05-20",
             "reliability": "usable_with_caveats",
@@ -1152,18 +903,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59192,
-        "compatible_event_count": 59192,
+        "event_count": 58895,
+        "compatible_event_count": 58895,
         "review_required_event_count": 0,
-        "source_count": 29,
-        "compatible_source_count": 29,
+        "source_count": 22,
+        "compatible_source_count": 22,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1959,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59192
+          "documented": 58895
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1171,39 +922,38 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 33187,
+        "excluded_review_required_event_count": 33484,
         "year_contract": {
           "required_years": {
             "start": 2007,
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 14,
+          "visible_year_count": 13,
           "missing_visible_years": [
             2007,
             2011,
             2013,
             2015,
             2017,
-            2019
+            2019,
+            2026
           ],
-          "source_backed_record_year_count": 14,
+          "source_backed_record_year_count": 13,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1959-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; Monthly."
       },
       "provenance": {
         "source_ids": [
           "camden-local-list-open-data",
-          "camden-west-end-project-pages",
           "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -1216,25 +966,18 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "opdc-public-realm-project-pages",
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
-          "police-data-stop-search",
-          "src_hackney_young_centres",
-          "tfl-road-disruptions"
+          "police-data-stop-search"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
-          "camden-west-end-project-pages",
           "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -1247,18 +990,13 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "opdc-public-realm-project-pages",
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
-          "police-data-stop-search",
-          "src_hackney_young_centres",
-          "tfl-road-disruptions"
+          "police-data-stop-search"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -1269,19 +1007,6 @@
             "source_family": "planning",
             "licence": "Camden open-data metadata says data is derived from Ordnance Survey products under the Public Sector Geospatial Agreement; retain Camden and OS attribution.",
             "licence_url": "https://opendata.camden.gov.uk/",
-            "attribution_text": "London Borough of Camden",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "camden-west-end-project-pages",
-            "title": "Camden West End Project pages",
-            "publisher": "London Borough of Camden",
-            "source_family": "planning",
-            "licence": "Camden Council website terms apply; store factual milestone metadata and source URLs only.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "London Borough of Camden",
             "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
@@ -1310,19 +1035,6 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Department for Transport",
             "accessed_at": "2026-05-08T00:00:00+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
-            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1414,6 +1126,32 @@
             "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
             "attribution_text": "Historic England",
             "accessed_at": "2026-05-20",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+            "title": "National Heritage List for England (NHLE) open data",
+            "publisher": "Historic England",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1001713",
+            "attribution_text": "Historic England",
+            "accessed_at": "2026-05-20",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "lon-extra-food-hygiene-rating-scheme-api",
+            "title": "Food Hygiene Rating Scheme API",
+            "publisher": "Food Standards Agency",
+            "source_family": "civic_services",
+            "licence": "Open Government Licence v3.0",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Food Standards Agency",
+            "accessed_at": "2026-05-08T00:00:00+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1444,18 +1182,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59192,
-        "compatible_event_count": 59192,
+        "event_count": 58895,
+        "compatible_event_count": 58895,
         "review_required_event_count": 0,
-        "source_count": 29,
-        "compatible_source_count": 29,
+        "source_count": 22,
+        "compatible_source_count": 22,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1959,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59192
+          "documented": 58895
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1463,39 +1201,38 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 33187,
+        "excluded_review_required_event_count": 33484,
         "year_contract": {
           "required_years": {
             "start": 2007,
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 14,
+          "visible_year_count": 13,
           "missing_visible_years": [
             2007,
             2011,
             2013,
             2015,
             2017,
-            2019
+            2019,
+            2026
           ],
-          "source_backed_record_year_count": 14,
+          "source_backed_record_year_count": 13,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1959-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; Monthly."
       },
       "provenance": {
         "source_ids": [
           "camden-local-list-open-data",
-          "camden-west-end-project-pages",
           "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -1508,25 +1245,18 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "opdc-public-realm-project-pages",
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
-          "police-data-stop-search",
-          "src_hackney_young_centres",
-          "tfl-road-disruptions"
+          "police-data-stop-search"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
-          "camden-west-end-project-pages",
           "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -1539,18 +1269,13 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "opdc-public-realm-project-pages",
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
-          "police-data-stop-search",
-          "src_hackney_young_centres",
-          "tfl-road-disruptions"
+          "police-data-stop-search"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -1561,19 +1286,6 @@
             "source_family": "planning",
             "licence": "Camden open-data metadata says data is derived from Ordnance Survey products under the Public Sector Geospatial Agreement; retain Camden and OS attribution.",
             "licence_url": "https://opendata.camden.gov.uk/",
-            "attribution_text": "London Borough of Camden",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "camden-west-end-project-pages",
-            "title": "Camden West End Project pages",
-            "publisher": "London Borough of Camden",
-            "source_family": "planning",
-            "licence": "Camden Council website terms apply; store factual milestone metadata and source URLs only.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "London Borough of Camden",
             "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
@@ -1602,19 +1314,6 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Department for Transport",
             "accessed_at": "2026-05-08T00:00:00+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
-            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1706,6 +1405,32 @@
             "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
             "attribution_text": "Historic England",
             "accessed_at": "2026-05-20",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+            "title": "National Heritage List for England (NHLE) open data",
+            "publisher": "Historic England",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1001713",
+            "attribution_text": "Historic England",
+            "accessed_at": "2026-05-20",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "lon-extra-food-hygiene-rating-scheme-api",
+            "title": "Food Hygiene Rating Scheme API",
+            "publisher": "Food Standards Agency",
+            "source_family": "civic_services",
+            "licence": "Open Government Licence v3.0",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Food Standards Agency",
+            "accessed_at": "2026-05-08T00:00:00+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1736,18 +1461,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59192,
-        "compatible_event_count": 59192,
+        "event_count": 58895,
+        "compatible_event_count": 58895,
         "review_required_event_count": 0,
-        "source_count": 29,
-        "compatible_source_count": 29,
+        "source_count": 22,
+        "compatible_source_count": 22,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1959,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59192
+          "documented": 58895
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1755,39 +1480,38 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 33187,
+        "excluded_review_required_event_count": 33484,
         "year_contract": {
           "required_years": {
             "start": 2007,
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 14,
+          "visible_year_count": 13,
           "missing_visible_years": [
             2007,
             2011,
             2013,
             2015,
             2017,
-            2019
+            2019,
+            2026
           ],
-          "source_backed_record_year_count": 14,
+          "source_backed_record_year_count": 13,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1959-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; Monthly."
       },
       "provenance": {
         "source_ids": [
           "camden-local-list-open-data",
-          "camden-west-end-project-pages",
           "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -1800,25 +1524,18 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "opdc-public-realm-project-pages",
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
-          "police-data-stop-search",
-          "src_hackney_young_centres",
-          "tfl-road-disruptions"
+          "police-data-stop-search"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
-          "camden-west-end-project-pages",
           "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -1831,18 +1548,13 @@
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
           "lon-extra-uk-house-price-index",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "opdc-public-realm-project-pages",
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "planning-inspectorate-appeal-decisions",
           "police-data-api",
-          "police-data-stop-search",
-          "src_hackney_young_centres",
-          "tfl-road-disruptions"
+          "police-data-stop-search"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -1853,19 +1565,6 @@
             "source_family": "planning",
             "licence": "Camden open-data metadata says data is derived from Ordnance Survey products under the Public Sector Geospatial Agreement; retain Camden and OS attribution.",
             "licence_url": "https://opendata.camden.gov.uk/",
-            "attribution_text": "London Borough of Camden",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "camden-west-end-project-pages",
-            "title": "Camden West End Project pages",
-            "publisher": "London Borough of Camden",
-            "source_family": "planning",
-            "licence": "Camden Council website terms apply; store factual milestone metadata and source URLs only.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "London Borough of Camden",
             "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
@@ -1894,19 +1593,6 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Department for Transport",
             "accessed_at": "2026-05-08T00:00:00+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
-            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2001,6 +1687,32 @@
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
+          },
+          {
+            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
+            "title": "National Heritage List for England (NHLE) open data",
+            "publisher": "Historic England",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
+            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1001713",
+            "attribution_text": "Historic England",
+            "accessed_at": "2026-05-20",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "lon-extra-food-hygiene-rating-scheme-api",
+            "title": "Food Hygiene Rating Scheme API",
+            "publisher": "Food Standards Agency",
+            "source_family": "civic_services",
+            "licence": "Open Government Licence v3.0",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Food Standards Agency",
+            "accessed_at": "2026-05-08T00:00:00+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
           }
         ],
         "transformation_method": "scripts/build_15_lens_manifest.js#summarizeLens:london:transport-speed",
@@ -2028,20 +1740,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 93645,
-        "compatible_event_count": 93645,
+        "event_count": 93385,
+        "compatible_event_count": 93385,
         "review_required_event_count": 0,
-        "source_count": 45,
-        "compatible_source_count": 45,
+        "source_count": 17,
+        "compatible_source_count": 17,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1981,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 93642,
-          "inferred": 2,
-          "corroborated": 1
+          "documented": 93385
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2049,7 +1759,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 30326,
+        "excluded_review_required_event_count": 30586,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2068,13 +1778,12 @@
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "1981-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Institutional history page; cadence set by publisher.; Monthly."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Institutional history page; cadence set by publisher.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
       },
       "provenance": {
         "source_ids": [
           "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -2083,45 +1792,17 @@
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-planning-data-tree-preservation-zones",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "police-data-stop-search",
-          "src_bac_grand_hall_reopened",
-          "src_barts_royal_london_history",
-          "src_bca_windrush_square_opened",
-          "src_brent_civic_centre_update",
-          "src_courtauld_gallery_reopens",
-          "src_design_museum_new_home",
-          "src_fairfield_halls_reopened",
-          "src_gla_city_hall_building",
-          "src_imperial_sph_opened",
-          "src_lambeth_town_hall_reopened",
-          "src_lcf_east_bank_move",
-          "src_lse_centre_building",
-          "src_lse_marshall_building",
-          "src_npg_reopening",
-          "src_qmul_graduate_centre_opened",
-          "src_rca_battersea_unveiled",
-          "src_sadlers_wells_east_mayor_opening",
-          "src_science_museum_medicine_galleries",
-          "src_southbank_concrete_dreams",
-          "src_southbank_visual_arts_2018",
-          "src_tate_modern_blavatnik_opened",
-          "src_ucl_east_official_opening",
-          "src_uclh_grafton_way_fully_open",
-          "src_uclh_grafton_way_royal_opening",
-          "src_uclh_rnent_eastman_hospital",
-          "src_young_va_open",
           "wembley_stadium_history_2007"
         ],
         "compatible_source_ids": [
           "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -2130,39 +1811,12 @@
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-planning-data-tree-preservation-zones",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "police-data-stop-search",
-          "src_bac_grand_hall_reopened",
-          "src_barts_royal_london_history",
-          "src_bca_windrush_square_opened",
-          "src_brent_civic_centre_update",
-          "src_courtauld_gallery_reopens",
-          "src_design_museum_new_home",
-          "src_fairfield_halls_reopened",
-          "src_gla_city_hall_building",
-          "src_imperial_sph_opened",
-          "src_lambeth_town_hall_reopened",
-          "src_lcf_east_bank_move",
-          "src_lse_centre_building",
-          "src_lse_marshall_building",
-          "src_npg_reopening",
-          "src_qmul_graduate_centre_opened",
-          "src_rca_battersea_unveiled",
-          "src_sadlers_wells_east_mayor_opening",
-          "src_science_museum_medicine_galleries",
-          "src_southbank_concrete_dreams",
-          "src_southbank_visual_arts_2018",
-          "src_tate_modern_blavatnik_opened",
-          "src_ucl_east_official_opening",
-          "src_uclh_grafton_way_fully_open",
-          "src_uclh_grafton_way_royal_opening",
-          "src_uclh_rnent_eastman_hospital",
-          "src_young_va_open",
           "wembley_stadium_history_2007"
         ],
         "review_required_source_ids": [],
@@ -2189,19 +1843,6 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Department for Transport",
             "accessed_at": "2026-05-08T00:00:00+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
-            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2311,14 +1952,27 @@
             "licence_review_required": false
           },
           {
-            "source_id": "london-architecture-public-pages",
-            "title": "London architecture and major project public pages",
-            "publisher": "Named London public, institutional, venue, developer, and architecture sources",
+            "source_id": "london-development-database-archive",
+            "title": "Planning permissions on the London Development Database (LDD)",
+            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "source_family": "significant_public_or_mixed_use_completion_record",
+            "licence": "UK Open Government Licence (OGL v3)",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "mhclg-called-in-decisions",
+            "title": "mhclg-called-in-decisions",
+            "publisher": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
             "source_family": "planning",
-            "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
-            "licence_url": "https://www.london.gov.uk/",
-            "attribution_text": "Named London public, institutional, venue, developer, and architecture sources",
-            "accessed_at": "2026-05-18",
+            "licence": "GOV.UK content is available under the Open Government Licence v3.0 except where otherwise stated.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2349,20 +2003,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 93645,
-        "compatible_event_count": 93645,
+        "event_count": 93385,
+        "compatible_event_count": 93385,
         "review_required_event_count": 0,
-        "source_count": 45,
-        "compatible_source_count": 45,
+        "source_count": 17,
+        "compatible_source_count": 17,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1981,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 93642,
-          "inferred": 2,
-          "corroborated": 1
+          "documented": 93385
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2370,7 +2022,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 30326,
+        "excluded_review_required_event_count": 30586,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2389,13 +2041,12 @@
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "1981-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Institutional history page; cadence set by publisher.; Monthly."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Institutional history page; cadence set by publisher.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
       },
       "provenance": {
         "source_ids": [
           "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -2404,45 +2055,17 @@
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-planning-data-tree-preservation-zones",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "police-data-stop-search",
-          "src_bac_grand_hall_reopened",
-          "src_barts_royal_london_history",
-          "src_bca_windrush_square_opened",
-          "src_brent_civic_centre_update",
-          "src_courtauld_gallery_reopens",
-          "src_design_museum_new_home",
-          "src_fairfield_halls_reopened",
-          "src_gla_city_hall_building",
-          "src_imperial_sph_opened",
-          "src_lambeth_town_hall_reopened",
-          "src_lcf_east_bank_move",
-          "src_lse_centre_building",
-          "src_lse_marshall_building",
-          "src_npg_reopening",
-          "src_qmul_graduate_centre_opened",
-          "src_rca_battersea_unveiled",
-          "src_sadlers_wells_east_mayor_opening",
-          "src_science_museum_medicine_galleries",
-          "src_southbank_concrete_dreams",
-          "src_southbank_visual_arts_2018",
-          "src_tate_modern_blavatnik_opened",
-          "src_ucl_east_official_opening",
-          "src_uclh_grafton_way_fully_open",
-          "src_uclh_grafton_way_royal_opening",
-          "src_uclh_rnent_eastman_hospital",
-          "src_young_va_open",
           "wembley_stadium_history_2007"
         ],
         "compatible_source_ids": [
           "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -2451,39 +2074,12 @@
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-planning-data-tree-preservation-zones",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "police-data-stop-search",
-          "src_bac_grand_hall_reopened",
-          "src_barts_royal_london_history",
-          "src_bca_windrush_square_opened",
-          "src_brent_civic_centre_update",
-          "src_courtauld_gallery_reopens",
-          "src_design_museum_new_home",
-          "src_fairfield_halls_reopened",
-          "src_gla_city_hall_building",
-          "src_imperial_sph_opened",
-          "src_lambeth_town_hall_reopened",
-          "src_lcf_east_bank_move",
-          "src_lse_centre_building",
-          "src_lse_marshall_building",
-          "src_npg_reopening",
-          "src_qmul_graduate_centre_opened",
-          "src_rca_battersea_unveiled",
-          "src_sadlers_wells_east_mayor_opening",
-          "src_science_museum_medicine_galleries",
-          "src_southbank_concrete_dreams",
-          "src_southbank_visual_arts_2018",
-          "src_tate_modern_blavatnik_opened",
-          "src_ucl_east_official_opening",
-          "src_uclh_grafton_way_fully_open",
-          "src_uclh_grafton_way_royal_opening",
-          "src_uclh_rnent_eastman_hospital",
-          "src_young_va_open",
           "wembley_stadium_history_2007"
         ],
         "review_required_source_ids": [],
@@ -2510,19 +2106,6 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Department for Transport",
             "accessed_at": "2026-05-08T00:00:00+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
-            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2632,14 +2215,27 @@
             "licence_review_required": false
           },
           {
-            "source_id": "london-architecture-public-pages",
-            "title": "London architecture and major project public pages",
-            "publisher": "Named London public, institutional, venue, developer, and architecture sources",
+            "source_id": "london-development-database-archive",
+            "title": "Planning permissions on the London Development Database (LDD)",
+            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "source_family": "significant_public_or_mixed_use_completion_record",
+            "licence": "UK Open Government Licence (OGL v3)",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "mhclg-called-in-decisions",
+            "title": "mhclg-called-in-decisions",
+            "publisher": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
             "source_family": "planning",
-            "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
-            "licence_url": "https://www.london.gov.uk/",
-            "attribution_text": "Named London public, institutional, venue, developer, and architecture sources",
-            "accessed_at": "2026-05-18",
+            "licence": "GOV.UK content is available under the Open Government Licence v3.0 except where otherwise stated.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2670,20 +2266,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 93645,
-        "compatible_event_count": 93645,
+        "event_count": 93385,
+        "compatible_event_count": 93385,
         "review_required_event_count": 0,
-        "source_count": 45,
-        "compatible_source_count": 45,
+        "source_count": 17,
+        "compatible_source_count": 17,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1981,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 93642,
-          "inferred": 2,
-          "corroborated": 1
+          "documented": 93385
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2691,7 +2285,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 30326,
+        "excluded_review_required_event_count": 30586,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2710,13 +2304,12 @@
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "1981-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Institutional history page; cadence set by publisher.; Monthly."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Institutional history page; cadence set by publisher.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
       },
       "provenance": {
         "source_ids": [
           "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -2725,45 +2318,17 @@
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-planning-data-tree-preservation-zones",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "police-data-stop-search",
-          "src_bac_grand_hall_reopened",
-          "src_barts_royal_london_history",
-          "src_bca_windrush_square_opened",
-          "src_brent_civic_centre_update",
-          "src_courtauld_gallery_reopens",
-          "src_design_museum_new_home",
-          "src_fairfield_halls_reopened",
-          "src_gla_city_hall_building",
-          "src_imperial_sph_opened",
-          "src_lambeth_town_hall_reopened",
-          "src_lcf_east_bank_move",
-          "src_lse_centre_building",
-          "src_lse_marshall_building",
-          "src_npg_reopening",
-          "src_qmul_graduate_centre_opened",
-          "src_rca_battersea_unveiled",
-          "src_sadlers_wells_east_mayor_opening",
-          "src_science_museum_medicine_galleries",
-          "src_southbank_concrete_dreams",
-          "src_southbank_visual_arts_2018",
-          "src_tate_modern_blavatnik_opened",
-          "src_ucl_east_official_opening",
-          "src_uclh_grafton_way_fully_open",
-          "src_uclh_grafton_way_royal_opening",
-          "src_uclh_rnent_eastman_hospital",
-          "src_young_va_open",
           "wembley_stadium_history_2007"
         ],
         "compatible_source_ids": [
           "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -2772,39 +2337,12 @@
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-planning-data-tree-preservation-zones",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "police-data-stop-search",
-          "src_bac_grand_hall_reopened",
-          "src_barts_royal_london_history",
-          "src_bca_windrush_square_opened",
-          "src_brent_civic_centre_update",
-          "src_courtauld_gallery_reopens",
-          "src_design_museum_new_home",
-          "src_fairfield_halls_reopened",
-          "src_gla_city_hall_building",
-          "src_imperial_sph_opened",
-          "src_lambeth_town_hall_reopened",
-          "src_lcf_east_bank_move",
-          "src_lse_centre_building",
-          "src_lse_marshall_building",
-          "src_npg_reopening",
-          "src_qmul_graduate_centre_opened",
-          "src_rca_battersea_unveiled",
-          "src_sadlers_wells_east_mayor_opening",
-          "src_science_museum_medicine_galleries",
-          "src_southbank_concrete_dreams",
-          "src_southbank_visual_arts_2018",
-          "src_tate_modern_blavatnik_opened",
-          "src_ucl_east_official_opening",
-          "src_uclh_grafton_way_fully_open",
-          "src_uclh_grafton_way_royal_opening",
-          "src_uclh_rnent_eastman_hospital",
-          "src_young_va_open",
           "wembley_stadium_history_2007"
         ],
         "review_required_source_ids": [],
@@ -2836,19 +2374,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "historic-england-de-designated-sites",
             "title": "Historic England De-designated sites",
             "publisher": "Historic England",
@@ -2953,14 +2478,27 @@
             "licence_review_required": false
           },
           {
-            "source_id": "london-architecture-public-pages",
-            "title": "London architecture and major project public pages",
-            "publisher": "Named London public, institutional, venue, developer, and architecture sources",
+            "source_id": "london-development-database-archive",
+            "title": "Planning permissions on the London Development Database (LDD)",
+            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "source_family": "significant_public_or_mixed_use_completion_record",
+            "licence": "UK Open Government Licence (OGL v3)",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "mhclg-called-in-decisions",
+            "title": "mhclg-called-in-decisions",
+            "publisher": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
             "source_family": "planning",
-            "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
-            "licence_url": "https://www.london.gov.uk/",
-            "attribution_text": "Named London public, institutional, venue, developer, and architecture sources",
-            "accessed_at": "2026-05-18",
+            "licence": "GOV.UK content is available under the Open Government Licence v3.0 except where otherwise stated.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2991,18 +2529,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59420,
-        "compatible_event_count": 59420,
+        "event_count": 59303,
+        "compatible_event_count": 59303,
         "review_required_event_count": 0,
-        "source_count": 17,
-        "compatible_source_count": 17,
+        "source_count": 15,
+        "compatible_source_count": 15,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1995,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59420
+          "documented": 59303
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3010,7 +2548,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 28178,
+        "excluded_review_required_event_count": 28295,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3027,12 +2565,11 @@
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1995-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific; Planning Data collector / local-authority update cadence; Source-specific publication/update cadence"
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Planning Data collector / local-authority update cadence; Source-specific publication/update cadence; The API catalogue states that NHLE data is updated daily.; month"
       },
       "provenance": {
         "source_ids": [
           "dfe-gias-establishment-register",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-2025",
@@ -3043,7 +2580,6 @@
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-uk-house-price-index",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-article-4-direction-area",
@@ -3051,7 +2587,6 @@
         ],
         "compatible_source_ids": [
           "dfe-gias-establishment-register",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-2025",
@@ -3062,7 +2597,6 @@
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-uk-house-price-index",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-article-4-direction-area",
@@ -3078,19 +2612,6 @@
             "licence": "GOV.UK/GIAS public data is available under Open Government Licence v3.0 except where otherwise stated.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Department for Education",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
             "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
@@ -3222,6 +2743,19 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "HM Land Registry",
             "accessed_at": "2026-05-08T00:00:00+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "london-development-database-archive",
+            "title": "Planning permissions on the London Development Database (LDD)",
+            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "source_family": "significant_public_or_mixed_use_completion_record",
+            "licence": "UK Open Government Licence (OGL v3)",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3252,18 +2786,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59420,
-        "compatible_event_count": 59420,
+        "event_count": 59303,
+        "compatible_event_count": 59303,
         "review_required_event_count": 0,
-        "source_count": 17,
-        "compatible_source_count": 17,
+        "source_count": 15,
+        "compatible_source_count": 15,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1995,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59420
+          "documented": 59303
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3271,7 +2805,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 28178,
+        "excluded_review_required_event_count": 28295,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3288,12 +2822,11 @@
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1995-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific; Planning Data collector / local-authority update cadence; Source-specific publication/update cadence"
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Planning Data collector / local-authority update cadence; Source-specific publication/update cadence; The API catalogue states that NHLE data is updated daily.; month"
       },
       "provenance": {
         "source_ids": [
           "dfe-gias-establishment-register",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-2025",
@@ -3304,7 +2837,6 @@
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-uk-house-price-index",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-article-4-direction-area",
@@ -3312,7 +2844,6 @@
         ],
         "compatible_source_ids": [
           "dfe-gias-establishment-register",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-2025",
@@ -3323,7 +2854,6 @@
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-uk-house-price-index",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-article-4-direction-area",
@@ -3339,19 +2869,6 @@
             "licence": "GOV.UK/GIAS public data is available under Open Government Licence v3.0 except where otherwise stated.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Department for Education",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
             "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
@@ -3483,6 +3000,19 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "HM Land Registry",
             "accessed_at": "2026-05-08T00:00:00+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "london-development-database-archive",
+            "title": "Planning permissions on the London Development Database (LDD)",
+            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "source_family": "significant_public_or_mixed_use_completion_record",
+            "licence": "UK Open Government Licence (OGL v3)",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3513,18 +3043,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59420,
-        "compatible_event_count": 59420,
+        "event_count": 59303,
+        "compatible_event_count": 59303,
         "review_required_event_count": 0,
-        "source_count": 17,
-        "compatible_source_count": 17,
+        "source_count": 15,
+        "compatible_source_count": 15,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1995,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59420
+          "documented": 59303
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3532,7 +3062,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 28178,
+        "excluded_review_required_event_count": 28295,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3549,12 +3079,11 @@
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1995-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; GIAS download page states public downloads are updated daily.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific; Planning Data collector / local-authority update cadence; Source-specific publication/update cadence"
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Planning Data collector / local-authority update cadence; Source-specific publication/update cadence; The API catalogue states that NHLE data is updated daily.; month"
       },
       "provenance": {
         "source_ids": [
           "dfe-gias-establishment-register",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-2025",
@@ -3565,7 +3094,6 @@
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-uk-house-price-index",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-article-4-direction-area",
@@ -3573,7 +3101,6 @@
         ],
         "compatible_source_ids": [
           "dfe-gias-establishment-register",
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-2025",
@@ -3584,7 +3111,6 @@
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-uk-house-price-index",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-article-4-direction-area",
@@ -3600,19 +3126,6 @@
             "licence": "GOV.UK/GIAS public data is available under Open Government Licence v3.0 except where otherwise stated.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Department for Education",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
             "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
@@ -3747,6 +3260,19 @@
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
+          },
+          {
+            "source_id": "london-development-database-archive",
+            "title": "Planning permissions on the London Development Database (LDD)",
+            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "source_family": "significant_public_or_mixed_use_completion_record",
+            "licence": "UK Open Government Licence (OGL v3)",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
           }
         ],
         "transformation_method": "scripts/build_15_lens_manifest.js#summarizeLens:london:economy-gravity",
@@ -3774,18 +3300,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 558,
-        "compatible_event_count": 558,
+        "event_count": 414,
+        "compatible_event_count": 414,
         "review_required_event_count": 0,
-        "source_count": 19,
-        "compatible_source_count": 19,
+        "source_count": 14,
+        "compatible_source_count": 14,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 558
+          "documented": 414
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3793,33 +3319,34 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1607,
+        "excluded_review_required_event_count": 1751,
         "year_contract": {
           "required_years": {
             "start": 2007,
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 16,
+          "visible_year_count": 14,
           "missing_visible_years": [
             2021,
             2022,
             2023,
-            2024
+            2024,
+            2025,
+            2026
           ],
-          "source_backed_record_year_count": 16,
+          "source_backed_record_year_count": 14,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
+        "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "2007-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific"
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source-specific publication/update cadence; Static parliamentary record.; The API catalogue states that NHLE data is updated daily."
       },
       "provenance": {
         "source_ids": [
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -3829,18 +3356,13 @@
           "historic-england-nhle-open-data-round305-tail3",
           "historic-england-nhle-open-data-round305-tail3-layer-3",
           "lon-extra-planning-data-tree-preservation-zones",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
-          "src_southwark_canada_water_leisure",
-          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -3850,31 +3372,14 @@
           "historic-england-nhle-open-data-round305-tail3",
           "historic-england-nhle-open-data-round305-tail3-layer-3",
           "lon-extra-planning-data-tree-preservation-zones",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
-          "src_southwark_canada_water_leisure",
-          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "historic-england-de-designated-sites",
             "title": "Historic England De-designated sites",
@@ -3993,27 +3498,40 @@
             "licence_review_required": false
           },
           {
-            "source_id": "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-            "title": "Historical Urban Event Evidence Catalog - TfL routes, timetables, accessibility, demand, and cycle hire",
-            "publisher": "Transport for London",
-            "source_family": "transport",
-            "licence": "TfL terms based on OGL with amendments; check caching/branding/commercial rules.",
-            "licence_url": "https://api.tfl.gov.uk/",
-            "attribution_text": "Transport for London",
-            "accessed_at": "2026-06-02T10:31:27Z",
+            "source_id": "london-development-database-archive",
+            "title": "Planning permissions on the London Development Database (LDD)",
+            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "source_family": "significant_public_or_mixed_use_completion_record",
+            "licence": "UK Open Government Licence (OGL v3)",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "london-architecture-public-pages",
-            "title": "London architecture and major project public pages",
-            "publisher": "Named London public, institutional, venue, developer, and architecture sources",
+            "source_id": "mhclg-called-in-decisions",
+            "title": "mhclg-called-in-decisions",
+            "publisher": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
             "source_family": "planning",
-            "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
-            "licence_url": "https://www.london.gov.uk/",
-            "attribution_text": "Named London public, institutional, venue, developer, and architecture sources",
-            "accessed_at": "2026-05-18",
+            "licence": "GOV.UK content is available under the Open Government Licence v3.0 except where otherwise stated.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "planning-data-certificate-of-immunity",
+            "title": "Planning Data certificate of immunity records",
+            "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Crown copyright/database right attribution where stated by Planning Data.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4044,18 +3562,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 558,
-        "compatible_event_count": 558,
+        "event_count": 414,
+        "compatible_event_count": 414,
         "review_required_event_count": 0,
-        "source_count": 19,
-        "compatible_source_count": 19,
+        "source_count": 14,
+        "compatible_source_count": 14,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 558
+          "documented": 414
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -4063,33 +3581,34 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1607,
+        "excluded_review_required_event_count": 1751,
         "year_contract": {
           "required_years": {
             "start": 2007,
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 16,
+          "visible_year_count": 14,
           "missing_visible_years": [
             2021,
             2022,
             2023,
-            2024
+            2024,
+            2025,
+            2026
           ],
-          "source_backed_record_year_count": 16,
+          "source_backed_record_year_count": 14,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
+        "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "2007-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific"
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source-specific publication/update cadence; Static parliamentary record.; The API catalogue states that NHLE data is updated daily."
       },
       "provenance": {
         "source_ids": [
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -4099,18 +3618,13 @@
           "historic-england-nhle-open-data-round305-tail3",
           "historic-england-nhle-open-data-round305-tail3-layer-3",
           "lon-extra-planning-data-tree-preservation-zones",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
-          "src_southwark_canada_water_leisure",
-          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -4120,31 +3634,14 @@
           "historic-england-nhle-open-data-round305-tail3",
           "historic-england-nhle-open-data-round305-tail3-layer-3",
           "lon-extra-planning-data-tree-preservation-zones",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
-          "src_southwark_canada_water_leisure",
-          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "historic-england-de-designated-sites",
             "title": "Historic England De-designated sites",
@@ -4263,27 +3760,40 @@
             "licence_review_required": false
           },
           {
-            "source_id": "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-            "title": "Historical Urban Event Evidence Catalog - TfL routes, timetables, accessibility, demand, and cycle hire",
-            "publisher": "Transport for London",
-            "source_family": "transport",
-            "licence": "TfL terms based on OGL with amendments; check caching/branding/commercial rules.",
-            "licence_url": "https://api.tfl.gov.uk/",
-            "attribution_text": "Transport for London",
-            "accessed_at": "2026-06-02T10:31:27Z",
+            "source_id": "london-development-database-archive",
+            "title": "Planning permissions on the London Development Database (LDD)",
+            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "source_family": "significant_public_or_mixed_use_completion_record",
+            "licence": "UK Open Government Licence (OGL v3)",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "london-architecture-public-pages",
-            "title": "London architecture and major project public pages",
-            "publisher": "Named London public, institutional, venue, developer, and architecture sources",
+            "source_id": "mhclg-called-in-decisions",
+            "title": "mhclg-called-in-decisions",
+            "publisher": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
             "source_family": "planning",
-            "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
-            "licence_url": "https://www.london.gov.uk/",
-            "attribution_text": "Named London public, institutional, venue, developer, and architecture sources",
-            "accessed_at": "2026-05-18",
+            "licence": "GOV.UK content is available under the Open Government Licence v3.0 except where otherwise stated.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "planning-data-certificate-of-immunity",
+            "title": "Planning Data certificate of immunity records",
+            "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Crown copyright/database right attribution where stated by Planning Data.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4314,18 +3824,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 558,
-        "compatible_event_count": 558,
+        "event_count": 414,
+        "compatible_event_count": 414,
         "review_required_event_count": 0,
-        "source_count": 19,
-        "compatible_source_count": 19,
+        "source_count": 14,
+        "compatible_source_count": 14,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 558
+          "documented": 414
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -4333,33 +3843,34 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1607,
+        "excluded_review_required_event_count": 1751,
         "year_contract": {
           "required_years": {
             "start": 2007,
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 16,
+          "visible_year_count": 14,
           "missing_visible_years": [
             2021,
             2022,
             2023,
-            2024
+            2024,
+            2025,
+            2026
           ],
-          "source_backed_record_year_count": 16,
+          "source_backed_record_year_count": 14,
           "source_backed_context_year_count": 0,
           "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-06-02T10:31:27Z",
+        "last_retrieved_or_reviewed": "2026-05-27",
         "source_coverage_period": "2007-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Decision/report-specific publication.; Historic England API catalogue states NHLE data is updated daily.; Live APIs plus periodic datasets.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Page-specific"
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source-specific publication/update cadence; Static parliamentary record.; The API catalogue states that NHLE data is updated daily."
       },
       "provenance": {
         "source_ids": [
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -4369,18 +3880,13 @@
           "historic-england-nhle-open-data-round305-tail3",
           "historic-england-nhle-open-data-round305-tail3-layer-3",
           "lon-extra-planning-data-tree-preservation-zones",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
-          "src_southwark_canada_water_leisure",
-          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
-          "gla-planning-application-decisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
@@ -4390,31 +3896,14 @@
           "historic-england-nhle-open-data-round305-tail3",
           "historic-england-nhle-open-data-round305-tail3-layer-3",
           "lon-extra-planning-data-tree-preservation-zones",
-          "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-          "london-architecture-public-pages",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
           "planning-data-certificate-of-immunity",
           "police-data-api",
-          "src_southwark_canada_water_leisure",
-          "tfl-road-disruptions",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "gla-planning-application-decisions",
-            "title": "Greater London Authority planning application decisions page and PDFs",
-            "publisher": "Greater London Authority / London City Hall",
-            "source_family": "planning",
-            "licence": "GLA website terms apply; this pass stores factual metadata and official PDF URLs, with minimal paraphrase.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Greater London Authority / London City Hall",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "historic-england-de-designated-sites",
             "title": "Historic England De-designated sites",
@@ -4533,27 +4022,40 @@
             "licence_review_required": false
           },
           {
-            "source_id": "lon-hue-tfl-routes-timetables-accessibility-demand-and-cycle-hire",
-            "title": "Historical Urban Event Evidence Catalog - TfL routes, timetables, accessibility, demand, and cycle hire",
-            "publisher": "Transport for London",
-            "source_family": "transport",
-            "licence": "TfL terms based on OGL with amendments; check caching/branding/commercial rules.",
-            "licence_url": "https://api.tfl.gov.uk/",
-            "attribution_text": "Transport for London",
-            "accessed_at": "2026-06-02T10:31:27Z",
+            "source_id": "london-development-database-archive",
+            "title": "Planning permissions on the London Development Database (LDD)",
+            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "source_family": "significant_public_or_mixed_use_completion_record",
+            "licence": "UK Open Government Licence (OGL v3)",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "london-architecture-public-pages",
-            "title": "London architecture and major project public pages",
-            "publisher": "Named London public, institutional, venue, developer, and architecture sources",
+            "source_id": "mhclg-called-in-decisions",
+            "title": "mhclg-called-in-decisions",
+            "publisher": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
             "source_family": "planning",
-            "licence": "Source-specific web terms; cite URLs only until terms are reviewed",
-            "licence_url": "https://www.london.gov.uk/",
-            "attribution_text": "Named London public, institutional, venue, developer, and architecture sources",
-            "accessed_at": "2026-05-18",
+            "licence": "GOV.UK content is available under the Open Government Licence v3.0 except where otherwise stated.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "planning-data-certificate-of-immunity",
+            "title": "Planning Data certificate of immunity records",
+            "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
+            "source_family": "planning",
+            "licence": "Open Government Licence v3.0 with Crown copyright/database right attribution where stated by Planning Data.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false

@@ -7,8 +7,8 @@
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 33146,
-      "source_count": 242,
+      "event_count": 33149,
+      "source_count": 246,
       "availability_status": "mvp_partial",
       "artifact_paths": {
         "city": "web/data/city-atlas/cities/belfast/city.json",
@@ -78,12 +78,12 @@
   "coverage_report_generated_at": "2026-06-02T10:31:27Z",
   "coverage_summary": {
     "city_count": 3,
-    "total_events": 356385,
-    "total_unique_events": 356385,
+    "total_events": 356388,
+    "total_unique_events": 356388,
     "duplicate_event_id_count": 0,
-    "active_source_count": 486,
+    "active_source_count": 490,
     "source_catalog_only_count": 253,
-    "source_year_layer_row_count": 2544,
+    "source_year_layer_row_count": 2548,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",

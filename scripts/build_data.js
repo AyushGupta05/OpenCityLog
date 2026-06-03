@@ -646,14 +646,15 @@ function geometryForSupplementalEvent(item) {
 }
 
 function evidenceForSupplementalEvent(item, sourceIds) {
-  const url = item.source_url || null;
+  const urlsBySource = item.source_urls && typeof item.source_urls === "object" ? item.source_urls : {};
+  const recordIdsBySource = item.source_record_ids && typeof item.source_record_ids === "object" ? item.source_record_ids : {};
   return sourceIds.map((sourceId) => ({
     source_id: sourceId,
     label: item.source_name || sourceId,
-    kind: url ? "source_url" : "source_record",
-    url,
+    kind: (urlsBySource[sourceId] || item.source_url) ? "source_url" : "source_record",
+    url: urlsBySource[sourceId] || item.source_url || null,
     file_path: null,
-    record_id: item.source_record_id || item.event_id || null,
+    record_id: recordIdsBySource[sourceId] || item.source_record_id || item.event_id || null,
     accessed_at: item.source_retrieved_at || null,
   }));
 }
@@ -690,6 +691,8 @@ function normalizeSupplementalLensGapEvent(item, sourcePath) {
     evidence: evidenceForSupplementalEvent(item, sourceIds),
     confidence: item.confidence || "documented",
     affected_signals: Array.isArray(item.affected_signals) ? item.affected_signals.map(String).sort() : [],
+    excluded_lens_slugs: Array.isArray(item.excluded_lens_slugs) ? item.excluded_lens_slugs.map(String).sort() : [],
+    exclude_transport_road_scoring: item.exclude_transport_road_scoring === true,
     explanation: String(item.observed_change || item.summary || title),
     caveats: [
       String(item.limitations || "Source-backed supplemental event; inspect cited source before reuse."),
@@ -1116,24 +1119,31 @@ function countByPair(items, firstKeyFn, secondKeyFn) {
 }
 
 function featureForEvent(event) {
+  const properties = {
+    city_id: event.city_id,
+    event_id: event.event_id,
+    title: event.title,
+    year: event.year,
+    effective_date: event.effective_date,
+    date_precision: event.date_precision,
+    short_description: event.short_description,
+    category: event.category,
+    lens: event.lens,
+    confidence: event.confidence,
+    source_ids: event.source_ids,
+    affected_area_label: event.affected_area?.label || null,
+    explanation: event.explanation,
+  };
+  if (Array.isArray(event.excluded_lens_slugs) && event.excluded_lens_slugs.length) {
+    properties.excluded_lens_slugs = event.excluded_lens_slugs;
+  }
+  if (event.exclude_transport_road_scoring === true) {
+    properties.exclude_transport_road_scoring = true;
+  }
   return {
     type: "Feature",
     id: event.event_id,
-    properties: {
-      city_id: event.city_id,
-      event_id: event.event_id,
-      title: event.title,
-      year: event.year,
-      effective_date: event.effective_date,
-      date_precision: event.date_precision,
-      short_description: event.short_description,
-      category: event.category,
-      lens: event.lens,
-      confidence: event.confidence,
-      source_ids: event.source_ids,
-      affected_area_label: event.affected_area?.label || null,
-      explanation: event.explanation,
-    },
+    properties,
     geometry: event.geometry || null,
   };
 }

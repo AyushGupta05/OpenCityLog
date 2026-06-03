@@ -1,4 +1,5 @@
 import json
+import re
 import subprocess
 import tempfile
 import unittest
@@ -23,6 +24,12 @@ LENS_SLUGS = [
     "utilities-resilience",
     "utilities-works",
 ]
+LICENSE_REVIEW_RE = re.compile(
+    r"require(?:s)? source-level review|not specified|pending|verify before redistribution|terms vary|"
+    r"review-required|unclear|non[-\s]?commercial|research/private|private study|"
+    r"review publisher terms|bulk redistribution|formal (?:analytical )?reuse|pending rights review",
+    re.IGNORECASE,
+)
 
 
 class FifteenLensContractTests(unittest.TestCase):
@@ -55,6 +62,25 @@ class FifteenLensContractTests(unittest.TestCase):
             self.assertNotEqual(completed.returncode, 0)
             self.assertIn("source fixture-source missing licence_url", completed.stderr)
 
+    def test_verifier_rejects_noncommercial_source_as_review_required(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            atlas = Path(tmp) / "atlas"
+            write_fixture_atlas(atlas)
+            sources_path = atlas / "cities" / "fixture" / "sources.json"
+            sources = read_json(sources_path)
+            sources["sources"][0]["licence"] = "May be reproduced for non-commercial research/private study only."
+            write_json(sources_path, sources)
+
+            completed = subprocess.run(
+                ["node", "scripts/verify_15_lens_contract.js", "--atlas-dir", str(atlas)],
+                cwd=REPO_ROOT,
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("source fixture-source still needs license review", completed.stderr)
+
     def test_verifier_rejects_missing_lens(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             atlas = Path(tmp) / "atlas"
@@ -70,6 +96,204 @@ class FifteenLensContractTests(unittest.TestCase):
             self.assertNotEqual(completed.returncode, 0)
             self.assertIn("fixture missing lens utilities-works", completed.stderr)
 
+    def test_event_lens_exclusions_prevent_false_transport_matches(self) -> None:
+        script = r"""
+const { eventMatchesLens, eventDirectlyMatchesLensCategory } = require("./lib/atlas-lenses");
+const sourceById = new Map([[
+  "dfi-metro",
+  {
+    source_family: "transport",
+    title: "Northern Ireland Transport Statistics 2007-2008: Ulsterbus/Metro tables",
+    provider: "Department for Infrastructure",
+    provenance_notes: "Metro bus service activity, passenger journeys and bus kilometres.",
+  },
+]]);
+const metroActivity = {
+  category: "transport",
+  lens: "transport",
+  title: "Metro 2007-08 service activity recorded in NI transport statistics",
+  summary: "Metro bus service activity table, not punctuality or utilities.",
+  affected_signals: ["transport", "bus", "service_activity", "passenger_journeys"],
+  source_ids: ["dfi-metro"],
+  excluded_lens_slugs: ["transport-access", "transport-reliability", "transport-speed", "utilities-capacity", "utilities-resilience", "utilities-works"],
+};
+if (eventMatchesLens(metroActivity, "transport-reliability", sourceById)) throw new Error("Metro activity matched reliability");
+if (eventDirectlyMatchesLensCategory(metroActivity, "transport-reliability")) throw new Error("Metro activity directly matched reliability");
+if (eventMatchesLens(metroActivity, "utilities-capacity", sourceById)) throw new Error("Metro activity matched utilities");
+if (eventMatchesLens(metroActivity, "transport-access", sourceById)) throw new Error("Metro activity matched access");
+if (eventMatchesLens(metroActivity, "transport-speed", sourceById)) throw new Error("Metro activity matched speed/activity");
+
+const colinAccess = {
+  category: "transport",
+  lens: "transport",
+  title: "Colin and west Belfast public-transport access context recorded in AIMS answers",
+  summary: "AIMS written answers list existing Metro and Ulsterbus routes plus west Belfast bus-priority infrastructure.",
+  affected_signals: ["transport", "bus", "route_access", "service_access", "transport_access", "priority_lane"],
+  source_ids: ["assembly-colin-routes"],
+  excluded_lens_slugs: ["transport-reliability", "transport-speed", "utilities-capacity", "utilities-resilience", "utilities-works"],
+};
+if (!eventMatchesLens(colinAccess, "transport-access", sourceById)) throw new Error("Colin access context should match access");
+if (eventMatchesLens(colinAccess, "transport-speed", sourceById)) throw new Error("Colin access context matched speed/activity");
+if (eventMatchesLens(colinAccess, "transport-reliability", sourceById)) throw new Error("Colin access context matched reliability");
+
+const speedContext = {
+  category: "transport",
+  lens: "transport",
+  title: "M1 Blacks Road to Stockmans Lane road scheme delay recorded in AIMS answer",
+  summary: "AIMS written answer records road-scheme delay and temporary traffic-management context.",
+  affected_signals: ["transport", "traffic", "road_activity", "road_scheme", "scheme_delay", "temporary_traffic_management"],
+  source_ids: ["assembly-road-scheme"],
+  excluded_lens_slugs: ["transport-access", "transport-reliability", "utilities-capacity", "utilities-resilience", "utilities-works"],
+};
+if (!eventMatchesLens(speedContext, "transport-speed", sourceById)) throw new Error("Road activity context should match transport speed/activity");
+if (eventMatchesLens(speedContext, "transport-access", sourceById)) throw new Error("Road activity context matched access");
+if (eventMatchesLens(speedContext, "transport-reliability", sourceById)) throw new Error("Road activity context matched reliability");
+
+const metroPunctuality = {
+  category: "transport",
+  lens: "transport",
+  title: "Metro 2007 punctuality recorded in Assembly written answer",
+  summary: "Metro punctuality against the Passenger's Charter target.",
+  affected_signals: ["transport", "bus", "service_reliability", "punctuality", "passenger_charter"],
+  source_ids: ["assembly-punctuality"],
+  excluded_lens_slugs: ["transport-access", "transport-speed", "utilities-capacity", "utilities-resilience", "utilities-works"],
+};
+if (!eventMatchesLens(metroPunctuality, "transport-reliability", sourceById)) throw new Error("Metro punctuality should match reliability");
+if (!eventDirectlyMatchesLensCategory(metroPunctuality, "transport-reliability")) throw new Error("Metro punctuality should directly match reliability");
+if (eventMatchesLens(metroPunctuality, "transport-access", sourceById)) throw new Error("Metro punctuality matched access");
+if (eventMatchesLens(metroPunctuality, "transport-speed", sourceById)) throw new Error("Metro punctuality matched activity");
+"""
+        subprocess.run(["node", "-e", script], cwd=REPO_ROOT, check=True)
+
+    def test_belfast_2007_service_wide_context_stays_out_of_hotspots(self) -> None:
+        overlay_path = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "lens_overlays.geojson"
+        overlay = read_json(overlay_path)
+        metro_sources = {
+            "ni_assembly_translink_metro_punctuality_2007",
+        }
+        matching = []
+        for feature in overlay.get("features", []):
+            props = feature.get("properties", {})
+            source_ids = {part.strip() for part in str(props.get("source_ids", "")).split(",") if part.strip()}
+            if source_ids & metro_sources:
+                matching.append(props)
+        self.assertEqual(
+            matching,
+            [],
+            "Metro service-wide context records must not be emitted as localized Belfast hotspot cells",
+        )
+
+    def test_belfast_2007_event_geojson_preserves_lens_exclusions(self) -> None:
+        geojson_path = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2007.geojson"
+        geojson = read_json(geojson_path)
+        by_id = {
+            feature.get("properties", {}).get("event_id"): feature.get("properties", {})
+            for feature in geojson.get("features", [])
+        }
+        for event_id in [
+            "belfast_colin_public_transport_access_context_2007",
+            "belfast_m1_blacks_stockmans_road_scheme_delay_2007",
+            "belfast_metro_punctuality_assembly_2007",
+        ]:
+            with self.subTest(event_id=event_id):
+                props = by_id.get(event_id)
+                self.assertIsNotNone(props)
+                self.assertIsInstance(props.get("excluded_lens_slugs"), list)
+                self.assertGreater(len(props.get("excluded_lens_slugs", [])), 0)
+                self.assertTrue(props.get("exclude_transport_road_scoring"))
+
+    def test_belfast_2007_access_event_preserves_per_source_evidence_urls(self) -> None:
+        events_path = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2007.json"
+        events = read_json(events_path).get("events", [])
+        access_event = next(
+            event for event in events
+            if event.get("event_id") == "belfast_colin_public_transport_access_context_2007"
+        )
+        evidence_by_source = {
+            item.get("source_id"): item
+            for item in access_event.get("evidence", [])
+        }
+        self.assertEqual(
+            evidence_by_source["ni_assembly_colin_transport_infrastructure_2008"].get("url"),
+            "https://data.niassembly.gov.uk/questions.asmx/GetQuestionDetails?documentId=17322",
+        )
+        self.assertEqual(
+            evidence_by_source["ni_assembly_colin_public_transport_routes_2008"].get("url"),
+            "https://data.niassembly.gov.uk/questions.asmx/GetQuestionDetails?documentId=17910",
+        )
+
+    def test_belfast_2007_metro_context_does_not_generate_transport_roads(self) -> None:
+        roads_path = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "transport_roads_2007.geojson"
+        roads = read_json(roads_path)
+        self.assertEqual(
+            len(roads.get("features", [])),
+            0,
+            "Representative citywide Metro table records must not create localized 2007 road linework",
+        )
+        self.assertTrue(roads.get("metadata", {}).get("suppressed"))
+
+    def test_belfast_missing_transport_year_does_not_emit_transport_roads(self) -> None:
+        coverage_path = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "lens_year_coverage.json"
+        coverage = read_json(coverage_path)
+        speed_2024 = next(
+            row
+            for row in coverage.get("rows", [])
+            if row.get("lens_slug") == "transport-speed" and row.get("year") == 2024
+        )
+        self.assertEqual(speed_2024.get("status"), "missing_source_backed_view")
+        self.assertEqual(speed_2024.get("direct_event_count"), 0)
+
+        roads_path = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "transport_roads_2024.geojson"
+        roads = read_json(roads_path)
+        self.assertEqual(
+            len(roads.get("features", [])),
+            0,
+            "Missing Belfast transport lens-years must not expose OSM road activity filler",
+        )
+        self.assertTrue(roads.get("metadata", {}).get("suppressed"))
+
+    def test_nyc_pluto_economy_source_stays_out_of_transport_hotspots(self) -> None:
+        overlay_path = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "nyc" / "lens_overlays.geojson"
+        overlay = read_json(overlay_path)
+        transport_pluto_features = []
+        for feature in overlay.get("features", []):
+            props = feature.get("properties", {})
+            source_ids = {part.strip() for part in str(props.get("source_ids", "")).split(",") if part.strip()}
+            if props.get("category") == "transport" and "64uk-42ks" in source_ids:
+                transport_pluto_features.append(props.get("id"))
+        self.assertEqual(
+            transport_pluto_features,
+            [],
+            "NYC PLUTO economy records with secondary transport signals must not be emitted as transport hotspots",
+        )
+
+    def test_generated_lens_geometry_excludes_review_required_sources(self) -> None:
+        detail_paths = {
+            "belfast": ["lens_overlays.geojson", "lens_detail_2015.geojson"],
+            "london": ["lens_overlays.geojson", "lens_detail_1827.geojson"],
+            "nyc": ["lens_overlays.geojson", "lens_detail_1811.geojson"],
+        }
+        for city_id, paths in detail_paths.items():
+            city_dir = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / city_id
+            sources = {
+                source["source_id"]: source
+                for source in read_json(city_dir / "sources.json").get("sources", [])
+            }
+            for relative_path in paths:
+                with self.subTest(city_id=city_id, relative_path=relative_path):
+                    feature_collection = read_json(city_dir / relative_path)
+                    offenders = []
+                    for feature in feature_collection.get("features", []):
+                        props = feature.get("properties", {})
+                        for source_id in source_ids_from_properties(props):
+                            source = sources.get(source_id)
+                            if source and source_needs_review(source):
+                                offenders.append({
+                                    "feature_id": props.get("id") or props.get("event_id"),
+                                    "source_id": source_id,
+                                })
+                    self.assertEqual(offenders[:8], [])
+
 
 def read_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -78,6 +302,30 @@ def read_json(path: Path) -> dict:
 def write_json(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+
+def source_needs_review(source: dict) -> bool:
+    text = " ".join(
+        str(value)
+        for value in [
+            source.get("licence"),
+            source.get("license"),
+            source.get("licence_url"),
+            source.get("license_url"),
+            " ".join(source.get("caveats") or []),
+        ]
+        if value
+    )
+    return bool(LICENSE_REVIEW_RE.search(text))
+
+
+def source_ids_from_properties(props: dict) -> set[str]:
+    source_ids = props.get("source_ids", [])
+    if isinstance(source_ids, str):
+        return {part.strip() for part in source_ids.split(",") if part.strip()}
+    if isinstance(source_ids, list):
+        return {str(part).strip() for part in source_ids if str(part).strip()}
+    return set()
 
 
 def write_fixture_atlas(atlas: Path, lens_slugs: list[str] = LENS_SLUGS) -> None:

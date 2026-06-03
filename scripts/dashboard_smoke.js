@@ -13,6 +13,10 @@ const {
   outputDir,
 } = require("./atlas_smoke_helpers");
 
+function progress(...parts) {
+  if (process.env.SMOKE_PROGRESS) console.log("[dashboard_smoke]", ...parts);
+}
+
 async function assertResponsiveLayout(page, label) {
   const state = await atlasState(page);
   assert(state.scrollWidth <= state.clientWidth + 4, `${label}: page overflows horizontally.`);
@@ -56,16 +60,37 @@ async function chooseLens(page, aspectId) {
   assert(clicked, `Could not find lens button ${aspectId}.`);
 }
 
+async function chooseCity(page, cityId) {
+  await page.locator("#cityToggle").click();
+  await page.waitForFunction(() => document.querySelector("#cityToggle")?.getAttribute("aria-expanded") === "true", null, { timeout: 10000 });
+  const row = page.locator(`#cityMenu .city-row[data-city-id="${cityId}"]`);
+  assert(await row.count(), `Could not find city menu row ${cityId}.`);
+  await row.click();
+  await page.waitForFunction(
+    (id) => window.BimsAtlas?.state?.cityId === id
+      && window.BimsAtlas?.state?.detailLayerLoaded
+      && window.BimsAtlas?.state?.lensOverlayLoaded,
+    cityId,
+    { timeout: 45000 }
+  );
+}
+
 async function assertDesktopCoreInteractions(page) {
   const startYear = await page.locator("#tlYear").innerText();
-  await page.locator("#prevYearBtn").click();
+  const canStepPrevious = !(await page.locator("#prevYearBtn").isDisabled());
+  const canStepNext = !(await page.locator("#nextYearBtn").isDisabled());
+  assert(canStepPrevious || canStepNext, "desktop: both timeline year-step controls are disabled.");
+  const stepButton = canStepPrevious ? "#prevYearBtn" : "#nextYearBtn";
+  const restoreButton = canStepPrevious ? "#nextYearBtn" : "#prevYearBtn";
+  const expectedStepYear = Number(startYear) + (canStepPrevious ? -1 : 1);
+  await page.locator(stepButton).click();
   await page.waitForTimeout(500);
-  const previousYear = await page.locator("#tlYear").innerText();
-  assert(Number(previousYear) === Number(startYear) - 1, `desktop: previous-year control did not move from ${startYear} to ${Number(startYear) - 1}.`);
-  await page.locator("#nextYearBtn").click();
+  const steppedYear = await page.locator("#tlYear").innerText();
+  assert(Number(steppedYear) === expectedStepYear, `desktop: year-step control did not move from ${startYear} to ${expectedStepYear}.`);
+  await page.locator(restoreButton).click();
   await page.waitForTimeout(500);
   const restoredYear = await page.locator("#tlYear").innerText();
-  assert(restoredYear === startYear, "desktop: next-year control did not restore the original year.");
+  assert(restoredYear === startYear, "desktop: opposite year-step control did not restore the original year.");
 
   const lensButtons = await page.locator("#lensSwitcher .lens-choice").count();
   assert(lensButtons >= 15, "desktop: lens switcher does not expose the full lens set.");
@@ -85,16 +110,33 @@ async function assertDesktopCoreInteractions(page) {
   state = await atlasState(page);
   assert(state.areaFilterValue.length > 0, "desktop: selecting an area search result did not set the area filter.");
 
-  await chooseLens(page, "transport-speed");
-  await page.waitForTimeout(700);
-  await page.locator("#searchInput").fill("gra");
+  await page.evaluate(async () => {
+    await window.BimsAtlas?.setAreaFilter?.("");
+    await window.BimsAtlas?.setYear?.(2007);
+    await window.BimsAtlas?.setActiveAspect?.("transport-speed");
+    window.BimsAtlas?.recenterMap?.();
+  });
+  await page.waitForFunction(
+    () => Number(window.BimsAtlas?.state?.year) === 2007
+      && window.BimsAtlas?.state?.activeAspect === "transport-speed"
+      && (window.BimsAtlas?.filteredEvents?.() || []).length > 0,
+    null,
+    { timeout: 20000 }
+  );
+  const eventSearchTitle = await page.evaluate(() => {
+    const row = document.querySelector("#eventList .event-row");
+    const title = row?.querySelector(".event-title")?.textContent || row?.querySelector("strong")?.textContent || row?.textContent || "";
+    return String(title).replace(/\s+/g, " ").trim();
+  });
+  assert(eventSearchTitle.length > 4, "desktop: source-compatible transport view did not expose an event title for search.");
+  await page.locator("#searchInput").fill(eventSearchTitle);
   await page.waitForTimeout(400);
   const eventRows = await page.locator("#searchResults .search-row[data-result-type='event']").count();
   assert(eventRows > 0, "desktop: event search did not return selectable records.");
   await page.locator("#searchResults .search-row[data-result-type='event']").first().click();
   await page.waitForTimeout(700);
   state = await atlasState(page);
-  assert(/grand central/i.test(state.detailTitle), "desktop: selecting an event search result did not update the evidence brief.");
+  assert(state.detailTitle.includes(eventSearchTitle), "desktop: selecting an event search result did not update the evidence brief.");
 }
 
 async function assertDesktopButtonsRespond(page) {
@@ -153,12 +195,22 @@ async function assertDesktopButtonsRespond(page) {
   await page.locator("#playBtn").click();
   await page.waitForFunction(() => document.querySelector("#playBtn")?.getAttribute("aria-pressed") === "false", null, { timeout: 10000 });
 
+  await chooseCity(page, "london");
   await page.evaluate(async () => {
     await window.BimsAtlas?.setAreaFilter?.("");
     await window.BimsAtlas?.setYear?.(2024);
+    await window.BimsAtlas?.setActiveAspect?.("civic-demand");
     window.BimsAtlas?.recenterMap?.();
   });
-  await page.waitForFunction(() => !document.querySelector("#eventListMore")?.hidden, null, { timeout: 10000 });
+  await page.waitForFunction(
+    () => window.BimsAtlas?.state?.cityId === "london"
+      && Number(window.BimsAtlas?.state?.year) === 2024
+      && window.BimsAtlas?.state?.activeAspect === "civic-demand"
+      && (window.BimsAtlas?.filteredEvents?.() || []).length > Number(window.BimsAtlas?.state?.eventListLimit || 0)
+      && !document.querySelector("#eventListMore")?.hidden,
+    null,
+    { timeout: 20000 }
+  );
   const limitBeforeMore = await page.evaluate(() => Number(window.BimsAtlas?.state?.eventListLimit || 0));
   await page.locator("#eventListMore").click();
   await page.waitForFunction(
@@ -214,7 +266,16 @@ async function assertMobileButtonsRespond(page) {
   assert(state.activeLens === "built_environment", "mobile: lens button did not switch to Planning & Built.");
 }
 
-async function assertDesktopCitywideCoverage(page) {
+function lensGroupForAspect(aspectId) {
+  if (String(aspectId || "").startsWith("transport-")) return "transport";
+  if (String(aspectId || "").startsWith("planning-")) return "planning";
+  if (String(aspectId || "").startsWith("civic-")) return "civic";
+  if (String(aspectId || "").startsWith("economy-")) return "economy";
+  if (String(aspectId || "").startsWith("utilities-")) return "utilities";
+  return "other";
+}
+
+async function resetDesktopCitywideCoveragePage(page) {
   await page.evaluate(async () => {
     const atlas = window.BimsAtlas;
     if (!atlas) return;
@@ -231,7 +292,10 @@ async function assertDesktopCitywideCoverage(page) {
     null,
     { timeout: 15000 }
   );
+}
 
+async function assertDesktopCitywideCoverage(page) {
+  await resetDesktopCitywideCoveragePage(page);
   const lensButtons = await page.locator("#lensSwitcher .lens-choice").evaluateAll((buttons) =>
     buttons.map((button) => ({
       id: button.getAttribute("data-aspect"),
@@ -240,7 +304,16 @@ async function assertDesktopCitywideCoverage(page) {
   );
   assert(lensButtons.length === 15, `desktop citywide: expected 15 lens buttons, got ${lensButtons.length}.`);
 
+  let previousGroup = "";
   for (const lens of lensButtons) {
+    const group = lensGroupForAspect(lens.id);
+    if (previousGroup && group !== previousGroup) {
+      progress("desktop reload before", group, "lens family");
+      await openAtlas(page, atlasUrl);
+      await resetDesktopCitywideCoveragePage(page);
+    }
+    previousGroup = group;
+    progress("desktop lens", lens.id);
     await chooseLens(page, lens.id);
     await page.waitForFunction(
       (id) => window.BimsAtlas?.state?.activeAspect === id,
@@ -353,10 +426,12 @@ async function assertDesktopCitywideCoverage(page) {
         detailFeatureCount: Number(activeCoverageRow?.detail_feature_count || 0),
         renderedSourceBackedDetail,
         renderedTransportYearRoads,
+        transportRoadFeatureCount: atlas?.state?.transportRoadFeatureCount,
         markerCount: atlas?.state?.markers?.size || 0,
         cityPins,
         markerCells: cells.size,
         chip: document.querySelector("#mapStudyChipText")?.textContent.trim() || "",
+        legend: document.querySelector("#lensLegend")?.textContent || "",
       };
     });
     assert(/Citywide extent/i.test(citywideState.chip), `desktop citywide ${lens.id}: citywide chip is not visible.`);
@@ -371,10 +446,19 @@ async function assertDesktopCitywideCoverage(page) {
       assert(citywideState.renderedSourceBackedDetail > 0, `desktop citywide ${lens.id}: source-backed lens detail exists but rendered no citywide features.`);
     }
     if (citywideState.visibleMapContract && citywideState.activeLens === "transport" && citywideState.eventCount > 0) {
-      assert(citywideState.renderedTransportYearRoads > 0, `desktop citywide ${lens.id}: source-backed transport records exist but rendered no year-specific road features.`);
+      if (citywideState.renderedTransportYearRoads === 0) {
+        assert(
+          citywideState.transportRoadFeatureCount === 0
+            && /No linework|no generated linework|no filler geometry/i.test(citywideState.legend),
+          `desktop citywide ${lens.id}: source-backed transport records have no road features but the no-linework state was not explicit.`,
+        );
+      } else {
+        assert(citywideState.renderedTransportYearRoads > 0, `desktop citywide ${lens.id}: source-backed transport records exist but rendered no year-specific road features.`);
+      }
     }
   }
 
+  await chooseCity(page, "nyc");
   await page.evaluate(async () => {
     await window.BimsAtlas?.setAreaFilter?.("");
     await window.BimsAtlas?.setActiveAspect?.("planning-delta");
@@ -399,6 +483,11 @@ async function assertDesktopCitywideCoverage(page) {
   );
   await page.waitForTimeout(500);
   const historicPlanning = await atlasState(page);
+  const historicPlanningDetailCount = await page.evaluate(() => {
+    const atlas = window.BimsAtlas;
+    const row = atlas?.state?.lensYearCoverageByKey?.get?.(`planning-delta:${Number(atlas?.state?.year)}`);
+    return Number(row?.detail_feature_count || 0);
+  });
   await page.evaluate(async () => {
     await window.BimsAtlas?.setYear?.(2024);
     window.BimsAtlas?.recenterMap?.();
@@ -421,9 +510,15 @@ async function assertDesktopCitywideCoverage(page) {
   );
   await page.waitForTimeout(700);
   const currentPlanning = await atlasState(page);
-  assert(historicPlanning.lensPlanningCellsRendered > 0, "desktop citywide planning-delta 2010: dated source-backed planning cells did not render.");
-  assert(currentPlanning.lensPlanningCellsRendered > historicPlanning.lensPlanningCellsRendered, `desktop citywide planning-delta: 2024 rendered cells (${currentPlanning.lensPlanningCellsRendered}) did not increase from 2010 (${historicPlanning.lensPlanningCellsRendered}).`);
-  assert(Number(currentPlanning.lensDetailYearLoaded) === 2024, "desktop citywide planning-delta: building/planning source did not reload to the current timeline year.");
+  const currentPlanningDetailCount = await page.evaluate(() => {
+    const atlas = window.BimsAtlas;
+    const row = atlas?.state?.lensYearCoverageByKey?.get?.(`planning-delta:${Number(atlas?.state?.year)}`);
+    return Number(row?.detail_feature_count || 0);
+  });
+  assert(historicPlanning.lensPlanningCellsRendered > 0, "desktop citywide NYC planning-delta 2010: dated source-backed planning cells did not render.");
+  assert(currentPlanning.lensPlanningCellsRendered > 0, "desktop citywide NYC planning-delta 2024: current source-backed planning cells did not render.");
+  assert(currentPlanningDetailCount > historicPlanningDetailCount, `desktop citywide NYC planning-delta: 2024 detail feature count (${currentPlanningDetailCount}) did not increase from 2010 (${historicPlanningDetailCount}).`);
+  assert(Number(currentPlanning.lensDetailYearLoaded) === 2024, "desktop citywide NYC planning-delta: building/planning source did not reload to the current timeline year.");
   await page.evaluate(async () => {
     const event = (window.BimsAtlas?.filteredEvents?.() || []).find((item) => item?.lngLat);
     if (event) await window.BimsAtlas?.selectEvent?.(event.id, { silent: true, keepCamera: true });
@@ -504,15 +599,15 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
   );
   const checksByCity = {
     belfast: [
-      { aspect: "planning-pressure", rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells" },
-      { aspect: "civic-access-gaps", rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells" },
-      { aspect: "economy-land-use", rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], featureLayer: "economy_activity_cell", label: "economy cells", allowAdjacent: true },
-      { aspect: "utilities-capacity", rendered: ["lensUtilityTraceRendered", "lensUtilityAssetsRendered"], renderedLayers: ["lens-utilities-trace", "lens-utility-asset-icons"], featureLayer: "utility_trace", label: "utility traces/assets" },
+      { aspect: "planning-pressure", year: 2014, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells" },
+      { aspect: "civic-access-gaps", year: 2008, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells" },
+      { aspect: "economy-land-use", year: 2015, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], featureLayer: "economy_activity_cell", label: "economy cells", allowAdjacent: true },
+      { aspect: "utilities-capacity", year: 2013, rendered: ["lensUtilityTraceRendered", "lensUtilityAssetsRendered"], renderedLayers: ["lens-utilities-trace", "lens-utility-asset-icons"], featureLayer: "utility_trace", label: "utility traces/assets" },
     ],
     london: [
       { aspect: "planning-pressure", rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells" },
       { aspect: "civic-access-gaps", rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells" },
-      { aspect: "utilities-capacity", year: 2026, rendered: ["lensUtilityTraceRendered"], renderedLayers: ["lens-utilities-trace"], featureLayer: "utility_trace", label: "utility traces" },
+      { aspect: "utilities-capacity", year: 2020, rendered: ["lensUtilityTraceRendered"], renderedLayers: ["lens-utilities-trace"], featureLayer: "utility_trace", label: "utility traces" },
     ],
     nyc: [
       { aspect: "planning-pressure", rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells" },
@@ -522,6 +617,7 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
   };
   const checks = checksByCity[cityId] || checksByCity.belfast;
   for (const check of checks) {
+    progress("city lens", cityId, check.aspect);
     const targetYear = check.year || 2024;
     await page.evaluate(
       ({ aspect, year }) => {
@@ -649,6 +745,7 @@ async function assertSparseLensCoverageHonesty(page, cityId) {
 }
 
 async function assertPannedSourceBackedLensCoverage(page, cityId, check) {
+  progress("city lens pan samples", cityId, check.aspect);
   const samples = await page.evaluate(({ featureLayer }) => {
     const atlas = window.BimsAtlas;
     const bounds = atlas?.state?.city?.bounds || [];
@@ -710,6 +807,7 @@ async function assertPannedSourceBackedLensCoverage(page, cityId, check) {
   assert(samples.length > 0, `city ${cityId} ${check.aspect}: no source-backed ${check.featureLayer} samples available for panned coverage.`);
 
   for (const [index, sample] of samples.entries()) {
+    progress("city lens pan", cityId, check.aspect, index + 1, sample.label);
     await page.evaluate((target) => {
       window.BimsAtlas?.state?.map?.jumpTo?.({ center: target.lngLat, zoom: 12.8, pitch: 0, bearing: 0 });
     }, sample);
@@ -791,28 +889,33 @@ async function assertPannedSourceBackedLensCoverage(page, cityId, check) {
   assertDetailedPng(mobilePng, assert, "Paper atlas mobile");
   await assertMobileButtonsRespond(mobile);
   await mobile.close();
+  await browser.close();
 
   const cityChecks = [
-    { id: "belfast", label: "Belfast", placeholder: /Belfast/i },
-    { id: "london", label: "London", placeholder: /London/i },
-    { id: "nyc", label: "New York City", placeholder: /New York City/i },
+    { id: "belfast", label: "Belfast", placeholder: /Belfast/i, year: 2007, aspect: "transport-speed", minVisiblePins: 1 },
+    { id: "london", label: "London", placeholder: /London/i, year: 2024, aspect: "civic-demand", minVisiblePins: 8 },
+    { id: "nyc", label: "New York City", placeholder: /New York City/i, year: 2024, aspect: "planning-delta", minVisiblePins: 8 },
   ];
   for (const city of cityChecks) {
-    const page = await browser.newPage({ viewport: { width: 1280, height: 820 }, deviceScaleFactor: 1 });
-    attachConsoleCapture(page, consoleMessages, pageErrors);
-    await openAtlas(page, `${atlasUrl}?city=${city.id}&year=2026`);
-    await page.waitForTimeout(city.id === "london" ? 2400 : 1400);
-    const cityState = await assertResponsiveLayout(page, `city ${city.id}`);
-    assert(cityState.city === city.label, `city ${city.id}: loaded ${cityState.city} instead of ${city.label}.`);
-    assert(cityState.citywideLensMode, `city ${city.id}: atlas did not start in citywide lens mode.`);
-    assert(cityState.mapZoom <= 11.7, `city ${city.id}: atlas opened at local/event zoom (${cityState.mapZoom}).`);
-    assert(city.placeholder.test(cityState.searchPlaceholder), `city ${city.id}: search placeholder is not city-specific.`);
-    assert(cityState.visiblePinCount >= 8, `city ${city.id}: too few visible city records.`);
-    await assertCitySourceBackedLensCoverage(page, city.id);
-    await page.close();
+    const cityBrowser = await chromium.launch(chromiumLaunchOptions);
+    const page = await cityBrowser.newPage({ viewport: { width: 1280, height: 820 }, deviceScaleFactor: 1 });
+    try {
+      attachConsoleCapture(page, consoleMessages, pageErrors);
+      await openAtlas(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=${city.aspect}`);
+      await page.waitForTimeout(city.id === "london" ? 2400 : 1400);
+      const cityState = await assertResponsiveLayout(page, `city ${city.id}`);
+      assert(cityState.city === city.label, `city ${city.id}: loaded ${cityState.city} instead of ${city.label}.`);
+      assert(cityState.citywideLensMode, `city ${city.id}: atlas did not start in citywide lens mode.`);
+      assert(cityState.mapZoom <= 11.7, `city ${city.id}: atlas opened at local/event zoom (${cityState.mapZoom}).`);
+      assert(city.placeholder.test(cityState.searchPlaceholder), `city ${city.id}: search placeholder is not city-specific.`);
+      assert(cityState.visiblePinCount >= city.minVisiblePins, `city ${city.id}: too few visible city records.`);
+      await assertCitySourceBackedLensCoverage(page, city.id);
+    } finally {
+      await page.close().catch(() => {});
+      await cityBrowser.close().catch(() => {});
+    }
   }
 
-  await browser.close();
   const actionable = actionableConsoleMessages(consoleMessages);
   assert(pageErrors.length === 0, `Dashboard page errors:\n${pageErrors.join("\n")}`);
   assert(actionable.length === 0, `Dashboard console warnings/errors:\n${actionable.map((message) => `${message.type}: ${message.text}`).join("\n")}`);

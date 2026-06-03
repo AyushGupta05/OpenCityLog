@@ -219,6 +219,10 @@
         "translink-open-data",
         "translink-public-project-pages",
         "dfi-ni-public-project-pages",
+        "ni_assembly_colin_transport_infrastructure_2008",
+        "ni_assembly_colin_public_transport_routes_2008",
+        "ni_assembly_m1_blacks_stockmans_scheme_delay_2007",
+        "ni_assembly_translink_metro_punctuality_2007",
         "round118-dfi-york-street-station-investment-2021",
         "translink-bgcs-enabling-work-gvs-closure-2024",
         "translink-station-anniversaries-2026",
@@ -260,13 +264,15 @@
       ],
       "availability": "partial_local",
       "years": [
+        2007,
+        2008,
         2018,
         2021,
         2024,
         2025,
         2026
       ],
-      "notes": "Official pages and local Translink files support named station/service events and current route context."
+      "notes": "Official pages, local Translink files, and Northern Ireland Assembly AIMS written answers support named station/service events, 2007 public-transport access context, road-scheme delay context, and Metro punctuality context. These records do not provide route geometry, stop-level access, measured journey speed, or causal transport outcomes."
     },
     {
       "family_id": "civic_services",

@@ -1,5 +1,9 @@
 const fs = require("fs");
 const path = require("path");
+const {
+  licenseNeedsReview,
+  sourceHasMinimumLicense,
+} = require("../lib/atlas-lenses");
 
 const rootDir = path.resolve(__dirname, "..");
 const failures = [];
@@ -74,6 +78,27 @@ function lensDetailEventIds(features) {
   return ids;
 }
 
+function eventHasCompatibleSources(event, sourceById) {
+  const ids = Array.isArray(event?.source_ids) ? event.source_ids : [];
+  return ids.length > 0
+    && ids.every((sourceId) => {
+      const source = sourceById.get(sourceId);
+      return sourceHasMinimumLicense(source) && !licenseNeedsReview(source);
+    });
+}
+
+function compatibleRequiredLensDetailEventIds(eventsManifest, year, requiredIds, sourceById) {
+  if (!requiredIds?.length) return [];
+  const chunk = (eventsManifest.chunks || []).find((item) => Number(item.year) === Number(year));
+  if (!chunk?.json_path) return requiredIds;
+  const payload = readJson(chunk.json_path);
+  const eventById = new Map((payload?.events || []).map((event) => [event.event_id, event]));
+  return requiredIds.filter((eventId) => {
+    const event = eventById.get(eventId);
+    return !event || eventHasCompatibleSources(event, sourceById);
+  });
+}
+
 const atlasIndexPath = "web/data/city-atlas/index.json";
 const atlas = readJson(atlasIndexPath);
 
@@ -99,6 +124,7 @@ if (atlas) {
     const detailLayers = paths.detail_layers ? readJson(paths.detail_layers) : null;
     const lensOverlays = paths.lens_overlays ? readJson(paths.lens_overlays) : null;
     const transportRoadBase = paths.transport_roads_base ? readJson(paths.transport_roads_base) : null;
+    const sourceById = new Map((sources?.sources || []).map((source) => [source.source_id, source]));
 
     for (const key of ["lens_overlays", "lens_detail_template", "transport_roads_base", "transport_roads_template"]) {
       assert(paths[key], `City ${city.city_id} is missing required artifact_paths.${key}.`);
@@ -177,7 +203,12 @@ if (atlas) {
             );
             assert((lensDetail.features || []).every((feature) => feature.properties?.category && Number.isInteger(Number(feature.properties?.year))), `City ${city.city_id} lens_detail_${year} features need category and year.`);
             assert(!(lensDetail.features || []).some(hasNonSiteLensDetail), `City ${city.city_id} lens_detail_${year} must not render aggregate/statistical/non-site records as lens geometry.`);
-            const requiredIds = REQUIRED_LENS_DETAIL_EVENT_IDS[city.city_id]?.[year] || [];
+            const requiredIds = compatibleRequiredLensDetailEventIds(
+              eventsManifest,
+              year,
+              REQUIRED_LENS_DETAIL_EVENT_IDS[city.city_id]?.[year] || [],
+              sourceById,
+            );
             if (requiredIds.length) {
               const emittedIds = lensDetailEventIds(lensDetail.features || []);
               for (const eventId of requiredIds) {

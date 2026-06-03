@@ -5,12 +5,12 @@
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
-    "total_events": 356385,
-    "total_unique_events": 356385,
+    "total_events": 356388,
+    "total_unique_events": 356388,
     "duplicate_event_id_count": 0,
-    "active_source_count": 486,
+    "active_source_count": 490,
     "source_catalog_only_count": 253,
-    "source_year_layer_row_count": 2544,
+    "source_year_layer_row_count": 2548,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -2480,6 +2480,38 @@
       "source_title": "Libraries NI Statutory Equality and Good Relations Annual Progress Report 2023/24",
       "year": 2023,
       "layer": "built_environment",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "ni_assembly_colin_public_transport_routes_2008",
+      "source_title": "Northern Ireland Assembly AIMS Open Data written answer AQW 3386/08: Colin public-transport routes",
+      "year": 2007,
+      "layer": "transport",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "ni_assembly_colin_transport_infrastructure_2008",
+      "source_title": "Northern Ireland Assembly AIMS Open Data written answer AQW 3166/08: Colin public-transport infrastructure",
+      "year": 2007,
+      "layer": "transport",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "ni_assembly_m1_blacks_stockmans_scheme_delay_2007",
+      "source_title": "Northern Ireland Assembly AIMS Open Data written answer AQW 203/08: M1 Blacks Road to Stockmans Lane road scheme delay",
+      "year": 2007,
+      "layer": "transport",
+      "event_count": 1
+    },
+    {
+      "city_id": "belfast",
+      "source_id": "ni_assembly_translink_metro_punctuality_2007",
+      "source_title": "Northern Ireland Assembly AIMS Open Data written answer AQW 5850/08: Metro punctuality, 2005-2007",
+      "year": 2007,
+      "layer": "transport",
       "event_count": 1
     },
     {
@@ -20375,19 +20407,19 @@
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 33146,
-      "unique_event_count": 33146,
+      "event_count": 33149,
+      "unique_event_count": 33149,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 242,
-      "active_source_count": 211,
+      "source_count": 246,
+      "active_source_count": 215,
       "source_catalog_only_count": 31,
       "year_range": {
         "first_event_year": 2007,
         "last_event_year": 2026
       },
       "event_counts_by_year": {
-        "2007": 3,
+        "2007": 6,
         "2008": 65,
         "2009": 198,
         "2010": 33,
@@ -20413,13 +20445,13 @@
         "civic_services": 680,
         "economy": 675,
         "environment": 4,
-        "transport": 17105,
+        "transport": 17108,
         "utilities": 855
       },
       "event_counts_by_confidence": {
         "corroborated": 2,
         "disputed": 1,
-        "documented": 15191,
+        "documented": 15194,
         "inferred": 17952
       },
       "event_counts_by_year_layer": [
@@ -20432,6 +20464,11 @@
           "year": 2007,
           "layer": "civic_services",
           "event_count": 1
+        },
+        {
+          "year": 2007,
+          "layer": "transport",
+          "event_count": 3
         },
         {
           "year": 2007,
@@ -23282,6 +23319,38 @@
           "source_title": "Libraries NI Statutory Equality and Good Relations Annual Progress Report 2023/24",
           "year": 2023,
           "layer": "built_environment",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "ni_assembly_colin_public_transport_routes_2008",
+          "source_title": "Northern Ireland Assembly AIMS Open Data written answer AQW 3386/08: Colin public-transport routes",
+          "year": 2007,
+          "layer": "transport",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "ni_assembly_colin_transport_infrastructure_2008",
+          "source_title": "Northern Ireland Assembly AIMS Open Data written answer AQW 3166/08: Colin public-transport infrastructure",
+          "year": 2007,
+          "layer": "transport",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "ni_assembly_m1_blacks_stockmans_scheme_delay_2007",
+          "source_title": "Northern Ireland Assembly AIMS Open Data written answer AQW 203/08: M1 Blacks Road to Stockmans Lane road scheme delay",
+          "year": 2007,
+          "layer": "transport",
+          "event_count": 1
+        },
+        {
+          "city_id": "belfast",
+          "source_id": "ni_assembly_translink_metro_punctuality_2007",
+          "source_title": "Northern Ireland Assembly AIMS Open Data written answer AQW 5850/08: Metro punctuality, 2005-2007",
+          "year": 2007,
+          "layer": "transport",
           "event_count": 1
         },
         {
@@ -28205,6 +28274,86 @@
           "last_year": 2023,
           "layer_counts": {
             "built_environment": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "ni_assembly_colin_public_transport_routes_2008",
+          "title": "Northern Ireland Assembly AIMS Open Data written answer AQW 3386/08: Colin public-transport routes",
+          "provider": "Northern Ireland Assembly",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 for public sector information.",
+          "event_count": 1,
+          "years": [
+            2007
+          ],
+          "first_year": 2007,
+          "last_year": 2007,
+          "layer_counts": {
+            "transport": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "ni_assembly_colin_transport_infrastructure_2008",
+          "title": "Northern Ireland Assembly AIMS Open Data written answer AQW 3166/08: Colin public-transport infrastructure",
+          "provider": "Northern Ireland Assembly",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 for public sector information.",
+          "event_count": 1,
+          "years": [
+            2007
+          ],
+          "first_year": 2007,
+          "last_year": 2007,
+          "layer_counts": {
+            "transport": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "ni_assembly_m1_blacks_stockmans_scheme_delay_2007",
+          "title": "Northern Ireland Assembly AIMS Open Data written answer AQW 203/08: M1 Blacks Road to Stockmans Lane road scheme delay",
+          "provider": "Northern Ireland Assembly",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 for public sector information.",
+          "event_count": 1,
+          "years": [
+            2007
+          ],
+          "first_year": 2007,
+          "last_year": 2007,
+          "layer_counts": {
+            "transport": 1
+          },
+          "confidence_counts": {
+            "documented": 1
+          },
+          "coverage_status": "events_emitted"
+        },
+        {
+          "source_id": "ni_assembly_translink_metro_punctuality_2007",
+          "title": "Northern Ireland Assembly AIMS Open Data written answer AQW 5850/08: Metro punctuality, 2005-2007",
+          "provider": "Northern Ireland Assembly",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Government Licence v3.0 for public sector information.",
+          "event_count": 1,
+          "years": [
+            2007
+          ],
+          "first_year": 2007,
+          "last_year": 2007,
+          "layer_counts": {
+            "transport": 1
           },
           "confidence_counts": {
             "documented": 1

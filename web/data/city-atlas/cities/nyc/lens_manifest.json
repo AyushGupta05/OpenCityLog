@@ -46,18 +46,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 86259,
-        "compatible_event_count": 86259,
+        "event_count": 85174,
+        "compatible_event_count": 85174,
         "review_required_event_count": 0,
-        "source_count": 67,
-        "compatible_source_count": 67,
+        "source_count": 48,
+        "compatible_source_count": 48,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1839,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 86259
+          "documented": 85174
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -65,7 +65,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 34,
+        "excluded_review_required_event_count": 1119,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -93,7 +93,6 @@
           "as9z-kwsh",
           "b7aj-ck5a",
           "bkfu-528j",
-          "bpl_canarsie_branch_groundbreaking_2026",
           "br6q-ssj3",
           "bs8b-p36w",
           "buis-pvji",
@@ -107,15 +106,11 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-pops-rvih-nhyn",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
           "nyc-dcp-zap-project-data",
-          "nyc-ddc-news-archive-pages",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-co-bs8b-p36w",
           "nyc-dob-filings-permits",
@@ -124,9 +119,7 @@
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dob-permit-issuance-ipu4-2q9a",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-library-official-capital-pages",
           "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
           "nyc-lpc-historic-districts-skyk-mpzq",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
@@ -134,21 +127,9 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
           "nyc-pluto-mappluto-lots",
-          "nyc-sca-school-openings-projects",
-          "nychh_bellevue_pathology_grossing_room_renovation_2025",
-          "nychh_elmhurst_pediatric_radiology_room_renovation_2025",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_gotham_east_new_york_behavioral_suite_opening_2025",
-          "nychh_lincoln_pediatric_playroom_renovation_2026",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
-          "nychh_queens_truebeam_ir_suite_opening_2025",
-          "nychh_south_brooklyn_oncology_infusion_opening_2026",
-          "nychh_woodhull_minor_surgery_suite_renovation_2025",
           "nypl-location-96th-street-branch",
           "nypl-press-2013-96th-street-reopening",
-          "qpl_seaside_hvac_reopening_2026",
           "rbx6-tga4",
           "skyk-mpzq",
           "tqtj-sjs8",
@@ -162,7 +143,6 @@
           "as9z-kwsh",
           "b7aj-ck5a",
           "bkfu-528j",
-          "bpl_canarsie_branch_groundbreaking_2026",
           "br6q-ssj3",
           "bs8b-p36w",
           "buis-pvji",
@@ -176,15 +156,11 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-pops-rvih-nhyn",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
           "nyc-dcp-zap-project-data",
-          "nyc-ddc-news-archive-pages",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-co-bs8b-p36w",
           "nyc-dob-filings-permits",
@@ -193,9 +169,7 @@
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dob-permit-issuance-ipu4-2q9a",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-library-official-capital-pages",
           "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
           "nyc-lpc-historic-districts-skyk-mpzq",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
@@ -203,21 +177,9 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
           "nyc-pluto-mappluto-lots",
-          "nyc-sca-school-openings-projects",
-          "nychh_bellevue_pathology_grossing_room_renovation_2025",
-          "nychh_elmhurst_pediatric_radiology_room_renovation_2025",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_gotham_east_new_york_behavioral_suite_opening_2025",
-          "nychh_lincoln_pediatric_playroom_renovation_2026",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
-          "nychh_queens_truebeam_ir_suite_opening_2025",
-          "nychh_south_brooklyn_oncology_infusion_opening_2026",
-          "nychh_woodhull_minor_surgery_suite_renovation_2025",
           "nypl-location-96th-street-branch",
           "nypl-press-2013-96th-street-reopening",
-          "qpl_seaside_hvac_reopening_2026",
           "rbx6-tga4",
           "skyk-mpzq",
           "tqtj-sjs8",
@@ -317,19 +279,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "bpl_canarsie_branch_groundbreaking_2026",
-            "title": "Brooklyn Public Library Breaks Ground on New Canarsie Branch",
-            "publisher": "Brooklyn Public Library",
-            "source_family": "planning",
-            "licence": "Official Brooklyn Public Library webpage; reuse subject to BPL terms/copyright. Use factual metadata with attribution.",
-            "licence_url": "https://www.bklynlibrary.org/media/press/brooklyn-public-library-162",
-            "attribution_text": "Brooklyn Public Library",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "br6q-ssj3",
             "title": "Housing Database Project Level Files",
             "publisher": "NYC DCP",
@@ -377,6 +326,19 @@
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
             "attribution_text": "NYC DOHMH",
             "accessed_at": "2026-04-28T12:19:23.839655+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "c9sj-fmsg",
+            "title": "Street Construction Permits (2013-2021)",
+            "publisher": "NYC DOT",
+            "source_family": "traffic",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC DOT",
+            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -407,18 +369,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 86259,
-        "compatible_event_count": 86259,
+        "event_count": 85174,
+        "compatible_event_count": 85174,
         "review_required_event_count": 0,
-        "source_count": 67,
-        "compatible_source_count": 67,
+        "source_count": 48,
+        "compatible_source_count": 48,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1839,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 86259
+          "documented": 85174
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -426,7 +388,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 34,
+        "excluded_review_required_event_count": 1119,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -454,7 +416,6 @@
           "as9z-kwsh",
           "b7aj-ck5a",
           "bkfu-528j",
-          "bpl_canarsie_branch_groundbreaking_2026",
           "br6q-ssj3",
           "bs8b-p36w",
           "buis-pvji",
@@ -468,15 +429,11 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-pops-rvih-nhyn",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
           "nyc-dcp-zap-project-data",
-          "nyc-ddc-news-archive-pages",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-co-bs8b-p36w",
           "nyc-dob-filings-permits",
@@ -485,9 +442,7 @@
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dob-permit-issuance-ipu4-2q9a",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-library-official-capital-pages",
           "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
           "nyc-lpc-historic-districts-skyk-mpzq",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
@@ -495,21 +450,9 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
           "nyc-pluto-mappluto-lots",
-          "nyc-sca-school-openings-projects",
-          "nychh_bellevue_pathology_grossing_room_renovation_2025",
-          "nychh_elmhurst_pediatric_radiology_room_renovation_2025",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_gotham_east_new_york_behavioral_suite_opening_2025",
-          "nychh_lincoln_pediatric_playroom_renovation_2026",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
-          "nychh_queens_truebeam_ir_suite_opening_2025",
-          "nychh_south_brooklyn_oncology_infusion_opening_2026",
-          "nychh_woodhull_minor_surgery_suite_renovation_2025",
           "nypl-location-96th-street-branch",
           "nypl-press-2013-96th-street-reopening",
-          "qpl_seaside_hvac_reopening_2026",
           "rbx6-tga4",
           "skyk-mpzq",
           "tqtj-sjs8",
@@ -523,7 +466,6 @@
           "as9z-kwsh",
           "b7aj-ck5a",
           "bkfu-528j",
-          "bpl_canarsie_branch_groundbreaking_2026",
           "br6q-ssj3",
           "bs8b-p36w",
           "buis-pvji",
@@ -537,15 +479,11 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-pops-rvih-nhyn",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
           "nyc-dcp-zap-project-data",
-          "nyc-ddc-news-archive-pages",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-co-bs8b-p36w",
           "nyc-dob-filings-permits",
@@ -554,9 +492,7 @@
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dob-permit-issuance-ipu4-2q9a",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-library-official-capital-pages",
           "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
           "nyc-lpc-historic-districts-skyk-mpzq",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
@@ -564,21 +500,9 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
           "nyc-pluto-mappluto-lots",
-          "nyc-sca-school-openings-projects",
-          "nychh_bellevue_pathology_grossing_room_renovation_2025",
-          "nychh_elmhurst_pediatric_radiology_room_renovation_2025",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_gotham_east_new_york_behavioral_suite_opening_2025",
-          "nychh_lincoln_pediatric_playroom_renovation_2026",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
-          "nychh_queens_truebeam_ir_suite_opening_2025",
-          "nychh_south_brooklyn_oncology_infusion_opening_2026",
-          "nychh_woodhull_minor_surgery_suite_renovation_2025",
           "nypl-location-96th-street-branch",
           "nypl-press-2013-96th-street-reopening",
-          "qpl_seaside_hvac_reopening_2026",
           "rbx6-tga4",
           "skyk-mpzq",
           "tqtj-sjs8",
@@ -678,19 +602,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "bpl_canarsie_branch_groundbreaking_2026",
-            "title": "Brooklyn Public Library Breaks Ground on New Canarsie Branch",
-            "publisher": "Brooklyn Public Library",
-            "source_family": "planning",
-            "licence": "Official Brooklyn Public Library webpage; reuse subject to BPL terms/copyright. Use factual metadata with attribution.",
-            "licence_url": "https://www.bklynlibrary.org/media/press/brooklyn-public-library-162",
-            "attribution_text": "Brooklyn Public Library",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "br6q-ssj3",
             "title": "Housing Database Project Level Files",
             "publisher": "NYC DCP",
@@ -738,6 +649,19 @@
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
             "attribution_text": "NYC DOHMH",
             "accessed_at": "2026-04-28T12:19:23.839655+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "c9sj-fmsg",
+            "title": "Street Construction Permits (2013-2021)",
+            "publisher": "NYC DOT",
+            "source_family": "traffic",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC DOT",
+            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -768,18 +692,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 86259,
-        "compatible_event_count": 86259,
+        "event_count": 85174,
+        "compatible_event_count": 85174,
         "review_required_event_count": 0,
-        "source_count": 67,
-        "compatible_source_count": 67,
+        "source_count": 48,
+        "compatible_source_count": 48,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1839,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 86259
+          "documented": 85174
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -787,7 +711,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 34,
+        "excluded_review_required_event_count": 1119,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -815,7 +739,6 @@
           "as9z-kwsh",
           "b7aj-ck5a",
           "bkfu-528j",
-          "bpl_canarsie_branch_groundbreaking_2026",
           "br6q-ssj3",
           "bs8b-p36w",
           "buis-pvji",
@@ -829,15 +752,11 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-pops-rvih-nhyn",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
           "nyc-dcp-zap-project-data",
-          "nyc-ddc-news-archive-pages",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-co-bs8b-p36w",
           "nyc-dob-filings-permits",
@@ -846,9 +765,7 @@
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dob-permit-issuance-ipu4-2q9a",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-library-official-capital-pages",
           "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
           "nyc-lpc-historic-districts-skyk-mpzq",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
@@ -856,21 +773,9 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
           "nyc-pluto-mappluto-lots",
-          "nyc-sca-school-openings-projects",
-          "nychh_bellevue_pathology_grossing_room_renovation_2025",
-          "nychh_elmhurst_pediatric_radiology_room_renovation_2025",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_gotham_east_new_york_behavioral_suite_opening_2025",
-          "nychh_lincoln_pediatric_playroom_renovation_2026",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
-          "nychh_queens_truebeam_ir_suite_opening_2025",
-          "nychh_south_brooklyn_oncology_infusion_opening_2026",
-          "nychh_woodhull_minor_surgery_suite_renovation_2025",
           "nypl-location-96th-street-branch",
           "nypl-press-2013-96th-street-reopening",
-          "qpl_seaside_hvac_reopening_2026",
           "rbx6-tga4",
           "skyk-mpzq",
           "tqtj-sjs8",
@@ -884,7 +789,6 @@
           "as9z-kwsh",
           "b7aj-ck5a",
           "bkfu-528j",
-          "bpl_canarsie_branch_groundbreaking_2026",
           "br6q-ssj3",
           "bs8b-p36w",
           "buis-pvji",
@@ -898,15 +802,11 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-pops-rvih-nhyn",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
           "nyc-dcp-zap-project-data",
-          "nyc-ddc-news-archive-pages",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-co-bs8b-p36w",
           "nyc-dob-filings-permits",
@@ -915,9 +815,7 @@
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dob-permit-issuance-ipu4-2q9a",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-library-official-capital-pages",
           "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
           "nyc-lpc-historic-districts-skyk-mpzq",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
@@ -925,21 +823,9 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
           "nyc-pluto-mappluto-lots",
-          "nyc-sca-school-openings-projects",
-          "nychh_bellevue_pathology_grossing_room_renovation_2025",
-          "nychh_elmhurst_pediatric_radiology_room_renovation_2025",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_gotham_east_new_york_behavioral_suite_opening_2025",
-          "nychh_lincoln_pediatric_playroom_renovation_2026",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
-          "nychh_queens_truebeam_ir_suite_opening_2025",
-          "nychh_south_brooklyn_oncology_infusion_opening_2026",
-          "nychh_woodhull_minor_surgery_suite_renovation_2025",
           "nypl-location-96th-street-branch",
           "nypl-press-2013-96th-street-reopening",
-          "qpl_seaside_hvac_reopening_2026",
           "rbx6-tga4",
           "skyk-mpzq",
           "tqtj-sjs8",
@@ -1039,19 +925,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "bpl_canarsie_branch_groundbreaking_2026",
-            "title": "Brooklyn Public Library Breaks Ground on New Canarsie Branch",
-            "publisher": "Brooklyn Public Library",
-            "source_family": "planning",
-            "licence": "Official Brooklyn Public Library webpage; reuse subject to BPL terms/copyright. Use factual metadata with attribution.",
-            "licence_url": "https://www.bklynlibrary.org/media/press/brooklyn-public-library-162",
-            "attribution_text": "Brooklyn Public Library",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "br6q-ssj3",
             "title": "Housing Database Project Level Files",
             "publisher": "NYC DCP",
@@ -1102,6 +975,19 @@
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
+          },
+          {
+            "source_id": "c9sj-fmsg",
+            "title": "Street Construction Permits (2013-2021)",
+            "publisher": "NYC DOT",
+            "source_family": "traffic",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC DOT",
+            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
           }
         ],
         "transformation_method": "scripts/build_15_lens_manifest.js#summarizeLens:nyc:planning-delta",
@@ -1129,18 +1015,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 15218,
-        "compatible_event_count": 15218,
+        "event_count": 15046,
+        "compatible_event_count": 15046,
         "review_required_event_count": 0,
-        "source_count": 49,
-        "compatible_source_count": 49,
+        "source_count": 44,
+        "compatible_source_count": 44,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1894,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 15218
+          "documented": 15046
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1148,7 +1034,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2,
+        "excluded_review_required_event_count": 174,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1190,12 +1076,9 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-zap-bbl",
           "nyc-dcp-zap-project-data",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-co-bs8b-p36w",
           "nyc-dob-filings-permits",
@@ -1210,9 +1093,7 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
           "nyc-pluto-mappluto-lots",
-          "nyc-sca-school-openings-projects",
           "rbx6-tga4",
           "tqtj-sjs8",
           "uvpi-gqnh",
@@ -1241,12 +1122,9 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-zap-bbl",
           "nyc-dcp-zap-project-data",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-co-bs8b-p36w",
           "nyc-dob-filings-permits",
@@ -1261,9 +1139,7 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
           "nyc-pluto-mappluto-lots",
-          "nyc-sca-school-openings-projects",
           "rbx6-tga4",
           "tqtj-sjs8",
           "uvpi-gqnh",
@@ -1454,18 +1330,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 15218,
-        "compatible_event_count": 15218,
+        "event_count": 15046,
+        "compatible_event_count": 15046,
         "review_required_event_count": 0,
-        "source_count": 49,
-        "compatible_source_count": 49,
+        "source_count": 44,
+        "compatible_source_count": 44,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1894,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 15218
+          "documented": 15046
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1473,7 +1349,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2,
+        "excluded_review_required_event_count": 174,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1515,12 +1391,9 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-zap-bbl",
           "nyc-dcp-zap-project-data",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-co-bs8b-p36w",
           "nyc-dob-filings-permits",
@@ -1535,9 +1408,7 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
           "nyc-pluto-mappluto-lots",
-          "nyc-sca-school-openings-projects",
           "rbx6-tga4",
           "tqtj-sjs8",
           "uvpi-gqnh",
@@ -1566,12 +1437,9 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-zap-bbl",
           "nyc-dcp-zap-project-data",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-co-bs8b-p36w",
           "nyc-dob-filings-permits",
@@ -1586,9 +1454,7 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
           "nyc-pluto-mappluto-lots",
-          "nyc-sca-school-openings-projects",
           "rbx6-tga4",
           "tqtj-sjs8",
           "uvpi-gqnh",
@@ -1779,18 +1645,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 15218,
-        "compatible_event_count": 15218,
+        "event_count": 15046,
+        "compatible_event_count": 15046,
         "review_required_event_count": 0,
-        "source_count": 49,
-        "compatible_source_count": 49,
+        "source_count": 44,
+        "compatible_source_count": 44,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1894,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 15218
+          "documented": 15046
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1798,7 +1664,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2,
+        "excluded_review_required_event_count": 174,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1840,12 +1706,9 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-zap-bbl",
           "nyc-dcp-zap-project-data",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-co-bs8b-p36w",
           "nyc-dob-filings-permits",
@@ -1860,9 +1723,7 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
           "nyc-pluto-mappluto-lots",
-          "nyc-sca-school-openings-projects",
           "rbx6-tga4",
           "tqtj-sjs8",
           "uvpi-gqnh",
@@ -1891,12 +1752,9 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-zap-bbl",
           "nyc-dcp-zap-project-data",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-co-bs8b-p36w",
           "nyc-dob-filings-permits",
@@ -1911,9 +1769,7 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
           "nyc-pluto-mappluto-lots",
-          "nyc-sca-school-openings-projects",
           "rbx6-tga4",
           "tqtj-sjs8",
           "uvpi-gqnh",
@@ -2104,18 +1960,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 4810,
-        "compatible_event_count": 4810,
+        "event_count": 4601,
+        "compatible_event_count": 4601,
         "review_required_event_count": 0,
-        "source_count": 42,
-        "compatible_source_count": 42,
+        "source_count": 26,
+        "compatible_source_count": 26,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1915,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 4810
+          "documented": 4601
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2123,7 +1979,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 6,
+        "excluded_review_required_event_count": 215,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2156,14 +2012,10 @@
           "erm2-nwe9",
           "hg8x-zxpr",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
@@ -2171,18 +2023,6 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
-          "nyc-sca-school-openings-projects",
-          "nychh_bellevue_pathology_grossing_room_renovation_2025",
-          "nychh_elmhurst_pediatric_radiology_room_renovation_2025",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_gotham_east_new_york_behavioral_suite_opening_2025",
-          "nychh_lincoln_pediatric_playroom_renovation_2026",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
-          "nychh_queens_truebeam_ir_suite_opening_2025",
-          "nychh_south_brooklyn_oncology_infusion_opening_2026",
-          "nychh_woodhull_minor_surgery_suite_renovation_2025",
-          "qpl_seaside_hvac_reopening_2026",
           "rbx6-tga4",
           "skyk-mpzq",
           "tqtj-sjs8"
@@ -2200,14 +2040,10 @@
           "erm2-nwe9",
           "hg8x-zxpr",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
@@ -2215,18 +2051,6 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
-          "nyc-sca-school-openings-projects",
-          "nychh_bellevue_pathology_grossing_room_renovation_2025",
-          "nychh_elmhurst_pediatric_radiology_room_renovation_2025",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_gotham_east_new_york_behavioral_suite_opening_2025",
-          "nychh_lincoln_pediatric_playroom_renovation_2026",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
-          "nychh_queens_truebeam_ir_suite_opening_2025",
-          "nychh_south_brooklyn_oncology_infusion_opening_2026",
-          "nychh_woodhull_minor_surgery_suite_renovation_2025",
-          "qpl_seaside_hvac_reopening_2026",
           "rbx6-tga4",
           "skyk-mpzq",
           "tqtj-sjs8"
@@ -2415,18 +2239,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 4810,
-        "compatible_event_count": 4810,
+        "event_count": 4601,
+        "compatible_event_count": 4601,
         "review_required_event_count": 0,
-        "source_count": 42,
-        "compatible_source_count": 42,
+        "source_count": 26,
+        "compatible_source_count": 26,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1915,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 4810
+          "documented": 4601
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2434,7 +2258,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 6,
+        "excluded_review_required_event_count": 215,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2467,14 +2291,10 @@
           "erm2-nwe9",
           "hg8x-zxpr",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
@@ -2482,18 +2302,6 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
-          "nyc-sca-school-openings-projects",
-          "nychh_bellevue_pathology_grossing_room_renovation_2025",
-          "nychh_elmhurst_pediatric_radiology_room_renovation_2025",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_gotham_east_new_york_behavioral_suite_opening_2025",
-          "nychh_lincoln_pediatric_playroom_renovation_2026",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
-          "nychh_queens_truebeam_ir_suite_opening_2025",
-          "nychh_south_brooklyn_oncology_infusion_opening_2026",
-          "nychh_woodhull_minor_surgery_suite_renovation_2025",
-          "qpl_seaside_hvac_reopening_2026",
           "rbx6-tga4",
           "skyk-mpzq",
           "tqtj-sjs8"
@@ -2511,14 +2319,10 @@
           "erm2-nwe9",
           "hg8x-zxpr",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
@@ -2526,18 +2330,6 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
-          "nyc-sca-school-openings-projects",
-          "nychh_bellevue_pathology_grossing_room_renovation_2025",
-          "nychh_elmhurst_pediatric_radiology_room_renovation_2025",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_gotham_east_new_york_behavioral_suite_opening_2025",
-          "nychh_lincoln_pediatric_playroom_renovation_2026",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
-          "nychh_queens_truebeam_ir_suite_opening_2025",
-          "nychh_south_brooklyn_oncology_infusion_opening_2026",
-          "nychh_woodhull_minor_surgery_suite_renovation_2025",
-          "qpl_seaside_hvac_reopening_2026",
           "rbx6-tga4",
           "skyk-mpzq",
           "tqtj-sjs8"
@@ -2726,18 +2518,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 4810,
-        "compatible_event_count": 4810,
+        "event_count": 4601,
+        "compatible_event_count": 4601,
         "review_required_event_count": 0,
-        "source_count": 42,
-        "compatible_source_count": 42,
+        "source_count": 26,
+        "compatible_source_count": 26,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1915,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 4810
+          "documented": 4601
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2745,7 +2537,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 6,
+        "excluded_review_required_event_count": 215,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2778,14 +2570,10 @@
           "erm2-nwe9",
           "hg8x-zxpr",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
@@ -2793,18 +2581,6 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
-          "nyc-sca-school-openings-projects",
-          "nychh_bellevue_pathology_grossing_room_renovation_2025",
-          "nychh_elmhurst_pediatric_radiology_room_renovation_2025",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_gotham_east_new_york_behavioral_suite_opening_2025",
-          "nychh_lincoln_pediatric_playroom_renovation_2026",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
-          "nychh_queens_truebeam_ir_suite_opening_2025",
-          "nychh_south_brooklyn_oncology_infusion_opening_2026",
-          "nychh_woodhull_minor_surgery_suite_renovation_2025",
-          "qpl_seaside_hvac_reopening_2026",
           "rbx6-tga4",
           "skyk-mpzq",
           "tqtj-sjs8"
@@ -2822,14 +2598,10 @@
           "erm2-nwe9",
           "hg8x-zxpr",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-ddc-press-index-2024-2026",
-          "nyc-ddc-public-building-press-pages",
           "nyc-dob-certificate-of-occupancy",
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
@@ -2837,18 +2609,6 @@
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-planninglabs-geosearch-nycpad",
-          "nyc-sca-school-openings-projects",
-          "nychh_bellevue_pathology_grossing_room_renovation_2025",
-          "nychh_elmhurst_pediatric_radiology_room_renovation_2025",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_gotham_east_new_york_behavioral_suite_opening_2025",
-          "nychh_lincoln_pediatric_playroom_renovation_2026",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
-          "nychh_queens_truebeam_ir_suite_opening_2025",
-          "nychh_south_brooklyn_oncology_infusion_opening_2026",
-          "nychh_woodhull_minor_surgery_suite_renovation_2025",
-          "qpl_seaside_hvac_reopening_2026",
           "rbx6-tga4",
           "skyk-mpzq",
           "tqtj-sjs8"
@@ -3037,18 +2797,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 7517,
-        "compatible_event_count": 7517,
+        "event_count": 7470,
+        "compatible_event_count": 7470,
         "review_required_event_count": 0,
-        "source_count": 32,
-        "compatible_source_count": 32,
+        "source_count": 31,
+        "compatible_source_count": 31,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1797,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 7517
+          "documented": 7470
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3056,7 +2816,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2,
+        "excluded_review_required_event_count": 49,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3090,7 +2850,6 @@
           "hg8x-zxpr",
           "i6b5-j7bu",
           "ipu4-2q9a",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
@@ -3124,7 +2883,6 @@
           "hg8x-zxpr",
           "i6b5-j7bu",
           "ipu4-2q9a",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
@@ -3328,18 +3086,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 7517,
-        "compatible_event_count": 7517,
+        "event_count": 7470,
+        "compatible_event_count": 7470,
         "review_required_event_count": 0,
-        "source_count": 32,
-        "compatible_source_count": 32,
+        "source_count": 31,
+        "compatible_source_count": 31,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1797,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 7517
+          "documented": 7470
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3347,7 +3105,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2,
+        "excluded_review_required_event_count": 49,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3381,7 +3139,6 @@
           "hg8x-zxpr",
           "i6b5-j7bu",
           "ipu4-2q9a",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
@@ -3415,7 +3172,6 @@
           "hg8x-zxpr",
           "i6b5-j7bu",
           "ipu4-2q9a",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
@@ -3619,18 +3375,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 7517,
-        "compatible_event_count": 7517,
+        "event_count": 7470,
+        "compatible_event_count": 7470,
         "review_required_event_count": 0,
-        "source_count": 32,
-        "compatible_source_count": 32,
+        "source_count": 31,
+        "compatible_source_count": 31,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1797,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 7517
+          "documented": 7470
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3638,7 +3394,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 2,
+        "excluded_review_required_event_count": 49,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3672,7 +3428,6 @@
           "hg8x-zxpr",
           "i6b5-j7bu",
           "ipu4-2q9a",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
@@ -3706,7 +3461,6 @@
           "hg8x-zxpr",
           "i6b5-j7bu",
           "ipu4-2q9a",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
@@ -3910,18 +3664,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 3976,
-        "compatible_event_count": 3976,
+        "event_count": 3811,
+        "compatible_event_count": 3811,
         "review_required_event_count": 0,
-        "source_count": 46,
-        "compatible_source_count": 46,
+        "source_count": 42,
+        "compatible_source_count": 42,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1797,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 3976
+          "documented": 3811
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3929,7 +3683,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1,
+        "excluded_review_required_event_count": 166,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3973,7 +3727,6 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
@@ -3986,7 +3739,6 @@
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dob-permit-issuance-ipu4-2q9a",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
@@ -3994,8 +3746,6 @@
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
           "rbx6-tga4",
           "tqtj-sjs8"
         ],
@@ -4021,7 +3771,6 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
@@ -4034,7 +3783,6 @@
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dob-permit-issuance-ipu4-2q9a",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
@@ -4042,8 +3790,6 @@
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
           "rbx6-tga4",
           "tqtj-sjs8"
         ],
@@ -4231,18 +3977,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 3976,
-        "compatible_event_count": 3976,
+        "event_count": 3811,
+        "compatible_event_count": 3811,
         "review_required_event_count": 0,
-        "source_count": 46,
-        "compatible_source_count": 46,
+        "source_count": 42,
+        "compatible_source_count": 42,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1797,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 3976
+          "documented": 3811
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -4250,7 +3996,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1,
+        "excluded_review_required_event_count": 166,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -4294,7 +4040,6 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
@@ -4307,7 +4052,6 @@
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dob-permit-issuance-ipu4-2q9a",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
@@ -4315,8 +4059,6 @@
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
           "rbx6-tga4",
           "tqtj-sjs8"
         ],
@@ -4342,7 +4084,6 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
@@ -4355,7 +4096,6 @@
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dob-permit-issuance-ipu4-2q9a",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
@@ -4363,8 +4103,6 @@
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
           "rbx6-tga4",
           "tqtj-sjs8"
         ],
@@ -4552,18 +4290,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 3976,
-        "compatible_event_count": 3976,
+        "event_count": 3811,
+        "compatible_event_count": 3811,
         "review_required_event_count": 0,
-        "source_count": 46,
-        "compatible_source_count": 46,
+        "source_count": 42,
+        "compatible_source_count": 42,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1797,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 3976
+          "documented": 3811
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -4571,7 +4309,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1,
+        "excluded_review_required_event_count": 166,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -4615,7 +4353,6 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
@@ -4628,7 +4365,6 @@
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dob-permit-issuance-ipu4-2q9a",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
@@ -4636,8 +4372,6 @@
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
           "rbx6-tga4",
           "tqtj-sjs8"
         ],
@@ -4663,7 +4397,6 @@
           "i6b5-j7bu",
           "ipu4-2q9a",
           "n7gv-k5yt",
-          "nyc-architecture-public-pages",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
           "nyc-dcp-zap-bbl",
@@ -4676,7 +4409,6 @@
           "nyc-dob-now-co-pkdm-hqz6",
           "nyc-dob-permit-issuance-ipu4-2q9a",
           "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-edc-hh-resilience-official-pages",
           "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
           "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
@@ -4684,8 +4416,6 @@
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
           "nyc-pluto-mappluto-lots",
-          "nychh_elmhurst_radiology_room_renovation_2025",
-          "nychh_north_central_bronx_mri_suite_opening_2026",
           "rbx6-tga4",
           "tqtj-sjs8"
         ],

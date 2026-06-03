@@ -1,5 +1,9 @@
 const fs = require("fs");
 const path = require("path");
+const {
+  licenseNeedsReview,
+  sourceHasMinimumLicense,
+} = require("../lib/atlas-lenses");
 
 const CONFIDENCE_VALUES = new Set(["documented", "corroborated", "inferred", "disputed"]);
 const RELIABILITY_VALUES = new Set(["strong", "usable_with_caveats", "risky", "reject"]);
@@ -401,7 +405,29 @@ function validateRequiredLensDetailEvents(failures, label, payload, requiredIds)
   }
 }
 
-function validateOverlayArtifacts(failures, root, citySummary, artifactCity, eventsIndex) {
+function eventHasCompatibleSources(event, sourceById) {
+  const ids = Array.isArray(event?.source_ids) ? event.source_ids : [];
+  return ids.length > 0
+    && ids.every((sourceId) => {
+      const source = sourceById.get(sourceId);
+      return sourceHasMinimumLicense(source) && !licenseNeedsReview(source);
+    });
+}
+
+function compatibleRequiredLensDetailEventIds(root, eventsIndex, yearText, requiredIds, sourceById) {
+  if (!requiredIds?.length) return [];
+  const targetYear = Number(yearText);
+  const chunk = (eventsIndex.chunks || []).find((item) => Number(item.year) === targetYear);
+  if (!chunk?.json_path) return requiredIds;
+  const payload = readJson(resolve(root, chunk.json_path));
+  const eventById = new Map((payload.events || []).map((event) => [event.event_id, event]));
+  return requiredIds.filter((eventId) => {
+    const event = eventById.get(eventId);
+    return !event || eventHasCompatibleSources(event, sourceById);
+  });
+}
+
+function validateOverlayArtifacts(failures, root, citySummary, artifactCity, eventsIndex, sourceById) {
   const cityId = citySummary.city_id;
   const summaryPaths = citySummary.artifact_paths || {};
   const cityPaths = artifactCity.artifact_paths || {};
@@ -464,7 +490,8 @@ function validateOverlayArtifacts(failures, root, citySummary, artifactCity, eve
     const requiredByYear = REQUIRED_LENS_DETAIL_EVENT_IDS[cityId] || {};
     for (const [yearText, requiredIds] of Object.entries(requiredByYear)) {
       const payload = validateGeoJsonArtifact(failures, root, lensTemplate.replace("{year}", yearText), `${cityId} lens_detail_${yearText}`, cityId);
-      if (payload) validateRequiredLensDetailEvents(failures, `${cityId} lens_detail_${yearText}`, payload, requiredIds);
+      const compatibleRequiredIds = compatibleRequiredLensDetailEventIds(root, eventsIndex, yearText, requiredIds, sourceById);
+      if (payload) validateRequiredLensDetailEvents(failures, `${cityId} lens_detail_${yearText}`, payload, compatibleRequiredIds);
     }
   }
 }
@@ -613,7 +640,7 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
     }
 
     const eventsIndex = readJson(path.join(cityDir, "events.json"));
-    validateOverlayArtifacts(failures, root, citySummary, artifactCity, eventsIndex);
+    validateOverlayArtifacts(failures, root, citySummary, artifactCity, eventsIndex, effectiveSourceById);
     let countedEvents = 0;
     const seenEventIds = new Set();
     const seenSourceRecords = new Map();

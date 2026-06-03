@@ -21,9 +21,16 @@ async function scrubTo(page, ratio) {
   await page.waitForFunction(
     (oldYear) => {
       const state = window.BimsAtlas?.state;
+      const legend = document.querySelector("#lensLegend")?.textContent || "";
+      const lensReady = state?.activeLens === "transport"
+        ? state.transportRoadYearLoaded === state.year
+          || state.transportRoadFeatureCountYearLoaded === state.year
+          || /No source-backed|No linework|no filler geometry/i.test(legend)
+        : state?.lensDetailYearLoaded === state?.year
+          || /No source-backed|No direct source-backed|no filler geometry/i.test(legend);
       return state
         && String(state.year) !== oldYear
-        && state.transportRoadYearLoaded === state.year;
+        && lensReady;
     },
     before.year,
     { timeout: 10000 }
@@ -49,17 +56,18 @@ function cameraStable(before, after) {
   const pageErrors = [];
   attachConsoleCapture(page, consoleMessages, pageErrors);
 
-  await openAtlas(page, atlasUrl);
+  await openAtlas(page, `${atlasUrl}?city=nyc&year=2010&lens=planning-delta`);
   await page.waitForTimeout(1600);
   const start = await atlasState(page);
   assert(/OpenStreetMap contributors/i.test(start.attribution), "OSM attribution is missing on first render.");
   assert(start.mapCanvas === 1 && start.visiblePinCount > 0, "Initial map canvas or pins are missing.");
+  assert(start.activeAspect === "planning-delta" && start.activeLens === "built_environment", "Timeline basemap smoke did not start on NYC planning-delta.");
 
-  const early = await scrubTo(page, 0.25);
+  const early = await scrubTo(page, 0.75);
   assert(early.year !== start.year, "Timeline did not move to an earlier year.");
   assert(early.pinCount > 0, "Earlier timeline year lost event pins.");
   assert(cameraStable(start, early), "Earlier timeline year moved the map camera.");
-  assert(early.transportRoadVisible && early.transportRoadYearLoaded === Number(early.year), "Earlier timeline year did not update the transport lens linework.");
+  assert(early.lensPlanningCellsVisible && early.lensDetailYearLoaded === Number(early.year), "Earlier timeline year did not update the source-backed planning lens detail.");
   assert(/OpenStreetMap contributors/i.test(early.attribution), "OSM attribution disappeared after timeline scrub.");
   assert(!/satellite|wayback|imagery/i.test(early.bodyText), "Legacy imagery/satellite language appeared in the paper atlas.");
   const earlyPng = await page.screenshot({ path: path.join(outputDir, "paper-atlas-timeline-early.png"), fullPage: false });
@@ -69,7 +77,7 @@ function cameraStable(before, after) {
   assert(late.year !== early.year, "Timeline did not move to a later year.");
   assert(late.pinCount > 0, "Later timeline year lost event pins.");
   assert(cameraStable(early, late), "Later timeline year moved the map camera.");
-  assert(late.transportRoadVisible && late.transportRoadYearLoaded === Number(late.year), "Later timeline year did not update the transport lens linework.");
+  assert(late.lensPlanningCellsVisible && late.lensDetailYearLoaded === Number(late.year), "Later timeline year did not update the source-backed planning lens detail.");
   assert(/OpenStreetMap contributors/i.test(late.attribution), "OSM attribution disappeared after later timeline scrub.");
   const latePng = await page.screenshot({ path: path.join(outputDir, "paper-atlas-timeline-late.png"), fullPage: false });
   assertDetailedPng(latePng, assert, "Paper atlas late timeline");
