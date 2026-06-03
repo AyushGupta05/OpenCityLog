@@ -41,6 +41,8 @@ async function guideSignalState(page) {
     const map = state?.map;
     const guideLayers = [
       "lens-guide-flow",
+      "lens-guide-citywide-cell-fill",
+      "lens-guide-citywide-cell-line",
       "lens-guide-cell-fill",
       "lens-guide-area-line",
       "lens-guide-ring-line",
@@ -111,6 +113,8 @@ async function assertGeneratedGuideSignal(page, label) {
     const map = state?.map;
     const guideLayers = [
       "lens-guide-flow",
+      "lens-guide-citywide-cell-fill",
+      "lens-guide-citywide-cell-line",
       "lens-guide-cell-fill",
       "lens-guide-area-line",
       "lens-guide-ring-line",

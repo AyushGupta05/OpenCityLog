@@ -445,6 +445,8 @@ async function assertDesktopCitywideCoverage(page) {
       const map = state?.map;
       const guideLayers = [
         "lens-guide-flow",
+        "lens-guide-citywide-cell-fill",
+        "lens-guide-citywide-cell-line",
         "lens-guide-cell-fill",
         "lens-guide-area-line",
         "lens-guide-ring-line",
@@ -466,6 +468,8 @@ async function assertDesktopCitywideCoverage(page) {
       const map = atlas?.state?.map;
       const guideLayers = [
         "lens-guide-flow",
+        "lens-guide-citywide-cell-fill",
+        "lens-guide-citywide-cell-line",
         "lens-guide-cell-fill",
         "lens-guide-area-line",
         "lens-guide-ring-line",
@@ -752,7 +756,7 @@ async function directGuideState(page) {
         return props.layer === detailLayer && Number(props.year || props.visible_year || 0) === year;
       }).length
       : 0;
-    const guideLayers = ["lens-guide-flow", "lens-guide-cell-fill", "lens-guide-area-line", "lens-guide-ring-line", "lens-guide-node"];
+    const guideLayers = ["lens-guide-flow", "lens-guide-citywide-cell-fill", "lens-guide-citywide-cell-line", "lens-guide-cell-fill", "lens-guide-area-line", "lens-guide-ring-line", "lens-guide-node"];
     let renderedGuides = 0;
     for (const layer of guideLayers) {
       if (!map?.getLayer?.(layer) || map.getLayoutProperty(layer, "visibility") === "none") continue;
@@ -806,7 +810,7 @@ async function assertDirectGuideSurface(page, label, { expected }) {
       const map = state?.map;
       const guideFeatures = state?.lensGuideFeatureCache?.features || [];
       if (!guideFeatures.length) return false;
-      const guideLayers = ["lens-guide-cell-fill", "lens-guide-area-line", "lens-guide-flow", "lens-guide-node"];
+      const guideLayers = ["lens-guide-citywide-cell-fill", "lens-guide-citywide-cell-line", "lens-guide-cell-fill", "lens-guide-area-line", "lens-guide-flow", "lens-guide-node"];
       let rendered = 0;
       for (const layer of guideLayers) {
         if (!map?.getLayer?.(layer) || map.getLayoutProperty(layer, "visibility") === "none") continue;
@@ -867,9 +871,9 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     progress("city lens", cityId, check.aspect);
     const targetYear = check.year || 2024;
     await page.evaluate(
-      ({ aspect, year }) => {
-        window.BimsAtlas?.setYear?.(year);
-        window.BimsAtlas?.setActiveAspect?.(aspect);
+      async ({ aspect, year }) => {
+        await window.BimsAtlas?.setYear?.(year);
+        await window.BimsAtlas?.setActiveAspect?.(aspect);
       },
       { aspect: check.aspect, year: targetYear }
     );

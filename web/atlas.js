@@ -2991,10 +2991,70 @@
       },
     });
     state.map.addLayer({
+      id: "lens-guide-citywide-cell-fill",
+      type: "fill",
+      source: LENS_GUIDE_SOURCE_ID,
+      maxzoom: 12.2,
+      filter: ["all", ["==", ["get", "kind"], "surface_cell"], ["==", ["get", "guide_scale"], "citywide_summary"]],
+      layout: { visibility: "none" },
+      paint: {
+        "fill-color": ["coalesce", ["get", "color"], "#d6a33e"],
+        "fill-opacity": [
+          "interpolate", ["linear"], ["zoom"],
+          5.5, ["case",
+            ["==", ["get", "surface_style"], "land_use_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.3, 1, 0.66],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.14, 1, 0.42],
+          ],
+          8.8, ["case",
+            ["==", ["get", "surface_style"], "land_use_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.24, 1, 0.56],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.1, 1, 0.32],
+          ],
+          10.8, ["case",
+            ["==", ["get", "surface_style"], "land_use_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.12, 1, 0.28],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.06, 1, 0.18],
+          ],
+          12.2, 0,
+        ],
+      },
+    });
+    state.map.addLayer({
+      id: "lens-guide-citywide-cell-line",
+      type: "line",
+      source: LENS_GUIDE_SOURCE_ID,
+      maxzoom: 12.2,
+      filter: ["all", ["==", ["get", "kind"], "surface_cell"], ["==", ["get", "guide_scale"], "citywide_summary"]],
+      layout: { visibility: "none", "line-join": "round" },
+      paint: {
+        "line-color": [
+          "case",
+          ["==", ["get", "surface_style"], "planning_footprint"], ["coalesce", ["get", "color"], "#fff7eb"],
+          ["==", ["get", "surface_style"], "land_use_tile"], "#fffaf0",
+          ["coalesce", ["get", "color"], "#ffffff"],
+        ],
+        "line-opacity": [
+          "interpolate", ["linear"], ["zoom"],
+          5.5, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.28, 1, 0.68],
+          8.8, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.14, 1, 0.36],
+          10.8, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.06, 1, 0.18],
+          12.2, 0,
+        ],
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          5.5, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.42, 0.36],
+          8.8, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.34, 0.3],
+          10.8, 0.18,
+          12.2, 0,
+        ],
+      },
+    });
+    state.map.addLayer({
       id: "lens-guide-cell-fill",
       type: "fill",
       source: LENS_GUIDE_SOURCE_ID,
-      filter: ["==", ["get", "kind"], "surface_cell"],
+      filter: ["all", ["==", ["get", "kind"], "surface_cell"], ["!=", ["get", "guide_scale"], "citywide_summary"]],
       layout: { visibility: "none" },
       paint: {
         "fill-color": ["coalesce", ["get", "color"], "#d6a33e"],
@@ -3060,7 +3120,7 @@
       id: "lens-guide-cell-line",
       type: "line",
       source: LENS_GUIDE_SOURCE_ID,
-      filter: ["==", ["get", "kind"], "surface_cell"],
+      filter: ["all", ["==", ["get", "kind"], "surface_cell"], ["!=", ["get", "guide_scale"], "citywide_summary"]],
       layout: { visibility: "none", "line-join": "round" },
       paint: {
         "line-color": [
@@ -5350,6 +5410,7 @@
   function updateLensDetailLayers() {
     if (!state.map?.getSource(LENS_DETAIL_SOURCE_ID)) return;
     const aspect = activeMapLens();
+    const quietDetailUnderCitywideSummary = citywideOverviewActive() && hasCitywideGuideSummaryForActiveLens();
     const showPlanningCells = isActiveMapLens("built_environment");
     const showCivicCells = isActiveMapLens("civic_services");
     const showCivicFacilityIcons = isActiveMapLens("civic_services");
@@ -5391,16 +5452,16 @@
     }
     setLayerPaintIfPresent("lens-planning-cells-fill", "fill-color", planningCellColorExpression());
     setLayerPaintIfPresent("lens-planning-cells-outline", "line-color", planningCellColorExpression());
-    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.035, 0.18) : aspect.id === "planning-delta" ? lensDetailFillOpacity(0.03, 0.16) : aspect.id === "planning-parcels" ? lensDetailFillOpacity(0.024, 0.12) : lensDetailFillOpacity(0.18, 0.58));
-    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.12, 0.36) : aspect.id === "planning-delta" ? lensDetailLineOpacity(0.08, 0.32) : aspect.id === "planning-parcels" ? lensDetailLineOpacity(0.07, 0.24) : lensDetailLineOpacity(0.28, 0.82));
+    setLayerPaintIfPresent("lens-planning-cells-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.012, 0.045) : aspect.id === "planning-pressure" ? lensDetailFillOpacity(0.035, 0.18) : aspect.id === "planning-delta" ? lensDetailFillOpacity(0.03, 0.16) : aspect.id === "planning-parcels" ? lensDetailFillOpacity(0.024, 0.12) : lensDetailFillOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.035, 0.12) : aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.12, 0.36) : aspect.id === "planning-delta" ? lensDetailLineOpacity(0.08, 0.32) : aspect.id === "planning-parcels" ? lensDetailLineOpacity(0.07, 0.24) : lensDetailLineOpacity(0.28, 0.82));
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.08, 0.28) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.06, 0.22) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.045, 0.18) : lensDetailFillOpacity(0.16, 0.5));
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.11, 0.34) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.07, 0.2) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.07, 0.22) : lensDetailLineOpacity(0.18, 0.58));
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-outline", "line-color", economyCellColorExpression());
-    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.04, 0.16) : lensDetailFillOpacity(0.08, 0.26));
-    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.08, 0.26) : lensDetailLineOpacity(0.1, 0.34));
+    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.08, 0.24) : aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.04, 0.16) : lensDetailFillOpacity(0.08, 0.26));
+    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.08, 0.24) : aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.08, 0.26) : lensDetailLineOpacity(0.1, 0.34));
     setLayerPaintIfPresent("lens-economy-frontage", "line-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-frontage-case", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.42, 0.78) : lensDetailLineOpacity(0.24, 0.58));
     setLayerPaintIfPresent("lens-economy-frontage", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.72, 1) : lensDetailLineOpacity(0.36, 0.92));
@@ -5408,6 +5469,18 @@
     setLayerPaintIfPresent("lens-economy-frontage", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(1.35, 4.8) : lensTraceWidthExpression(1.05, 4.9));
     setLayerPaintIfPresent("lens-utilities-trace", "line-color", utilityTraceColorExpression());
     setLayerPaintIfPresent("lens-utilities-trace", "line-dasharray", activeMapLens().id === "utilities-works" ? [2, 1.2] : [1, 0.0001]);
+  }
+
+  function hasCitywideGuideSummaryForActiveLens() {
+    const lensId = activeMapLens()?.id || state.activeAspect || "";
+    const year = String(currentTimelineYear());
+    return (state.lensGuideFeatureCache?.features || []).some((feature) => {
+      const props = feature?.properties || {};
+      return props.lens_id === lensId
+        && props.kind === "surface_cell"
+        && props.guide_scale === "citywide_summary"
+        && String(props.context_year || "") === year;
+    });
   }
 
   function updateUtilityNetworkLayers() {
@@ -5458,6 +5531,8 @@
       "lens-guide-area-fill": showGuide,
       "lens-guide-area-line": showGuide,
       "lens-guide-ring-line": showRings,
+      "lens-guide-citywide-cell-fill": showCells,
+      "lens-guide-citywide-cell-line": showCells,
       "lens-guide-cell-fill": showCells,
       "lens-guide-cell-line": showCells,
       "lens-guide-parcel-hatch": showCells && lens.id === "planning-parcels",
@@ -5472,6 +5547,10 @@
       "lens-guide-icon-node": showNodes,
     };
     const cellFilter = guideCellLayerFilter(lens);
+    const citywideCellFilter = guideCitywideCellLayerFilter(lens);
+    for (const layerId of ["lens-guide-citywide-cell-fill", "lens-guide-citywide-cell-line"]) {
+      if (state.map.getLayer(layerId)) state.map.setFilter(layerId, citywideCellFilter);
+    }
     for (const layerId of ["lens-guide-cell-fill", "lens-guide-cell-line"]) {
       if (state.map.getLayer(layerId)) state.map.setFilter(layerId, cellFilter);
     }
@@ -5571,7 +5650,7 @@
   }
 
   function guideCellLayerFilter(lens = activeMapLens()) {
-    const base = ["==", ["get", "kind"], "surface_cell"];
+    const base = ["all", ["==", ["get", "kind"], "surface_cell"], ["!=", ["get", "guide_scale"], "citywide_summary"]];
     if (lens?.id === "planning-pressure") {
       const active = activeSublayerIdsForLens(lens);
       return [
@@ -5601,6 +5680,20 @@
           : ["==", ["get", "sublayer_id"], "__none__"],
       ],
     ];
+  }
+
+  function guideCitywideCellLayerFilter(lens = activeMapLens()) {
+    const base = ["all", ["==", ["get", "kind"], "surface_cell"], ["==", ["get", "guide_scale"], "citywide_summary"]];
+    if (lens?.id === "planning-pressure") {
+      const active = [...new Set(["built_environment", ...activeSublayerIdsForLens(lens)])];
+      return [
+        "all",
+        base,
+        ["match", ["get", "sublayer_id"], active, true, false],
+      ];
+    }
+    if (lens?.id === "economy-land-use") return guideSublayerFilter(base, lens);
+    return ["all", base, ["==", ["get", "lens_id"], lens?.id || ""]];
   }
 
   function guideParcelHatchLayerFilter(lens = activeMapLens()) {
@@ -6294,6 +6387,7 @@
     const source = state.map?.getSource(LENS_GUIDE_SOURCE_ID);
     if (!source?.setData) {
       state.lensGuideFeatureCache = emptyFeatureCollection();
+      updateLensDetailLayers();
       renderLensGuideLabels();
       return;
     }
@@ -6302,6 +6396,7 @@
     setLensGuideSourceData(collection);
     if (state.map?.getLayer("lens-guide-flow")) updateLensGuideLayers();
     else renderLensGuideLabels();
+    updateLensDetailLayers();
     renderLayers();
     renderTimeline();
   }
@@ -6338,14 +6433,15 @@
     const year = currentTimelineYear();
     if (!lensCoverageHasDirectMapGeometry(activeLensYearCoverageRow(lens, year))) return emptyFeatureCollection();
     const detailLayer = lens.id === "planning-pressure" ? "planning_cell" : "economy_activity_cell";
-    const features = (state.lensDetailFeatures || [])
+    const detailFeatures = (state.lensDetailFeatures || [])
       .filter((feature) => {
         const props = feature?.properties || {};
         return props.layer === detailLayer
           && Number(props.year || props.visible_year || 0) === year
           && lensDetailFeaturePassesActiveFilters(feature);
-      })
-      .map((feature) => sourceBackedDetailGuideFeature(feature, lens, year))
+      });
+    const features = sourceBackedCitywideGuideFeatures(detailFeatures, lens, year)
+      .concat(detailFeatures.length <= 12 ? detailFeatures.map((feature) => sourceBackedDetailGuideFeature(feature, lens, year)) : [])
       .filter((feature) => guideFeatureHasProvenance(feature, lens));
     return { type: "FeatureCollection", features };
   }
@@ -6421,6 +6517,169 @@
       },
       geometry: feature.geometry,
     };
+  }
+
+  function sourceBackedCitywideGuideFeatures(detailFeatures, lens, year) {
+    if (!detailFeatures.length) return [];
+    const bucketM = citywideGuideBucketMeters(lens);
+    const origin = mapCenter();
+    const buckets = new Map();
+    for (const feature of detailFeatures) {
+      const props = feature?.properties || {};
+      const point = geometryToLngLat(feature?.geometry);
+      if (!point) continue;
+      const eventIds = detailEventIds(props).filter((eventId) => state.eventById.has(eventId));
+      const sourceIds = splitGuidePropertyList(props.source_ids || props.source_id)
+        .filter((sourceId) => state.sourceById.has(sourceId));
+      if (!eventIds.length || !sourceIds.length) continue;
+      const local = lngLatToLocalMeters(point, origin);
+      if (!Number.isFinite(local[0]) || !Number.isFinite(local[1])) continue;
+      const sublayerId = lens.id === "planning-pressure"
+        ? planningPressureDriverKey(props)
+        : economyLandUseCategory(props)?.id || "other_mixed";
+      const bucket = `${Math.round(local[0] / bucketM)}:${Math.round(local[1] / bucketM)}:${sublayerId}`;
+      const entry = buckets.get(bucket) || {
+        bucket,
+        sublayerId,
+        layer: props.layer || "",
+        color: lens.id === "planning-pressure" ? planningDriverColor(sublayerId) : economyLandUseCategory(props)?.color || "#f6e4c2",
+        count: 0,
+        eventCount: 0,
+        sourceCount: 0,
+        weight: 0,
+        sumX: 0,
+        sumY: 0,
+        maxIntensity: 0,
+        eventIds: new Set(),
+        sourceIds: new Set(),
+        sourceUrls: new Set(),
+        generatedFrom: new Set(),
+        confidenceCounts: new Map(),
+        labels: [],
+        caveats: new Set(),
+        timingNotes: new Set(),
+        precision: new Set(),
+      };
+      const intensity = clamp01(Number(props.intensity || 0.35));
+      const eventCount = Math.max(1, Number(props.event_count || eventIds.length || 1));
+      const sourceCount = Math.max(1, Number(props.source_count || sourceIds.length || 1));
+      const weight = Math.max(0.12, intensity) + Math.min(0.9, Math.log1p(eventCount) * 0.18);
+      entry.count += 1;
+      entry.eventCount += eventCount;
+      entry.sourceCount += sourceCount;
+      entry.weight += weight;
+      entry.sumX += local[0] * weight;
+      entry.sumY += local[1] * weight;
+      entry.maxIntensity = Math.max(entry.maxIntensity, intensity);
+      eventIds.slice(0, 18).forEach((eventId) => entry.eventIds.add(eventId));
+      sourceIds.slice(0, 12).forEach((sourceId) => entry.sourceIds.add(sourceId));
+      splitGuidePropertyList(props.source_urls).slice(0, 8).forEach((url) => entry.sourceUrls.add(url));
+      splitGuidePropertyList(props.generated_from).slice(0, 4).forEach((generatedFrom) => entry.generatedFrom.add(generatedFrom));
+      const confidence = props.confidence || "documented";
+      entry.confidenceCounts.set(confidence, (entry.confidenceCounts.get(confidence) || 0) + eventCount);
+      if (props.label || props.title) entry.labels.push(props.label || props.title);
+      if (props.caveat) entry.caveats.add(props.caveat);
+      if (props.timing_note) entry.timingNotes.add(props.timing_note);
+      if (props.geometry_precision_mix) entry.precision.add(props.geometry_precision_mix);
+      buckets.set(bucket, entry);
+    }
+    const features = [...buckets.values()]
+      .map((entry) => sourceBackedCitywideGuideFeature(entry, lens, year, bucketM, origin))
+      .filter(Boolean)
+      .sort((a, b) => Number(b.properties?.score || 0) - Number(a.properties?.score || 0));
+    return features.slice(0, citywideGuideFeatureLimit(lens));
+  }
+
+  function sourceBackedCitywideGuideFeature(entry, lens, year, bucketM, origin) {
+    if (!entry?.eventIds?.size || !entry?.sourceIds?.size || !entry.weight) return null;
+    const center = offsetLngLat(origin, entry.sumX / entry.weight, entry.sumY / entry.weight);
+    const seed = stableUnit(`${entry.bucket}:${lens.id}:${year}`);
+    const countBoost = Math.min(0.16, Math.sqrt(Math.max(1, entry.count)) * 0.026);
+    const intensity = clamp01(0.2 + entry.maxIntensity * 0.46 + Math.min(0.26, Math.log1p(entry.eventCount) * 0.085) + countBoost + seed * 0.035);
+    const halfLong = bucketM * (lens.id === "planning-pressure" ? 0.58 : 0.64) * (0.92 + intensity * 0.18);
+    const halfShort = bucketM * (lens.id === "planning-pressure" ? 0.42 : 0.5) * (0.9 + intensity * 0.16);
+    const angle = (seed - 0.5) * (lens.id === "planning-pressure" ? 0.28 : 0.18);
+    const eventIds = [...entry.eventIds].slice(0, 36);
+    const sourceIds = [...entry.sourceIds].slice(0, 18);
+    const confidence = dominantGuideConfidence(entry.confidenceCounts);
+    const style = lens.id === "planning-pressure" ? "planning_footprint" : "land_use_tile";
+    const label = entry.labels[0] || `${entry.eventCount} source-backed ${lens.label || "lens"} records`;
+    return {
+      type: "Feature",
+      properties: {
+        kind: "surface_cell",
+        lens_id: lens.id,
+        surface_style: style,
+        guide_scale: "citywide_summary",
+        source_kind: "source_backed_lens_detail_aggregate",
+        evidence_role: "selected_year_direct_lens_detail_aggregate",
+        context_year: String(year),
+        detail_layer: entry.layer,
+        event_id: eventIds[0] || "",
+        event_ids: eventIds.join(","),
+        event_ids_all: eventIds.join(","),
+        source_ids: sourceIds.join(","),
+        source_urls: [...entry.sourceUrls].slice(0, 12).join(","),
+        confidence,
+        generated_from: [...entry.generatedFrom].slice(0, 8).join(","),
+        event_count: Math.max(entry.eventCount, eventIds.length),
+        source_count: Math.max(entry.sourceIds.size, Number(entry.sourceCount || 0), sourceIds.length),
+        title: `${Math.max(entry.eventCount, eventIds.length)} source-backed ${lens.label || "lens"} records`,
+        label,
+        timing_note: [...entry.timingNotes][0] || "Filtered by event effective year.",
+        caveat: [...entry.caveats][0] || "Citywide summary cells aggregate source-backed lens detail records; they are not parcel, building, or land-use boundaries.",
+        geometry_precision_mix: [...entry.precision][0] || "Aggregated from source-backed lens detail geometry.",
+        aggregation_note: `Citywide ${Math.round(bucketM)}m evidence-grid summary generated from loaded source-backed lens detail cells.`,
+        direct_evidence_counted: true,
+        headline_count_included: true,
+        sublayer_id: entry.sublayerId,
+        land_use_category: lens.id === "economy-land-use" ? entry.sublayerId : "",
+        planning_status: lens.id === "planning-pressure" ? entry.sublayerId : "",
+        intensity: Number(intensity.toFixed(3)),
+        score: Number((intensity + Math.min(0.2, entry.count * 0.012) + seed * 0.035).toFixed(3)),
+        color: entry.color,
+      },
+      geometry: orientedRectanglePolygon(center, halfLong, halfShort, angle),
+    };
+  }
+
+  function citywideGuideBucketMeters(lens) {
+    const bounds = cityBoundsValues();
+    if (!bounds) return lens?.id === "planning-pressure" ? 560 : 640;
+    const midLat = (bounds.south + bounds.north) / 2;
+    const widthM = lngLatDistanceMeters([bounds.west, midLat], [bounds.east, midLat]);
+    const heightM = lngLatDistanceMeters([(bounds.west + bounds.east) / 2, bounds.south], [(bounds.west + bounds.east) / 2, bounds.north]);
+    const basis = Math.max(widthM, heightM);
+    const divisor = lens?.id === "planning-pressure" ? 74 : 82;
+    const raw = basis / divisor;
+    const min = lens?.id === "planning-pressure" ? 360 : 420;
+    const max = lens?.id === "planning-pressure" ? 1180 : 1050;
+    return Math.max(min, Math.min(max, raw));
+  }
+
+  function citywideGuideFeatureLimit(lens) {
+    if (lens?.id === "planning-pressure") return 1150;
+    if (lens?.id === "economy-land-use") return 1250;
+    return 900;
+  }
+
+  function splitGuidePropertyList(value) {
+    return String(value || "")
+      .split(/[,|]/)
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  function dominantGuideConfidence(counts) {
+    let best = "documented";
+    let bestCount = -1;
+    for (const [confidence, count] of counts || []) {
+      if (count > bestCount) {
+        best = confidence;
+        bestCount = count;
+      }
+    }
+    return best;
   }
 
   function annotateMissingCoverageGuideFeatures(features, lens, year) {
@@ -21225,6 +21484,7 @@
       renderAll();
       updateTimeDependentMapState();
       updateYearControls();
+      await ensureSelectionForCurrentView({ keepCamera: true });
       return;
     }
     state.year = next;
@@ -21245,7 +21505,7 @@
     renderAll();
     updateTimeDependentMapState();
     renderMarkers();
-    if (!state.selectedEvent) await selectFirstVisibleEvent({ keepCamera: true });
+    await ensureSelectionForCurrentView({ keepCamera: true });
   }
 
   async function selectFirstVisibleEvent(opts = {}) {
@@ -21285,6 +21545,28 @@
     state.selectedEventId = null;
     state.selectedEvent = null;
     await selectFirstVisibleEvent(opts);
+  }
+
+  async function ensureSelectionForCurrentView(opts = {}) {
+    const year = Number(state.year);
+    const cityId = state.cityId;
+    const activeLens = state.activeLens;
+    const activeAspect = state.activeAspect;
+    const lensId = activeMapLens()?.id || "";
+    if (!state.loadedEvents.has(year)) {
+      await loadYear(year);
+    }
+    if (
+      state.cityId !== cityId
+      || Number(state.year) !== year
+      || state.activeLens !== activeLens
+      || state.activeAspect !== activeAspect
+      || (activeMapLens()?.id || "") !== lensId
+    ) {
+      return false;
+    }
+    await reconcileSelectionWithFilters(opts);
+    return Boolean(state.selectedEvent && eventMatchesCurrentPrimarySelection(state.selectedEvent));
   }
 
   async function selectEvent(id, opts = {}) {
@@ -21563,7 +21845,7 @@
   // Overlays
   // ---------------------------------------------------------------------------
 
-  function setActiveLens(lensId) {
+  async function setActiveLens(lensId) {
     const next = normalizeMapLensId(lensId);
     if (!next) return;
     const useCitywideCamera = shouldPreferCitywideLensCamera();
@@ -21579,6 +21861,7 @@
         focusActiveLensCamera();
       }
       syncTopline();
+      await ensureSelectionForCurrentView({ keepCamera: true });
       return;
     }
     state.activeLens = next;
@@ -21608,9 +21891,10 @@
       focusActiveLensCamera();
     }
     syncTopline();
+    await ensureSelectionForCurrentView({ keepCamera: true });
   }
 
-  function setActiveAspect(aspectId) {
+  async function setActiveAspect(aspectId) {
     const next = normalizeLensAspectId(aspectId);
     if (!next) return;
     const aspect = LENS_ASPECT_BY_ID.get(next);
@@ -21627,6 +21911,7 @@
         focusActiveLensCamera();
       }
       syncTopline();
+      await ensureSelectionForCurrentView({ keepCamera: true });
       return;
     }
     state.activeAspect = next;
@@ -21658,6 +21943,7 @@
       focusActiveLensCamera();
     }
     syncTopline();
+    await ensureSelectionForCurrentView({ keepCamera: true });
   }
 
   async function setAreaFilter(value) {
