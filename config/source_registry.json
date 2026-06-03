@@ -4607,8 +4607,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2025 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "Planning/listed-building consent is an administrative decision only; it does not confirm works started, works completed, opening, occupation, business operation, visitor numbers, or heritage outcome. The row supports the application decision date and official grid reference only; it is not a surveyed building footprint or curtilage boundary."
-      ]
+        "Planning/listed-building consent is an administrative decision only; it does not confirm works started, works completed, opening, occupation, business operation, visitor numbers, or heritage outcome. The row supports the application decision date and official grid reference only; it is not a surveyed building footprint or curtilage boundary.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round472",
@@ -4634,8 +4638,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/other-consent administrative milestone for listed-building consent, refurbishment and repair works; it does not confirm works started, works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing and should be treated as an approximate site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, garden, streetworks area, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/other-consent administrative milestone for listed-building consent, refurbishment and repair works; it does not confirm works started, works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing and should be treated as an approximate site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, garden, streetworks area, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round477",
@@ -4661,8 +4669,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2025 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/other-consent administrative milestone for multi-block flats refurbishment; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing and should be treated as an approximate site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/other-consent administrative milestone for multi-block flats refurbishment; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing and should be treated as an approximate site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round487",
@@ -4688,8 +4700,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/other-consent administrative milestone for nursery-to-office change of use; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/other-consent administrative milestone for nursery-to-office change of use; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round494",
@@ -4715,8 +4731,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/other-consent administrative milestone for listed-building secondary-window fitting; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/other-consent administrative milestone for listed-building secondary-window fitting; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round499",
@@ -4742,8 +4762,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/other-consent administrative milestone for office-to-guest-accommodation change of use and associated alterations; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/other-consent administrative milestone for office-to-guest-accommodation change of use and associated alterations; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round503",
@@ -4769,8 +4793,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2025 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/other-consent administrative milestone for petrol-station extension, forecourt canopy and associated commercial site works; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/other-consent administrative milestone for petrol-station extension, forecourt canopy and associated commercial site works; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round511",
@@ -4796,8 +4824,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2025 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for residential-home internal, external, roof, dormer, canopy and landscaping works; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for residential-home internal, external, roof, dormer, canopy and landscaping works; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round519",
@@ -4823,8 +4855,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2025 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for private residential refurbishment, rear extensions, bay-window, boundary and related demolition works; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for private residential refurbishment, rear extensions, bay-window, boundary and related demolition works; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round527",
@@ -4850,8 +4886,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2025 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for domestic apartment conversion from one apartment to two apartments; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for domestic apartment conversion from one apartment to two apartments; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round538",
@@ -4877,8 +4917,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2025 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for side/rear demolition with side porch and single-storey rear/side extension; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for side/rear demolition with side porch and single-storey rear/side extension; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round544",
@@ -4904,8 +4948,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for first-floor rear and side residential extension approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for first-floor rear and side residential extension approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round554",
@@ -4931,8 +4979,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for single storey rear extension approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for single storey rear extension approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round560",
@@ -4958,8 +5010,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for proposed single storey rear extension, 2 storey rear extension and enlarged dormer window approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for proposed single storey rear extension, 2 storey rear extension and enlarged dormer window approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round565",
@@ -4985,8 +5041,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2024 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for two storey side extension with pitched roof and juliet balcony to the rear approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for two storey side extension with pitched roof and juliet balcony to the rear approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round569",
@@ -5012,8 +5072,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2025 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for demolition of existing garage and construction of 2 storey garage approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for demolition of existing garage and construction of 2 storey garage approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round577",
@@ -5039,8 +5103,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for single storey side and rear extension to dwelling approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for single storey side and rear extension to dwelling approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round582",
@@ -5066,8 +5134,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2025-2025 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for 2-storey rear extension with single storey side extension approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for 2-storey rear extension with single storey side extension approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round587",
@@ -5093,8 +5165,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2025 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for demolition to sections of dwelling to facilitate single storey rear extension + front porch extensions. alterations to fabric and fenestration of dwelling to include new openings, rendering and single storey car port. attic conversion, landscaping, and associated site works. (amended plans & description) approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for demolition to sections of dwelling to facilitate single storey rear extension + front porch extensions. alterations to fabric and fenestration of dwelling to include new openings, rendering and single storey car port. attic conversion, landscaping, and associated site works. (amended plans & description) approval; it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-planning-statistics-2024-25-round592",
@@ -5120,8 +5196,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "Selected records from 2024-2025 in the Round119 architecture corpus window. DecisionIssuedDate",
       "caveats": [
-        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for roof, dormer, fenestration or external-alteration approval: partial demolition to roof to facilitate loft conversion with dormer. (amended proposal description); it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record."
-      ]
+        "This records an approved planning/listed-building/demolition/other-consent administrative milestone for roof, dormer, fenestration or external-alteration approval: partial demolition to roof to facilitate loft conversion with dormer. (amended proposal description); it does not confirm site works started, physical works completed, opening, occupation, operational use, final built form, funding, public access, heritage condition, service delivery or any outcome. The point is transformed from official planning-statistics Easting/Northing in EPSG:29902 TM65 / Irish Grid and should be treated as an application/site navigation point, not a surveyed footprint, legal red-line boundary, curtilage, room, facade, wall, streetworks area, campus boundary, or works extent. The source row supports the application decision date and administrative decision status only; separate completion/opening evidence would be required for a physical-change corpus record.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "dfi-spd-advertised-applications",
@@ -6490,8 +6570,12 @@
       "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
       "provenance_notes": "2008-01-01 through 2026-05-19; local files cover releases present in data/raw/planning_statistics. ID/Id, DecisionIssuedDate, Authority, LPA19NM, AppType, Classification/AppCategory, StatsCategory, Proposal, SiteAddress/Location, Easting, Northing, Decision_Withdrawal, Status@31Mar, source file and source row number.",
       "caveats": [
-        "Do not treat approval as evidence that development was built, opened, occupied, completed, demolished, delivered, or causally linked to any outcome. Use as candidate evidence for administrative approval milestones only; require duplicate screening and, where physical delivery matters, separate construction/opening/completion evidence before stronger claims. Planning statistics rows are administrative planning records, not direct observations of construction, opening, occupation, completion, demolition completion, or project delivery. The selected date is DecisionIssuedDate from the CSV; DateReceived and DateValid are retained as source fields but are not treated as the effective date of a physical urban change. Coordinates are approximate WGS84 points converted from source Easting/Northing values using the lightweight helper already used by scripts/build_infrastructure_events.js; they are for atlas navigation, not legal boundaries or building footprints. Candidate scoring favours major, mixed-use, civic, commercial, residential, listed-building, demolition/redevelopment, multi-unit, and visible building-work language; false positives and duplicates should be reviewed before any corpus append. Source release coverage is limited to local CSV files available in data/raw/planning_statistics; absence of older annual files does not mean absence of Belfast planning activity."
-      ]
+        "Do not treat approval as evidence that development was built, opened, occupied, completed, demolished, delivered, or causally linked to any outcome. Use as candidate evidence for administrative approval milestones only; require duplicate screening and, where physical delivery matters, separate construction/opening/completion evidence before stronger claims. Planning statistics rows are administrative planning records, not direct observations of construction, opening, occupation, completion, demolition completion, or project delivery. The selected date is DecisionIssuedDate from the CSV; DateReceived and DateValid are retained as source fields but are not treated as the effective date of a physical urban change. Coordinates are approximate WGS84 points converted from source Easting/Northing values using the lightweight helper already used by scripts/build_infrastructure_events.js; they are for atlas navigation, not legal boundaries or building footprints. Candidate scoring favours major, mixed-use, civic, commercial, residential, listed-building, demolition/redevelopment, multi-unit, and visible building-work language; false positives and duplicates should be reviewed before any corpus append. Source release coverage is limited to local CSV files available in data/raw/planning_statistics; absence of older annual files does not mean absence of Belfast planning activity.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
+      ],
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "nisra-statistics",
@@ -13311,7 +13395,8 @@
       "caveats": [
         "Planning statistics are administrative application/decision records, not construction, completion, occupation or public-opening evidence.",
         "Annual/quarterly statistical fields may be month/period precision rather than exact application-event dates.",
-        "Use official statistics as administrative planning records; record release, table, variable dictionary and source row."
+        "Use official statistics as administrative planning records; record release, table, variable dictionary and source row.",
+        "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded; records may support administrative planning evidence without redistributing coordinate geometry."
       ],
       "architecture_inventory": {
         "priority_rank": 1,
@@ -13360,7 +13445,10 @@
           "Expand Belfast application-level annual CSV coverage and preserve row-level variable descriptions.",
           "Link statistics rows to NI Planning Portal records where references align."
         ]
-      }
+      },
+      "map_geometry_status": "withheld_rights_review",
+      "map_geometry_review_required": true,
+      "map_geometry_withheld_reason": "OSNI/LPS mapping-derived coordinates are withheld from generated map geometry until mapping-rights confirmation is recorded."
     },
     {
       "source_id": "belfast-ni-planning-portal",

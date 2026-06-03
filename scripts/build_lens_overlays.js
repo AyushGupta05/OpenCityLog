@@ -4,6 +4,7 @@ const {
   LENS_DEFINITIONS,
   licenseNeedsReview,
   sourceHasMinimumLicense,
+  sourceWithholdsMapGeometry,
 } = require("../lib/atlas-lenses");
 
 const rootDir = path.resolve(__dirname, "..");
@@ -107,6 +108,12 @@ function eventHasCompatibleSources(event, sourceById) {
   const sources = ids.map((sourceId) => sourceById.get(sourceId));
   return sources.length > 0
     && sources.every((source) => sourceHasMinimumLicense(source) && !licenseNeedsReview(source));
+}
+
+function eventHasMapEligibleSources(event, sourceById) {
+  const ids = event.sourceIds || event.source_ids || [];
+  return eventHasCompatibleSources(event, sourceById)
+    && ids.every((sourceId) => !sourceWithholdsMapGeometry(sourceById.get(sourceId)));
 }
 
 function round(value, digits = 3) {
@@ -234,7 +241,7 @@ function loadEvents(city, eventsIndex, sourceById = new Map()) {
       if (!Number.isFinite(year)) continue;
       const confidence = String(event.confidence || "documented").toLowerCase();
       const sourceIds = Array.isArray(event.source_ids) ? event.source_ids : [];
-      if (!eventHasCompatibleSources({ sourceIds }, sourceById)) continue;
+      if (!eventHasMapEligibleSources({ sourceIds }, sourceById)) continue;
       const evidence = Array.isArray(event.evidence) ? event.evidence : [];
       const provenance = event.provenance || {};
       const text = [

@@ -50,8 +50,8 @@
     "category": {"type": "string"},
     "lens": {"type": "string"},
     "geometry": {
-      "type": "object",
-      "description": "GeoJSON geometry in EPSG:4326. Launched atlas events must be spatially inspectable through map geometry and list/evidence paths."
+      "type": ["object", "null"],
+      "description": "GeoJSON geometry in EPSG:4326 when map redistribution is allowed. Null means the event remains inspectable through list/evidence paths while map geometry is withheld or unavailable."
     },
     "affected_area": {
       "type": "object",

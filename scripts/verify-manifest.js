@@ -3,6 +3,7 @@ const path = require("path");
 const {
   licenseNeedsReview,
   sourceHasMinimumLicense,
+  sourceWithholdsMapGeometry,
 } = require("../lib/atlas-lenses");
 
 const rootDir = path.resolve(__dirname, "..");
@@ -87,6 +88,11 @@ function eventHasCompatibleSources(event, sourceById) {
     });
 }
 
+function eventWithholdsMapGeometry(event, sourceById) {
+  const ids = Array.isArray(event?.source_ids) ? event.source_ids : [];
+  return ids.some((sourceId) => sourceWithholdsMapGeometry(sourceById.get(sourceId)));
+}
+
 function compatibleRequiredLensDetailEventIds(eventsManifest, year, requiredIds, sourceById) {
   if (!requiredIds?.length) return [];
   const chunk = (eventsManifest.chunks || []).find((item) => Number(item.year) === Number(year));
@@ -165,7 +171,23 @@ if (atlas) {
         if (eventChunk) {
           assert(Array.isArray(eventChunk.events), `City ${city.city_id} ${chunk.year} chunk must expose events[].`);
           assert(eventChunk.events.length === chunk.event_count, `City ${city.city_id} ${chunk.year} chunk event_count mismatch.`);
-          assert(eventChunk.events.every((event) => event.event_id && event.title && event.year && event.geometry), `City ${city.city_id} ${chunk.year} events need id/title/year/geometry.`);
+          assert(eventChunk.events.every((event) => event.event_id && event.title && event.year), `City ${city.city_id} ${chunk.year} events need id/title/year.`);
+          const eventsWithBadGeometry = eventChunk.events.filter((event) => (
+            eventWithholdsMapGeometry(event, sourceById)
+              ? (event.geometry || (event.geometry_status !== "withheld_rights_review" && event.provenance?.geometry_status !== "withheld_rights_review"))
+              : !event.geometry
+          ));
+          assert(eventsWithBadGeometry.length === 0, `City ${city.city_id} ${chunk.year} events have invalid or undisclosed geometry state.`);
+          const geojson = chunk.geojson_path && exists(chunk.geojson_path) ? readJson(chunk.geojson_path) : null;
+          if (geojson) {
+            const expectedMapFeatureCount = Number.isInteger(chunk.map_feature_count)
+              ? chunk.map_feature_count
+              : Number.isInteger(eventChunk.map_feature_count)
+                ? eventChunk.map_feature_count
+                : eventChunk.events.filter((event) => event.geometry).length;
+            assert(geojson.type === "FeatureCollection", `City ${city.city_id} ${chunk.year} event GeoJSON must be a FeatureCollection.`);
+            assert(Array.isArray(geojson.features) && geojson.features.length === expectedMapFeatureCount, `City ${city.city_id} ${chunk.year} event GeoJSON feature count must match map_feature_count.`);
+          }
         }
       }
 

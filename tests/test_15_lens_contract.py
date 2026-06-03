@@ -241,9 +241,9 @@ if (eventMatchesLens(metroPunctuality, "transport-speed", sourceById)) throw new
             if row.get("lens_slug") == "transport-speed" and row.get("year") == 2024
         )
         self.assertEqual(speed_2024.get("status"), "adjacent_source_backed_records")
-        self.assertFalse(speed_2024.get("visible_map_contract"))
         self.assertEqual(speed_2024.get("direct_event_count"), 0)
-        self.assertGreater(speed_2024.get("event_count"), 0)
+        self.assertEqual(speed_2024.get("map_direct_event_count"), 0)
+        self.assertGreater(speed_2024.get("withheld_geometry_event_count", 0), 0)
 
         roads_path = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "transport_roads_2024.geojson"
         roads = read_json(roads_path)
@@ -254,7 +254,7 @@ if (eventMatchesLens(metroPunctuality, "transport-speed", sourceById)) throw new
         )
         self.assertTrue(roads.get("metadata", {}).get("suppressed"))
 
-    def test_belfast_dfi_2024_25_planning_sources_are_reviewed_ogl_records(self) -> None:
+    def test_belfast_dfi_2024_25_planning_sources_withhold_map_geometry_not_evidence(self) -> None:
         source_registry = read_json(REPO_ROOT / "config" / "source_registry.json")
         sources = [
             source
@@ -265,7 +265,12 @@ if (eventMatchesLens(metroPunctuality, "transport-speed", sourceById)) throw new
         for source in sources:
             with self.subTest(source_id=source.get("source_id")):
                 self.assertFalse(source_needs_review(source))
+                self.assertTrue(source_map_geometry_withheld(source))
                 self.assertIn("Open Government Licence v3.0", source.get("licence", ""))
+                caveats = " ".join(source.get("caveats", []))
+                self.assertIn("OSNI/LPS mapping-derived", caveats)
+                self.assertIn("withheld from generated map geometry", caveats)
+                self.assertNotIn("requires source-level review", caveats.lower())
                 self.assertEqual(
                     source.get("url"),
                     "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
@@ -273,11 +278,15 @@ if (eventMatchesLens(metroPunctuality, "transport-speed", sourceById)) throw new
                 self.assertEqual(source.get("retrieved_at"), "2026-06-03")
                 self.assertEqual(source.get("accessed_at"), "2026-06-03")
 
-    def test_belfast_dfi_planning_2024_2025_generates_source_backed_admin_coverage(self) -> None:
+        ni_source = next(source for source in source_registry.get("sources", []) if source.get("source_id") == "ni-planning-statistics")
+        self.assertFalse(source_needs_review(ni_source))
+        self.assertTrue(source_map_geometry_withheld(ni_source))
+
+    def test_belfast_dfi_planning_2024_2025_stays_out_of_visible_map_geometry(self) -> None:
         coverage = read_json(
             REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "lens_year_coverage.json"
         )
-        for year, expected_minimum in [(2024, 300), (2025, 120)]:
+        for year in [2024, 2025]:
             for lens_slug in ["planning-pressure", "planning-delta", "planning-parcels"]:
                 with self.subTest(year=year, lens_slug=lens_slug):
                     row = next(
@@ -286,14 +295,40 @@ if (eventMatchesLens(metroPunctuality, "transport-speed", sourceById)) throw new
                         if row.get("lens_slug") == lens_slug and row.get("year") == year
                     )
                     self.assertEqual(row.get("status"), "source_backed_records")
-                    self.assertTrue(row.get("visible_map_contract"))
-                    self.assertGreaterEqual(row.get("direct_event_count"), expected_minimum)
-                    self.assertTrue(
-                        any(
-                            source_id.startswith("dfi-planning-statistics-2024-25-round")
-                            for source_id in row.get("source_ids", [])
-                        )
-                    )
+                    self.assertFalse(row.get("visible_map_contract"))
+                    self.assertGreater(row.get("direct_event_count", 0), 0)
+                    self.assertEqual(row.get("map_direct_event_count"), 0)
+                    self.assertEqual(row.get("direct_withheld_geometry_event_count"), row.get("direct_event_count"))
+                    self.assertTrue(row.get("source_ids", []))
+                    self.assertIn("withheld", " ".join(row.get("limitations", [])).lower())
+
+            detail = read_json(
+                REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / f"lens_detail_{year}.geojson"
+            )
+            dfi_features = [
+                feature.get("properties", {}).get("id")
+                for feature in detail.get("features", [])
+                if any(
+                    source_id == "ni-planning-statistics"
+                    or source_id.startswith("dfi-planning-statistics-2024-25-round")
+                    for source_id in source_ids_from_properties(feature.get("properties", {}))
+                )
+            ]
+            self.assertEqual(dfi_features, [])
+
+            geojson = read_json(
+                REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / f"events_{year}.geojson"
+            )
+            dfi_event_features = [
+                feature.get("properties", {}).get("event_id")
+                for feature in geojson.get("features", [])
+                if any(
+                    source_id == "ni-planning-statistics"
+                    or source_id.startswith("dfi-planning-statistics-2024-25-round")
+                    for source_id in source_ids_from_properties(feature.get("properties", {}))
+                )
+            ]
+            self.assertEqual(dfi_event_features, [])
 
         events = read_json(REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json")
         dfi_event = next(
@@ -308,6 +343,14 @@ if (eventMatchesLens(metroPunctuality, "transport-speed", sourceById)) throw new
         self.assertEqual(dfi_event.get("source_date_field"), "DecisionIssuedDate")
         self.assertIn("approval is not evidence", caveats)
         self.assertIn("causal outcomes", caveats)
+        self.assertIn("withheld", caveats)
+        self.assertIsNone(dfi_event.get("geometry"))
+        self.assertEqual(dfi_event.get("geometry_status"), "withheld_rights_review")
+        self.assertEqual(dfi_event.get("provenance", {}).get("geometry_status"), "withheld_rights_review")
+        self.assertEqual(
+            dfi_event.get("provenance", {}).get("source_url"),
+            "https://www.infrastructure-ni.gov.uk/publications/northern-ireland-planning-statistics-april-2024-march-2025",
+        )
 
         dfi_evidence_urls = [
             item.get("url")
@@ -337,9 +380,9 @@ if (eventMatchesLens(metroPunctuality, "transport-speed", sourceById)) throw new
             "NYC PLUTO economy records with secondary transport signals must not be emitted as transport hotspots",
         )
 
-    def test_generated_lens_geometry_excludes_review_required_sources(self) -> None:
+    def test_generated_lens_geometry_excludes_review_required_or_map_withheld_sources(self) -> None:
         detail_paths = {
-            "belfast": ["lens_overlays.geojson", "lens_detail_2015.geojson"],
+            "belfast": ["lens_overlays.geojson", "lens_detail_2015.geojson", "lens_detail_2024.geojson", "lens_detail_2025.geojson"],
             "london": ["lens_overlays.geojson", "lens_detail_1827.geojson"],
             "nyc": ["lens_overlays.geojson", "lens_detail_1811.geojson"],
         }
@@ -357,7 +400,7 @@ if (eventMatchesLens(metroPunctuality, "transport-speed", sourceById)) throw new
                         props = feature.get("properties", {})
                         for source_id in source_ids_from_properties(props):
                             source = sources.get(source_id)
-                            if source and source_needs_review(source):
+                            if source and (source_needs_review(source) or source_map_geometry_withheld(source)):
                                 offenders.append({
                                     "feature_id": props.get("id") or props.get("event_id"),
                                     "source_id": source_id,
@@ -387,6 +430,14 @@ def source_needs_review(source: dict) -> bool:
         if value
     )
     return bool(LICENSE_REVIEW_RE.search(text))
+
+
+def source_map_geometry_withheld(source: dict) -> bool:
+    return (
+        source.get("map_geometry_review_required") is True
+        or source.get("map_geometry_status") == "withheld_rights_review"
+        or source.get("geometry_status") == "withheld_rights_review"
+    )
 
 
 def source_ids_from_properties(props: dict) -> set[str]:

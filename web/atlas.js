@@ -15556,6 +15556,28 @@
     return state.lensYearCoverageByKey.get(`${slug}:${Number(year)}`) || null;
   }
 
+  function lensCoverageDirectEventCount(row) {
+    return Number(row?.direct_compatible_event_count ?? row?.direct_event_count ?? 0);
+  }
+
+  function lensCoverageBroadEventCount(row) {
+    return Number(row?.broad_match_compatible_event_count ?? row?.compatible_event_count ?? row?.event_count ?? 0);
+  }
+
+  function lensCoverageHasDirectRecords(row) {
+    return row?.status === "source_backed_records" && lensCoverageDirectEventCount(row) > 0;
+  }
+
+  function lensCoverageHasDirectMapGeometry(row) {
+    return Boolean(row?.visible_map_contract !== false && Number(row?.map_direct_event_count ?? row?.direct_event_count ?? 0) > 0);
+  }
+
+  function lensCoverageHasWithheldDirectGeometry(row) {
+    return lensCoverageHasDirectRecords(row)
+      && row?.visible_map_contract === false
+      && Number(row?.direct_withheld_geometry_event_count ?? row?.withheld_geometry_event_count ?? 0) > 0;
+  }
+
   function activeTransportLensYearMissing(year = state.year, lens = activeMapLens()) {
     const category = lens?.category || lens?.layerId || state.activeLens;
     if (category !== "transport") return false;
@@ -15577,9 +15599,13 @@
       const label = lens?.label || row.public_label || String(category || "lens").replace(/_/g, " ");
       return `No source-backed ${label} records match ${row.year}. No coverage surface or filler geometry is generated for this lens/year.`;
     }
-    const directCount = Number(row.direct_compatible_event_count ?? row.direct_event_count ?? row.compatible_event_count ?? row.event_count ?? 0);
-    if (row.status === "adjacent_source_backed_records" || row.visible_map_contract === false || directCount <= 0) {
-      const broadCount = Number(row.broad_match_compatible_event_count ?? row.compatible_event_count ?? row.event_count ?? 0);
+    const directCount = lensCoverageDirectEventCount(row);
+    const label = lens?.label || row.public_label || String(category || "lens").replace(/_/g, " ");
+    if (lensCoverageHasWithheldDirectGeometry(row)) {
+      return `${compactNumber(directCount)} direct source-backed ${label} record${directCount === 1 ? "" : "s"} match ${row.year}, but source-derived map geometry is withheld pending rights confirmation. Records remain available in the changelog, evidence panel, and exports; no direct map marks, coverage surface, or filler geometry are generated.`;
+    }
+    if (row.status === "adjacent_source_backed_records" || directCount <= 0) {
+      const broadCount = lensCoverageBroadEventCount(row);
       const label = lens?.label || row.public_label || String(category || "lens").replace(/_/g, " ");
       return `${compactNumber(broadCount)} broad source-backed ${label} match${broadCount === 1 ? "" : "es"} are available for ${row.year}, but none are direct same-category records for this lens/year. No direct map marks, headline counts, coverage surface, or filler geometry are generated.`;
     }
@@ -15591,7 +15617,11 @@
       const label = lens?.label || row?.public_label || String(category || "lens").replace(/_/g, " ");
       return `No ${row?.year || state.year} ${label} records; no filler geometry.`;
     }
-    if (row?.status === "adjacent_source_backed_records" || row?.visible_map_contract === false || Number(row?.direct_event_count ?? row?.event_count ?? 0) <= 0) {
+    if (lensCoverageHasWithheldDirectGeometry(row)) {
+      const label = lens?.label || row?.public_label || String(category || "lens").replace(/_/g, " ");
+      return `${compactNumber(lensCoverageDirectEventCount(row))} ${row?.year || state.year} ${label} records; map geometry withheld.`;
+    }
+    if (row?.status === "adjacent_source_backed_records" || Number(row?.direct_event_count ?? row?.event_count ?? 0) <= 0) {
       const label = lens?.label || row?.public_label || String(category || "lens").replace(/_/g, " ");
       return `Broad ${row?.year || state.year} ${label} matches only; no direct records or filler geometry.`;
     }
@@ -15628,6 +15658,21 @@
     return true;
   }
 
+  function eventSourceIds(event) {
+    return Array.isArray(event?.sourceIds)
+      ? event.sourceIds
+      : Array.isArray(event?.source_ids)
+      ? event.source_ids
+      : [];
+  }
+
+  function eventUsesAnySource(event, sourceIds) {
+    const required = Array.isArray(sourceIds) ? sourceIds : [];
+    if (!required.length) return true;
+    const allowed = new Set(required.map(String));
+    return eventSourceIds(event).some((sourceId) => allowed.has(String(sourceId)));
+  }
+
   function eventExcludedFromLens(event, lens = activeMapLens()) {
     if (!event || !lens) return false;
     const exclusions = [
@@ -15640,10 +15685,13 @@
   function eventMatchesPrimaryLensCoverage(event, lens = activeMapLens(), year = state.year) {
     const row = activeLensYearCoverageRow(lens, year);
     if (row && Object.prototype.hasOwnProperty.call(row, "direct_event_count")) {
-      return row.visible_map_contract !== false
-        && Number(row.direct_event_count || 0) > 0
+      const directSourceIds = Array.isArray(row.direct_source_ids) && row.direct_source_ids.length
+        ? row.direct_source_ids
+        : row.source_ids;
+      return lensCoverageHasDirectRecords(row)
         && eventHasCompatibleSources(event)
-        && eventMatchesDirectLensCategory(event, lens);
+        && eventMatchesDirectLensCategory(event, lens)
+        && eventUsesAnySource(event, directSourceIds);
     }
     return eventMatchesActiveLens(event, lens);
   }
@@ -15654,7 +15702,7 @@
   }
 
   function sourceTextForEvent(event) {
-    return (event.sourceIds || [])
+    return eventSourceIds(event)
       .map((sourceId) => {
         const source = state.sourceById.get(sourceId);
         return [
@@ -15669,6 +15717,8 @@
   }
 
   function sourceNeedsReview(source) {
+    if (source?.source_needs_review === true || source?.needs_review === true) return true;
+    if (source?.source_needs_review === false || source?.needs_review === false) return false;
     const text = [
       source?.licence,
       source?.license,
@@ -15676,7 +15726,7 @@
       source?.license_url,
       source?.caveats && source.caveats.join(" "),
     ].filter(Boolean).join(" ");
-    return /require(?:s)? source-level review|not specified|pending|verify before redistribution|terms vary|review-required|unclear|non[-\s]?commercial|research\/private|private study|review publisher terms|bulk redistribution|formal (?:analytical )?reuse|pending rights review/i.test(text);
+    return /require(?:s)? source-level review|not specified|pending|verify before redistribution|terms vary|review-required|unclear|non[-\s]?commercial|research\/private|private study|review publisher terms|bulk redistribution|formal analytical reuse|pending rights review/i.test(text);
   }
 
   function sourceHasMinimumLicense(source) {
@@ -16504,6 +16554,13 @@
         note: `${lens.label} is disabled in the layer toggles, so its map lens is hidden.`,
       };
     }
+    if (lensCoverageHasWithheldDirectGeometry(yearCoverage)) {
+      return {
+        label: "Records, no map",
+        empty: true,
+        note: lensYearCoverageNote(yearCoverage, lens, category),
+      };
+    }
     if (category === "transport") {
       const directTransportCount = Number(yearCoverage?.direct_event_count ?? yearCoverage?.event_count ?? 0);
       const hasDirectTransportRecords = yearCoverage?.status === "source_backed_records"
@@ -17120,7 +17177,7 @@
     const layer = LAYER_BY_ID.get(category) || LAYERS[0];
     const { before, after } = detailEvidenceYears(event);
     const radiusM = lensEffectiveRadiusM(lens);
-    const center = event?.lngLat || mapCenter();
+    const center = event?.lngLat || null;
     const beforeEvents = lensEvidenceEventsForYear(lens, category, before);
     const currentEvents = lensEvidenceEventsForYear(lens, category, after);
     const nearbyBefore = eventsNear(center, beforeEvents, radiusM);
@@ -17133,6 +17190,7 @@
       currentYear: after,
       radiusM,
       center,
+      spatialContextAvailable: Array.isArray(center),
       beforeEvents,
       currentEvents,
       nearbyBefore,
@@ -19901,6 +19959,15 @@
     const sources = buildSourceRows(e);
     const provenanceFacts = buildProvenanceFacts(e);
 
+    if (!context.spatialContextAvailable) {
+      els.detailInner.innerHTML = renderEvidenceOnlyDetail(e, context, confidence, sources, provenanceFacts);
+      els.detailInner.querySelector(".detail-close")?.addEventListener("click", clearSelection);
+      els.detailInner.querySelector("#detailExportMarkdownAction")?.addEventListener("click", () => exportSelectedMarkdown());
+      els.detailInner.querySelector("#detailShare")?.addEventListener("click", () => copySelectedPermalink());
+      finalizeDetailAccessibility();
+      return;
+    }
+
     if (lens.id === "transport-speed") {
       els.detailInner.innerHTML = renderTransportSpeedDetail(e, context, sources, provenanceFacts);
       els.detailInner.querySelector(".detail-close")?.addEventListener("click", clearSelection);
@@ -20073,19 +20140,110 @@
     wireDetailLensControls(els.detailInner);
     wireEvidenceEventButtons(els.detailInner);
     els.detailInner.querySelector("#detailExportMarkdownAction")?.addEventListener("click", () => exportSelectedMarkdown());
-    els.detailInner.querySelector("#detailShare")?.addEventListener("click", async () => {
-      const url = new URL(window.location.href);
-      url.searchParams.set("city", state.cityId);
-      url.searchParams.set("year", String(state.year));
-      url.searchParams.set("lens", state.activeAspect || state.activeLens);
-      url.searchParams.set("event", state.selectedEventId);
-      state.areaFilter ? url.searchParams.set("area", state.areaFilter) : url.searchParams.delete("area");
-      state.search ? url.searchParams.set("q", state.search) : url.searchParams.delete("q");
-      state.confidenceFilter !== "all" ? url.searchParams.set("confidence", state.confidenceFilter) : url.searchParams.delete("confidence");
-      state.showInferred ? url.searchParams.delete("inferred") : url.searchParams.set("inferred", "0");
-      await copyText(url.toString(), "Event permalink copied");
-    });
+    els.detailInner.querySelector("#detailShare")?.addEventListener("click", () => copySelectedPermalink());
     finalizeDetailAccessibility();
+  }
+
+  function renderEvidenceOnlyDetail(event, context, confidence, sources, provenanceFacts) {
+    const layer = LAYER_BY_ID.get(event.category) || LAYERS[1];
+    const lens = context.lens;
+    return `
+      <div class="detail-head lens-detail-head" style="--accent:${lens.accent || layer.color}">
+        <button class="detail-close" type="button" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+        </button>
+        <div class="detail-eyebrow">Evidence-only record</div>
+        <div class="detail-chip-row">
+          <span class="chip" style="--accent:${lens.accent || layer.color}">${escapeHtml(lens.label)}</span>
+          <span class="chip" style="--accent:${layer.color}">${escapeHtml(layer.label)}</span>
+          <span class="chip neutral">${event.year}</span>
+          <span class="chip neutral">Map geometry withheld</span>
+        </div>
+        <h2 class="detail-title">${escapeHtml(event.title)}</h2>
+        ${event.subtitle ? `<div class="planning-detail-subtitle">${escapeHtml(event.subtitle)}</div>` : ""}
+        <div class="detail-where">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="11" height="11"><path d="M12 22s7-7.5 7-13a7 7 0 10-14 0c0 5.5 7 13 7 13z" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span>${escapeHtml(event.area || "Location not mapped")}</span>
+        </div>
+      </div>
+      <div class="detail-body">
+        <div class="selected-event-card" style="--accent:${lens.accent || layer.color}">
+          <div>
+            <span>Selected event</span>
+            <strong>${escapeHtml(event.shortDescription || event.details || event.summary || event.title)}</strong>
+          </div>
+          <dl>
+            <div><dt>Effective</dt><dd>${escapeHtml(event.effectiveDate || String(event.year))}</dd></div>
+            <div><dt>Confidence</dt><dd>${escapeHtml(confidence.label)}</dd></div>
+            <div><dt>Sources</dt><dd>${eventSourceCount(event)}</dd></div>
+          </dl>
+        </div>
+
+        <div class="detail-section">
+          <h4>Map Geometry</h4>
+          <div class="lens-evidence-note">Source-derived map geometry is withheld for this record pending rights confirmation. The record remains available for changelog review, source inspection, and evidence export, but nearby/radius lens metrics are not generated.</div>
+        </div>
+
+        <div class="detail-section">
+          <h4>Confidence</h4>
+          <div class="confidence">
+            <span class="conf-label" style="color:${confidence.color}">${escapeHtml(confidence.label)}</span>
+            <span class="conf-text">${escapeHtml(confidence.description)}</span>
+          </div>
+        </div>
+
+        ${provenanceFacts.length ? `
+          <div class="detail-section">
+            <h4>Provenance</h4>
+            <div class="provenance-grid">
+              ${provenanceFacts.map((fact) => `
+                <div class="provenance-row">
+                  <span>${escapeHtml(fact.label)}</span>
+                  <strong>${escapeHtml(fact.value)}</strong>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        ` : ""}
+
+        ${sources.length ? `
+          <div class="detail-section">
+            <h4>Sources <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400"> · ${sources.length}</span></h4>
+            ${sources.map(renderSourceRow).join("")}
+          </div>
+        ` : ""}
+
+        ${event.caveats && event.caveats.length ? `
+          <div class="detail-section">
+            <h4>Caveats</h4>
+            <ul class="caveat-list">${event.caveats.map((c) => `<li>${escapeHtml(c)}</li>`).join("")}</ul>
+          </div>
+        ` : ""}
+
+        <div class="detail-actions">
+          <button class="btn" id="detailExportMarkdownAction" style="flex:1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 13h6M9 17h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Export evidence brief
+          </button>
+          <button class="btn btn-icon" id="detailShare" title="Copy permalink" aria-label="Copy selected record permalink">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 11l8-4M8 13l8 4"/></svg>
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  async function copySelectedPermalink() {
+    const url = new URL(window.location.href);
+    url.searchParams.set("city", state.cityId);
+    url.searchParams.set("year", String(state.year));
+    url.searchParams.set("lens", state.activeAspect || state.activeLens);
+    url.searchParams.set("event", state.selectedEventId);
+    state.areaFilter ? url.searchParams.set("area", state.areaFilter) : url.searchParams.delete("area");
+    state.search ? url.searchParams.set("q", state.search) : url.searchParams.delete("q");
+    state.confidenceFilter !== "all" ? url.searchParams.set("confidence", state.confidenceFilter) : url.searchParams.delete("confidence");
+    state.showInferred ? url.searchParams.delete("inferred") : url.searchParams.set("inferred", "0");
+    await copyText(url.toString(), "Event permalink copied");
   }
 
   function finalizeDetailAccessibility() {
@@ -20105,6 +20263,7 @@
       card.innerHTML = renderDetailMeaningCard(event, context);
       body.insertBefore(card, body.firstChild);
     }
+    if (!context.spatialContextAvailable) return;
     if (!body.querySelector(".detail-cross-lens-card")) {
       ensureDetailEvidenceLoaded(event);
       const card = document.createElement("section");
@@ -20171,10 +20330,14 @@
     const sourceCount = eventSourceCount(event);
     const when = event.effectiveDate || String(event.year);
     const summary = event.shortDescription || event.details || event.summary || event.title;
-    const caveat = event.confidence === "inferred"
+    const caveat = !context?.spatialContextAvailable
+      ? "Map geometry is withheld or unavailable for this record. Spatial/radius lens metrics are not generated for it."
+      : event.confidence === "inferred"
       ? "This is an inferred mapped-visibility record. Treat the date as map evidence, not a confirmed construction or opening date."
       : "This is an observed record from public evidence. Nearby lens context is descriptive; it is evidence context only, not a causal claim.";
-    const contextLine = context?.lens
+    const contextLine = !context?.spatialContextAvailable
+      ? "Evidence-only record; map geometry is withheld or unavailable."
+      : context?.lens
       ? `${context.lens.label} shows nearby source-backed records and mapped context within ${formatRadius(context.radiusM)}.`
       : "The active lens shows nearby source-backed records and mapped context.";
     return `
@@ -20226,12 +20389,12 @@
     const lenses = LENS_ASPECTS_BY_CATEGORY.get(layer.id) || [];
     const aspect = lenses[0] || null;
     const radiusM = aspect ? lensEffectiveRadiusM(aspect) : lensEffectiveRadiusM(activeMapLens());
-    const center = event?.lngLat || currentMapCenter();
+    const center = event?.lngLat || null;
     const beforeEvents = loaded ? sourceEventsForLensYear(before, aspect, layer.id) : [];
     const afterEvents = loaded ? sourceEventsForLensYear(after, aspect, layer.id) : [];
-    const beforeNear = loaded ? eventsNear(center, beforeEvents, radiusM).length : null;
-    const afterNear = loaded ? eventsNear(center, afterEvents, radiusM).length : null;
-    const change = loaded ? afterNear - beforeNear : null;
+    const beforeNear = loaded && center ? eventsNear(center, beforeEvents, radiusM).length : null;
+    const afterNear = loaded && center ? eventsNear(center, afterEvents, radiusM).length : null;
+    const change = loaded && center ? afterNear - beforeNear : null;
     return {
       layer,
       aspect,

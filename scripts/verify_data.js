@@ -3,6 +3,7 @@ const path = require("path");
 const {
   licenseNeedsReview,
   sourceHasMinimumLicense,
+  sourceWithholdsMapGeometry,
 } = require("../lib/atlas-lenses");
 
 const CONFIDENCE_VALUES = new Set(["documented", "corroborated", "inferred", "disputed"]);
@@ -565,6 +566,14 @@ function validateEvent(failures, event, city, sourceById, chunkPath) {
     }
   }
 
+  const mapWithheldSourceIds = (event.source_ids || [])
+    .filter((sourceId) => sourceWithholdsMapGeometry(sourceById.get(sourceId)));
+  if (mapWithheldSourceIds.length) {
+    assert(failures, !event.geometry, `${prefix} uses map-withheld source geometry from ${mapWithheldSourceIds.join(", ")}`);
+    assert(failures, event.geometry_status === "withheld_rights_review" || event.provenance?.geometry_status === "withheld_rights_review", `${prefix} missing withheld geometry status`);
+    assert(failures, /withheld|rights/i.test(`${event.map_geometry_withheld_reason || ""} ${(event.caveats || []).join(" ")}`), `${prefix} missing withheld geometry caveat`);
+  }
+
   for (const evidence of event.evidence || []) {
     assert(failures, event.source_ids.includes(evidence.source_id), `${prefix} evidence source ${evidence.source_id} not listed in source_ids`);
     assert(failures, EVIDENCE_KINDS.has(evidence.kind), `${prefix} evidence ${evidence.label || evidence.kind} has invalid kind ${evidence.kind}`);
@@ -673,9 +682,23 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
         const geojson = readJson(geojsonPath);
         assert(failures, geojson.type === "FeatureCollection", `${chunk.geojson_path} is not a FeatureCollection`);
         assert(failures, Array.isArray(geojson.features), `${chunk.geojson_path} missing features`);
-        assert(failures, geojson.features.length === payload.events.length, `${chunk.geojson_path} feature count mismatch`);
+        const expectedMapFeatureCount = Number.isInteger(chunk.map_feature_count)
+          ? chunk.map_feature_count
+          : Number.isInteger(payload.map_feature_count)
+            ? payload.map_feature_count
+            : payload.events.filter((event) => event.geometry).length;
+        const geojsonMapFeatureCount = Object.prototype.hasOwnProperty.call(geojson, "map_feature_count")
+          ? geojson.map_feature_count
+          : geojson.features.length;
+        assert(failures, geojson.features.length === expectedMapFeatureCount, `${chunk.geojson_path} feature count mismatch`);
+        assert(failures, Number(geojsonMapFeatureCount) === expectedMapFeatureCount, `${chunk.geojson_path} map_feature_count mismatch`);
+        assert(failures, Number(chunk.withheld_geometry_event_count || 0) === Number(payload.withheld_geometry_event_count || 0), `${chunk.geojson_path} withheld geometry count differs between index and event JSON`);
         for (const feature of geojson.features || []) {
           assert(failures, geometryIsValid(feature.geometry), `${chunk.geojson_path} has invalid feature geometry`);
+          const event = (payload.events || []).find((item) => item.event_id === (feature.id || feature.properties?.event_id));
+          const mapWithheldSourceIds = (event?.source_ids || [])
+            .filter((sourceId) => sourceWithholdsMapGeometry(effectiveSourceById.get(sourceId)));
+          assert(failures, mapWithheldSourceIds.length === 0, `${chunk.geojson_path} exposes map-withheld source geometry for ${feature.id || feature.properties?.event_id}`);
         }
       }
     }

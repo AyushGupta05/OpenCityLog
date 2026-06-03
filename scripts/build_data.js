@@ -1,5 +1,9 @@
 const fs = require("fs");
 const path = require("path");
+const {
+  licenseNeedsReview,
+  sourceWithholdsMapGeometry,
+} = require("../lib/atlas-lenses");
 
 const DEFAULT_GENERATED_AT = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
 const EVENT_SCHEMA_VERSION = "1.0.0";
@@ -260,7 +264,7 @@ function normalizeSourceForArtifact(source, generatedAt) {
   if (!source.accessed_at && !source.retrieved_at) {
     caveats.push("Exact source retrieval date is not recorded in the legacy source registry; review the linked publisher page before formal reuse.");
   }
-  if (/requires source-level review|verify|terms|dataset-specific/i.test(String(source.licence || ""))) {
+  if (licenseNeedsReview(source)) {
     caveats.push("Licence or terms require source-level review before redistribution or formal analytical reuse.");
   }
   return {
@@ -334,6 +338,56 @@ function evidenceUrlForSource(item, source) {
   return currentUrl;
 }
 
+function provenanceUrlForSources(provenance, sourceIds, sourceById) {
+  const currentUrl = provenance?.source_url || null;
+  if (!currentUrl) return currentUrl;
+  for (const sourceId of sourceIds) {
+    if (!String(sourceId).startsWith("dfi-planning-statistics-2024-25-round")) continue;
+    if (!/\/articles\/planning-activity-statistics\b/.test(currentUrl)) continue;
+    const registryUrl = sourceCanonicalUrl(sourceById.get(sourceId));
+    if (registryUrl) return registryUrl;
+  }
+  return currentUrl;
+}
+
+function eventSourcesWithholdMapGeometry(sourceIds, sourceById) {
+  return (sourceIds || []).some((sourceId) => sourceWithholdsMapGeometry(sourceById.get(sourceId)));
+}
+
+function mapGeometryWithheldReason(sourceIds, sourceById) {
+  const withheldSources = (sourceIds || [])
+    .map((sourceId) => sourceById.get(sourceId))
+    .filter(sourceWithholdsMapGeometry);
+  const sourceLabels = withheldSources
+    .map((source) => source.title || source.source_id)
+    .filter(Boolean)
+    .slice(0, 3)
+    .join("; ");
+  const suffix = sourceLabels ? ` Source(s): ${sourceLabels}.` : "";
+  return `Map geometry is withheld pending OSNI/LPS mapping-rights confirmation; the event remains available as administrative source evidence.${suffix}`;
+}
+
+function withMapGeometryPolicy(event, sourceIds, sourceById) {
+  if (!eventSourcesWithholdMapGeometry(sourceIds, sourceById)) return event;
+  const reason = mapGeometryWithheldReason(sourceIds, sourceById);
+  return {
+    ...event,
+    geometry: null,
+    geometry_status: "withheld_rights_review",
+    map_geometry_status: "withheld_rights_review",
+    map_geometry_withheld_reason: reason,
+    caveats: [...new Set([...(event.caveats || []), reason])],
+    provenance: {
+      ...(event.provenance || {}),
+      geometry_status: "withheld_rights_review",
+      map_geometry_status: "withheld_rights_review",
+      map_geometry_withheld_reason: reason,
+      geometry_source: "Source row includes location fields, but generated atlas map geometry is withheld pending OSNI/LPS mapping-rights confirmation.",
+      geometry_precision: "Map geometry withheld; use affected_area label, source row, and evidence URL for spatial interpretation until coordinate redistribution is cleared.",
+    },
+  };
+}
+
 function enrichEventSourceAccess(event, sourceById) {
   const sourceIds = Array.isArray(event.source_ids) ? event.source_ids : [];
   const exactAccessBySource = new Map();
@@ -346,8 +400,9 @@ function enrichEventSourceAccess(event, sourceById) {
   const firstRegistryReview = event.provenance?.source_registry_reviewed_at
     || sourceIds.map((sourceId) => sourceRegistryReviewedAt(sourceById.get(sourceId))).find(Boolean)
     || null;
+  const canonicalProvenanceUrl = provenanceUrlForSources(event.provenance, sourceIds, sourceById);
 
-  return {
+  const enriched = {
     ...event,
     evidence: (event.evidence || []).map((item) => {
       const source = sourceById.get(item.source_id);
@@ -359,10 +414,12 @@ function enrichEventSourceAccess(event, sourceById) {
     }),
     provenance: {
       ...(event.provenance || {}),
+      ...(canonicalProvenanceUrl ? { source_url: canonicalProvenanceUrl } : {}),
       ...(firstExactAccess ? { source_retrieved_at: firstExactAccess } : {}),
       ...(firstRegistryReview ? { source_registry_reviewed_at: firstRegistryReview } : {}),
     },
   };
+  return withMapGeometryPolicy(enriched, sourceIds, sourceById);
 }
 
 function yearRange(start, end) {
@@ -1236,11 +1293,15 @@ function buildCityArtifacts(root, outputDir, city, citySources, legacyCatalogPat
     const yearEvents = eventsByYear.get(year).sort((a, b) => a.event_id.localeCompare(b.event_id));
     const jsonPath = path.join(cityOutputDir, `events_${year}.json`);
     const geojsonPath = path.join(cityOutputDir, `events_${year}.geojson`);
+    const mapFeatureEvents = yearEvents.filter((event) => event.geometry);
+    const withheldGeometryEventCount = yearEvents.length - mapFeatureEvents.length;
     writeJson(jsonPath, {
       schema_version: ATLAS_SCHEMA_VERSION,
       city_id: city.city_id,
       year,
       event_count: yearEvents.length,
+      map_feature_count: mapFeatureEvents.length,
+      withheld_geometry_event_count: withheldGeometryEventCount,
       events: yearEvents,
     });
     writeJson(geojsonPath, {
@@ -1248,11 +1309,15 @@ function buildCityArtifacts(root, outputDir, city, citySources, legacyCatalogPat
       schema_version: ATLAS_SCHEMA_VERSION,
       city_id: city.city_id,
       year,
-      features: yearEvents.map(featureForEvent),
+      map_feature_count: mapFeatureEvents.length,
+      withheld_geometry_event_count: withheldGeometryEventCount,
+      features: mapFeatureEvents.map(featureForEvent),
     });
     chunks.push({
       year,
       event_count: yearEvents.length,
+      map_feature_count: mapFeatureEvents.length,
+      withheld_geometry_event_count: withheldGeometryEventCount,
       counts_by_category: countBy(yearEvents, (event) => event.category),
       counts_by_confidence: countBy(yearEvents, (event) => event.confidence),
       counts_by_category_confidence: countByPair(yearEvents, (event) => event.category, (event) => event.confidence),

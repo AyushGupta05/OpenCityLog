@@ -10,6 +10,7 @@ const {
   chromium,
   chromiumLaunchOptions,
   clickPin,
+  closeWelcome,
   ensureOutputDir,
   openAtlas,
   outputDir,
@@ -137,6 +138,53 @@ async function assertAdjacentSourceOnlyForAspect(page, { year, aspect, patterns 
   }
 }
 
+async function assertMapWithheldRecordsStayListVisible(page, { city, year, aspect }) {
+  await page.goto(`${atlasUrl}?city=${city}&year=${year}&lens=${aspect}`, { waitUntil: "domcontentloaded", timeout: 30000 });
+  await page.waitForSelector("#map .maplibregl-canvas", { timeout: 45000 });
+  await page.waitForSelector("#activeLensCard", { timeout: 45000 });
+  await page.waitForSelector("#layersList .layer-row", { state: "attached", timeout: 45000 });
+  await page.waitForFunction(
+    () => document.querySelector("#appStatus")?.textContent.trim() === "",
+    null,
+    { timeout: 45000 }
+  );
+  await closeWelcome(page);
+  await page.waitForFunction(
+    ({ targetYear, targetAspect }) => Number(window.BimsAtlas?.state?.year) === targetYear
+      && window.BimsAtlas?.state?.activeAspect === targetAspect
+      && window.BimsAtlas?.state?.lensYearCoverageByKey?.has?.(`${targetAspect}:${targetYear}`)
+      && document.querySelector("#eventList .event-row"),
+    { targetYear: year, targetAspect: aspect },
+    { timeout: 45000 }
+  );
+  const state = await atlasState(page);
+  const legendText = state.lensLegendText.replace(/\s+/g, " ");
+  assert(state.lensYearCoverageStatus === "source_backed_records", `${city} ${aspect} ${year} should retain direct source-backed records, got ${state.lensYearCoverageStatus || "missing"}.`);
+  assert(!state.lensYearCoverageVisible, `${city} ${aspect} ${year} must not expose withheld source coordinates as map-visible geometry.`);
+  assert(state.lensYearCoverageDirectCount > 0, `${city} ${aspect} ${year} should expose direct records for list/evidence review.`);
+  assert(state.lensYearCoverageMapDirectCount === 0, `${city} ${aspect} ${year} should expose no direct map geometry.`);
+  assert(state.lensYearCoverageWithheldCount >= state.lensYearCoverageDirectCount, `${city} ${aspect} ${year} should disclose withheld direct geometry counts.`);
+  assert(state.eventRows > 0, `${city} ${aspect} ${year} withheld-geometry records disappeared from the changelog list.`);
+  assert(state.pinCount === 0, `${city} ${aspect} ${year} withheld-geometry records should not render map pins.`);
+  assert(!/^0\b/.test(state.visibleText), `${city} ${aspect} ${year} visible record count should include list-visible withheld records, got ${state.visibleText}.`);
+  assert(/withheld|rights/i.test(legendText), `${city} ${aspect} ${year} legend did not explain withheld map geometry: ${legendText}`);
+  assert(/changelog|evidence|exports/i.test(legendText), `${city} ${aspect} ${year} legend did not preserve a non-map evidence path: ${legendText}`);
+  await page.locator("#eventList .event-row").first().click();
+  await page.waitForFunction(
+    () => /Map geometry is withheld|Spatial\/radius lens metrics are not generated/i.test(document.querySelector("#detailInner")?.textContent || ""),
+    null,
+    { timeout: 10000 }
+  );
+  const detailState = await page.evaluate(() => ({
+    hasCrossLens: Boolean(document.querySelector("#detailInner .detail-cross-lens-card")),
+    hasLensControls: Boolean(document.querySelector("#detailInner #detailRadius")),
+    text: document.querySelector("#detailInner")?.textContent.replace(/\s+/g, " ").trim() || "",
+  }));
+  assert(!detailState.hasCrossLens, `${city} ${aspect} ${year} withheld-geometry detail rendered cross-lens spatial context.`);
+  assert(!detailState.hasLensControls, `${city} ${aspect} ${year} withheld-geometry detail rendered radius controls.`);
+  assert(/evidence-only|map geometry is withheld/i.test(detailState.text), `${city} ${aspect} ${year} withheld detail did not explain evidence-only handling: ${detailState.text.slice(0, 240)}`);
+}
+
 async function assertNoGapWarningForAspect(page, year, aspectId) {
   await page.evaluate(async ({ targetYear, targetAspect }) => {
     await window.BimsAtlas?.setYear?.(targetYear);
@@ -196,14 +244,23 @@ async function runSmoke() {
       const missing = [];
       const adjacent = [];
       const zeroMissing = [];
+      const mapWithheld = [];
       const contextRows = [];
       const visibleWithoutDirect = [];
+      const unexpectedNonVisible = [];
       for (const aspect of aspects) {
         for (const year of years) {
           const row = state?.lensYearCoverageByKey?.get?.(`${aspect}:${year}`);
           if (!row?.visible_map_contract) missing.push(`${aspect}:${year}:${row?.status || "missing"}`);
           if (row?.status === "adjacent_source_backed_records") adjacent.push(`${aspect}:${year}`);
           if (row?.status === "missing_source_backed_view") zeroMissing.push(`${aspect}:${year}`);
+          if (row?.status === "source_backed_records" && Number(row?.withheld_geometry_event_count || 0) > 0 && Number(row?.map_direct_event_count || 0) === 0) mapWithheld.push(`${aspect}:${year}`);
+          if (!row?.visible_map_contract
+            && row?.status !== "missing_source_backed_view"
+            && row?.status !== "adjacent_source_backed_records"
+            && !(row?.status === "source_backed_records" && Number(row?.withheld_geometry_event_count || 0) > 0 && Number(row?.map_direct_event_count || 0) === 0)) {
+            unexpectedNonVisible.push(`${aspect}:${year}:${row?.status || "missing"}`);
+          }
           if (/context/i.test(row?.status || "") || Number(row?.coverage_context_feature_count || 0) > 0) contextRows.push(`${aspect}:${year}`);
           if (row?.visible_map_contract && Number(row?.direct_event_count || 0) <= 0) visibleWithoutDirect.push(`${aspect}:${year}`);
         }
@@ -214,15 +271,18 @@ async function runSmoke() {
         missing,
         adjacent,
         zeroMissing,
+        mapWithheld,
         contextRows,
         visibleWithoutDirect,
+        unexpectedNonVisible,
       };
     });
   assert(lensYearAudit.aspectCount === 15, "Lens switcher did not expose the 15 mandatory lens aspects.");
   assert(lensYearAudit.rowCount === 300, `Lens-year coverage should expose 300 city rows, got ${lensYearAudit.rowCount}.`);
   assert(lensYearAudit.contextRows.length === 0, `Lens-year coverage still exposes context filler rows: ${lensYearAudit.contextRows.slice(0, 8).join(", ")}`);
   assert(lensYearAudit.visibleWithoutDirect.length === 0, `Lens-year coverage still exposes broad-only rows as visible: ${lensYearAudit.visibleWithoutDirect.slice(0, 8).join(", ")}`);
-  assert(lensYearAudit.missing.length === lensYearAudit.zeroMissing.length + lensYearAudit.adjacent.length, `Non-visible lens rows should be zero-broad or adjacent-evidence only, got ${lensYearAudit.missing.slice(0, 8).join(", ")}`);
+  assert(lensYearAudit.unexpectedNonVisible.length === 0, `Non-visible lens rows should be missing, adjacent-evidence, or disclosed map-withheld records only, got ${lensYearAudit.unexpectedNonVisible.slice(0, 8).join(", ")}`);
+  assert(lensYearAudit.missing.length === lensYearAudit.zeroMissing.length + lensYearAudit.adjacent.length + lensYearAudit.mapWithheld.length, `Non-visible lens rows should be fully classified, got ${lensYearAudit.missing.slice(0, 8).join(", ")}`);
   assert(initial.compareOpen === "false", "Compare panel should start closed.");
   assert(initial.layersCount === "6/6 on", "All paper-atlas layers should be active on first load.");
   assert(initial.detailOpen && initial.detailTitle.length > 8, "Selected event detail panel did not render.");
@@ -333,6 +393,12 @@ async function runSmoke() {
   const afterListClick = await atlasState(page);
   assert(afterListClick.detailTitle.includes(currentListTitle), "Clicking the changelog list did not select the event detail.");
   assert(afterListClick.activePin?.text, "Changelog selection did not activate a map pin.");
+
+  await assertMapWithheldRecordsStayListVisible(page, {
+    city: "belfast",
+    year: 2024,
+    aspect: "planning-pressure",
+  });
 
   await page.close();
   page = await browser.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1, acceptDownloads: true });
@@ -475,7 +541,7 @@ async function runSmoke() {
     },
     {
       id: "civic-access-gaps",
-      required: [/Access-proxy/i, /No generated marks|filler geometry/i],
+      required: [/Access-proxy/i, /No generated marks|filler geometry|not measured travel[- ]time/i],
       forbidden: [/\b15 min\b/i, /<=\s*\d+\s*min/i],
     },
     {
@@ -485,7 +551,7 @@ async function runSmoke() {
     },
     {
       id: "utilities-capacity",
-      required: [/Utility context/i, /No generated marks|filler geometry/i],
+      required: [/Utility context/i, /only aggregate or non-site geometry is available|No generated marks|filler geometry/i],
       forbidden: [/load-risk/i],
     },
   ];

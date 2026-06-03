@@ -340,10 +340,40 @@ async function assertDesktopCitywideCoverage(page) {
         const atlas = window.BimsAtlas;
         const row = atlas?.state?.lensYearCoverageByKey?.get?.(`${atlas?.state?.activeAspect}:${Number(atlas?.state?.year)}`);
         if (row?.visible_map_contract !== false) return true;
-        return /broad source-backed|No direct source-backed|No source-backed/i.test(document.querySelector("#lensLegend")?.textContent || "");
+        return /broad source-backed|No direct source-backed|No source-backed|withheld|rights/i.test(document.querySelector("#lensLegend")?.textContent || "");
       },
       null,
       { timeout: 10000 }
+    );
+    await page.waitForFunction(
+      () => {
+        const state = window.BimsAtlas?.state;
+        if (state?.activeLens !== "transport") return true;
+        const row = state?.lensYearCoverageByKey?.get?.(`${state?.activeAspect}:${Number(state?.year)}`);
+        if (row?.visible_map_contract === false) return true;
+        if (state?.transportRoadFeatureCountYearLoaded !== Number(state?.year)) return false;
+        if (state?.transportRoadFeatureCount !== 0) return true;
+        return /No linework|no generated linework|no filler geometry/i.test(document.querySelector("#lensLegend")?.textContent || "");
+      },
+      null,
+      { timeout: 20000 }
+    );
+    await page.waitForFunction(
+      () => {
+        const state = window.BimsAtlas?.state;
+        if (state?.activeLens !== "transport") return true;
+        if (state?.transportRoadFeatureCountYearLoaded !== Number(state?.year)) return false;
+        if (state?.transportRoadFeatureCount === 0) return true;
+        const map = state?.map;
+        if (!map?.getLayer?.("lens-transport-roads") || map.getLayoutProperty("lens-transport-roads", "visibility") === "none") return false;
+        try {
+          return map.queryRenderedFeatures({ layers: ["lens-transport-roads"] }).length > 0;
+        } catch (_error) {
+          return false;
+        }
+      },
+      null,
+      { timeout: 20000 }
     );
     const state = await atlasState(page);
     assert(state.scrollWidth <= state.clientWidth + 4, `desktop citywide ${lens.id}: page overflows horizontally.`);
@@ -353,7 +383,7 @@ async function assertDesktopCitywideCoverage(page) {
     if (state.lensYearCoverageVisible) {
       assert(state.pinCount > 0 && state.visiblePinCount > 0, `desktop citywide ${lens.id}: map event pins are missing.`);
     } else {
-      assert(/broad source-backed|No direct source-backed|No source-backed/i.test(state.lensLegendText), `desktop citywide ${lens.id}: non-visible lens-year lacks a missing/adjacent evidence warning.`);
+      assert(/broad source-backed|No direct source-backed|No source-backed|withheld|rights/i.test(state.lensLegendText), `desktop citywide ${lens.id}: non-visible lens-year lacks a missing/adjacent/withheld evidence warning.`);
       assert(state.pinCount === 0, `desktop citywide ${lens.id}: non-visible lens-year still rendered ${state.pinCount} event pin(s).`);
     }
     assert(state.zoomButtons === 2, `desktop citywide ${lens.id}: zoom buttons are missing.`);

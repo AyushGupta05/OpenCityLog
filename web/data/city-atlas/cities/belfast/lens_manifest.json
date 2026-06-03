@@ -70,7 +70,7 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 5,
+          "visible_year_count": 3,
           "missing_visible_years": [
             2008,
             2010,
@@ -86,6 +86,8 @@
             2021,
             2022,
             2023,
+            2024,
+            2025,
             2026
           ],
           "source_backed_record_year_count": 5,
@@ -359,7 +361,7 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 5,
+          "visible_year_count": 3,
           "missing_visible_years": [
             2008,
             2010,
@@ -375,6 +377,8 @@
             2021,
             2022,
             2023,
+            2024,
+            2025,
             2026
           ],
           "source_backed_record_year_count": 5,
@@ -648,7 +652,7 @@
             "end": 2026
           },
           "required_year_count": 20,
-          "visible_year_count": 5,
+          "visible_year_count": 3,
           "missing_visible_years": [
             2008,
             2010,
@@ -664,6 +668,8 @@
             2021,
             2022,
             2023,
+            2024,
+            2025,
             2026
           ],
           "source_backed_record_year_count": 5,

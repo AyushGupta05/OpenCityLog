@@ -6,6 +6,7 @@ const {
   eventMatchesLens,
   licenseNeedsReview,
   sourceHasMinimumLicense,
+  sourceWithholdsMapGeometry,
 } = require("../lib/atlas-lenses");
 
 const SCHEMA_VERSION = "1.0.0";
@@ -203,6 +204,12 @@ function eventHasCompatibleSources(event, sourceById) {
   return sources.length > 0 && sources.every((source) => sourceHasMinimumLicense(source) && !licenseNeedsReview(source));
 }
 
+function eventHasMapEligibleSources(event, sourceById) {
+  const sourceIds = event.source_ids || event.sourceIds || [];
+  return eventHasCompatibleSources(event, sourceById)
+    && sourceIds.every((sourceId) => !sourceWithholdsMapGeometry(sourceById.get(sourceId)));
+}
+
 function collectEvents(root, eventsIndex) {
   const events = [];
   for (const chunk of eventsIndex.chunks || []) {
@@ -299,16 +306,22 @@ function yearCoverageStatus(broadEventCount, directEventCount) {
   return "missing_source_backed_view";
 }
 
-function rowLimitations(status, lens, year) {
+function rowLimitations(status, lens, year, visibleMapContract = false, withheldGeometryEventCount = 0) {
   const common = [
     "Counts are source-backed records available in this repo, not a complete census of city change.",
     "Sparse areas remain sparse; no records are generated to create visual density.",
   ];
   if (status === "source_backed_records") {
-    return [
+    const directLimitations = [
       ...common,
       "Direct map marks and headline counts use same-category event geometry and derived lens-detail geometry where available; inspect evidence before reuse.",
     ];
+    if (!visibleMapContract || withheldGeometryEventCount > 0) {
+      directLimitations.push(
+        `${withheldGeometryEventCount} source-backed ${lens.label} record(s) have map geometry withheld for rights review; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces.`,
+      );
+    }
+    return directLimitations;
   }
   if (status === "adjacent_source_backed_records") {
     return [
@@ -336,6 +349,10 @@ function buildLensYearCoverage(root, citySummary, city, eventsIndex, events, sou
         eventMatchesLens(event, lens, sourceById) && eventHasCompatibleSources(event, sourceById)
       ));
       const directCompatibleEvents = compatibleEvents.filter((event) => eventDirectlyMatchesLensCategory(event, lens));
+      const mapEligibleEvents = compatibleEvents.filter((event) => event.geometry && eventHasMapEligibleSources(event, sourceById));
+      const directMapEligibleEvents = directCompatibleEvents.filter((event) => event.geometry && eventHasMapEligibleSources(event, sourceById));
+      const withheldGeometryEventCount = Math.max(0, compatibleEvents.length - mapEligibleEvents.length);
+      const directWithheldGeometryEventCount = Math.max(0, directCompatibleEvents.length - directMapEligibleEvents.length);
       const confidenceCounts = {};
       const eventSourceIds = new Set();
       for (const event of compatibleEvents) {
@@ -348,7 +365,8 @@ function buildLensYearCoverage(root, citySummary, city, eventsIndex, events, sou
       }
       const rawDetailCounts = detailCountsForLens(root, city, lens, year, detailCache, sourceById);
       const status = yearCoverageStatus(compatibleEvents.length, directCompatibleEvents.length);
-      const detailCounts = directCompatibleEvents.length
+      const visibleMapContract = directMapEligibleEvents.length > 0;
+      const detailCounts = visibleMapContract
         ? rawDetailCounts
         : { detail_feature_count: 0, coverage_context_feature_count: 0, source_ids: [] };
       const sourceIds = compatibleEvents.length ? [...eventSourceIds].sort() : [];
@@ -362,10 +380,14 @@ function buildLensYearCoverage(root, citySummary, city, eventsIndex, events, sou
         category: lens.category,
         year,
         required_year: true,
-        visible_map_contract: directCompatibleEvents.length > 0,
+        visible_map_contract: visibleMapContract,
         status,
         event_count: compatibleEvents.length,
         compatible_event_count: compatibleEvents.length,
+        map_event_count: mapEligibleEvents.length,
+        map_direct_event_count: directMapEligibleEvents.length,
+        withheld_geometry_event_count: withheldGeometryEventCount,
+        direct_withheld_geometry_event_count: directWithheldGeometryEventCount,
         broad_match_event_count: compatibleEvents.length,
         broad_match_compatible_event_count: compatibleEvents.length,
         direct_event_count: directCompatibleEvents.length,
@@ -383,7 +405,7 @@ function buildLensYearCoverage(root, citySummary, city, eventsIndex, events, sou
         direct_source_count: directSourceList.length,
         direct_source_ids: directSourceList,
         evidence_basis: compatibleEvents.length
-          ? `Source-backed ${lens.label} event rows in web/data/city-atlas/cities/${citySummary.city_id}/events_${year}.json matched by lib/atlas-lenses.js#eventMatchesLens; ${directCompatibleEvents.length} direct same-category ${lens.category} row(s) matched.`
+          ? `Source-backed ${lens.label} event rows in web/data/city-atlas/cities/${citySummary.city_id}/events_${year}.json matched by lib/atlas-lenses.js#eventMatchesLens; ${directCompatibleEvents.length} direct same-category ${lens.category} row(s) matched; ${directMapEligibleEvents.length} direct row(s) have map-eligible geometry.`
           : `No same-lens source-backed event rows matched for ${year}; no generated filler geometry is emitted.`,
         map_artifacts: {
           events_json: `web/data/city-atlas/cities/${citySummary.city_id}/events_${year}.json`,
@@ -393,7 +415,7 @@ function buildLensYearCoverage(root, citySummary, city, eventsIndex, events, sou
             ? { transport_roads_base: city.artifact_paths.transport_roads_base }
             : {}),
         },
-        limitations: rowLimitations(status, lens, year),
+        limitations: rowLimitations(status, lens, year, visibleMapContract, withheldGeometryEventCount),
         exports: {
           markdown: true,
           csv: true,

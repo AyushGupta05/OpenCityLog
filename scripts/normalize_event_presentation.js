@@ -265,11 +265,19 @@ function normalizeCity(root, cityDir) {
   }
 
   for (const row of chunkRows) {
+    const mapEvents = row.events.filter((event) => event.geometry);
+    const withheldGeometryEventCount = row.events.length - mapEvents.length;
+    row.payload.map_feature_count = mapEvents.length;
+    row.payload.withheld_geometry_event_count = withheldGeometryEventCount;
+    row.chunk.map_feature_count = mapEvents.length;
+    row.chunk.withheld_geometry_event_count = withheldGeometryEventCount;
     writeJson(row.chunkPath, row.payload);
     const geojsonPath = resolve(root, row.chunk.geojson_path);
     if (fs.existsSync(geojsonPath)) {
       const geojson = readJson(geojsonPath);
-      geojson.features = row.events.map(featureForEvent);
+      geojson.map_feature_count = mapEvents.length;
+      geojson.withheld_geometry_event_count = withheldGeometryEventCount;
+      geojson.features = mapEvents.map(featureForEvent);
       writeJson(geojsonPath, geojson);
     }
   }
