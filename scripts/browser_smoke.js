@@ -77,18 +77,49 @@ async function guideSignalState(page) {
     const features = state?.lensGuideFeatureCache?.features || [];
     const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
     const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
+    const citywideScope = Boolean(state?.citywideLensMode) || document.querySelector("#mapStudyChip")?.dataset.scope === "city";
+    const civicContextCanRender = ["civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+      && Boolean(state?.activeLayers?.has?.("civic_services"))
+      && (state?.civicServiceFeatures || []).length > 0
+      && citywideScope
+      && state?.showInferred !== false
+      && !state?.search
+      && !state?.areaFilter;
+    const directCanRender = ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+      && row?.status === "source_backed_records"
+      && row?.visible_map_contract !== false
+      && matchingDetailCount > 0;
     return {
       activeAspect,
-      canRenderGuide: ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
-        && row?.status === "source_backed_records"
-        && row?.visible_map_contract !== false
-        && matchingDetailCount > 0,
+      canRenderGuide: directCanRender || civicContextCanRender,
       guideFeatureCount: features.length,
       rendered,
       invalidFeatureCount: features.filter((feature) => {
         const props = feature?.properties || {};
         const eventIds = splitIds(props.event_ids || props.event_id);
         const sourceIds = splitIds(props.source_ids || props.source_id);
+        const contextFeature = props.source_kind === "current_context"
+          || props.evidence_role === "context_not_year_specific_change_evidence";
+        if (contextFeature) {
+          const objectIds = splitIds(props.source_object_ids || props.source_object_id);
+          return !feature?.geometry
+            || !props.kind
+            || !props.surface_style
+            || props.source_kind !== "current_context"
+            || props.evidence_role !== "context_not_year_specific_change_evidence"
+            || !props.context_year
+            || !props.detail_layer
+            || !props.generated_from
+            || !props.source_urls
+            || !props.confidence
+            || !props.caveat
+            || props.direct_evidence_counted !== false
+            || props.headline_count_included !== false
+            || eventIds.length > 0
+            || !sourceIds.length
+            || !objectIds.length
+            || !sourceIds.every((id) => state?.sourceById?.has?.(id));
+        }
         return !feature?.geometry
           || !props.kind
           || !props.surface_style
@@ -151,14 +182,45 @@ async function assertGeneratedGuideSignal(page, label) {
     const features = state?.lensGuideFeatureCache?.features || [];
     const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
     const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
-    const canRenderGuide = ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+    const citywideScope = Boolean(state?.citywideLensMode) || document.querySelector("#mapStudyChip")?.dataset.scope === "city";
+    const civicContextCanRender = ["civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+      && Boolean(state?.activeLayers?.has?.("civic_services"))
+      && (state?.civicServiceFeatures || []).length > 0
+      && citywideScope
+      && state?.showInferred !== false
+      && !state?.search
+      && !state?.areaFilter;
+    const directCanRender = ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
       && row?.status === "source_backed_records"
       && row?.visible_map_contract !== false
       && matchingDetailCount > 0;
+    const canRenderGuide = directCanRender || civicContextCanRender;
     const invalidFeatureCount = features.filter((feature) => {
       const props = feature?.properties || {};
       const eventIds = splitIds(props.event_ids || props.event_id);
       const sourceIds = splitIds(props.source_ids || props.source_id);
+      const contextFeature = props.source_kind === "current_context"
+        || props.evidence_role === "context_not_year_specific_change_evidence";
+      if (contextFeature) {
+        const objectIds = splitIds(props.source_object_ids || props.source_object_id);
+        return !feature?.geometry
+          || !props.kind
+          || !props.surface_style
+          || props.source_kind !== "current_context"
+          || props.evidence_role !== "context_not_year_specific_change_evidence"
+          || !props.context_year
+          || !props.detail_layer
+          || !props.generated_from
+          || !props.source_urls
+          || !props.confidence
+          || !props.caveat
+          || props.direct_evidence_counted !== false
+          || props.headline_count_included !== false
+          || eventIds.length > 0
+          || !sourceIds.length
+          || !objectIds.length
+          || !sourceIds.every((id) => state?.sourceById?.has?.(id));
+      }
       return !feature?.geometry
         || !props.kind
         || !props.surface_style
@@ -180,9 +242,9 @@ async function assertGeneratedGuideSignal(page, label) {
   }, null, { timeout: 8000 }).catch(() => {});
   const guideState = await guideSignalState(page);
   if (guideState.canRenderGuide) {
-    assert(guideState.guideFeatureCount > 0, `${label}: direct-detail guide cache is empty for ${guideState.activeAspect}.`);
+    assert(guideState.guideFeatureCount > 0, `${label}: guide cache is empty for ${guideState.activeAspect}.`);
     assert(guideState.invalidFeatureCount === 0, `${label}: ${guideState.invalidFeatureCount} guide feature(s) lack provenance fields.`);
-    assert(guideState.rendered > 0, `${label}: direct-detail guide features did not render for ${guideState.activeAspect}.`);
+    assert(guideState.rendered > 0, `${label}: guide features did not render for ${guideState.activeAspect}.`);
     return;
   }
   assert(guideState.guideFeatureCount === 0, `${label}: unsupported guide feature cache is not empty (${guideState.guideFeatureCount}).`);
@@ -664,7 +726,7 @@ async function runSmoke() {
     },
     {
       id: "civic-access-gaps",
-      required: [/Access-proxy/i, /No generated marks|filler geometry|not measured travel[- ]time/i],
+      required: [/Access-proxy/i, /Current mapped civic-service context|No generated marks|filler geometry|not measured travel[- ]time/i],
       forbidden: [/\b15 min\b/i, /<=\s*\d+\s*min/i],
     },
     {

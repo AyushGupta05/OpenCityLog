@@ -53,7 +53,14 @@ async function scrubTo(page, ratio) {
   const page = await browser.newPage({ viewport: { width: 1360, height: 820 }, deviceScaleFactor: 1 });
   const consoleMessages = [];
   const pageErrors = [];
+  const requestFailures = [];
   attachConsoleCapture(page, consoleMessages, pageErrors);
+  page.on("requestfailed", (request) => {
+    requestFailures.push({
+      url: request.url(),
+      errorText: request.failure()?.errorText || "",
+    });
+  });
 
   await openAtlas(page, atlasUrl);
   const defaultState = await atlasState(page);
@@ -95,7 +102,8 @@ async function scrubTo(page, ratio) {
   assert(filtered.visiblePinCount <= late.visiblePinCount, "Layer filtering unexpectedly increased visible pins.");
 
   await browser.close();
-  const tileFetchFailed = consoleMessages.some((message) => /tile\.openstreetmap\.org|AJAXError: Failed to fetch \(0\): https:\/\/tile\.openstreetmap\.org/i.test(message.text));
+  const tileFetchFailed = consoleMessages.some((message) => /tile\.openstreetmap\.org|AJAXError: Failed to fetch \(0\): https:\/\/tile\.openstreetmap\.org/i.test(message.text))
+    || requestFailures.some((failure) => /https:\/\/[abc]\.tile\.openstreetmap\.org|https:\/\/tile\.openstreetmap\.org/i.test(failure.url));
   const actionable = actionableConsoleMessages(consoleMessages).filter((message) => {
     if (/tile\.openstreetmap\.org|AJAXError: Failed to fetch \(0\): https:\/\/tile\.openstreetmap\.org/i.test(message.text)) return false;
     if (tileFetchFailed && /^TypeError: Failed to fetch$/i.test(message.text)) return false;

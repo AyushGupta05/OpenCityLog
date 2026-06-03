@@ -5479,7 +5479,7 @@
       return props.lens_id === lensId
         && props.kind === "surface_cell"
         && props.guide_scale === "citywide_summary"
-        && String(props.context_year || "") === year;
+        && (String(props.context_year || "") === year || props.evidence_role === "context_not_year_specific_change_evidence");
     });
   }
 
@@ -6080,7 +6080,10 @@
   }
 
   function shouldLoadCivicServiceContext() {
-    return activeLensYearAllowsMapContext() && ["civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeMapLens()?.id) && state.activeLayers.has("civic_services");
+    const lens = activeMapLens();
+    return civicContextGuideSupported(lens)
+      && state.activeLayers.has("civic_services")
+      && (activeLensYearAllowsMapContext() || Boolean(civicServiceContextPath()));
   }
 
   function shouldLoadUtilityNetwork() {
@@ -6446,11 +6449,16 @@
     if (!lens || !category || !state.activeLayers.has(category)) return emptyFeatureCollection();
     if (!sourceBackedGuideLensSupported(lens)) return emptyFeatureCollection();
     const year = currentTimelineYear();
-    if (!lensCoverageHasDirectMapGeometry(activeLensYearCoverageRow(lens, year))) return emptyFeatureCollection();
-    const detailFeatures = sourceBackedGuideDetailFeatures(lens, year);
-    const features = sourceBackedCitywideGuideFeatures(detailFeatures, lens, year)
-      .concat(detailFeatures.length <= 12 ? detailFeatures.map((feature) => sourceBackedDetailGuideFeature(feature, lens, year)) : [])
-      .filter((feature) => guideFeatureHasProvenance(feature, lens));
+    const canUseDirectDetail = lensCoverageHasDirectMapGeometry(activeLensYearCoverageRow(lens, year));
+    const detailFeatures = canUseDirectDetail ? sourceBackedGuideDetailFeatures(lens, year) : [];
+    const directFeatures = canUseDirectDetail
+      ? sourceBackedCitywideGuideFeatures(detailFeatures, lens, year)
+        .concat(detailFeatures.length <= 12 ? detailFeatures.map((feature) => sourceBackedDetailGuideFeature(feature, lens, year)) : [])
+        .filter((feature) => guideFeatureHasProvenance(feature, lens))
+      : [];
+    const contextFeatures = civicContextCitywideGuideFeatures(lens, year)
+      .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
+    const features = directFeatures.concat(contextFeatures);
     return { type: "FeatureCollection", features };
   }
 
@@ -6511,6 +6519,22 @@
       .filter(Boolean);
     if (!eventIds.length || !sourceIds.length) return false;
     if (!eventIds.every((eventId) => state.eventById.has(eventId))) return false;
+    if (!sourceIds.every((sourceId) => state.sourceById.has(sourceId))) return false;
+    return true;
+  }
+
+  function guideContextFeatureHasProvenance(feature, lens = activeMapLens()) {
+    if (!feature?.geometry) return false;
+    const props = feature.properties || {};
+    if (props.lens_id !== lens?.id) return false;
+    if (!props.kind || !props.surface_style || !props.source_kind || !props.evidence_role || !props.context_year) return false;
+    if (!props.detail_layer || !props.generated_from || !props.source_urls || !props.confidence || !props.caveat) return false;
+    if (props.source_kind !== "current_context" || props.evidence_role !== "context_not_year_specific_change_evidence") return false;
+    if (props.direct_evidence_counted !== false || props.headline_count_included !== false) return false;
+    if (detailEventIds(props).length) return false;
+    const sourceIds = splitGuidePropertyList(props.source_ids || props.source_id);
+    const sourceObjectIds = splitGuidePropertyList(props.source_object_ids || props.source_object_id);
+    if (!sourceIds.length || !sourceObjectIds.length) return false;
     if (!sourceIds.every((sourceId) => state.sourceById.has(sourceId))) return false;
     return true;
   }
@@ -6690,6 +6714,156 @@
       },
       geometry: orientedRectanglePolygon(center, halfLong, halfShort, angle),
     };
+  }
+
+  function civicContextGuideSupported(lens = activeMapLens()) {
+    return ["civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens?.id);
+  }
+
+  function civicContextGuideCanLoad(lens = activeMapLens()) {
+    return civicContextGuideSupported(lens)
+      && state.activeLayers.has("civic_services")
+      && Boolean(civicServiceContextPath());
+  }
+
+  function civicContextGuideCanRender(lens = activeMapLens()) {
+    if (!civicContextGuideCanLoad(lens)) return false;
+    if (!state.showInferred) return false;
+    if (state.search || state.areaFilter) return false;
+    if (!citywideOverviewActive() && !state.citywideLensMode) return false;
+    if (!sourceBackedGuideLayerVisible(lens)) return false;
+    if (lens?.id === "civic-catchment" && !activeSublayerIdsForLens(lens).length) return false;
+    return true;
+  }
+
+  function civicContextCitywideGuideFeatures(lens, year) {
+    if (!civicContextGuideCanRender(lens)) return [];
+    const anchors = Array.isArray(state.civicServiceFeatures) ? state.civicServiceFeatures : [];
+    if (!anchors.length) return [];
+    const activeServices = lens?.id === "civic-catchment" ? new Set(activeSublayerIdsForLens(lens)) : null;
+    const bucketM = citywideGuideBucketMeters(lens);
+    const origin = mapCenter();
+    const bounds = cityBoundsValues();
+    const buckets = new Map();
+    for (const feature of anchors) {
+      const props = feature?.properties || {};
+      const point = geometryToLngLat(feature?.geometry);
+      if (!point) continue;
+      if (bounds && (point[0] < bounds.west || point[0] > bounds.east || point[1] < bounds.south || point[1] > bounds.north)) continue;
+      const objectId = String(props.source_id || "").trim();
+      if (!objectId) continue;
+      const sublayerId = civicServiceSublayerKey(props);
+      if (activeServices && !activeServices.has(sublayerId)) continue;
+      const local = lngLatToLocalMeters(point, origin);
+      if (!Number.isFinite(local[0]) || !Number.isFinite(local[1])) continue;
+      const bucket = `${Math.round(local[0] / bucketM)}:${Math.round(local[1] / bucketM)}:${sublayerId}`;
+      const entry = buckets.get(bucket) || {
+        bucket,
+        sublayerId,
+        count: 0,
+        weight: 0,
+        sumX: 0,
+        sumY: 0,
+        maxRank: 0,
+        objectIds: new Set(),
+        sourceUrls: new Set(),
+        sourceNames: new Set(),
+        labels: [],
+        caveats: new Set(),
+      };
+      const rank = Math.max(0.5, Number(props.rank || 1));
+      const named = props.label || props.name;
+      const weight = Math.max(0.22, Math.min(1.4, 0.34 + rank * 0.16 + (named ? 0.16 : 0)));
+      entry.count += 1;
+      entry.weight += weight;
+      entry.sumX += local[0] * weight;
+      entry.sumY += local[1] * weight;
+      entry.maxRank = Math.max(entry.maxRank, rank);
+      entry.objectIds.add(objectId);
+      const objectUrl = osmObjectUrl(objectId);
+      if (objectUrl) entry.sourceUrls.add(objectUrl);
+      if (props.source_name) entry.sourceNames.add(props.source_name);
+      if (props.label || props.name) entry.labels.push(props.label || props.name);
+      if (props.caveat) entry.caveats.add(props.caveat);
+      buckets.set(bucket, entry);
+    }
+    return [...buckets.values()]
+      .map((entry) => civicContextCitywideGuideFeature(entry, lens, year, bucketM, origin))
+      .filter(Boolean)
+      .sort((a, b) => Number(b.properties?.score || 0) - Number(a.properties?.score || 0))
+      .slice(0, citywideGuideFeatureLimit(lens));
+  }
+
+  function civicContextCitywideGuideFeature(entry, lens, year, bucketM, origin) {
+    if (!entry?.objectIds?.size || !entry.weight) return null;
+    const center = offsetLngLat(origin, entry.sumX / entry.weight, entry.sumY / entry.weight);
+    const seed = stableUnit(`${entry.bucket}:${lens.id}:civic-context`);
+    const count = Math.max(1, entry.count);
+    const intensity = clamp01(0.16 + Math.min(0.34, Math.log1p(count) * 0.085) + Math.min(0.22, entry.maxRank * 0.045) + seed * 0.04);
+    const halfLong = bucketM * sourceBackedGuideLongScale(lens) * (0.82 + intensity * 0.2);
+    const halfShort = bucketM * sourceBackedGuideShortScale(lens) * (0.78 + intensity * 0.18);
+    const angle = (seed - 0.5) * 0.2;
+    const serviceLabel = civicServiceSublayerLabel(entry.sublayerId);
+    const objectIds = [...entry.objectIds].slice(0, 24);
+    const sourceUrls = [...entry.sourceUrls].slice(0, 12);
+    const generatedFrom = civicServiceContextGeneratedFrom();
+    const caveat = [...entry.caveats][0] || "Current mapped service anchor only; not an official catchment, capacity, opening-date, quality, or entitlement boundary.";
+    return {
+      type: "Feature",
+      properties: {
+        kind: "surface_cell",
+        lens_id: lens.id,
+        surface_style: sourceBackedGuideSurfaceStyle(lens),
+        guide_scale: "citywide_summary",
+        source_kind: "current_context",
+        evidence_role: "context_not_year_specific_change_evidence",
+        context_year: "current_mapped_context",
+        context_data_year: "2026",
+        selected_year: String(year),
+        detail_layer: "civic_service_anchor",
+        event_id: "",
+        event_ids: "",
+        event_count: 0,
+        source_ids: "osm-overpass",
+        source_object_ids: objectIds.join(","),
+        source_urls: sourceUrls.length ? sourceUrls.join(",") : "https://www.openstreetmap.org/copyright",
+        source_names: [...entry.sourceNames].slice(0, 4).join(","),
+        source_count: 1,
+        context_anchor_count: count,
+        confidence: "inferred",
+        generated_from: generatedFrom,
+        title: `${compactNumber(count)} current mapped ${serviceLabel.toLowerCase()} anchor${count === 1 ? "" : "s"}`,
+        label: entry.labels[0]
+          ? `${serviceLabel}: ${truncate(entry.labels[0], 28)}`
+          : `${compactNumber(count)} mapped ${serviceLabel.toLowerCase()} anchors`,
+        timing_note: "Current mapped civic-service context; not selected-year direct change evidence.",
+        caveat: `${caveat} OSM mapped visibility may post-date the selected year, and no demand, service quality, entitlement, or causal impact is inferred.`,
+        geometry_precision_mix: "Aggregated from current mapped civic-service anchor points and source centroids.",
+        aggregation_note: `Citywide ${Math.round(bucketM)}m context-grid summary generated from Belfast civic-service anchors; excluded from headline event totals.`,
+        direct_evidence_counted: false,
+        headline_count_included: false,
+        layer_id: sourceBackedGuideLayerId(lens, entry.sublayerId),
+        sublayer_id: entry.sublayerId,
+        service_type: entry.sublayerId,
+        intensity: Number(intensity.toFixed(3)),
+        score: Number((intensity + Math.min(0.22, count * 0.018) + seed * 0.035).toFixed(3)),
+        color: sourceBackedGuideColor(entry.sublayerId, lens),
+      },
+      geometry: orientedRectanglePolygon(center, halfLong, halfShort, angle),
+    };
+  }
+
+  function civicServiceContextGeneratedFrom() {
+    const loaded = state.civicServiceFeaturesPathLoaded || civicServiceContextPath();
+    if (!loaded) return "";
+    if (/^\/data\//.test(loaded)) return `web${loaded}`;
+    return String(loaded).replace(/^\//, "");
+  }
+
+  function osmObjectUrl(objectId) {
+    const [type, id] = String(objectId || "").split("/");
+    if (!/^(node|way|relation)$/.test(type || "") || !/^\d+$/.test(id || "")) return "";
+    return `https://www.openstreetmap.org/${type}/${id}`;
   }
 
   function citywideGuideBucketMeters(lens) {
@@ -16059,6 +16233,9 @@
     if (!row) return "";
     if (row.status === "missing_source_backed_view" || Number(row.event_count || 0) <= 0) {
       const label = lens?.label || row.public_label || String(category || "lens").replace(/_/g, " ");
+      if (civicContextGuideCanRender(lens)) {
+        return `No direct source-backed ${label} records match ${row.year}. Current mapped civic-service context may be shown separately as non-headline context; it is not selected-year change evidence, and no filler geometry or direct coverage surface is generated.`;
+      }
       return `No source-backed ${label} records match ${row.year}. No coverage surface or filler geometry is generated for this lens/year.`;
     }
     const directCount = lensCoverageDirectEventCount(row);
@@ -16069,6 +16246,9 @@
     if (row.status === "adjacent_source_backed_records" || directCount <= 0) {
       const broadCount = lensCoverageBroadEventCount(row);
       const label = lens?.label || row.public_label || String(category || "lens").replace(/_/g, " ");
+      if (civicContextGuideCanRender(lens)) {
+        return `${compactNumber(broadCount)} broad source-backed ${label} match${broadCount === 1 ? "" : "es"} are available for ${row.year}, but none are direct same-category records for this lens/year. Current mapped civic-service context may be shown separately as non-headline context; no direct map marks, headline counts, coverage surface, or filler geometry are generated.`;
+      }
       return `${compactNumber(broadCount)} broad source-backed ${label} match${broadCount === 1 ? "" : "es"} are available for ${row.year}, but none are direct same-category records for this lens/year. No direct map marks, headline counts, coverage surface, or filler geometry are generated.`;
     }
     return `${compactNumber(directCount)} direct source-backed ${lens?.label || "lens"} record${directCount === 1 ? "" : "s"} match ${row.year}; broad matches, confidence, limitations, sources, licences, and transform notes are in the evidence panel and exports.`;
@@ -16077,6 +16257,7 @@
   function compactLensYearCoverageNote(row = activeLensYearCoverageRow(), lens = activeMapLens(), category = lens?.category || lens?.layerId || state.activeLens) {
     if (row?.status === "missing_source_backed_view" || Number(row?.event_count || 0) <= 0) {
       const label = lens?.label || row?.public_label || String(category || "lens").replace(/_/g, " ");
+      if (civicContextGuideCanRender(lens)) return `No direct ${row?.year || state.year} ${label} records; current context only.`;
       return `No ${row?.year || state.year} ${label} records; no filler geometry.`;
     }
     if (lensCoverageHasWithheldDirectGeometry(row)) {
@@ -16085,6 +16266,7 @@
     }
     if (row?.status === "adjacent_source_backed_records" || Number(row?.direct_event_count ?? row?.event_count ?? 0) <= 0) {
       const label = lens?.label || row?.public_label || String(category || "lens").replace(/_/g, " ");
+      if (civicContextGuideCanRender(lens)) return `Broad ${row?.year || state.year} ${label} matches only; current context is non-headline.`;
       return `Broad ${row?.year || state.year} ${label} matches only; no direct records or filler geometry.`;
     }
     return "";
@@ -17080,6 +17262,14 @@
     if (category === "civic_services") {
       const count = lensPointCount(category);
       const renderableCount = lensRenderablePointCount(category);
+      if (!count && civicContextGuideCanRender(lens)) {
+        const anchorCount = state.civicServiceFeatures.length;
+        return {
+          label: anchorCount ? `${compactNumber(anchorCount)} context anchors` : "Context loading",
+          empty: !anchorCount,
+          note: missingSameCategoryCoverageNote(lens, category),
+        };
+      }
       if (lens.id === "civic-catchment") {
         const anchorCount = state.civicServiceFeatures.length;
         if (anchorCount && !count) {
@@ -17183,6 +17373,9 @@
       ? ` Coverage metadata has ${compactNumber(compatibleCount)} broad lens match${compatibleCount === 1 ? "" : "es"}, but none are direct ${label} records for this lens/year.`
       : "";
     const prefix = `No direct source-backed ${label} records match ${year} for this lens.`;
+    if (civicContextGuideCanRender(lens)) {
+      return `${prefix}${broadOnly} Current mapped civic-service context may be shown separately as non-headline context; it is not selected-year change evidence, and no direct map marks, headline counts, or filler geometry are generated.`;
+    }
     return `${prefix}${broadOnly} No generated marks, context surfaces, or filler geometry are shown for this lens/year.`;
   }
 
@@ -17194,6 +17387,7 @@
       economy: lens?.id === "economy-land-use" ? "land-use-specific economy" : "economy",
       utilities: "utility",
     }[category] || "lens";
+    if (civicContextGuideCanRender(lens)) return `No direct source-backed ${year} ${label} records; current context only.`;
     return `No direct source-backed ${year} ${label} records; no filler geometry.`;
   }
 

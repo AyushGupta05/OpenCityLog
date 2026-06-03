@@ -494,6 +494,8 @@ async function assertDesktopCitywideCoverage(page) {
         ? "planning_cell"
         : activeAspect === "economy-land-use"
         ? "economy_activity_cell"
+        : ["civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+        ? "civic_coverage_cell"
         : "";
       const matchingDetailCount = detailLayerForGuide
         ? (atlas?.state?.lensDetailFeatures || []).filter((feature) => {
@@ -501,16 +503,47 @@ async function assertDesktopCitywideCoverage(page) {
           return props.layer === detailLayerForGuide && Number(props.year || props.visible_year || 0) === Number(atlas?.state?.year);
         }).length
         : 0;
-      const canRenderGuide = ["planning-pressure", "economy-land-use"].includes(activeAspect)
+      const directCanRenderGuide = ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
         && activeCoverageRow?.status === "source_backed_records"
         && activeCoverageRow?.visible_map_contract !== false
         && matchingDetailCount > 0;
+      const citywideScope = Boolean(atlas?.state?.citywideLensMode) || document.querySelector("#mapStudyChip")?.dataset.scope === "city";
+      const civicContextCanRenderGuide = ["civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+        && Boolean(atlas?.state?.activeLayers?.has?.("civic_services"))
+        && (atlas?.state?.civicServiceFeatures || []).length > 0
+        && citywideScope
+        && atlas?.state?.showInferred !== false
+        && !atlas?.state?.search
+        && !atlas?.state?.areaFilter;
+      const canRenderGuide = directCanRenderGuide || civicContextCanRenderGuide;
       const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
       const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
       const invalidGuideCount = guideFeatures.filter((feature) => {
         const props = feature?.properties || {};
         const eventIds = splitIds(props.event_ids || props.event_id);
         const sourceIds = splitIds(props.source_ids || props.source_id);
+        const contextFeature = props.source_kind === "current_context"
+          || props.evidence_role === "context_not_year_specific_change_evidence";
+        if (contextFeature) {
+          const objectIds = splitIds(props.source_object_ids || props.source_object_id);
+          return !feature?.geometry
+            || !props.kind
+            || !props.surface_style
+            || props.source_kind !== "current_context"
+            || props.evidence_role !== "context_not_year_specific_change_evidence"
+            || !props.context_year
+            || !props.detail_layer
+            || !props.generated_from
+            || !props.source_urls
+            || !props.confidence
+            || !props.caveat
+            || props.direct_evidence_counted !== false
+            || props.headline_count_included !== false
+            || eventIds.length > 0
+            || !sourceIds.length
+            || !objectIds.length
+            || !sourceIds.every((id) => atlas?.state?.sourceById?.has?.(id));
+        }
         return !feature?.geometry
           || !props.kind
           || !props.surface_style
@@ -582,9 +615,9 @@ async function assertDesktopCitywideCoverage(page) {
     });
     assert(/Citywide extent/i.test(citywideState.chip), `desktop citywide ${lens.id}: citywide chip is not visible.`);
     if (citywideState.canRenderGuide) {
-      assert(citywideState.guideFeatureCount > 0, `desktop citywide ${lens.id}: direct-detail guide cache is empty.`);
-      assert(citywideState.invalidGuideCount === 0, `desktop citywide ${lens.id}: direct-detail guide has ${citywideState.invalidGuideCount} feature(s) missing provenance fields.`);
-      assert(citywideState.renderedGuides > 0, `desktop citywide ${lens.id}: direct-detail guide did not render.`);
+      assert(citywideState.guideFeatureCount > 0, `desktop citywide ${lens.id}: guide cache is empty.`);
+      assert(citywideState.invalidGuideCount === 0, `desktop citywide ${lens.id}: guide has ${citywideState.invalidGuideCount} feature(s) missing provenance fields.`);
+      assert(citywideState.renderedGuides > 0, `desktop citywide ${lens.id}: guide did not render.`);
     } else {
       assert(citywideState.guideFeatureCount === 0, `desktop citywide ${lens.id}: unsupported guide cache has ${citywideState.guideFeatureCount} features.`);
       assert(citywideState.renderedGuides === 0, `desktop citywide ${lens.id}: unsupported guide layers rendered ${citywideState.renderedGuides} features.`);
@@ -771,10 +804,33 @@ async function directGuideState(page) {
     const guideFeatures = state?.lensGuideFeatureCache?.features || [];
     const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
     const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
+    const citywideScope = Boolean(state?.citywideLensMode) || document.querySelector("#mapStudyChip")?.dataset.scope === "city";
     const invalidGuideCount = guideFeatures.filter((feature) => {
       const props = feature?.properties || {};
       const eventIds = splitIds(props.event_ids || props.event_id);
       const sourceIds = splitIds(props.source_ids || props.source_id);
+      const contextFeature = props.source_kind === "current_context"
+        || props.evidence_role === "context_not_year_specific_change_evidence";
+      if (contextFeature) {
+        const objectIds = splitIds(props.source_object_ids || props.source_object_id);
+        return !feature?.geometry
+          || !props.kind
+          || !props.surface_style
+          || props.source_kind !== "current_context"
+          || props.evidence_role !== "context_not_year_specific_change_evidence"
+          || !props.context_year
+          || !props.detail_layer
+          || !props.generated_from
+          || !props.source_urls
+          || !props.confidence
+          || !props.caveat
+          || props.direct_evidence_counted !== false
+          || props.headline_count_included !== false
+          || eventIds.length > 0
+          || !sourceIds.length
+          || !objectIds.length
+          || !sourceIds.every((id) => state?.sourceById?.has?.(id));
+      }
       return !feature?.geometry
         || !props.kind
         || !props.surface_style
@@ -794,10 +850,17 @@ async function directGuideState(page) {
     return {
       activeAspect,
       year,
-      canRenderGuide: ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+      canRenderGuide: (["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
         && row?.status === "source_backed_records"
         && row?.visible_map_contract !== false
-        && matchingDetailCount > 0,
+        && matchingDetailCount > 0)
+        || (["civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+          && Boolean(state?.activeLayers?.has?.("civic_services"))
+          && (state?.civicServiceFeatures || []).length > 0
+          && citywideScope
+          && state?.showInferred !== false
+          && !state?.search
+          && !state?.areaFilter),
       guideFeatureCount: guideFeatures.length,
       renderedGuides,
       invalidGuideCount,
@@ -827,10 +890,10 @@ async function assertDirectGuideSurface(page, label, { expected }) {
   }
   const state = await directGuideState(page);
   if (expected) {
-    assert(state.canRenderGuide, `${label}: direct guide was not eligible for ${state.activeAspect} ${state.year}.`);
-    assert(state.guideFeatureCount > 0, `${label}: direct guide cache is empty.`);
-    assert(state.renderedGuides > 0, `${label}: direct guide did not render.`);
-    assert(state.invalidGuideCount === 0, `${label}: direct guide has ${state.invalidGuideCount} invalid feature(s).`);
+    assert(state.canRenderGuide, `${label}: guide was not eligible for ${state.activeAspect} ${state.year}.`);
+    assert(state.guideFeatureCount > 0, `${label}: guide cache is empty.`);
+    assert(state.renderedGuides > 0, `${label}: guide did not render.`);
+    assert(state.invalidGuideCount === 0, `${label}: guide has ${state.invalidGuideCount} invalid feature(s).`);
     return;
   }
   assert(state.guideFeatureCount === 0, `${label}: non-eligible guide cache has ${state.guideFeatureCount} feature(s).`);
