@@ -15636,17 +15636,14 @@
     if (event.category === LENS_CATEGORY_BY_GROUP[group]) return true;
     const eventLens = String(event.lens || "").toLowerCase();
     if (LENS_GROUP_SIGNALS[group]?.has(eventLens)) return true;
-    const signals = Array.isArray(event.affectedSignals) ? event.affectedSignals : [];
+    const signals = Array.isArray(event.affectedSignals)
+      ? event.affectedSignals
+      : Array.isArray(event.affected_signals)
+      ? event.affected_signals
+      : [];
     if (signals.some((signal) => LENS_GROUP_SIGNALS[group]?.has(String(signal).toLowerCase()))) return true;
-    const haystack = [
-      event.category,
-      event.lens,
-      event.title,
-      event.shortDescription,
-      event.summary,
-      sourceTextForEvent(event),
-    ].filter(Boolean).join(" ");
-    return Boolean(LENS_GROUP_PATTERNS[group]?.test(haystack));
+    const sourceEvidence = sourceTextForEvent(event);
+    return Boolean(sourceEvidence && LENS_GROUP_PATTERNS[group]?.test(sourceEvidence));
   }
 
   function eventMatchesDirectLensCategory(event, lens = activeMapLens()) {
@@ -21393,18 +21390,27 @@
   function ensureSelectionFitsActiveLens() {
     const lens = activeMapLens();
     const category = lens?.category || lens?.layerId || state.activeLens;
-    if (!category || !state.loadedEvents.has(state.year)) return;
+    if (!category) return;
+    const clearSelectionState = () => {
+      state.selectedEventId = null;
+      state.selectedEvent = null;
+      state.pendingCameraFocusEventId = null;
+    };
+    if (!state.loadedEvents.has(state.year)) {
+      if (state.selectedEvent && !eventMatchesCurrentPrimarySelection(state.selectedEvent)) clearSelectionState();
+      return;
+    }
     const events = visibleEventsForYear(state.year);
     if (state.selectedEvent?.year === state.year && events.some((event) => event.id === state.selectedEvent.id)) return;
     const next = events.find((event) => event.category === category && event.confidence === "documented" && event.lngLat)
       || events.find((event) => event.category === category && event.lngLat);
     if (!next) {
-      state.selectedEventId = null;
-      state.selectedEvent = null;
+      clearSelectionState();
       return;
     }
     state.selectedEventId = next.id;
     state.selectedEvent = next;
+    state.pendingCameraFocusEventId = null;
   }
 
   // ---------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_city_manifest",
-  "generated_at": "2026-06-03T19:45:00Z",
+  "generated_at": "2026-06-03T21:25:00Z",
   "city_id": "london",
   "display_name": "London, England",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -45,18 +45,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 51867,
-        "compatible_event_count": 51867,
+        "event_count": 51712,
+        "compatible_event_count": 51712,
         "review_required_event_count": 0,
-        "source_count": 29,
-        "compatible_source_count": 29,
+        "source_count": 27,
+        "compatible_source_count": 27,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1951,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 51863,
+          "documented": 51708,
           "corroborated": 4
         },
         "caveats": [
@@ -65,7 +65,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 53149,
+        "excluded_review_required_event_count": 53146,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -80,9 +80,9 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-27",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1951-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Planning Data collector / local-authority update cadence"
       },
       "provenance": {
         "source_ids": [
@@ -112,9 +112,7 @@
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "planning-data-conservation-area",
-          "planning-inspectorate-appeal-decisions",
-          "police-data-api",
-          "uk_parliament_hansard_thames_tideway_2013"
+          "planning-inspectorate-appeal-decisions"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
@@ -143,9 +141,7 @@
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "planning-data-conservation-area",
-          "planning-inspectorate-appeal-decisions",
-          "police-data-api",
-          "uk_parliament_hansard_thames_tideway_2013"
+          "planning-inspectorate-appeal-decisions"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -331,18 +327,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 51867,
-        "compatible_event_count": 51867,
+        "event_count": 51712,
+        "compatible_event_count": 51712,
         "review_required_event_count": 0,
-        "source_count": 29,
-        "compatible_source_count": 29,
+        "source_count": 27,
+        "compatible_source_count": 27,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1951,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 51863,
+          "documented": 51708,
           "corroborated": 4
         },
         "caveats": [
@@ -351,7 +347,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 53149,
+        "excluded_review_required_event_count": 53146,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -366,9 +362,9 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-27",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1951-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Planning Data collector / local-authority update cadence"
       },
       "provenance": {
         "source_ids": [
@@ -398,9 +394,7 @@
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "planning-data-conservation-area",
-          "planning-inspectorate-appeal-decisions",
-          "police-data-api",
-          "uk_parliament_hansard_thames_tideway_2013"
+          "planning-inspectorate-appeal-decisions"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
@@ -429,9 +423,7 @@
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "planning-data-conservation-area",
-          "planning-inspectorate-appeal-decisions",
-          "police-data-api",
-          "uk_parliament_hansard_thames_tideway_2013"
+          "planning-inspectorate-appeal-decisions"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -617,18 +609,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 51867,
-        "compatible_event_count": 51867,
+        "event_count": 51712,
+        "compatible_event_count": 51712,
         "review_required_event_count": 0,
-        "source_count": 29,
-        "compatible_source_count": 29,
+        "source_count": 27,
+        "compatible_source_count": 27,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1951,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 51863,
+          "documented": 51708,
           "corroborated": 4
         },
         "caveats": [
@@ -637,7 +629,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 53149,
+        "excluded_review_required_event_count": 53146,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -652,9 +644,9 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-05-27",
+        "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1951-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Planning Data collector / local-authority update cadence"
       },
       "provenance": {
         "source_ids": [
@@ -684,9 +676,7 @@
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "planning-data-conservation-area",
-          "planning-inspectorate-appeal-decisions",
-          "police-data-api",
-          "uk_parliament_hansard_thames_tideway_2013"
+          "planning-inspectorate-appeal-decisions"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
@@ -715,9 +705,7 @@
           "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "planning-data-conservation-area",
-          "planning-inspectorate-appeal-decisions",
-          "police-data-api",
-          "uk_parliament_hansard_thames_tideway_2013"
+          "planning-inspectorate-appeal-decisions"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -903,18 +891,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 58895,
-        "compatible_event_count": 58895,
+        "event_count": 41928,
+        "compatible_event_count": 41928,
         "review_required_event_count": 0,
-        "source_count": 22,
-        "compatible_source_count": 22,
+        "source_count": 15,
+        "compatible_source_count": 15,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1959,
+          "start": 1964,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 58895
+          "documented": 41928
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -922,7 +910,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 33484,
+        "excluded_review_required_event_count": 19637,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -946,57 +934,43 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-20",
-        "source_coverage_period": "1959-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; Monthly."
+        "source_coverage_period": "1964-2026",
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source-specific publication/update cadence; The API catalogue states that NHLE data is updated daily."
       },
       "provenance": {
         "source_ids": [
           "camden-local-list-open-data",
-          "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
           "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-listed-building-points-round215",
           "historic-england-nhle-open-data-round294-tail2",
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
-          "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
-          "lon-extra-uk-house-price-index",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
-          "planning-inspectorate-appeal-decisions",
-          "police-data-api",
-          "police-data-stop-search"
+          "planning-inspectorate-appeal-decisions"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
-          "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
           "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-listed-building-points-round215",
           "historic-england-nhle-open-data-round294-tail2",
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
-          "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
-          "lon-extra-uk-house-price-index",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
-          "planning-inspectorate-appeal-decisions",
-          "police-data-api",
-          "police-data-stop-search"
+          "planning-inspectorate-appeal-decisions"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -1008,19 +982,6 @@
             "licence": "Camden open-data metadata says data is derived from Ordnance Survey products under the Public Sector Geospatial Agreement; retain Camden and OS attribution.",
             "licence_url": "https://opendata.camden.gov.uk/",
             "attribution_text": "London Borough of Camden",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfe-gias-establishment-register",
-            "title": "Get Information About Schools establishment extract",
-            "publisher": "Department for Education",
-            "source_family": "planning",
-            "licence": "GOV.UK/GIAS public data is available under Open Government Licence v3.0 except where otherwise stated.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Department for Education",
             "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
@@ -1092,19 +1053,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "historic-england-nhle-listed-building-points-round215",
-            "title": "National Heritage List for England (NHLE) listed-building points",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "historic-england-nhle-open-data-round294-tail2",
             "title": "National Heritage List for England (NHLE) open data",
             "publisher": "Historic England",
@@ -1152,6 +1100,32 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Food Standards Agency",
             "accessed_at": "2026-05-08T00:00:00+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "lon-extra-planning-data-tree-preservation-zones",
+            "title": "Planning Data: Tree Preservation Zones",
+            "publisher": "DLUHC Planning Data",
+            "source_family": "trees",
+            "licence": "Open Government Licence v3.0 unless the Planning Data service indicates otherwise.",
+            "licence_url": "https://www.planning.data.gov.uk/terms-and-conditions",
+            "attribution_text": "DLUHC Planning Data",
+            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "london-development-database-archive",
+            "title": "Planning permissions on the London Development Database (LDD)",
+            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "source_family": "significant_public_or_mixed_use_completion_record",
+            "licence": "UK Open Government Licence (OGL v3)",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1182,18 +1156,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 58895,
-        "compatible_event_count": 58895,
+        "event_count": 41928,
+        "compatible_event_count": 41928,
         "review_required_event_count": 0,
-        "source_count": 22,
-        "compatible_source_count": 22,
+        "source_count": 15,
+        "compatible_source_count": 15,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1959,
+          "start": 1964,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 58895
+          "documented": 41928
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1201,7 +1175,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 33484,
+        "excluded_review_required_event_count": 19637,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1225,57 +1199,43 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-20",
-        "source_coverage_period": "1959-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; Monthly."
+        "source_coverage_period": "1964-2026",
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source-specific publication/update cadence; The API catalogue states that NHLE data is updated daily."
       },
       "provenance": {
         "source_ids": [
           "camden-local-list-open-data",
-          "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
           "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-listed-building-points-round215",
           "historic-england-nhle-open-data-round294-tail2",
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
-          "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
-          "lon-extra-uk-house-price-index",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
-          "planning-inspectorate-appeal-decisions",
-          "police-data-api",
-          "police-data-stop-search"
+          "planning-inspectorate-appeal-decisions"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
-          "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
           "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-listed-building-points-round215",
           "historic-england-nhle-open-data-round294-tail2",
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
-          "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
-          "lon-extra-uk-house-price-index",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
-          "planning-inspectorate-appeal-decisions",
-          "police-data-api",
-          "police-data-stop-search"
+          "planning-inspectorate-appeal-decisions"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -1287,19 +1247,6 @@
             "licence": "Camden open-data metadata says data is derived from Ordnance Survey products under the Public Sector Geospatial Agreement; retain Camden and OS attribution.",
             "licence_url": "https://opendata.camden.gov.uk/",
             "attribution_text": "London Borough of Camden",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfe-gias-establishment-register",
-            "title": "Get Information About Schools establishment extract",
-            "publisher": "Department for Education",
-            "source_family": "planning",
-            "licence": "GOV.UK/GIAS public data is available under Open Government Licence v3.0 except where otherwise stated.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Department for Education",
             "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
@@ -1371,19 +1318,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "historic-england-nhle-listed-building-points-round215",
-            "title": "National Heritage List for England (NHLE) listed-building points",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "historic-england-nhle-open-data-round294-tail2",
             "title": "National Heritage List for England (NHLE) open data",
             "publisher": "Historic England",
@@ -1431,6 +1365,32 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Food Standards Agency",
             "accessed_at": "2026-05-08T00:00:00+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "lon-extra-planning-data-tree-preservation-zones",
+            "title": "Planning Data: Tree Preservation Zones",
+            "publisher": "DLUHC Planning Data",
+            "source_family": "trees",
+            "licence": "Open Government Licence v3.0 unless the Planning Data service indicates otherwise.",
+            "licence_url": "https://www.planning.data.gov.uk/terms-and-conditions",
+            "attribution_text": "DLUHC Planning Data",
+            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "london-development-database-archive",
+            "title": "Planning permissions on the London Development Database (LDD)",
+            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "source_family": "significant_public_or_mixed_use_completion_record",
+            "licence": "UK Open Government Licence (OGL v3)",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1461,18 +1421,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 58895,
-        "compatible_event_count": 58895,
+        "event_count": 41928,
+        "compatible_event_count": 41928,
         "review_required_event_count": 0,
-        "source_count": 22,
-        "compatible_source_count": 22,
+        "source_count": 15,
+        "compatible_source_count": 15,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1959,
+          "start": 1964,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 58895
+          "documented": 41928
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1480,7 +1440,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 33484,
+        "excluded_review_required_event_count": 19637,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1504,57 +1464,43 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-20",
-        "source_coverage_period": "1959-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; GIAS download page states public downloads are updated daily.; Historic England API catalogue describes NHLE data as regularly updated; this pack was retrieved on 2026-05-19.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; Monthly."
+        "source_coverage_period": "1964-2026",
+        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; Historic England API catalogue states NHLE data is updated daily.; Live dataset / Camden open-data update cadence; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source-specific publication/update cadence; The API catalogue states that NHLE data is updated daily."
       },
       "provenance": {
         "source_ids": [
           "camden-local-list-open-data",
-          "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
           "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-listed-building-points-round215",
           "historic-england-nhle-open-data-round294-tail2",
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
-          "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
-          "lon-extra-uk-house-price-index",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
-          "planning-inspectorate-appeal-decisions",
-          "police-data-api",
-          "police-data-stop-search"
+          "planning-inspectorate-appeal-decisions"
         ],
         "compatible_source_ids": [
           "camden-local-list-open-data",
-          "dfe-gias-establishment-register",
           "dft-road-safety-collisions",
           "historic-england-de-designated-sites",
           "historic-england-de-designated-sites-round305-tail3-layer-0",
           "historic-england-har-annual-map-series-2016-2025",
           "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-listed-building-points-round215",
           "historic-england-nhle-open-data-round294-tail2",
           "historic-england-nhle-open-data-round294-tail2-layer-2",
           "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
-          "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-planning-data-tree-preservation-zones",
-          "lon-extra-uk-house-price-index",
           "london-development-database-archive",
           "mhclg-called-in-decisions",
-          "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
-          "planning-inspectorate-appeal-decisions",
-          "police-data-api",
-          "police-data-stop-search"
+          "planning-inspectorate-appeal-decisions"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -1566,19 +1512,6 @@
             "licence": "Camden open-data metadata says data is derived from Ordnance Survey products under the Public Sector Geospatial Agreement; retain Camden and OS attribution.",
             "licence_url": "https://opendata.camden.gov.uk/",
             "attribution_text": "London Borough of Camden",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfe-gias-establishment-register",
-            "title": "Get Information About Schools establishment extract",
-            "publisher": "Department for Education",
-            "source_family": "planning",
-            "licence": "GOV.UK/GIAS public data is available under Open Government Licence v3.0 except where otherwise stated.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Department for Education",
             "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
@@ -1650,19 +1583,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "historic-england-nhle-listed-building-points-round215",
-            "title": "National Heritage List for England (NHLE) listed-building points",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "historic-england-nhle-open-data-round294-tail2",
             "title": "National Heritage List for England (NHLE) open data",
             "publisher": "Historic England",
@@ -1710,6 +1630,32 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Food Standards Agency",
             "accessed_at": "2026-05-08T00:00:00+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "lon-extra-planning-data-tree-preservation-zones",
+            "title": "Planning Data: Tree Preservation Zones",
+            "publisher": "DLUHC Planning Data",
+            "source_family": "trees",
+            "licence": "Open Government Licence v3.0 unless the Planning Data service indicates otherwise.",
+            "licence_url": "https://www.planning.data.gov.uk/terms-and-conditions",
+            "attribution_text": "DLUHC Planning Data",
+            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "london-development-database-archive",
+            "title": "Planning permissions on the London Development Database (LDD)",
+            "publisher": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "source_family": "significant_public_or_mixed_use_completion_record",
+            "licence": "UK Open Government Licence (OGL v3)",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Greater London Authority (GLA); data supplied by London planning authorities",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1740,18 +1686,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 93385,
-        "compatible_event_count": 93385,
+        "event_count": 65237,
+        "compatible_event_count": 65237,
         "review_required_event_count": 0,
-        "source_count": 17,
-        "compatible_source_count": 17,
+        "source_count": 7,
+        "compatible_source_count": 7,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1981,
+          "start": 2004,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 93385
+          "documented": 65237
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1759,7 +1705,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 30586,
+        "excluded_review_required_event_count": 27061,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1777,24 +1723,14 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-27",
-        "source_coverage_period": "1981-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Institutional history page; cadence set by publisher.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
+        "source_coverage_period": "2004-2026",
+        "update_cadence": "GIAS download page states public downloads are updated daily.; Institutional history page; cadence set by publisher.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source rows contain timestamp; atlas adapter displays month precision for privacy minimization.; Source-specific publication/update cadence; rating/inspection publication date"
       },
       "provenance": {
         "source_ids": [
           "dfe-gias-establishment-register",
-          "dft-road-safety-collisions",
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
           "lon-extra-food-hygiene-rating-scheme-api",
-          "lon-extra-planning-data-tree-preservation-zones",
           "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "police-data-stop-search",
@@ -1802,18 +1738,8 @@
         ],
         "compatible_source_ids": [
           "dfe-gias-establishment-register",
-          "dft-road-safety-collisions",
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
           "lon-extra-food-hygiene-rating-scheme-api",
-          "lon-extra-planning-data-tree-preservation-zones",
           "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "police-data-stop-search",
@@ -1835,97 +1761,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "dft-road-safety-collisions",
-            "title": "Road Safety Open Data - STATS19 collision records",
-            "publisher": "Department for Transport",
-            "source_family": "traffic",
-            "licence": "Open Government Licence v3.0 unless otherwise stated on GOV.UK.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Department for Transport",
-            "accessed_at": "2026-05-08T00:00:00+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "heritage_administrative_change",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites-round305-tail3-layer-0",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-har-annual-map-series-2016-2025",
-            "title": "Historic England Heritage at Risk annual map series, 2016-2025",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 / Historic England open-data terms where stated; older annual map services require terms caveat.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-amendments-open-data",
-            "title": "National Heritage List for England (NHLE) listed building points",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms and OS attribution",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "lon-extra-food-hygiene-rating-scheme-api",
             "title": "Food Hygiene Rating Scheme API",
             "publisher": "Food Standards Agency",
@@ -1934,19 +1769,6 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Food Standards Agency",
             "accessed_at": "2026-05-08T00:00:00+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "lon-extra-planning-data-tree-preservation-zones",
-            "title": "Planning Data: Tree Preservation Zones",
-            "publisher": "DLUHC Planning Data",
-            "source_family": "trees",
-            "licence": "Open Government Licence v3.0 unless the Planning Data service indicates otherwise.",
-            "licence_url": "https://www.planning.data.gov.uk/terms-and-conditions",
-            "attribution_text": "DLUHC Planning Data",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1965,14 +1787,53 @@
             "licence_review_required": false
           },
           {
-            "source_id": "mhclg-called-in-decisions",
-            "title": "mhclg-called-in-decisions",
-            "publisher": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+            "source_id": "planning-data-certificate-of-immunity",
+            "title": "Planning Data certificate of immunity records",
+            "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
             "source_family": "planning",
-            "licence": "GOV.UK content is available under the Open Government Licence v3.0 except where otherwise stated.",
+            "licence": "Open Government Licence v3.0 with Crown copyright/database right attribution where stated by Planning Data.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+            "attribution_text": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
             "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "police-data-api",
+            "title": "Police.uk crime and outcomes API",
+            "publisher": "Home Office / Police.uk / Metropolitan Police Service data contributors",
+            "source_family": "public_services",
+            "licence": "Open Government Licence v3.0.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Home Office / Police.uk / Metropolitan Police Service data contributors",
+            "accessed_at": "2026-05-08T00:00:00+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "police-data-stop-search",
+            "title": "Police.uk stop and search custom CSV downloads",
+            "publisher": "Home Office / Police.uk / police force data contributors",
+            "source_family": "public_services",
+            "licence": "Open Government Licence v3.0.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Home Office / Police.uk / police force data contributors",
+            "accessed_at": "2026-05-08T00:00:00+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "wembley_stadium_history_2007",
+            "title": "Wembley Stadium official history timeline",
+            "publisher": "Wembley Stadium",
+            "source_family": "civic_services_cultural_venue_public_facility",
+            "licence": "Wembley Stadium copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.wembleystadium.com/about/Our-story",
+            "attribution_text": "Wembley Stadium",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2003,18 +1864,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 93385,
-        "compatible_event_count": 93385,
+        "event_count": 65237,
+        "compatible_event_count": 65237,
         "review_required_event_count": 0,
-        "source_count": 17,
-        "compatible_source_count": 17,
+        "source_count": 7,
+        "compatible_source_count": 7,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1981,
+          "start": 2004,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 93385
+          "documented": 65237
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2022,7 +1883,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 30586,
+        "excluded_review_required_event_count": 27061,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2040,24 +1901,14 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-27",
-        "source_coverage_period": "1981-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Institutional history page; cadence set by publisher.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
+        "source_coverage_period": "2004-2026",
+        "update_cadence": "GIAS download page states public downloads are updated daily.; Institutional history page; cadence set by publisher.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source rows contain timestamp; atlas adapter displays month precision for privacy minimization.; Source-specific publication/update cadence; rating/inspection publication date"
       },
       "provenance": {
         "source_ids": [
           "dfe-gias-establishment-register",
-          "dft-road-safety-collisions",
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
           "lon-extra-food-hygiene-rating-scheme-api",
-          "lon-extra-planning-data-tree-preservation-zones",
           "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "police-data-stop-search",
@@ -2065,18 +1916,8 @@
         ],
         "compatible_source_ids": [
           "dfe-gias-establishment-register",
-          "dft-road-safety-collisions",
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
           "lon-extra-food-hygiene-rating-scheme-api",
-          "lon-extra-planning-data-tree-preservation-zones",
           "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "police-data-stop-search",
@@ -2098,97 +1939,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "dft-road-safety-collisions",
-            "title": "Road Safety Open Data - STATS19 collision records",
-            "publisher": "Department for Transport",
-            "source_family": "traffic",
-            "licence": "Open Government Licence v3.0 unless otherwise stated on GOV.UK.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Department for Transport",
-            "accessed_at": "2026-05-08T00:00:00+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "heritage_administrative_change",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites-round305-tail3-layer-0",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-har-annual-map-series-2016-2025",
-            "title": "Historic England Heritage at Risk annual map series, 2016-2025",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 / Historic England open-data terms where stated; older annual map services require terms caveat.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-amendments-open-data",
-            "title": "National Heritage List for England (NHLE) listed building points",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms and OS attribution",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "lon-extra-food-hygiene-rating-scheme-api",
             "title": "Food Hygiene Rating Scheme API",
             "publisher": "Food Standards Agency",
@@ -2197,19 +1947,6 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Food Standards Agency",
             "accessed_at": "2026-05-08T00:00:00+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "lon-extra-planning-data-tree-preservation-zones",
-            "title": "Planning Data: Tree Preservation Zones",
-            "publisher": "DLUHC Planning Data",
-            "source_family": "trees",
-            "licence": "Open Government Licence v3.0 unless the Planning Data service indicates otherwise.",
-            "licence_url": "https://www.planning.data.gov.uk/terms-and-conditions",
-            "attribution_text": "DLUHC Planning Data",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2228,14 +1965,53 @@
             "licence_review_required": false
           },
           {
-            "source_id": "mhclg-called-in-decisions",
-            "title": "mhclg-called-in-decisions",
-            "publisher": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+            "source_id": "planning-data-certificate-of-immunity",
+            "title": "Planning Data certificate of immunity records",
+            "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
             "source_family": "planning",
-            "licence": "GOV.UK content is available under the Open Government Licence v3.0 except where otherwise stated.",
+            "licence": "Open Government Licence v3.0 with Crown copyright/database right attribution where stated by Planning Data.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+            "attribution_text": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
             "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "police-data-api",
+            "title": "Police.uk crime and outcomes API",
+            "publisher": "Home Office / Police.uk / Metropolitan Police Service data contributors",
+            "source_family": "public_services",
+            "licence": "Open Government Licence v3.0.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Home Office / Police.uk / Metropolitan Police Service data contributors",
+            "accessed_at": "2026-05-08T00:00:00+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "police-data-stop-search",
+            "title": "Police.uk stop and search custom CSV downloads",
+            "publisher": "Home Office / Police.uk / police force data contributors",
+            "source_family": "public_services",
+            "licence": "Open Government Licence v3.0.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Home Office / Police.uk / police force data contributors",
+            "accessed_at": "2026-05-08T00:00:00+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "wembley_stadium_history_2007",
+            "title": "Wembley Stadium official history timeline",
+            "publisher": "Wembley Stadium",
+            "source_family": "civic_services_cultural_venue_public_facility",
+            "licence": "Wembley Stadium copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.wembleystadium.com/about/Our-story",
+            "attribution_text": "Wembley Stadium",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2266,18 +2042,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 93385,
-        "compatible_event_count": 93385,
+        "event_count": 65237,
+        "compatible_event_count": 65237,
         "review_required_event_count": 0,
-        "source_count": 17,
-        "compatible_source_count": 17,
+        "source_count": 7,
+        "compatible_source_count": 7,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1981,
+          "start": 2004,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 93385
+          "documented": 65237
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2285,7 +2061,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 30586,
+        "excluded_review_required_event_count": 27061,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2303,24 +2079,14 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-27",
-        "source_coverage_period": "1981-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Collision date and coded time fields.; GIAS download page states public downloads are updated daily.; Historic England API catalogue states NHLE data is updated daily.; Institutional history page; cadence set by publisher.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page."
+        "source_coverage_period": "2004-2026",
+        "update_cadence": "GIAS download page states public downloads are updated daily.; Institutional history page; cadence set by publisher.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source rows contain timestamp; atlas adapter displays month precision for privacy minimization.; Source-specific publication/update cadence; rating/inspection publication date"
       },
       "provenance": {
         "source_ids": [
           "dfe-gias-establishment-register",
-          "dft-road-safety-collisions",
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
           "lon-extra-food-hygiene-rating-scheme-api",
-          "lon-extra-planning-data-tree-preservation-zones",
           "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "police-data-stop-search",
@@ -2328,18 +2094,8 @@
         ],
         "compatible_source_ids": [
           "dfe-gias-establishment-register",
-          "dft-road-safety-collisions",
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
           "lon-extra-food-hygiene-rating-scheme-api",
-          "lon-extra-planning-data-tree-preservation-zones",
           "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-asset-of-community-value",
           "planning-data-certificate-of-immunity",
           "police-data-api",
           "police-data-stop-search",
@@ -2361,97 +2117,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "dft-road-safety-collisions",
-            "title": "Road Safety Open Data - STATS19 collision records",
-            "publisher": "Department for Transport",
-            "source_family": "traffic",
-            "licence": "Open Government Licence v3.0 unless otherwise stated on GOV.UK.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Department for Transport",
-            "accessed_at": "2026-05-08T00:00:00+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "heritage_administrative_change",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites-round305-tail3-layer-0",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-har-annual-map-series-2016-2025",
-            "title": "Historic England Heritage at Risk annual map series, 2016-2025",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 / Historic England open-data terms where stated; older annual map services require terms caveat.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-amendments-open-data",
-            "title": "National Heritage List for England (NHLE) listed building points",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms and OS attribution",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "lon-extra-food-hygiene-rating-scheme-api",
             "title": "Food Hygiene Rating Scheme API",
             "publisher": "Food Standards Agency",
@@ -2460,19 +2125,6 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Food Standards Agency",
             "accessed_at": "2026-05-08T00:00:00+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "lon-extra-planning-data-tree-preservation-zones",
-            "title": "Planning Data: Tree Preservation Zones",
-            "publisher": "DLUHC Planning Data",
-            "source_family": "trees",
-            "licence": "Open Government Licence v3.0 unless the Planning Data service indicates otherwise.",
-            "licence_url": "https://www.planning.data.gov.uk/terms-and-conditions",
-            "attribution_text": "DLUHC Planning Data",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2491,14 +2143,53 @@
             "licence_review_required": false
           },
           {
-            "source_id": "mhclg-called-in-decisions",
-            "title": "mhclg-called-in-decisions",
-            "publisher": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+            "source_id": "planning-data-certificate-of-immunity",
+            "title": "Planning Data certificate of immunity records",
+            "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
             "source_family": "planning",
-            "licence": "GOV.UK content is available under the Open Government Licence v3.0 except where otherwise stated.",
+            "licence": "Open Government Licence v3.0 with Crown copyright/database right attribution where stated by Planning Data.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
+            "attribution_text": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
             "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "police-data-api",
+            "title": "Police.uk crime and outcomes API",
+            "publisher": "Home Office / Police.uk / Metropolitan Police Service data contributors",
+            "source_family": "public_services",
+            "licence": "Open Government Licence v3.0.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Home Office / Police.uk / Metropolitan Police Service data contributors",
+            "accessed_at": "2026-05-08T00:00:00+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "police-data-stop-search",
+            "title": "Police.uk stop and search custom CSV downloads",
+            "publisher": "Home Office / Police.uk / police force data contributors",
+            "source_family": "public_services",
+            "licence": "Open Government Licence v3.0.",
+            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "attribution_text": "Home Office / Police.uk / police force data contributors",
+            "accessed_at": "2026-05-08T00:00:00+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "wembley_stadium_history_2007",
+            "title": "Wembley Stadium official history timeline",
+            "publisher": "Wembley Stadium",
+            "source_family": "civic_services_cultural_venue_public_facility",
+            "licence": "Wembley Stadium copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.wembleystadium.com/about/Our-story",
+            "attribution_text": "Wembley Stadium",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2529,18 +2220,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59303,
-        "compatible_event_count": 59303,
+        "event_count": 59284,
+        "compatible_event_count": 59284,
         "review_required_event_count": 0,
-        "source_count": 15,
-        "compatible_source_count": 15,
+        "source_count": 4,
+        "compatible_source_count": 4,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1995,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59303
+          "documented": 59284
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2548,7 +2239,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 28295,
+        "excluded_review_required_event_count": 9,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2565,149 +2256,23 @@
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1995-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Planning Data collector / local-authority update cadence; Source-specific publication/update cadence; The API catalogue states that NHLE data is updated daily.; month"
+        "update_cadence": "One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; month; rating/inspection publication date; transfer deed date"
       },
       "provenance": {
         "source_ids": [
-          "dfe-gias-establishment-register",
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-2025",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
-          "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-uk-house-price-index",
-          "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-article-4-direction-area",
-          "planning-data-certificate-of-immunity"
+          "london-development-database-archive"
         ],
         "compatible_source_ids": [
-          "dfe-gias-establishment-register",
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-2025",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
-          "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-uk-house-price-index",
-          "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-article-4-direction-area",
-          "planning-data-certificate-of-immunity"
+          "london-development-database-archive"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "dfe-gias-establishment-register",
-            "title": "Get Information About Schools establishment extract",
-            "publisher": "Department for Education",
-            "source_family": "planning",
-            "licence": "GOV.UK/GIAS public data is available under Open Government Licence v3.0 except where otherwise stated.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Department for Education",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "heritage_administrative_change",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites-round305-tail3-layer-0",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-har-2025",
-            "title": "Historic England Heritage at Risk Register 2025",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Historic England website terms for announcement pages; Historic England GIS open data under OGL v3.0 where used for factual markers.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-har-annual-map-series-2016-2025",
-            "title": "Historic England Heritage at Risk annual map series, 2016-2025",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 / Historic England open-data terms where stated; older annual map services require terms caveat.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1001713",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "lon-extra-food-hygiene-rating-scheme-api",
             "title": "Food Hygiene Rating Scheme API",
@@ -2786,18 +2351,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59303,
-        "compatible_event_count": 59303,
+        "event_count": 59284,
+        "compatible_event_count": 59284,
         "review_required_event_count": 0,
-        "source_count": 15,
-        "compatible_source_count": 15,
+        "source_count": 4,
+        "compatible_source_count": 4,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1995,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59303
+          "documented": 59284
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2805,7 +2370,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 28295,
+        "excluded_review_required_event_count": 9,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2822,149 +2387,23 @@
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1995-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Planning Data collector / local-authority update cadence; Source-specific publication/update cadence; The API catalogue states that NHLE data is updated daily.; month"
+        "update_cadence": "One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; month; rating/inspection publication date; transfer deed date"
       },
       "provenance": {
         "source_ids": [
-          "dfe-gias-establishment-register",
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-2025",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
-          "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-uk-house-price-index",
-          "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-article-4-direction-area",
-          "planning-data-certificate-of-immunity"
+          "london-development-database-archive"
         ],
         "compatible_source_ids": [
-          "dfe-gias-establishment-register",
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-2025",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
-          "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-uk-house-price-index",
-          "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-article-4-direction-area",
-          "planning-data-certificate-of-immunity"
+          "london-development-database-archive"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "dfe-gias-establishment-register",
-            "title": "Get Information About Schools establishment extract",
-            "publisher": "Department for Education",
-            "source_family": "planning",
-            "licence": "GOV.UK/GIAS public data is available under Open Government Licence v3.0 except where otherwise stated.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Department for Education",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "heritage_administrative_change",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites-round305-tail3-layer-0",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-har-2025",
-            "title": "Historic England Heritage at Risk Register 2025",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Historic England website terms for announcement pages; Historic England GIS open data under OGL v3.0 where used for factual markers.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-har-annual-map-series-2016-2025",
-            "title": "Historic England Heritage at Risk annual map series, 2016-2025",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 / Historic England open-data terms where stated; older annual map services require terms caveat.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1001713",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "lon-extra-food-hygiene-rating-scheme-api",
             "title": "Food Hygiene Rating Scheme API",
@@ -3043,18 +2482,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 59303,
-        "compatible_event_count": 59303,
+        "event_count": 59284,
+        "compatible_event_count": 59284,
         "review_required_event_count": 0,
-        "source_count": 15,
-        "compatible_source_count": 15,
+        "source_count": 4,
+        "compatible_source_count": 4,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1995,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 59303
+          "documented": 59284
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3062,7 +2501,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 28295,
+        "excluded_review_required_event_count": 9,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3079,149 +2518,23 @@
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-20",
         "source_coverage_period": "1995-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; GIAS download page states public downloads are updated daily.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Planning Data collector / local-authority update cadence; Source-specific publication/update cadence; The API catalogue states that NHLE data is updated daily.; month"
+        "update_cadence": "One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; month; rating/inspection publication date; transfer deed date"
       },
       "provenance": {
         "source_ids": [
-          "dfe-gias-establishment-register",
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-2025",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
-          "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-uk-house-price-index",
-          "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-article-4-direction-area",
-          "planning-data-certificate-of-immunity"
+          "london-development-database-archive"
         ],
         "compatible_source_ids": [
-          "dfe-gias-establishment-register",
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-2025",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
-          "historic-england-nhle-open-data-round294-tail2-layer-7",
           "lon-extra-food-hygiene-rating-scheme-api",
           "lon-extra-hm-land-registry-price-paid-data",
           "lon-extra-uk-house-price-index",
-          "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-article-4-direction-area",
-          "planning-data-certificate-of-immunity"
+          "london-development-database-archive"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "dfe-gias-establishment-register",
-            "title": "Get Information About Schools establishment extract",
-            "publisher": "Department for Education",
-            "source_family": "planning",
-            "licence": "GOV.UK/GIAS public data is available under Open Government Licence v3.0 except where otherwise stated.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Department for Education",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "heritage_administrative_change",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites-round305-tail3-layer-0",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-har-2025",
-            "title": "Historic England Heritage at Risk Register 2025",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Historic England website terms for announcement pages; Historic England GIS open data under OGL v3.0 where used for factual markers.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-har-annual-map-series-2016-2025",
-            "title": "Historic England Heritage at Risk annual map series, 2016-2025",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 / Historic England open-data terms where stated; older annual map services require terms caveat.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-7",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1001713",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "lon-extra-food-hygiene-rating-scheme-api",
             "title": "Food Hygiene Rating Scheme API",
@@ -3300,18 +2613,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 414,
-        "compatible_event_count": 414,
+        "event_count": 251,
+        "compatible_event_count": 251,
         "review_required_event_count": 0,
-        "source_count": 14,
-        "compatible_source_count": 14,
+        "source_count": 2,
+        "compatible_source_count": 2,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
-          "end": 2026
+          "end": 2020
         },
         "confidence_counts": {
-          "documented": 414
+          "documented": 251
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3319,7 +2632,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1751,
+        "excluded_review_required_event_count": 421,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3342,161 +2655,20 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-27",
-        "source_coverage_period": "2007-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source-specific publication/update cadence; Static parliamentary record.; The API catalogue states that NHLE data is updated daily."
+        "source_coverage_period": "2007-2020",
+        "update_cadence": "One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Static parliamentary record."
       },
       "provenance": {
         "source_ids": [
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
-          "historic-england-nhle-open-data-round305-tail3",
-          "historic-england-nhle-open-data-round305-tail3-layer-3",
-          "lon-extra-planning-data-tree-preservation-zones",
           "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-certificate-of-immunity",
-          "police-data-api",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
-          "historic-england-nhle-open-data-round305-tail3",
-          "historic-england-nhle-open-data-round305-tail3-layer-3",
-          "lon-extra-planning-data-tree-preservation-zones",
           "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-certificate-of-immunity",
-          "police-data-api",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "historic-england-de-designated-sites",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "heritage_administrative_change",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites-round305-tail3-layer-0",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-har-annual-map-series-2016-2025",
-            "title": "Historic England Heritage at Risk annual map series, 2016-2025",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 / Historic England open-data terms where stated; older annual map services require terms caveat.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-amendments-open-data",
-            "title": "National Heritage List for England (NHLE) listed building points",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms and OS attribution",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round305-tail3",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round305-tail3-layer-3",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1392513",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "lon-extra-planning-data-tree-preservation-zones",
-            "title": "Planning Data: Tree Preservation Zones",
-            "publisher": "DLUHC Planning Data",
-            "source_family": "trees",
-            "licence": "Open Government Licence v3.0 unless the Planning Data service indicates otherwise.",
-            "licence_url": "https://www.planning.data.gov.uk/terms-and-conditions",
-            "attribution_text": "DLUHC Planning Data",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "london-development-database-archive",
             "title": "Planning permissions on the London Development Database (LDD)",
@@ -3511,27 +2683,14 @@
             "licence_review_required": false
           },
           {
-            "source_id": "mhclg-called-in-decisions",
-            "title": "mhclg-called-in-decisions",
-            "publisher": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
-            "source_family": "planning",
-            "licence": "GOV.UK content is available under the Open Government Licence v3.0 except where otherwise stated.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "planning-data-certificate-of-immunity",
-            "title": "Planning Data certificate of immunity records",
-            "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Crown copyright/database right attribution where stated by Planning Data.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
-            "accessed_at": "2026-05-19",
+            "source_id": "uk_parliament_hansard_thames_tideway_2013",
+            "title": "Hansard Thames Tideway Tunnel debate record",
+            "publisher": "UK Parliament",
+            "source_family": "utilities_sewer_water_infrastructure",
+            "licence": "Open Parliament Licence.",
+            "licence_url": "https://www.parliament.uk/site-information/copyright-parliament/open-parliament-licence/",
+            "attribution_text": "UK Parliament",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3562,18 +2721,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 414,
-        "compatible_event_count": 414,
+        "event_count": 251,
+        "compatible_event_count": 251,
         "review_required_event_count": 0,
-        "source_count": 14,
-        "compatible_source_count": 14,
+        "source_count": 2,
+        "compatible_source_count": 2,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
-          "end": 2026
+          "end": 2020
         },
         "confidence_counts": {
-          "documented": 414
+          "documented": 251
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3581,7 +2740,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1751,
+        "excluded_review_required_event_count": 421,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3604,161 +2763,20 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-27",
-        "source_coverage_period": "2007-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source-specific publication/update cadence; Static parliamentary record.; The API catalogue states that NHLE data is updated daily."
+        "source_coverage_period": "2007-2020",
+        "update_cadence": "One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Static parliamentary record."
       },
       "provenance": {
         "source_ids": [
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
-          "historic-england-nhle-open-data-round305-tail3",
-          "historic-england-nhle-open-data-round305-tail3-layer-3",
-          "lon-extra-planning-data-tree-preservation-zones",
           "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-certificate-of-immunity",
-          "police-data-api",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
-          "historic-england-nhle-open-data-round305-tail3",
-          "historic-england-nhle-open-data-round305-tail3-layer-3",
-          "lon-extra-planning-data-tree-preservation-zones",
           "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-certificate-of-immunity",
-          "police-data-api",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "historic-england-de-designated-sites",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "heritage_administrative_change",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites-round305-tail3-layer-0",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-har-annual-map-series-2016-2025",
-            "title": "Historic England Heritage at Risk annual map series, 2016-2025",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 / Historic England open-data terms where stated; older annual map services require terms caveat.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-amendments-open-data",
-            "title": "National Heritage List for England (NHLE) listed building points",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms and OS attribution",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round305-tail3",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round305-tail3-layer-3",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1392513",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "lon-extra-planning-data-tree-preservation-zones",
-            "title": "Planning Data: Tree Preservation Zones",
-            "publisher": "DLUHC Planning Data",
-            "source_family": "trees",
-            "licence": "Open Government Licence v3.0 unless the Planning Data service indicates otherwise.",
-            "licence_url": "https://www.planning.data.gov.uk/terms-and-conditions",
-            "attribution_text": "DLUHC Planning Data",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "london-development-database-archive",
             "title": "Planning permissions on the London Development Database (LDD)",
@@ -3773,27 +2791,14 @@
             "licence_review_required": false
           },
           {
-            "source_id": "mhclg-called-in-decisions",
-            "title": "mhclg-called-in-decisions",
-            "publisher": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
-            "source_family": "planning",
-            "licence": "GOV.UK content is available under the Open Government Licence v3.0 except where otherwise stated.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "planning-data-certificate-of-immunity",
-            "title": "Planning Data certificate of immunity records",
-            "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Crown copyright/database right attribution where stated by Planning Data.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
-            "accessed_at": "2026-05-19",
+            "source_id": "uk_parliament_hansard_thames_tideway_2013",
+            "title": "Hansard Thames Tideway Tunnel debate record",
+            "publisher": "UK Parliament",
+            "source_family": "utilities_sewer_water_infrastructure",
+            "licence": "Open Parliament Licence.",
+            "licence_url": "https://www.parliament.uk/site-information/copyright-parliament/open-parliament-licence/",
+            "attribution_text": "UK Parliament",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3824,18 +2829,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 414,
-        "compatible_event_count": 414,
+        "event_count": 251,
+        "compatible_event_count": 251,
         "review_required_event_count": 0,
-        "source_count": 14,
-        "compatible_source_count": 14,
+        "source_count": 2,
+        "compatible_source_count": 2,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
-          "end": 2026
+          "end": 2020
         },
         "confidence_counts": {
-          "documented": 414
+          "documented": 251
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3843,7 +2848,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1751,
+        "excluded_review_required_event_count": 421,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3866,161 +2871,20 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-05-27",
-        "source_coverage_period": "2007-2026",
-        "update_cadence": "Annual register publication; ArcGIS item metadata indicates an official Historic England hosted feature service; the service copyright is current to 2026.; Historic England API catalogue states NHLE data is updated daily.; Monthly.; One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Source-specific publication/update cadence; Static parliamentary record.; The API catalogue states that NHLE data is updated daily."
+        "source_coverage_period": "2007-2020",
+        "update_cadence": "One off / archived; LDD replaced by Planning London Datahub and no longer updated on the Datastore page.; Static parliamentary record."
       },
       "provenance": {
         "source_ids": [
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
-          "historic-england-nhle-open-data-round305-tail3",
-          "historic-england-nhle-open-data-round305-tail3-layer-3",
-          "lon-extra-planning-data-tree-preservation-zones",
           "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-certificate-of-immunity",
-          "police-data-api",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "compatible_source_ids": [
-          "historic-england-de-designated-sites",
-          "historic-england-de-designated-sites-round305-tail3-layer-0",
-          "historic-england-har-annual-map-series-2016-2025",
-          "historic-england-nhle-amendments-open-data",
-          "historic-england-nhle-open-data-round294-tail2",
-          "historic-england-nhle-open-data-round294-tail2-layer-2",
-          "historic-england-nhle-open-data-round305-tail3",
-          "historic-england-nhle-open-data-round305-tail3-layer-3",
-          "lon-extra-planning-data-tree-preservation-zones",
           "london-development-database-archive",
-          "mhclg-called-in-decisions",
-          "planning-data-certificate-of-immunity",
-          "police-data-api",
           "uk_parliament_hansard_thames_tideway_2013"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "historic-england-de-designated-sites",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "heritage_administrative_change",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-de-designated-sites-round305-tail3-layer-0",
-            "title": "Historic England De-designated sites",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://opendata-historicengland.hub.arcgis.com/datasets/8836370be44f4916b9ba7d350df24902_0/explore",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-har-annual-map-series-2016-2025",
-            "title": "Historic England Heritage at Risk annual map series, 2016-2025",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 / Historic England open-data terms where stated; older annual map services require terms caveat.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-amendments-open-data",
-            "title": "National Heritage List for England (NHLE) listed building points",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms and OS attribution",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round294-tail2-layer-2",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1477241",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round305-tail3",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/terms/website-terms-conditions/open-data-hub/",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "historic-england-nhle-open-data-round305-tail3-layer-3",
-            "title": "National Heritage List for England (NHLE) open data",
-            "publisher": "Historic England",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Historic England Open Data Hub terms; spatial data includes Ordnance Survey Crown copyright/database right attribution.",
-            "licence_url": "https://historicengland.org.uk/listing/the-list/list-entry/1392513",
-            "attribution_text": "Historic England",
-            "accessed_at": "2026-05-20",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "lon-extra-planning-data-tree-preservation-zones",
-            "title": "Planning Data: Tree Preservation Zones",
-            "publisher": "DLUHC Planning Data",
-            "source_family": "trees",
-            "licence": "Open Government Licence v3.0 unless the Planning Data service indicates otherwise.",
-            "licence_url": "https://www.planning.data.gov.uk/terms-and-conditions",
-            "attribution_text": "DLUHC Planning Data",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "london-development-database-archive",
             "title": "Planning permissions on the London Development Database (LDD)",
@@ -4035,27 +2899,14 @@
             "licence_review_required": false
           },
           {
-            "source_id": "mhclg-called-in-decisions",
-            "title": "mhclg-called-in-decisions",
-            "publisher": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
-            "source_family": "planning",
-            "licence": "GOV.UK content is available under the Open Government Licence v3.0 except where otherwise stated.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Ministry of Housing, Communities and Local Government / Planning Casework Unit",
-            "accessed_at": "2026-05-19",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "planning-data-certificate-of-immunity",
-            "title": "Planning Data certificate of immunity records",
-            "publisher": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
-            "source_family": "planning",
-            "licence": "Open Government Licence v3.0 with Crown copyright/database right attribution where stated by Planning Data.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Ministry of Housing, Communities and Local Government Planning Data / Historic England or local planning authorities",
-            "accessed_at": "2026-05-19",
+            "source_id": "uk_parliament_hansard_thames_tideway_2013",
+            "title": "Hansard Thames Tideway Tunnel debate record",
+            "publisher": "UK Parliament",
+            "source_family": "utilities_sewer_water_infrastructure",
+            "licence": "Open Parliament Licence.",
+            "licence_url": "https://www.parliament.uk/site-information/copyright-parliament/open-parliament-licence/",
+            "attribution_text": "UK Parliament",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false

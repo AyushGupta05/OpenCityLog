@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_manifest_index",
-  "generated_at": "2026-06-03T19:45:00Z",
+  "generated_at": "2026-06-03T21:25:00Z",
   "contract_source": "docs/15_lens_city_design_contract.md",
   "visual_reference_set": "tmp/reference-screens",
   "lens_count": 15,
@@ -269,10 +269,10 @@
         {
           "slug": "transport-access",
           "public_label": "Access to Transport",
-          "event_count": 145,
-          "compatible_event_count": 145,
-          "source_count": 24,
-          "compatible_source_count": 24,
+          "event_count": 2,
+          "compatible_event_count": 2,
+          "source_count": 3,
+          "compatible_source_count": 3,
           "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
@@ -310,11 +310,11 @@
         {
           "slug": "transport-reliability",
           "public_label": "Service Reliability",
-          "event_count": 145,
-          "compatible_event_count": 145,
-          "source_count": 23,
-          "compatible_source_count": 23,
-          "last_retrieved_or_reviewed": "2026-06-03",
+          "event_count": 2,
+          "compatible_event_count": 2,
+          "source_count": 2,
+          "compatible_source_count": 2,
+          "last_retrieved_or_reviewed": "2026-06-02",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -351,10 +351,10 @@
         {
           "slug": "transport-speed",
           "public_label": "Transport Activity",
-          "event_count": 145,
-          "compatible_event_count": 145,
-          "source_count": 23,
-          "compatible_source_count": 23,
+          "event_count": 2,
+          "compatible_event_count": 2,
+          "source_count": 2,
+          "compatible_source_count": 2,
           "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
@@ -392,10 +392,10 @@
         {
           "slug": "civic-access-gaps",
           "public_label": "Service Coverage Context",
-          "event_count": 47,
-          "compatible_event_count": 47,
-          "source_count": 12,
-          "compatible_source_count": 12,
+          "event_count": 31,
+          "compatible_event_count": 31,
+          "source_count": 3,
+          "compatible_source_count": 3,
           "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
@@ -432,10 +432,10 @@
         {
           "slug": "civic-catchment",
           "public_label": "Service Catchments",
-          "event_count": 47,
-          "compatible_event_count": 47,
-          "source_count": 12,
-          "compatible_source_count": 12,
+          "event_count": 31,
+          "compatible_event_count": 31,
+          "source_count": 3,
+          "compatible_source_count": 3,
           "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
@@ -472,10 +472,10 @@
         {
           "slug": "civic-demand",
           "public_label": "Service Context",
-          "event_count": 47,
-          "compatible_event_count": 47,
-          "source_count": 12,
-          "compatible_source_count": 12,
+          "event_count": 31,
+          "compatible_event_count": 31,
+          "source_count": 3,
+          "compatible_source_count": 3,
           "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
@@ -512,10 +512,10 @@
         {
           "slug": "economy-land-use",
           "public_label": "Land Use",
-          "event_count": 101,
-          "compatible_event_count": 101,
-          "source_count": 18,
-          "compatible_source_count": 18,
+          "event_count": 78,
+          "compatible_event_count": 78,
+          "source_count": 8,
+          "compatible_source_count": 8,
           "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
@@ -552,10 +552,10 @@
         {
           "slug": "economy-vitality",
           "public_label": "High Street Activity",
-          "event_count": 101,
-          "compatible_event_count": 101,
-          "source_count": 18,
-          "compatible_source_count": 18,
+          "event_count": 78,
+          "compatible_event_count": 78,
+          "source_count": 8,
+          "compatible_source_count": 8,
           "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
@@ -591,10 +591,10 @@
         {
           "slug": "economy-gravity",
           "public_label": "Economic Context Links",
-          "event_count": 101,
-          "compatible_event_count": 101,
-          "source_count": 18,
-          "compatible_source_count": 18,
+          "event_count": 78,
+          "compatible_event_count": 78,
+          "source_count": 8,
+          "compatible_source_count": 8,
           "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
@@ -768,11 +768,11 @@
         {
           "slug": "planning-pressure",
           "public_label": "Planning Activity",
-          "event_count": 51867,
-          "compatible_event_count": 51867,
-          "source_count": 29,
-          "compatible_source_count": 29,
-          "last_retrieved_or_reviewed": "2026-05-27",
+          "event_count": 51712,
+          "compatible_event_count": 51712,
+          "source_count": 27,
+          "compatible_source_count": 27,
+          "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -789,11 +789,11 @@
         {
           "slug": "planning-parcels",
           "public_label": "Development Sites",
-          "event_count": 51867,
-          "compatible_event_count": 51867,
-          "source_count": 29,
-          "compatible_source_count": 29,
-          "last_retrieved_or_reviewed": "2026-05-27",
+          "event_count": 51712,
+          "compatible_event_count": 51712,
+          "source_count": 27,
+          "compatible_source_count": 27,
+          "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -810,11 +810,11 @@
         {
           "slug": "planning-delta",
           "public_label": "Built Change",
-          "event_count": 51867,
-          "compatible_event_count": 51867,
-          "source_count": 29,
-          "compatible_source_count": 29,
-          "last_retrieved_or_reviewed": "2026-05-27",
+          "event_count": 51712,
+          "compatible_event_count": 51712,
+          "source_count": 27,
+          "compatible_source_count": 27,
+          "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -831,10 +831,10 @@
         {
           "slug": "transport-access",
           "public_label": "Access to Transport",
-          "event_count": 58895,
-          "compatible_event_count": 58895,
-          "source_count": 22,
-          "compatible_source_count": 22,
+          "event_count": 41928,
+          "compatible_event_count": 41928,
+          "source_count": 15,
+          "compatible_source_count": 15,
           "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
@@ -860,10 +860,10 @@
         {
           "slug": "transport-reliability",
           "public_label": "Service Reliability",
-          "event_count": 58895,
-          "compatible_event_count": 58895,
-          "source_count": 22,
-          "compatible_source_count": 22,
+          "event_count": 41928,
+          "compatible_event_count": 41928,
+          "source_count": 15,
+          "compatible_source_count": 15,
           "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
@@ -889,10 +889,10 @@
         {
           "slug": "transport-speed",
           "public_label": "Transport Activity",
-          "event_count": 58895,
-          "compatible_event_count": 58895,
-          "source_count": 22,
-          "compatible_source_count": 22,
+          "event_count": 41928,
+          "compatible_event_count": 41928,
+          "source_count": 15,
+          "compatible_source_count": 15,
           "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
@@ -918,10 +918,10 @@
         {
           "slug": "civic-access-gaps",
           "public_label": "Service Coverage Context",
-          "event_count": 93385,
-          "compatible_event_count": 93385,
-          "source_count": 17,
-          "compatible_source_count": 17,
+          "event_count": 65237,
+          "compatible_event_count": 65237,
+          "source_count": 7,
+          "compatible_source_count": 7,
           "last_retrieved_or_reviewed": "2026-05-27",
           "year_contract": {
             "required_years": {
@@ -941,10 +941,10 @@
         {
           "slug": "civic-catchment",
           "public_label": "Service Catchments",
-          "event_count": 93385,
-          "compatible_event_count": 93385,
-          "source_count": 17,
-          "compatible_source_count": 17,
+          "event_count": 65237,
+          "compatible_event_count": 65237,
+          "source_count": 7,
+          "compatible_source_count": 7,
           "last_retrieved_or_reviewed": "2026-05-27",
           "year_contract": {
             "required_years": {
@@ -964,10 +964,10 @@
         {
           "slug": "civic-demand",
           "public_label": "Service Context",
-          "event_count": 93385,
-          "compatible_event_count": 93385,
-          "source_count": 17,
-          "compatible_source_count": 17,
+          "event_count": 65237,
+          "compatible_event_count": 65237,
+          "source_count": 7,
+          "compatible_source_count": 7,
           "last_retrieved_or_reviewed": "2026-05-27",
           "year_contract": {
             "required_years": {
@@ -987,10 +987,10 @@
         {
           "slug": "economy-land-use",
           "public_label": "Land Use",
-          "event_count": 59303,
-          "compatible_event_count": 59303,
-          "source_count": 15,
-          "compatible_source_count": 15,
+          "event_count": 59284,
+          "compatible_event_count": 59284,
+          "source_count": 4,
+          "compatible_source_count": 4,
           "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
@@ -1008,10 +1008,10 @@
         {
           "slug": "economy-vitality",
           "public_label": "High Street Activity",
-          "event_count": 59303,
-          "compatible_event_count": 59303,
-          "source_count": 15,
-          "compatible_source_count": 15,
+          "event_count": 59284,
+          "compatible_event_count": 59284,
+          "source_count": 4,
+          "compatible_source_count": 4,
           "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
@@ -1029,10 +1029,10 @@
         {
           "slug": "economy-gravity",
           "public_label": "Economic Context Links",
-          "event_count": 59303,
-          "compatible_event_count": 59303,
-          "source_count": 15,
-          "compatible_source_count": 15,
+          "event_count": 59284,
+          "compatible_event_count": 59284,
+          "source_count": 4,
+          "compatible_source_count": 4,
           "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
@@ -1050,10 +1050,10 @@
         {
           "slug": "utilities-capacity",
           "public_label": "Utility Context",
-          "event_count": 414,
-          "compatible_event_count": 414,
-          "source_count": 14,
-          "compatible_source_count": 14,
+          "event_count": 251,
+          "compatible_event_count": 251,
+          "source_count": 2,
+          "compatible_source_count": 2,
           "last_retrieved_or_reviewed": "2026-05-27",
           "year_contract": {
             "required_years": {
@@ -1078,10 +1078,10 @@
         {
           "slug": "utilities-resilience",
           "public_label": "Utility Network Context",
-          "event_count": 414,
-          "compatible_event_count": 414,
-          "source_count": 14,
-          "compatible_source_count": 14,
+          "event_count": 251,
+          "compatible_event_count": 251,
+          "source_count": 2,
+          "compatible_source_count": 2,
           "last_retrieved_or_reviewed": "2026-05-27",
           "year_contract": {
             "required_years": {
@@ -1106,10 +1106,10 @@
         {
           "slug": "utilities-works",
           "public_label": "Utility Works",
-          "event_count": 414,
-          "compatible_event_count": 414,
-          "source_count": 14,
-          "compatible_source_count": 14,
+          "event_count": 251,
+          "compatible_event_count": 251,
+          "source_count": 2,
+          "compatible_source_count": 2,
           "last_retrieved_or_reviewed": "2026-05-27",
           "year_contract": {
             "required_years": {
@@ -1159,10 +1159,10 @@
         {
           "slug": "planning-pressure",
           "public_label": "Planning Activity",
-          "event_count": 85174,
-          "compatible_event_count": 85174,
-          "source_count": 48,
-          "compatible_source_count": 48,
+          "event_count": 84940,
+          "compatible_event_count": 84940,
+          "source_count": 47,
+          "compatible_source_count": 47,
           "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
@@ -1180,10 +1180,10 @@
         {
           "slug": "planning-parcels",
           "public_label": "Development Sites",
-          "event_count": 85174,
-          "compatible_event_count": 85174,
-          "source_count": 48,
-          "compatible_source_count": 48,
+          "event_count": 84940,
+          "compatible_event_count": 84940,
+          "source_count": 47,
+          "compatible_source_count": 47,
           "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
@@ -1201,10 +1201,10 @@
         {
           "slug": "planning-delta",
           "public_label": "Built Change",
-          "event_count": 85174,
-          "compatible_event_count": 85174,
-          "source_count": 48,
-          "compatible_source_count": 48,
+          "event_count": 84940,
+          "compatible_event_count": 84940,
+          "source_count": 47,
+          "compatible_source_count": 47,
           "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
@@ -1222,10 +1222,10 @@
         {
           "slug": "transport-access",
           "public_label": "Access to Transport",
-          "event_count": 15046,
-          "compatible_event_count": 15046,
-          "source_count": 44,
-          "compatible_source_count": 44,
+          "event_count": 10825,
+          "compatible_event_count": 10825,
+          "source_count": 42,
+          "compatible_source_count": 42,
           "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
           "year_contract": {
             "required_years": {
@@ -1245,10 +1245,10 @@
         {
           "slug": "transport-reliability",
           "public_label": "Service Reliability",
-          "event_count": 15046,
-          "compatible_event_count": 15046,
-          "source_count": 44,
-          "compatible_source_count": 44,
+          "event_count": 10825,
+          "compatible_event_count": 10825,
+          "source_count": 42,
+          "compatible_source_count": 42,
           "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
           "year_contract": {
             "required_years": {
@@ -1268,10 +1268,10 @@
         {
           "slug": "transport-speed",
           "public_label": "Transport Activity",
-          "event_count": 15046,
-          "compatible_event_count": 15046,
-          "source_count": 44,
-          "compatible_source_count": 44,
+          "event_count": 10825,
+          "compatible_event_count": 10825,
+          "source_count": 42,
+          "compatible_source_count": 42,
           "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
           "year_contract": {
             "required_years": {
@@ -1291,10 +1291,10 @@
         {
           "slug": "civic-access-gaps",
           "public_label": "Service Coverage Context",
-          "event_count": 4601,
-          "compatible_event_count": 4601,
-          "source_count": 26,
-          "compatible_source_count": 26,
+          "event_count": 4774,
+          "compatible_event_count": 4774,
+          "source_count": 8,
+          "compatible_source_count": 8,
           "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
@@ -1325,10 +1325,10 @@
         {
           "slug": "civic-catchment",
           "public_label": "Service Catchments",
-          "event_count": 4601,
-          "compatible_event_count": 4601,
-          "source_count": 26,
-          "compatible_source_count": 26,
+          "event_count": 4774,
+          "compatible_event_count": 4774,
+          "source_count": 8,
+          "compatible_source_count": 8,
           "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
@@ -1359,10 +1359,10 @@
         {
           "slug": "civic-demand",
           "public_label": "Service Context",
-          "event_count": 4601,
-          "compatible_event_count": 4601,
-          "source_count": 26,
-          "compatible_source_count": 26,
+          "event_count": 4774,
+          "compatible_event_count": 4774,
+          "source_count": 8,
+          "compatible_source_count": 8,
           "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
@@ -1393,10 +1393,10 @@
         {
           "slug": "economy-land-use",
           "public_label": "Land Use",
-          "event_count": 7470,
-          "compatible_event_count": 7470,
-          "source_count": 31,
-          "compatible_source_count": 31,
+          "event_count": 6695,
+          "compatible_event_count": 6695,
+          "source_count": 6,
+          "compatible_source_count": 6,
           "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
           "year_contract": {
             "required_years": {
@@ -1414,10 +1414,10 @@
         {
           "slug": "economy-vitality",
           "public_label": "High Street Activity",
-          "event_count": 7470,
-          "compatible_event_count": 7470,
-          "source_count": 31,
-          "compatible_source_count": 31,
+          "event_count": 6695,
+          "compatible_event_count": 6695,
+          "source_count": 6,
+          "compatible_source_count": 6,
           "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
           "year_contract": {
             "required_years": {
@@ -1435,10 +1435,10 @@
         {
           "slug": "economy-gravity",
           "public_label": "Economic Context Links",
-          "event_count": 7470,
-          "compatible_event_count": 7470,
-          "source_count": 31,
-          "compatible_source_count": 31,
+          "event_count": 6695,
+          "compatible_event_count": 6695,
+          "source_count": 6,
+          "compatible_source_count": 6,
           "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
           "year_contract": {
             "required_years": {
@@ -1456,10 +1456,10 @@
         {
           "slug": "utilities-capacity",
           "public_label": "Utility Context",
-          "event_count": 3811,
-          "compatible_event_count": 3811,
-          "source_count": 42,
-          "compatible_source_count": 42,
+          "event_count": 1025,
+          "compatible_event_count": 1025,
+          "source_count": 11,
+          "compatible_source_count": 11,
           "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
@@ -1484,10 +1484,10 @@
         {
           "slug": "utilities-resilience",
           "public_label": "Utility Network Context",
-          "event_count": 3811,
-          "compatible_event_count": 3811,
-          "source_count": 42,
-          "compatible_source_count": 42,
+          "event_count": 1025,
+          "compatible_event_count": 1025,
+          "source_count": 11,
+          "compatible_source_count": 11,
           "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
@@ -1512,10 +1512,10 @@
         {
           "slug": "utilities-works",
           "public_label": "Utility Works",
-          "event_count": 3811,
-          "compatible_event_count": 3811,
-          "source_count": 42,
-          "compatible_source_count": 42,
+          "event_count": 1025,
+          "compatible_event_count": 1025,
+          "source_count": 11,
+          "compatible_source_count": 11,
           "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {

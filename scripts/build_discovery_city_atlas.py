@@ -490,6 +490,11 @@ def london_seed_is_utility_record(item: dict[str, Any]) -> bool:
 def source_category_override(item: dict[str, Any]) -> tuple[str, str, set[str]] | None:
     source_ids = source_ids_for_item(item)
     event_id = str(item.get("event_id") or "")
+    if "erm2-nwe9" in source_ids and event_id.startswith("nyc_311_service_request_"):
+        signals = {"civic_services", "services", "service_requests"}
+        if re.search(r"\b(heat/hot water|tenant|apartment|entire building|housing)\b", item_text_for_category_override(item)):
+            signals.add("housing_complaint")
+        return "civic_services", "services", signals
     if "lon-extra-hm-land-registry-price-paid-data" in source_ids and event_id.startswith("lon_hmlr_price_paid_"):
         return "economy", "jobs", {"economy", "economic_opportunity", "property_market", "residential"}
     if "lon-extra-food-hygiene-rating-scheme-api" in source_ids and event_id.startswith("lon_fsa_fhrs_rating_"):
@@ -634,7 +639,10 @@ def normalize_seed(city: str, item: dict[str, Any], idx: int, source_by_id: dict
     override = source_category_override(item)
     if override:
         category, lens, override_signals = override
-        signals = sorted(set(signals) | override_signals)
+        if "erm2-nwe9" in source_ids_for_item(item) and str(item.get("event_id") or "").startswith("nyc_311_service_request_"):
+            signals = sorted(override_signals)
+        else:
+            signals = sorted(set(signals) | override_signals)
 
     provided_geometry = item.get("geometry") if isinstance(item.get("geometry"), dict) else None
     geometry_source = item.get("geometry_source")

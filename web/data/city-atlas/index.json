@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-06-03T19:45:00Z",
+  "generated_at": "2026-06-03T21:25:00Z",
   "default_city_id": "belfast",
   "city_count": 3,
   "cities": [
@@ -75,7 +75,7 @@
   },
   "lens_manifest_path": "web/data/city-atlas/lens-manifest.json",
   "coverage_report_path": "web/data/city-atlas/coverage-report.json",
-  "coverage_report_generated_at": "2026-06-03T19:45:00Z",
+  "coverage_report_generated_at": "2026-06-03T21:25:00Z",
   "coverage_summary": {
     "city_count": 3,
     "total_events": 356388,
@@ -83,7 +83,7 @@
     "duplicate_event_id_count": 0,
     "active_source_count": 490,
     "source_catalog_only_count": 254,
-    "source_year_layer_row_count": 2548,
+    "source_year_layer_row_count": 2527,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",

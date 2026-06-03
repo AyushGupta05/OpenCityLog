@@ -107,6 +107,22 @@ const sourceById = new Map([[
     provider: "Department for Infrastructure",
     provenance_notes: "Metro bus service activity, passenger journeys and bus kilometres.",
   },
+], [
+  "nyc-311",
+  {
+    source_family: "civic_services",
+    title: "NYC 311 Service Requests from 2010 to Present",
+    provider: "NYC OpenData",
+    provenance_notes: "Resident service requests and agency dispositions.",
+  },
+], [
+  "planning-register",
+  {
+    source_family: "planning",
+    title: "Planning applications register",
+    provider: "City planning authority",
+    provenance_notes: "Planning, zoning, permit and development-application records.",
+  },
 ]]);
 const metroActivity = {
   category: "transport",
@@ -162,6 +178,29 @@ if (!eventMatchesLens(metroPunctuality, "transport-reliability", sourceById)) th
 if (!eventDirectlyMatchesLensCategory(metroPunctuality, "transport-reliability")) throw new Error("Metro punctuality should directly match reliability");
 if (eventMatchesLens(metroPunctuality, "transport-access", sourceById)) throw new Error("Metro punctuality matched access");
 if (eventMatchesLens(metroPunctuality, "transport-speed", sourceById)) throw new Error("Metro punctuality matched activity");
+
+const heatComplaint = {
+  category: "civic_services",
+  lens: "service_requests",
+  title: "311 service request: HEAT/HOT WATER - APARTMENT ONLY",
+  summary: "Tenant complaint says the whole building has no hot water.",
+  affected_signals: ["civic_services", "services", "housing_complaint"],
+  source_ids: ["nyc-311"],
+};
+if (eventMatchesLens(heatComplaint, "planning-pressure", sourceById)) throw new Error("Civic 311 heat complaint matched planning through text");
+if (eventDirectlyMatchesLensCategory(heatComplaint, "planning-pressure")) throw new Error("Civic 311 heat complaint directly matched planning");
+if (!eventMatchesLens(heatComplaint, "civic-access-gaps", sourceById)) throw new Error("Civic 311 complaint should remain civic evidence");
+
+const planningSourceRecord = {
+  category: "civic_services",
+  lens: "public_notice",
+  title: "Resident consultation item",
+  summary: "Public-facing record title is generic; source metadata carries the planning register provenance.",
+  affected_signals: ["public_notice"],
+  source_ids: ["planning-register"],
+};
+if (!eventMatchesLens(planningSourceRecord, "planning-pressure", sourceById)) throw new Error("Planning source metadata should support adjacent planning matches");
+if (eventDirectlyMatchesLensCategory(planningSourceRecord, "planning-pressure")) throw new Error("Adjacent planning source record should not directly match planning");
 """
         subprocess.run(["node", "-e", script], cwd=REPO_ROOT, check=True)
 
@@ -365,10 +404,11 @@ assertScopedRoads("belfast", 1, { detail_layers: "web/data/city-atlas/cities/bel
             for row in coverage.get("rows", [])
             if row.get("lens_slug") == "transport-speed" and row.get("year") == 2024
         )
-        self.assertEqual(speed_2024.get("status"), "adjacent_source_backed_records")
+        self.assertEqual(speed_2024.get("status"), "missing_source_backed_view")
+        self.assertEqual(speed_2024.get("event_count"), 0)
         self.assertEqual(speed_2024.get("direct_event_count"), 0)
         self.assertEqual(speed_2024.get("map_direct_event_count"), 0)
-        self.assertGreater(speed_2024.get("withheld_geometry_event_count", 0), 0)
+        self.assertEqual(speed_2024.get("withheld_geometry_event_count", 0), 0)
 
         roads_path = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "transport_roads_2024.geojson"
         roads = read_json(roads_path)
@@ -503,6 +543,26 @@ assertScopedRoads("belfast", 1, { detail_layers: "web/data/city-atlas/cities/bel
             transport_pluto_features,
             [],
             "NYC PLUTO economy records with secondary transport signals must not be emitted as transport hotspots",
+        )
+
+    def test_nyc_311_heat_hot_water_stays_out_of_built_environment_events(self) -> None:
+        city_dir = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "nyc"
+        offenders = []
+        for path in city_dir.glob("events_*.json"):
+            events = read_json(path).get("events", [])
+            for event in events:
+                source_ids = set(event.get("source_ids") or [])
+                text = " ".join(str(event.get(key) or "") for key in ("title", "summary", "short_description"))
+                if (
+                    "erm2-nwe9" in source_ids
+                    and "HEAT/HOT WATER" in text
+                    and event.get("category") == "built_environment"
+                ):
+                    offenders.append(f"{path.name}:{event.get('event_id') or event.get('id')}")
+        self.assertEqual(
+            offenders,
+            [],
+            "NYC 311 heat/hot-water service complaints must stay civic and out of direct planning/built-environment events",
         )
 
     def test_non_site_reference_geometry_is_evidence_only(self) -> None:

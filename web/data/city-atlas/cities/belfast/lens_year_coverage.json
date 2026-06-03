@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_lens_year_coverage",
-  "generated_at": "2026-06-03T19:45:00Z",
+  "generated_at": "2026-06-03T21:25:00Z",
   "city_id": "belfast",
   "display_name": "Belfast, Northern Ireland",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -15,8 +15,8 @@
   "row_count": 300,
   "status_counts": {
     "source_backed_records": 44,
-    "adjacent_source_backed_records": 79,
-    "missing_source_backed_view": 177
+    "adjacent_source_backed_records": 67,
+    "missing_source_backed_view": 189
   },
   "rows": [
     {
@@ -4209,49 +4209,41 @@
       "year": 2015,
       "required_year": true,
       "visible_map_contract": false,
-      "status": "adjacent_source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
-      "map_event_count": 1,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
+      "map_event_count": 0,
       "map_direct_event_count": 0,
       "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 1,
-      "broad_match_compatible_event_count": 1,
+      "broad_match_event_count": 0,
+      "broad_match_compatible_event_count": 0,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "documented": 1
-      },
-      "source_count": 1,
-      "source_ids": [
-        "belfast_city_council_minutes_2008_2015"
-      ],
-      "compatible_source_ids": [
-        "belfast_city_council_minutes_2008_2015"
-      ],
-      "broad_match_source_count": 1,
-      "broad_match_source_ids": [
-        "belfast_city_council_minutes_2008_2015"
-      ],
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "broad_match_source_count": 0,
+      "broad_match_source_ids": [],
       "direct_source_count": 0,
       "direct_source_ids": [],
-      "evidence_basis": "Source-backed Access to Transport event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category transport row(s) matched; 0 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "No same-lens source-backed event rows matched for 2015; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson",
-        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Broad source-backed Access to Transport lens matches are available for 2015, but no direct same-category transport records are currently ingested.",
-        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
+        "No license-compatible Access to Transport records are currently ingested for 2015.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -4694,97 +4686,41 @@
       "year": 2024,
       "required_year": true,
       "visible_map_contract": false,
-      "status": "adjacent_source_backed_records",
-      "event_count": 105,
-      "compatible_event_count": 105,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 105,
+      "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 105,
-      "broad_match_compatible_event_count": 105,
+      "broad_match_event_count": 0,
+      "broad_match_compatible_event_count": 0,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "documented": 105
-      },
-      "source_count": 17,
-      "source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round544",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round565",
-        "dfi-planning-statistics-2024-25-round569",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
-      "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round544",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round565",
-        "dfi-planning-statistics-2024-25-round569",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
-      "broad_match_source_count": 17,
-      "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round544",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round565",
-        "dfi-planning-statistics-2024-25-round569",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "broad_match_source_count": 0,
+      "broad_match_source_ids": [],
       "direct_source_count": 0,
       "direct_source_ids": [],
-      "evidence_basis": "Source-backed Access to Transport event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category transport row(s) matched; 0 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "No same-lens source-backed event rows matched for 2024; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson",
-        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Broad source-backed Access to Transport lens matches are available for 2024, but no direct same-category transport records are currently ingested.",
-        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
+        "No license-compatible Access to Transport records are currently ingested for 2024.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -4803,79 +4739,41 @@
       "year": 2025,
       "required_year": true,
       "visible_map_contract": false,
-      "status": "adjacent_source_backed_records",
-      "event_count": 37,
-      "compatible_event_count": 37,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 37,
+      "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 37,
-      "broad_match_compatible_event_count": 37,
+      "broad_match_event_count": 0,
+      "broad_match_compatible_event_count": 0,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "documented": 37
-      },
-      "source_count": 11,
-      "source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
-      "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
-      "broad_match_source_count": 11,
-      "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "broad_match_source_count": 0,
+      "broad_match_source_ids": [],
       "direct_source_count": 0,
       "direct_source_ids": [],
-      "evidence_basis": "Source-backed Access to Transport event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category transport row(s) matched; 0 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "No same-lens source-backed event rows matched for 2025; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson",
-        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Broad source-backed Access to Transport lens matches are available for 2025, but no direct same-category transport records are currently ingested.",
-        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
+        "No license-compatible Access to Transport records are currently ingested for 2025.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -5388,49 +5286,41 @@
       "year": 2015,
       "required_year": true,
       "visible_map_contract": false,
-      "status": "adjacent_source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
-      "map_event_count": 1,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
+      "map_event_count": 0,
       "map_direct_event_count": 0,
       "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 1,
-      "broad_match_compatible_event_count": 1,
+      "broad_match_event_count": 0,
+      "broad_match_compatible_event_count": 0,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "documented": 1
-      },
-      "source_count": 1,
-      "source_ids": [
-        "belfast_city_council_minutes_2008_2015"
-      ],
-      "compatible_source_ids": [
-        "belfast_city_council_minutes_2008_2015"
-      ],
-      "broad_match_source_count": 1,
-      "broad_match_source_ids": [
-        "belfast_city_council_minutes_2008_2015"
-      ],
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "broad_match_source_count": 0,
+      "broad_match_source_ids": [],
       "direct_source_count": 0,
       "direct_source_ids": [],
-      "evidence_basis": "Source-backed Service Reliability event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category transport row(s) matched; 0 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "No same-lens source-backed event rows matched for 2015; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson",
-        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Broad source-backed Service Reliability lens matches are available for 2015, but no direct same-category transport records are currently ingested.",
-        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
+        "No license-compatible Service Reliability records are currently ingested for 2015.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -5873,97 +5763,41 @@
       "year": 2024,
       "required_year": true,
       "visible_map_contract": false,
-      "status": "adjacent_source_backed_records",
-      "event_count": 105,
-      "compatible_event_count": 105,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 105,
+      "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 105,
-      "broad_match_compatible_event_count": 105,
+      "broad_match_event_count": 0,
+      "broad_match_compatible_event_count": 0,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "documented": 105
-      },
-      "source_count": 17,
-      "source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round544",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round565",
-        "dfi-planning-statistics-2024-25-round569",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
-      "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round544",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round565",
-        "dfi-planning-statistics-2024-25-round569",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
-      "broad_match_source_count": 17,
-      "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round544",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round565",
-        "dfi-planning-statistics-2024-25-round569",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "broad_match_source_count": 0,
+      "broad_match_source_ids": [],
       "direct_source_count": 0,
       "direct_source_ids": [],
-      "evidence_basis": "Source-backed Service Reliability event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category transport row(s) matched; 0 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "No same-lens source-backed event rows matched for 2024; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson",
-        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Broad source-backed Service Reliability lens matches are available for 2024, but no direct same-category transport records are currently ingested.",
-        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
+        "No license-compatible Service Reliability records are currently ingested for 2024.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -5982,79 +5816,41 @@
       "year": 2025,
       "required_year": true,
       "visible_map_contract": false,
-      "status": "adjacent_source_backed_records",
-      "event_count": 37,
-      "compatible_event_count": 37,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 37,
+      "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 37,
-      "broad_match_compatible_event_count": 37,
+      "broad_match_event_count": 0,
+      "broad_match_compatible_event_count": 0,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "documented": 37
-      },
-      "source_count": 11,
-      "source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
-      "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
-      "broad_match_source_count": 11,
-      "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "broad_match_source_count": 0,
+      "broad_match_source_ids": [],
       "direct_source_count": 0,
       "direct_source_ids": [],
-      "evidence_basis": "Source-backed Service Reliability event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category transport row(s) matched; 0 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "No same-lens source-backed event rows matched for 2025; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson",
-        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Broad source-backed Service Reliability lens matches are available for 2025, but no direct same-category transport records are currently ingested.",
-        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
+        "No license-compatible Service Reliability records are currently ingested for 2025.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -6567,49 +6363,41 @@
       "year": 2015,
       "required_year": true,
       "visible_map_contract": false,
-      "status": "adjacent_source_backed_records",
-      "event_count": 1,
-      "compatible_event_count": 1,
-      "map_event_count": 1,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
+      "map_event_count": 0,
       "map_direct_event_count": 0,
       "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 1,
-      "broad_match_compatible_event_count": 1,
+      "broad_match_event_count": 0,
+      "broad_match_compatible_event_count": 0,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "documented": 1
-      },
-      "source_count": 1,
-      "source_ids": [
-        "belfast_city_council_minutes_2008_2015"
-      ],
-      "compatible_source_ids": [
-        "belfast_city_council_minutes_2008_2015"
-      ],
-      "broad_match_source_count": 1,
-      "broad_match_source_ids": [
-        "belfast_city_council_minutes_2008_2015"
-      ],
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "broad_match_source_count": 0,
+      "broad_match_source_ids": [],
       "direct_source_count": 0,
       "direct_source_ids": [],
-      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2015.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category transport row(s) matched; 0 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "No same-lens source-backed event rows matched for 2015; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2015.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2015.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson",
-        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2015.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Broad source-backed Transport Activity lens matches are available for 2015, but no direct same-category transport records are currently ingested.",
-        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
+        "No license-compatible Transport Activity records are currently ingested for 2015.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -7052,97 +6840,41 @@
       "year": 2024,
       "required_year": true,
       "visible_map_contract": false,
-      "status": "adjacent_source_backed_records",
-      "event_count": 105,
-      "compatible_event_count": 105,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 105,
+      "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 105,
-      "broad_match_compatible_event_count": 105,
+      "broad_match_event_count": 0,
+      "broad_match_compatible_event_count": 0,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "documented": 105
-      },
-      "source_count": 17,
-      "source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round544",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round565",
-        "dfi-planning-statistics-2024-25-round569",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
-      "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round544",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round565",
-        "dfi-planning-statistics-2024-25-round569",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
-      "broad_match_source_count": 17,
-      "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round544",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round565",
-        "dfi-planning-statistics-2024-25-round569",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "broad_match_source_count": 0,
+      "broad_match_source_ids": [],
       "direct_source_count": 0,
       "direct_source_ids": [],
-      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2024.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category transport row(s) matched; 0 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "No same-lens source-backed event rows matched for 2024; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2024.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2024.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson",
-        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2024.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Broad source-backed Transport Activity lens matches are available for 2024, but no direct same-category transport records are currently ingested.",
-        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
+        "No license-compatible Transport Activity records are currently ingested for 2024.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -7161,79 +6893,41 @@
       "year": 2025,
       "required_year": true,
       "visible_map_contract": false,
-      "status": "adjacent_source_backed_records",
-      "event_count": 37,
-      "compatible_event_count": 37,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 37,
+      "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 37,
-      "broad_match_compatible_event_count": 37,
+      "broad_match_event_count": 0,
+      "broad_match_compatible_event_count": 0,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "documented": 37
-      },
-      "source_count": 11,
-      "source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
-      "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
-      "broad_match_source_count": 11,
-      "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round538",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587",
-        "dfi-planning-statistics-2024-25-round592"
-      ],
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "broad_match_source_count": 0,
+      "broad_match_source_ids": [],
       "direct_source_count": 0,
       "direct_source_ids": [],
-      "evidence_basis": "Source-backed Transport Activity event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category transport row(s) matched; 0 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "No same-lens source-backed event rows matched for 2025; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
-        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson",
-        "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson"
+        "lens_detail_geojson": "web/data/city-atlas/cities/belfast/lens_detail_2025.geojson"
       },
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Broad source-backed Transport Activity lens matches are available for 2025, but no direct same-category transport records are currently ingested.",
-        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
+        "No license-compatible Transport Activity records are currently ingested for 2025.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -7597,14 +7291,14 @@
       "required_year": true,
       "visible_map_contract": false,
       "status": "adjacent_source_backed_records",
-      "event_count": 2,
-      "compatible_event_count": 2,
-      "map_event_count": 2,
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "map_event_count": 1,
       "map_direct_event_count": 0,
       "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 2,
-      "broad_match_compatible_event_count": 2,
+      "broad_match_event_count": 1,
+      "broad_match_compatible_event_count": 1,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
@@ -7612,21 +7306,18 @@
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 2
+        "documented": 1
       },
-      "source_count": 2,
+      "source_count": 1,
       "source_ids": [
-        "belfast_city_council_minutes_2008_2015",
-        "ni_water_news_2012_belfast_hydrant_abuse"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast_city_council_minutes_2008_2015",
-        "ni_water_news_2012_belfast_hydrant_abuse"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "broad_match_source_count": 2,
+      "broad_match_source_count": 1,
       "broad_match_source_ids": [
-        "belfast_city_council_minutes_2008_2015",
-        "ni_water_news_2012_belfast_hydrant_abuse"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "direct_source_count": 0,
       "direct_source_ids": [],
@@ -8257,14 +7948,14 @@
       "required_year": true,
       "visible_map_contract": false,
       "status": "adjacent_source_backed_records",
-      "event_count": 35,
-      "compatible_event_count": 35,
+      "event_count": 23,
+      "compatible_event_count": 23,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 35,
+      "withheld_geometry_event_count": 23,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 35,
-      "broad_match_compatible_event_count": 35,
+      "broad_match_event_count": 23,
+      "broad_match_compatible_event_count": 23,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
@@ -8272,39 +7963,18 @@
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 35
+        "documented": 23
       },
-      "source_count": 8,
+      "source_count": 1,
       "source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round499"
       ],
       "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round499"
       ],
-      "broad_match_source_count": 8,
+      "broad_match_source_count": 1,
       "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round499"
       ],
       "direct_source_count": 0,
       "direct_source_ids": [],
@@ -8337,41 +8007,30 @@
       "year": 2025,
       "required_year": true,
       "visible_map_contract": false,
-      "status": "adjacent_source_backed_records",
-      "event_count": 3,
-      "compatible_event_count": 3,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 3,
+      "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 3,
-      "broad_match_compatible_event_count": 3,
+      "broad_match_event_count": 0,
+      "broad_match_compatible_event_count": 0,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "documented": 3
-      },
-      "source_count": 2,
-      "source_ids": [
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round569"
-      ],
-      "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round569"
-      ],
-      "broad_match_source_count": 2,
-      "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round569"
-      ],
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "broad_match_source_count": 0,
+      "broad_match_source_ids": [],
       "direct_source_count": 0,
       "direct_source_ids": [],
-      "evidence_basis": "Source-backed Service Coverage Context event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category civic_services row(s) matched; 0 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "No same-lens source-backed event rows matched for 2025; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
@@ -8380,8 +8039,9 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Broad source-backed Service Coverage Context lens matches are available for 2025, but no direct same-category civic_services records are currently ingested.",
-        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
+        "No license-compatible Service Coverage Context records are currently ingested for 2025.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -8745,14 +8405,14 @@
       "required_year": true,
       "visible_map_contract": false,
       "status": "adjacent_source_backed_records",
-      "event_count": 2,
-      "compatible_event_count": 2,
-      "map_event_count": 2,
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "map_event_count": 1,
       "map_direct_event_count": 0,
       "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 2,
-      "broad_match_compatible_event_count": 2,
+      "broad_match_event_count": 1,
+      "broad_match_compatible_event_count": 1,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
@@ -8760,21 +8420,18 @@
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 2
+        "documented": 1
       },
-      "source_count": 2,
+      "source_count": 1,
       "source_ids": [
-        "belfast_city_council_minutes_2008_2015",
-        "ni_water_news_2012_belfast_hydrant_abuse"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast_city_council_minutes_2008_2015",
-        "ni_water_news_2012_belfast_hydrant_abuse"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "broad_match_source_count": 2,
+      "broad_match_source_count": 1,
       "broad_match_source_ids": [
-        "belfast_city_council_minutes_2008_2015",
-        "ni_water_news_2012_belfast_hydrant_abuse"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "direct_source_count": 0,
       "direct_source_ids": [],
@@ -9405,14 +9062,14 @@
       "required_year": true,
       "visible_map_contract": false,
       "status": "adjacent_source_backed_records",
-      "event_count": 35,
-      "compatible_event_count": 35,
+      "event_count": 23,
+      "compatible_event_count": 23,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 35,
+      "withheld_geometry_event_count": 23,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 35,
-      "broad_match_compatible_event_count": 35,
+      "broad_match_event_count": 23,
+      "broad_match_compatible_event_count": 23,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
@@ -9420,39 +9077,18 @@
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 35
+        "documented": 23
       },
-      "source_count": 8,
+      "source_count": 1,
       "source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round499"
       ],
       "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round499"
       ],
-      "broad_match_source_count": 8,
+      "broad_match_source_count": 1,
       "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round499"
       ],
       "direct_source_count": 0,
       "direct_source_ids": [],
@@ -9485,41 +9121,30 @@
       "year": 2025,
       "required_year": true,
       "visible_map_contract": false,
-      "status": "adjacent_source_backed_records",
-      "event_count": 3,
-      "compatible_event_count": 3,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 3,
+      "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 3,
-      "broad_match_compatible_event_count": 3,
+      "broad_match_event_count": 0,
+      "broad_match_compatible_event_count": 0,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "documented": 3
-      },
-      "source_count": 2,
-      "source_ids": [
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round569"
-      ],
-      "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round569"
-      ],
-      "broad_match_source_count": 2,
-      "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round569"
-      ],
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "broad_match_source_count": 0,
+      "broad_match_source_ids": [],
       "direct_source_count": 0,
       "direct_source_ids": [],
-      "evidence_basis": "Source-backed Service Catchments event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category civic_services row(s) matched; 0 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "No same-lens source-backed event rows matched for 2025; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
@@ -9528,8 +9153,9 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Broad source-backed Service Catchments lens matches are available for 2025, but no direct same-category civic_services records are currently ingested.",
-        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
+        "No license-compatible Service Catchments records are currently ingested for 2025.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -9893,14 +9519,14 @@
       "required_year": true,
       "visible_map_contract": false,
       "status": "adjacent_source_backed_records",
-      "event_count": 2,
-      "compatible_event_count": 2,
-      "map_event_count": 2,
+      "event_count": 1,
+      "compatible_event_count": 1,
+      "map_event_count": 1,
       "map_direct_event_count": 0,
       "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 2,
-      "broad_match_compatible_event_count": 2,
+      "broad_match_event_count": 1,
+      "broad_match_compatible_event_count": 1,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
@@ -9908,21 +9534,18 @@
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 2
+        "documented": 1
       },
-      "source_count": 2,
+      "source_count": 1,
       "source_ids": [
-        "belfast_city_council_minutes_2008_2015",
-        "ni_water_news_2012_belfast_hydrant_abuse"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "compatible_source_ids": [
-        "belfast_city_council_minutes_2008_2015",
-        "ni_water_news_2012_belfast_hydrant_abuse"
+        "belfast_city_council_minutes_2008_2015"
       ],
-      "broad_match_source_count": 2,
+      "broad_match_source_count": 1,
       "broad_match_source_ids": [
-        "belfast_city_council_minutes_2008_2015",
-        "ni_water_news_2012_belfast_hydrant_abuse"
+        "belfast_city_council_minutes_2008_2015"
       ],
       "direct_source_count": 0,
       "direct_source_ids": [],
@@ -10553,14 +10176,14 @@
       "required_year": true,
       "visible_map_contract": false,
       "status": "adjacent_source_backed_records",
-      "event_count": 35,
-      "compatible_event_count": 35,
+      "event_count": 23,
+      "compatible_event_count": 23,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 35,
+      "withheld_geometry_event_count": 23,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 35,
-      "broad_match_compatible_event_count": 35,
+      "broad_match_event_count": 23,
+      "broad_match_compatible_event_count": 23,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
@@ -10568,39 +10191,18 @@
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 35
+        "documented": 23
       },
-      "source_count": 8,
+      "source_count": 1,
       "source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round499"
       ],
       "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round499"
       ],
-      "broad_match_source_count": 8,
+      "broad_match_source_count": 1,
       "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round464",
-        "dfi-planning-statistics-2024-25-round472",
-        "dfi-planning-statistics-2024-25-round477",
-        "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round499",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round499"
       ],
       "direct_source_count": 0,
       "direct_source_ids": [],
@@ -10633,41 +10235,30 @@
       "year": 2025,
       "required_year": true,
       "visible_map_contract": false,
-      "status": "adjacent_source_backed_records",
-      "event_count": 3,
-      "compatible_event_count": 3,
+      "status": "missing_source_backed_view",
+      "event_count": 0,
+      "compatible_event_count": 0,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 3,
+      "withheld_geometry_event_count": 0,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 3,
-      "broad_match_compatible_event_count": 3,
+      "broad_match_event_count": 0,
+      "broad_match_compatible_event_count": 0,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
       "coverage_context_feature_count": 0,
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
-      "confidence_counts": {
-        "documented": 3
-      },
-      "source_count": 2,
-      "source_ids": [
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round569"
-      ],
-      "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round569"
-      ],
-      "broad_match_source_count": 2,
-      "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round569"
-      ],
+      "confidence_counts": {},
+      "source_count": 0,
+      "source_ids": [],
+      "compatible_source_ids": [],
+      "broad_match_source_count": 0,
+      "broad_match_source_ids": [],
       "direct_source_count": 0,
       "direct_source_ids": [],
-      "evidence_basis": "Source-backed Service Context event rows in web/data/city-atlas/cities/belfast/events_2025.json matched by lib/atlas-lenses.js#eventMatchesLens; 0 direct same-category civic_services row(s) matched; 0 direct row(s) have map-eligible geometry.",
+      "evidence_basis": "No same-lens source-backed event rows matched for 2025; no generated filler geometry is emitted.",
       "map_artifacts": {
         "events_json": "web/data/city-atlas/cities/belfast/events_2025.json",
         "events_geojson": "web/data/city-atlas/cities/belfast/events_2025.geojson",
@@ -10676,8 +10267,9 @@
       "limitations": [
         "Counts are source-backed records available in this repo, not a complete census of city change.",
         "Sparse areas remain sparse; no records are generated to create visual density.",
-        "Broad source-backed Service Context lens matches are available for 2025, but no direct same-category civic_services records are currently ingested.",
-        "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review."
+        "No license-compatible Service Context records are currently ingested for 2025.",
+        "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+        "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage."
       ],
       "exports": {
         "markdown": true,
@@ -11715,14 +11307,14 @@
       "required_year": true,
       "visible_map_contract": false,
       "status": "adjacent_source_backed_records",
-      "event_count": 46,
-      "compatible_event_count": 46,
+      "event_count": 36,
+      "compatible_event_count": 36,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 46,
+      "withheld_geometry_event_count": 36,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 46,
-      "broad_match_compatible_event_count": 46,
+      "broad_match_event_count": 36,
+      "broad_match_compatible_event_count": 36,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
@@ -11730,42 +11322,21 @@
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 46
+        "documented": 36
       },
-      "source_count": 9,
+      "source_count": 2,
       "source_ids": [
-        "dfi-planning-statistics-2024-25-round477",
         "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round503"
       ],
       "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round477",
         "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round503"
       ],
-      "broad_match_source_count": 9,
+      "broad_match_source_count": 2,
       "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round477",
         "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round503"
       ],
       "direct_source_count": 0,
       "direct_source_ids": [],
@@ -11799,14 +11370,14 @@
       "required_year": true,
       "visible_map_contract": false,
       "status": "adjacent_source_backed_records",
-      "event_count": 44,
-      "compatible_event_count": 44,
+      "event_count": 31,
+      "compatible_event_count": 31,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 44,
+      "withheld_geometry_event_count": 31,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 44,
-      "broad_match_compatible_event_count": 44,
+      "broad_match_event_count": 31,
+      "broad_match_compatible_event_count": 31,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
@@ -11814,33 +11385,21 @@
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 44
+        "documented": 31
       },
-      "source_count": 6,
+      "source_count": 2,
       "source_ids": [
         "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587"
+        "dfi-planning-statistics-2024-25-round503"
       ],
       "compatible_source_ids": [
         "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587"
+        "dfi-planning-statistics-2024-25-round503"
       ],
-      "broad_match_source_count": 6,
+      "broad_match_source_count": 2,
       "broad_match_source_ids": [
         "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587"
+        "dfi-planning-statistics-2024-25-round503"
       ],
       "direct_source_count": 0,
       "direct_source_ids": [],
@@ -12893,14 +12452,14 @@
       "required_year": true,
       "visible_map_contract": false,
       "status": "adjacent_source_backed_records",
-      "event_count": 46,
-      "compatible_event_count": 46,
+      "event_count": 36,
+      "compatible_event_count": 36,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 46,
+      "withheld_geometry_event_count": 36,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 46,
-      "broad_match_compatible_event_count": 46,
+      "broad_match_event_count": 36,
+      "broad_match_compatible_event_count": 36,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
@@ -12908,42 +12467,21 @@
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 46
+        "documented": 36
       },
-      "source_count": 9,
+      "source_count": 2,
       "source_ids": [
-        "dfi-planning-statistics-2024-25-round477",
         "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round503"
       ],
       "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round477",
         "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round503"
       ],
-      "broad_match_source_count": 9,
+      "broad_match_source_count": 2,
       "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round477",
         "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round503"
       ],
       "direct_source_count": 0,
       "direct_source_ids": [],
@@ -12977,14 +12515,14 @@
       "required_year": true,
       "visible_map_contract": false,
       "status": "adjacent_source_backed_records",
-      "event_count": 44,
-      "compatible_event_count": 44,
+      "event_count": 31,
+      "compatible_event_count": 31,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 44,
+      "withheld_geometry_event_count": 31,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 44,
-      "broad_match_compatible_event_count": 44,
+      "broad_match_event_count": 31,
+      "broad_match_compatible_event_count": 31,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
@@ -12992,33 +12530,21 @@
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 44
+        "documented": 31
       },
-      "source_count": 6,
+      "source_count": 2,
       "source_ids": [
         "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587"
+        "dfi-planning-statistics-2024-25-round503"
       ],
       "compatible_source_ids": [
         "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587"
+        "dfi-planning-statistics-2024-25-round503"
       ],
-      "broad_match_source_count": 6,
+      "broad_match_source_count": 2,
       "broad_match_source_ids": [
         "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587"
+        "dfi-planning-statistics-2024-25-round503"
       ],
       "direct_source_count": 0,
       "direct_source_ids": [],
@@ -14071,14 +13597,14 @@
       "required_year": true,
       "visible_map_contract": false,
       "status": "adjacent_source_backed_records",
-      "event_count": 46,
-      "compatible_event_count": 46,
+      "event_count": 36,
+      "compatible_event_count": 36,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 46,
+      "withheld_geometry_event_count": 36,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 46,
-      "broad_match_compatible_event_count": 46,
+      "broad_match_event_count": 36,
+      "broad_match_compatible_event_count": 36,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
@@ -14086,42 +13612,21 @@
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 46
+        "documented": 36
       },
-      "source_count": 9,
+      "source_count": 2,
       "source_ids": [
-        "dfi-planning-statistics-2024-25-round477",
         "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round503"
       ],
       "compatible_source_ids": [
-        "dfi-planning-statistics-2024-25-round477",
         "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round503"
       ],
-      "broad_match_source_count": 9,
+      "broad_match_source_count": 2,
       "broad_match_source_ids": [
-        "dfi-planning-statistics-2024-25-round477",
         "dfi-planning-statistics-2024-25-round494",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round519",
-        "dfi-planning-statistics-2024-25-round527",
-        "dfi-planning-statistics-2024-25-round554",
-        "dfi-planning-statistics-2024-25-round560",
-        "dfi-planning-statistics-2024-25-round569"
+        "dfi-planning-statistics-2024-25-round503"
       ],
       "direct_source_count": 0,
       "direct_source_ids": [],
@@ -14155,14 +13660,14 @@
       "required_year": true,
       "visible_map_contract": false,
       "status": "adjacent_source_backed_records",
-      "event_count": 44,
-      "compatible_event_count": 44,
+      "event_count": 31,
+      "compatible_event_count": 31,
       "map_event_count": 0,
       "map_direct_event_count": 0,
-      "withheld_geometry_event_count": 44,
+      "withheld_geometry_event_count": 31,
       "direct_withheld_geometry_event_count": 0,
-      "broad_match_event_count": 44,
-      "broad_match_compatible_event_count": 44,
+      "broad_match_event_count": 31,
+      "broad_match_compatible_event_count": 31,
       "direct_event_count": 0,
       "direct_compatible_event_count": 0,
       "detail_feature_count": 0,
@@ -14170,33 +13675,21 @@
       "headline_count_included": 0,
       "headline_count_excluded_context_features": 0,
       "confidence_counts": {
-        "documented": 44
+        "documented": 31
       },
-      "source_count": 6,
+      "source_count": 2,
       "source_ids": [
         "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587"
+        "dfi-planning-statistics-2024-25-round503"
       ],
       "compatible_source_ids": [
         "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587"
+        "dfi-planning-statistics-2024-25-round503"
       ],
-      "broad_match_source_count": 6,
+      "broad_match_source_count": 2,
       "broad_match_source_ids": [
         "dfi-planning-statistics-2024-25-round487",
-        "dfi-planning-statistics-2024-25-round503",
-        "dfi-planning-statistics-2024-25-round511",
-        "dfi-planning-statistics-2024-25-round577",
-        "dfi-planning-statistics-2024-25-round582",
-        "dfi-planning-statistics-2024-25-round587"
+        "dfi-planning-statistics-2024-25-round503"
       ],
       "direct_source_count": 0,
       "direct_source_ids": [],

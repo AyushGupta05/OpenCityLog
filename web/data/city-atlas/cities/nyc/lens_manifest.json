@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_city_manifest",
-  "generated_at": "2026-06-03T19:45:00Z",
+  "generated_at": "2026-06-03T21:25:00Z",
   "city_id": "nyc",
   "display_name": "New York City, New York",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -46,18 +46,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 85174,
-        "compatible_event_count": 85174,
+        "event_count": 84940,
+        "compatible_event_count": 84940,
         "review_required_event_count": 0,
-        "source_count": 48,
-        "compatible_source_count": 48,
+        "source_count": 47,
+        "compatible_source_count": 47,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1839,
+          "start": 1904,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 85174
+          "documented": 84940
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -81,7 +81,7 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
-        "source_coverage_period": "1839-2026",
+        "source_coverage_period": "1904-2026",
         "update_cadence": "Annual; Annual/seasonal indicator values; Application milestone dates/status updates; Approval/issue dates; As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Closure start/end date-time; Created/closed timestamps"
       },
       "provenance": {
@@ -99,7 +99,6 @@
           "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
           "hg8x-zxpr",
           "hgx4-8ukb",
@@ -149,7 +148,6 @@
           "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
           "hg8x-zxpr",
           "hgx4-8ukb",
@@ -369,18 +367,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 85174,
-        "compatible_event_count": 85174,
+        "event_count": 84940,
+        "compatible_event_count": 84940,
         "review_required_event_count": 0,
-        "source_count": 48,
-        "compatible_source_count": 48,
+        "source_count": 47,
+        "compatible_source_count": 47,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1839,
+          "start": 1904,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 85174
+          "documented": 84940
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -404,7 +402,7 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
-        "source_coverage_period": "1839-2026",
+        "source_coverage_period": "1904-2026",
         "update_cadence": "Annual; Annual/seasonal indicator values; Application milestone dates/status updates; Approval/issue dates; As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Closure start/end date-time; Created/closed timestamps"
       },
       "provenance": {
@@ -422,7 +420,6 @@
           "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
           "hg8x-zxpr",
           "hgx4-8ukb",
@@ -472,7 +469,6 @@
           "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
           "hg8x-zxpr",
           "hgx4-8ukb",
@@ -692,18 +688,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 85174,
-        "compatible_event_count": 85174,
+        "event_count": 84940,
+        "compatible_event_count": 84940,
         "review_required_event_count": 0,
-        "source_count": 48,
-        "compatible_source_count": 48,
+        "source_count": 47,
+        "compatible_source_count": 47,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1839,
+          "start": 1904,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 85174
+          "documented": 84940
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -727,7 +723,7 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
-        "source_coverage_period": "1839-2026",
+        "source_coverage_period": "1904-2026",
         "update_cadence": "Annual; Annual/seasonal indicator values; Application milestone dates/status updates; Approval/issue dates; As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Closure start/end date-time; Created/closed timestamps"
       },
       "provenance": {
@@ -745,7 +741,6 @@
           "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
           "hg8x-zxpr",
           "hgx4-8ukb",
@@ -795,7 +790,6 @@
           "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
           "hg8x-zxpr",
           "hgx4-8ukb",
@@ -1015,18 +1009,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 15046,
-        "compatible_event_count": 15046,
+        "event_count": 10825,
+        "compatible_event_count": 10825,
         "review_required_event_count": 0,
-        "source_count": 44,
-        "compatible_source_count": 44,
+        "source_count": 42,
+        "compatible_source_count": 42,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1894,
+          "start": 1904,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 15046
+          "documented": 10825
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1034,7 +1028,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 174,
+        "excluded_review_required_event_count": 23,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1052,8 +1046,8 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
-        "source_coverage_period": "1894-2026",
-        "update_cadence": "Annual; Annual/seasonal indicator values; Application milestone dates/status updates; Approval/issue dates; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Census snapshot; Closure start/end date-time; Crash date/time"
+        "source_coverage_period": "1904-2026",
+        "update_cadence": "Annual; Annual/seasonal indicator values; Application milestone dates/status updates; Approval/issue dates; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Closure start/end date-time; Crash date/time; Created/closed timestamps"
       },
       "provenance": {
         "source_ids": [
@@ -1070,7 +1064,6 @@
           "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
           "h9gi-nx95",
           "hg8x-zxpr",
@@ -1098,7 +1091,6 @@
           "nyc-pluto-mappluto-lots",
           "rbx6-tga4",
           "tqtj-sjs8",
-          "uvpi-gqnh",
           "w7w3-xahh",
           "w9ak-ipjd"
         ],
@@ -1116,7 +1108,6 @@
           "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
           "h9gi-nx95",
           "hg8x-zxpr",
@@ -1144,7 +1135,6 @@
           "nyc-pluto-mappluto-lots",
           "rbx6-tga4",
           "tqtj-sjs8",
-          "uvpi-gqnh",
           "w7w3-xahh",
           "w9ak-ipjd"
         ],
@@ -1332,18 +1322,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 15046,
-        "compatible_event_count": 15046,
+        "event_count": 10825,
+        "compatible_event_count": 10825,
         "review_required_event_count": 0,
-        "source_count": 44,
-        "compatible_source_count": 44,
+        "source_count": 42,
+        "compatible_source_count": 42,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1894,
+          "start": 1904,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 15046
+          "documented": 10825
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1351,7 +1341,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 174,
+        "excluded_review_required_event_count": 23,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1369,8 +1359,8 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
-        "source_coverage_period": "1894-2026",
-        "update_cadence": "Annual; Annual/seasonal indicator values; Application milestone dates/status updates; Approval/issue dates; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Census snapshot; Closure start/end date-time; Crash date/time"
+        "source_coverage_period": "1904-2026",
+        "update_cadence": "Annual; Annual/seasonal indicator values; Application milestone dates/status updates; Approval/issue dates; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Closure start/end date-time; Crash date/time; Created/closed timestamps"
       },
       "provenance": {
         "source_ids": [
@@ -1387,7 +1377,6 @@
           "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
           "h9gi-nx95",
           "hg8x-zxpr",
@@ -1415,7 +1404,6 @@
           "nyc-pluto-mappluto-lots",
           "rbx6-tga4",
           "tqtj-sjs8",
-          "uvpi-gqnh",
           "w7w3-xahh",
           "w9ak-ipjd"
         ],
@@ -1433,7 +1421,6 @@
           "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
           "h9gi-nx95",
           "hg8x-zxpr",
@@ -1461,7 +1448,6 @@
           "nyc-pluto-mappluto-lots",
           "rbx6-tga4",
           "tqtj-sjs8",
-          "uvpi-gqnh",
           "w7w3-xahh",
           "w9ak-ipjd"
         ],
@@ -1649,18 +1635,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 15046,
-        "compatible_event_count": 15046,
+        "event_count": 10825,
+        "compatible_event_count": 10825,
         "review_required_event_count": 0,
-        "source_count": 44,
-        "compatible_source_count": 44,
+        "source_count": 42,
+        "compatible_source_count": 42,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1894,
+          "start": 1904,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 15046
+          "documented": 10825
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1668,7 +1654,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 174,
+        "excluded_review_required_event_count": 23,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1686,8 +1672,8 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
-        "source_coverage_period": "1894-2026",
-        "update_cadence": "Annual; Annual/seasonal indicator values; Application milestone dates/status updates; Approval/issue dates; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Census snapshot; Closure start/end date-time; Crash date/time"
+        "source_coverage_period": "1904-2026",
+        "update_cadence": "Annual; Annual/seasonal indicator values; Application milestone dates/status updates; Approval/issue dates; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Closure start/end date-time; Crash date/time; Created/closed timestamps"
       },
       "provenance": {
         "source_ids": [
@@ -1704,7 +1690,6 @@
           "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
           "h9gi-nx95",
           "hg8x-zxpr",
@@ -1732,7 +1717,6 @@
           "nyc-pluto-mappluto-lots",
           "rbx6-tga4",
           "tqtj-sjs8",
-          "uvpi-gqnh",
           "w7w3-xahh",
           "w9ak-ipjd"
         ],
@@ -1750,7 +1734,6 @@
           "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
           "h9gi-nx95",
           "hg8x-zxpr",
@@ -1778,7 +1761,6 @@
           "nyc-pluto-mappluto-lots",
           "rbx6-tga4",
           "tqtj-sjs8",
-          "uvpi-gqnh",
           "w7w3-xahh",
           "w9ak-ipjd"
         ],
@@ -1966,18 +1948,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 4601,
-        "compatible_event_count": 4601,
+        "event_count": 4774,
+        "compatible_event_count": 4774,
         "review_required_event_count": 0,
-        "source_count": 26,
-        "compatible_source_count": 26,
+        "source_count": 8,
+        "compatible_source_count": 8,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1915,
+          "start": 2005,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 4601
+          "documented": 4774
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1985,7 +1967,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 215,
+        "excluded_review_required_event_count": 51,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2014,81 +1996,32 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
-        "source_coverage_period": "1915-2026",
-        "update_cadence": "Approval/issue dates; Created/closed timestamps; Daily; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Issue/effective dates; Meeting-driven; newest certificates may be revised after posting.; Monthly according to NYC Open Data metadata.; NYC Open Data dataset-specific refresh cadence"
+        "source_coverage_period": "2005-2026",
+        "update_cadence": "Created/closed timestamps; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Meeting-driven; newest certificates may be revised after posting.; NYC Open Data dataset-specific refresh cadence; Release snapshot, usually annual/biannual; varies by source/vintage"
       },
       "provenance": {
         "source_ids": [
-          "4hcv-tc5r",
           "64uk-42ks",
           "8m42-w767",
           "bkfu-528j",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c9sj-fmsg",
-          "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
-          "hg8x-zxpr",
           "n7gv-k5yt",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-now-co-pkdm-hqz6",
-          "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
-          "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
-          "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "rbx6-tga4",
-          "skyk-mpzq",
-          "tqtj-sjs8"
+          "nyc-pdc-meeting-minutes-certificates-2008-2026"
         ],
         "compatible_source_ids": [
-          "4hcv-tc5r",
           "64uk-42ks",
           "8m42-w767",
           "bkfu-528j",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c9sj-fmsg",
-          "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
-          "hg8x-zxpr",
           "n7gv-k5yt",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-now-co-pkdm-hqz6",
-          "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
-          "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
-          "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "rbx6-tga4",
-          "skyk-mpzq",
-          "tqtj-sjs8"
+          "nyc-pdc-meeting-minutes-certificates-2008-2026"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "4hcv-tc5r",
-            "title": "Capital Project Tracker",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "capital_projects",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "64uk-42ks",
             "title": "Primary Land Use Tax Lot Output (PLUTO)",
@@ -2129,71 +2062,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "bs8b-p36w",
-            "title": "DOB Certificate Of Occupancy",
-            "publisher": "NYC DOB",
-            "source_family": "buildings;_dob_permits",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOB",
-            "accessed_at": "2026-04-28T12:19:23.839596+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "buis-pvji",
-            "title": "Individual Landmark Sites",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "landmarks",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "c9sj-fmsg",
-            "title": "Street Construction Permits (2013-2021)",
-            "publisher": "NYC DOT",
-            "source_family": "traffic",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOT",
-            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dpm2-m9mq",
-            "title": "LPC Permit Application Information",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "landmarks",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "enfh-gkve",
-            "title": "Parks Properties",
-            "publisher": "NYC Parks",
-            "source_family": "public_services;_environment;_basemap",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Parks",
-            "accessed_at": "2026-04-28T12:19:23.839663+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "erm2-nwe9",
             "title": "311 Service Requests from 2020 to Present",
             "publisher": "NYC 311",
@@ -2207,19 +2075,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "hg8x-zxpr",
-            "title": "Affordable Housing Production by Building",
-            "publisher": "NYC HPD",
-            "source_family": "planning",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC HPD",
-            "accessed_at": "2026-04-28T12:19:23.839600+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "n7gv-k5yt",
             "title": "Capital Projects",
             "publisher": "NYC Open Data / City agency",
@@ -2228,6 +2083,45 @@
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
             "attribution_text": "NYC Open Data / City agency",
             "accessed_at": "2026-04-28T12:56:37.631412+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+            "title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+            "publisher": "NYC Mayor's Office of Operations / NYC Open Data",
+            "source_family": "planning",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC Mayor's Office of Operations / NYC Open Data",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+            "title": "NYC Parks Capital Project Tracker",
+            "publisher": "NYC Department of Parks and Recreation via NYC Open Data",
+            "source_family": "planning",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/open-data-law/",
+            "attribution_text": "NYC Department of Parks and Recreation via NYC Open Data",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+            "title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
+            "publisher": "New York City Public Design Commission",
+            "source_family": "design_review_approval",
+            "licence": "Official NYC.gov public records; explicit open-data redistribution license not verified for the PDF collection.",
+            "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+            "attribution_text": "New York City Public Design Commission",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2258,18 +2152,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 4601,
-        "compatible_event_count": 4601,
+        "event_count": 4774,
+        "compatible_event_count": 4774,
         "review_required_event_count": 0,
-        "source_count": 26,
-        "compatible_source_count": 26,
+        "source_count": 8,
+        "compatible_source_count": 8,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1915,
+          "start": 2005,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 4601
+          "documented": 4774
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2277,7 +2171,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 215,
+        "excluded_review_required_event_count": 51,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2306,81 +2200,32 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
-        "source_coverage_period": "1915-2026",
-        "update_cadence": "Approval/issue dates; Created/closed timestamps; Daily; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Issue/effective dates; Meeting-driven; newest certificates may be revised after posting.; Monthly according to NYC Open Data metadata.; NYC Open Data dataset-specific refresh cadence"
+        "source_coverage_period": "2005-2026",
+        "update_cadence": "Created/closed timestamps; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Meeting-driven; newest certificates may be revised after posting.; NYC Open Data dataset-specific refresh cadence; Release snapshot, usually annual/biannual; varies by source/vintage"
       },
       "provenance": {
         "source_ids": [
-          "4hcv-tc5r",
           "64uk-42ks",
           "8m42-w767",
           "bkfu-528j",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c9sj-fmsg",
-          "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
-          "hg8x-zxpr",
           "n7gv-k5yt",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-now-co-pkdm-hqz6",
-          "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
-          "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
-          "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "rbx6-tga4",
-          "skyk-mpzq",
-          "tqtj-sjs8"
+          "nyc-pdc-meeting-minutes-certificates-2008-2026"
         ],
         "compatible_source_ids": [
-          "4hcv-tc5r",
           "64uk-42ks",
           "8m42-w767",
           "bkfu-528j",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c9sj-fmsg",
-          "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
-          "hg8x-zxpr",
           "n7gv-k5yt",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-now-co-pkdm-hqz6",
-          "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
-          "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
-          "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "rbx6-tga4",
-          "skyk-mpzq",
-          "tqtj-sjs8"
+          "nyc-pdc-meeting-minutes-certificates-2008-2026"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "4hcv-tc5r",
-            "title": "Capital Project Tracker",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "capital_projects",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "64uk-42ks",
             "title": "Primary Land Use Tax Lot Output (PLUTO)",
@@ -2421,71 +2266,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "bs8b-p36w",
-            "title": "DOB Certificate Of Occupancy",
-            "publisher": "NYC DOB",
-            "source_family": "buildings;_dob_permits",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOB",
-            "accessed_at": "2026-04-28T12:19:23.839596+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "buis-pvji",
-            "title": "Individual Landmark Sites",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "landmarks",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "c9sj-fmsg",
-            "title": "Street Construction Permits (2013-2021)",
-            "publisher": "NYC DOT",
-            "source_family": "traffic",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOT",
-            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dpm2-m9mq",
-            "title": "LPC Permit Application Information",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "landmarks",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "enfh-gkve",
-            "title": "Parks Properties",
-            "publisher": "NYC Parks",
-            "source_family": "public_services;_environment;_basemap",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Parks",
-            "accessed_at": "2026-04-28T12:19:23.839663+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "erm2-nwe9",
             "title": "311 Service Requests from 2020 to Present",
             "publisher": "NYC 311",
@@ -2499,19 +2279,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "hg8x-zxpr",
-            "title": "Affordable Housing Production by Building",
-            "publisher": "NYC HPD",
-            "source_family": "planning",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC HPD",
-            "accessed_at": "2026-04-28T12:19:23.839600+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "n7gv-k5yt",
             "title": "Capital Projects",
             "publisher": "NYC Open Data / City agency",
@@ -2520,6 +2287,45 @@
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
             "attribution_text": "NYC Open Data / City agency",
             "accessed_at": "2026-04-28T12:56:37.631412+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+            "title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+            "publisher": "NYC Mayor's Office of Operations / NYC Open Data",
+            "source_family": "planning",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC Mayor's Office of Operations / NYC Open Data",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+            "title": "NYC Parks Capital Project Tracker",
+            "publisher": "NYC Department of Parks and Recreation via NYC Open Data",
+            "source_family": "planning",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/open-data-law/",
+            "attribution_text": "NYC Department of Parks and Recreation via NYC Open Data",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+            "title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
+            "publisher": "New York City Public Design Commission",
+            "source_family": "design_review_approval",
+            "licence": "Official NYC.gov public records; explicit open-data redistribution license not verified for the PDF collection.",
+            "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+            "attribution_text": "New York City Public Design Commission",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2550,18 +2356,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 4601,
-        "compatible_event_count": 4601,
+        "event_count": 4774,
+        "compatible_event_count": 4774,
         "review_required_event_count": 0,
-        "source_count": 26,
-        "compatible_source_count": 26,
+        "source_count": 8,
+        "compatible_source_count": 8,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1915,
+          "start": 2005,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 4601
+          "documented": 4774
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2569,7 +2375,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 215,
+        "excluded_review_required_event_count": 51,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2598,81 +2404,32 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
-        "source_coverage_period": "1915-2026",
-        "update_cadence": "Approval/issue dates; Created/closed timestamps; Daily; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Issue/effective dates; Meeting-driven; newest certificates may be revised after posting.; Monthly according to NYC Open Data metadata.; NYC Open Data dataset-specific refresh cadence"
+        "source_coverage_period": "2005-2026",
+        "update_cadence": "Created/closed timestamps; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Meeting-driven; newest certificates may be revised after posting.; NYC Open Data dataset-specific refresh cadence; Release snapshot, usually annual/biannual; varies by source/vintage"
       },
       "provenance": {
         "source_ids": [
-          "4hcv-tc5r",
           "64uk-42ks",
           "8m42-w767",
           "bkfu-528j",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c9sj-fmsg",
-          "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
-          "hg8x-zxpr",
           "n7gv-k5yt",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-now-co-pkdm-hqz6",
-          "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
-          "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
-          "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "rbx6-tga4",
-          "skyk-mpzq",
-          "tqtj-sjs8"
+          "nyc-pdc-meeting-minutes-certificates-2008-2026"
         ],
         "compatible_source_ids": [
-          "4hcv-tc5r",
           "64uk-42ks",
           "8m42-w767",
           "bkfu-528j",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c9sj-fmsg",
-          "dpm2-m9mq",
-          "enfh-gkve",
           "erm2-nwe9",
-          "hg8x-zxpr",
           "n7gv-k5yt",
           "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-now-co-pkdm-hqz6",
-          "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-designated-calendared-buildings-sites-ncre-qhxs",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
-          "nyc-lpc-permit-application-information",
-          "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
           "nyc-parks-capital-project-tracker-4hcv-tc5r",
-          "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "rbx6-tga4",
-          "skyk-mpzq",
-          "tqtj-sjs8"
+          "nyc-pdc-meeting-minutes-certificates-2008-2026"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "4hcv-tc5r",
-            "title": "Capital Project Tracker",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "capital_projects",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "64uk-42ks",
             "title": "Primary Land Use Tax Lot Output (PLUTO)",
@@ -2713,71 +2470,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "bs8b-p36w",
-            "title": "DOB Certificate Of Occupancy",
-            "publisher": "NYC DOB",
-            "source_family": "buildings;_dob_permits",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOB",
-            "accessed_at": "2026-04-28T12:19:23.839596+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "buis-pvji",
-            "title": "Individual Landmark Sites",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "landmarks",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "c9sj-fmsg",
-            "title": "Street Construction Permits (2013-2021)",
-            "publisher": "NYC DOT",
-            "source_family": "traffic",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOT",
-            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dpm2-m9mq",
-            "title": "LPC Permit Application Information",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "landmarks",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "enfh-gkve",
-            "title": "Parks Properties",
-            "publisher": "NYC Parks",
-            "source_family": "public_services;_environment;_basemap",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Parks",
-            "accessed_at": "2026-04-28T12:19:23.839663+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "erm2-nwe9",
             "title": "311 Service Requests from 2020 to Present",
             "publisher": "NYC 311",
@@ -2791,19 +2483,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "hg8x-zxpr",
-            "title": "Affordable Housing Production by Building",
-            "publisher": "NYC HPD",
-            "source_family": "planning",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC HPD",
-            "accessed_at": "2026-04-28T12:19:23.839600+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "n7gv-k5yt",
             "title": "Capital Projects",
             "publisher": "NYC Open Data / City agency",
@@ -2812,6 +2491,45 @@
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
             "attribution_text": "NYC Open Data / City agency",
             "accessed_at": "2026-04-28T12:56:37.631412+00:00",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
+            "title": "NYC Capital Projects Dashboard - Citywide Budget and Schedule",
+            "publisher": "NYC Mayor's Office of Operations / NYC Open Data",
+            "source_family": "planning",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC Mayor's Office of Operations / NYC Open Data",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-parks-capital-project-tracker-4hcv-tc5r",
+            "title": "NYC Parks Capital Project Tracker",
+            "publisher": "NYC Department of Parks and Recreation via NYC Open Data",
+            "source_family": "planning",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/open-data-law/",
+            "attribution_text": "NYC Department of Parks and Recreation via NYC Open Data",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+            "title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
+            "publisher": "New York City Public Design Commission",
+            "source_family": "design_review_approval",
+            "licence": "Official NYC.gov public records; explicit open-data redistribution license not verified for the PDF collection.",
+            "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+            "attribution_text": "New York City Public Design Commission",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2842,18 +2560,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 7470,
-        "compatible_event_count": 7470,
+        "event_count": 6695,
+        "compatible_event_count": 6695,
         "review_required_event_count": 0,
-        "source_count": 31,
-        "compatible_source_count": 31,
+        "source_count": 6,
+        "compatible_source_count": 6,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1797,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 7470
+          "documented": 6695
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2861,7 +2579,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 49,
+        "excluded_review_required_event_count": 1,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2878,90 +2596,27 @@
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
         "source_coverage_period": "1797-2026",
-        "update_cadence": "Approval/issue dates; As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Closure start/end date-time; Created/closed timestamps; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Filing/status dates"
+        "update_cadence": "NYC Open Data operating dataset; publisher-updated.; Release snapshot; Release snapshot, usually annual/biannual; Source-specific publication/update cadence; varies by source/vintage"
       },
       "provenance": {
         "source_ids": [
-          "4hcv-tc5r",
           "64uk-42ks",
-          "8m42-w767",
-          "bkfu-528j",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c9sj-fmsg",
           "dpm2-m9mq",
           "enfh-gkve",
-          "erm2-nwe9",
-          "hg8x-zxpr",
-          "i6b5-j7bu",
-          "ipu4-2q9a",
-          "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-dcp-wpaa-388s-pnvc",
-          "nyc-dcp-zap-bbl",
-          "nyc-dcp-zap-project-data",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-co-bs8b-p36w",
-          "nyc-dob-filings-permits",
-          "nyc-dob-permit-issuance-ipu4-2q9a",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-pluto-mappluto-lots",
-          "rbx6-tga4",
-          "tqtj-sjs8",
-          "w7w3-xahh",
-          "w9ak-ipjd"
+          "w7w3-xahh"
         ],
         "compatible_source_ids": [
-          "4hcv-tc5r",
           "64uk-42ks",
-          "8m42-w767",
-          "bkfu-528j",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c9sj-fmsg",
           "dpm2-m9mq",
           "enfh-gkve",
-          "erm2-nwe9",
-          "hg8x-zxpr",
-          "i6b5-j7bu",
-          "ipu4-2q9a",
-          "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-dcp-wpaa-388s-pnvc",
-          "nyc-dcp-zap-bbl",
-          "nyc-dcp-zap-project-data",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-co-bs8b-p36w",
-          "nyc-dob-filings-permits",
-          "nyc-dob-permit-issuance-ipu4-2q9a",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-pluto-mappluto-lots",
-          "rbx6-tga4",
-          "tqtj-sjs8",
-          "w7w3-xahh",
-          "w9ak-ipjd"
+          "w7w3-xahh"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "4hcv-tc5r",
-            "title": "Capital Project Tracker",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "capital_projects",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "64uk-42ks",
             "title": "Primary Land Use Tax Lot Output (PLUTO)",
@@ -2971,71 +2626,6 @@
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
             "attribution_text": "NYC Department of City Planning (DCP)",
             "accessed_at": "2026-04-28T12:19:23.839552+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "8m42-w767",
-            "title": "Fire Incident Dispatch Data",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "fire",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "bkfu-528j",
-            "title": "NYC Permitted Event Information - Historical",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "public_events",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "bs8b-p36w",
-            "title": "DOB Certificate Of Occupancy",
-            "publisher": "NYC DOB",
-            "source_family": "buildings;_dob_permits",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOB",
-            "accessed_at": "2026-04-28T12:19:23.839596+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "buis-pvji",
-            "title": "Individual Landmark Sites",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "landmarks",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "c9sj-fmsg",
-            "title": "Street Construction Permits (2013-2021)",
-            "publisher": "NYC DOT",
-            "source_family": "traffic",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOT",
-            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3067,40 +2657,40 @@
             "licence_review_required": false
           },
           {
-            "source_id": "erm2-nwe9",
-            "title": "311 Service Requests from 2020 to Present",
-            "publisher": "NYC 311",
-            "source_family": "public_services;_environment;_transport",
+            "source_id": "nyc-lpc-permit-application-information",
+            "title": "LPC Permit Application Information",
+            "publisher": "NYC Landmarks Preservation Commission via NYC Open Data",
+            "source_family": "heritage_application_denial",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC 311",
-            "accessed_at": "2026-04-28T12:19:23.839638+00:00",
+            "attribution_text": "NYC Landmarks Preservation Commission via NYC Open Data",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "hg8x-zxpr",
-            "title": "Affordable Housing Production by Building",
-            "publisher": "NYC HPD",
+            "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+            "title": "NYC Open Data: LPC Permit Application Information",
+            "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
             "source_family": "planning",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC HPD",
-            "accessed_at": "2026-04-28T12:19:23.839600+00:00",
+            "attribution_text": "NYC Landmarks Preservation Commission / NYC Open Data",
+            "accessed_at": "2026-05-23",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "i6b5-j7bu",
-            "title": "Street Closures due to Construction Activities by Block",
-            "publisher": "NYC DOT",
-            "source_family": "street_events",
+            "source_id": "w7w3-xahh",
+            "title": "Issued Licenses",
+            "publisher": "NYC Open Data / City agency",
+            "source_family": "business_licenses",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOT",
-            "accessed_at": "2026-04-28T12:19:23.839609+00:00",
+            "attribution_text": "NYC Open Data / City agency",
+            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3131,18 +2721,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 7470,
-        "compatible_event_count": 7470,
+        "event_count": 6695,
+        "compatible_event_count": 6695,
         "review_required_event_count": 0,
-        "source_count": 31,
-        "compatible_source_count": 31,
+        "source_count": 6,
+        "compatible_source_count": 6,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1797,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 7470
+          "documented": 6695
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3150,7 +2740,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 49,
+        "excluded_review_required_event_count": 1,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3167,90 +2757,27 @@
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
         "source_coverage_period": "1797-2026",
-        "update_cadence": "Approval/issue dates; As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Closure start/end date-time; Created/closed timestamps; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Filing/status dates"
+        "update_cadence": "NYC Open Data operating dataset; publisher-updated.; Release snapshot; Release snapshot, usually annual/biannual; Source-specific publication/update cadence; varies by source/vintage"
       },
       "provenance": {
         "source_ids": [
-          "4hcv-tc5r",
           "64uk-42ks",
-          "8m42-w767",
-          "bkfu-528j",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c9sj-fmsg",
           "dpm2-m9mq",
           "enfh-gkve",
-          "erm2-nwe9",
-          "hg8x-zxpr",
-          "i6b5-j7bu",
-          "ipu4-2q9a",
-          "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-dcp-wpaa-388s-pnvc",
-          "nyc-dcp-zap-bbl",
-          "nyc-dcp-zap-project-data",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-co-bs8b-p36w",
-          "nyc-dob-filings-permits",
-          "nyc-dob-permit-issuance-ipu4-2q9a",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-pluto-mappluto-lots",
-          "rbx6-tga4",
-          "tqtj-sjs8",
-          "w7w3-xahh",
-          "w9ak-ipjd"
+          "w7w3-xahh"
         ],
         "compatible_source_ids": [
-          "4hcv-tc5r",
           "64uk-42ks",
-          "8m42-w767",
-          "bkfu-528j",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c9sj-fmsg",
           "dpm2-m9mq",
           "enfh-gkve",
-          "erm2-nwe9",
-          "hg8x-zxpr",
-          "i6b5-j7bu",
-          "ipu4-2q9a",
-          "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-dcp-wpaa-388s-pnvc",
-          "nyc-dcp-zap-bbl",
-          "nyc-dcp-zap-project-data",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-co-bs8b-p36w",
-          "nyc-dob-filings-permits",
-          "nyc-dob-permit-issuance-ipu4-2q9a",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-pluto-mappluto-lots",
-          "rbx6-tga4",
-          "tqtj-sjs8",
-          "w7w3-xahh",
-          "w9ak-ipjd"
+          "w7w3-xahh"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "4hcv-tc5r",
-            "title": "Capital Project Tracker",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "capital_projects",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "64uk-42ks",
             "title": "Primary Land Use Tax Lot Output (PLUTO)",
@@ -3260,71 +2787,6 @@
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
             "attribution_text": "NYC Department of City Planning (DCP)",
             "accessed_at": "2026-04-28T12:19:23.839552+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "8m42-w767",
-            "title": "Fire Incident Dispatch Data",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "fire",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "bkfu-528j",
-            "title": "NYC Permitted Event Information - Historical",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "public_events",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "bs8b-p36w",
-            "title": "DOB Certificate Of Occupancy",
-            "publisher": "NYC DOB",
-            "source_family": "buildings;_dob_permits",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOB",
-            "accessed_at": "2026-04-28T12:19:23.839596+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "buis-pvji",
-            "title": "Individual Landmark Sites",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "landmarks",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "c9sj-fmsg",
-            "title": "Street Construction Permits (2013-2021)",
-            "publisher": "NYC DOT",
-            "source_family": "traffic",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOT",
-            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3356,40 +2818,40 @@
             "licence_review_required": false
           },
           {
-            "source_id": "erm2-nwe9",
-            "title": "311 Service Requests from 2020 to Present",
-            "publisher": "NYC 311",
-            "source_family": "public_services;_environment;_transport",
+            "source_id": "nyc-lpc-permit-application-information",
+            "title": "LPC Permit Application Information",
+            "publisher": "NYC Landmarks Preservation Commission via NYC Open Data",
+            "source_family": "heritage_application_denial",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC 311",
-            "accessed_at": "2026-04-28T12:19:23.839638+00:00",
+            "attribution_text": "NYC Landmarks Preservation Commission via NYC Open Data",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "hg8x-zxpr",
-            "title": "Affordable Housing Production by Building",
-            "publisher": "NYC HPD",
+            "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+            "title": "NYC Open Data: LPC Permit Application Information",
+            "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
             "source_family": "planning",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC HPD",
-            "accessed_at": "2026-04-28T12:19:23.839600+00:00",
+            "attribution_text": "NYC Landmarks Preservation Commission / NYC Open Data",
+            "accessed_at": "2026-05-23",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "i6b5-j7bu",
-            "title": "Street Closures due to Construction Activities by Block",
-            "publisher": "NYC DOT",
-            "source_family": "street_events",
+            "source_id": "w7w3-xahh",
+            "title": "Issued Licenses",
+            "publisher": "NYC Open Data / City agency",
+            "source_family": "business_licenses",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOT",
-            "accessed_at": "2026-04-28T12:19:23.839609+00:00",
+            "attribution_text": "NYC Open Data / City agency",
+            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3420,18 +2882,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 7470,
-        "compatible_event_count": 7470,
+        "event_count": 6695,
+        "compatible_event_count": 6695,
         "review_required_event_count": 0,
-        "source_count": 31,
-        "compatible_source_count": 31,
+        "source_count": 6,
+        "compatible_source_count": 6,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 1797,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 7470
+          "documented": 6695
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3439,7 +2901,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 49,
+        "excluded_review_required_event_count": 1,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3456,90 +2918,27 @@
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
         "source_coverage_period": "1797-2026",
-        "update_cadence": "Approval/issue dates; As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Closure start/end date-time; Created/closed timestamps; DCP publishes PLUTO periodically; verify current catalog metadata before production ingestion.; Dashboard/open-data update cadence; rows include reporting_period, agency_data_date, and fms_data_date.; Filing/status dates"
+        "update_cadence": "NYC Open Data operating dataset; publisher-updated.; Release snapshot; Release snapshot, usually annual/biannual; Source-specific publication/update cadence; varies by source/vintage"
       },
       "provenance": {
         "source_ids": [
-          "4hcv-tc5r",
           "64uk-42ks",
-          "8m42-w767",
-          "bkfu-528j",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c9sj-fmsg",
           "dpm2-m9mq",
           "enfh-gkve",
-          "erm2-nwe9",
-          "hg8x-zxpr",
-          "i6b5-j7bu",
-          "ipu4-2q9a",
-          "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-dcp-wpaa-388s-pnvc",
-          "nyc-dcp-zap-bbl",
-          "nyc-dcp-zap-project-data",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-co-bs8b-p36w",
-          "nyc-dob-filings-permits",
-          "nyc-dob-permit-issuance-ipu4-2q9a",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-pluto-mappluto-lots",
-          "rbx6-tga4",
-          "tqtj-sjs8",
-          "w7w3-xahh",
-          "w9ak-ipjd"
+          "w7w3-xahh"
         ],
         "compatible_source_ids": [
-          "4hcv-tc5r",
           "64uk-42ks",
-          "8m42-w767",
-          "bkfu-528j",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c9sj-fmsg",
           "dpm2-m9mq",
           "enfh-gkve",
-          "erm2-nwe9",
-          "hg8x-zxpr",
-          "i6b5-j7bu",
-          "ipu4-2q9a",
-          "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
-          "nyc-dcp-wpaa-388s-pnvc",
-          "nyc-dcp-zap-bbl",
-          "nyc-dcp-zap-project-data",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-co-bs8b-p36w",
-          "nyc-dob-filings-permits",
-          "nyc-dob-permit-issuance-ipu4-2q9a",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-pluto-mappluto-lots",
-          "rbx6-tga4",
-          "tqtj-sjs8",
-          "w7w3-xahh",
-          "w9ak-ipjd"
+          "w7w3-xahh"
         ],
         "review_required_source_ids": [],
         "source_samples": [
-          {
-            "source_id": "4hcv-tc5r",
-            "title": "Capital Project Tracker",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "capital_projects",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
           {
             "source_id": "64uk-42ks",
             "title": "Primary Land Use Tax Lot Output (PLUTO)",
@@ -3549,71 +2948,6 @@
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
             "attribution_text": "NYC Department of City Planning (DCP)",
             "accessed_at": "2026-04-28T12:19:23.839552+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "8m42-w767",
-            "title": "Fire Incident Dispatch Data",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "fire",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "bkfu-528j",
-            "title": "NYC Permitted Event Information - Historical",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "public_events",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "bs8b-p36w",
-            "title": "DOB Certificate Of Occupancy",
-            "publisher": "NYC DOB",
-            "source_family": "buildings;_dob_permits",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOB",
-            "accessed_at": "2026-04-28T12:19:23.839596+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "buis-pvji",
-            "title": "Individual Landmark Sites",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "landmarks",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "c9sj-fmsg",
-            "title": "Street Construction Permits (2013-2021)",
-            "publisher": "NYC DOT",
-            "source_family": "traffic",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOT",
-            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3645,40 +2979,40 @@
             "licence_review_required": false
           },
           {
-            "source_id": "erm2-nwe9",
-            "title": "311 Service Requests from 2020 to Present",
-            "publisher": "NYC 311",
-            "source_family": "public_services;_environment;_transport",
+            "source_id": "nyc-lpc-permit-application-information",
+            "title": "LPC Permit Application Information",
+            "publisher": "NYC Landmarks Preservation Commission via NYC Open Data",
+            "source_family": "heritage_application_denial",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC 311",
-            "accessed_at": "2026-04-28T12:19:23.839638+00:00",
+            "attribution_text": "NYC Landmarks Preservation Commission via NYC Open Data",
+            "accessed_at": "2026-05-19",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "hg8x-zxpr",
-            "title": "Affordable Housing Production by Building",
-            "publisher": "NYC HPD",
+            "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+            "title": "NYC Open Data: LPC Permit Application Information",
+            "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
             "source_family": "planning",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC HPD",
-            "accessed_at": "2026-04-28T12:19:23.839600+00:00",
+            "attribution_text": "NYC Landmarks Preservation Commission / NYC Open Data",
+            "accessed_at": "2026-05-23",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "i6b5-j7bu",
-            "title": "Street Closures due to Construction Activities by Block",
-            "publisher": "NYC DOT",
-            "source_family": "street_events",
+            "source_id": "w7w3-xahh",
+            "title": "Issued Licenses",
+            "publisher": "NYC Open Data / City agency",
+            "source_family": "business_licenses",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOT",
-            "accessed_at": "2026-04-28T12:19:23.839609+00:00",
+            "attribution_text": "NYC Open Data / City agency",
+            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3709,18 +3043,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 3811,
-        "compatible_event_count": 3811,
+        "event_count": 1025,
+        "compatible_event_count": 1025,
         "review_required_event_count": 0,
-        "source_count": 42,
-        "compatible_source_count": 42,
+        "source_count": 11,
+        "compatible_source_count": 11,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1797,
+          "start": 1916,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 3811
+          "documented": 1025
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3728,7 +3062,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 166,
+        "excluded_review_required_event_count": 1,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3751,96 +3085,34 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
-        "source_coverage_period": "1797-2026",
-        "update_cadence": "Annual; Annual/seasonal indicator values; Application milestone dates/status updates; Approval/issue dates; As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Closure start/end date-time; Crash date/time"
+        "source_coverage_period": "1916-2026",
+        "update_cadence": "Application milestone dates/status updates; As needed; Implementation/date fields; Meeting-driven; newest certificates may be revised after posting.; NYC Open Data operating dataset; publisher-updated.; Permit issue/start/end dates; Release snapshot, usually annual/biannual; Source-specific publication/update cadence"
       },
       "provenance": {
         "source_ids": [
           "2iga-a6mk",
-          "4hcv-tc5r",
           "64uk-42ks",
-          "8m42-w767",
           "as9z-kwsh",
-          "b7aj-ck5a",
-          "bkfu-528j",
-          "br6q-ssj3",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
-          "erm2-nwe9",
-          "h9gi-nx95",
-          "hg8x-zxpr",
           "hgx4-8ukb",
-          "i6b5-j7bu",
-          "ipu4-2q9a",
-          "n7gv-k5yt",
-          "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
-          "nyc-dcp-zap-bbl",
-          "nyc-dcp-zap-project-data",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-co-bs8b-p36w",
-          "nyc-dob-filings-permits",
-          "nyc-dob-now-build-approved-permits-rbx6-tga4",
-          "nyc-dob-now-build-job-application-filings-w9ak-ipjd",
-          "nyc-dob-now-co-pkdm-hqz6",
-          "nyc-dob-permit-issuance-ipu4-2q9a",
-          "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-pluto-mappluto-lots",
-          "rbx6-tga4",
           "tqtj-sjs8"
         ],
         "compatible_source_ids": [
           "2iga-a6mk",
-          "4hcv-tc5r",
           "64uk-42ks",
-          "8m42-w767",
           "as9z-kwsh",
-          "b7aj-ck5a",
-          "bkfu-528j",
-          "br6q-ssj3",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
-          "erm2-nwe9",
-          "h9gi-nx95",
-          "hg8x-zxpr",
           "hgx4-8ukb",
-          "i6b5-j7bu",
-          "ipu4-2q9a",
-          "n7gv-k5yt",
-          "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
-          "nyc-dcp-zap-bbl",
-          "nyc-dcp-zap-project-data",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-co-bs8b-p36w",
-          "nyc-dob-filings-permits",
-          "nyc-dob-now-build-approved-permits-rbx6-tga4",
-          "nyc-dob-now-build-job-application-filings-w9ak-ipjd",
-          "nyc-dob-now-co-pkdm-hqz6",
-          "nyc-dob-permit-issuance-ipu4-2q9a",
-          "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-pluto-mappluto-lots",
-          "rbx6-tga4",
           "tqtj-sjs8"
         ],
         "review_required_source_ids": [],
@@ -3859,19 +3131,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "4hcv-tc5r",
-            "title": "Capital Project Tracker",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "capital_projects",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "64uk-42ks",
             "title": "Primary Land Use Tax Lot Output (PLUTO)",
             "publisher": "NYC Department of City Planning (DCP)",
@@ -3880,19 +3139,6 @@
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
             "attribution_text": "NYC Department of City Planning (DCP)",
             "accessed_at": "2026-04-28T12:19:23.839552+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "8m42-w767",
-            "title": "Fire Incident Dispatch Data",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "fire",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3911,60 +3157,21 @@
             "licence_review_required": false
           },
           {
-            "source_id": "b7aj-ck5a",
-            "title": "NYC Greenhouse Gas Emissions Municipal Inventory",
-            "publisher": "NYC Mayor's Office of Climate and Environmental Justice",
-            "source_family": "environment;_policy",
+            "source_id": "c9sj-fmsg",
+            "title": "Street Construction Permits (2013-2021)",
+            "publisher": "NYC DOT",
+            "source_family": "traffic",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Mayor's Office of Climate and Environmental Justice",
-            "accessed_at": "2026-04-28T12:19:23.839653+00:00",
+            "attribution_text": "NYC DOT",
+            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "bkfu-528j",
-            "title": "NYC Permitted Event Information - Historical",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "public_events",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "br6q-ssj3",
-            "title": "Housing Database Project Level Files",
-            "publisher": "NYC DCP",
-            "source_family": "planning",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DCP",
-            "accessed_at": "2026-04-28T12:19:23.839587+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "bs8b-p36w",
-            "title": "DOB Certificate Of Occupancy",
-            "publisher": "NYC DOB",
-            "source_family": "buildings;_dob_permits",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOB",
-            "accessed_at": "2026-04-28T12:19:23.839596+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "buis-pvji",
-            "title": "Individual Landmark Sites",
+            "source_id": "dpm2-m9mq",
+            "title": "LPC Permit Application Information",
             "publisher": "NYC Open Data / City agency",
             "source_family": "landmarks",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
@@ -3976,27 +3183,79 @@
             "licence_review_required": false
           },
           {
-            "source_id": "c3uy-2p5r",
-            "title": "Air Quality and Health Impacts",
-            "publisher": "NYC DOHMH",
-            "source_family": "environment;_public_health",
+            "source_id": "hgx4-8ukb",
+            "title": "Zoning Application Portal (ZAP) - Project Data",
+            "publisher": "NYC DCP",
+            "source_family": "planning",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOHMH",
-            "accessed_at": "2026-04-28T12:19:23.839655+00:00",
+            "attribution_text": "NYC DCP",
+            "accessed_at": "2026-04-28T12:19:23.839581+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "c9sj-fmsg",
-            "title": "Street Construction Permits (2013-2021)",
+            "source_id": "nyc-dcp-wpaa-388s-pnvc",
+            "title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+            "publisher": "NYC Department of City Planning (DCP), via NYC Open Data",
+            "source_family": "planning",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC Department of City Planning (DCP), via NYC Open Data",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-lpc-permit-application-information",
+            "title": "LPC Permit Application Information",
+            "publisher": "NYC Landmarks Preservation Commission via NYC Open Data",
+            "source_family": "heritage_application_denial",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC Landmarks Preservation Commission via NYC Open Data",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+            "title": "NYC Open Data: LPC Permit Application Information",
+            "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+            "source_family": "planning",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC Landmarks Preservation Commission / NYC Open Data",
+            "accessed_at": "2026-05-23",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+            "title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
+            "publisher": "New York City Public Design Commission",
+            "source_family": "design_review_approval",
+            "licence": "Official NYC.gov public records; explicit open-data redistribution license not verified for the PDF collection.",
+            "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+            "attribution_text": "New York City Public Design Commission",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "tqtj-sjs8",
+            "title": "Street Construction Permits (2022-Present)",
             "publisher": "NYC DOT",
             "source_family": "traffic",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
             "attribution_text": "NYC DOT",
-            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
+            "accessed_at": "2026-04-28T12:19:23.839607+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4027,18 +3286,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 3811,
-        "compatible_event_count": 3811,
+        "event_count": 1025,
+        "compatible_event_count": 1025,
         "review_required_event_count": 0,
-        "source_count": 42,
-        "compatible_source_count": 42,
+        "source_count": 11,
+        "compatible_source_count": 11,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1797,
+          "start": 1916,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 3811
+          "documented": 1025
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -4046,7 +3305,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 166,
+        "excluded_review_required_event_count": 1,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -4069,96 +3328,34 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
-        "source_coverage_period": "1797-2026",
-        "update_cadence": "Annual; Annual/seasonal indicator values; Application milestone dates/status updates; Approval/issue dates; As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Closure start/end date-time; Crash date/time"
+        "source_coverage_period": "1916-2026",
+        "update_cadence": "Application milestone dates/status updates; As needed; Implementation/date fields; Meeting-driven; newest certificates may be revised after posting.; NYC Open Data operating dataset; publisher-updated.; Permit issue/start/end dates; Release snapshot, usually annual/biannual; Source-specific publication/update cadence"
       },
       "provenance": {
         "source_ids": [
           "2iga-a6mk",
-          "4hcv-tc5r",
           "64uk-42ks",
-          "8m42-w767",
           "as9z-kwsh",
-          "b7aj-ck5a",
-          "bkfu-528j",
-          "br6q-ssj3",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
-          "erm2-nwe9",
-          "h9gi-nx95",
-          "hg8x-zxpr",
           "hgx4-8ukb",
-          "i6b5-j7bu",
-          "ipu4-2q9a",
-          "n7gv-k5yt",
-          "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
-          "nyc-dcp-zap-bbl",
-          "nyc-dcp-zap-project-data",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-co-bs8b-p36w",
-          "nyc-dob-filings-permits",
-          "nyc-dob-now-build-approved-permits-rbx6-tga4",
-          "nyc-dob-now-build-job-application-filings-w9ak-ipjd",
-          "nyc-dob-now-co-pkdm-hqz6",
-          "nyc-dob-permit-issuance-ipu4-2q9a",
-          "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-pluto-mappluto-lots",
-          "rbx6-tga4",
           "tqtj-sjs8"
         ],
         "compatible_source_ids": [
           "2iga-a6mk",
-          "4hcv-tc5r",
           "64uk-42ks",
-          "8m42-w767",
           "as9z-kwsh",
-          "b7aj-ck5a",
-          "bkfu-528j",
-          "br6q-ssj3",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
-          "erm2-nwe9",
-          "h9gi-nx95",
-          "hg8x-zxpr",
           "hgx4-8ukb",
-          "i6b5-j7bu",
-          "ipu4-2q9a",
-          "n7gv-k5yt",
-          "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
-          "nyc-dcp-zap-bbl",
-          "nyc-dcp-zap-project-data",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-co-bs8b-p36w",
-          "nyc-dob-filings-permits",
-          "nyc-dob-now-build-approved-permits-rbx6-tga4",
-          "nyc-dob-now-build-job-application-filings-w9ak-ipjd",
-          "nyc-dob-now-co-pkdm-hqz6",
-          "nyc-dob-permit-issuance-ipu4-2q9a",
-          "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-pluto-mappluto-lots",
-          "rbx6-tga4",
           "tqtj-sjs8"
         ],
         "review_required_source_ids": [],
@@ -4177,19 +3374,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "4hcv-tc5r",
-            "title": "Capital Project Tracker",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "capital_projects",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "64uk-42ks",
             "title": "Primary Land Use Tax Lot Output (PLUTO)",
             "publisher": "NYC Department of City Planning (DCP)",
@@ -4198,19 +3382,6 @@
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
             "attribution_text": "NYC Department of City Planning (DCP)",
             "accessed_at": "2026-04-28T12:19:23.839552+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "8m42-w767",
-            "title": "Fire Incident Dispatch Data",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "fire",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4229,60 +3400,21 @@
             "licence_review_required": false
           },
           {
-            "source_id": "b7aj-ck5a",
-            "title": "NYC Greenhouse Gas Emissions Municipal Inventory",
-            "publisher": "NYC Mayor's Office of Climate and Environmental Justice",
-            "source_family": "environment;_policy",
+            "source_id": "c9sj-fmsg",
+            "title": "Street Construction Permits (2013-2021)",
+            "publisher": "NYC DOT",
+            "source_family": "traffic",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Mayor's Office of Climate and Environmental Justice",
-            "accessed_at": "2026-04-28T12:19:23.839653+00:00",
+            "attribution_text": "NYC DOT",
+            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "bkfu-528j",
-            "title": "NYC Permitted Event Information - Historical",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "public_events",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "br6q-ssj3",
-            "title": "Housing Database Project Level Files",
-            "publisher": "NYC DCP",
-            "source_family": "planning",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DCP",
-            "accessed_at": "2026-04-28T12:19:23.839587+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "bs8b-p36w",
-            "title": "DOB Certificate Of Occupancy",
-            "publisher": "NYC DOB",
-            "source_family": "buildings;_dob_permits",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOB",
-            "accessed_at": "2026-04-28T12:19:23.839596+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "buis-pvji",
-            "title": "Individual Landmark Sites",
+            "source_id": "dpm2-m9mq",
+            "title": "LPC Permit Application Information",
             "publisher": "NYC Open Data / City agency",
             "source_family": "landmarks",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
@@ -4294,27 +3426,79 @@
             "licence_review_required": false
           },
           {
-            "source_id": "c3uy-2p5r",
-            "title": "Air Quality and Health Impacts",
-            "publisher": "NYC DOHMH",
-            "source_family": "environment;_public_health",
+            "source_id": "hgx4-8ukb",
+            "title": "Zoning Application Portal (ZAP) - Project Data",
+            "publisher": "NYC DCP",
+            "source_family": "planning",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOHMH",
-            "accessed_at": "2026-04-28T12:19:23.839655+00:00",
+            "attribution_text": "NYC DCP",
+            "accessed_at": "2026-04-28T12:19:23.839581+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "c9sj-fmsg",
-            "title": "Street Construction Permits (2013-2021)",
+            "source_id": "nyc-dcp-wpaa-388s-pnvc",
+            "title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+            "publisher": "NYC Department of City Planning (DCP), via NYC Open Data",
+            "source_family": "planning",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC Department of City Planning (DCP), via NYC Open Data",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-lpc-permit-application-information",
+            "title": "LPC Permit Application Information",
+            "publisher": "NYC Landmarks Preservation Commission via NYC Open Data",
+            "source_family": "heritage_application_denial",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC Landmarks Preservation Commission via NYC Open Data",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+            "title": "NYC Open Data: LPC Permit Application Information",
+            "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+            "source_family": "planning",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC Landmarks Preservation Commission / NYC Open Data",
+            "accessed_at": "2026-05-23",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+            "title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
+            "publisher": "New York City Public Design Commission",
+            "source_family": "design_review_approval",
+            "licence": "Official NYC.gov public records; explicit open-data redistribution license not verified for the PDF collection.",
+            "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+            "attribution_text": "New York City Public Design Commission",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "tqtj-sjs8",
+            "title": "Street Construction Permits (2022-Present)",
             "publisher": "NYC DOT",
             "source_family": "traffic",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
             "attribution_text": "NYC DOT",
-            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
+            "accessed_at": "2026-04-28T12:19:23.839607+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4345,18 +3529,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 3811,
-        "compatible_event_count": 3811,
+        "event_count": 1025,
+        "compatible_event_count": 1025,
         "review_required_event_count": 0,
-        "source_count": 42,
-        "compatible_source_count": 42,
+        "source_count": 11,
+        "compatible_source_count": 11,
         "review_required_source_count": 0,
         "observed_years": {
-          "start": 1797,
+          "start": 1916,
           "end": 2026
         },
         "confidence_counts": {
-          "documented": 3811
+          "documented": 1025
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -4364,7 +3548,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 166,
+        "excluded_review_required_event_count": 1,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -4387,96 +3571,34 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
-        "source_coverage_period": "1797-2026",
-        "update_cadence": "Annual; Annual/seasonal indicator values; Application milestone dates/status updates; Approval/issue dates; As needed; Catalog metadata describes the dataset as regularly maintained by DCP; verify current metadata before production ingestion.; Closure start/end date-time; Crash date/time"
+        "source_coverage_period": "1916-2026",
+        "update_cadence": "Application milestone dates/status updates; As needed; Implementation/date fields; Meeting-driven; newest certificates may be revised after posting.; NYC Open Data operating dataset; publisher-updated.; Permit issue/start/end dates; Release snapshot, usually annual/biannual; Source-specific publication/update cadence"
       },
       "provenance": {
         "source_ids": [
           "2iga-a6mk",
-          "4hcv-tc5r",
           "64uk-42ks",
-          "8m42-w767",
           "as9z-kwsh",
-          "b7aj-ck5a",
-          "bkfu-528j",
-          "br6q-ssj3",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
-          "erm2-nwe9",
-          "h9gi-nx95",
-          "hg8x-zxpr",
           "hgx4-8ukb",
-          "i6b5-j7bu",
-          "ipu4-2q9a",
-          "n7gv-k5yt",
-          "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
-          "nyc-dcp-zap-bbl",
-          "nyc-dcp-zap-project-data",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-co-bs8b-p36w",
-          "nyc-dob-filings-permits",
-          "nyc-dob-now-build-approved-permits-rbx6-tga4",
-          "nyc-dob-now-build-job-application-filings-w9ak-ipjd",
-          "nyc-dob-now-co-pkdm-hqz6",
-          "nyc-dob-permit-issuance-ipu4-2q9a",
-          "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-pluto-mappluto-lots",
-          "rbx6-tga4",
           "tqtj-sjs8"
         ],
         "compatible_source_ids": [
           "2iga-a6mk",
-          "4hcv-tc5r",
           "64uk-42ks",
-          "8m42-w767",
           "as9z-kwsh",
-          "b7aj-ck5a",
-          "bkfu-528j",
-          "br6q-ssj3",
-          "bs8b-p36w",
-          "buis-pvji",
-          "c3uy-2p5r",
           "c9sj-fmsg",
           "dpm2-m9mq",
-          "enfh-gkve",
-          "erm2-nwe9",
-          "h9gi-nx95",
-          "hg8x-zxpr",
           "hgx4-8ukb",
-          "i6b5-j7bu",
-          "ipu4-2q9a",
-          "n7gv-k5yt",
-          "nyc-capital-projects-dashboard-budget-schedule-fb86-vt7u",
           "nyc-dcp-wpaa-388s-pnvc",
-          "nyc-dcp-zap-bbl",
-          "nyc-dcp-zap-project-data",
-          "nyc-dob-certificate-of-occupancy",
-          "nyc-dob-co-bs8b-p36w",
-          "nyc-dob-filings-permits",
-          "nyc-dob-now-build-approved-permits-rbx6-tga4",
-          "nyc-dob-now-build-job-application-filings-w9ak-ipjd",
-          "nyc-dob-now-co-pkdm-hqz6",
-          "nyc-dob-permit-issuance-ipu4-2q9a",
-          "nyc-dot-public-realm-capital-reconstruction-block-jvk9-k4re",
-          "nyc-hpd-affordable-housing-production-hq68-rnsi-hg8x-zxpr",
-          "nyc-lpc-individual-landmark-sites-buis-pvji",
           "nyc-lpc-permit-application-information",
           "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
-          "nyc-parks-capital-project-tracker-4hcv-tc5r",
           "nyc-pdc-meeting-minutes-certificates-2008-2026",
-          "nyc-pluto-mappluto-lots",
-          "rbx6-tga4",
           "tqtj-sjs8"
         ],
         "review_required_source_ids": [],
@@ -4495,19 +3617,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "4hcv-tc5r",
-            "title": "Capital Project Tracker",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "capital_projects",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "64uk-42ks",
             "title": "Primary Land Use Tax Lot Output (PLUTO)",
             "publisher": "NYC Department of City Planning (DCP)",
@@ -4516,19 +3625,6 @@
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
             "attribution_text": "NYC Department of City Planning (DCP)",
             "accessed_at": "2026-04-28T12:19:23.839552+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "8m42-w767",
-            "title": "Fire Incident Dispatch Data",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "fire",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -4547,60 +3643,21 @@
             "licence_review_required": false
           },
           {
-            "source_id": "b7aj-ck5a",
-            "title": "NYC Greenhouse Gas Emissions Municipal Inventory",
-            "publisher": "NYC Mayor's Office of Climate and Environmental Justice",
-            "source_family": "environment;_policy",
+            "source_id": "c9sj-fmsg",
+            "title": "Street Construction Permits (2013-2021)",
+            "publisher": "NYC DOT",
+            "source_family": "traffic",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Mayor's Office of Climate and Environmental Justice",
-            "accessed_at": "2026-04-28T12:19:23.839653+00:00",
+            "attribution_text": "NYC DOT",
+            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "bkfu-528j",
-            "title": "NYC Permitted Event Information - Historical",
-            "publisher": "NYC Open Data / City agency",
-            "source_family": "public_events",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC Open Data / City agency",
-            "accessed_at": "2026-04-28T12:56:37.631412+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "br6q-ssj3",
-            "title": "Housing Database Project Level Files",
-            "publisher": "NYC DCP",
-            "source_family": "planning",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DCP",
-            "accessed_at": "2026-04-28T12:19:23.839587+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "bs8b-p36w",
-            "title": "DOB Certificate Of Occupancy",
-            "publisher": "NYC DOB",
-            "source_family": "buildings;_dob_permits",
-            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
-            "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOB",
-            "accessed_at": "2026-04-28T12:19:23.839596+00:00",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "buis-pvji",
-            "title": "Individual Landmark Sites",
+            "source_id": "dpm2-m9mq",
+            "title": "LPC Permit Application Information",
             "publisher": "NYC Open Data / City agency",
             "source_family": "landmarks",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
@@ -4612,27 +3669,79 @@
             "licence_review_required": false
           },
           {
-            "source_id": "c3uy-2p5r",
-            "title": "Air Quality and Health Impacts",
-            "publisher": "NYC DOHMH",
-            "source_family": "environment;_public_health",
+            "source_id": "hgx4-8ukb",
+            "title": "Zoning Application Portal (ZAP) - Project Data",
+            "publisher": "NYC DCP",
+            "source_family": "planning",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
-            "attribution_text": "NYC DOHMH",
-            "accessed_at": "2026-04-28T12:19:23.839655+00:00",
+            "attribution_text": "NYC DCP",
+            "accessed_at": "2026-04-28T12:19:23.839581+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
           },
           {
-            "source_id": "c9sj-fmsg",
-            "title": "Street Construction Permits (2013-2021)",
+            "source_id": "nyc-dcp-wpaa-388s-pnvc",
+            "title": "NYC Open Data: Waterfront Public Access Areas (WPAAs)",
+            "publisher": "NYC Department of City Planning (DCP), via NYC Open Data",
+            "source_family": "planning",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC Department of City Planning (DCP), via NYC Open Data",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-lpc-permit-application-information",
+            "title": "LPC Permit Application Information",
+            "publisher": "NYC Landmarks Preservation Commission via NYC Open Data",
+            "source_family": "heritage_application_denial",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC Landmarks Preservation Commission via NYC Open Data",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-open-data-lpc-permit-application-information-dpm2-m9mq",
+            "title": "NYC Open Data: LPC Permit Application Information",
+            "publisher": "NYC Landmarks Preservation Commission / NYC Open Data",
+            "source_family": "planning",
+            "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
+            "licence_url": "https://opendata.cityofnewyork.us/faq/",
+            "attribution_text": "NYC Landmarks Preservation Commission / NYC Open Data",
+            "accessed_at": "2026-05-23",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "nyc-pdc-meeting-minutes-certificates-2008-2026",
+            "title": "NYC Public Design Commission meeting minutes and certificates, 2008-2026 PDFs",
+            "publisher": "New York City Public Design Commission",
+            "source_family": "design_review_approval",
+            "licence": "Official NYC.gov public records; explicit open-data redistribution license not verified for the PDF collection.",
+            "licence_url": "https://www.nyc.gov/home/terms-of-use.page",
+            "attribution_text": "New York City Public Design Commission",
+            "accessed_at": "2026-05-19",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "tqtj-sjs8",
+            "title": "Street Construction Permits (2022-Present)",
             "publisher": "NYC DOT",
             "source_family": "traffic",
             "licence": "NYC Open Data; NYC Open Data FAQ states there are no restrictions on the use of Open Data.",
             "licence_url": "https://opendata.cityofnewyork.us/faq/",
             "attribution_text": "NYC DOT",
-            "accessed_at": "2026-04-28T12:19:23.839606+00:00",
+            "accessed_at": "2026-04-28T12:19:23.839607+00:00",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false

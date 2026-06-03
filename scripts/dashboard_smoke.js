@@ -75,6 +75,35 @@ async function chooseCity(page, cityId) {
   );
 }
 
+async function assertActiveSelectionMatchesFilters(page, label, opts = {}) {
+  const selection = await page.evaluate(() => {
+    const atlas = window.BimsAtlas;
+    const selected = atlas?.state?.selectedEvent || null;
+    const filtered = atlas?.filteredEvents?.() || [];
+    return {
+      activeLens: atlas?.state?.activeLens || "",
+      activeAspect: atlas?.state?.activeAspect || "",
+      year: Number(atlas?.state?.year),
+      selectedId: selected?.id || "",
+      selectedTitle: selected?.title || "",
+      selectedCategory: selected?.category || "",
+      selectedYear: Number(selected?.year),
+      inFiltered: selected ? filtered.some((event) => event?.id === selected.id) : false,
+    };
+  });
+  if (!selection.selectedId) {
+    assert(!opts.required, `${label}: expected an active source-backed selection but none was selected.`);
+    return selection;
+  }
+  assert(
+    selection.selectedCategory === selection.activeLens,
+    `${label}: selected ${selection.selectedId} (${selection.selectedTitle}) is ${selection.selectedCategory}, not active lens ${selection.activeLens}.`,
+  );
+  assert(selection.selectedYear === selection.year, `${label}: selected ${selection.selectedId} is from ${selection.selectedYear}, not active year ${selection.year}.`);
+  assert(selection.inFiltered, `${label}: selected ${selection.selectedId} is not present in filtered events for ${selection.activeAspect}.`);
+  return selection;
+}
+
 async function assertDesktopCoreInteractions(page) {
   const startYear = await page.locator("#tlYear").innerText();
   const canStepPrevious = !(await page.locator("#prevYearBtn").isDisabled());
@@ -376,6 +405,7 @@ async function assertDesktopCitywideCoverage(page) {
       { timeout: 20000 }
     );
     const state = await atlasState(page);
+    await assertActiveSelectionMatchesFilters(page, `desktop citywide ${lens.id}`, { required: state.lensYearCoverageVisible });
     assert(state.scrollWidth <= state.clientWidth + 4, `desktop citywide ${lens.id}: page overflows horizontally.`);
     assert(state.mapCanvas === 1, `desktop citywide ${lens.id}: MapLibre canvas is missing.`);
     assert(state.citywideLensMode, `desktop citywide ${lens.id}: lens switch left citywide camera mode.`);
@@ -672,6 +702,7 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
       };
     });
     if (!coverage.visible) {
+      await assertActiveSelectionMatchesFilters(page, `city ${cityId}: ${check.aspect}`);
       assert(check.allowAdjacent === true, `city ${cityId}: ${check.aspect} unexpectedly became non-visible (${coverage.status || "unknown"}).`);
       await page.waitForFunction(
         () => /broad source-backed|No direct source-backed|No source-backed/i.test(document.querySelector("#lensLegend")?.textContent || ""),
@@ -717,6 +748,7 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
       check.renderedLayers,
       { timeout: 20000 }
     );
+    await assertActiveSelectionMatchesFilters(page, `city ${cityId}: ${check.aspect}`, { required: true });
     const state = await atlasState(page);
     const rendered = check.rendered.reduce((sum, field) => sum + Number(state[field] || 0), 0);
     assert(rendered > 0, `city ${cityId}: ${check.label} did not render across the ${targetYear} citywide map.`);

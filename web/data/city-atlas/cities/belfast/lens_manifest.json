@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_city_manifest",
-  "generated_at": "2026-06-03T19:45:00Z",
+  "generated_at": "2026-06-03T21:25:00Z",
   "city_id": "belfast",
   "display_name": "Belfast, Northern Ireland",
   "contract_source": "docs/15_lens_city_design_contract.md",
@@ -63,7 +63,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 14663,
+        "excluded_review_required_event_count": 14662,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -354,7 +354,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 14663,
+        "excluded_review_required_event_count": 14662,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -645,7 +645,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 14663,
+        "excluded_review_required_event_count": 14662,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -917,18 +917,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 145,
-        "compatible_event_count": 145,
+        "event_count": 2,
+        "compatible_event_count": 2,
         "review_required_event_count": 0,
-        "source_count": 24,
-        "compatible_source_count": 24,
+        "source_count": 3,
+        "compatible_source_count": 3,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
-          "end": 2025
+          "end": 2012
         },
         "confidence_counts": {
-          "documented": 145
+          "documented": 2
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -936,7 +936,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 20997,
+        "excluded_review_required_event_count": 17128,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -972,58 +972,16 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-03",
-        "source_coverage_period": "2007-2025",
-        "update_cadence": "Source-specific publication/update cadence; Static Assembly written answer.; Static meeting/publication records.; Static news page."
+        "source_coverage_period": "2007-2012",
+        "update_cadence": "Static Assembly written answer.; Static news page."
       },
       "provenance": {
         "source_ids": [
-          "belfast_city_council_minutes_2008_2015",
-          "dfi-planning-statistics-2024-25-round464",
-          "dfi-planning-statistics-2024-25-round472",
-          "dfi-planning-statistics-2024-25-round477",
-          "dfi-planning-statistics-2024-25-round487",
-          "dfi-planning-statistics-2024-25-round494",
-          "dfi-planning-statistics-2024-25-round499",
-          "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round519",
-          "dfi-planning-statistics-2024-25-round527",
-          "dfi-planning-statistics-2024-25-round538",
-          "dfi-planning-statistics-2024-25-round544",
-          "dfi-planning-statistics-2024-25-round554",
-          "dfi-planning-statistics-2024-25-round560",
-          "dfi-planning-statistics-2024-25-round565",
-          "dfi-planning-statistics-2024-25-round569",
-          "dfi-planning-statistics-2024-25-round577",
-          "dfi-planning-statistics-2024-25-round582",
-          "dfi-planning-statistics-2024-25-round587",
-          "dfi-planning-statistics-2024-25-round592",
           "ni_assembly_colin_public_transport_routes_2008",
           "ni_assembly_colin_transport_infrastructure_2008",
           "ni_water_news_2012_belfast_hydrant_abuse"
         ],
         "compatible_source_ids": [
-          "belfast_city_council_minutes_2008_2015",
-          "dfi-planning-statistics-2024-25-round464",
-          "dfi-planning-statistics-2024-25-round472",
-          "dfi-planning-statistics-2024-25-round477",
-          "dfi-planning-statistics-2024-25-round487",
-          "dfi-planning-statistics-2024-25-round494",
-          "dfi-planning-statistics-2024-25-round499",
-          "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round519",
-          "dfi-planning-statistics-2024-25-round527",
-          "dfi-planning-statistics-2024-25-round538",
-          "dfi-planning-statistics-2024-25-round544",
-          "dfi-planning-statistics-2024-25-round554",
-          "dfi-planning-statistics-2024-25-round560",
-          "dfi-planning-statistics-2024-25-round565",
-          "dfi-planning-statistics-2024-25-round569",
-          "dfi-planning-statistics-2024-25-round577",
-          "dfi-planning-statistics-2024-25-round582",
-          "dfi-planning-statistics-2024-25-round587",
-          "dfi-planning-statistics-2024-25-round592",
           "ni_assembly_colin_public_transport_routes_2008",
           "ni_assembly_colin_transport_infrastructure_2008",
           "ni_water_news_2012_belfast_hydrant_abuse"
@@ -1031,157 +989,40 @@
         "review_required_source_ids": [],
         "source_samples": [
           {
-            "source_id": "belfast_city_council_minutes_2008_2015",
-            "title": "Belfast City Council public agenda and minutes records, 2008-2015",
-            "publisher": "Belfast City Council",
-            "source_family": "civic_planning_economy_utilities",
-            "licence": "Belfast City Council copyright; this atlas stores factual citation metadata and no reproduced page text.",
-            "licence_url": "https://www.belfastcity.gov.uk/copyright",
-            "attribution_text": "Attribute Belfast City Council.",
+            "source_id": "ni_assembly_colin_public_transport_routes_2008",
+            "title": "Northern Ireland Assembly AIMS Open Data written answer AQW 3386/08: Colin public-transport routes",
+            "publisher": "Northern Ireland Assembly",
+            "source_family": "transport",
+            "licence": "Open Government Licence v3.0 for public sector information.",
+            "licence_url": "https://data.niassembly.gov.uk/licence.aspx",
+            "attribution_text": "Contains Parliamentary information licensed under the Open Government Licence v3.0; attribute Northern Ireland Assembly AIMS Open Data and the Minister for Regional Development.",
+            "accessed_at": "2026-06-03",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "ni_assembly_colin_transport_infrastructure_2008",
+            "title": "Northern Ireland Assembly AIMS Open Data written answer AQW 3166/08: Colin public-transport infrastructure",
+            "publisher": "Northern Ireland Assembly",
+            "source_family": "transport",
+            "licence": "Open Government Licence v3.0 for public sector information.",
+            "licence_url": "https://data.niassembly.gov.uk/licence.aspx",
+            "attribution_text": "Contains Parliamentary information licensed under the Open Government Licence v3.0; attribute Northern Ireland Assembly AIMS Open Data and the Minister for Regional Development.",
+            "accessed_at": "2026-06-03",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "ni_water_news_2012_belfast_hydrant_abuse",
+            "title": "NI Water Belfast hydrant-abuse supply disruption news record",
+            "publisher": "Northern Ireland Water",
+            "source_family": "utilities",
+            "licence": "Northern Ireland Water copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.niwater.com/legal-notice/",
+            "attribution_text": "Attribute Northern Ireland Water.",
             "accessed_at": "2026-05-27",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round464",
-            "title": "Northern Ireland planning activity statistics 2024-25 dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round472",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round477",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round487",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_commercial_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round494",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_commercial_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round499",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_hospitality_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round503",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_commercial_fuel_services_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round511",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_care_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round519",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round527",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_conversion_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round538",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1212,18 +1053,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 145,
-        "compatible_event_count": 145,
+        "event_count": 2,
+        "compatible_event_count": 2,
         "review_required_event_count": 0,
-        "source_count": 23,
-        "compatible_source_count": 23,
+        "source_count": 2,
+        "compatible_source_count": 2,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
-          "end": 2025
+          "end": 2012
         },
         "confidence_counts": {
-          "documented": 145
+          "documented": 2
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1231,7 +1072,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 20997,
+        "excluded_review_required_event_count": 17128,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1266,215 +1107,43 @@
         }
       },
       "freshness": {
-        "last_retrieved_or_reviewed": "2026-06-03",
-        "source_coverage_period": "2007-2025",
-        "update_cadence": "Source-specific publication/update cadence; Static Assembly written answer.; Static meeting/publication records.; Static news page."
+        "last_retrieved_or_reviewed": "2026-06-02",
+        "source_coverage_period": "2007-2012",
+        "update_cadence": "Static Assembly written answer.; Static news page."
       },
       "provenance": {
         "source_ids": [
-          "belfast_city_council_minutes_2008_2015",
-          "dfi-planning-statistics-2024-25-round464",
-          "dfi-planning-statistics-2024-25-round472",
-          "dfi-planning-statistics-2024-25-round477",
-          "dfi-planning-statistics-2024-25-round487",
-          "dfi-planning-statistics-2024-25-round494",
-          "dfi-planning-statistics-2024-25-round499",
-          "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round519",
-          "dfi-planning-statistics-2024-25-round527",
-          "dfi-planning-statistics-2024-25-round538",
-          "dfi-planning-statistics-2024-25-round544",
-          "dfi-planning-statistics-2024-25-round554",
-          "dfi-planning-statistics-2024-25-round560",
-          "dfi-planning-statistics-2024-25-round565",
-          "dfi-planning-statistics-2024-25-round569",
-          "dfi-planning-statistics-2024-25-round577",
-          "dfi-planning-statistics-2024-25-round582",
-          "dfi-planning-statistics-2024-25-round587",
-          "dfi-planning-statistics-2024-25-round592",
           "ni_assembly_translink_metro_punctuality_2007",
           "ni_water_news_2012_belfast_hydrant_abuse"
         ],
         "compatible_source_ids": [
-          "belfast_city_council_minutes_2008_2015",
-          "dfi-planning-statistics-2024-25-round464",
-          "dfi-planning-statistics-2024-25-round472",
-          "dfi-planning-statistics-2024-25-round477",
-          "dfi-planning-statistics-2024-25-round487",
-          "dfi-planning-statistics-2024-25-round494",
-          "dfi-planning-statistics-2024-25-round499",
-          "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round519",
-          "dfi-planning-statistics-2024-25-round527",
-          "dfi-planning-statistics-2024-25-round538",
-          "dfi-planning-statistics-2024-25-round544",
-          "dfi-planning-statistics-2024-25-round554",
-          "dfi-planning-statistics-2024-25-round560",
-          "dfi-planning-statistics-2024-25-round565",
-          "dfi-planning-statistics-2024-25-round569",
-          "dfi-planning-statistics-2024-25-round577",
-          "dfi-planning-statistics-2024-25-round582",
-          "dfi-planning-statistics-2024-25-round587",
-          "dfi-planning-statistics-2024-25-round592",
           "ni_assembly_translink_metro_punctuality_2007",
           "ni_water_news_2012_belfast_hydrant_abuse"
         ],
         "review_required_source_ids": [],
         "source_samples": [
           {
-            "source_id": "belfast_city_council_minutes_2008_2015",
-            "title": "Belfast City Council public agenda and minutes records, 2008-2015",
-            "publisher": "Belfast City Council",
-            "source_family": "civic_planning_economy_utilities",
-            "licence": "Belfast City Council copyright; this atlas stores factual citation metadata and no reproduced page text.",
-            "licence_url": "https://www.belfastcity.gov.uk/copyright",
-            "attribution_text": "Attribute Belfast City Council.",
+            "source_id": "ni_assembly_translink_metro_punctuality_2007",
+            "title": "Northern Ireland Assembly AIMS Open Data written answer AQW 5850/08: Metro punctuality, 2005-2007",
+            "publisher": "Northern Ireland Assembly",
+            "source_family": "transport",
+            "licence": "Open Government Licence v3.0 for public sector information.",
+            "licence_url": "https://data.niassembly.gov.uk/licence.aspx",
+            "attribution_text": "Contains Parliamentary information licensed under the Open Government Licence v3.0; attribute Northern Ireland Assembly AIMS Open Data, the Minister for Regional Development, and Translink as table source.",
+            "accessed_at": "2026-06-02",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "ni_water_news_2012_belfast_hydrant_abuse",
+            "title": "NI Water Belfast hydrant-abuse supply disruption news record",
+            "publisher": "Northern Ireland Water",
+            "source_family": "utilities",
+            "licence": "Northern Ireland Water copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.niwater.com/legal-notice/",
+            "attribution_text": "Attribute Northern Ireland Water.",
             "accessed_at": "2026-05-27",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round464",
-            "title": "Northern Ireland planning activity statistics 2024-25 dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round472",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round477",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round487",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_commercial_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round494",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_commercial_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round499",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_hospitality_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round503",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_commercial_fuel_services_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round511",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_care_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round519",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round527",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_conversion_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round538",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1505,18 +1174,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 145,
-        "compatible_event_count": 145,
+        "event_count": 2,
+        "compatible_event_count": 2,
         "review_required_event_count": 0,
-        "source_count": 23,
-        "compatible_source_count": 23,
+        "source_count": 2,
+        "compatible_source_count": 2,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
-          "end": 2025
+          "end": 2012
         },
         "confidence_counts": {
-          "documented": 145
+          "documented": 2
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1524,7 +1193,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 20997,
+        "excluded_review_required_event_count": 17128,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1560,214 +1229,42 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-03",
-        "source_coverage_period": "2007-2025",
-        "update_cadence": "Source-specific publication/update cadence; Static Assembly written answer.; Static meeting/publication records.; Static news page."
+        "source_coverage_period": "2007-2012",
+        "update_cadence": "Static Assembly written answer.; Static news page."
       },
       "provenance": {
         "source_ids": [
-          "belfast_city_council_minutes_2008_2015",
-          "dfi-planning-statistics-2024-25-round464",
-          "dfi-planning-statistics-2024-25-round472",
-          "dfi-planning-statistics-2024-25-round477",
-          "dfi-planning-statistics-2024-25-round487",
-          "dfi-planning-statistics-2024-25-round494",
-          "dfi-planning-statistics-2024-25-round499",
-          "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round519",
-          "dfi-planning-statistics-2024-25-round527",
-          "dfi-planning-statistics-2024-25-round538",
-          "dfi-planning-statistics-2024-25-round544",
-          "dfi-planning-statistics-2024-25-round554",
-          "dfi-planning-statistics-2024-25-round560",
-          "dfi-planning-statistics-2024-25-round565",
-          "dfi-planning-statistics-2024-25-round569",
-          "dfi-planning-statistics-2024-25-round577",
-          "dfi-planning-statistics-2024-25-round582",
-          "dfi-planning-statistics-2024-25-round587",
-          "dfi-planning-statistics-2024-25-round592",
           "ni_assembly_m1_blacks_stockmans_scheme_delay_2007",
           "ni_water_news_2012_belfast_hydrant_abuse"
         ],
         "compatible_source_ids": [
-          "belfast_city_council_minutes_2008_2015",
-          "dfi-planning-statistics-2024-25-round464",
-          "dfi-planning-statistics-2024-25-round472",
-          "dfi-planning-statistics-2024-25-round477",
-          "dfi-planning-statistics-2024-25-round487",
-          "dfi-planning-statistics-2024-25-round494",
-          "dfi-planning-statistics-2024-25-round499",
-          "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round519",
-          "dfi-planning-statistics-2024-25-round527",
-          "dfi-planning-statistics-2024-25-round538",
-          "dfi-planning-statistics-2024-25-round544",
-          "dfi-planning-statistics-2024-25-round554",
-          "dfi-planning-statistics-2024-25-round560",
-          "dfi-planning-statistics-2024-25-round565",
-          "dfi-planning-statistics-2024-25-round569",
-          "dfi-planning-statistics-2024-25-round577",
-          "dfi-planning-statistics-2024-25-round582",
-          "dfi-planning-statistics-2024-25-round587",
-          "dfi-planning-statistics-2024-25-round592",
           "ni_assembly_m1_blacks_stockmans_scheme_delay_2007",
           "ni_water_news_2012_belfast_hydrant_abuse"
         ],
         "review_required_source_ids": [],
         "source_samples": [
           {
-            "source_id": "belfast_city_council_minutes_2008_2015",
-            "title": "Belfast City Council public agenda and minutes records, 2008-2015",
-            "publisher": "Belfast City Council",
-            "source_family": "civic_planning_economy_utilities",
-            "licence": "Belfast City Council copyright; this atlas stores factual citation metadata and no reproduced page text.",
-            "licence_url": "https://www.belfastcity.gov.uk/copyright",
-            "attribution_text": "Attribute Belfast City Council.",
+            "source_id": "ni_assembly_m1_blacks_stockmans_scheme_delay_2007",
+            "title": "Northern Ireland Assembly AIMS Open Data written answer AQW 203/08: M1 Blacks Road to Stockmans Lane road scheme delay",
+            "publisher": "Northern Ireland Assembly",
+            "source_family": "transport",
+            "licence": "Open Government Licence v3.0 for public sector information.",
+            "licence_url": "https://data.niassembly.gov.uk/licence.aspx",
+            "attribution_text": "Contains Parliamentary information licensed under the Open Government Licence v3.0; attribute Northern Ireland Assembly AIMS Open Data and the Minister for Regional Development.",
+            "accessed_at": "2026-06-03",
+            "reliability": "usable_with_caveats",
+            "source_confidence": "documented",
+            "licence_review_required": false
+          },
+          {
+            "source_id": "ni_water_news_2012_belfast_hydrant_abuse",
+            "title": "NI Water Belfast hydrant-abuse supply disruption news record",
+            "publisher": "Northern Ireland Water",
+            "source_family": "utilities",
+            "licence": "Northern Ireland Water copyright; this atlas stores factual citation metadata and no reproduced page text.",
+            "licence_url": "https://www.niwater.com/legal-notice/",
+            "attribution_text": "Attribute Northern Ireland Water.",
             "accessed_at": "2026-05-27",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round464",
-            "title": "Northern Ireland planning activity statistics 2024-25 dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round472",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round477",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round487",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_commercial_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round494",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_commercial_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round499",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_hospitality_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round503",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_commercial_fuel_services_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round511",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_care_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round519",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round527",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_conversion_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round538",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -1798,18 +1295,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 47,
-        "compatible_event_count": 47,
+        "event_count": 31,
+        "compatible_event_count": 31,
         "review_required_event_count": 0,
-        "source_count": 12,
-        "compatible_source_count": 12,
+        "source_count": 3,
+        "compatible_source_count": 3,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
-          "end": 2025
+          "end": 2024
         },
         "confidence_counts": {
-          "documented": 47
+          "documented": 31
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -1817,7 +1314,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1497,
+        "excluded_review_required_event_count": 733,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -1852,37 +1349,19 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-03",
-        "source_coverage_period": "2007-2025",
-        "update_cadence": "Institutional history page; cadence set by publisher.; Source-specific publication/update cadence; Static meeting/publication records.; Static news page."
+        "source_coverage_period": "2007-2024",
+        "update_cadence": "Institutional history page; cadence set by publisher.; Source-specific publication/update cadence; Static meeting/publication records."
       },
       "provenance": {
         "source_ids": [
           "belfast_city_council_minutes_2008_2015",
           "belfast_met_history_2007",
-          "dfi-planning-statistics-2024-25-round464",
-          "dfi-planning-statistics-2024-25-round472",
-          "dfi-planning-statistics-2024-25-round477",
-          "dfi-planning-statistics-2024-25-round487",
-          "dfi-planning-statistics-2024-25-round494",
-          "dfi-planning-statistics-2024-25-round499",
-          "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round569",
-          "ni_water_news_2012_belfast_hydrant_abuse"
+          "dfi-planning-statistics-2024-25-round499"
         ],
         "compatible_source_ids": [
           "belfast_city_council_minutes_2008_2015",
           "belfast_met_history_2007",
-          "dfi-planning-statistics-2024-25-round464",
-          "dfi-planning-statistics-2024-25-round472",
-          "dfi-planning-statistics-2024-25-round477",
-          "dfi-planning-statistics-2024-25-round487",
-          "dfi-planning-statistics-2024-25-round494",
-          "dfi-planning-statistics-2024-25-round499",
-          "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round569",
-          "ni_water_news_2012_belfast_hydrant_abuse"
+          "dfi-planning-statistics-2024-25-round499"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -1913,71 +1392,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "dfi-planning-statistics-2024-25-round464",
-            "title": "Northern Ireland planning activity statistics 2024-25 dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round472",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round477",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round487",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_commercial_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round494",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_commercial_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "dfi-planning-statistics-2024-25-round499",
             "title": "Northern Ireland planning statistics 2024/25 annual dataset",
             "publisher": "Department for Infrastructure, Northern Ireland",
@@ -1986,58 +1400,6 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
             "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round503",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_commercial_fuel_services_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round511",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_care_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round569",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "ni_water_news_2012_belfast_hydrant_abuse",
-            "title": "NI Water Belfast hydrant-abuse supply disruption news record",
-            "publisher": "Northern Ireland Water",
-            "source_family": "utilities",
-            "licence": "Northern Ireland Water copyright; this atlas stores factual citation metadata and no reproduced page text.",
-            "licence_url": "https://www.niwater.com/legal-notice/",
-            "attribution_text": "Attribute Northern Ireland Water.",
-            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2068,18 +1430,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 47,
-        "compatible_event_count": 47,
+        "event_count": 31,
+        "compatible_event_count": 31,
         "review_required_event_count": 0,
-        "source_count": 12,
-        "compatible_source_count": 12,
+        "source_count": 3,
+        "compatible_source_count": 3,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
-          "end": 2025
+          "end": 2024
         },
         "confidence_counts": {
-          "documented": 47
+          "documented": 31
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2087,7 +1449,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1497,
+        "excluded_review_required_event_count": 733,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2122,37 +1484,19 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-03",
-        "source_coverage_period": "2007-2025",
-        "update_cadence": "Institutional history page; cadence set by publisher.; Source-specific publication/update cadence; Static meeting/publication records.; Static news page."
+        "source_coverage_period": "2007-2024",
+        "update_cadence": "Institutional history page; cadence set by publisher.; Source-specific publication/update cadence; Static meeting/publication records."
       },
       "provenance": {
         "source_ids": [
           "belfast_city_council_minutes_2008_2015",
           "belfast_met_history_2007",
-          "dfi-planning-statistics-2024-25-round464",
-          "dfi-planning-statistics-2024-25-round472",
-          "dfi-planning-statistics-2024-25-round477",
-          "dfi-planning-statistics-2024-25-round487",
-          "dfi-planning-statistics-2024-25-round494",
-          "dfi-planning-statistics-2024-25-round499",
-          "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round569",
-          "ni_water_news_2012_belfast_hydrant_abuse"
+          "dfi-planning-statistics-2024-25-round499"
         ],
         "compatible_source_ids": [
           "belfast_city_council_minutes_2008_2015",
           "belfast_met_history_2007",
-          "dfi-planning-statistics-2024-25-round464",
-          "dfi-planning-statistics-2024-25-round472",
-          "dfi-planning-statistics-2024-25-round477",
-          "dfi-planning-statistics-2024-25-round487",
-          "dfi-planning-statistics-2024-25-round494",
-          "dfi-planning-statistics-2024-25-round499",
-          "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round569",
-          "ni_water_news_2012_belfast_hydrant_abuse"
+          "dfi-planning-statistics-2024-25-round499"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -2183,71 +1527,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "dfi-planning-statistics-2024-25-round464",
-            "title": "Northern Ireland planning activity statistics 2024-25 dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round472",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round477",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round487",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_commercial_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round494",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_commercial_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "dfi-planning-statistics-2024-25-round499",
             "title": "Northern Ireland planning statistics 2024/25 annual dataset",
             "publisher": "Department for Infrastructure, Northern Ireland",
@@ -2256,58 +1535,6 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
             "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round503",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_commercial_fuel_services_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round511",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_care_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round569",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "ni_water_news_2012_belfast_hydrant_abuse",
-            "title": "NI Water Belfast hydrant-abuse supply disruption news record",
-            "publisher": "Northern Ireland Water",
-            "source_family": "utilities",
-            "licence": "Northern Ireland Water copyright; this atlas stores factual citation metadata and no reproduced page text.",
-            "licence_url": "https://www.niwater.com/legal-notice/",
-            "attribution_text": "Attribute Northern Ireland Water.",
-            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2338,18 +1565,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 47,
-        "compatible_event_count": 47,
+        "event_count": 31,
+        "compatible_event_count": 31,
         "review_required_event_count": 0,
-        "source_count": 12,
-        "compatible_source_count": 12,
+        "source_count": 3,
+        "compatible_source_count": 3,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
-          "end": 2025
+          "end": 2024
         },
         "confidence_counts": {
-          "documented": 47
+          "documented": 31
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2357,7 +1584,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1497,
+        "excluded_review_required_event_count": 733,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2392,37 +1619,19 @@
       },
       "freshness": {
         "last_retrieved_or_reviewed": "2026-06-03",
-        "source_coverage_period": "2007-2025",
-        "update_cadence": "Institutional history page; cadence set by publisher.; Source-specific publication/update cadence; Static meeting/publication records.; Static news page."
+        "source_coverage_period": "2007-2024",
+        "update_cadence": "Institutional history page; cadence set by publisher.; Source-specific publication/update cadence; Static meeting/publication records."
       },
       "provenance": {
         "source_ids": [
           "belfast_city_council_minutes_2008_2015",
           "belfast_met_history_2007",
-          "dfi-planning-statistics-2024-25-round464",
-          "dfi-planning-statistics-2024-25-round472",
-          "dfi-planning-statistics-2024-25-round477",
-          "dfi-planning-statistics-2024-25-round487",
-          "dfi-planning-statistics-2024-25-round494",
-          "dfi-planning-statistics-2024-25-round499",
-          "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round569",
-          "ni_water_news_2012_belfast_hydrant_abuse"
+          "dfi-planning-statistics-2024-25-round499"
         ],
         "compatible_source_ids": [
           "belfast_city_council_minutes_2008_2015",
           "belfast_met_history_2007",
-          "dfi-planning-statistics-2024-25-round464",
-          "dfi-planning-statistics-2024-25-round472",
-          "dfi-planning-statistics-2024-25-round477",
-          "dfi-planning-statistics-2024-25-round487",
-          "dfi-planning-statistics-2024-25-round494",
-          "dfi-planning-statistics-2024-25-round499",
-          "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round569",
-          "ni_water_news_2012_belfast_hydrant_abuse"
+          "dfi-planning-statistics-2024-25-round499"
         ],
         "review_required_source_ids": [],
         "source_samples": [
@@ -2453,71 +1662,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "dfi-planning-statistics-2024-25-round464",
-            "title": "Northern Ireland planning activity statistics 2024-25 dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round472",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round477",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round487",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_commercial_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round494",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_heritage_commercial_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "dfi-planning-statistics-2024-25-round499",
             "title": "Northern Ireland planning statistics 2024/25 annual dataset",
             "publisher": "Department for Infrastructure, Northern Ireland",
@@ -2526,58 +1670,6 @@
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
             "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
             "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round503",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_commercial_fuel_services_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round511",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_care_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round569",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "ni_water_news_2012_belfast_hydrant_abuse",
-            "title": "NI Water Belfast hydrant-abuse supply disruption news record",
-            "publisher": "Northern Ireland Water",
-            "source_family": "utilities",
-            "licence": "Northern Ireland Water copyright; this atlas stores factual citation metadata and no reproduced page text.",
-            "licence_url": "https://www.niwater.com/legal-notice/",
-            "attribution_text": "Attribute Northern Ireland Water.",
-            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2608,18 +1700,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 101,
-        "compatible_event_count": 101,
+        "event_count": 78,
+        "compatible_event_count": 78,
         "review_required_event_count": 0,
-        "source_count": 18,
-        "compatible_source_count": 18,
+        "source_count": 8,
+        "compatible_source_count": 8,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
           "end": 2025
         },
         "confidence_counts": {
-          "documented": 101
+          "documented": 78
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2627,7 +1719,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1946,
+        "excluded_review_required_event_count": 675,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2671,19 +1763,9 @@
           "belfast_harbour_offshore_wind_terminal_2013",
           "belfast_met_history_2007",
           "dfc_westside_masterplan_2009",
-          "dfi-planning-statistics-2024-25-round477",
           "dfi-planning-statistics-2024-25-round487",
           "dfi-planning-statistics-2024-25-round494",
           "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round519",
-          "dfi-planning-statistics-2024-25-round527",
-          "dfi-planning-statistics-2024-25-round554",
-          "dfi-planning-statistics-2024-25-round560",
-          "dfi-planning-statistics-2024-25-round569",
-          "dfi-planning-statistics-2024-25-round577",
-          "dfi-planning-statistics-2024-25-round582",
-          "dfi-planning-statistics-2024-25-round587",
           "ni_laganside_dissolution_2007"
         ],
         "compatible_source_ids": [
@@ -2691,19 +1773,9 @@
           "belfast_harbour_offshore_wind_terminal_2013",
           "belfast_met_history_2007",
           "dfc_westside_masterplan_2009",
-          "dfi-planning-statistics-2024-25-round477",
           "dfi-planning-statistics-2024-25-round487",
           "dfi-planning-statistics-2024-25-round494",
           "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round519",
-          "dfi-planning-statistics-2024-25-round527",
-          "dfi-planning-statistics-2024-25-round554",
-          "dfi-planning-statistics-2024-25-round560",
-          "dfi-planning-statistics-2024-25-round569",
-          "dfi-planning-statistics-2024-25-round577",
-          "dfi-planning-statistics-2024-25-round582",
-          "dfi-planning-statistics-2024-25-round587",
           "ni_laganside_dissolution_2007"
         ],
         "review_required_source_ids": [],
@@ -2761,19 +1833,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "dfi-planning-statistics-2024-25-round477",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "dfi-planning-statistics-2024-25-round487",
             "title": "Northern Ireland planning statistics 2024/25 annual dataset",
             "publisher": "Department for Infrastructure, Northern Ireland",
@@ -2813,53 +1872,14 @@
             "licence_review_required": false
           },
           {
-            "source_id": "dfi-planning-statistics-2024-25-round511",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_care_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
+            "source_id": "ni_laganside_dissolution_2007",
+            "title": "Laganside Corporation dissolution legislative record",
+            "publisher": "Northern Ireland Assembly / UK legislation record",
+            "source_family": "planning_regeneration",
+            "licence": "Open Government Licence v3.0 for public-sector information where applicable.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round519",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round527",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_conversion_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round554",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
+            "attribution_text": "Attribute the Northern Ireland Assembly / legislation source.",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -2890,18 +1910,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 101,
-        "compatible_event_count": 101,
+        "event_count": 78,
+        "compatible_event_count": 78,
         "review_required_event_count": 0,
-        "source_count": 18,
-        "compatible_source_count": 18,
+        "source_count": 8,
+        "compatible_source_count": 8,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
           "end": 2025
         },
         "confidence_counts": {
-          "documented": 101
+          "documented": 78
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -2909,7 +1929,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1946,
+        "excluded_review_required_event_count": 675,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -2952,19 +1972,9 @@
           "belfast_harbour_offshore_wind_terminal_2013",
           "belfast_met_history_2007",
           "dfc_westside_masterplan_2009",
-          "dfi-planning-statistics-2024-25-round477",
           "dfi-planning-statistics-2024-25-round487",
           "dfi-planning-statistics-2024-25-round494",
           "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round519",
-          "dfi-planning-statistics-2024-25-round527",
-          "dfi-planning-statistics-2024-25-round554",
-          "dfi-planning-statistics-2024-25-round560",
-          "dfi-planning-statistics-2024-25-round569",
-          "dfi-planning-statistics-2024-25-round577",
-          "dfi-planning-statistics-2024-25-round582",
-          "dfi-planning-statistics-2024-25-round587",
           "ni_laganside_dissolution_2007"
         ],
         "compatible_source_ids": [
@@ -2972,19 +1982,9 @@
           "belfast_harbour_offshore_wind_terminal_2013",
           "belfast_met_history_2007",
           "dfc_westside_masterplan_2009",
-          "dfi-planning-statistics-2024-25-round477",
           "dfi-planning-statistics-2024-25-round487",
           "dfi-planning-statistics-2024-25-round494",
           "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round519",
-          "dfi-planning-statistics-2024-25-round527",
-          "dfi-planning-statistics-2024-25-round554",
-          "dfi-planning-statistics-2024-25-round560",
-          "dfi-planning-statistics-2024-25-round569",
-          "dfi-planning-statistics-2024-25-round577",
-          "dfi-planning-statistics-2024-25-round582",
-          "dfi-planning-statistics-2024-25-round587",
           "ni_laganside_dissolution_2007"
         ],
         "review_required_source_ids": [],
@@ -3042,19 +2042,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "dfi-planning-statistics-2024-25-round477",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "dfi-planning-statistics-2024-25-round487",
             "title": "Northern Ireland planning statistics 2024/25 annual dataset",
             "publisher": "Department for Infrastructure, Northern Ireland",
@@ -3094,53 +2081,14 @@
             "licence_review_required": false
           },
           {
-            "source_id": "dfi-planning-statistics-2024-25-round511",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_care_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
+            "source_id": "ni_laganside_dissolution_2007",
+            "title": "Laganside Corporation dissolution legislative record",
+            "publisher": "Northern Ireland Assembly / UK legislation record",
+            "source_family": "planning_regeneration",
+            "licence": "Open Government Licence v3.0 for public-sector information where applicable.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round519",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round527",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_conversion_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round554",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
+            "attribution_text": "Attribute the Northern Ireland Assembly / legislation source.",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3171,18 +2119,18 @@
         "note": "A source-backed event may appear in more than one lens when its source family supports that lens view; the event id, evidence, licence, and caveats stay unchanged."
       },
       "coverage": {
-        "event_count": 101,
-        "compatible_event_count": 101,
+        "event_count": 78,
+        "compatible_event_count": 78,
         "review_required_event_count": 0,
-        "source_count": 18,
-        "compatible_source_count": 18,
+        "source_count": 8,
+        "compatible_source_count": 8,
         "review_required_source_count": 0,
         "observed_years": {
           "start": 2007,
           "end": 2025
         },
         "confidence_counts": {
-          "documented": 101
+          "documented": 78
         },
         "caveats": [
           "Counts are source-backed records available in this repo, not a complete census of all city changes.",
@@ -3190,7 +2138,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 1946,
+        "excluded_review_required_event_count": 675,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3233,19 +2181,9 @@
           "belfast_harbour_offshore_wind_terminal_2013",
           "belfast_met_history_2007",
           "dfc_westside_masterplan_2009",
-          "dfi-planning-statistics-2024-25-round477",
           "dfi-planning-statistics-2024-25-round487",
           "dfi-planning-statistics-2024-25-round494",
           "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round519",
-          "dfi-planning-statistics-2024-25-round527",
-          "dfi-planning-statistics-2024-25-round554",
-          "dfi-planning-statistics-2024-25-round560",
-          "dfi-planning-statistics-2024-25-round569",
-          "dfi-planning-statistics-2024-25-round577",
-          "dfi-planning-statistics-2024-25-round582",
-          "dfi-planning-statistics-2024-25-round587",
           "ni_laganside_dissolution_2007"
         ],
         "compatible_source_ids": [
@@ -3253,19 +2191,9 @@
           "belfast_harbour_offshore_wind_terminal_2013",
           "belfast_met_history_2007",
           "dfc_westside_masterplan_2009",
-          "dfi-planning-statistics-2024-25-round477",
           "dfi-planning-statistics-2024-25-round487",
           "dfi-planning-statistics-2024-25-round494",
           "dfi-planning-statistics-2024-25-round503",
-          "dfi-planning-statistics-2024-25-round511",
-          "dfi-planning-statistics-2024-25-round519",
-          "dfi-planning-statistics-2024-25-round527",
-          "dfi-planning-statistics-2024-25-round554",
-          "dfi-planning-statistics-2024-25-round560",
-          "dfi-planning-statistics-2024-25-round569",
-          "dfi-planning-statistics-2024-25-round577",
-          "dfi-planning-statistics-2024-25-round582",
-          "dfi-planning-statistics-2024-25-round587",
           "ni_laganside_dissolution_2007"
         ],
         "review_required_source_ids": [],
@@ -3323,19 +2251,6 @@
             "licence_review_required": false
           },
           {
-            "source_id": "dfi-planning-statistics-2024-25-round477",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
             "source_id": "dfi-planning-statistics-2024-25-round487",
             "title": "Northern Ireland planning statistics 2024/25 annual dataset",
             "publisher": "Department for Infrastructure, Northern Ireland",
@@ -3375,53 +2290,14 @@
             "licence_review_required": false
           },
           {
-            "source_id": "dfi-planning-statistics-2024-25-round511",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_care_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
+            "source_id": "ni_laganside_dissolution_2007",
+            "title": "Laganside Corporation dissolution legislative record",
+            "publisher": "Northern Ireland Assembly / UK legislation record",
+            "source_family": "planning_regeneration",
+            "licence": "Open Government Licence v3.0 for public-sector information where applicable.",
             "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round519",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round527",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_conversion_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
-            "reliability": "usable_with_caveats",
-            "source_confidence": "documented",
-            "licence_review_required": false
-          },
-          {
-            "source_id": "dfi-planning-statistics-2024-25-round554",
-            "title": "Northern Ireland planning statistics 2024/25 annual dataset",
-            "publisher": "Department for Infrastructure, Northern Ireland",
-            "source_family": "architecture_residential_fabric_admin",
-            "licence": "Department for Infrastructure Crown copyright material reused under the Open Government Licence v3.0, excluding logos, personal data, third-party rights, and OSNI/LPS mapping.",
-            "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "attribution_text": "Attribute Department for Infrastructure, Northern Ireland.",
-            "accessed_at": "2026-06-03",
+            "attribution_text": "Attribute the Northern Ireland Assembly / legislation source.",
+            "accessed_at": "2026-05-27",
             "reliability": "usable_with_caveats",
             "source_confidence": "documented",
             "licence_review_required": false
@@ -3471,7 +2347,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 13968,
+        "excluded_review_required_event_count": 13826,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -3761,7 +2637,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 13968,
+        "excluded_review_required_event_count": 13826,
         "year_contract": {
           "required_years": {
             "start": 2007,
@@ -4051,7 +2927,7 @@
           "Administrative records are not treated as evidence of construction, service quality, capacity, causation, or outcome.",
           "Launched lens counts exclude otherwise matching records whose source licence or reuse terms still need source-level review."
         ],
-        "excluded_review_required_event_count": 13968,
+        "excluded_review_required_event_count": 13826,
         "year_contract": {
           "required_years": {
             "start": 2007,

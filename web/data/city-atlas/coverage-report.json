@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "city_atlas_coverage_report",
-  "generated_at": "2026-06-03T19:45:00Z",
+  "generated_at": "2026-06-03T21:25:00Z",
   "atlas_index_path": "web/data/city-atlas/index.json",
   "summary": {
     "city_count": 3,
@@ -10,7 +10,7 @@
     "duplicate_event_id_count": 0,
     "active_source_count": 490,
     "source_catalog_only_count": 254,
-    "source_year_layer_row_count": 2548,
+    "source_year_layer_row_count": 2527,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",
@@ -14607,40 +14607,8 @@
       "source_id": "erm2-nwe9",
       "source_title": "311 Service Requests from 2020 to Present",
       "year": 2020,
-      "layer": "built_environment",
-      "event_count": 6
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2020,
       "layer": "civic_services",
-      "event_count": 33
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2020,
-      "layer": "environment",
-      "event_count": 71
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2020,
-      "layer": "transport",
-      "event_count": 10
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2021,
-      "layer": "built_environment",
-      "event_count": 1
+      "event_count": 120
     },
     {
       "city_id": "nyc",
@@ -14648,31 +14616,7 @@
       "source_title": "311 Service Requests from 2020 to Present",
       "year": 2021,
       "layer": "civic_services",
-      "event_count": 33
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2021,
-      "layer": "environment",
-      "event_count": 81
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2021,
-      "layer": "transport",
-      "event_count": 5
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2022,
-      "layer": "built_environment",
-      "event_count": 5
+      "event_count": 120
     },
     {
       "city_id": "nyc",
@@ -14680,31 +14624,7 @@
       "source_title": "311 Service Requests from 2020 to Present",
       "year": 2022,
       "layer": "civic_services",
-      "event_count": 42
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2022,
-      "layer": "environment",
-      "event_count": 69
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2022,
-      "layer": "transport",
-      "event_count": 4
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2023,
-      "layer": "built_environment",
-      "event_count": 3
+      "event_count": 120
     },
     {
       "city_id": "nyc",
@@ -14712,31 +14632,7 @@
       "source_title": "311 Service Requests from 2020 to Present",
       "year": 2023,
       "layer": "civic_services",
-      "event_count": 51
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2023,
-      "layer": "environment",
-      "event_count": 58
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2023,
-      "layer": "transport",
-      "event_count": 8
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2024,
-      "layer": "built_environment",
-      "event_count": 3
+      "event_count": 120
     },
     {
       "city_id": "nyc",
@@ -14744,31 +14640,7 @@
       "source_title": "311 Service Requests from 2020 to Present",
       "year": 2024,
       "layer": "civic_services",
-      "event_count": 58
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2024,
-      "layer": "environment",
-      "event_count": 51
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2024,
-      "layer": "transport",
-      "event_count": 8
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2025,
-      "layer": "built_environment",
-      "event_count": 1
+      "event_count": 120
     },
     {
       "city_id": "nyc",
@@ -14776,31 +14648,7 @@
       "source_title": "311 Service Requests from 2020 to Present",
       "year": 2025,
       "layer": "civic_services",
-      "event_count": 33
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2025,
-      "layer": "environment",
-      "event_count": 77
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2025,
-      "layer": "transport",
-      "event_count": 9
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2026,
-      "layer": "built_environment",
-      "event_count": 7
+      "event_count": 120
     },
     {
       "city_id": "nyc",
@@ -14808,23 +14656,7 @@
       "source_title": "311 Service Requests from 2020 to Present",
       "year": 2026,
       "layer": "civic_services",
-      "event_count": 41
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2026,
-      "layer": "environment",
-      "event_count": 52
-    },
-    {
-      "city_id": "nyc",
-      "source_id": "erm2-nwe9",
-      "source_title": "311 Service Requests from 2020 to Present",
-      "year": 2026,
-      "layer": "transport",
-      "event_count": 20
+      "event_count": 120
     },
     {
       "city_id": "nyc",
@@ -44449,11 +44281,11 @@
         "2026": 4429
       },
       "event_counts_by_layer": {
-        "built_environment": 78578,
-        "civic_services": 4136,
+        "built_environment": 78552,
+        "civic_services": 4685,
         "economy": 5096,
-        "environment": 5072,
-        "transport": 5683,
+        "environment": 4613,
+        "transport": 5619,
         "utilities": 671
       },
       "event_counts_by_confidence": {
@@ -45868,12 +45700,12 @@
         {
           "year": 2020,
           "layer": "built_environment",
-          "event_count": 4374
+          "event_count": 4368
         },
         {
           "year": 2020,
           "layer": "civic_services",
-          "event_count": 313
+          "event_count": 400
         },
         {
           "year": 2020,
@@ -45883,12 +45715,12 @@
         {
           "year": 2020,
           "layer": "environment",
-          "event_count": 141
+          "event_count": 70
         },
         {
           "year": 2020,
           "layer": "transport",
-          "event_count": 418
+          "event_count": 408
         },
         {
           "year": 2020,
@@ -45898,12 +45730,12 @@
         {
           "year": 2021,
           "layer": "built_environment",
-          "event_count": 4838
+          "event_count": 4837
         },
         {
           "year": 2021,
           "layer": "civic_services",
-          "event_count": 126
+          "event_count": 213
         },
         {
           "year": 2021,
@@ -45913,12 +45745,12 @@
         {
           "year": 2021,
           "layer": "environment",
-          "event_count": 137
+          "event_count": 56
         },
         {
           "year": 2021,
           "layer": "transport",
-          "event_count": 254
+          "event_count": 249
         },
         {
           "year": 2021,
@@ -45928,12 +45760,12 @@
         {
           "year": 2022,
           "layer": "built_environment",
-          "event_count": 5921
+          "event_count": 5916
         },
         {
           "year": 2022,
           "layer": "civic_services",
-          "event_count": 146
+          "event_count": 224
         },
         {
           "year": 2022,
@@ -45943,12 +45775,12 @@
         {
           "year": 2022,
           "layer": "environment",
-          "event_count": 143
+          "event_count": 74
         },
         {
           "year": 2022,
           "layer": "transport",
-          "event_count": 412
+          "event_count": 408
         },
         {
           "year": 2022,
@@ -45958,12 +45790,12 @@
         {
           "year": 2023,
           "layer": "built_environment",
-          "event_count": 6904
+          "event_count": 6901
         },
         {
           "year": 2023,
           "layer": "civic_services",
-          "event_count": 168
+          "event_count": 237
         },
         {
           "year": 2023,
@@ -45973,12 +45805,12 @@
         {
           "year": 2023,
           "layer": "environment",
-          "event_count": 158
+          "event_count": 100
         },
         {
           "year": 2023,
           "layer": "transport",
-          "event_count": 394
+          "event_count": 386
         },
         {
           "year": 2023,
@@ -45988,12 +45820,12 @@
         {
           "year": 2024,
           "layer": "built_environment",
-          "event_count": 7176
+          "event_count": 7173
         },
         {
           "year": 2024,
           "layer": "civic_services",
-          "event_count": 190
+          "event_count": 252
         },
         {
           "year": 2024,
@@ -46003,12 +45835,12 @@
         {
           "year": 2024,
           "layer": "environment",
-          "event_count": 163
+          "event_count": 112
         },
         {
           "year": 2024,
           "layer": "transport",
-          "event_count": 433
+          "event_count": 425
         },
         {
           "year": 2024,
@@ -46018,12 +45850,12 @@
         {
           "year": 2025,
           "layer": "built_environment",
-          "event_count": 7498
+          "event_count": 7497
         },
         {
           "year": 2025,
           "layer": "civic_services",
-          "event_count": 73
+          "event_count": 160
         },
         {
           "year": 2025,
@@ -46033,12 +45865,12 @@
         {
           "year": 2025,
           "layer": "environment",
-          "event_count": 246
+          "event_count": 169
         },
         {
           "year": 2025,
           "layer": "transport",
-          "event_count": 291
+          "event_count": 282
         },
         {
           "year": 2025,
@@ -46048,12 +45880,12 @@
         {
           "year": 2026,
           "layer": "built_environment",
-          "event_count": 3350
+          "event_count": 3343
         },
         {
           "year": 2026,
           "layer": "civic_services",
-          "event_count": 77
+          "event_count": 156
         },
         {
           "year": 2026,
@@ -46063,12 +45895,12 @@
         {
           "year": 2026,
           "layer": "environment",
-          "event_count": 289
+          "event_count": 237
         },
         {
           "year": 2026,
           "layer": "transport",
-          "event_count": 539
+          "event_count": 519
         },
         {
           "year": 2026,
@@ -50002,40 +49834,8 @@
           "source_id": "erm2-nwe9",
           "source_title": "311 Service Requests from 2020 to Present",
           "year": 2020,
-          "layer": "built_environment",
-          "event_count": 6
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2020,
           "layer": "civic_services",
-          "event_count": 33
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2020,
-          "layer": "environment",
-          "event_count": 71
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2020,
-          "layer": "transport",
-          "event_count": 10
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2021,
-          "layer": "built_environment",
-          "event_count": 1
+          "event_count": 120
         },
         {
           "city_id": "nyc",
@@ -50043,31 +49843,7 @@
           "source_title": "311 Service Requests from 2020 to Present",
           "year": 2021,
           "layer": "civic_services",
-          "event_count": 33
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2021,
-          "layer": "environment",
-          "event_count": 81
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2021,
-          "layer": "transport",
-          "event_count": 5
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2022,
-          "layer": "built_environment",
-          "event_count": 5
+          "event_count": 120
         },
         {
           "city_id": "nyc",
@@ -50075,31 +49851,7 @@
           "source_title": "311 Service Requests from 2020 to Present",
           "year": 2022,
           "layer": "civic_services",
-          "event_count": 42
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2022,
-          "layer": "environment",
-          "event_count": 69
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2022,
-          "layer": "transport",
-          "event_count": 4
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2023,
-          "layer": "built_environment",
-          "event_count": 3
+          "event_count": 120
         },
         {
           "city_id": "nyc",
@@ -50107,31 +49859,7 @@
           "source_title": "311 Service Requests from 2020 to Present",
           "year": 2023,
           "layer": "civic_services",
-          "event_count": 51
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2023,
-          "layer": "environment",
-          "event_count": 58
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2023,
-          "layer": "transport",
-          "event_count": 8
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2024,
-          "layer": "built_environment",
-          "event_count": 3
+          "event_count": 120
         },
         {
           "city_id": "nyc",
@@ -50139,31 +49867,7 @@
           "source_title": "311 Service Requests from 2020 to Present",
           "year": 2024,
           "layer": "civic_services",
-          "event_count": 58
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2024,
-          "layer": "environment",
-          "event_count": 51
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2024,
-          "layer": "transport",
-          "event_count": 8
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2025,
-          "layer": "built_environment",
-          "event_count": 1
+          "event_count": 120
         },
         {
           "city_id": "nyc",
@@ -50171,31 +49875,7 @@
           "source_title": "311 Service Requests from 2020 to Present",
           "year": 2025,
           "layer": "civic_services",
-          "event_count": 33
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2025,
-          "layer": "environment",
-          "event_count": 77
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2025,
-          "layer": "transport",
-          "event_count": 9
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2026,
-          "layer": "built_environment",
-          "event_count": 7
+          "event_count": 120
         },
         {
           "city_id": "nyc",
@@ -50203,23 +49883,7 @@
           "source_title": "311 Service Requests from 2020 to Present",
           "year": 2026,
           "layer": "civic_services",
-          "event_count": 41
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2026,
-          "layer": "environment",
-          "event_count": 52
-        },
-        {
-          "city_id": "nyc",
-          "source_id": "erm2-nwe9",
-          "source_title": "311 Service Requests from 2020 to Present",
-          "year": 2026,
-          "layer": "transport",
-          "event_count": 20
+          "event_count": 120
         },
         {
           "city_id": "nyc",
@@ -57077,10 +56741,8 @@
           "first_year": 2012,
           "last_year": 2026,
           "layer_counts": {
-            "built_environment": 27,
-            "civic_services": 291,
-            "environment": 459,
-            "transport": 64
+            "built_environment": 1,
+            "civic_services": 840
           },
           "confidence_counts": {
             "documented": 841

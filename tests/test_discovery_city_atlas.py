@@ -114,6 +114,37 @@ class DiscoveryCityAtlasNormalizationTest(unittest.TestCase):
         self.assertIn("high_street_activity", event["affected_signals"])
         self.assertIn("public_health", event["affected_signals"])
 
+    def test_nyc_311_heat_hot_water_stays_civic_not_planning(self):
+        event = normalize_seed(
+            "nyc",
+            {
+                "event_id": "nyc_311_service_request_59894481",
+                "title": "311 service request: HEAT/HOT WATER - ENTIRE BUILDING",
+                "date": "2024-01-01",
+                "bucket": "housing/building/service request",
+                "source_dataset_id": "erm2-nwe9",
+                "source_record_id": "59894481",
+                "latitude": 40.74499909172425,
+                "longitude": -73.89296757512533,
+                "summary": "Tenant complaint says the entire building has no heat or hot water.",
+            },
+            1,
+            {
+                "erm2-nwe9": {
+                    "source_id": "erm2-nwe9",
+                    "title": "NYC 311 complaints and service requests",
+                    "access_url": "https://data.cityofnewyork.us/resource/erm2-nwe9.json",
+                }
+            },
+        )
+
+        self.assertEqual(event["category"], "civic_services")
+        self.assertEqual(event["lens"], "services")
+        self.assertIn("service_requests", event["affected_signals"])
+        self.assertIn("housing_complaint", event["affected_signals"])
+        self.assertNotIn("built_environment", event["affected_signals"])
+        self.assertNotIn("buildings", event["affected_signals"])
+
     def test_ukhpi_seed_stays_out_of_direct_economy_category(self):
         event = normalize_seed(
             "london",
