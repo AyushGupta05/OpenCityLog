@@ -202,6 +202,102 @@ if (eventMatchesLens(metroPunctuality, "transport-speed", sourceById)) throw new
                 self.assertGreater(len(props.get("excluded_lens_slugs", [])), 0)
                 self.assertTrue(props.get("exclude_transport_road_scoring"))
 
+    def test_official_boundary_scope_clips_non_belfast_road_context(self) -> None:
+        script = r"""
+const {
+  clipGeometryToBoundary,
+  boundaryIndexFromGeoJson,
+  loadCityScopeBoundary,
+  loadScopedRoadFeatures,
+  pointInBoundary,
+} = require("./scripts/build_lens_overlays");
+
+const squareBoundary = boundaryIndexFromGeoJson({
+  type: "FeatureCollection",
+  features: [{
+    type: "Feature",
+    properties: {},
+    geometry: {
+      type: "Polygon",
+      coordinates: [[
+        [0, 0], [1, 0], [1, 1], [0, 1], [0, 0],
+      ]],
+    },
+  }],
+}, { city_id: "fixture" });
+const concaveBoundary = boundaryIndexFromGeoJson({
+  type: "FeatureCollection",
+  features: [{
+    type: "Feature",
+    properties: {},
+    geometry: {
+      type: "Polygon",
+      coordinates: [[
+        [0, 0], [2, 0], [2, 1], [1, 1], [1, 2], [0, 2], [0, 0],
+      ]],
+    },
+  }],
+}, { city_id: "concave-fixture" });
+if (!pointInBoundary([0.5, 1.5], concaveBoundary)) {
+  throw new Error("Concave fixture rejected an interior point");
+}
+if (pointInBoundary([1.5, 1.5], concaveBoundary)) {
+  throw new Error("Concave fixture accepted a bbox-only exterior point");
+}
+const clipped = clipGeometryToBoundary({
+  type: "LineString",
+  coordinates: [[-1, 0.5], [0.5, 0.5], [2, 0.5]],
+}, squareBoundary);
+if (!clipped.geometry) throw new Error("Fixture line did not clip into the square boundary");
+for (const coord of clipped.geometry.coordinates) {
+  if (!pointInBoundary(coord, squareBoundary)) {
+    throw new Error(`Fixture clipped coordinate escaped boundary: ${coord.join(",")}`);
+  }
+}
+const outsideEndpointClip = clipGeometryToBoundary({
+  type: "LineString",
+  coordinates: [[-10, 0.5], [2, 0.5]],
+}, squareBoundary);
+if (!outsideEndpointClip.geometry) {
+  throw new Error("Boundary-crossing line with outside endpoints was dropped");
+}
+for (const coord of outsideEndpointClip.geometry.coordinates) {
+  if (!pointInBoundary(coord, squareBoundary)) {
+    throw new Error(`Outside-endpoint clipped coordinate escaped boundary: ${coord.join(",")}`);
+  }
+}
+
+function assertScopedRoads(cityId, minimumDropped) {
+  const boundary = loadCityScopeBoundary(cityId);
+  const { roads, scopeFilter } = loadScopedRoadFeatures({ city_id: cityId }, {});
+  if (!scopeFilter) throw new Error(`${cityId} missing scope filter metadata`);
+  if (scopeFilter.dropped_out_of_scope_feature_count < minimumDropped) {
+    throw new Error(`${cityId} dropped too few bbox road features: ${scopeFilter.dropped_out_of_scope_feature_count}`);
+  }
+  if (!scopeFilter.boundary_source_url || !scopeFilter.boundary_licence) {
+    throw new Error(`${cityId} missing official boundary provenance`);
+  }
+  let outside = 0;
+  for (const road of roads) {
+    const stack = [road.feature.geometry.coordinates];
+    while (stack.length) {
+      const item = stack.pop();
+      if (!Array.isArray(item)) continue;
+      if (typeof item[0] === "number") {
+        if (!pointInBoundary(item, boundary)) outside += 1;
+      } else {
+        for (const child of item) stack.push(child);
+      }
+    }
+  }
+  if (outside) throw new Error(`${cityId} emitted ${outside} road coordinate(s) outside the official boundary`);
+}
+
+assertScopedRoads("nyc", 1000);
+assertScopedRoads("london", 1);
+"""
+        subprocess.run(["node", "-e", script], cwd=REPO_ROOT, check=True)
+
     def test_belfast_2007_access_event_preserves_per_source_evidence_urls(self) -> None:
         events_path = REPO_ROOT / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2007.json"
         events = read_json(events_path).get("events", [])

@@ -33,6 +33,7 @@
     "build:detail-layers": "node scripts/build_osm_detail_layers.js",
     "build:lens-overlays": "node scripts/build_lens_overlays_by_city.js",
     "build:lens-contract": "node scripts/build_15_lens_manifest.js",
+    "fetch:city-boundaries": "node scripts/fetch_city_scope_boundaries.js",
     "fetch:city-roads": "node scripts/fetch_city_osm_roads.js",
     "build": "npm run build:events && npm run build:transit && npm run build:data && npm run verify",
     "start": "node server.js",
