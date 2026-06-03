@@ -1,41 +1,36 @@
-name: City adapter
-description: Propose or scope a new city adapter.
-title: "[City adapter]: "
-labels: ["city-adapter", "data-coverage"]
+name: City adapter proposal
+about: Propose or scope a new OpenCityLog city adapter.
+title: "City adapter: "
+labels: ["city-adapter", "needs-sources"]
 body:
   - type: input
     id: city
     attributes:
-      label: City
+      label: City / official geography
+      placeholder: e.g. Glasgow City Council boundary
     validations:
       required: true
   - type: textarea
-    id: public_sources
+    id: sources
     attributes:
       label: Candidate public sources
-      description: List source URLs, publishers, licences, and coverage years where known.
+      description: List source names, URLs, publishers, licences, and what each source can support.
     validations:
       required: true
-  - type: textarea
-    id: pilot_story
+  - type: dropdown
+    id: stage
     attributes:
-      label: Why this city?
-      description: Explain the civic question or place-change story the adapter would support.
-    validations:
-      required: true
-  - type: textarea
-    id: limitations
-    attributes:
-      label: Known gaps and risks
-      description: Missing licences, weak geometry, stale sources, privacy risks, or incomplete years.
-    validations:
-      required: true
-  - type: checkboxes
-    id: checks
-    attributes:
-      label: Checks
+      label: Intended stage
       options:
-        - label: This proposal starts from source-backed events, not a broad simulator.
-          required: true
-        - label: I have included at least one public source with licence or terms notes.
-          required: true
+        - Experimental adapter / fixture
+        - Partial public adapter
+        - Launched 15-lens city
+    validations:
+      required: true
+  - type: textarea
+    id: gaps
+    attributes:
+      label: Known gaps or risks
+      description: Missing years, missing lenses, licensing ambiguity, geometry issues, language/localisation needs.
+    validations:
+      required: true

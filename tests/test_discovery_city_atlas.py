@@ -1,6 +1,21 @@
 import unittest
 
-from scripts.build_discovery_city_atlas import normalize_seed, source_to_registry
+from scripts.build_discovery_city_atlas import (
+    category_and_lens,
+    date_precision,
+    dedupe_sources,
+    evidence_for_source,
+    merge_coverage_years,
+    merge_source_text,
+    normalize_seed,
+    normalize_source_event,
+    parse_date_range,
+    short_description,
+    source_date_field_for,
+    source_families,
+    source_to_registry,
+    source_url_for,
+)
 
 
 class DiscoveryCityAtlasNormalizationTest(unittest.TestCase):
@@ -335,6 +350,70 @@ class DiscoveryCityAtlasNormalizationTest(unittest.TestCase):
         self.assertEqual(event["lens"], "jobs")
         self.assertIn("business", event["affected_signals"])
         self.assertNotIn("green_space", event["affected_signals"])
+
+    def test_discovery_builder_helpers_cover_global_fallback_paths(self):
+        self.assertEqual(parse_date_range("2020-01 to 2021-02"), {"start": "2020-01", "end": "2021-02"})
+        self.assertEqual(date_precision("2020-01 to 2021-02"), "range")
+        self.assertEqual(date_precision("2020-01"), "month")
+        self.assertEqual(date_precision("2020"), "year")
+        self.assertEqual(source_date_field_for({"date": "2020-01-01"}), "date field supplied by source adapter")
+        self.assertEqual(source_date_field_for({"year": 2020}), "year supplied by curated chronology seed")
+        self.assertEqual(source_url_for({"api_endpoint": "https://example.test/api", "access_url": "https://example.test/page"}), "https://example.test/api")
+        self.assertIsNone(source_url_for({"access_url": "ftp://example.test/data"}))
+        self.assertLessEqual(len(short_description("Tiny", "This fallback sentence is long enough to use.")), 220)
+
+    def test_discovery_builder_merges_duplicate_sources_and_families(self):
+        sources = dedupe_sources([
+            {"source_id": "roads", "title": "Road works", "bucket": "traffic/roads", "coverage_years": {"start": 2020, "end": 2022}, "limitations": "planned works"},
+            {"source_id": "roads", "bucket": "traffic/roads", "coverage_years": {"start": 2018, "end": 2026}, "limitations": "live disruptions", "api_endpoint": "https://example.test/roads.json"},
+            {"source_id": "trees", "bucket": "environment/trees"},
+        ])
+        self.assertEqual(len(sources), 2)
+        self.assertEqual(sources[0]["coverage_years"], {"start": 2018, "end": 2026})
+        self.assertIn("live disruptions", sources[0]["limitations"])
+        self.assertEqual(sources[0]["api_endpoint"], "https://example.test/roads.json")
+        self.assertEqual(merge_coverage_years({"start": 2020, "end": 2022}, "unknown"), {"start": 2020, "end": 2022})
+        self.assertEqual(merge_source_text("A", "A plus B"), "A plus B")
+        families = source_families(sources, [{"source_ids": ["roads"]}, {"source_ids": ["roads", "trees"]}])
+        self.assertEqual([family["family_id"] for family in families], ["environment", "traffic"])
+
+    def test_normalize_source_event_and_seed_edge_cases_are_source_backed(self):
+        source = {
+            "source_id": "utilities",
+            "title": "Water main works",
+            "bucket": "energy utility water",
+            "publisher": "Public utility",
+            "spatial_granularity": "street",
+            "api_endpoint": "https://example.test/utilities.json",
+        }
+        event = normalize_source_event("london", source, 3)
+        self.assertEqual(event["category"], "utilities")
+        self.assertEqual(event["source_ids"], ["utilities"])
+        self.assertEqual(evidence_for_source(source)["url"], "https://example.test/utilities.json")
+
+        category, lens, signals = category_and_lens("parks property", "flood tree canopy")
+        self.assertEqual((category, lens), ("environment", "green_space"))
+        self.assertIn("green_space", signals)
+
+        seeded = normalize_seed(
+            "nyc",
+            {
+                "event_id": "fallback-source-match",
+                "title": "Unlocated road resurfacing",
+                "date": "2020-05 to 2020-06",
+                "bucket": "traffic/transport",
+                "area": "Queens corridor",
+                "summary": "Road works will improve access but not proof of outcomes.",
+                "date_precision": "range",
+            },
+            4,
+            {"roads": {"source_id": "roads", "title": "Road source", "bucket": "traffic/transport", "access_url": "https://example.test/roads"}},
+        )
+        self.assertEqual(seeded["effective_date_range"], {"start": "2020-05", "end": "2020-06"})
+        self.assertEqual(seeded["date_precision"], "range")
+        self.assertEqual(seeded["affected_area"], {"label": "Queens corridor"})
+        self.assertEqual(seeded["source_ids"], ["roads"])
+        self.assertIn("not evidence of", seeded["explanation"])
 
 
 if __name__ == "__main__":

@@ -35,6 +35,23 @@ npm start
 
 Open `http://localhost:5173`.
 
+For LAN, VM, container, or Codespaces-style demos, bind explicitly and share the
+reported host/port:
+
+```sh
+HOST=0.0.0.0 PORT=5173 npm start
+```
+
+PowerShell equivalent:
+
+```powershell
+$env:HOST="0.0.0.0"; $env:PORT="5173"; npm start
+```
+
+Health probes are available at `GET /api/health` and `HEAD /api/health`. The
+static server also accepts `/atlas`, `/atlas/`, and `/atlas.html` for robust
+public links.
+
 The served frontend is the atlas-first public website in `web/index.html`,
 `web/atlas.js`, and `web/atlas.css`. It reads `web/data/city-atlas/` directly,
 draws source-backed markers over OpenStreetMap raster tiles, and does not require

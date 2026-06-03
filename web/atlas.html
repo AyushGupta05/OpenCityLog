@@ -39,7 +39,8 @@
 
     <div class="search" id="searchBox">
       <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4" stroke-linecap="round"/></svg>
-      <input id="searchInput" placeholder='Search changes in Belfast... (try "grand central", "cycle", "translink")' autocomplete="off">
+      <input id="searchInput" placeholder='Search changes in Belfast... (try "grand central", "cycle", "translink")' autocomplete="off" aria-label="Search source-backed records, areas, or source publishers" aria-describedby="searchHelp">
+      <div id="searchHelp" class="sr-only">Search by record title, area name, source publisher, street, station, scheme, or local place alias. Examples update when the selected city changes.</div>
       <div class="search-results panel" id="searchResults" hidden></div>
     </div>
 
@@ -57,10 +58,10 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><path d="M5 5v14M19 5v14"/><path d="M8 8h8M8 16h8"/></svg>
       Compare
     </button>
-    <button class="btn btn-icon" id="shareBtn" title="Share view">
+    <button class="btn btn-icon" id="shareBtn" title="Share view" aria-label="Copy link to current atlas view">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 11l8-4M8 13l8 4"/></svg>
     </button>
-    <button class="btn btn-icon" id="themeBtn" title="Toggle theme">
+    <button class="btn btn-icon" id="themeBtn" title="Toggle theme" aria-label="Toggle light or dark theme">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M21 13.5A8.5 8.5 0 1110.5 3a7 7 0 0010.5 10.5z" stroke-linejoin="round"/></svg>
     </button>
     <span class="avatar-pill" aria-hidden="true">OC</span>
@@ -132,10 +133,10 @@
         <button class="btn btn-icon" id="eventListCollapseBtn" type="button" title="Collapse changelog" aria-label="Collapse changelog">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="13" height="13"><path d="M15 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <button class="btn btn-icon" id="exportCsvBtn" type="button" title="Export filtered records as CSV">
+        <button class="btn btn-icon" id="exportCsvBtn" type="button" title="Export filtered records as CSV" aria-label="Export filtered records as CSV">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="13" height="13"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 13h6M9 17h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <button class="btn btn-icon" id="exportGeojsonBtn" type="button" title="Export filtered records as GeoJSON">
+        <button class="btn btn-icon" id="exportGeojsonBtn" type="button" title="Export filtered records as GeoJSON" aria-label="Export filtered records as GeoJSON">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="13" height="13"><path d="M12 3l8 4v10l-8 4-8-4V7z"/><path d="M12 3v18M4 7l8 4 8-4" stroke-linejoin="round"/></svg>
         </button>
       </div>

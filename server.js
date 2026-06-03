@@ -8,18 +8,26 @@ const webDir = path.join(rootDir, "web");
 loadLocalEnv(path.join(rootDir, ".env.local"));
 
 const port = parsePort(process.env.PORT || "5173");
+const host = process.env.HOST || "0.0.0.0";
 
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
+  ".csv": "text/csv; charset=utf-8",
   ".geojson": "application/geo+json; charset=utf-8",
   ".html": "text/html; charset=utf-8",
+  ".ico": "image/x-icon",
   ".js": "application/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
+  ".map": "application/json; charset=utf-8",
   ".md": "text/markdown; charset=utf-8",
+  ".mjs": "application/javascript; charset=utf-8",
   ".pdf": "application/pdf",
   ".png": "image/png",
   ".svg": "image/svg+xml",
+  ".txt": "text/plain; charset=utf-8",
+  ".wasm": "application/wasm",
   ".webp": "image/webp",
+  ".xml": "application/xml; charset=utf-8",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".tif": "image/tiff"
@@ -49,12 +57,14 @@ function parsePort(value) {
   return portNumber;
 }
 
-function sendJson(res, status, payload) {
+function sendJson(req, res, status, payload) {
+  const body = JSON.stringify(payload, null, 2);
   res.writeHead(status, {
     "content-type": "application/json; charset=utf-8",
-    "cache-control": "no-store"
+    "cache-control": "no-store",
+    "content-length": Buffer.byteLength(body)
   });
-  res.end(JSON.stringify(payload, null, 2));
+  res.end(req.method === "HEAD" ? undefined : body);
 }
 
 function sendText(res, status, message) {
@@ -75,8 +85,8 @@ function normalizeUrlPath(pathname) {
 }
 
 function safeStaticPath(baseDir, pathname) {
-  if (pathname === "/") return path.resolve(baseDir, "index.html");
-  if (pathname === "/atlas") return path.resolve(baseDir, "atlas.html");
+  if (pathname === "/" || pathname === "/index.html") return path.resolve(baseDir, "index.html");
+  if (pathname === "/atlas" || pathname === "/atlas/") return path.resolve(baseDir, "atlas.html");
   const cleanPath = pathname;
   const decoded = normalizeUrlPath(cleanPath);
   if (decoded === null) return null;
@@ -102,10 +112,26 @@ async function serveFile(req, res, filePath) {
   }
   const ext = path.extname(filePath).toLowerCase();
   const localAssetCache = ext === ".html" || ext === ".js" || ext === ".css" ? "no-store" : "public, max-age=60";
-  res.writeHead(200, {
+  const etag = `W/\"${stat.size.toString(16)}-${Math.floor(stat.mtimeMs).toString(16)}\"`;
+  const lastModified = stat.mtime.toUTCString();
+  const commonHeaders = {
     "content-type": mimeTypes[ext] || "application/octet-stream",
-    "cache-control": localAssetCache
-  });
+    "cache-control": localAssetCache,
+    "content-length": stat.size,
+    "last-modified": lastModified,
+    "etag": etag,
+    "accept-ranges": "bytes"
+  };
+  if (req.headers["if-none-match"] === etag || req.headers["if-modified-since"] === lastModified) {
+    res.writeHead(304, {
+      "cache-control": localAssetCache,
+      "last-modified": lastModified,
+      "etag": etag
+    });
+    res.end();
+    return;
+  }
+  res.writeHead(200, commonHeaders);
   if (req.method === "HEAD") {
     res.end();
     return;
@@ -136,8 +162,8 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  if (req.method === "GET" && pathname === "/api/health") {
-    sendJson(res, 200, {
+  if ((req.method === "GET" || req.method === "HEAD") && pathname === "/api/health") {
+    sendJson(req, res, 200, {
       ok: true,
       product: "Open Citylog",
       mode: "city-change-atlas",
@@ -147,7 +173,7 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.method === "GET" && pathname === "/api/proposal-impact/schema") {
-    sendJson(res, 410, {
+    sendJson(req, res, 410, {
       ok: false,
       error: "Retired endpoint",
       detail: "Proposal/future analogue paths are quarantined by the current city-change atlas contract. Use the 15 historical/current lens manifests and evidence exports instead."
@@ -156,7 +182,7 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.method === "POST" && pathname === "/api/proposal-impact") {
-    sendJson(res, 410, {
+    sendJson(req, res, 410, {
       ok: false,
       error: "Retired endpoint",
       detail: "Proposal/future analogue paths are quarantined by the current city-change atlas contract. Use the 15 historical/current lens manifests and evidence exports instead."
@@ -189,6 +215,7 @@ server.on("error", (error) => {
   process.exit(1);
 });
 
-server.listen(port, () => {
-  console.log(`Open Citylog atlas UI/API running at http://localhost:${port}`);
+server.listen(port, host, () => {
+  const displayHost = host === "0.0.0.0" ? "localhost" : host;
+  console.log(`Open Citylog atlas UI/API running at http://${displayHost}:${port} (bound to ${host}:${port})`);
 });
