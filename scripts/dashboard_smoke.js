@@ -1413,6 +1413,21 @@ async function assertTransportAccessStopContext(page, city) {
   );
   await page.waitForFunction(
     () => {
+      const guide = window.BimsAtlas?.state?.lensGuideFeatureCache?.features || [];
+      return guide.some((feature) => {
+        const props = feature.properties || {};
+        return props.lens_id === "transport-access"
+          && props.kind === "flow"
+          && props.flow_style === "access_network"
+          && props.detail_layer === "transport_roads_base"
+          && props.source_kind === "current_context";
+      });
+    },
+    null,
+    { timeout: 25000 }
+  );
+  await page.waitForFunction(
+    () => {
       const map = window.BimsAtlas?.state?.map;
       return ["lens-guide-citywide-cell-fill", "lens-guide-citywide-cell-line", "lens-guide-node", "lens-guide-icon-node"].some((layerId) => {
         if (!map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") return false;
@@ -1426,12 +1441,32 @@ async function assertTransportAccessStopContext(page, city) {
     null,
     { timeout: 20000 }
   );
+  await page.waitForFunction(
+    () => {
+      const map = window.BimsAtlas?.state?.map;
+      if (!map?.getLayer?.("lens-guide-flow") || map.getLayoutProperty("lens-guide-flow", "visibility") === "none") return false;
+      try {
+        return map.queryRenderedFeatures({ layers: ["lens-guide-flow"] }).some((feature) => {
+          const props = feature.properties || {};
+          return props.lens_id === "transport-access"
+            && props.flow_style === "access_network"
+            && props.detail_layer === "transport_roads_base"
+            && props.source_kind === "current_context";
+        });
+      } catch (_error) {
+        return false;
+      }
+    },
+    null,
+    { timeout: 20000 }
+  );
   await page.waitForTimeout(700);
   const state = await page.evaluate(() => {
     const atlas = window.BimsAtlas;
     const map = atlas?.state?.map;
     const stops = atlas?.state?.transportStopFeatures || [];
     const guide = atlas?.state?.lensGuideFeatureCache?.features || [];
+    const split = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
     const modes = stops.reduce((acc, feature) => {
       const mode = feature.properties?.mode || "unknown";
       acc[mode] = (acc[mode] || 0) + 1;
@@ -1445,10 +1480,54 @@ async function assertTransportAccessStopContext(page, city) {
         return count;
       }
     }, 0);
+    const roadContextFlows = guide.filter((feature) => {
+      const props = feature.properties || {};
+      return props.lens_id === "transport-access"
+        && props.kind === "flow"
+        && props.flow_style === "access_network"
+        && props.detail_layer === "transport_roads_base"
+        && props.source_kind === "current_context"
+        && props.evidence_role === "context_not_year_specific_change_evidence";
+    });
+    let renderedAccessFlows = 0;
+    try {
+      renderedAccessFlows = map?.getLayer?.("lens-guide-flow") && map.getLayoutProperty("lens-guide-flow", "visibility") !== "none"
+        ? map.queryRenderedFeatures({ layers: ["lens-guide-flow"] }).filter((feature) => {
+          const props = feature.properties || {};
+          return props.lens_id === "transport-access"
+            && props.flow_style === "access_network"
+            && props.detail_layer === "transport_roads_base"
+            && props.source_kind === "current_context";
+        }).length
+        : 0;
+    } catch (_error) {
+      renderedAccessFlows = 0;
+    }
+    const invalidRoadContextFlows = roadContextFlows.filter((feature) => {
+      const props = feature.properties || {};
+      const sourceIds = split(props.source_ids || props.source_id);
+      const objectIds = split(props.source_object_ids || props.source_object_id);
+      const eventIds = split(props.event_ids || props.event_id);
+      return !feature.geometry
+        || props.direct_evidence_counted !== false
+        || props.headline_count_included !== false
+        || eventIds.length > 0
+        || !sourceIds.length
+        || !sourceIds.every((sourceId) => atlas?.state?.sourceById?.has?.(sourceId))
+        || !objectIds.length
+        || !props.source_urls
+        || !props.generated_from
+        || !props.caveat
+        || !props.context_year
+        || !props.detail_layer
+        || props.detail_layer !== "transport_roads_base";
+    }).length;
     return {
       city: document.querySelector("#cityNameLabel")?.textContent.trim() || "",
       activeAspect: atlas?.state?.activeAspect || "",
       stopPath: atlas?.state?.transportStopFeaturesPathLoaded || "",
+      roadContextPath: atlas?.state?.transportAccessRoadContextPathLoaded || "",
+      roadContextSourceCount: atlas?.state?.transportAccessRoadContextFeatures?.length || 0,
       stopCount: stops.length,
       modes,
       guideSublayers: guide.reduce((acc, feature) => {
@@ -1461,7 +1540,10 @@ async function assertTransportAccessStopContext(page, city) {
         return props.osm_element_type && props.osm_element_type !== "node" && /Overpass center point/i.test(props.geometry_source || "");
       }).length,
       guideCount: guide.length,
+      roadContextFlowCount: roadContextFlows.length,
+      invalidRoadContextFlows,
       renderedGuide,
+      renderedAccessFlows,
       appStatus: document.querySelector("#appStatus")?.textContent.trim() || "",
       bodyText: document.body?.innerText || "",
     };
@@ -1477,6 +1559,11 @@ async function assertTransportAccessStopContext(page, city) {
     assert(state.proxyCount > 0, `transport context ${city.id}: OSM center-proxy provenance was not available at runtime.`);
   }
   assert(state.guideCount >= city.minGuideFeatures, `transport context ${city.id}: too few guide features (${state.guideCount}).`);
+  assert(state.roadContextPath.includes("transport_roads_base.geojson"), `transport context ${city.id}: road context path did not load (${state.roadContextPath}).`);
+  assert(state.roadContextSourceCount >= city.minRoadContextSourceFeatures, `transport context ${city.id}: too few source road features loaded (${state.roadContextSourceCount}).`);
+  assert(state.roadContextFlowCount >= city.minAccessRoadFlows, `transport context ${city.id}: too few citywide access-network road traces (${state.roadContextFlowCount}).`);
+  assert(state.renderedAccessFlows > 0, `transport context ${city.id}: access-network road traces did not render.`);
+  assert(state.invalidRoadContextFlows === 0, `transport context ${city.id}: ${state.invalidRoadContextFlows} access road-context guide feature(s) lack provenance/non-headline flags.`);
   for (const sublayerId of city.requiredSublayers) {
     assert((state.guideSublayers[sublayerId] || 0) > 0, `transport context ${city.id}: missing ${sublayerId} guide features.`);
   }
@@ -1732,9 +1819,9 @@ async function assertCivicAccessCitywideContext(page, city) {
   }
 
   const transportContextChecks = [
-    { id: "belfast", label: "Belfast", year: 2024, minStops: 1500, minGuideFeatures: 500, requiredModes: ["bus"], requiredSublayers: ["bus_network"], requiresCenterProxy: false, expectsContextOnlyNote: true },
-    { id: "london", label: "London", year: 2024, minStops: 6500, minGuideFeatures: 1100, requiredModes: ["bus", "rail", "ferry"], requiredSublayers: ["bus_network", "rail_network", "ferry_routes"], requiresCenterProxy: true },
-    { id: "nyc", label: "New York City", year: 2024, minStops: 6500, minGuideFeatures: 1100, requiredModes: ["bus", "rail", "ferry"], requiredSublayers: ["bus_network", "rail_network", "ferry_routes"], requiresCenterProxy: true },
+    { id: "belfast", label: "Belfast", year: 2024, minStops: 1500, minGuideFeatures: 500, minRoadContextSourceFeatures: 1000, minAccessRoadFlows: 180, requiredModes: ["bus"], requiredSublayers: ["bus_network"], requiresCenterProxy: false, expectsContextOnlyNote: true },
+    { id: "london", label: "London", year: 2024, minStops: 6500, minGuideFeatures: 1100, minRoadContextSourceFeatures: 5000, minAccessRoadFlows: 420, requiredModes: ["bus", "rail", "ferry"], requiredSublayers: ["bus_network", "rail_network", "ferry_routes"], requiresCenterProxy: true },
+    { id: "nyc", label: "New York City", year: 2024, minStops: 6500, minGuideFeatures: 1100, minRoadContextSourceFeatures: 5000, minAccessRoadFlows: 340, requiredModes: ["bus", "rail", "ferry"], requiredSublayers: ["bus_network", "rail_network", "ferry_routes"], requiresCenterProxy: true },
   ];
   for (const city of transportContextChecks) {
     progress("transport access context", city.id);

@@ -793,6 +793,10 @@
     planningRoadContextFeatures: [],
     planningRoadContextMetadata: null,
     planningRoadContextLoadPromise: null,
+    transportAccessRoadContextPathLoaded: null,
+    transportAccessRoadContextFeatures: [],
+    transportAccessRoadContextMetadata: null,
+    transportAccessRoadContextLoadPromise: null,
     transportStopFeaturesPathLoaded: null,
     transportStopContextMetadata: null,
     transportStopFeatures: [],
@@ -1217,6 +1221,10 @@
     state.planningRoadContextFeatures = [];
     state.planningRoadContextMetadata = null;
     state.planningRoadContextLoadPromise = null;
+    state.transportAccessRoadContextPathLoaded = null;
+    state.transportAccessRoadContextFeatures = [];
+    state.transportAccessRoadContextMetadata = null;
+    state.transportAccessRoadContextLoadPromise = null;
     if (els.searchInput) els.searchInput.value = state.search;
     if (els.areaFilterInput) els.areaFilterInput.value = state.areaFilter;
     if (els.confidenceFilter) els.confidenceFilter.value = state.confidenceFilter;
@@ -2394,6 +2402,10 @@
 
   function transportRoadBasePath() {
     if (activeTransportLensYearMissing()) return "";
+    return transportRoadBaseContextPath();
+  }
+
+  function transportRoadBaseContextPath() {
     const configured = state.cityMeta?.artifact_paths?.transport_roads_base || state.city?.artifact_paths?.transport_roads_base;
     return configured ? dataPathToUrl(configured) : "";
   }
@@ -5246,6 +5258,14 @@
     state.transportRoadFeaturesPathLoaded = null;
     state.transportRoadFeaturesByYear.clear();
     state.transportRoadFeatureLoadsByYear.clear();
+    state.planningRoadContextPathLoaded = null;
+    state.planningRoadContextFeatures = [];
+    state.planningRoadContextMetadata = null;
+    state.planningRoadContextLoadPromise = null;
+    state.transportAccessRoadContextPathLoaded = null;
+    state.transportAccessRoadContextFeatures = [];
+    state.transportAccessRoadContextMetadata = null;
+    state.transportAccessRoadContextLoadPromise = null;
     clearLensGuideSourceRefreshTimers();
     state.transportStopFeaturesPathLoaded = null;
     state.transportStopFeatures = [];
@@ -7923,8 +7943,9 @@
       .map((entry) => transportAccessContextCitywideGuideFeature(entry, lens, year, bucketM, origin))
       .filter(Boolean);
     const balancedCells = spatiallyBalancedGuideFeatures(cells, citywideGuideFeatureLimit(lens), lens);
+    const roadFlows = transportAccessRoadContextCitywideGuideFeatures(lens, year);
     const nodes = transportAccessContextNodeGuideFeatures(nodeCandidates, lens, year);
-    return balancedCells.concat(nodes);
+    return balancedCells.concat(roadFlows, nodes);
   }
 
   function transportAccessContextCitywideGuideFeature(entry, lens, year, bucketM, origin) {
@@ -7986,6 +8007,326 @@
       },
       geometry: isochronePolygon(center, radiusM, seed * 10),
     };
+  }
+
+  function transportAccessRoadContextCitywideGuideFeatures(lens, year) {
+    if (!transportAccessRoadContextCanRender(lens)) return [];
+    requestTransportAccessRoadContextFeatures();
+    const roads = Array.isArray(state.transportAccessRoadContextFeatures) ? state.transportAccessRoadContextFeatures : [];
+    const stops = transportAccessRoadContextStopItems();
+    if (!roads.length || !stops.length || !state.sourceById.has("osm-overpass")) return [];
+    const origin = mapCenter();
+    const bounds = cityBoundsValues();
+    const basisM = citywideBasisMeters();
+    const stopIndex = transportAccessStopGridIndex(stops, origin, Math.max(420, Math.min(780, basisM / 112)));
+    const limit = Math.max(420, Math.min(1850, Math.round(basisM / 42)));
+    const candidates = [];
+    for (const road of roads) {
+      const props = road?.properties || {};
+      if (props.layer !== "traffic_road_base") continue;
+      const point = geometryToLngLat(road.geometry);
+      if (!point) continue;
+      if (bounds && (point[0] < bounds.west || point[0] > bounds.east || point[1] < bounds.south || point[1] > bounds.north)) continue;
+      const objectId = String(props.source_id || props.id || "").trim();
+      if (!osmObjectUrl(objectId)) continue;
+      const rank = Math.max(0.6, Number(props.rank || 1));
+      const lengthM = geometryLineLengthMeters(road.geometry);
+      if (rank < 1.55 && lengthM < 120) continue;
+      const stopSignal = transportAccessRoadStopSignal(road, point, stopIndex, rank, lengthM);
+      const mode = transportAccessRoadContextMode(props, stopSignal);
+      if (!transportAccessStopContextVisible(mode)) continue;
+      if (stopSignal.score < 0.055 && rank < 2.6) continue;
+      const seed = stableUnit(`${objectId}:transport-access-road-context`);
+      const named = props.name && props.name !== "mapped road segment";
+      const intensity = clamp01(
+        0.17
+        + stopSignal.score * 0.42
+        + Math.min(0.2, rank * 0.045)
+        + Math.min(0.13, lengthM / 3400)
+        + (named ? 0.035 : 0)
+        + seed * 0.035,
+      );
+      if (intensity < 0.24 && stopSignal.score < 0.11 && rank < 3.1) continue;
+      candidates.push({
+        road,
+        point,
+        objectId,
+        rank,
+        lengthM,
+        stopSignal,
+        mode,
+        intensity,
+        score: intensity
+          + stopSignal.score * 0.26
+          + Math.min(0.16, rank * 0.04)
+          + Math.min(0.12, lengthM / 3200)
+          + (named ? 0.035 : 0)
+          + seed * 0.025,
+      });
+    }
+    return spatiallyBalancedGuideFeatures(
+      candidates
+        .sort((a, b) => b.score - a.score)
+        .slice(0, Math.max(limit * 5, 1400))
+        .map((item, index) => transportAccessRoadContextGuideFeature(item, lens, year, index))
+        .filter(Boolean),
+      limit,
+      lens,
+    );
+  }
+
+  function transportAccessRoadContextCanRender(lens = activeMapLens()) {
+    if (!transportAccessContextGuideCanRender(lens)) return false;
+    return Boolean(transportRoadBaseContextPath());
+  }
+
+  function requestTransportAccessRoadContextFeatures() {
+    const path = transportRoadBaseContextPath();
+    if (!path) {
+      state.transportAccessRoadContextPathLoaded = null;
+      state.transportAccessRoadContextFeatures = [];
+      state.transportAccessRoadContextMetadata = null;
+      state.transportAccessRoadContextLoadPromise = null;
+      return;
+    }
+    if (state.transportAccessRoadContextPathLoaded === path || state.transportAccessRoadContextLoadPromise) return;
+    state.transportAccessRoadContextPathLoaded = path;
+    state.transportAccessRoadContextFeatures = [];
+    state.transportAccessRoadContextMetadata = null;
+    const promise = fetch(path, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
+        return response.json();
+      })
+      .then((payload) => {
+        if (state.transportAccessRoadContextPathLoaded !== path) return [];
+        const features = Array.isArray(payload.features) ? payload.features : [];
+        state.transportAccessRoadContextFeatures = features.filter((feature) => feature?.geometry);
+        state.transportAccessRoadContextMetadata = payload.metadata || null;
+        updateLensGuideSource();
+        renderLensLegend();
+        return state.transportAccessRoadContextFeatures;
+      })
+      .catch((error) => {
+        if (state.transportAccessRoadContextPathLoaded !== path) return [];
+        console.warn("[atlas] transport access road context unavailable", error);
+        state.transportAccessRoadContextPathLoaded = null;
+        state.transportAccessRoadContextFeatures = [];
+        state.transportAccessRoadContextMetadata = null;
+        renderLensLegend();
+        return [];
+      })
+      .finally(() => {
+        if (state.transportAccessRoadContextLoadPromise === promise) state.transportAccessRoadContextLoadPromise = null;
+      });
+    state.transportAccessRoadContextLoadPromise = promise;
+  }
+
+  function transportAccessRoadContextStopItems() {
+    const bounds = cityBoundsValues();
+    return (state.transportStopFeatures || [])
+      .map((feature) => {
+        const props = feature?.properties || {};
+        const point = geometryToLngLat(feature?.geometry);
+        if (!point) return null;
+        if (bounds && (point[0] < bounds.west || point[0] > bounds.east || point[1] < bounds.south || point[1] > bounds.north)) return null;
+        const objectId = String(props.source_object_id || props.source_id || "").trim();
+        if (!objectId) return null;
+        const mode = transportStopModeKey(props);
+        if (!transportAccessStopContextVisible(mode)) return null;
+        const lineCount = Math.max(0, Number(props.servingLineCount || props.routeNode || 0));
+        const rank = Math.max(0.5, Number(props.rank || 1));
+        const weight = Math.max(0.22, Math.min(1.6, Number(props.weight || 0.35) + Math.min(0.42, lineCount / 36) + Math.min(0.18, rank * 0.035)));
+        return {
+          point,
+          props,
+          objectId,
+          mode,
+          lineCount,
+          rank,
+          weight,
+          sourceIds: transportStopAnchorSourceRegistryIds(props, objectId),
+          sourceUrls: transportStopAnchorSourceUrls(props, objectId),
+          lineCodes: transportStopServingLineCodes(props),
+        };
+      })
+      .filter(Boolean);
+  }
+
+  function transportAccessStopGridIndex(stops, origin, cellM = 620) {
+    const cells = new Map();
+    for (const stop of stops) {
+      const local = lngLatToLocalMeters(stop.point, origin);
+      if (!Number.isFinite(local[0]) || !Number.isFinite(local[1])) continue;
+      stop.local = local;
+      const key = `${Math.floor(local[0] / cellM)}:${Math.floor(local[1] / cellM)}`;
+      if (!cells.has(key)) cells.set(key, []);
+      cells.get(key).push(stop);
+    }
+    return { cells, cellM, origin };
+  }
+
+  function transportAccessStopsNearLocal(index, local, radiusM) {
+    if (!index?.cells?.size || !Number.isFinite(local?.[0]) || !Number.isFinite(local?.[1])) return [];
+    const cellM = index.cellM || 620;
+    const gx = Math.floor(local[0] / cellM);
+    const gy = Math.floor(local[1] / cellM);
+    const reach = Math.max(1, Math.ceil(radiusM / cellM));
+    const candidates = [];
+    for (let x = gx - reach; x <= gx + reach; x += 1) {
+      for (let y = gy - reach; y <= gy + reach; y += 1) {
+        for (const stop of index.cells.get(`${x}:${y}`) || []) {
+          const localDistance = Math.hypot(stop.local[0] - local[0], stop.local[1] - local[1]);
+          if (localDistance <= radiusM * 1.45) candidates.push({ ...stop, localDistance });
+        }
+      }
+    }
+    return candidates
+      .sort((a, b) => a.localDistance - b.localDistance)
+      .slice(0, 72);
+  }
+
+  function transportAccessRoadStopSignal(road, point, stopIndex, rank, lengthM) {
+    const radiusM = Math.max(280, Math.min(760, 320 + Math.max(0, rank - 1) * 74 + Math.min(170, lengthM * 0.12)));
+    const local = lngLatToLocalMeters(point, stopIndex.origin);
+    const nearby = transportAccessStopsNearLocal(stopIndex, local, radiusM);
+    const modeCounts = new Map();
+    const sourceIds = new Set();
+    const sourceUrls = new Set();
+    const objectIds = new Set();
+    const lineCounts = new Map();
+    let weighted = 0;
+    let count = 0;
+    for (const stop of nearby) {
+      const distance = geometryDistanceToPointMeters(road.geometry, stop.point, 5);
+      if (!Number.isFinite(distance) || distance > radiusM) continue;
+      const closeness = 1 - distance / radiusM;
+      const value = closeness * Math.max(0.28, stop.weight);
+      weighted += value;
+      count += 1;
+      modeCounts.set(stop.mode, (modeCounts.get(stop.mode) || 0) + value);
+      stop.sourceIds.forEach((sourceId) => sourceIds.add(sourceId));
+      stop.sourceUrls.forEach((sourceUrl) => sourceUrls.add(sourceUrl));
+      objectIds.add(stop.objectId);
+      for (const line of stop.lineCodes.length ? stop.lineCodes : [`stop:${stop.objectId}`]) {
+        lineCounts.set(line, (lineCounts.get(line) || 0) + value);
+      }
+    }
+    const [primaryMode = "", primaryModeScore = 0] = [...modeCounts.entries()].sort((a, b) => b[1] - a[1])[0] || [];
+    const [primaryLine = ""] = [...lineCounts.entries()].sort((a, b) => b[1] - a[1])[0] || [];
+    return {
+      mode: primaryMode,
+      modeScore: primaryModeScore,
+      score: clamp01(weighted / (rank >= 3 ? 3.1 : 2.15)),
+      weighted,
+      count,
+      sourceIds: [...sourceIds],
+      sourceUrls: [...sourceUrls],
+      objectIds: [...objectIds],
+      primaryLine,
+    };
+  }
+
+  function transportAccessRoadContextMode(_props = {}, stopSignal = {}) {
+    if (stopSignal.mode && stopSignal.score >= 0.035) return stopSignal.mode;
+    return "";
+  }
+
+  function transportAccessRoadContextGuideFeature(item, lens, year, index) {
+    const props = item.road?.properties || {};
+    const objectUrl = osmObjectUrl(item.objectId);
+    if (!objectUrl || !item.road?.geometry) return null;
+    const source = state.sourceById.get("osm-overpass");
+    const stopSourceIds = registeredGuideSourceIds(item.stopSignal.sourceIds);
+    const sourceIds = uniqueGuideValues(["osm-overpass", ...stopSourceIds]);
+    const stopObjectIds = item.stopSignal.objectIds.slice(0, 8);
+    const sourceUrls = uniqueGuideValues([
+      props.source_url,
+      objectUrl,
+      source?.url || source?.source_url || "https://overpass-turbo.eu/",
+      ...item.stopSignal.sourceUrls.slice(0, 8),
+    ]);
+    const name = props.name && props.name !== "mapped road segment" ? props.name : "mapped access corridor";
+    const contextGeneratedFrom = transportAccessRoadContextGeneratedFrom();
+    const caveat = props.timing_note
+      || state.transportAccessRoadContextMetadata?.caveat
+      || "Current mapped road and stop/station anchors are citywide context only; they are not selected-year service, timetable, frequency, journey-time, reliability, accessibility entitlement, or construction evidence.";
+    const modeTitle = transportAccessContextModeTitle(item.mode);
+    const intensity = Number(item.intensity.toFixed(3));
+    return {
+      type: "Feature",
+      properties: {
+        kind: "flow",
+        lens_id: lens.id,
+        surface_style: sourceBackedGuideSurfaceStyle(lens),
+        flow_role: "access_network",
+        flow_style: "access_network",
+        guide_scale: "citywide_context",
+        source_kind: "current_context",
+        evidence_role: "context_not_year_specific_change_evidence",
+        context_year: "current_mapped_context",
+        context_data_year: transportAccessRoadContextDataYear(),
+        selected_year: String(year),
+        detail_layer: "transport_roads_base",
+        event_id: "",
+        event_ids: "",
+        event_count: 0,
+        source_id: "osm-overpass",
+        source_ids: sourceIds.join(","),
+        source_object_id: item.objectId,
+        source_object_ids: uniqueGuideValues([item.objectId, ...stopObjectIds]).join(","),
+        source_urls: sourceUrls.join(","),
+        source_name: source?.title || "OpenStreetMap extracts via Overpass API",
+        source_count: Math.max(1, sourceIds.length),
+        confidence: "inferred",
+        generated_from: contextGeneratedFrom,
+        title: name,
+        label: `${modeTitle}: ${name}`,
+        timing_note: "Current mapped access-network context; not selected-year direct transport-change evidence.",
+        caveat: `${caveat} Excluded from headline event totals.`,
+        geometry_precision_mix: "Current OSM road line geometry clipped to the official city boundary and associated with nearby mapped stop/station anchors where available.",
+        aggregation_note: "Citywide current access corridors are selected from real road geometry and stop/station anchors for spatial orientation; they are not counted as transport records.",
+        direct_evidence_counted: false,
+        headline_count_included: false,
+        layer_id: "stations_stops",
+        sublayer_id: transportAccessModeSublayerId(item.mode),
+        mode: item.mode,
+        access_mode: item.mode,
+        serving_line: item.stopSignal.primaryLine || "",
+        nearby_stop_anchor_count: item.stopSignal.count,
+        line_signal: Number(item.stopSignal.score.toFixed(3)),
+        road_rank: Number(item.rank.toFixed(2)),
+        route_length_m: Math.round(item.lengthM),
+        context_rank: index + 1,
+        intensity,
+        score: Number(item.score.toFixed(3)),
+        color: transportAccessRoadContextColor(item.mode, item.intensity, item.stopSignal.score),
+        edge_offset: Number(((stableUnit(`${item.objectId}:${item.mode}:offset`) - 0.5) * (item.mode === "rail" ? 0.38 : item.mode === "ferry" ? 0.28 : 0.24)).toFixed(2)),
+      },
+      geometry: item.road.geometry,
+    };
+  }
+
+  function transportAccessRoadContextGeneratedFrom() {
+    const roadPath = state.transportAccessRoadContextPathLoaded || transportRoadBaseContextPath();
+    const values = [
+      roadPath ? (/^\/data\//.test(roadPath) ? `web${roadPath}` : String(roadPath).replace(/^\//, "")) : "",
+      transportStopContextGeneratedFrom(),
+    ];
+    return uniqueGuideValues(values).join(",");
+  }
+
+  function transportAccessRoadContextDataYear() {
+    const meta = state.transportAccessRoadContextMetadata || {};
+    return String(meta.context_data_year || meta.year || transportStopContextDataYear() || "2026");
+  }
+
+  function transportAccessRoadContextColor(mode, intensity = 0.5, stopScore = 0) {
+    if (mode === "rail") return intensity > 0.62 || stopScore > 0.34 ? "#72539a" : "#8762a7";
+    if (mode === "ferry") return intensity > 0.58 ? "#167f91" : "#2f8fa4";
+    if (intensity > 0.68 || stopScore > 0.42) return "#176f92";
+    if (intensity > 0.5) return "#1f8fa3";
+    return "#4fa5ad";
   }
 
   function transportAccessContextNodeGuideFeatures(candidates, lens, year) {
