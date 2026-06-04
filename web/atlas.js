@@ -1845,6 +1845,7 @@
 
   function citywideMarkerLimit(lens = activeMapLens()) {
     const id = lens?.id || "";
+    if (id === "transport-speed" || id === "transport-reliability") return 18;
     if (id.startsWith("transport-")) return 68;
     if (id.startsWith("planning-")) return 58;
     if (id.startsWith("civic-")) return 48;
@@ -3305,7 +3306,7 @@
           ["==", ["get", "flow_style"], "planning_pressure_trace"], 0.34,
           ["==", ["get", "flow_style"], "catchment_street_seam"], 0.64,
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]], 0.96,
-          ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]], 0.34,
+          ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]], 0.28,
           ["==", ["get", "flow_style"], "transport_backbone"], 0.9,
           ["==", ["get", "flow_style"], "transport_thread"], 0.56,
           ["==", ["get", "flow_style"], "utility_capacity_trace"],
@@ -3397,13 +3398,13 @@
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "inferred"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.92, 1, 2.45],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "flow_style"], "transport_backbone"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.62, 1, 4.7],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.0, 1, 5.4],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "flow_style"], "transport_thread"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.72, 1, 2.35],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.58, 1, 2.0],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.2, 1, 6.2],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.8, 1, 7.1],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.52, 1, 1.55],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 1.4],
           ["==", ["get", "flow_style"], "transport_backbone"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 3.1, 1, 8.8],
           ["==", ["get", "flow_style"], "transport_thread"],
@@ -5346,12 +5347,47 @@
   }
 
   function updateTransportEventLensLayers() {
+    const lens = activeMapLens();
     const visible = isActiveMapLens("transport");
+    const routeDominantCitywide = ["transport-speed", "transport-reliability"].includes(lens?.id)
+      && transportNetworkCitywideGuideCanRender(lens)
+      && hasTransportNetworkGuideFeatures(lens);
+    const haloRadius = routeDominantCitywide
+      ? ["interpolate", ["linear"], ["zoom"], 9, 1.8, 13, 3.4, 16, 5.8]
+      : ["interpolate", ["linear"], ["zoom"], 9, 4, 13, 7, 16, 11];
+    const pointRadius = routeDominantCitywide
+      ? ["interpolate", ["linear"], ["zoom"], 9, 1.35, 13, 2.35, 16, 3.8]
+      : ["interpolate", ["linear"], ["zoom"], 9, 3.2, 13, 5.2, 16, 7.4];
+    const pointOpacity = routeDominantCitywide
+      ? ["case", ["==", ["get", "confidence"], "inferred"], 0.1, 0.2]
+      : ["case", ["==", ["get", "confidence"], "inferred"], 0.72, 0.98];
+    const strokeWidth = routeDominantCitywide
+      ? ["interpolate", ["linear"], ["zoom"], 9, 0.75, 15, 1.2]
+      : ["interpolate", ["linear"], ["zoom"], 9, 1.4, 15, 2.4];
     for (const layerId of ["lens-transport-event-halo", "lens-transport-event-points"]) {
       if (!state.map?.getLayer(layerId)) continue;
       state.map.setFilter(layerId, lensCategoryFilter("transport"));
       state.map.setLayoutProperty(layerId, "visibility", visible ? "visible" : "none");
+      if (layerId === "lens-transport-event-halo") {
+        state.map.setPaintProperty(layerId, "circle-radius", haloRadius);
+        state.map.setPaintProperty(layerId, "circle-opacity", routeDominantCitywide ? 0.035 : 0.14);
+      } else {
+        state.map.setPaintProperty(layerId, "circle-radius", pointRadius);
+        state.map.setPaintProperty(layerId, "circle-opacity", pointOpacity);
+        state.map.setPaintProperty(layerId, "circle-stroke-width", strokeWidth);
+      }
     }
+  }
+
+  function hasTransportNetworkGuideFeatures(lens = activeMapLens()) {
+    if (!["transport-speed", "transport-reliability"].includes(lens?.id)) return false;
+    return (state.lensGuideFeatureCache?.features || []).some((feature) => {
+      const props = feature?.properties || {};
+      return props.lens_id === lens.id
+        && props.kind === "flow"
+        && ["transport_backbone", "transport_thread"].includes(props.flow_style)
+        && ["selected_year_transport_activity_context", "current_context"].includes(props.source_kind);
+    });
   }
 
   function refreshPointLensLayerVisibility() {
@@ -6560,12 +6596,14 @@
       .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
     const transportContextFeatures = transportAccessContextCitywideGuideFeatures(lens, year)
       .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
-    const features = directFeatures.concat(planningContextFeatures, contextFeatures, transportContextFeatures);
+    const transportNetworkFeatures = transportNetworkCitywideGuideFeatures(lens, year)
+      .filter((feature) => guideTransportNetworkContextFeatureHasProvenance(feature, lens));
+    const features = directFeatures.concat(planningContextFeatures, contextFeatures, transportContextFeatures, transportNetworkFeatures);
     return { type: "FeatureCollection", features };
   }
 
   function sourceBackedGuideLensSupported(lens = activeMapLens()) {
-    return ["planning-pressure", "transport-access", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens?.id);
+    return ["planning-pressure", "transport-speed", "transport-access", "transport-reliability", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens?.id);
   }
 
   function sourceBackedGuideDetailFeatures(lens, year) {
@@ -6640,6 +6678,29 @@
     const sourceObjectIds = splitGuidePropertyList(props.source_object_ids || props.source_object_id);
     if (!sourceIds.length || !sourceObjectIds.length) return false;
     if (!sourceIds.every((sourceId) => state.sourceById.has(sourceId))) return false;
+    return true;
+  }
+
+  function guideTransportNetworkContextFeatureHasProvenance(feature, lens = activeMapLens()) {
+    if (!feature?.geometry) return false;
+    const props = feature.properties || {};
+    if (!["transport-speed", "transport-reliability"].includes(lens?.id)) return false;
+    if (props.lens_id !== lens.id || props.kind !== "flow") return false;
+    if (!props.flow_style || !props.flow_role || !props.surface_style || !props.source_kind || !props.evidence_role || !props.context_year) return false;
+    if (!props.detail_layer || !props.generated_from || !props.source_urls || !props.confidence || !props.caveat) return false;
+    const selectedYearContext = props.source_kind === "selected_year_transport_activity_context"
+      && props.evidence_role === "selected_year_activity_surface_not_direct_change_evidence";
+    const currentContext = props.source_kind === "current_context"
+      && props.evidence_role === "context_not_year_specific_change_evidence";
+    if (!selectedYearContext && !currentContext) return false;
+    if (props.direct_evidence_counted !== false || props.headline_count_included !== false) return false;
+    if (detailEventIds(props).length) return false;
+    const sourceIds = splitGuidePropertyList(props.source_ids || props.source_id);
+    const sourceObjectIds = splitGuidePropertyList(props.source_object_ids || props.source_object_id);
+    if (!sourceIds.length || !sourceObjectIds.length) return false;
+    if (!sourceIds.every((sourceId) => state.sourceById.has(sourceId))) return false;
+    if (selectedYearContext && props.detail_layer !== "transport_roads_year") return false;
+    if (currentContext && props.detail_layer !== "transport_roads_base") return false;
     return true;
   }
 
@@ -7117,7 +7178,7 @@
         event_id: "",
         event_ids: "",
         event_count: 0,
-        source_id: "osm-overpass",
+        source_id: item.objectId,
         source_ids: "osm-overpass",
         source_object_id: item.objectId,
         source_object_ids: item.objectId,
@@ -7855,6 +7916,313 @@
     const [type, id] = String(objectId || "").split("/");
     if (!/^(node|way|relation)$/.test(type || "") || !/^\d+$/.test(id || "")) return "";
     return `https://www.openstreetmap.org/${type}/${id}`;
+  }
+
+  function transportNetworkCitywideGuideFeatures(lens, year) {
+    if (!transportNetworkCitywideGuideCanRender(lens, year)) return [];
+    const targetYear = Number(year) || currentTimelineYear();
+    const yearPath = transportRoadYearPath(targetYear);
+    const yearRoads = yearPath ? transportRoadFeaturesForYear(targetYear) : [];
+    const yearRoadsLoaded = !yearPath
+      || state.transportRoadFeaturesByYear.has(targetYear)
+      || (state.transportRoadFeaturesPathLoaded === yearPath && state.transportRoadFeatureCountYearLoaded === targetYear);
+    if (yearRoads.length) return transportNetworkYearRoadGuideFeatures(yearRoads, lens, targetYear);
+    if (yearPath && !yearRoadsLoaded) return [];
+    return transportNetworkCurrentRoadContextGuideFeatures(lens, targetYear);
+  }
+
+  function transportNetworkCitywideGuideCanRender(lens = activeMapLens(), year = currentTimelineYear()) {
+    if (!["transport-speed", "transport-reliability"].includes(lens?.id)) return false;
+    if (!state.activeLayers.has("transport")) return false;
+    if (!state.showInferred) return false;
+    if (state.search || state.areaFilter) return false;
+    const row = activeLensYearCoverageRow(lens, year);
+    if (row && Object.prototype.hasOwnProperty.call(row, "direct_event_count")) {
+      if (row.visible_map_contract === false) return false;
+      if (!lensCoverageHasDirectRecords(row)) return false;
+    }
+    return citywideOverviewActive() || state.citywideLensMode;
+  }
+
+  function transportNetworkYearRoadGuideFeatures(roads, lens, year) {
+    if (!roads.length || !state.sourceById.has("osm-overpass")) return [];
+    const origin = mapCenter();
+    const bounds = cityBoundsValues();
+    const basisM = citywideBasisMeters();
+    const limit = lens.id === "transport-speed"
+      ? Math.max(520, Math.min(1900, Math.round(basisM / 38)))
+      : Math.max(420, Math.min(1500, Math.round(basisM / 46)));
+    const candidates = [];
+    for (const road of roads) {
+      const props = road?.properties || {};
+      if (props.layer !== "traffic_road" || !transportActivityRoadMatchesYear(props, year)) continue;
+      const point = geometryToLngLat(road.geometry);
+      if (!point) continue;
+      if (bounds && (point[0] < bounds.west || point[0] > bounds.east || point[1] < bounds.south || point[1] > bounds.north)) continue;
+      const objectId = String(props.source_id || props.id || "").trim();
+      if (!osmObjectUrl(objectId)) continue;
+      const activity = clamp01(Number(props.transport_activity || 0));
+      const rank = Math.max(0.6, Number(props.rank || 1));
+      const lengthM = geometryLineLengthMeters(road.geometry);
+      if (!transportNetworkRoadCandidate(lens, { activity, rank, lengthM })) continue;
+      const local = lngLatToLocalMeters(point, origin);
+      const seed = stableUnit(`${objectId}:${lens.id}:${year}:transport-network`);
+      const intensity = transportNetworkRoadIntensity(lens, { activity, rank, lengthM, seed });
+      const score = intensity
+        + activity * (lens.id === "transport-speed" ? 0.38 : 0.3)
+        + Math.min(0.18, rank * 0.045)
+        + Math.min(0.16, lengthM / 4200)
+        + seed * 0.035;
+      candidates.push({
+        road,
+        point,
+        local,
+        objectId,
+        activity,
+        rank,
+        lengthM,
+        intensity,
+        score,
+        seed,
+      });
+    }
+    const selected = spatiallyBalancedGuideFeatures(
+      candidates
+        .sort((a, b) => b.score - a.score)
+        .slice(0, Math.max(limit * 5, 1800))
+        .map((item, index) => transportNetworkYearRoadGuideFeature(item, lens, year, index, origin))
+        .filter(Boolean),
+      limit,
+      lens,
+    );
+    const promoted = promoteTransportBackboneFeatures(selected, lens);
+    const selectedObjectIds = new Set(promoted.map((feature) => feature.properties?.source_object_id).filter(Boolean));
+    const supplementalContext = transportNetworkCurrentRoadContextGuideFeatures(lens, year, {
+      excludeObjectIds: selectedObjectIds,
+      supplemental: true,
+    });
+    return promoted.concat(supplementalContext);
+  }
+
+  function transportNetworkRoadCandidate(lens, { activity, rank, lengthM }) {
+    if (lens.id === "transport-speed") {
+      return rank >= 3
+        || (rank >= 2 && activity >= 0.15)
+        || (rank >= 1.55 && activity >= 0.34)
+        || (activity >= 0.58 && lengthM >= 42);
+    }
+    return rank >= 3
+      || (rank >= 2.25 && activity >= 0.22)
+      || (rank >= 1.9 && activity >= 0.45)
+      || (activity >= 0.68 && lengthM >= 72);
+  }
+
+  function transportNetworkRoadIntensity(lens, { activity, rank, lengthM, seed }) {
+    const rankSignal = Math.min(0.2, rank * 0.042);
+    const lengthSignal = Math.min(0.12, lengthM / 3600);
+    if (lens.id === "transport-reliability") {
+      return clamp01(0.18 + activity * 0.46 + rankSignal + lengthSignal + seed * 0.035);
+    }
+    return clamp01(0.2 + activity * 0.52 + rankSignal + lengthSignal + seed * 0.035);
+  }
+
+  function transportNetworkYearRoadGuideFeature(item, lens, year, index, origin) {
+    const props = item.road?.properties || {};
+    const objectUrl = osmObjectUrl(item.objectId);
+    if (!objectUrl || !item.road?.geometry) return null;
+    const source = state.sourceById.get("osm-overpass");
+    const sourceUrls = uniqueGuideValues([props.source_url, objectUrl, source?.url || source?.source_url || "https://overpass-turbo.eu/"]);
+    const generatedFrom = transportRoadYearGeneratedFrom(year);
+    const caveat = props.timing_note || "Selected-year road activity uses current OSM road geometry weighted by source-backed transport event proximity; it is not measured traffic speed, live congestion, timetable adherence, service frequency, or causal evidence.";
+    const reliabilityStatus = lens.id === "transport-reliability"
+      ? transportReliabilityStatus({
+        activity: item.activity,
+        distance: Math.hypot(item.local?.[0] || 0, item.local?.[1] || 0),
+        eventDensity: item.activity,
+        intensity: item.intensity,
+        rank: item.rank,
+        radiusM: Math.max(800, citywideBasisMeters() / 5.2),
+        routeLengthM: item.lengthM,
+        seed: item.seed,
+        sourceKind: "activity",
+      })
+      : "";
+    const color = lens.id === "transport-reliability"
+      ? transportReliabilityStatusColor(reliabilityStatus)
+      : transportSpeedThreadColor(item.activity, item.activity, item.rank);
+    const name = props.name && props.name !== "mapped road segment" ? props.name : "mapped road segment";
+    return {
+      type: "Feature",
+      properties: {
+        kind: "flow",
+        lens_id: lens.id,
+        surface_style: sourceBackedGuideSurfaceStyle(lens),
+        flow_role: "transport_activity_context",
+        flow_style: "transport_thread",
+        guide_scale: "citywide_context",
+        source_kind: "selected_year_transport_activity_context",
+        evidence_role: "selected_year_activity_surface_not_direct_change_evidence",
+        context_year: String(year),
+        selected_year: String(year),
+        detail_layer: "transport_roads_year",
+        event_id: "",
+        event_ids: "",
+        event_count: 0,
+        source_id: item.objectId,
+        source_ids: "osm-overpass",
+        source_object_id: item.objectId,
+        source_object_ids: item.objectId,
+        source_urls: sourceUrls.join(","),
+        source_name: source?.title || "OpenStreetMap extracts via Overpass API",
+        source_count: 1,
+        confidence: "inferred",
+        generated_from: generatedFrom,
+        title: name,
+        label: name,
+        timing_note: `Selected-year ${year} transport activity surface; not direct measured ${lens.id === "transport-speed" ? "speed" : "reliability"} evidence.`,
+        caveat: `${caveat} Excluded from headline event totals.`,
+        geometry_precision_mix: "Current OSM road line geometry clipped to the official city boundary and weighted by selected-year source-backed transport activity.",
+        aggregation_note: "Citywide selected-year transport activity guide selected from real road-line artifacts; it is not counted as an individual transport record.",
+        direct_evidence_counted: false,
+        headline_count_included: false,
+        layer_id: "transport",
+        sublayer_id: "transport",
+        rank: Number(item.rank.toFixed(2)),
+        road_rank: Number(item.rank.toFixed(2)),
+        route_length_m: Math.round(item.lengthM),
+        activity: Number(item.activity.toFixed(3)),
+        transport_count: Math.max(0, Number(props.transport_count || 0)),
+        transport_raw: Math.max(0, Number(props.transport_raw || 0)),
+        context_rank: index + 1,
+        corridor_key: transportCorridorKey(props),
+        corridor_named: props.name && props.name !== "mapped road segment" ? 1 : 0,
+        angle_bucket: transportAngleBucket(origin, item.point, 48),
+        reliability_status: reliabilityStatus,
+        intensity: Number(item.intensity.toFixed(3)),
+        score: Number(item.score.toFixed(3)),
+        color,
+        edge_offset: Number(((item.seed - 0.5) * 0.22).toFixed(2)),
+      },
+      geometry: item.road.geometry,
+    };
+  }
+
+  function transportNetworkCurrentRoadContextGuideFeatures(lens, year, opts = {}) {
+    requestTransportAccessRoadContextFeatures();
+    const roads = Array.isArray(state.transportAccessRoadContextFeatures) ? state.transportAccessRoadContextFeatures : [];
+    if (!roads.length || !state.sourceById.has("osm-overpass")) return [];
+    const origin = mapCenter();
+    const bounds = cityBoundsValues();
+    const basisM = citywideBasisMeters();
+    const limit = opts.supplemental
+      ? Math.max(220, Math.min(720, Math.round(basisM / 72)))
+      : Math.max(280, Math.min(980, Math.round(basisM / 58)));
+    const excluded = opts.excludeObjectIds instanceof Set ? opts.excludeObjectIds : new Set();
+    const candidates = [];
+    for (const road of roads) {
+      const props = road?.properties || {};
+      if (props.layer !== "traffic_road_base") continue;
+      const point = geometryToLngLat(road.geometry);
+      if (!point) continue;
+      if (bounds && (point[0] < bounds.west || point[0] > bounds.east || point[1] < bounds.south || point[1] > bounds.north)) continue;
+      const objectId = String(props.source_id || props.id || "").trim();
+      if (!osmObjectUrl(objectId)) continue;
+      if (excluded.has(objectId)) continue;
+      const rank = Math.max(0.6, Number(props.rank || 1));
+      const lengthM = geometryLineLengthMeters(road.geometry);
+      if (rank < 1.85 && lengthM < 160) continue;
+      const seed = stableUnit(`${objectId}:${lens.id}:current-road-context`);
+      const intensity = clamp01(0.16 + Math.min(0.24, rank * 0.045) + Math.min(0.16, lengthM / 4200) + seed * 0.035);
+      const score = intensity + Math.min(0.18, rank * 0.045) + Math.min(0.14, lengthM / 5200) + seed * 0.025;
+      candidates.push({ road, point, objectId, rank, lengthM, intensity, score, seed, supplemental: Boolean(opts.supplemental) });
+    }
+    const selected = spatiallyBalancedGuideFeatures(
+      candidates
+        .sort((a, b) => b.score - a.score)
+        .slice(0, Math.max(limit * 5, 1000))
+        .map((item, index) => transportNetworkCurrentRoadContextGuideFeature(item, lens, year, index, origin))
+        .filter(Boolean),
+      limit,
+      lens,
+    );
+    return opts.supplemental ? selected : promoteTransportBackboneFeatures(selected, lens, { currentContextOnly: true });
+  }
+
+  function transportNetworkCurrentRoadContextGuideFeature(item, lens, year, index, origin) {
+    const props = item.road?.properties || {};
+    const objectUrl = osmObjectUrl(item.objectId);
+    if (!objectUrl || !item.road?.geometry) return null;
+    const source = state.sourceById.get("osm-overpass");
+    const sourceUrls = uniqueGuideValues([props.source_url, objectUrl, source?.url || source?.source_url || "https://overpass-turbo.eu/"]);
+    const caveat = props.timing_note || state.transportAccessRoadContextMetadata?.caveat || "Current OSM road geometry is citywide transport context only; it is not selected-year speed, reliability, timetable, traffic-volume, congestion, construction, or service evidence.";
+    const name = props.name && props.name !== "mapped road segment" ? props.name : "mapped road segment";
+    const intensity = item.supplemental ? item.intensity * 0.68 : item.intensity;
+    return {
+      type: "Feature",
+      properties: {
+        kind: "flow",
+        lens_id: lens.id,
+        surface_style: sourceBackedGuideSurfaceStyle(lens),
+        flow_role: "transport_current_context",
+        flow_style: "transport_thread",
+        guide_scale: "citywide_context",
+        source_kind: "current_context",
+        evidence_role: "context_not_year_specific_change_evidence",
+        context_year: "current_mapped_context",
+        selected_year: String(year),
+        detail_layer: "transport_roads_base",
+        event_id: "",
+        event_ids: "",
+        event_count: 0,
+        source_id: item.objectId,
+        source_ids: "osm-overpass",
+        source_object_id: item.objectId,
+        source_object_ids: item.objectId,
+        source_urls: sourceUrls.join(","),
+        source_name: source?.title || "OpenStreetMap extracts via Overpass API",
+        source_count: 1,
+        confidence: "inferred",
+        generated_from: transportRoadBaseContextGeneratedFrom(),
+        title: name,
+        label: name,
+        timing_note: "Current mapped road context; not selected-year direct transport speed or reliability evidence.",
+        caveat: `${caveat} Excluded from headline event totals.`,
+        geometry_precision_mix: "Current OSM road line geometry clipped to the official city boundary.",
+        aggregation_note: "Citywide current transport road context provides orientation where selected-year line activity is unavailable; it is not counted as a transport record.",
+        direct_evidence_counted: false,
+        headline_count_included: false,
+        layer_id: "transport",
+        sublayer_id: "transport",
+        rank: Number(item.rank.toFixed(2)),
+        road_rank: Number(item.rank.toFixed(2)),
+        route_length_m: Math.round(item.lengthM),
+        activity: 0,
+        context_rank: index + 1,
+        corridor_key: transportCorridorKey(props),
+        corridor_named: props.name && props.name !== "mapped road segment" ? 1 : 0,
+        angle_bucket: transportAngleBucket(origin, item.point, 48),
+        reliability_status: "",
+        intensity: Number(intensity.toFixed(3)),
+        score: Number((item.supplemental ? item.score * 0.74 : item.score).toFixed(3)),
+        color: item.supplemental ? "#a8bfc0" : lens.id === "transport-reliability" ? "#6f969d" : "#8faeb3",
+        edge_offset: Number(((item.seed - 0.5) * 0.18).toFixed(2)),
+      },
+      geometry: item.road.geometry,
+    };
+  }
+
+  function transportRoadYearGeneratedFrom(year) {
+    const path = transportRoadYearPath(year);
+    if (!path) return "";
+    if (/^\/data\//.test(path)) return `web${path}`;
+    return String(path).replace(/^\//, "");
+  }
+
+  function transportRoadBaseContextGeneratedFrom() {
+    const path = state.transportAccessRoadContextPathLoaded || transportRoadBaseContextPath();
+    if (!path) return "";
+    if (/^\/data\//.test(path)) return `web${path}`;
+    return String(path).replace(/^\//, "");
   }
 
   function transportAccessContextGuideCanRender(lens = activeMapLens()) {
@@ -12646,10 +13014,19 @@
     return composeTransportRouteGuideFeatures(promoted, lens);
   }
 
-  function promoteTransportBackboneFeatures(features, lens) {
-    const limit = lens.id === "transport-reliability" ? 430 : lens.id === "transport-speed" ? 660 : 560;
-    const perBucket = lens.id === "transport-reliability" ? 16 : lens.id === "transport-speed" ? 32 : 26;
-    const perCorridor = lens.id === "transport-reliability" ? 12 : lens.id === "transport-speed" ? 22 : 18;
+  function promoteTransportBackboneFeatures(features, lens, opts = {}) {
+    const currentContextOnly = Boolean(opts.currentContextOnly)
+      || (features.length > 0 && features.every((feature) => feature.properties?.source_kind === "current_context"));
+    const baseLimit = lens.id === "transport-reliability" ? 520 : lens.id === "transport-speed" ? 760 : 560;
+    const limit = currentContextOnly
+      ? Math.min(baseLimit, Math.max(72, Math.round(features.length * 0.42)))
+      : baseLimit;
+    const perBucket = currentContextOnly
+      ? (lens.id === "transport-reliability" ? 10 : lens.id === "transport-speed" ? 13 : 12)
+      : (lens.id === "transport-reliability" ? 20 : lens.id === "transport-speed" ? 38 : 26);
+    const perCorridor = currentContextOnly
+      ? (lens.id === "transport-reliability" ? 7 : lens.id === "transport-speed" ? 9 : 8)
+      : (lens.id === "transport-reliability" ? 14 : lens.id === "transport-speed" ? 28 : 18);
     const backboneIds = new Set();
     const bucketCounts = new Map();
     const corridorCounts = new Map();
@@ -12669,8 +13046,8 @@
       const rank = Number(props.rank || 1);
       const activity = Number(props.activity || 0);
       const routeLengthM = Number(props.route_length_m || 0);
-      if (rank < 2.15 && routeLengthM < (lens.id === "transport-speed" ? 95 : 145)) continue;
-      if (activity < 0.1 && rank < 2.6 && routeLengthM < (lens.id === "transport-speed" ? 180 : 260)) continue;
+      if (rank < 2 && routeLengthM < (lens.id === "transport-speed" ? 85 : 120)) continue;
+      if (activity < 0.08 && rank < 2.35 && routeLengthM < (lens.id === "transport-speed" ? 140 : 210)) continue;
       const bucket = String(props.angle_bucket ?? "0");
       const corridor = String(props.corridor_key || "road");
       const bucketCount = bucketCounts.get(bucket) || 0;
@@ -18910,9 +19287,14 @@
       const missingTransportNote = hasDirectTransportRecords ? "" : lensYearCoverageNote(yearCoverage, lens, category);
       const transportContextFallback = transportAccessContextGuideCanRender(lens)
         ? "No source-backed transport records intersect mapped road segments for the selected year. Current mapped transport stop/station context is shown separately as non-headline context; it is not selected-year change, timetable, service-frequency, journey-time, or reliability evidence, and no filler geometry is generated."
+        : transportNetworkCitywideGuideCanRender(lens)
+          ? "No selected-year transport road activity linework is available. Current mapped road context is shown separately as non-headline orientation only; it is not measured speed, live congestion, timetable adherence, reliability, or selected-year transport-change evidence."
         : "No source-backed transport records intersect mapped road segments for the selected year. No generated marks, context surfaces, or filler geometry are shown for this lens/year.";
+      const directNoLineContextNote = transportNetworkCitywideGuideCanRender(lens)
+        ? `${compactNumber(directTransportCount)} direct source-backed ${lens.label} record${directTransportCount === 1 ? "" : "s"} match ${state.year}, but no selected-year road activity linework is available. Current mapped road context is shown separately as non-headline orientation only; it is not measured speed, live congestion, timetable adherence, reliability, or direct selected-year evidence.`
+        : "";
       const noLineworkNote = hasDirectTransportRecords
-        ? `${compactNumber(directTransportCount)} direct source-backed ${lens.label} record${directTransportCount === 1 ? "" : "s"} match ${state.year}, but no mapped road-line detail intersects this year. Point/event evidence remains available; no generated linework or filler geometry is shown.`
+        ? directNoLineContextNote || `${compactNumber(directTransportCount)} direct source-backed ${lens.label} record${directTransportCount === 1 ? "" : "s"} match ${state.year}, but no mapped road-line detail intersects this year. Point/event evidence remains available; no generated linework or filler geometry is shown.`
         : missingTransportNote || transportContextFallback;
       if (!transportRoadYearPath(state.year)) return { label: "No linework", empty: true, note: noLineworkNote };
       if (state.transportRoadFeatureCountYearLoaded === state.year && state.transportRoadFeatureCount === 0) {
@@ -19082,6 +19464,9 @@
     if (transportAccessContextGuideCanRender(lens)) {
       return `${prefix}${broadOnly} Current mapped transport stop/station context may be shown separately as non-headline context; it is not selected-year change, timetable, service-frequency, journey-time, or reliability evidence, and no direct map marks, headline counts, or filler geometry are generated.`;
     }
+    if (transportNetworkCitywideGuideCanRender(lens)) {
+      return `${prefix}${broadOnly} Current mapped road context may be shown separately as non-headline orientation only; it is not measured speed, live congestion, timetable adherence, reliability, or selected-year direct evidence.`;
+    }
     return `${prefix}${broadOnly} No generated marks, context surfaces, or filler geometry are shown for this lens/year.`;
   }
 
@@ -19096,6 +19481,7 @@
     }[category] || "lens";
     if (civicContextGuideCanRender(lens)) return `No direct source-backed ${year} ${label} records; current context only.`;
     if (transportAccessContextGuideCanRender(lens)) return `No direct source-backed ${year} ${label} records; current transport context only.`;
+    if (transportNetworkCitywideGuideCanRender(lens)) return `No direct source-backed ${year} ${label} records; current road context only.`;
     return `No direct source-backed ${year} ${label} records; no filler geometry.`;
   }
 

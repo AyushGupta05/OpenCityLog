@@ -85,19 +85,49 @@ async function guideSignalState(page) {
       && state?.showInferred !== false
       && !state?.search
       && !state?.areaFilter;
+    const transportNetworkContextCanRender = ["transport-speed", "transport-reliability"].includes(activeAspect)
+      && Boolean(state?.activeLayers?.has?.("transport"))
+      && citywideScope
+      && state?.showInferred !== false
+      && !state?.search
+      && !state?.areaFilter
+      && row?.status === "source_backed_records"
+      && row?.visible_map_contract !== false
+      && Number(row?.direct_event_count || 0) > 0;
     const directCanRender = ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
       && row?.status === "source_backed_records"
       && row?.visible_map_contract !== false
       && matchingDetailCount > 0;
     return {
       activeAspect,
-      canRenderGuide: directCanRender || civicContextCanRender,
+      canRenderGuide: directCanRender || civicContextCanRender || transportNetworkContextCanRender,
       guideFeatureCount: features.length,
       rendered,
       invalidFeatureCount: features.filter((feature) => {
         const props = feature?.properties || {};
         const eventIds = splitIds(props.event_ids || props.event_id);
         const sourceIds = splitIds(props.source_ids || props.source_id);
+        const transportActivityFeature = props.source_kind === "selected_year_transport_activity_context"
+          && props.evidence_role === "selected_year_activity_surface_not_direct_change_evidence";
+        if (transportActivityFeature) {
+          const objectIds = splitIds(props.source_object_ids || props.source_object_id);
+          return !feature?.geometry
+            || props.kind !== "flow"
+            || !props.flow_style
+            || !props.surface_style
+            || !props.context_year
+            || props.detail_layer !== "transport_roads_year"
+            || !props.generated_from
+            || !props.source_urls
+            || !props.confidence
+            || !props.caveat
+            || props.direct_evidence_counted !== false
+            || props.headline_count_included !== false
+            || eventIds.length > 0
+            || !sourceIds.length
+            || !objectIds.length
+            || !sourceIds.every((id) => state?.sourceById?.has?.(id));
+        }
         const contextFeature = props.source_kind === "current_context"
           || props.evidence_role === "context_not_year_specific_change_evidence";
         if (contextFeature) {
@@ -190,15 +220,45 @@ async function assertGeneratedGuideSignal(page, label) {
       && state?.showInferred !== false
       && !state?.search
       && !state?.areaFilter;
+    const transportNetworkContextCanRender = ["transport-speed", "transport-reliability"].includes(activeAspect)
+      && Boolean(state?.activeLayers?.has?.("transport"))
+      && citywideScope
+      && state?.showInferred !== false
+      && !state?.search
+      && !state?.areaFilter
+      && row?.status === "source_backed_records"
+      && row?.visible_map_contract !== false
+      && Number(row?.direct_event_count || 0) > 0;
     const directCanRender = ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
       && row?.status === "source_backed_records"
       && row?.visible_map_contract !== false
       && matchingDetailCount > 0;
-    const canRenderGuide = directCanRender || civicContextCanRender;
+    const canRenderGuide = directCanRender || civicContextCanRender || transportNetworkContextCanRender;
     const invalidFeatureCount = features.filter((feature) => {
       const props = feature?.properties || {};
       const eventIds = splitIds(props.event_ids || props.event_id);
       const sourceIds = splitIds(props.source_ids || props.source_id);
+      const transportActivityFeature = props.source_kind === "selected_year_transport_activity_context"
+        && props.evidence_role === "selected_year_activity_surface_not_direct_change_evidence";
+      if (transportActivityFeature) {
+        const objectIds = splitIds(props.source_object_ids || props.source_object_id);
+        return !feature?.geometry
+          || props.kind !== "flow"
+          || !props.flow_style
+          || !props.surface_style
+          || !props.context_year
+          || props.detail_layer !== "transport_roads_year"
+          || !props.generated_from
+          || !props.source_urls
+          || !props.confidence
+          || !props.caveat
+          || props.direct_evidence_counted !== false
+          || props.headline_count_included !== false
+          || eventIds.length > 0
+          || !sourceIds.length
+          || !objectIds.length
+          || !sourceIds.every((id) => state?.sourceById?.has?.(id));
+      }
       const contextFeature = props.source_kind === "current_context"
         || props.evidence_role === "context_not_year_specific_change_evidence";
       if (contextFeature) {
@@ -721,7 +781,7 @@ async function runSmoke() {
     },
     {
       id: "transport-access",
-      required: [/Access-proxy/i, /No generated marks|no generated linework|filler geometry/i],
+      required: [/Access-proxy/i, /current mapped transport|not selected-year|non-headline|No generated marks|no generated linework|filler geometry/i],
       forbidden: [/Isochrone/i, /Door-to-door/i, /\b15 min\b/i],
     },
     {
@@ -731,7 +791,7 @@ async function runSmoke() {
     },
     {
       id: "transport-reliability",
-      required: [/Lower disruption signal/i, /Planned \/ record/i, /No generated marks|no generated linework|filler geometry/i],
+      required: [/Lower disruption signal/i, /Planned \/ record/i, /Current mapped road context|selected-year transport activity|not measured|non-headline|No generated marks|no generated linework|filler geometry/i],
       forbidden: [/Reliable \(on-time\)/i, /Unreliable \(delayed\)/i],
     },
     {
@@ -857,12 +917,16 @@ async function runSmoke() {
   await page.waitForFunction(
     () => {
       const state = window.BimsAtlas?.state;
+      const guide = state?.lensGuideFeatureCache?.features || [];
       return state?.transportRoadFeatureCountYearLoaded === 2007
         && state?.transportRoadFeatureCount === 0
-        && /no generated linework|no filler geometry/i.test(document.querySelector("#lensLegend")?.textContent || "");
+        && guide.some((feature) => feature.properties?.lens_id === "transport-speed"
+          && feature.properties?.source_kind === "current_context"
+          && feature.properties?.detail_layer === "transport_roads_base")
+        && /Current mapped road context|not measured speed|not selected-year/i.test(document.querySelector("#lensLegend")?.textContent || "");
     },
     null,
-    { timeout: 15000 }
+    { timeout: 25000 }
   );
   await assertGeneratedGuideSignal(page, "transport 2007");
   const transportLensState = await atlasState(page);
@@ -870,10 +934,37 @@ async function runSmoke() {
   assert(transportFilteredIds.includes("belfast_m1_blacks_stockmans_road_scheme_delay_2007"), "2007 transport-speed did not retain the source-backed road-scheme evidence event.");
   assert(transportLensState.transportRoadVisible, "Transport no-linework lens should keep the transport layer slot visible for status/provenance.");
   assert(transportLensState.transportRoadFeatureCount === 0, "Transport no-linework lens should not load generated or incompatible road features.");
-  assert(/No linework|no generated linework|no filler geometry/i.test(transportLensState.lensLegendText), `Transport sparse legend did not explain the no-linework state: ${transportLensState.lensLegendText}`);
+  assert(/Current mapped road context|not measured speed|not selected-year/i.test(transportLensState.lensLegendText), `Transport sparse legend did not explain the current-context-only state: ${transportLensState.lensLegendText}`);
   assert(transportLensState.lensDetailYearLoaded === null, "Transport lens should unload non-transport lens detail overlays.");
   const transportLensScreenshot = await page.screenshot({ path: path.join(outputDir, "atlas-lens-transport-2007.png"), fullPage: false });
   assertDetailedPng(transportLensScreenshot, assert, "transport lens screenshot");
+
+  await page.evaluate(async () => {
+    await window.BimsAtlas?.setYear?.(2008);
+    await window.BimsAtlas?.setActiveAspect?.("transport-speed");
+    window.BimsAtlas?.recenterMap?.();
+  });
+  await page.waitForFunction(
+    () => Number(window.BimsAtlas?.state?.year) === 2008
+      && window.BimsAtlas?.state?.activeAspect === "transport-speed"
+      && (window.BimsAtlas?.state?.lensGuideFeatureCache?.features || []).length === 0,
+    null,
+    { timeout: 20000 }
+  );
+  await assertGeneratedGuideSignal(page, "transport 2008 missing source");
+
+  await page.evaluate(async () => {
+    await window.BimsAtlas?.setYear?.(2007);
+    await window.BimsAtlas?.setActiveAspect?.("transport-speed");
+    window.BimsAtlas?.recenterMap?.();
+  });
+  await page.waitForFunction(
+    () => Number(window.BimsAtlas?.state?.year) === 2007
+      && window.BimsAtlas?.state?.activeAspect === "transport-speed"
+      && (window.BimsAtlas?.state?.lensGuideFeatureCache?.features || []).some((feature) => feature.properties?.source_kind === "current_context"),
+    null,
+    { timeout: 20000 }
+  );
 
   await page.locator(".layer-row[data-layer='transport']").click();
   await page.waitForFunction(

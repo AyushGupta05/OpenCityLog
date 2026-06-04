@@ -544,13 +544,43 @@ async function assertDesktopCitywideCoverage(page) {
         && atlas?.state?.showInferred !== false
         && !atlas?.state?.search
         && !atlas?.state?.areaFilter;
-      const canRenderGuide = directCanRenderGuide || civicContextCanRenderGuide || transportContextCanRenderGuide;
+      const transportNetworkContextCanRenderGuide = ["transport-speed", "transport-reliability"].includes(activeAspect)
+        && Boolean(atlas?.state?.activeLayers?.has?.("transport"))
+        && citywideScope
+        && atlas?.state?.showInferred !== false
+        && !atlas?.state?.search
+        && !atlas?.state?.areaFilter
+        && activeCoverageRow?.status === "source_backed_records"
+        && activeCoverageRow?.visible_map_contract !== false
+        && Number(activeCoverageRow?.direct_event_count || 0) > 0;
+      const canRenderGuide = directCanRenderGuide || civicContextCanRenderGuide || transportContextCanRenderGuide || transportNetworkContextCanRenderGuide;
       const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
       const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
       const invalidGuideCount = guideFeatures.filter((feature) => {
         const props = feature?.properties || {};
         const eventIds = splitIds(props.event_ids || props.event_id);
         const sourceIds = splitIds(props.source_ids || props.source_id);
+        const transportActivityFeature = props.source_kind === "selected_year_transport_activity_context"
+          && props.evidence_role === "selected_year_activity_surface_not_direct_change_evidence";
+        if (transportActivityFeature) {
+          const objectIds = splitIds(props.source_object_ids || props.source_object_id);
+          return !feature?.geometry
+            || props.kind !== "flow"
+            || !props.flow_style
+            || !props.surface_style
+            || !props.context_year
+            || props.detail_layer !== "transport_roads_year"
+            || !props.generated_from
+            || !props.source_urls
+            || !props.confidence
+            || !props.caveat
+            || props.direct_evidence_counted !== false
+            || props.headline_count_included !== false
+            || eventIds.length > 0
+            || !sourceIds.length
+            || !objectIds.length
+            || !sourceIds.every((id) => atlas?.state?.sourceById?.has?.(id));
+        }
         const contextFeature = props.source_kind === "current_context"
           || props.evidence_role === "context_not_year_specific_change_evidence";
         if (contextFeature) {
@@ -664,8 +694,8 @@ async function assertDesktopCitywideCoverage(page) {
       if (citywideState.renderedTransportYearRoads === 0) {
         assert(
           citywideState.transportRoadFeatureCount === 0
-            && /No linework|no generated linework|no filler geometry/i.test(citywideState.legend),
-          `desktop citywide ${lens.id}: source-backed transport records have no road features but the no-linework state was not explicit.`,
+            && /No linework|no generated linework|no filler geometry|Current mapped road context|not measured|not selected-year/i.test(citywideState.legend),
+          `desktop citywide ${lens.id}: source-backed transport records have no road features but the sparse/context state was not explicit.`,
         );
       } else {
         assert(citywideState.renderedTransportYearRoads > 0, `desktop citywide ${lens.id}: source-backed transport records exist but rendered no year-specific road features.`);
@@ -1612,6 +1642,155 @@ async function assertTransportAccessStopContext(page, city) {
   );
 }
 
+async function assertTransportNetworkCitywideContext(page, city) {
+  await page.waitForFunction(
+    (lensId) => window.BimsAtlas?.state?.activeAspect === lensId,
+    city.lens,
+    { timeout: 15000 }
+  );
+  await page.waitForFunction(
+    () => (window.BimsAtlas?.state?.lensGuideFeatureCache?.features || []).some((feature) => {
+      const props = feature.properties || {};
+      return props.kind === "flow"
+        && ["transport_backbone", "transport_thread"].includes(props.flow_style)
+        && ["selected_year_transport_activity_context", "current_context"].includes(props.source_kind);
+    }),
+    null,
+    { timeout: 30000 }
+  );
+  await page.waitForFunction(
+    () => {
+      const map = window.BimsAtlas?.state?.map;
+      if (!map?.getLayer?.("lens-guide-flow") || map.getLayoutProperty("lens-guide-flow", "visibility") === "none") return false;
+      try {
+        return map.queryRenderedFeatures({ layers: ["lens-guide-flow"] }).some((feature) => {
+          const props = feature.properties || {};
+          return props.kind === "flow"
+            && ["transport_backbone", "transport_thread"].includes(props.flow_style)
+            && ["selected_year_transport_activity_context", "current_context"].includes(props.source_kind);
+        });
+      } catch (_error) {
+        return false;
+      }
+    },
+    null,
+    { timeout: 20000 }
+  );
+  await page.waitForTimeout(700);
+  const state = await page.evaluate(({ lensId, year }) => {
+    const atlas = window.BimsAtlas;
+    const map = atlas?.state?.map;
+    const guide = (atlas?.state?.lensGuideFeatureCache?.features || []).filter((feature) => feature.properties?.lens_id === lensId);
+    const split = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
+    const networkFlows = guide.filter((feature) => {
+      const props = feature.properties || {};
+      return props.kind === "flow"
+        && ["transport_backbone", "transport_thread"].includes(props.flow_style)
+        && ["transport_activity_context", "transport_current_context"].includes(props.flow_role);
+    });
+    let renderedGuideFlow = 0;
+    let renderedRoads = 0;
+    let renderedEventPoints = 0;
+    try {
+      renderedGuideFlow = map?.getLayer?.("lens-guide-flow") && map.getLayoutProperty("lens-guide-flow", "visibility") !== "none"
+        ? map.queryRenderedFeatures({ layers: ["lens-guide-flow"] }).filter((feature) => {
+          const props = feature.properties || {};
+          return props.lens_id === lensId
+            && ["transport_backbone", "transport_thread"].includes(props.flow_style)
+            && ["selected_year_transport_activity_context", "current_context"].includes(props.source_kind);
+        }).length
+        : 0;
+    } catch (_error) {
+      renderedGuideFlow = 0;
+    }
+    try {
+      renderedRoads = map?.getLayer?.("lens-transport-roads") && map.getLayoutProperty("lens-transport-roads", "visibility") !== "none"
+        ? map.queryRenderedFeatures({ layers: ["lens-transport-roads"] }).length
+        : 0;
+    } catch (_error) {
+      renderedRoads = 0;
+    }
+    try {
+      renderedEventPoints = map?.getLayer?.("lens-transport-event-points")
+        && map.getLayoutProperty("lens-transport-event-points", "visibility") !== "none"
+        ? map.queryRenderedFeatures({ layers: ["lens-transport-event-points"] }).length
+        : 0;
+    } catch (_error) {
+      renderedEventPoints = 0;
+    }
+    const invalidFlows = networkFlows.filter((feature) => {
+      const props = feature.properties || {};
+      const eventIds = split(props.event_ids || props.event_id);
+      const sourceIds = split(props.source_ids || props.source_id);
+      const objectIds = split(props.source_object_ids || props.source_object_id);
+      const selectedYearContext = props.source_kind === "selected_year_transport_activity_context"
+        && props.evidence_role === "selected_year_activity_surface_not_direct_change_evidence"
+        && props.detail_layer === "transport_roads_year";
+      const currentContext = props.source_kind === "current_context"
+        && props.evidence_role === "context_not_year_specific_change_evidence"
+        && props.detail_layer === "transport_roads_base";
+      return !feature.geometry
+        || props.direct_evidence_counted !== false
+        || props.headline_count_included !== false
+        || eventIds.length > 0
+        || !sourceIds.length
+        || !sourceIds.every((sourceId) => atlas?.state?.sourceById?.has?.(sourceId))
+        || !objectIds.length
+        || !props.source_urls
+        || !props.generated_from
+        || !props.caveat
+        || !props.context_year
+        || (!selectedYearContext && !currentContext);
+    }).length;
+    return {
+      city: document.querySelector("#cityNameLabel")?.textContent.trim() || "",
+      activeAspect: atlas?.state?.activeAspect || "",
+      year: Number(atlas?.state?.year || 0),
+      guideCount: guide.length,
+      networkFlowCount: networkFlows.length,
+      activityContextCount: networkFlows.filter((feature) => feature.properties?.source_kind === "selected_year_transport_activity_context").length,
+      currentContextCount: networkFlows.filter((feature) => feature.properties?.source_kind === "current_context").length,
+      backboneCount: networkFlows.filter((feature) => feature.properties?.flow_style === "transport_backbone").length,
+      threadCount: networkFlows.filter((feature) => feature.properties?.flow_style === "transport_thread").length,
+      invalidFlows,
+      renderedGuideFlow,
+      renderedEventPoints,
+      renderedRoads,
+      roadYearPath: atlas?.state?.transportRoadFeaturesPathLoaded || "",
+      roadBasePath: atlas?.state?.transportAccessRoadContextPathLoaded || "",
+      bodyText: document.body?.innerText || "",
+      expectedYear: year,
+    };
+  }, { lensId: city.lens, year: city.year });
+  assert(state.city === city.label, `transport ${city.id} ${city.lens}: loaded ${state.city} instead of ${city.label}.`);
+  assert(state.activeAspect === city.lens, `transport ${city.id}: active aspect is ${state.activeAspect}, expected ${city.lens}.`);
+  assert(state.year === city.year, `transport ${city.id} ${city.lens}: loaded year ${state.year}, expected ${city.year}.`);
+  assert(state.networkFlowCount >= city.minFlows, `transport ${city.id} ${city.lens}: too few citywide network flows (${state.networkFlowCount}).`);
+  assert(state.renderedGuideFlow >= city.minRenderedGuideFlows, `transport ${city.id} ${city.lens}: guide network flows did not render enough features (${state.renderedGuideFlow}).`);
+  assert(state.renderedEventPoints > 0, `transport ${city.id} ${city.lens}: direct transport evidence points were hidden by context routes.`);
+  assert(state.invalidFlows === 0, `transport ${city.id} ${city.lens}: ${state.invalidFlows} network guide feature(s) lack provenance/non-headline flags.`);
+  assert(state.backboneCount > 0, `transport ${city.id} ${city.lens}: no backbone routes were present.`);
+  if (city.minActivityContext) {
+    assert(state.activityContextCount >= city.minActivityContext, `transport ${city.id} ${city.lens}: too few selected-year activity routes (${state.activityContextCount}).`);
+    assert(state.roadYearPath.includes(`transport_roads_${city.year}.geojson`), `transport ${city.id} ${city.lens}: selected-year road artifact did not load (${state.roadYearPath}).`);
+  }
+  if (city.minCurrentContext) {
+    assert(state.currentContextCount >= city.minCurrentContext, `transport ${city.id} ${city.lens}: too few current-context road routes (${state.currentContextCount}).`);
+    assert(state.roadBasePath.includes("transport_roads_base.geojson"), `transport ${city.id} ${city.lens}: base road context did not load (${state.roadBasePath}).`);
+  }
+  const viewport = page.viewportSize() || { width: 1440, height: 900 };
+  const png = await page.screenshot({
+    path: path.join(outputDir, `paper-atlas-${city.id}-${city.lens}-citywide.png`),
+    clip: {
+      x: Math.round(viewport.width * 0.47),
+      y: Math.round(viewport.height * 0.1),
+      width: Math.round(viewport.width * 0.26),
+      height: Math.round(viewport.height * 0.68),
+    },
+  });
+  assertDetailedPng(png, assert, `transport ${city.id} ${city.lens} citywide`);
+}
+
 async function assertCivicAccessCitywideContext(page, city) {
   await page.waitForFunction(() => window.BimsAtlas?.state?.activeAspect === "civic-access-gaps", null, { timeout: 15000 });
   await page.waitForFunction(
@@ -1837,6 +2016,28 @@ async function assertCivicAccessCitywideContext(page, city) {
     }
   }
 
+  const transportNetworkChecks = [
+    { id: "belfast", label: "Belfast", year: 2007, lens: "transport-speed", minFlows: 180, minRenderedGuideFlows: 80, minCurrentContext: 180 },
+    { id: "belfast", label: "Belfast", year: 2007, lens: "transport-reliability", minFlows: 180, minRenderedGuideFlows: 80, minCurrentContext: 180 },
+    { id: "london", label: "London", year: 2024, lens: "transport-speed", minFlows: 1200, minRenderedGuideFlows: 220, minActivityContext: 700, minCurrentContext: 300 },
+    { id: "london", label: "London", year: 2024, lens: "transport-reliability", minFlows: 900, minRenderedGuideFlows: 180, minActivityContext: 550, minCurrentContext: 300 },
+    { id: "nyc", label: "New York City", year: 2024, lens: "transport-speed", minFlows: 900, minRenderedGuideFlows: 300, minActivityContext: 520, minCurrentContext: 240 },
+    { id: "nyc", label: "New York City", year: 2024, lens: "transport-reliability", minFlows: 760, minRenderedGuideFlows: 260, minActivityContext: 430, minCurrentContext: 240 },
+  ];
+  for (const city of transportNetworkChecks) {
+    progress("transport network context", city.id, city.lens);
+    const cityBrowser = await chromium.launch(chromiumLaunchOptions);
+    const page = await cityBrowser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+    try {
+      attachConsoleCapture(page, consoleMessages, pageErrors);
+      await openAtlasShell(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=${city.lens}`);
+      await assertTransportNetworkCitywideContext(page, city);
+    } finally {
+      await page.close().catch(() => {});
+      await cityBrowser.close().catch(() => {});
+    }
+  }
+
   const civicContextChecks = [
     { id: "belfast", label: "Belfast", year: 2024, minAnchors: 3500, minStops: 1500, minGuideFeatures: 1350, minCells: 900, minCoverageFlows: 70, minGapFlows: 70, minServiceNodes: 28, minStopNodes: 26 },
     { id: "london", label: "London", year: 2024, minAnchors: 12000, minStops: 6500, minGuideFeatures: 3250, minCells: 2800, minCoverageFlows: 100, minGapFlows: 100, minServiceNodes: 32, minStopNodes: 30 },
@@ -1859,7 +2060,7 @@ async function assertCivicAccessCitywideContext(page, city) {
   const actionable = actionableConsoleMessages(consoleMessages);
   assert(pageErrors.length === 0, `Dashboard page errors:\n${pageErrors.join("\n")}`);
   assert(actionable.length === 0, `Dashboard console warnings/errors:\n${actionable.map((message) => `${message.type}: ${message.text}`).join("\n")}`);
-  console.log("OpenCityLog paper-atlas dashboard smoke OK: desktop, tablet, mobile, Belfast/London/NYC city checks, transport-access context, and civic-access context checks passed.");
+  console.log("OpenCityLog paper-atlas dashboard smoke OK: desktop, tablet, mobile, Belfast/London/NYC city checks, transport speed/reliability/access context, and civic-access context checks passed.");
 })().catch((error) => {
   console.error(error);
   process.exit(1);
