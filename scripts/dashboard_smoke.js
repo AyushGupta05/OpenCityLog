@@ -963,6 +963,133 @@ async function assertDirectGuideSurface(page, label, { expected, allowContextGui
   assert(state.renderedGuides === 0, `${label}: non-eligible guide rendered ${state.renderedGuides} feature(s).`);
 }
 
+async function assertPlanningPressureCitywideContext(page, cityId, targetYear) {
+  const minimumContextFlows = { belfast: 80, london: 260, nyc: 220 }[cityId] || 80;
+  await page.waitForFunction(() => {
+    const features = window.BimsAtlas?.state?.lensGuideFeatureCache?.features || [];
+    return features.some((feature) => feature?.properties?.source_kind === "current_context"
+      && feature?.properties?.detail_layer === "transport_roads_base"
+      && feature?.properties?.flow_style === "planning_pressure_trace");
+  }, null, { timeout: 20000 });
+  await page.waitForFunction(() => {
+    const map = window.BimsAtlas?.state?.map;
+    if (!map?.getLayer?.("lens-guide-flow") || map.getLayoutProperty("lens-guide-flow", "visibility") === "none") return false;
+    try {
+      return map.queryRenderedFeatures({ layers: ["lens-guide-flow"] }).some((feature) => {
+        const props = feature.properties || {};
+        return props.source_kind === "current_context"
+          && props.detail_layer === "transport_roads_base"
+          && props.flow_style === "planning_pressure_trace";
+      });
+    } catch (_error) {
+      return false;
+    }
+  }, null, { timeout: 20000 });
+  const state = await page.evaluate(({ year }) => {
+    const atlas = window.BimsAtlas;
+    const map = atlas?.state?.map;
+    const guide = atlas?.state?.lensGuideFeatureCache?.features || [];
+    const split = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
+    const row = atlas?.state?.lensYearCoverageByKey?.get?.(`planning-pressure:${Number(year)}`) || null;
+    const detailCount = (atlas?.state?.lensDetailFeatures || []).filter((feature) => {
+      const props = feature.properties || {};
+      return props.layer === "planning_cell" && Number(props.year || props.visible_year || 0) === Number(year);
+    }).length;
+    const detailEventIds = new Set();
+    for (const feature of atlas?.state?.lensDetailFeatures || []) {
+      const props = feature.properties || {};
+      if (props.layer !== "planning_cell" || Number(props.year || props.visible_year || 0) !== Number(year)) continue;
+      for (const eventId of split(props.event_ids_all || props.event_ids || "")) detailEventIds.add(eventId);
+    }
+    const mapDirectCount = Number(row?.map_direct_event_count ?? row?.direct_event_count ?? 0);
+    let renderedContextFlows = 0;
+    try {
+      renderedContextFlows = map?.getLayer?.("lens-guide-flow") && map.getLayoutProperty("lens-guide-flow", "visibility") !== "none"
+        ? map.queryRenderedFeatures({ layers: ["lens-guide-flow"] }).filter((feature) => {
+          const props = feature.properties || {};
+          return props.source_kind === "current_context"
+            && props.detail_layer === "transport_roads_base"
+            && props.flow_style === "planning_pressure_trace";
+        }).length
+        : 0;
+    } catch (_error) {
+      renderedContextFlows = 0;
+    }
+    const contextFlows = guide.filter((feature) => {
+      const props = feature.properties || {};
+      return props.kind === "flow"
+        && props.source_kind === "current_context"
+        && props.evidence_role === "context_not_year_specific_change_evidence"
+        && props.detail_layer === "transport_roads_base"
+        && props.flow_style === "planning_pressure_trace";
+    });
+    const directAggregates = guide.filter((feature) => {
+      const props = feature.properties || {};
+      return props.kind === "surface_cell"
+        && props.source_kind === "source_backed_event_aggregate"
+        && props.evidence_role === "selected_year_direct_event_aggregate"
+        && props.detail_layer === "event_point_aggregate";
+    });
+    const invalidContext = contextFlows.filter((feature) => {
+      const props = feature.properties || {};
+      return !feature.geometry
+        || props.direct_evidence_counted !== false
+        || props.headline_count_included !== false
+        || split(props.event_ids || props.event_id).length > 0
+        || !split(props.source_ids || props.source_id).every((sourceId) => atlas?.state?.sourceById?.has?.(sourceId))
+        || !split(props.source_object_ids || props.source_object_id).length
+        || !props.source_urls
+        || !props.generated_from
+        || !props.caveat;
+    }).length;
+    const invalidDirectAggregates = directAggregates.filter((feature) => {
+      const props = feature.properties || {};
+      const eventIds = split(props.event_ids || props.event_id);
+      const sourceIds = split(props.source_ids || props.source_id);
+      return !feature.geometry
+        || props.direct_evidence_counted !== true
+        || props.headline_count_included !== true
+        || !eventIds.length
+        || !sourceIds.length
+        || !eventIds.every((eventId) => atlas?.state?.eventById?.has?.(eventId))
+        || !sourceIds.every((sourceId) => atlas?.state?.sourceById?.has?.(sourceId))
+        || !props.source_urls
+        || !props.generated_from
+        || /current_context|context_not_year_specific/i.test(`${props.source_kind} ${props.evidence_role}`);
+    }).length;
+    const duplicateDirectAggregateEventCount = directAggregates.reduce((sum, feature) => {
+      const props = feature.properties || {};
+      return sum + split(props.event_ids || props.event_id).filter((eventId) => detailEventIds.has(eventId)).length;
+    }, 0);
+    const aggregateExpected = mapDirectCount >= 6
+      && mapDirectCount > detailEventIds.size
+      && detailCount < Math.min(96, Math.max(24, Math.round(mapDirectCount * 0.92)));
+    return {
+      contextFlowCount: contextFlows.length,
+      directAggregateCount: directAggregates.length,
+      invalidContext,
+      invalidDirectAggregates,
+      duplicateDirectAggregateEventCount,
+      renderedContextFlows,
+      aggregateExpected,
+      roadContextPath: atlas?.state?.planningRoadContextPathLoaded || "",
+      roadContextSourceCount: atlas?.state?.planningRoadContextFeatures?.length || 0,
+      detailCount,
+      mapDirectCount,
+    };
+  }, { year: targetYear });
+  assert(state.roadContextPath.includes("transport_roads_base.geojson"), `planning context ${cityId}: road context path did not load (${state.roadContextPath}).`);
+  assert(state.roadContextSourceCount >= minimumContextFlows, `planning context ${cityId}: too few source road features loaded (${state.roadContextSourceCount}).`);
+  assert(state.contextFlowCount >= minimumContextFlows, `planning context ${cityId}: too few citywide current-context road traces (${state.contextFlowCount}).`);
+  assert(state.renderedContextFlows > 0, `planning context ${cityId}: current-context road traces did not render.`);
+  assert(state.invalidContext === 0, `planning context ${cityId}: ${state.invalidContext} road-context guide feature(s) lack provenance/non-headline flags.`);
+  assert(state.invalidDirectAggregates === 0, `planning context ${cityId}: ${state.invalidDirectAggregates} direct event aggregate(s) lack provenance.`);
+  assert(state.duplicateDirectAggregateEventCount === 0, `planning context ${cityId}: ${state.duplicateDirectAggregateEventCount} direct event aggregate id(s) duplicate detail cells.`);
+  if (state.aggregateExpected) {
+    assert(state.directAggregateCount > 0, `planning context ${cityId}: sparse planning detail did not produce direct event aggregate cells.`);
+  }
+}
+
 async function assertCitySourceBackedLensCoverage(page, cityId) {
   await page.evaluate(async () => {
     await window.BimsAtlas?.setAreaFilter?.("");
@@ -1074,6 +1201,9 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     assert(rendered > 0, `city ${cityId}: ${check.label} did not render across the ${targetYear} citywide map.`);
     if (typeof check.guideExpected === "boolean") {
       await assertDirectGuideSurface(page, `city ${cityId}: ${check.aspect}`, { expected: check.guideExpected });
+    }
+    if (check.aspect === "planning-pressure") {
+      await assertPlanningPressureCitywideContext(page, cityId, targetYear);
     }
     const citywidePng = await page.screenshot({
       path: path.join(outputDir, `paper-atlas-${cityId}-${check.aspect}-citywide.png`),

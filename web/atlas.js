@@ -789,6 +789,10 @@
     transportRoadFeaturesPathLoaded: null,
     transportRoadFeaturesByYear: new Map(),
     transportRoadFeatureLoadsByYear: new Map(),
+    planningRoadContextPathLoaded: null,
+    planningRoadContextFeatures: [],
+    planningRoadContextMetadata: null,
+    planningRoadContextLoadPromise: null,
     transportStopFeaturesPathLoaded: null,
     transportStopContextMetadata: null,
     transportStopFeatures: [],
@@ -1209,6 +1213,10 @@
     state.transportRoadFeatures = [];
     state.transportRoadFeaturesByYear.clear();
     state.transportRoadFeatureLoadsByYear.clear();
+    state.planningRoadContextPathLoaded = null;
+    state.planningRoadContextFeatures = [];
+    state.planningRoadContextMetadata = null;
+    state.planningRoadContextLoadPromise = null;
     if (els.searchInput) els.searchInput.value = state.search;
     if (els.areaFilterInput) els.areaFilterInput.value = state.areaFilter;
     if (els.confidenceFilter) els.confidenceFilter.value = state.confidenceFilter;
@@ -3282,7 +3290,7 @@
           ["==", ["get", "flow_style"], "planning_pressure_spine"], 0.58,
           ["==", ["get", "flow_style"], "planning_pressure_edge"], 0.5,
           ["==", ["get", "flow_style"], "planning_pressure_cell_edge"], 0.34,
-          ["==", ["get", "flow_style"], "planning_pressure_trace"], 0.24,
+          ["==", ["get", "flow_style"], "planning_pressure_trace"], 0.34,
           ["==", ["get", "flow_style"], "catchment_street_seam"], 0.64,
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]], 0.96,
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]], 0.34,
@@ -3363,7 +3371,7 @@
           ["==", ["get", "flow_style"], "planning_pressure_cell_edge"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.78, 1, 2.35],
           ["==", ["get", "flow_style"], "planning_pressure_trace"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.68, 1, 2.15],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.9, 1, 2.75],
           ["==", ["get", "flow_style"], "catchment_street_seam"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.2, 1, 3.35],
           ["==", ["get", "flow_style"], "transport_service_tick"],
@@ -3494,7 +3502,7 @@
           ["==", ["get", "flow_style"], "planning_pressure_cell_edge"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.18, 1, 0.48],
           ["==", ["get", "flow_style"], "planning_pressure_trace"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.14, 1, 0.38],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.22, 1, 0.56],
           ["==", ["get", "flow_style"], "catchment_street_seam"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.62, 1, 0.9],
           ["==", ["get", "flow_style"], "transport_service_tick"],
@@ -3600,7 +3608,7 @@
           ["==", ["get", "flow_style"], "planning_pressure_cell_edge"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.24, 1, 0.82],
           ["==", ["get", "flow_style"], "planning_pressure_trace"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.18, 1, 0.78],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.34, 1, 1.14],
           ["==", ["get", "flow_style"], "catchment_street_seam"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.54, 1, 1.62],
           ["==", ["get", "flow_style"], "transport_service_tick"],
@@ -6522,14 +6530,17 @@
     const detailFeatures = canUseDirectDetail ? sourceBackedGuideDetailFeatures(lens, year) : [];
     const directFeatures = canUseDirectDetail
       ? sourceBackedCitywideGuideFeatures(detailFeatures, lens, year)
+        .concat(sourceBackedEventCitywideGuideFeatures(detailFeatures, lens, year))
         .concat(detailFeatures.length <= 12 ? detailFeatures.map((feature) => sourceBackedDetailGuideFeature(feature, lens, year)) : [])
         .filter((feature) => guideFeatureHasProvenance(feature, lens))
       : [];
+    const planningContextFeatures = planningPressureRoadContextCitywideGuideFeatures(lens, year)
+      .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
     const contextFeatures = civicContextCitywideGuideFeatures(lens, year)
       .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
     const transportContextFeatures = transportAccessContextCitywideGuideFeatures(lens, year)
       .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
-    const features = directFeatures.concat(contextFeatures, transportContextFeatures);
+    const features = directFeatures.concat(planningContextFeatures, contextFeatures, transportContextFeatures);
     return { type: "FeatureCollection", features };
   }
 
@@ -6786,6 +6797,348 @@
       },
       geometry: orientedRectanglePolygon(center, halfLong, halfShort, angle),
     };
+  }
+
+  function sourceBackedEventCitywideGuideFeatures(detailFeatures, lens, year) {
+    if (!sourceBackedEventCitywideGuideNeeded(detailFeatures, lens, year)) return [];
+    const representedDetailEventIds = sourceBackedGuideDetailEventIdSet(detailFeatures);
+    const events = sourceEventsForLensYear(year, lens, lens.category)
+      .filter((event) => event.lngLat && eventWithinCityBounds(event))
+      .filter((event) => !representedDetailEventIds.has(event.id))
+      .filter((event) => isLensDetailEligibleEvent(event));
+    if (!events.length) return [];
+    const bucketM = citywideGuideBucketMeters(lens);
+    const origin = mapCenter();
+    const coverageRow = activeLensYearCoverageRow(lens, year);
+    const buckets = new Map();
+    for (const event of events) {
+      const sourceIds = registeredGuideSourceIds(event.sourceIds || []);
+      const sourceUrls = guideSourceUrlsForEvent(event, sourceIds);
+      if (!sourceIds.length || !sourceUrls.length) continue;
+      const local = lngLatToLocalMeters(event.lngLat, origin);
+      if (!Number.isFinite(local[0]) || !Number.isFinite(local[1])) continue;
+      const sublayerId = planningPressureDriverKey(event);
+      const bucket = `${Math.round(local[0] / bucketM)}:${Math.round(local[1] / bucketM)}:${sublayerId}`;
+      const entry = buckets.get(bucket) || {
+        bucket,
+        sublayerId,
+        layer: "event_point_aggregate",
+        color: sourceBackedGuideColor(sublayerId, lens),
+        count: 0,
+        eventCount: 0,
+        sourceCount: 0,
+        weight: 0,
+        sumX: 0,
+        sumY: 0,
+        maxIntensity: 0,
+        eventIds: new Set(),
+        sourceIds: new Set(),
+        sourceUrls: new Set(),
+        generatedFrom: new Set(),
+        confidenceCounts: new Map(),
+        labels: [],
+        caveats: new Set(),
+        timingNotes: new Set(),
+        precision: new Set(),
+      };
+      const intensity = clamp01(lensHeatWeight(event) * 0.42 + Math.min(0.28, sourceIds.length * 0.035));
+      const weight = Math.max(0.18, intensity) + Math.min(0.55, Math.log1p(sourceIds.length) * 0.08);
+      entry.count += 1;
+      entry.eventCount += 1;
+      entry.sourceCount += sourceIds.length;
+      entry.weight += weight;
+      entry.sumX += local[0] * weight;
+      entry.sumY += local[1] * weight;
+      entry.maxIntensity = Math.max(entry.maxIntensity, intensity);
+      entry.eventIds.add(event.id);
+      sourceIds.slice(0, 10).forEach((sourceId) => entry.sourceIds.add(sourceId));
+      sourceUrls.slice(0, 10).forEach((url) => entry.sourceUrls.add(url));
+      guideGeneratedFromForEvent(event, coverageRow, year).slice(0, 4).forEach((value) => entry.generatedFrom.add(value));
+      const confidence = event.confidence || "documented";
+      entry.confidenceCounts.set(confidence, (entry.confidenceCounts.get(confidence) || 0) + 1);
+      if (event.title) entry.labels.push(event.title);
+      (event.caveats || []).slice(0, 2).forEach((caveat) => entry.caveats.add(caveat));
+      if (event.effectiveDate || event.sourceDateField) entry.timingNotes.add(event.effectiveDate ? `Effective date: ${event.effectiveDate}.` : `Date field: ${event.sourceDateField}.`);
+      if (event.provenance?.geometry_precision) entry.precision.add(event.provenance.geometry_precision);
+      buckets.set(bucket, entry);
+    }
+    const features = [...buckets.values()]
+      .map((entry) => sourceBackedEventCitywideGuideFeature(entry, lens, year, bucketM, origin))
+      .filter(Boolean);
+    return spatiallyBalancedGuideFeatures(features, Math.min(citywideGuideFeatureLimit(lens), 520), lens);
+  }
+
+  function sourceBackedEventCitywideGuideNeeded(detailFeatures, lens, year) {
+    if (lens?.id !== "planning-pressure") return false;
+    if (!sourceBackedGuideLayerVisible(lens)) return false;
+    if (state.search || state.areaFilter) return false;
+    if (!citywideOverviewActive() && !state.citywideLensMode) return false;
+    const row = activeLensYearCoverageRow(lens, year);
+    if (!lensCoverageHasDirectMapGeometry(row)) return false;
+    const mapDirectCount = Number(row?.map_direct_event_count ?? row?.direct_event_count ?? 0);
+    const directCount = lensCoverageDirectEventCount(row);
+    if (mapDirectCount < 6 && directCount < 10) return false;
+    const detailCount = Array.isArray(detailFeatures) ? detailFeatures.length : 0;
+    const representedDetailEventIds = sourceBackedGuideDetailEventIdSet(detailFeatures);
+    if (mapDirectCount <= representedDetailEventIds.size) return false;
+    const sparseThreshold = Math.min(96, Math.max(24, Math.round(mapDirectCount * 0.92)));
+    return detailCount < sparseThreshold || (detailCount < 120 && directCount > detailCount * 1.35);
+  }
+
+  function sourceBackedGuideDetailEventIdSet(detailFeatures) {
+    const eventIds = new Set();
+    for (const feature of detailFeatures || []) {
+      for (const eventId of detailEventIds(feature?.properties || {})) {
+        if (state.eventById.has(eventId)) eventIds.add(eventId);
+      }
+    }
+    return eventIds;
+  }
+
+  function sourceBackedEventCitywideGuideFeature(entry, lens, year, bucketM, origin) {
+    if (!entry?.eventIds?.size || !entry?.sourceIds?.size || !entry.weight || !entry.sourceUrls?.size) return null;
+    const center = offsetLngLat(origin, entry.sumX / entry.weight, entry.sumY / entry.weight);
+    const seed = stableUnit(`${entry.bucket}:${lens.id}:${year}:event-aggregate`);
+    const eventIds = [...entry.eventIds].slice(0, 42);
+    const sourceIds = [...entry.sourceIds].slice(0, 16);
+    const eventCount = Math.max(entry.eventCount, eventIds.length);
+    const sourceCount = Math.max(entry.sourceIds.size, Number(entry.sourceCount || 0), sourceIds.length);
+    const intensity = clamp01(0.24 + entry.maxIntensity * 0.44 + Math.min(0.28, Math.log1p(eventCount) * 0.095) + Math.min(0.12, sourceCount * 0.025) + seed * 0.035);
+    const halfLong = bucketM * 0.72 * (0.92 + intensity * 0.26);
+    const halfShort = bucketM * 0.52 * (0.86 + intensity * 0.2);
+    const angle = (seed - 0.5) * 0.32;
+    const confidence = dominantGuideConfidence(entry.confidenceCounts);
+    const label = entry.labels[0] || `${eventCount} source-backed ${lens.label || "planning"} records`;
+    const generatedFrom = [...entry.generatedFrom].filter(Boolean);
+    return {
+      type: "Feature",
+      properties: {
+        kind: "surface_cell",
+        lens_id: lens.id,
+        surface_style: sourceBackedGuideSurfaceStyle(lens),
+        guide_scale: "citywide_summary",
+        source_kind: "source_backed_event_aggregate",
+        evidence_role: "selected_year_direct_event_aggregate",
+        context_year: String(year),
+        detail_layer: "event_point_aggregate",
+        event_id: eventIds[0] || "",
+        event_ids: eventIds.join(","),
+        event_ids_all: eventIds.join(","),
+        source_ids: sourceIds.join(","),
+        source_urls: [...entry.sourceUrls].slice(0, 12).join(","),
+        confidence,
+        generated_from: generatedFrom.length ? generatedFrom.slice(0, 8).join(",") : `web/data/city-atlas/cities/${state.cityId}/events_${year}.geojson`,
+        event_count: eventCount,
+        source_count: sourceCount,
+        title: `${eventCount} direct source-backed ${lens.label || "planning"} record${eventCount === 1 ? "" : "s"}`,
+        label,
+        timing_note: [...entry.timingNotes][0] || "Filtered by selected event effective year.",
+        caveat: [...entry.caveats][0] || "Citywide summary cells aggregate direct source-backed event points; they are not parcel boundaries, complete planning registers, forecasts, or causal claims.",
+        geometry_precision_mix: [...entry.precision][0] || "Aggregated from direct source-backed event point geometry.",
+        aggregation_note: `Citywide ${Math.round(bucketM)}m event-grid summary generated from direct source-backed planning/built records for ${year}.`,
+        direct_evidence_counted: true,
+        headline_count_included: true,
+        layer_id: sourceBackedGuideLayerId(lens, entry.sublayerId),
+        sublayer_id: entry.sublayerId,
+        planning_status: entry.sublayerId,
+        intensity: Number(intensity.toFixed(3)),
+        score: Number((intensity + Math.min(0.22, eventCount * 0.018) + Math.min(0.14, sourceCount * 0.02) + seed * 0.035).toFixed(3)),
+        color: sourceBackedGuideColor(entry.sublayerId, lens),
+      },
+      geometry: orientedRectanglePolygon(center, halfLong, halfShort, angle),
+    };
+  }
+
+  function guideSourceUrlsForEvent(event, sourceIds = event?.sourceIds || []) {
+    const urls = [];
+    for (const evidence of event?.evidence || []) {
+      if (evidence?.url) urls.push(evidence.url);
+    }
+    if (event?.provenance?.source_url) urls.push(event.provenance.source_url);
+    for (const sourceId of sourceIds || []) {
+      const source = state.sourceById.get(sourceId);
+      if (source?.url) urls.push(source.url);
+      if (source?.source_url) urls.push(source.source_url);
+    }
+    return uniqueGuideValues(urls);
+  }
+
+  function guideGeneratedFromForEvent(event, coverageRow, year) {
+    return uniqueGuideValues([
+      event?.provenance?.transform,
+      event?.provenance?.source_path,
+      coverageRow?.map_artifacts?.events_geojson,
+      coverageRow?.map_artifacts?.events_json,
+      `web/data/city-atlas/cities/${state.cityId}/events_${year}.geojson`,
+    ]);
+  }
+
+  function planningPressureRoadContextCitywideGuideFeatures(lens, year) {
+    if (!planningPressureRoadContextCanRender(lens, year)) return [];
+    requestPlanningRoadContextFeatures();
+    const roads = Array.isArray(state.planningRoadContextFeatures) ? state.planningRoadContextFeatures : [];
+    if (!roads.length || !state.sourceById.has("osm-overpass")) return [];
+    const basisM = citywideBasisMeters();
+    const limit = Math.max(360, Math.min(1350, Math.round(basisM / 52)));
+    const bounds = cityBoundsValues();
+    const candidates = [];
+    for (const road of roads) {
+      const props = road?.properties || {};
+      const point = geometryToLngLat(road?.geometry);
+      if (!point) continue;
+      if (bounds && (point[0] < bounds.west || point[0] > bounds.east || point[1] < bounds.south || point[1] > bounds.north)) continue;
+      const objectId = String(props.source_id || props.id || "").trim();
+      if (!osmObjectUrl(objectId)) continue;
+      const rank = Math.max(0.6, Number(props.rank || 1));
+      const lengthM = geometryLineLengthMeters(road.geometry);
+      if (rank < 1.55 && lengthM < 180) continue;
+      const seed = stableUnit(`${objectId}:planning-road-context`);
+      const intensity = clamp01(0.16 + Math.min(0.3, rank * 0.055) + Math.min(0.22, lengthM / 3600) + seed * 0.05);
+      const score = intensity + Math.min(0.2, rank * 0.045) + Math.min(0.16, lengthM / 5600) + seed * 0.035;
+      candidates.push({
+        road,
+        point,
+        objectId,
+        rank,
+        lengthM,
+        intensity,
+        score,
+      });
+    }
+    const selected = spatiallyBalancedGuideFeatures(
+      candidates
+        .sort((a, b) => b.score - a.score)
+        .slice(0, Math.max(limit * 4, 900))
+        .map((item, index) => planningPressureRoadContextGuideFeature(item, lens, year, index))
+        .filter(Boolean),
+      limit,
+      lens,
+    );
+    return selected;
+  }
+
+  function planningPressureRoadContextCanRender(lens = activeMapLens(), year = currentTimelineYear()) {
+    if (lens?.id !== "planning-pressure") return false;
+    if (!state.activeLayers.has("built_environment")) return false;
+    if (!state.showInferred) return false;
+    if (state.search || state.areaFilter) return false;
+    if (!citywideOverviewActive() && !state.citywideLensMode) return false;
+    if (!sourceBackedGuideLayerVisible(lens)) return false;
+    if (!lensCoverageHasDirectMapGeometry(activeLensYearCoverageRow(lens, year))) return false;
+    return Boolean(transportRoadBasePath());
+  }
+
+  function requestPlanningRoadContextFeatures() {
+    const path = transportRoadBasePath();
+    if (!path) {
+      state.planningRoadContextPathLoaded = null;
+      state.planningRoadContextFeatures = [];
+      state.planningRoadContextMetadata = null;
+      state.planningRoadContextLoadPromise = null;
+      return;
+    }
+    if (state.planningRoadContextPathLoaded === path || state.planningRoadContextLoadPromise) return;
+    state.planningRoadContextPathLoaded = path;
+    state.planningRoadContextFeatures = [];
+    state.planningRoadContextMetadata = null;
+    const promise = fetch(path, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
+        return response.json();
+      })
+      .then((payload) => {
+        if (state.planningRoadContextPathLoaded !== path) return [];
+        const features = Array.isArray(payload.features) ? payload.features : [];
+        state.planningRoadContextFeatures = features.filter((feature) => feature?.geometry);
+        state.planningRoadContextMetadata = payload.metadata || null;
+        updateLensGuideSource();
+        renderLensLegend();
+        return state.planningRoadContextFeatures;
+      })
+      .catch((error) => {
+        if (state.planningRoadContextPathLoaded !== path) return [];
+        console.warn("[atlas] planning road context unavailable", error);
+        state.planningRoadContextPathLoaded = null;
+        state.planningRoadContextFeatures = [];
+        state.planningRoadContextMetadata = null;
+        renderLensLegend();
+        return [];
+      })
+      .finally(() => {
+        if (state.planningRoadContextLoadPromise === promise) state.planningRoadContextLoadPromise = null;
+      });
+    state.planningRoadContextLoadPromise = promise;
+  }
+
+  function planningPressureRoadContextGuideFeature(item, lens, year, index) {
+    const props = item.road?.properties || {};
+    const objectUrl = osmObjectUrl(item.objectId);
+    if (!objectUrl || !item.road?.geometry) return null;
+    const source = state.sourceById.get("osm-overpass");
+    const sourceUrls = uniqueGuideValues([objectUrl, source?.url || source?.source_url || "https://overpass-turbo.eu/"]);
+    const contextGeneratedFrom = planningRoadContextGeneratedFrom();
+    const caveat = props.timing_note || state.planningRoadContextMetadata?.caveat || "Current OSM road geometry is citywide context only; it is not selected-year planning evidence, traffic volume, construction proof, or a causal claim.";
+    const intensity = Number(item.intensity.toFixed(3));
+    const name = props.name && props.name !== "mapped road segment" ? props.name : "mapped road segment";
+    return {
+      type: "Feature",
+      properties: {
+        kind: "flow",
+        lens_id: lens.id,
+        surface_style: sourceBackedGuideSurfaceStyle(lens),
+        flow_role: "context",
+        flow_style: "planning_pressure_trace",
+        guide_scale: "citywide_context",
+        source_kind: "current_context",
+        evidence_role: "context_not_year_specific_change_evidence",
+        context_year: "current_mapped_context",
+        selected_year: String(year),
+        detail_layer: "transport_roads_base",
+        event_id: "",
+        event_ids: "",
+        event_count: 0,
+        source_id: "osm-overpass",
+        source_ids: "osm-overpass",
+        source_object_id: item.objectId,
+        source_object_ids: item.objectId,
+        source_urls: sourceUrls.join(","),
+        source_name: source?.title || "OpenStreetMap extracts via Overpass API",
+        source_count: 1,
+        confidence: "inferred",
+        generated_from: contextGeneratedFrom,
+        title: name,
+        label: name,
+        timing_note: "Current mapped road context; not selected-year direct planning or built-change evidence.",
+        caveat: `${caveat} Excluded from headline event totals.`,
+        geometry_precision_mix: "Current OSM road line geometry clipped to the official city boundary.",
+        aggregation_note: "Citywide current road context provides spatial orientation around direct planning evidence; it is not counted as a planning record.",
+        direct_evidence_counted: false,
+        headline_count_included: false,
+        layer_id: "built_environment",
+        sublayer_id: "built_environment",
+        road_rank: Number(item.rank.toFixed(2)),
+        route_length_m: Math.round(item.lengthM),
+        context_rank: index + 1,
+        intensity,
+        score: Number((item.score + Math.min(0.1, index < 80 ? 0.04 : 0)).toFixed(3)),
+        color: planningRoadContextColor(item.intensity, item.rank),
+      },
+      geometry: item.road.geometry,
+    };
+  }
+
+  function planningRoadContextGeneratedFrom() {
+    const loaded = state.planningRoadContextPathLoaded || transportRoadBasePath();
+    if (!loaded) return "";
+    if (/^\/data\//.test(loaded)) return `web${loaded}`;
+    return String(loaded).replace(/^\//, "");
+  }
+
+  function planningRoadContextColor(intensity = 0.42, rank = 1) {
+    if (intensity > 0.68 || rank >= 4.2) return "#c94b34";
+    if (intensity > 0.55 || rank >= 3.1) return "#d9793e";
+    if (intensity > 0.42 || rank >= 2.2) return "#d9a45b";
+    return "#8faeb3";
   }
 
   function civicContextGuideSupported(lens = activeMapLens()) {
