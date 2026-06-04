@@ -805,6 +805,11 @@ async function directGuideState(page) {
     const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
     const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
     const citywideScope = Boolean(state?.citywideLensMode) || document.querySelector("#mapStudyChip")?.dataset.scope === "city";
+    const contextGuideFeatureCount = guideFeatures.filter((feature) => {
+      const props = feature?.properties || {};
+      return props.source_kind === "current_context" || props.evidence_role === "context_not_year_specific_change_evidence";
+    }).length;
+    const directGuideFeatureCount = Math.max(0, guideFeatures.length - contextGuideFeatureCount);
     const invalidGuideCount = guideFeatures.filter((feature) => {
       const props = feature?.properties || {};
       const eventIds = splitIds(props.event_ids || props.event_id);
@@ -862,13 +867,15 @@ async function directGuideState(page) {
           && !state?.search
           && !state?.areaFilter),
       guideFeatureCount: guideFeatures.length,
+      directGuideFeatureCount,
+      contextGuideFeatureCount,
       renderedGuides,
       invalidGuideCount,
     };
   });
 }
 
-async function assertDirectGuideSurface(page, label, { expected }) {
+async function assertDirectGuideSurface(page, label, { expected, allowContextGuide = false }) {
   if (expected) {
     await page.waitForFunction(() => {
       const state = window.BimsAtlas?.state;
@@ -894,6 +901,13 @@ async function assertDirectGuideSurface(page, label, { expected }) {
     assert(state.guideFeatureCount > 0, `${label}: guide cache is empty.`);
     assert(state.renderedGuides > 0, `${label}: guide did not render.`);
     assert(state.invalidGuideCount === 0, `${label}: guide has ${state.invalidGuideCount} invalid feature(s).`);
+    return;
+  }
+  if (allowContextGuide) {
+    assert(state.directGuideFeatureCount === 0, `${label}: direct guide cache has ${state.directGuideFeatureCount} feature(s); only context guide cells should be present.`);
+    assert(state.contextGuideFeatureCount > 0, `${label}: expected current-context guide cells were not present.`);
+    assert(state.invalidGuideCount === 0, `${label}: context guide has ${state.invalidGuideCount} invalid feature(s).`);
+    assert(state.renderedGuides > 0, `${label}: context guide did not render.`);
     return;
   }
   assert(state.guideFeatureCount === 0, `${label}: non-eligible guide cache has ${state.guideFeatureCount} feature(s).`);
@@ -1049,6 +1063,7 @@ async function assertSparseLensCoverageHonesty(page, cityId) {
         aspect: "civic-access-gaps",
         year: 2024,
         guideExpected: false,
+        allowContextGuide: true,
         label: "London 2024 police-excluded civic access guide",
       },
     ],
@@ -1077,7 +1092,7 @@ async function assertSparseLensCoverageHonesty(page, cityId) {
     await page.waitForTimeout(900);
     const state = await atlasState(page);
     if (typeof check.guideExpected === "boolean") {
-      await assertDirectGuideSurface(page, `city ${cityId}: ${check.label}`, { expected: check.guideExpected });
+      await assertDirectGuideSurface(page, `city ${cityId}: ${check.label}`, { expected: check.guideExpected, allowContextGuide: check.allowContextGuide });
     }
     if (check.rendered) {
       const rendered = check.rendered.reduce((sum, field) => sum + Number(state[field] || 0), 0);

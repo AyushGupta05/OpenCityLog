@@ -359,6 +359,43 @@ assertScopedRoads("belfast", 1, { detail_layers: "web/data/city-atlas/cities/bel
 """
         subprocess.run(["node", "-e", script], cwd=REPO_ROOT, check=True)
 
+    def test_civic_service_context_clips_to_official_city_scope(self) -> None:
+        script = r"""
+const fs = require("fs");
+const path = require("path");
+const {
+  loadCityScopeBoundary,
+  pointInBoundary,
+} = require("./scripts/build_lens_overlays");
+
+const minimumDropped = { belfast: 0, london: 1, nyc: 1 };
+for (const cityId of ["belfast", "london", "nyc"]) {
+  const boundary = loadCityScopeBoundary(cityId);
+  const payload = JSON.parse(fs.readFileSync(
+    path.join(process.cwd(), "web", "data", "city-atlas", "cities", cityId, "civic_services_2026.geojson"),
+    "utf8",
+  ));
+  const scopeFilter = payload.metadata?.city_scope_filter;
+  if (!scopeFilter) throw new Error(`${cityId} missing civic-service official boundary filter metadata`);
+  if (!scopeFilter.boundary_source_url || !scopeFilter.boundary_licence) {
+    throw new Error(`${cityId} missing civic-service official boundary provenance`);
+  }
+  if ((scopeFilter.dropped_out_of_scope_feature_count || 0) < minimumDropped[cityId]) {
+    throw new Error(`${cityId} dropped too few bbox civic-service anchors: ${scopeFilter.dropped_out_of_scope_feature_count || 0}`);
+  }
+  if (scopeFilter.emitted_feature_count !== (payload.features || []).length) {
+    throw new Error(`${cityId} civic-service emitted count does not match artifact feature count`);
+  }
+  let outside = 0;
+  for (const feature of payload.features || []) {
+    const coords = feature.geometry?.coordinates;
+    if (!pointInBoundary(coords, boundary)) outside += 1;
+  }
+  if (outside) throw new Error(`${cityId} emitted ${outside} civic-service anchor(s) outside the official boundary`);
+}
+"""
+        subprocess.run(["node", "-e", script], cwd=REPO_ROOT, check=True)
+
     def test_belfast_city_bounds_match_official_lgd_scope(self) -> None:
         city = read_json(REPO_ROOT / "config" / "cities" / "belfast.json")
         boundary = read_json(REPO_ROOT / "data" / "raw" / "boundaries" / "belfast_osni_lgd_boundary_2012.geojson")

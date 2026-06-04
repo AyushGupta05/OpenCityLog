@@ -27,6 +27,7 @@
     "build:events": "node scripts/build_infrastructure_events.js",
     "build:transit": "node scripts/build_translink_transit_layers.js",
     "fetch:utilities-osm": "node scripts/fetch_belfast_utility_context_osm.js",
+    "fetch:civic-services-osm": "node scripts/fetch_city_civic_service_osm.js",
     "build:utilities": "node scripts/build_utility_network_context.js",
     "build:economy-anchors": "node scripts/build_economy_anchor_context.js",
     "build:civic-services": "node scripts/build_civic_service_context.js",

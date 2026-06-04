@@ -797,6 +797,7 @@
     economyAnchorFeaturesPathLoaded: null,
     economyAnchorFeatures: [],
     civicServiceFeaturesPathLoaded: null,
+    civicServiceContextMetadata: null,
     civicServiceFeatures: [],
     detailFeaturePathLoaded: null,
     detailBuildingFeatures: [],
@@ -5239,6 +5240,7 @@
     state.economyAnchorFeaturesPathLoaded = null;
     state.economyAnchorFeatures = [];
     state.civicServiceFeaturesPathLoaded = null;
+    state.civicServiceContextMetadata = null;
     state.civicServiceFeatures = [];
     state.lensDetailYearPathLoaded = null;
     state.lensDetailYearLoaded = null;
@@ -6100,6 +6102,7 @@
     if (!path) {
       if (state.civicServiceFeaturesPathLoaded !== null || state.civicServiceFeatures.length) {
         state.civicServiceFeaturesPathLoaded = null;
+        state.civicServiceContextMetadata = null;
         state.civicServiceFeatures = [];
         updateLensGuideSource();
         renderLayers();
@@ -6109,6 +6112,7 @@
     }
     if (state.civicServiceFeaturesPathLoaded === path) return;
     state.civicServiceFeaturesPathLoaded = path;
+    state.civicServiceContextMetadata = null;
     state.civicServiceFeatures = [];
     fetch(path, { cache: "no-store" })
       .then((response) => {
@@ -6117,6 +6121,7 @@
       })
       .then((payload) => {
         if (state.civicServiceFeaturesPathLoaded !== path) return;
+        state.civicServiceContextMetadata = payload?.metadata || null;
         state.civicServiceFeatures = Array.isArray(payload.features)
           ? payload.features.filter((feature) => feature.geometry && feature.properties?.layer === "civic_service_anchor")
           : [];
@@ -6128,6 +6133,7 @@
       .catch((error) => {
         if (state.civicServiceFeaturesPathLoaded !== path) return;
         state.civicServiceFeatures = [];
+        state.civicServiceContextMetadata = null;
         console.warn("[atlas] civic service context unavailable", error);
         updateLensGuideSource();
         renderLayers();
@@ -6750,7 +6756,7 @@
       const point = geometryToLngLat(feature?.geometry);
       if (!point) continue;
       if (bounds && (point[0] < bounds.west || point[0] > bounds.east || point[1] < bounds.south || point[1] > bounds.north)) continue;
-      const objectId = String(props.source_id || "").trim();
+      const objectId = String(props.source_object_id || props.source_id || "").trim();
       if (!objectId) continue;
       const sublayerId = civicServiceSublayerKey(props);
       if (activeServices && !activeServices.has(sublayerId)) continue;
@@ -6766,8 +6772,10 @@
         sumY: 0,
         maxRank: 0,
         objectIds: new Set(),
+        sourceIds: new Set(),
         sourceUrls: new Set(),
         sourceNames: new Set(),
+        dataYears: new Set(),
         labels: [],
         caveats: new Set(),
       };
@@ -6780,9 +6788,10 @@
       entry.sumY += local[1] * weight;
       entry.maxRank = Math.max(entry.maxRank, rank);
       entry.objectIds.add(objectId);
-      const objectUrl = osmObjectUrl(objectId);
-      if (objectUrl) entry.sourceUrls.add(objectUrl);
+      for (const sourceId of civicServiceAnchorSourceRegistryIds(props, objectId)) entry.sourceIds.add(sourceId);
+      for (const sourceUrl of civicServiceAnchorSourceUrls(props, objectId)) entry.sourceUrls.add(sourceUrl);
       if (props.source_name) entry.sourceNames.add(props.source_name);
+      if (props.context_data_year) entry.dataYears.add(props.context_data_year);
       if (props.label || props.name) entry.labels.push(props.label || props.name);
       if (props.caveat) entry.caveats.add(props.caveat);
       buckets.set(bucket, entry);
@@ -6805,8 +6814,10 @@
     const angle = (seed - 0.5) * 0.2;
     const serviceLabel = civicServiceSublayerLabel(entry.sublayerId);
     const objectIds = [...entry.objectIds].slice(0, 24);
+    const sourceIds = [...entry.sourceIds].slice(0, 8);
     const sourceUrls = [...entry.sourceUrls].slice(0, 12);
     const generatedFrom = civicServiceContextGeneratedFrom();
+    const contextDataYear = civicServiceContextDataYear(entry);
     const caveat = [...entry.caveats][0] || "Current mapped service anchor only; not an official catchment, capacity, opening-date, quality, or entitlement boundary.";
     return {
       type: "Feature",
@@ -6818,17 +6829,17 @@
         source_kind: "current_context",
         evidence_role: "context_not_year_specific_change_evidence",
         context_year: "current_mapped_context",
-        context_data_year: "2026",
+        context_data_year: contextDataYear,
         selected_year: String(year),
         detail_layer: "civic_service_anchor",
         event_id: "",
         event_ids: "",
         event_count: 0,
-        source_ids: "osm-overpass",
+        source_ids: sourceIds.length ? sourceIds.join(",") : "osm-overpass",
         source_object_ids: objectIds.join(","),
         source_urls: sourceUrls.length ? sourceUrls.join(",") : "https://www.openstreetmap.org/copyright",
         source_names: [...entry.sourceNames].slice(0, 4).join(","),
-        source_count: 1,
+        source_count: Math.max(1, sourceIds.length),
         context_anchor_count: count,
         confidence: "inferred",
         generated_from: generatedFrom,
@@ -6839,7 +6850,7 @@
         timing_note: "Current mapped civic-service context; not selected-year direct change evidence.",
         caveat: `${caveat} OSM mapped visibility may post-date the selected year, and no demand, service quality, entitlement, or causal impact is inferred.`,
         geometry_precision_mix: "Aggregated from current mapped civic-service anchor points and source centroids.",
-        aggregation_note: `Citywide ${Math.round(bucketM)}m context-grid summary generated from Belfast civic-service anchors; excluded from headline event totals.`,
+        aggregation_note: `Citywide ${Math.round(bucketM)}m context-grid summary generated from ${shortCityName(state.city?.display_name || state.cityMeta?.display_name || state.cityId)} civic-service anchors; excluded from headline event totals.`,
         direct_evidence_counted: false,
         headline_count_included: false,
         layer_id: sourceBackedGuideLayerId(lens, entry.sublayerId),
@@ -6858,6 +6869,29 @@
     if (!loaded) return "";
     if (/^\/data\//.test(loaded)) return `web${loaded}`;
     return String(loaded).replace(/^\//, "");
+  }
+
+  function civicServiceContextDataYear(entry = null) {
+    const years = entry?.dataYears?.size ? [...entry.dataYears].filter(Boolean) : [];
+    if (years.length) return years.sort().at(-1);
+    const meta = state.civicServiceContextMetadata || {};
+    return String(meta.context_data_year || meta.year || "2026");
+  }
+
+  function civicServiceAnchorSourceRegistryIds(props = {}, objectId = "") {
+    const explicit = splitGuidePropertyList(props.source_registry_ids || props.source_registry_id || props.registry_source_id);
+    if (explicit.length) return explicit;
+    const sourceIds = splitGuidePropertyList(props.source_ids);
+    const registered = sourceIds.filter((sourceId) => state.sourceById.has(sourceId));
+    if (registered.length) return registered;
+    return osmObjectUrl(props.source_object_id || objectId || props.source_id) ? ["osm-overpass"] : [];
+  }
+
+  function civicServiceAnchorSourceUrls(props = {}, objectId = "") {
+    const urls = splitGuidePropertyList(props.source_urls || props.source_url);
+    const objectUrl = osmObjectUrl(props.source_object_id || objectId || props.source_id);
+    if (objectUrl) urls.push(objectUrl);
+    return [...new Set(urls.filter(Boolean))];
   }
 
   function osmObjectUrl(objectId) {
