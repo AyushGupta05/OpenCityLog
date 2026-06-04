@@ -553,7 +553,17 @@ async function assertDesktopCitywideCoverage(page) {
         && activeCoverageRow?.status === "source_backed_records"
         && activeCoverageRow?.visible_map_contract !== false
         && Number(activeCoverageRow?.direct_event_count || 0) > 0;
-      const canRenderGuide = directCanRenderGuide || civicContextCanRenderGuide || transportContextCanRenderGuide || transportNetworkContextCanRenderGuide;
+      const economyContextCanRenderGuide = activeAspect === "economy-land-use"
+        && Boolean(atlas?.state?.activeLayers?.has?.("economy"))
+        && (atlas?.state?.economyAnchorFeatures || []).length > 0
+        && citywideScope
+        && atlas?.state?.showInferred !== false
+        && !atlas?.state?.search
+        && !atlas?.state?.areaFilter
+        && activeCoverageRow?.status === "source_backed_records"
+        && activeCoverageRow?.visible_map_contract !== false
+        && Number(activeCoverageRow?.direct_event_count || 0) > 0;
+      const canRenderGuide = directCanRenderGuide || civicContextCanRenderGuide || economyContextCanRenderGuide || transportContextCanRenderGuide || transportNetworkContextCanRenderGuide;
       const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
       const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
       const invalidGuideCount = guideFeatures.filter((feature) => {
@@ -1120,6 +1130,97 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear) {
   }
 }
 
+async function assertEconomyLandUseCitywideContext(page, cityId, targetYear) {
+  if (cityId !== "belfast") return;
+  await page.waitForFunction(() => {
+    const features = window.BimsAtlas?.state?.lensGuideFeatureCache?.features || [];
+    return features.some((feature) => {
+      const props = feature?.properties || {};
+      return props.lens_id === "economy-land-use"
+        && props.source_kind === "current_context"
+        && props.detail_layer === "economy_anchors_2026"
+        && props.surface_style === "land_use_tile";
+    });
+  }, null, { timeout: 20000 });
+  await page.waitForFunction(() => {
+    const map = window.BimsAtlas?.state?.map;
+    if (!map?.getLayer?.("lens-guide-citywide-cell-fill") || map.getLayoutProperty("lens-guide-citywide-cell-fill", "visibility") === "none") return false;
+    try {
+      return map.queryRenderedFeatures({ layers: ["lens-guide-citywide-cell-fill"] }).some((feature) => {
+        const props = feature.properties || {};
+        return props.lens_id === "economy-land-use"
+          && props.source_kind === "current_context"
+          && props.detail_layer === "economy_anchors_2026";
+      });
+    } catch (_error) {
+      return false;
+    }
+  }, null, { timeout: 20000 });
+  const state = await page.evaluate(({ year }) => {
+    const atlas = window.BimsAtlas;
+    const map = atlas?.state?.map;
+    const features = (atlas?.state?.lensGuideFeatureCache?.features || [])
+      .filter((feature) => {
+        const props = feature.properties || {};
+        return props.lens_id === "economy-land-use"
+          && props.source_kind === "current_context"
+          && props.detail_layer === "economy_anchors_2026";
+      });
+    const split = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
+    const invalid = features.filter((feature) => {
+      const props = feature.properties || {};
+      const eventIds = split(props.event_ids || props.event_id);
+      const sourceIds = split(props.source_ids || props.source_id);
+      const objectIds = split(props.source_object_ids || props.source_object_id);
+      return !feature.geometry
+        || props.kind !== "surface_cell"
+        || props.surface_style !== "land_use_tile"
+        || props.evidence_role !== "context_not_year_specific_change_evidence"
+        || !props.context_year
+        || !props.generated_from
+        || !props.source_urls
+        || !props.confidence
+        || !props.caveat
+        || props.direct_evidence_counted !== false
+        || props.headline_count_included !== false
+        || eventIds.length > 0
+        || !sourceIds.length
+        || !objectIds.length
+        || !sourceIds.every((id) => atlas?.state?.sourceById?.has?.(id));
+    }).length;
+    let rendered = 0;
+    if (map?.getLayer?.("lens-guide-citywide-cell-fill") && map.getLayoutProperty("lens-guide-citywide-cell-fill", "visibility") !== "none") {
+      try {
+        rendered = map.queryRenderedFeatures({ layers: ["lens-guide-citywide-cell-fill"] })
+          .filter((feature) => {
+            const props = feature.properties || {};
+            return props.lens_id === "economy-land-use"
+              && props.source_kind === "current_context"
+              && props.detail_layer === "economy_anchors_2026";
+          }).length;
+      } catch (_error) {
+        rendered = 0;
+      }
+    }
+    const row = atlas?.state?.lensYearCoverageByKey?.get?.(`economy-land-use:${Number(year)}`);
+    return {
+      contextTileCount: features.length,
+      invalid,
+      rendered,
+      sourcePath: atlas?.state?.economyAnchorFeaturesPathLoaded || "",
+      sourceFeatureCount: atlas?.state?.economyAnchorFeatures?.length || 0,
+      visible: Boolean(row?.visible_map_contract),
+      directCount: Number(row?.direct_event_count || 0),
+    };
+  }, { year: targetYear });
+  assert(state.sourcePath.includes("economy_anchors_2026.geojson"), `economy land-use context ${cityId}: economy anchors did not load (${state.sourcePath}).`);
+  assert(state.sourceFeatureCount >= 1200, `economy land-use context ${cityId}: too few source economy anchors loaded (${state.sourceFeatureCount}).`);
+  assert(state.visible && state.directCount > 0, `economy land-use context ${cityId}: current context rendered without selected-year direct economy evidence.`);
+  assert(state.contextTileCount >= 420, `economy land-use context ${cityId}: too few current-context land-use tiles (${state.contextTileCount}).`);
+  assert(state.rendered > 0, `economy land-use context ${cityId}: current-context land-use tiles did not render.`);
+  assert(state.invalid === 0, `economy land-use context ${cityId}: ${state.invalid} context tile(s) lack provenance/non-headline flags.`);
+}
+
 async function assertCitySourceBackedLensCoverage(page, cityId) {
   await page.evaluate(async () => {
     await window.BimsAtlas?.setAreaFilter?.("");
@@ -1136,7 +1237,7 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     belfast: [
       { aspect: "planning-pressure", year: 2014, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells" },
       { aspect: "civic-access-gaps", year: 2008, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells", guideExpected: true },
-      { aspect: "economy-land-use", year: 2015, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], featureLayer: "economy_activity_cell", label: "economy cells", allowAdjacent: true },
+      { aspect: "economy-land-use", year: 2015, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], featureLayer: "economy_activity_cell", label: "economy cells", allowAdjacent: true, landUseContextExpected: true },
       { aspect: "utilities-capacity", year: 2013, rendered: ["lensUtilityTraceRendered", "lensUtilityAssetsRendered"], renderedLayers: ["lens-utilities-trace", "lens-utility-asset-icons"], featureLayer: "utility_trace", label: "utility traces/assets" },
     ],
     london: [
@@ -1148,7 +1249,8 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     nyc: [
       { aspect: "planning-pressure", year: 2026, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], featureLayer: "planning_cell", label: "planning cells", guideExpected: true },
       { aspect: "civic-access-gaps", rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], featureLayer: "civic_coverage_cell", label: "civic coverage cells", guideExpected: true },
-      { aspect: "economy-land-use", year: 2026, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], featureLayer: "economy_activity_cell", label: "economy cells", guideExpected: true },
+      { aspect: "economy-land-use", year: 2024, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], featureLayer: "economy_activity_cell", label: "economy cells", guideExpected: true },
+      { aspect: "utilities-capacity", year: 2014, rendered: ["lensUtilityTraceRendered", "lensUtilityAssetsRendered"], renderedLayers: ["lens-utilities-trace", "lens-utility-asset-icons"], featureLayer: "utility_trace", label: "utility traces/assets" },
     ],
   };
   const checks = checksByCity[cityId] || checksByCity.belfast;
@@ -1234,6 +1336,9 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     }
     if (check.aspect === "planning-pressure") {
       await assertPlanningPressureCitywideContext(page, cityId, targetYear);
+    }
+    if (check.landUseContextExpected) {
+      await assertEconomyLandUseCitywideContext(page, cityId, targetYear);
     }
     const citywidePng = await page.screenshot({
       path: path.join(outputDir, `paper-atlas-${cityId}-${check.aspect}-citywide.png`),

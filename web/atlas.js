@@ -6193,7 +6193,7 @@
   }
 
   function shouldLoadEconomyAnchors() {
-    return activeLensYearAllowsMapContext() && ["economy-vitality", "economy-gravity"].includes(activeMapLens()?.id) && state.activeLayers.has("economy");
+    return activeLensYearAllowsMapContext() && ["economy-land-use", "economy-vitality", "economy-gravity"].includes(activeMapLens()?.id) && state.activeLayers.has("economy");
   }
 
   function shouldLoadCivicServiceContext() {
@@ -6598,7 +6598,9 @@
       .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
     const transportNetworkFeatures = transportNetworkCitywideGuideFeatures(lens, year)
       .filter((feature) => guideTransportNetworkContextFeatureHasProvenance(feature, lens));
-    const features = directFeatures.concat(planningContextFeatures, contextFeatures, transportContextFeatures, transportNetworkFeatures);
+    const economyLandUseContextFeatures = economyLandUseContextCitywideGuideFeatures(lens, year)
+      .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
+    const features = directFeatures.concat(planningContextFeatures, economyLandUseContextFeatures, contextFeatures, transportContextFeatures, transportNetworkFeatures);
     return { type: "FeatureCollection", features };
   }
 
@@ -6702,6 +6704,84 @@
     if (selectedYearContext && props.detail_layer !== "transport_roads_year") return false;
     if (currentContext && props.detail_layer !== "transport_roads_base") return false;
     return true;
+  }
+
+  function economyLandUseContextCitywideGuideFeatures(lens = activeMapLens(), year = currentTimelineYear()) {
+    if (!economyLandUseContextCanRender(lens, year)) return [];
+    const anchors = Array.isArray(state.economyAnchorFeatures) ? state.economyAnchorFeatures : [];
+    if (!anchors.length || !state.sourceById.has("osm-overpass")) return [];
+    const generatedFrom = economyAnchorContextGeneratedFrom();
+    if (!generatedFrom) return [];
+    const dataYear = economyAnchorContextDataYear();
+    const bounds = cityBoundsValues();
+    const basisM = citywideBasisMeters();
+    const limit = Math.max(520, Math.min(1450, Math.round(basisM / 42)));
+    const candidates = [];
+    for (const anchor of anchors) {
+      const props = anchor?.properties || {};
+      const point = geometryToLngLat(anchor?.geometry);
+      if (!point) continue;
+      if (bounds && (point[0] < bounds.west || point[0] > bounds.east || point[1] < bounds.south || point[1] > bounds.north)) continue;
+      const objectId = String(props.source_id || props.osm_id || props.id || "").trim();
+      const sourceUrl = props.source_url || osmObjectUrl(objectId);
+      if (!objectId || !sourceUrl) continue;
+      const rank = Math.max(0.6, Number(props.anchor_rank || 1));
+      const seed = stableUnit(`${objectId}:economy-land-use-context`);
+      const sublayerId = economyLandUseContextSublayerId(props);
+      const intensity = clamp01(0.18 + Math.min(0.34, rank * 0.105) + seed * 0.08);
+      const widthM = Math.max(38, Math.min(115, 38 + rank * 18 + seed * 18));
+      const heightM = Math.max(26, Math.min(82, 24 + rank * 12 + (1 - seed) * 15));
+      candidates.push({
+        type: "Feature",
+        properties: {
+          kind: "surface_cell",
+          lens_id: lens.id,
+          surface_style: "land_use_tile",
+          guide_scale: "citywide_summary",
+          source_kind: "current_context",
+          evidence_role: "context_not_year_specific_change_evidence",
+          context_year: String(dataYear),
+          detail_layer: "economy_anchors_2026",
+          generated_from: generatedFrom,
+          source_id: objectId,
+          source_ids: "osm-overpass",
+          source_object_id: objectId,
+          source_object_ids: objectId,
+          source_urls: sourceUrl,
+          confidence: props.confidence || "inferred",
+          caveat: props.timing_note || "Current OSM economy and service anchors are non-headline land-use context only; they are not selected-year change evidence, measured activity, footfall, spend, vacancy, or a complete land-use register.",
+          timing_note: props.timing_note || "Current OSM context may post-date the selected evidence year.",
+          geometry_precision_mix: props.geometry_method || "Current OSM point or centroid context; not a surveyed parcel or official land-use boundary.",
+          direct_evidence_counted: false,
+          headline_count_included: false,
+          event_id: "",
+          event_ids: "",
+          event_ids_all: "",
+          layer_id: sublayerId,
+          sublayer_id: sublayerId,
+          land_use_category: sublayerId,
+          label: props.label || props.name || "Mapped economy/service context",
+          title: props.label || props.name || "Mapped economy/service context",
+          intensity: Number(intensity.toFixed(3)),
+          score: Number((intensity + Math.min(0.22, rank * 0.045) + seed * 0.065).toFixed(3)),
+          color: sourceBackedGuideColor(sublayerId, lens),
+        },
+        geometry: orientedRectanglePolygon(point, widthM, heightM, (seed - 0.5) * 0.42),
+      });
+    }
+    return spatiallyBalancedGuideFeatures(candidates, limit, lens);
+  }
+
+  function economyLandUseContextCanRender(lens = activeMapLens(), year = currentTimelineYear()) {
+    if (lens?.id !== "economy-land-use") return false;
+    if (!state.activeLayers.has("economy")) return false;
+    if (!state.showInferred) return false;
+    if (state.search || state.areaFilter) return false;
+    if (!citywideOverviewActive() && !state.citywideLensMode) return false;
+    if (!economyAnchorPath()) return false;
+    const row = activeLensYearCoverageRow(lens, year);
+    if (!row || row.status !== "source_backed_records" || row.visible_map_contract === false) return false;
+    return Number(row.direct_event_count || row.map_direct_event_count || 0) > 0;
   }
 
   function sourceBackedDetailGuideFeature(feature, lens, year) {
@@ -7858,6 +7938,21 @@
 
   function registeredGuideSourceIds(values) {
     return uniqueGuideValues(values).filter((sourceId) => state.sourceById.has(sourceId));
+  }
+
+  function economyAnchorContextGeneratedFrom() {
+    const loaded = state.economyAnchorFeaturesPathLoaded || economyAnchorPath();
+    if (!loaded) return "";
+    if (/^\/data\//.test(loaded)) return `web${loaded}`;
+    return String(loaded).replace(/^\//, "");
+  }
+
+  function economyAnchorContextDataYear() {
+    const years = (state.economyAnchorFeatures || [])
+      .map((feature) => Number(feature?.properties?.context_year || feature?.properties?.observed_year || 0))
+      .filter(Number.isFinite)
+      .filter((year) => year > 0);
+    return String(years.length ? Math.max(...years) : 2026);
   }
 
   function citywideBasisMeters() {
@@ -17486,6 +17581,32 @@
     return byId.get("other_mixed");
   }
 
+  function economyLandUseContextSublayerId(props = {}) {
+    const text = [
+      props.osm_shop,
+      props.osm_amenity,
+      props.osm_tourism,
+      props.osm_office,
+      props.osm_leisure,
+      props.osm_landuse,
+      props.osm_building,
+      props.shop,
+      props.amenity,
+      props.tourism,
+      props.office,
+      props.landuse,
+      props.label,
+      props.name,
+    ].filter(Boolean).join(" ").toLowerCase();
+    if (/vacant|disused|abandoned|empty|closed/.test(text)) return "vacant_low";
+    if (/hotel|restaurant|cafe|caf\u00e9|bar|pub|fast_food|food|drink|nightclub/.test(text)) return "hospitality_leisure";
+    if (/museum|gallery|theatre|cinema|arts|culture|tourism|gift|attraction/.test(text)) return "visitor_culture";
+    if (/office|bank|finance|insurance|industrial|warehouse|factory|manufactur|workshop|car_repair/.test(text)) return "office_business";
+    if (/residential|apartments|house|student|dormitory/.test(text)) return "residential_conversion";
+    if (/retail|shop|mall|supermarket|department_store|chemist|pharmacy|convenience|market|commercial/.test(text)) return "active_retail";
+    return "other_mixed";
+  }
+
   function economyLandUseCategoryFromColor(color) {
     const normalized = String(color || "").toLowerCase();
     return economyLandUseCategories().find((item) => item.color.toLowerCase() === normalized)
@@ -19408,6 +19529,13 @@
           label: `${compactNumber(anchorCount)} anchors + ${renderableCount} records`,
           empty: false,
           note: `${lensGeometryNote(lens, count, renderableCount)} Current OSM economy anchors are context only and may post-date the selected year.`,
+        };
+      }
+      if (lens.id === "economy-land-use" && economyLandUseContextCanRender(lens, state.year) && state.economyAnchorFeatures.length) {
+        return {
+          label: `Cells/context + ${renderableCount} records`,
+          empty: false,
+          note: `${lensGeometryNote(lens, count, renderableCount)} Current OSM economy/service anchors are non-headline context only and may post-date the selected year.`,
         };
       }
       return { label: `Cells/frontages + ${renderableCount} records`, empty: false, note: lensGeometryNote(lens, count, renderableCount) };
