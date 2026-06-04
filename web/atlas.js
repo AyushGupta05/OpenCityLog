@@ -3006,16 +3006,22 @@
           5.5, ["case",
             ["==", ["get", "surface_style"], "land_use_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.3, 1, 0.66],
+            ["==", ["get", "surface_style"], "access_fabric"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.28, 1, 0.54],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.14, 1, 0.42],
           ],
           8.8, ["case",
             ["==", ["get", "surface_style"], "land_use_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.24, 1, 0.56],
+            ["==", ["get", "surface_style"], "access_fabric"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.22, 1, 0.48],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.1, 1, 0.32],
           ],
           10.8, ["case",
             ["==", ["get", "surface_style"], "land_use_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.12, 1, 0.28],
+            ["==", ["get", "surface_style"], "access_fabric"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.16, 1, 0.34],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.06, 1, 0.18],
           ],
           12.2, 0,
@@ -6109,7 +6115,10 @@
   }
 
   function shouldLoadTransportStops() {
-    return activeLensYearAllowsMapContext() && ["transport-speed", "transport-access", "transport-reliability", "civic-access-gaps"].includes(activeMapLens()?.id);
+    const lens = activeMapLens();
+    if (!["transport-speed", "transport-access", "transport-reliability", "civic-access-gaps"].includes(lens?.id)) return false;
+    if (lens.id === "transport-access" && state.activeLayers.has("transport") && transportStopsPath()) return true;
+    return activeLensYearAllowsMapContext(lens);
   }
 
   function shouldLoadEconomyAnchors() {
@@ -6467,6 +6476,7 @@
     if (state.map?.getLayer("lens-guide-flow")) updateLensGuideLayers();
     else renderLensGuideLabels();
     updateLensDetailLayers();
+    updateTransportEventLensLayers();
     renderLayers();
     renderTimeline();
   }
@@ -7042,15 +7052,14 @@
     const seed = stableUnit(`${entry.bucket}:${lens.id}:transport-context`);
     const count = Math.max(1, entry.count);
     const intensity = clamp01(0.14 + Math.min(0.36, Math.log1p(count) * 0.078) + Math.min(0.2, entry.maxRank * 0.038) + Math.min(0.14, entry.maxLineCount * 0.01) + seed * 0.035);
-    const halfLong = bucketM * sourceBackedGuideLongScale(lens) * (0.76 + intensity * 0.2);
-    const halfShort = bucketM * sourceBackedGuideShortScale(lens) * (0.72 + intensity * 0.18);
-    const angle = (seed - 0.5) * 0.16;
+    const radiusM = bucketM * (0.86 + intensity * 0.46) * (entry.mode === "rail" ? 1.08 : entry.mode === "ferry" ? 0.92 : 1);
     const modeLabel = transportAccessContextModeLabel(entry.mode);
     const objectIds = [...entry.objectIds].slice(0, 26);
     const sourceIds = [...entry.sourceIds].slice(0, 8);
     const sourceUrls = [...entry.sourceUrls].slice(0, 12);
     const contextDataYear = transportStopContextDataYear(entry);
     const caveat = [...entry.caveats][0] || "Current mapped stop/station anchor only; not official GTFS, timetable, service frequency, reliability, journey-time, accessibility, or selected-year service evidence.";
+    const bandLabel = transportAccessFabricBandLabel(intensity);
     return {
       type: "Feature",
       properties: {
@@ -7074,6 +7083,7 @@
         source_count: Math.max(1, sourceIds.length),
         context_anchor_count: count,
         center_proxy_anchor_count: entry.proxyCount,
+        access_band: bandLabel,
         confidence: "inferred",
         generated_from: transportStopContextGeneratedFrom(),
         title: `${compactNumber(count)} current mapped ${modeLabel} anchor${count === 1 ? "" : "s"}`,
@@ -7091,9 +7101,9 @@
         mode: entry.mode,
         intensity: Number(intensity.toFixed(3)),
         score: Number((intensity + Math.min(0.22, count * 0.014) + seed * 0.035).toFixed(3)),
-        color: transportAccessContextColor(entry.mode, intensity),
+        color: transportAccessFabricColor(intensity),
       },
-      geometry: orientedRectanglePolygon(center, halfLong, halfShort, angle),
+      geometry: isochronePolygon(center, radiusM, seed * 10),
     };
   }
 
@@ -7241,6 +7251,22 @@
     return "#5aaeb5";
   }
 
+  function transportAccessFabricColor(intensity = 0.5) {
+    if (intensity >= 0.66) return "#e97761";
+    if (intensity >= 0.52) return "#edbd62";
+    if (intensity >= 0.39) return "#dcd776";
+    if (intensity >= 0.26) return "#9bcf9d";
+    return "#b9d8cf";
+  }
+
+  function transportAccessFabricBandLabel(intensity = 0.5) {
+    if (intensity >= 0.66) return "very high mapped stop-density context";
+    if (intensity >= 0.52) return "high mapped stop-density context";
+    if (intensity >= 0.39) return "medium mapped stop-density context";
+    if (intensity >= 0.26) return "low mapped stop-density context";
+    return "very low mapped stop-density context";
+  }
+
   function citywideGuideBucketMeters(lens) {
     const bounds = cityBoundsValues();
     if (!bounds) return lens?.id === "planning-pressure" ? 560 : lens?.category === "civic_services" ? 620 : 640;
@@ -7259,7 +7285,7 @@
     if (lens?.id === "planning-pressure") return 1150;
     if (lens?.id === "transport-access") return 1120;
     if (lens?.id === "economy-land-use") return 1250;
-    if (lens?.category === "civic_services") return 1180;
+    if (lens?.category === "civic_services") return 3200;
     return 900;
   }
 
@@ -16165,6 +16191,7 @@
     const rank = transportRankExpression();
     const opacity = mode === "transport-speed" ? [8, 0.018, 12, 0.055, 16, 0.12]
       : mode === "transport-reliability" ? [8, 0.03, 12, 0.08, 16, 0.16]
+        : quietTransportAccessLinework() ? [8, 0.018, 12, 0.052, 16, 0.12]
         : [8, 0.1, 12, 0.24, 16, 0.42];
     return {
       "line-color": "#fffdf7",
@@ -16181,6 +16208,7 @@
 
   function transportBaseRoadPaint() {
     const mode = activeMapLens().id;
+    const quietAccess = quietTransportAccessLinework();
     const rank = ["to-number", ["get", "rank"], 1];
     const color = mode === "transport-reliability"
       ? [
@@ -16207,15 +16235,16 @@
         ];
     const opacity = mode === "transport-speed" ? [8, 0.018, 12, 0.05, 16, 0.12]
       : mode === "transport-reliability" ? [8, 0.03, 12, 0.07, 16, 0.14]
+        : quietAccess ? [8, 0.014, 12, 0.04, 16, 0.11]
         : [8, 0.12, 12, 0.28, 16, 0.48];
     return {
       "line-color": color,
       "line-opacity": ["interpolate", ["linear"], ["zoom"], ...opacity],
       "line-width": [
         "interpolate", ["linear"], ["zoom"],
-        8, ["*", transportRankExpression(), mode === "transport-speed" ? 0.16 : mode === "transport-reliability" ? 0.11 : 0.2],
-        12, ["*", transportRankExpression(), mode === "transport-speed" ? 0.3 : mode === "transport-reliability" ? 0.23 : 0.38],
-        16, ["*", transportRankExpression(), mode === "transport-speed" ? 0.52 : mode === "transport-reliability" ? 0.42 : 0.68],
+        8, ["*", transportRankExpression(), mode === "transport-speed" ? 0.16 : mode === "transport-reliability" ? 0.11 : quietAccess ? 0.1 : 0.2],
+        12, ["*", transportRankExpression(), mode === "transport-speed" ? 0.3 : mode === "transport-reliability" ? 0.23 : quietAccess ? 0.19 : 0.38],
+        16, ["*", transportRankExpression(), mode === "transport-speed" ? 0.52 : mode === "transport-reliability" ? 0.42 : quietAccess ? 0.36 : 0.68],
       ],
     };
   }
@@ -16227,6 +16256,7 @@
     const rankVisibility = ["interpolate", ["linear"], rankRaw, 1, 0.32, 2, 0.7, 3, 0.92, 4, 1];
     const mode = activeMapLens().id;
     if (mode === "transport-access") {
+      const quietAccess = quietTransportAccessLinework();
       return {
         "line-color": [
           "interpolate", ["linear"], activity,
@@ -16236,12 +16266,16 @@
           0.75, "#8762a7",
           1, "#176f92",
         ],
-        "line-opacity": ["interpolate", ["linear"], activity, 0, 0.16, 0.2, 0.34, 1, 0.58],
+        "line-opacity": [
+          "*",
+          ["interpolate", ["linear"], activity, 0, quietAccess ? 0.028 : 0.16, 0.2, quietAccess ? 0.07 : 0.34, 1, quietAccess ? 0.18 : 0.58],
+          quietAccess ? rankVisibility : 1,
+        ],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, ["*", ["+", 0.32, ["*", activity, 0.58]], rank],
-          13, ["*", ["+", 0.58, ["*", activity, 0.98]], rank],
-          16, ["*", ["+", 0.86, ["*", activity, 1.44]], rank],
+          9, ["*", ["+", quietAccess ? 0.14 : 0.32, ["*", activity, quietAccess ? 0.32 : 0.58]], rank],
+          13, ["*", ["+", quietAccess ? 0.26 : 0.58, ["*", activity, quietAccess ? 0.58 : 0.98]], rank],
+          16, ["*", ["+", quietAccess ? 0.46 : 0.86, ["*", activity, quietAccess ? 0.96 : 1.44]], rank],
         ],
         "line-dasharray": [1.35, 1.15],
       };
@@ -16671,6 +16705,9 @@
       if (civicContextGuideCanRender(lens)) {
         return `No direct source-backed ${label} records match ${row.year}. Current mapped civic-service context may be shown separately as non-headline context; it is not selected-year change evidence, and no filler geometry or direct coverage surface is generated.`;
       }
+      if (transportAccessContextGuideCanRender(lens)) {
+        return `No direct source-backed ${label} records match ${row.year}. Current mapped transport stop/station context may be shown separately as non-headline context; it is not selected-year change, timetable, service-frequency, journey-time, or reliability evidence, and no filler geometry or direct coverage surface is generated.`;
+      }
       return `No source-backed ${label} records match ${row.year}. No coverage surface or filler geometry is generated for this lens/year.`;
     }
     const directCount = lensCoverageDirectEventCount(row);
@@ -16684,6 +16721,9 @@
       if (civicContextGuideCanRender(lens)) {
         return `${compactNumber(broadCount)} broad source-backed ${label} match${broadCount === 1 ? "" : "es"} are available for ${row.year}, but none are direct same-category records for this lens/year. Current mapped civic-service context may be shown separately as non-headline context; no direct map marks, headline counts, coverage surface, or filler geometry are generated.`;
       }
+      if (transportAccessContextGuideCanRender(lens)) {
+        return `${compactNumber(broadCount)} broad source-backed ${label} match${broadCount === 1 ? "" : "es"} are available for ${row.year}, but none are direct same-category records for this lens/year. Current mapped transport stop/station context may be shown separately as non-headline context; no direct map marks, headline counts, coverage surface, or filler geometry are generated.`;
+      }
       return `${compactNumber(broadCount)} broad source-backed ${label} match${broadCount === 1 ? "" : "es"} are available for ${row.year}, but none are direct same-category records for this lens/year. No direct map marks, headline counts, coverage surface, or filler geometry are generated.`;
     }
     return `${compactNumber(directCount)} direct source-backed ${lens?.label || "lens"} record${directCount === 1 ? "" : "s"} match ${row.year}; broad matches, confidence, limitations, sources, licences, and transform notes are in the evidence panel and exports.`;
@@ -16693,6 +16733,7 @@
     if (row?.status === "missing_source_backed_view" || Number(row?.event_count || 0) <= 0) {
       const label = lens?.label || row?.public_label || String(category || "lens").replace(/_/g, " ");
       if (civicContextGuideCanRender(lens)) return `No direct ${row?.year || state.year} ${label} records; current context only.`;
+      if (transportAccessContextGuideCanRender(lens)) return `No direct ${row?.year || state.year} ${label} records; current transport context only.`;
       return `No ${row?.year || state.year} ${label} records; no filler geometry.`;
     }
     if (lensCoverageHasWithheldDirectGeometry(row)) {
@@ -16702,6 +16743,7 @@
     if (row?.status === "adjacent_source_backed_records" || Number(row?.direct_event_count ?? row?.event_count ?? 0) <= 0) {
       const label = lens?.label || row?.public_label || String(category || "lens").replace(/_/g, " ");
       if (civicContextGuideCanRender(lens)) return `Broad ${row?.year || state.year} ${label} matches only; current context is non-headline.`;
+      if (transportAccessContextGuideCanRender(lens)) return `Broad ${row?.year || state.year} ${label} matches only; current transport context is non-headline.`;
       return `Broad ${row?.year || state.year} ${label} matches only; no direct records or filler geometry.`;
     }
     return "";
@@ -17644,9 +17686,12 @@
         && yearCoverage?.visible_map_contract !== false
         && directTransportCount > 0;
       const missingTransportNote = hasDirectTransportRecords ? "" : lensYearCoverageNote(yearCoverage, lens, category);
+      const transportContextFallback = transportAccessContextGuideCanRender(lens)
+        ? "No source-backed transport records intersect mapped road segments for the selected year. Current mapped transport stop/station context is shown separately as non-headline context; it is not selected-year change, timetable, service-frequency, journey-time, or reliability evidence, and no filler geometry is generated."
+        : "No source-backed transport records intersect mapped road segments for the selected year. No generated marks, context surfaces, or filler geometry are shown for this lens/year.";
       const noLineworkNote = hasDirectTransportRecords
         ? `${compactNumber(directTransportCount)} direct source-backed ${lens.label} record${directTransportCount === 1 ? "" : "s"} match ${state.year}, but no mapped road-line detail intersects this year. Point/event evidence remains available; no generated linework or filler geometry is shown.`
-        : missingTransportNote || "No source-backed transport records intersect mapped road segments for the selected year. No generated marks, context surfaces, or filler geometry are shown for this lens/year.";
+        : missingTransportNote || transportContextFallback;
       if (!transportRoadYearPath(state.year)) return { label: "No linework", empty: true, note: noLineworkNote };
       if (state.transportRoadFeatureCountYearLoaded === state.year && state.transportRoadFeatureCount === 0) {
         return {
@@ -17812,6 +17857,9 @@
     if (civicContextGuideCanRender(lens)) {
       return `${prefix}${broadOnly} Current mapped civic-service context may be shown separately as non-headline context; it is not selected-year change evidence, and no direct map marks, headline counts, or filler geometry are generated.`;
     }
+    if (transportAccessContextGuideCanRender(lens)) {
+      return `${prefix}${broadOnly} Current mapped transport stop/station context may be shown separately as non-headline context; it is not selected-year change, timetable, service-frequency, journey-time, or reliability evidence, and no direct map marks, headline counts, or filler geometry are generated.`;
+    }
     return `${prefix}${broadOnly} No generated marks, context surfaces, or filler geometry are shown for this lens/year.`;
   }
 
@@ -17822,8 +17870,10 @@
       civic_services: "civic service",
       economy: lens?.id === "economy-land-use" ? "land-use-specific economy" : "economy",
       utilities: "utility",
+      transport: "transport",
     }[category] || "lens";
     if (civicContextGuideCanRender(lens)) return `No direct source-backed ${year} ${label} records; current context only.`;
+    if (transportAccessContextGuideCanRender(lens)) return `No direct source-backed ${year} ${label} records; current transport context only.`;
     return `No direct source-backed ${year} ${label} records; no filler geometry.`;
   }
 
@@ -17964,6 +18014,12 @@
       els.tlScrub.setAttribute("aria-valuenow", String(state.year));
       els.tlScrub.setAttribute("aria-valuetext", `${state.year}, ${filteredEvents().length} visible records`);
     }
+  }
+
+  function quietTransportAccessLinework() {
+    return activeMapLens().id === "transport-access"
+      && citywideOverviewActive()
+      && hasCitywideGuideSummaryForActiveLens();
   }
 
   function timelineLanesForLens(lens = activeMapLens()) {
@@ -21771,6 +21827,16 @@
     return String(value || "atlas").toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 96) || "atlas";
   }
 
+  function emptyEventListMessage(lens = activeMapLens()) {
+    if (transportAccessContextGuideCanRender(lens)) {
+      return "No source-backed records match the current timeline and filters. Current mapped transport stop/station context is shown on the map as non-headline context; it is not selected-year change, timetable, service-frequency, journey-time, or reliability evidence.";
+    }
+    if (civicContextGuideCanRender(lens)) {
+      return "No source-backed records match the current timeline and filters. Current mapped civic-service context is shown on the map as non-headline context; it is not selected-year change evidence.";
+    }
+    return "No source-backed records match the current timeline and filters.";
+  }
+
   function renderEventList() {
     if (!els.eventList) return;
     const events = filteredEvents();
@@ -21797,7 +21863,7 @@
       const loadError = state.yearLoadErrors.get(state.year);
       els.eventList.innerHTML = loadError
         ? `<div class="event-empty">Could not load ${state.year} records. ${escapeHtml(loadError)}</div>`
-        : `<div class="event-empty">No source-backed records match the current timeline and filters.</div>`;
+        : `<div class="event-empty">${escapeHtml(emptyEventListMessage(lens))}</div>`;
       return;
     }
 

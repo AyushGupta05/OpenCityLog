@@ -17,6 +17,28 @@ function progress(...parts) {
   if (process.env.SMOKE_PROGRESS) console.log("[dashboard_smoke]", ...parts);
 }
 
+async function openAtlasShell(page, targetUrl) {
+  await page.goto(targetUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
+  await page.waitForSelector("#map .maplibregl-canvas", { timeout: 45000 });
+  await page.waitForSelector("#activeLensCard", { timeout: 45000 });
+  await page.waitForSelector("#layersList .layer-row", { state: "attached", timeout: 45000 });
+  await page.waitForFunction(
+    () => document.querySelector("#appStatus")?.textContent.trim() === "",
+    null,
+    { timeout: 45000 }
+  );
+  const welcome = page.locator("#welcome[data-open='true']");
+  if (await welcome.count()) {
+    await page.getByText("Start exploring", { exact: false }).click();
+    await page.waitForFunction(
+      () => document.querySelector("#welcome")?.getAttribute("data-open") === "false"
+        && getComputedStyle(document.querySelector("#welcome")).visibility === "hidden",
+      null,
+      { timeout: 10000 }
+    );
+  }
+}
+
 async function assertResponsiveLayout(page, label) {
   const state = await atlasState(page);
   assert(state.scrollWidth <= state.clientWidth + 4, `${label}: page overflows horizontally.`);
@@ -902,7 +924,7 @@ async function assertDirectGuideSurface(page, label, { expected, allowContextGui
       return rendered > 0;
     }, null, { timeout: 12000 }).catch(() => {});
   }
-  const state = await directGuideState(page);
+  let state = await directGuideState(page);
   if (expected) {
     assert(state.canRenderGuide, `${label}: guide was not eligible for ${state.activeAspect} ${state.year}.`);
     assert(state.guideFeatureCount > 0, `${label}: guide cache is empty.`);
@@ -911,6 +933,26 @@ async function assertDirectGuideSurface(page, label, { expected, allowContextGui
     return;
   }
   if (allowContextGuide) {
+    if (state.renderedGuides === 0) {
+      await page.evaluate(() => window.BimsAtlas?.recenterMap?.());
+      await page.waitForFunction(
+        () => document.querySelector("#mapStudyChip")?.dataset.scope === "city",
+        null,
+        { timeout: 10000 }
+      );
+      await page.waitForFunction(() => {
+        const map = window.BimsAtlas?.state?.map;
+        return ["lens-guide-citywide-cell-fill", "lens-guide-citywide-cell-line", "lens-guide-cell-fill", "lens-guide-area-line", "lens-guide-flow", "lens-guide-node"].some((layer) => {
+          if (!map?.getLayer?.(layer) || map.getLayoutProperty(layer, "visibility") === "none") return false;
+          try {
+            return map.queryRenderedFeatures({ layers: [layer] }).length > 0;
+          } catch (_error) {
+            return false;
+          }
+        });
+      }, null, { timeout: 12000 }).catch(() => {});
+      state = await directGuideState(page);
+    }
     assert(state.directGuideFeatureCount === 0, `${label}: direct guide cache has ${state.directGuideFeatureCount} feature(s); only context guide cells should be present.`);
     assert(state.contextGuideFeatureCount > 0, `${label}: expected current-context guide cells were not present.`);
     assert(state.invalidGuideCount === 0, `${label}: context guide has ${state.invalidGuideCount} invalid feature(s).`);
@@ -1291,6 +1333,7 @@ async function assertTransportAccessStopContext(page, city) {
       guideCount: guide.length,
       renderedGuide,
       appStatus: document.querySelector("#appStatus")?.textContent.trim() || "",
+      bodyText: document.body?.innerText || "",
     };
   });
   assert(state.city === city.label, `transport context ${city.id}: loaded ${state.city} instead of ${city.label}.`);
@@ -1309,9 +1352,19 @@ async function assertTransportAccessStopContext(page, city) {
   }
   assert(state.renderedGuide > 0, `transport context ${city.id}: guide features did not render.`);
   assert(!state.appStatus, `transport context ${city.id}: app status reported ${state.appStatus}.`);
+  assert(!/No generated marks,\s*context surfaces,\s*or filler geometry are shown for this lens\/year/i.test(state.bodyText), `transport context ${city.id}: status copy contradicts rendered current context.`);
+  if (city.expectsContextOnlyNote) {
+    assert(/current mapped transport stop\/station context|current transport context/i.test(state.bodyText), `transport context ${city.id}: status copy does not identify current transport context.`);
+  }
+  const viewport = page.viewportSize() || { width: 1440, height: 900 };
   const png = await page.screenshot({
     path: path.join(outputDir, `paper-atlas-${city.id}-transport-access-context.png`),
-    fullPage: false,
+    clip: {
+      x: Math.round(viewport.width * 0.47),
+      y: Math.round(viewport.height * 0.1),
+      width: Math.round(viewport.width * 0.26),
+      height: Math.round(viewport.height * 0.68),
+    },
   });
   assertDetailedPng(png, assert, `transport context ${city.id}`);
 
@@ -1412,7 +1465,7 @@ async function assertTransportAccessStopContext(page, city) {
   }
 
   const transportContextChecks = [
-    { id: "belfast", label: "Belfast", year: 2007, minStops: 1500, minGuideFeatures: 500, requiredModes: ["bus"], requiredSublayers: ["bus_network"], requiresCenterProxy: false },
+    { id: "belfast", label: "Belfast", year: 2024, minStops: 1500, minGuideFeatures: 500, requiredModes: ["bus"], requiredSublayers: ["bus_network"], requiresCenterProxy: false, expectsContextOnlyNote: true },
     { id: "london", label: "London", year: 2024, minStops: 6500, minGuideFeatures: 1100, requiredModes: ["bus", "rail", "ferry"], requiredSublayers: ["bus_network", "rail_network", "ferry_routes"], requiresCenterProxy: true },
     { id: "nyc", label: "New York City", year: 2024, minStops: 6500, minGuideFeatures: 1100, requiredModes: ["bus", "rail", "ferry"], requiredSublayers: ["bus_network", "rail_network", "ferry_routes"], requiresCenterProxy: true },
   ];
@@ -1422,7 +1475,7 @@ async function assertTransportAccessStopContext(page, city) {
     const page = await cityBrowser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
     try {
       attachConsoleCapture(page, consoleMessages, pageErrors);
-      await openAtlas(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=transport-access`);
+      await openAtlasShell(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=transport-access`);
       await assertTransportAccessStopContext(page, city);
     } finally {
       await page.close().catch(() => {});
