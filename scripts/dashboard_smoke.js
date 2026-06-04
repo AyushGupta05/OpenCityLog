@@ -1395,6 +1395,143 @@ async function assertTransportAccessStopContext(page, city) {
   );
 }
 
+async function assertCivicAccessCitywideContext(page, city) {
+  await page.waitForFunction(() => window.BimsAtlas?.state?.activeAspect === "civic-access-gaps", null, { timeout: 15000 });
+  await page.waitForFunction(
+    (minimum) => (window.BimsAtlas?.state?.civicServiceFeatures || []).length >= minimum,
+    city.minAnchors,
+    { timeout: 20000 }
+  );
+  await page.waitForFunction(
+    (minimum) => (window.BimsAtlas?.state?.transportStopFeatures || []).length >= minimum,
+    city.minStops,
+    { timeout: 20000 }
+  );
+  await page.waitForFunction(
+    () => {
+      const guide = window.BimsAtlas?.state?.lensGuideFeatureCache?.features || [];
+      return guide.some((feature) => feature.properties?.lens_id === "civic-access-gaps" && feature.properties?.kind === "flow" && feature.properties?.flow_role === "gap_seam")
+        && guide.some((feature) => feature.properties?.lens_id === "civic-access-gaps" && feature.properties?.kind === "flow" && feature.properties?.flow_role === "coverage")
+        && guide.some((feature) => feature.properties?.lens_id === "civic-access-gaps" && feature.properties?.node_style === "civic_anchor")
+        && guide.some((feature) => feature.properties?.lens_id === "civic-access-gaps" && feature.properties?.node_style === "transport");
+    },
+    null,
+    { timeout: 20000 }
+  );
+  await page.waitForFunction(
+    () => {
+      const map = window.BimsAtlas?.state?.map;
+      return ["lens-guide-citywide-cell-fill", "lens-guide-coverage-flow", "lens-guide-flow", "lens-guide-icon-node"].some((layerId) => {
+        if (!map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") return false;
+        try {
+          return map.queryRenderedFeatures({ layers: [layerId] }).length > 0;
+        } catch (_error) {
+          return false;
+        }
+      });
+    },
+    null,
+    { timeout: 20000 }
+  );
+  await page.waitForTimeout(700);
+  const guideState = await directGuideState(page);
+  assert(guideState.contextGuideFeatureCount > 0, `civic context ${city.id}: expected current-context guide features.`);
+  assert(guideState.invalidGuideCount === 0, `civic context ${city.id}: context guide has ${guideState.invalidGuideCount} invalid feature(s).`);
+  assert(guideState.renderedGuides > 0, `civic context ${city.id}: context guide did not render.`);
+
+  const state = await page.evaluate(() => {
+    const atlas = window.BimsAtlas;
+    const map = atlas?.state?.map;
+    const services = atlas?.state?.civicServiceFeatures || [];
+    const stops = atlas?.state?.transportStopFeatures || [];
+    const guide = (atlas?.state?.lensGuideFeatureCache?.features || []).filter((feature) => feature.properties?.lens_id === "civic-access-gaps");
+    const row = atlas?.state?.lensYearCoverageByKey?.get?.(`civic-access-gaps:${Number(atlas?.state?.year)}`);
+    const count = (predicate) => guide.filter((feature) => predicate(feature.properties || {})).length;
+    const renderedByLayer = ["lens-guide-citywide-cell-fill", "lens-guide-coverage-flow", "lens-guide-flow", "lens-guide-icon-node"].reduce((acc, layerId) => {
+      if (!map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") {
+        acc[layerId] = 0;
+        return acc;
+      }
+      try {
+        acc[layerId] = map.queryRenderedFeatures({ layers: [layerId] }).length;
+      } catch (_error) {
+        acc[layerId] = 0;
+      }
+      return acc;
+    }, {});
+    return {
+      city: document.querySelector("#cityNameLabel")?.textContent.trim() || "",
+      activeAspect: atlas?.state?.activeAspect || "",
+      servicePath: atlas?.state?.civicServiceFeaturesPathLoaded || "",
+      stopPath: atlas?.state?.transportStopFeaturesPathLoaded || "",
+      serviceCount: services.length,
+      stopCount: stops.length,
+      guideCount: guide.length,
+      cellCount: count((props) => props.kind === "surface_cell" && props.guide_scale === "citywide_summary"),
+      coverageFlowCount: count((props) => props.kind === "flow" && props.flow_role === "coverage"),
+      gapFlowCount: count((props) => props.kind === "flow" && props.flow_role === "gap_seam"),
+      serviceNodeCount: count((props) => props.kind === "node" && props.node_style === "civic_anchor"),
+      stopNodeCount: count((props) => props.kind === "node" && props.node_style === "transport"),
+      directCount: Number(row?.direct_event_count || 0),
+      coverageStatus: row?.status || "",
+      renderedByLayer,
+      appStatus: document.querySelector("#appStatus")?.textContent.trim() || "",
+      bodyText: document.body?.innerText || "",
+    };
+  });
+  assert(state.city === city.label, `civic context ${city.id}: loaded ${state.city} instead of ${city.label}.`);
+  assert(state.activeAspect === "civic-access-gaps", `civic context ${city.id}: active aspect is ${state.activeAspect}.`);
+  assert(state.servicePath.includes("civic_services_2026.geojson"), `civic context ${city.id}: civic service artifact path did not load.`);
+  assert(state.stopPath.includes("transport_stops_2026.geojson"), `civic context ${city.id}: transport stop artifact path did not load.`);
+  assert(state.serviceCount >= city.minAnchors, `civic context ${city.id}: expected at least ${city.minAnchors} service anchors, got ${state.serviceCount}.`);
+  assert(state.stopCount >= city.minStops, `civic context ${city.id}: expected at least ${city.minStops} stop anchors, got ${state.stopCount}.`);
+  assert(state.guideCount >= city.minGuideFeatures, `civic context ${city.id}: too few guide features (${state.guideCount}).`);
+  assert(state.cellCount >= city.minCells, `civic context ${city.id}: too few citywide surface cells (${state.cellCount}).`);
+  assert(state.coverageFlowCount >= city.minCoverageFlows, `civic context ${city.id}: too few coverage flows (${state.coverageFlowCount}).`);
+  assert(state.gapFlowCount >= city.minGapFlows, `civic context ${city.id}: too few low-coverage seam flows (${state.gapFlowCount}).`);
+  assert(state.serviceNodeCount >= city.minServiceNodes, `civic context ${city.id}: too few civic service nodes (${state.serviceNodeCount}).`);
+  assert(state.stopNodeCount >= city.minStopNodes, `civic context ${city.id}: too few stop nodes (${state.stopNodeCount}).`);
+  assert(Object.values(state.renderedByLayer).some((count) => count > 0), `civic context ${city.id}: no guide layer rendered.`);
+  assert(!state.appStatus, `civic context ${city.id}: app status reported ${state.appStatus}.`);
+  if (state.directCount <= 0 || state.coverageStatus !== "source_backed_records") {
+    assert(/current mapped civic-service context|current context only/i.test(state.bodyText), `civic context ${city.id}: status copy does not identify current civic-service context.`);
+  }
+  const viewport = page.viewportSize() || { width: 1440, height: 900 };
+  const png = await page.screenshot({
+    path: path.join(outputDir, `paper-atlas-${city.id}-civic-access-context.png`),
+    clip: {
+      x: Math.round(viewport.width * 0.36),
+      y: Math.round(viewport.height * 0.08),
+      width: Math.round(viewport.width * 0.36),
+      height: Math.round(viewport.height * 0.7),
+    },
+  });
+  assertDetailedPng(png, assert, `civic context ${city.id}`);
+
+  await page.locator(".layer-row[data-sublayer='coverage']").click();
+  await page.waitForFunction(
+    () => {
+      const atlas = window.BimsAtlas;
+      const map = atlas?.state?.map;
+      const guide = atlas?.state?.lensGuideFeatureCache?.features || [];
+      const coverageOff = atlas?.state?.activeAspectLayers && !atlas.state.activeAspectLayers.has("coverage");
+      const hasGapSeams = guide.some((feature) => feature.properties?.lens_id === "civic-access-gaps" && feature.properties?.flow_role === "gap_seam");
+      let renderedGapSeams = 0;
+      if (map?.getLayer?.("lens-guide-flow") && map.getLayoutProperty("lens-guide-flow", "visibility") !== "none") {
+        try {
+          renderedGapSeams = map.queryRenderedFeatures({ layers: ["lens-guide-flow"] }).filter((feature) => feature.properties?.flow_role === "gap_seam").length;
+        } catch (_error) {
+          renderedGapSeams = 0;
+        }
+      }
+      return coverageOff && hasGapSeams && renderedGapSeams > 0;
+    },
+    null,
+    { timeout: 12000 }
+  );
+  await page.locator(".layer-row[data-sublayer='coverage']").click();
+}
+
 (async () => {
   ensureOutputDir();
   const browser = await chromium.launch(chromiumLaunchOptions);
@@ -1483,10 +1620,29 @@ async function assertTransportAccessStopContext(page, city) {
     }
   }
 
+  const civicContextChecks = [
+    { id: "belfast", label: "Belfast", year: 2024, minAnchors: 3500, minStops: 1500, minGuideFeatures: 1350, minCells: 900, minCoverageFlows: 70, minGapFlows: 70, minServiceNodes: 28, minStopNodes: 26 },
+    { id: "london", label: "London", year: 2024, minAnchors: 12000, minStops: 6500, minGuideFeatures: 3250, minCells: 2800, minCoverageFlows: 100, minGapFlows: 100, minServiceNodes: 32, minStopNodes: 30 },
+    { id: "nyc", label: "New York City", year: 2024, minAnchors: 12000, minStops: 6500, minGuideFeatures: 3250, minCells: 2800, minCoverageFlows: 100, minGapFlows: 100, minServiceNodes: 32, minStopNodes: 30 },
+  ];
+  for (const city of civicContextChecks) {
+    progress("civic access context", city.id);
+    const cityBrowser = await chromium.launch(chromiumLaunchOptions);
+    const page = await cityBrowser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+    try {
+      attachConsoleCapture(page, consoleMessages, pageErrors);
+      await openAtlasShell(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=civic-access-gaps`);
+      await assertCivicAccessCitywideContext(page, city);
+    } finally {
+      await page.close().catch(() => {});
+      await cityBrowser.close().catch(() => {});
+    }
+  }
+
   const actionable = actionableConsoleMessages(consoleMessages);
   assert(pageErrors.length === 0, `Dashboard page errors:\n${pageErrors.join("\n")}`);
   assert(actionable.length === 0, `Dashboard console warnings/errors:\n${actionable.map((message) => `${message.type}: ${message.text}`).join("\n")}`);
-  console.log("OpenCityLog paper-atlas dashboard smoke OK: desktop, tablet, mobile, Belfast/London/NYC city checks, and transport-access context checks passed.");
+  console.log("OpenCityLog paper-atlas dashboard smoke OK: desktop, tablet, mobile, Belfast/London/NYC city checks, transport-access context, and civic-access context checks passed.");
 })().catch((error) => {
   console.error(error);
   process.exit(1);

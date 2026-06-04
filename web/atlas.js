@@ -3967,12 +3967,12 @@
         "icon-size": [
           "interpolate", ["linear"], ["zoom"],
           9, ["case",
-            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.62,
+            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.5,
             ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 0.62,
             ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-reliability"]], 0.46,
             ["==", ["get", "node_style"], "transport"], 0.34,
             ["==", ["get", "node_style"], "transport_route"], 0.48,
-            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.72,
+            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.58,
             ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.62,
             ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-demand"]], 0.58,
             ["==", ["get", "node_style"], "civic_anchor"], 0.48,
@@ -3984,12 +3984,12 @@
             ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-works"]], 0.5,
             0.42],
           13, ["case",
-            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.88,
+            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.72,
             ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 0.9,
             ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-reliability"]], 0.68,
             ["==", ["get", "node_style"], "transport"], 0.5,
             ["==", ["get", "node_style"], "transport_route"], 0.7,
-            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.96,
+            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.8,
             ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.86,
             ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-demand"]], 0.82,
             ["==", ["get", "node_style"], "civic_anchor"], 0.7,
@@ -4001,12 +4001,12 @@
             ["all", ["==", ["get", "node_style"], "utility_trace"], ["==", ["get", "lens_id"], "utilities-works"]], 0.74,
             0.58],
           16, ["case",
-            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 1.1,
+            ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.92,
             ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 1.16,
             ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-reliability"]], 0.88,
             ["==", ["get", "node_style"], "transport"], 0.68,
             ["==", ["get", "node_style"], "transport_route"], 0.92,
-            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 1.18,
+            ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.98,
             ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-catchment"]], 1.08,
             ["all", ["==", ["get", "node_style"], "civic_anchor"], ["==", ["get", "lens_id"], "civic-demand"]], 1.02,
             ["==", ["get", "node_style"], "civic_anchor"], 0.92,
@@ -4022,7 +4022,7 @@
         "icon-ignore-placement": true,
         "text-field": [
           "case",
-          ["all", ["==", ["get", "lens_id"], "civic-access-gaps"], ["==", ["get", "node_style"], "civic_anchor"], ["<=", ["to-number", ["get", "label_rank"], 999], 9], [">=", ["to-number", ["get", "intensity"], 0], 0.58]],
+          ["all", ["==", ["get", "lens_id"], "civic-access-gaps"], ["==", ["get", "node_style"], "civic_anchor"], ["<=", ["to-number", ["get", "label_rank"], 999], 6], [">=", ["to-number", ["get", "intensity"], 0], 0.62]],
           ["get", "label"],
           "",
         ],
@@ -5738,6 +5738,7 @@
 
   function guideSeamFlowLayerFilter(lens = activeMapLens()) {
     const base = ["all", ["==", ["get", "kind"], "flow"], ["!=", ["get", "flow_role"], "coverage"]];
+    if (lens?.id === "civic-access-gaps") return [...base, civicAccessActiveSublayerFilter(["gap_seams", "corridors", "civic_services"])];
     if (lens?.id === "planning-pressure") {
       return [
         "all",
@@ -5921,9 +5922,14 @@
   }
 
   function civicAccessActiveSublayerFilter(_fallbackLayers = []) {
-    const active = [...state.activeAspectLayers].filter(Boolean);
-    return active.length
-      ? ["match", ["get", "layer_id"], active, true, false]
+    const active = new Set([...state.activeAspectLayers].filter(Boolean));
+    if (state.activeLayers.has("civic_services")) active.add("civic_services");
+    if (!active.size && _fallbackLayers.length) {
+      for (const layer of _fallbackLayers) active.add(layer);
+    }
+    const values = [...active];
+    return values.length
+      ? ["match", ["get", "layer_id"], values, true, false]
       : ["==", ["get", "layer_id"], "__none__"];
   }
 
@@ -6118,6 +6124,7 @@
     const lens = activeMapLens();
     if (!["transport-speed", "transport-access", "transport-reliability", "civic-access-gaps"].includes(lens?.id)) return false;
     if (lens.id === "transport-access" && state.activeLayers.has("transport") && transportStopsPath()) return true;
+    if (lens.id === "civic-access-gaps" && state.activeLayers.has("civic_services") && transportStopsPath()) return true;
     return activeLensYearAllowsMapContext(lens);
   }
 
@@ -6557,7 +6564,9 @@
 
   function sourceBackedGuideLayerVisible(lens) {
     const active = activeSublayerIdsForLens(lens);
-    if (lens?.id === "civic-access-gaps") return active.includes("coverage");
+    if (lens?.id === "civic-access-gaps") {
+      return ["coverage", "gap_seams", "corridors", "facilities", "civic_services"].some((layerId) => active.includes(layerId));
+    }
     if (lens?.id === "civic-demand") return active.includes("demand_grid");
     return true;
   }
@@ -6808,6 +6817,7 @@
     const origin = mapCenter();
     const bounds = cityBoundsValues();
     const buckets = new Map();
+    const contextCandidates = [];
     for (const feature of anchors) {
       const props = feature?.properties || {};
       const point = geometryToLngLat(feature?.geometry);
@@ -6819,6 +6829,8 @@
       if (activeServices && !activeServices.has(sublayerId)) continue;
       const local = lngLatToLocalMeters(point, origin);
       if (!Number.isFinite(local[0]) || !Number.isFinite(local[1])) continue;
+      const sourceIds = civicServiceAnchorSourceRegistryIds(props, objectId);
+      const sourceUrls = civicServiceAnchorSourceUrls(props, objectId);
       const bucket = `${Math.round(local[0] / bucketM)}:${Math.round(local[1] / bucketM)}:${sublayerId}`;
       const entry = buckets.get(bucket) || {
         bucket,
@@ -6845,18 +6857,43 @@
       entry.sumY += local[1] * weight;
       entry.maxRank = Math.max(entry.maxRank, rank);
       entry.objectIds.add(objectId);
-      for (const sourceId of civicServiceAnchorSourceRegistryIds(props, objectId)) entry.sourceIds.add(sourceId);
-      for (const sourceUrl of civicServiceAnchorSourceUrls(props, objectId)) entry.sourceUrls.add(sourceUrl);
+      for (const sourceId of sourceIds) entry.sourceIds.add(sourceId);
+      for (const sourceUrl of sourceUrls) entry.sourceUrls.add(sourceUrl);
       if (props.source_name) entry.sourceNames.add(props.source_name);
       if (props.context_data_year) entry.dataYears.add(props.context_data_year);
       if (props.label || props.name) entry.labels.push(props.label || props.name);
       if (props.caveat) entry.caveats.add(props.caveat);
       buckets.set(bucket, entry);
+      contextCandidates.push({
+        point,
+        local,
+        props,
+        objectId,
+        sourceIds,
+        sourceUrls,
+        sourceName: props.source_name || props.sourceName || "",
+        contextDataYear: props.context_data_year || "",
+        sublayerId,
+        rank,
+        weight,
+        label: props.label || props.name || "",
+        caveat: props.caveat || "",
+        score: weight
+          + Math.min(0.18, rank * 0.035)
+          + (props.label || props.name ? 0.08 : 0)
+          + stableUnit(`${objectId}:${sublayerId}:civic-context-candidate`) * 0.04,
+      });
     }
     const features = [...buckets.values()]
       .map((entry) => civicContextCitywideGuideFeature(entry, lens, year, bucketM, origin))
       .filter(Boolean);
-    return spatiallyBalancedGuideFeatures(features, citywideGuideFeatureLimit(lens), lens);
+    const balancedCells = spatiallyBalancedGuideFeatures(features, citywideGuideFeatureLimit(lens), lens);
+    if (lens?.id !== "civic-access-gaps") return balancedCells;
+    const transportCandidates = civicAccessContextTransportStopCandidates(origin, bounds);
+    return balancedCells.concat(
+      civicAccessContextCitywideFlowFeatures(contextCandidates, transportCandidates, lens, year, origin),
+      civicAccessContextCitywideNodeFeatures(contextCandidates, transportCandidates, lens, year, origin),
+    );
   }
 
   function civicContextCitywideGuideFeature(entry, lens, year, bucketM, origin) {
@@ -6912,12 +6949,503 @@
         layer_id: sourceBackedGuideLayerId(lens, entry.sublayerId),
         sublayer_id: entry.sublayerId,
         service_type: entry.sublayerId,
+        fabric_shape: lens.id === "civic-access-gaps" ? "citywide_service_patch" : "",
         intensity: Number(intensity.toFixed(3)),
         score: Number((intensity + Math.min(0.22, count * 0.018) + seed * 0.035).toFixed(3)),
-        color: sourceBackedGuideColor(entry.sublayerId, lens),
+        color: lens.id === "civic-access-gaps"
+          ? civicAccessContextPatchColor(intensity, entry.sublayerId)
+          : sourceBackedGuideColor(entry.sublayerId, lens),
       },
-      geometry: orientedRectanglePolygon(center, halfLong, halfShort, angle),
+      geometry: lens.id === "civic-access-gaps"
+        ? isochronePolygon(center, bucketM * (0.52 + intensity * 0.32), seed * 12)
+        : orientedRectanglePolygon(center, halfLong, halfShort, angle),
     };
+  }
+
+  function civicAccessContextPatchColor(intensity = 0.45, sublayerId = "") {
+    if (sublayerId === "safety" && intensity > 0.58) return "#e7b85e";
+    if (sublayerId === "health" && intensity > 0.54) return "#e9c171";
+    if (intensity > 0.62) return "#b7c982";
+    if (intensity > 0.48) return "#98c8aa";
+    if (intensity > 0.34) return "#9fcfca";
+    return "#c5ddd5";
+  }
+
+  function civicAccessContextTransportStopCandidates(origin, bounds = cityBoundsValues()) {
+    const stops = Array.isArray(state.transportStopFeatures) ? state.transportStopFeatures : [];
+    if (!stops.length) return [];
+    const candidates = [];
+    for (const feature of stops) {
+      const props = feature?.properties || {};
+      const point = geometryToLngLat(feature?.geometry);
+      if (!point) continue;
+      if (bounds && (point[0] < bounds.west || point[0] > bounds.east || point[1] < bounds.south || point[1] > bounds.north)) continue;
+      const objectId = String(props.source_object_id || props.source_id || "").trim();
+      if (!objectId) continue;
+      const local = lngLatToLocalMeters(point, origin);
+      if (!Number.isFinite(local[0]) || !Number.isFinite(local[1])) continue;
+      const sourceIds = transportStopAnchorSourceRegistryIds(props, objectId);
+      const sourceUrls = transportStopAnchorSourceUrls(props, objectId);
+      const lineCount = Math.max(0, Number(props.servingLineCount || props.routeNode || 0));
+      const rank = Math.max(0.5, Number(props.rank || 1));
+      const weight = clamp01(Number(props.weight || 0.32) + Math.min(0.36, lineCount / 44) + Math.min(0.12, rank * 0.018));
+      const mode = transportStopModeKey(props);
+      candidates.push({
+        point,
+        local,
+        props,
+        objectId,
+        sourceIds,
+        sourceUrls,
+        sourceName: props.sourceName || props.source_name || "",
+        contextDataYear: props.context_data_year || "",
+        mode,
+        lineCount,
+        rank,
+        weight,
+        label: props.name || props.label || "",
+        caveat: props.caveat || "",
+        score: weight
+          + Math.min(0.22, lineCount * 0.014)
+          + Math.min(0.16, rank * 0.032)
+          + stableUnit(`${objectId}:${mode}:civic-stop-context`) * 0.045,
+      });
+    }
+    return candidates.sort((a, b) => b.score - a.score);
+  }
+
+  function civicAccessContextCitywideFlowFeatures(serviceCandidates, stopCandidates, lens, year, origin) {
+    if (lens?.id !== "civic-access-gaps" || !serviceCandidates.length) return [];
+    const basisM = citywideBasisMeters();
+    const serviceSeeds = civicAccessContextBalancedItems(serviceCandidates, {
+      origin,
+      limit: 760,
+      minSpacingM: Math.max(360, Math.min(1180, basisM / 82)),
+      perBucket: 2,
+      bucketM: Math.max(420, Math.min(1250, basisM / 70)),
+      keyForItem: (item) => item.sublayerId,
+    });
+    const stopSeeds = civicAccessContextBalancedItems(stopCandidates, {
+      origin,
+      limit: 680,
+      minSpacingM: Math.max(380, Math.min(1260, basisM / 76)),
+      perBucket: 2,
+      bucketM: Math.max(430, Math.min(1320, basisM / 68)),
+      keyForItem: (item) => item.mode,
+    });
+    const coverageFlows = civicAccessContextCoverageFlowFeatures(serviceSeeds, stopSeeds, lens, year, origin, basisM);
+    const gapSeams = civicAccessContextGapSeamFeatures(serviceSeeds, stopSeeds, lens, year, origin, basisM);
+    return coverageFlows.concat(gapSeams);
+  }
+
+  function civicAccessContextCitywideNodeFeatures(serviceCandidates, stopCandidates, lens, year, origin) {
+    if (lens?.id !== "civic-access-gaps") return [];
+    const basisM = citywideBasisMeters();
+    const serviceNodes = civicAccessContextBalancedItems(serviceCandidates, {
+      origin,
+      limit: 54,
+      minSpacingM: Math.max(680, Math.min(1760, basisM / 44)),
+      perBucket: 1,
+      bucketM: Math.max(700, Math.min(1880, basisM / 42)),
+      keyForItem: (item) => item.sublayerId,
+      limitsByKey: {
+        civic_services: 16,
+        health: 14,
+        libraries: 10,
+        leisure: 10,
+        council: 8,
+        safety: 8,
+      },
+    }).map((item, index) => civicAccessContextServiceNodeFeature(item, lens, year, index));
+    const stopNodes = civicAccessContextBalancedItems(stopCandidates, {
+      origin,
+      limit: 54,
+      minSpacingM: Math.max(760, Math.min(1960, basisM / 40)),
+      perBucket: 1,
+      bucketM: Math.max(780, Math.min(2080, basisM / 38)),
+      keyForItem: (item) => item.mode,
+      limitsByKey: { bus: 36, rail: 14, ferry: 5 },
+    }).map((item, index) => civicAccessContextStopNodeFeature(item, lens, year, index));
+    return serviceNodes.concat(stopNodes).filter(Boolean);
+  }
+
+  function civicAccessContextBalancedItems(items, options = {}) {
+    const origin = options.origin || mapCenter();
+    const limit = Math.max(1, Number(options.limit || 1));
+    const minSpacingM = Math.max(1, Number(options.minSpacingM || 1));
+    const bucketM = Math.max(minSpacingM, Number(options.bucketM || minSpacingM));
+    const perBucket = Math.max(1, Number(options.perBucket || 1));
+    const keyForItem = typeof options.keyForItem === "function" ? options.keyForItem : () => "";
+    const limitsByKey = options.limitsByKey || {};
+    const selected = [];
+    const buckets = new Map();
+    const countsByKey = new Map();
+    for (const item of [...(items || [])].sort((a, b) => Number(b.score || 0) - Number(a.score || 0))) {
+      if (selected.length >= limit) break;
+      const local = item.local || lngLatToLocalMeters(item.point, origin);
+      if (!Number.isFinite(local?.[0]) || !Number.isFinite(local?.[1])) continue;
+      const key = keyForItem(item) || "";
+      const keyLimit = Number(limitsByKey[key] || 0);
+      if (keyLimit && (countsByKey.get(key) || 0) >= keyLimit) continue;
+      const bucket = `${Math.round(local[0] / bucketM)}:${Math.round(local[1] / bucketM)}:${key}`;
+      const bucketCount = buckets.get(bucket) || 0;
+      if (bucketCount >= perBucket) continue;
+      if (selected.some((existing) => keyForItem(existing) === key && lngLatDistanceMeters(existing.point, item.point) < minSpacingM)) continue;
+      selected.push(item);
+      buckets.set(bucket, bucketCount + 1);
+      countsByKey.set(key, (countsByKey.get(key) || 0) + 1);
+    }
+    return selected;
+  }
+
+  function civicAccessContextCoverageFlowFeatures(serviceSeeds, stopSeeds, lens, year, origin, basisM) {
+    if (!serviceSeeds.length || !stopSeeds.length) return [];
+    const stopIndex = civicAccessContextSpatialIndex(stopSeeds, origin, Math.max(520, Math.min(1450, basisM / 62)));
+    const features = [];
+    const styleCounts = new Map();
+    const maxDistance = Math.max(920, Math.min(1850, basisM / 42));
+    const minSpacing = Math.max(420, Math.min(1150, basisM / 78));
+    const occupied = [];
+    for (const service of serviceSeeds) {
+      if (features.length >= 240) break;
+      const nearest = civicAccessContextNearestIndexedItem(service.point, stopIndex, origin, maxDistance);
+      if (!nearest) continue;
+      const stop = nearest.item;
+      const distance = nearest.distance;
+      const style = distance <= 520 ? "service_walk" : distance <= 980 ? "service_bus" : "service_outer";
+      const count = styleCounts.get(style) || 0;
+      if (count >= (style === "service_walk" ? 84 : style === "service_bus" ? 110 : 46)) continue;
+      const mid = midpointLngLat(service.point, stop.point);
+      if (occupied.some((point) => lngLatDistanceMeters(point, mid) < minSpacing)) continue;
+      const intensity = clamp01(
+        0.28
+        + (1 - Math.min(distance, maxDistance) / maxDistance) * 0.42
+        + Number(stop.weight || 0.35) * 0.18
+        + Number(service.weight || 0.35) * 0.08,
+      );
+      features.push(civicAccessContextFlowFeature({
+        lens,
+        year,
+        service,
+        stop,
+        flowRole: "coverage",
+        flowStyle: style,
+        layerId: "coverage",
+        sublayerId: "coverage",
+        title: `${civicServiceSublayerLabel(service.sublayerId)} to mapped ${transportAccessContextModeLabel(stop.mode)}`,
+        label: "Current service/stop proximity",
+        intensity,
+        score: intensity + Math.min(0.16, Number(stop.lineCount || 0) * 0.01) + stableUnit(`${service.objectId}:${stop.objectId}:coverage`) * 0.04,
+        color: civicAccessCoverageColor(style),
+        extra: {
+          service_sublayer: service.sublayerId,
+          mode: stop.mode,
+          distance_m: Math.round(distance),
+          service_density: Number(Math.max(0.18, Number(service.weight || 0.35)).toFixed(3)),
+          stop_density: Number(Math.max(0.16, Number(stop.weight || 0.35)).toFixed(3)),
+        },
+        geometry: { type: "LineString", coordinates: curvedLine(stop.point, service.point, stableUnit(`${service.objectId}:${stop.objectId}:bend`) > 0.5 ? 0.08 : -0.08) },
+      }));
+      occupied.push(mid);
+      styleCounts.set(style, count + 1);
+    }
+    return features;
+  }
+
+  function civicAccessContextGapSeamFeatures(serviceSeeds, stopSeeds, lens, year, origin, basisM) {
+    if (serviceSeeds.length < 2) return [];
+    const stopIndex = civicAccessContextSpatialIndex(stopSeeds, origin, Math.max(560, Math.min(1500, basisM / 58)));
+    const sorted = [...serviceSeeds].sort((a, b) => Number(a.weight || 0) - Number(b.weight || 0));
+    const features = [];
+    const styleCounts = new Map();
+    const occupied = [];
+    const maxPairDistance = Math.max(1250, Math.min(3400, basisM / 25));
+    const minPairDistance = Math.max(480, Math.min(980, basisM / 88));
+    const minSpacing = Math.max(470, Math.min(1280, basisM / 70));
+    for (const service of sorted) {
+      if (features.length >= 260) break;
+      const neighbor = civicAccessContextNearestService(service, serviceSeeds, minPairDistance, maxPairDistance);
+      if (!neighbor) continue;
+      const stopDistance = civicAccessContextNearestIndexedItem(service.point, stopIndex, origin, Math.max(900, Math.min(2200, basisM / 34)))?.distance || maxPairDistance;
+      const serviceGap = clamp01((neighbor.distance - minPairDistance) / Math.max(1, maxPairDistance - minPairDistance));
+      const stopGap = clamp01((stopDistance - minPairDistance * 0.75) / Math.max(1, maxPairDistance - minPairDistance));
+      const serviceDensity = clamp01(1 - serviceGap * 0.72 - stopGap * 0.18 + Number(service.weight || 0.3) * 0.08);
+      const intensity = clamp01(0.26 + serviceGap * 0.42 + stopGap * 0.2 + stableUnit(`${service.objectId}:${neighbor.item.objectId}:gap`) * 0.06);
+      const style = civicAccessGapStyle(intensity, serviceDensity, 1);
+      const count = styleCounts.get(style) || 0;
+      if (count >= (style === "gap_high" ? 74 : style === "gap_medium" ? 110 : style === "gap_low" ? 72 : 24)) continue;
+      const center = midpointLngLat(service.point, neighbor.item.point);
+      if (occupied.some((point) => lngLatDistanceMeters(point, center) < minSpacing)) continue;
+      const seamGeometry = civicAccessContextSeamLine(service.point, neighbor.item.point, neighbor.distance, stableUnit(`${service.objectId}:${neighbor.item.objectId}:seam-line`));
+      if (!seamGeometry) continue;
+      features.push(civicAccessContextFlowFeature({
+        lens,
+        year,
+        service,
+        otherService: neighbor.item,
+        flowRole: "gap_seam",
+        flowStyle: style,
+        layerId: style === "gap_high" || style === "gap_medium" ? "corridors" : "gap_seams",
+        sublayerId: "gap_seams",
+        title: `${civicServiceSublayerLabel(service.sublayerId)} low-coverage guide seam`,
+        label: "Current anchor-density gap seam",
+        intensity,
+        score: intensity + serviceGap * 0.16 + stopGap * 0.08 + stableUnit(`${service.objectId}:${neighbor.item.objectId}:gap-score`) * 0.04,
+        color: civicGapStreetColor(intensity, serviceDensity, Math.max(service.rank || 1, neighbor.item.rank || 1), style),
+        extra: {
+          service_sublayer: service.sublayerId,
+          paired_service_sublayer: neighbor.item.sublayerId,
+          distance_m: Math.round(neighbor.distance),
+          service_density: Number(serviceDensity.toFixed(3)),
+          stop_density: Number(clamp01(1 - stopGap).toFixed(3)),
+        },
+        geometry: seamGeometry,
+      }));
+      occupied.push(center);
+      styleCounts.set(style, count + 1);
+    }
+    return features;
+  }
+
+  function civicAccessContextFlowFeature({ lens, year, service, stop = null, otherService = null, flowRole, flowStyle, layerId, sublayerId, title, label, intensity, score, color, extra = {}, geometry }) {
+    const contextDataYear = civicServiceContextDataYear();
+    const items = [service, stop, otherService].filter(Boolean);
+    const sourceIds = registeredGuideSourceIds(items.flatMap((item) => item.sourceIds || []));
+    const sourceUrls = uniqueGuideValues(items.flatMap((item) => item.sourceUrls || []));
+    const objectIds = uniqueGuideValues(items.map((item) => item.objectId).filter(Boolean));
+    const sourceNames = uniqueGuideValues(items.map((item) => item.sourceName).filter(Boolean));
+    return {
+      type: "Feature",
+      properties: {
+        kind: "flow",
+        lens_id: lens.id,
+        surface_style: sourceBackedGuideSurfaceStyle(lens),
+        source_kind: "current_context",
+        evidence_role: "context_not_year_specific_change_evidence",
+        context_year: "current_mapped_context",
+        context_data_year: contextDataYear,
+        selected_year: String(year),
+        detail_layer: stop ? "civic_service_anchor+transport_stop_anchor" : "civic_service_anchor",
+        generated_from: civicAccessContextGeneratedFrom(),
+        confidence: "inferred",
+        caveat: "Current mapped civic-service and transport-stop anchor context only; not an official catchment, measured travel-time, capacity, entitlement, service-quality, or selected-year change record. Excluded from headline event totals.",
+        direct_evidence_counted: false,
+        headline_count_included: false,
+        event_id: "",
+        event_ids: "",
+        event_count: 0,
+        source_id: sourceIds[0] || "osm-overpass",
+        source_ids: sourceIds.length ? sourceIds.join(",") : "osm-overpass",
+        source_object_id: objectIds[0] || "",
+        source_object_ids: objectIds.join(","),
+        source_urls: sourceUrls.length ? sourceUrls.join(",") : "https://www.openstreetmap.org/copyright",
+        source_names: sourceNames.join(","),
+        source_count: Math.max(1, sourceIds.length),
+        layer_id: layerId,
+        sublayer_id: sublayerId,
+        flow_role: flowRole,
+        flow_style: flowStyle,
+        title,
+        label,
+        timing_note: "Current mapped service/stop context; not selected-year direct change evidence.",
+        geometry_precision_mix: "Derived guide line between current mapped civic-service and transport/service anchor points.",
+        aggregation_note: "Citywide access-guide seam generated from real mapped context anchors and excluded from headline event totals.",
+        intensity: Number(intensity.toFixed(2)),
+        score: Number(score.toFixed(3)),
+        color,
+        ...extra,
+      },
+      geometry,
+    };
+  }
+
+  function civicAccessContextServiceNodeFeature(item, lens, year, index) {
+    const sourceIds = registeredGuideSourceIds(item.sourceIds || []);
+    const sourceUrls = uniqueGuideValues(item.sourceUrls || []);
+    const label = item.label || civicServiceSublayerLabel(item.sublayerId);
+    return {
+      type: "Feature",
+      properties: {
+        kind: "node",
+        lens_id: lens.id,
+        surface_style: sourceBackedGuideSurfaceStyle(lens),
+        source_kind: "current_context",
+        evidence_role: "context_not_year_specific_change_evidence",
+        context_year: "current_mapped_context",
+        context_data_year: item.contextDataYear || civicServiceContextDataYear(),
+        selected_year: String(year),
+        detail_layer: "civic_service_anchor",
+        generated_from: civicServiceContextGeneratedFrom(),
+        confidence: "inferred",
+        caveat: "Current mapped civic-service anchor only; not an official catchment, capacity, entitlement, service-quality, opening-date, or selected-year change record. Excluded from headline event totals.",
+        direct_evidence_counted: false,
+        headline_count_included: false,
+        event_id: "",
+        event_ids: "",
+        event_count: 0,
+        source_id: sourceIds[0] || "osm-overpass",
+        source_ids: sourceIds.length ? sourceIds.join(",") : "osm-overpass",
+        source_object_id: item.objectId,
+        source_object_ids: item.objectId,
+        source_urls: sourceUrls.length ? sourceUrls.join(",") : "https://www.openstreetmap.org/copyright",
+        source_name: item.sourceName || "",
+        source_count: Math.max(1, sourceIds.length),
+        layer_id: "facilities",
+        sublayer_id: item.sublayerId,
+        node_style: "civic_anchor",
+        title: label,
+        label: truncate(label, 28),
+        label_detail: `${civicServiceSublayerLabel(item.sublayerId)} / current context`,
+        label_rank: index + 1,
+        service_type: item.sublayerId,
+        intensity: Number(Math.max(0.38, Math.min(0.98, item.weight || 0.45)).toFixed(2)),
+        score: Number((Number(item.score || 0.5) + 0.08).toFixed(3)),
+        color: civicServiceSublayerColor(item.sublayerId),
+      },
+      geometry: { type: "Point", coordinates: item.point },
+    };
+  }
+
+  function civicAccessContextStopNodeFeature(item, lens, year, index) {
+    const sourceIds = registeredGuideSourceIds(item.sourceIds || []);
+    const sourceUrls = uniqueGuideValues(item.sourceUrls || []);
+    const label = item.label || transportAccessContextModeTitle(item.mode);
+    return {
+      type: "Feature",
+      properties: {
+        kind: "node",
+        lens_id: lens.id,
+        surface_style: sourceBackedGuideSurfaceStyle(lens),
+        source_kind: "current_context",
+        evidence_role: "context_not_year_specific_change_evidence",
+        context_year: "current_mapped_context",
+        context_data_year: item.contextDataYear || transportStopContextDataYear(),
+        selected_year: String(year),
+        detail_layer: "transport_stop_anchor",
+        generated_from: transportStopContextGeneratedFrom(),
+        confidence: "inferred",
+        caveat: "Current mapped transport stop/station anchor only; not timetable, service-frequency, reliability, journey-time, accessibility, or selected-year change evidence. Excluded from headline event totals.",
+        direct_evidence_counted: false,
+        headline_count_included: false,
+        event_id: "",
+        event_ids: "",
+        event_count: 0,
+        source_id: sourceIds[0] || "osm-overpass",
+        source_ids: sourceIds.length ? sourceIds.join(",") : "osm-overpass",
+        source_object_id: item.objectId,
+        source_object_ids: item.objectId,
+        source_urls: sourceUrls.length ? sourceUrls.join(",") : "https://www.openstreetmap.org/copyright",
+        source_name: item.sourceName || "",
+        source_count: Math.max(1, sourceIds.length),
+        layer_id: "coverage",
+        sublayer_id: "coverage",
+        node_style: "transport",
+        node_icon: "stop",
+        mode: item.mode,
+        title: label,
+        label: truncate(label, 24),
+        label_detail: item.lineCount ? `${item.lineCount} lines / current context` : `${transportAccessContextModeTitle(item.mode)} / current context`,
+        label_rank: index + 1,
+        intensity: Number(Math.max(0.34, Math.min(0.98, item.weight || 0.42)).toFixed(2)),
+        score: Number((Number(item.score || 0.5) + 0.06).toFixed(3)),
+        color: transportAccessContextColor(item.mode, item.weight || 0.42),
+      },
+      geometry: { type: "Point", coordinates: item.point },
+    };
+  }
+
+  function civicAccessContextSpatialIndex(items, origin, cellM) {
+    const cells = new Map();
+    for (const item of items || []) {
+      const local = item.local || lngLatToLocalMeters(item.point, origin);
+      if (!Number.isFinite(local?.[0]) || !Number.isFinite(local?.[1])) continue;
+      const key = `${Math.round(local[0] / cellM)}:${Math.round(local[1] / cellM)}`;
+      const bucket = cells.get(key) || [];
+      bucket.push(item);
+      cells.set(key, bucket);
+    }
+    return { cells, cellM };
+  }
+
+  function civicAccessContextNearestIndexedItem(point, index, origin, maxDistance) {
+    if (!index?.cells?.size || !point) return null;
+    const local = lngLatToLocalMeters(point, origin);
+    if (!Number.isFinite(local?.[0]) || !Number.isFinite(local?.[1])) return null;
+    const cx = Math.round(local[0] / index.cellM);
+    const cy = Math.round(local[1] / index.cellM);
+    const radius = Math.max(1, Math.ceil(maxDistance / index.cellM) + 1);
+    let best = null;
+    for (let dx = -radius; dx <= radius; dx += 1) {
+      for (let dy = -radius; dy <= radius; dy += 1) {
+        const bucket = index.cells.get(`${cx + dx}:${cy + dy}`) || [];
+        for (const item of bucket) {
+          const distance = lngLatDistanceMeters(point, item.point);
+          if (!Number.isFinite(distance) || distance > maxDistance) continue;
+          if (!best || distance < best.distance) best = { item, distance };
+        }
+      }
+    }
+    return best;
+  }
+
+  function civicAccessContextNearestService(item, services, minDistance, maxDistance) {
+    let best = null;
+    for (const candidate of services || []) {
+      if (candidate === item || candidate.objectId === item.objectId) continue;
+      const distance = lngLatDistanceMeters(item.point, candidate.point);
+      if (!Number.isFinite(distance) || distance < minDistance || distance > maxDistance) continue;
+      const typeMix = candidate.sublayerId === item.sublayerId ? 0 : 0.08;
+      const score = distance * (1 - typeMix) - Number(candidate.weight || 0.3) * 90;
+      if (!best || score < best.score) best = { item: candidate, distance, score };
+    }
+    return best;
+  }
+
+  function civicAccessContextSeamLine(start, end, distance, seed = 0.5) {
+    const maxLength = Math.max(420, Math.min(1300, distance * (0.48 + seed * 0.18)));
+    const trim = Math.max(80, Math.min(distance * 0.18, 260));
+    const usable = Math.max(140, Math.min(distance - trim * 2, maxLength));
+    if (!Number.isFinite(usable) || usable <= 120) return null;
+    const fractionStart = Math.max(0.08, Math.min(0.42, (distance * 0.5 - usable * 0.5) / distance + (seed - 0.5) * 0.08));
+    const fractionEnd = Math.min(0.92, fractionStart + usable / distance);
+    const a = interpolateLngLat(start, end, fractionStart);
+    const b = interpolateLngLat(start, end, fractionEnd);
+    return { type: "LineString", coordinates: curvedLine(a, b, (seed - 0.5) * 0.18) };
+  }
+
+  function civicAccessContextGeneratedFrom() {
+    const values = [civicServiceContextGeneratedFrom(), transportStopContextGeneratedFrom()].filter(Boolean);
+    return uniqueGuideValues(values).join(",");
+  }
+
+  function uniqueGuideValues(values) {
+    return [...new Set((values || []).map((value) => String(value || "").trim()).filter(Boolean))];
+  }
+
+  function registeredGuideSourceIds(values) {
+    return uniqueGuideValues(values).filter((sourceId) => state.sourceById.has(sourceId));
+  }
+
+  function citywideBasisMeters() {
+    const bounds = cityBoundsValues();
+    if (!bounds) return 30000;
+    const midLat = (bounds.south + bounds.north) / 2;
+    return Math.max(
+      lngLatDistanceMeters([bounds.west, midLat], [bounds.east, midLat]),
+      lngLatDistanceMeters([(bounds.west + bounds.east) / 2, bounds.south], [(bounds.west + bounds.east) / 2, bounds.north]),
+    );
+  }
+
+  function midpointLngLat(a, b) {
+    return [(Number(a?.[0]) + Number(b?.[0])) / 2, (Number(a?.[1]) + Number(b?.[1])) / 2];
+  }
+
+  function interpolateLngLat(a, b, t) {
+    const clamped = clamp01(t);
+    return [
+      Number(a?.[0]) + (Number(b?.[0]) - Number(a?.[0])) * clamped,
+      Number(a?.[1]) + (Number(b?.[1]) - Number(a?.[1])) * clamped,
+    ];
   }
 
   function civicServiceContextGeneratedFrom() {
