@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { chromium } = require("playwright");
-const { assertDetailedPng } = require("./image_detail");
+const { assertDetailedPng, imageDetail } = require("./image_detail");
 
 const rootDir = path.resolve(__dirname, "..");
 const outputDir = path.resolve(process.env.ATLAS_SMOKE_OUTPUT_DIR || path.join(rootDir, "output", "playwright"));
@@ -344,6 +344,7 @@ function actionableConsoleMessages(messages) {
 module.exports = {
   assert,
   assertDetailedPng,
+  imageDetail,
   atlasState,
   atlasUrl,
   attachConsoleCapture,

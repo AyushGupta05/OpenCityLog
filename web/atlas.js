@@ -19436,6 +19436,9 @@
       const noLineworkNote = hasDirectTransportRecords
         ? directNoLineContextNote || `${compactNumber(directTransportCount)} direct source-backed ${lens.label} record${directTransportCount === 1 ? "" : "s"} match ${state.year}, but no mapped road-line detail intersects this year. Point/event evidence remains available; no generated linework or filler geometry is shown.`
         : missingTransportNote || transportContextFallback;
+      const lineworkContextNote = transportAccessContextGuideCanRender(lens)
+        ? `${compactNumber(directTransportCount)} direct source-backed ${lens.label} record${directTransportCount === 1 ? "" : "s"} match ${state.year}. Selected-year access linework combines source-backed records with mapped stop/station and road context; it is non-headline context, not timetable, service-frequency, journey-time, accessibility entitlement, reliability, or filler geometry.`
+        : `${compactNumber(directTransportCount)} direct source-backed ${lens.label} record${directTransportCount === 1 ? "" : "s"} match ${state.year}. Selected-year road activity linework is derived from source-backed records and mapped road context; it is not measured speed, live congestion, timetable adherence, reliability, or filler geometry.`;
       if (!transportRoadYearPath(state.year)) return { label: "No linework", empty: true, note: noLineworkNote };
       if (state.transportRoadFeatureCountYearLoaded === state.year && state.transportRoadFeatureCount === 0) {
         return {
@@ -19447,7 +19450,7 @@
       if (state.transportRoadFeatureCountPathLoaded === transportRoadYearPath(state.year) && state.transportRoadFeatureCountYearLoaded !== state.year) {
         return { label: "Loading lines", empty: false, note: lens.caveat };
       }
-      return { label: `${state.year} lines`, empty: false, note: lens.caveat };
+      return { label: `${state.year} lines`, empty: false, note: lineworkContextNote };
     }
     if (category === "built_environment") {
       const pointCount = lensPointCount("built_environment");
@@ -21316,6 +21319,7 @@
         </button>
         <div class="detail-eyebrow">Change around selected event</div>
         <div class="planning-detail-subtitle">${escapeHtml(eventSubtitleLine(event))}</div>
+        <h2 class="detail-title">${escapeHtml(event.title)}</h2>
         ${renderDetailLensControls(event, context)}
         <div class="planning-caution stage-caution land-use-caution"><span></span><p>Associated nearby change; causation is not claimed <b>Not a forecast</b></p></div>
       </div>
