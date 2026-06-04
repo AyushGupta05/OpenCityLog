@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-06-03T20:31:29Z",
+  "generated_at": "2026-06-04T02:59:34Z",
   "default_city_id": "belfast",
   "city_count": 3,
   "cities": [
@@ -40,9 +40,10 @@
         "transport_roads_base": "web/data/city-atlas/cities/london/transport_roads_base.geojson",
         "transport_roads_template": "web/data/city-atlas/cities/london/transport_roads_{year}.geojson",
         "lens_detail_template": "web/data/city-atlas/cities/london/lens_detail_{year}.geojson",
+        "civic_services_context": "web/data/city-atlas/cities/london/civic_services_2026.geojson",
+        "transport_stops": "web/data/city-atlas/cities/london/transport_stops_2026.geojson",
         "lens_manifest": "web/data/city-atlas/cities/london/lens_manifest.json",
-        "lens_year_coverage": "web/data/city-atlas/cities/london/lens_year_coverage.json",
-        "civic_services_context": "web/data/city-atlas/cities/london/civic_services_2026.geojson"
+        "lens_year_coverage": "web/data/city-atlas/cities/london/lens_year_coverage.json"
       }
     },
     {
@@ -61,9 +62,10 @@
         "transport_roads_base": "web/data/city-atlas/cities/nyc/transport_roads_base.geojson",
         "transport_roads_template": "web/data/city-atlas/cities/nyc/transport_roads_{year}.geojson",
         "lens_detail_template": "web/data/city-atlas/cities/nyc/lens_detail_{year}.geojson",
+        "civic_services_context": "web/data/city-atlas/cities/nyc/civic_services_2026.geojson",
+        "transport_stops": "web/data/city-atlas/cities/nyc/transport_stops_2026.geojson",
         "lens_manifest": "web/data/city-atlas/cities/nyc/lens_manifest.json",
-        "lens_year_coverage": "web/data/city-atlas/cities/nyc/lens_year_coverage.json",
-        "civic_services_context": "web/data/city-atlas/cities/nyc/civic_services_2026.geojson"
+        "lens_year_coverage": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
       }
     }
   ],
@@ -84,7 +86,7 @@
     "total_unique_events": 356388,
     "duplicate_event_id_count": 0,
     "active_source_count": 490,
-    "source_catalog_only_count": 254,
+    "source_catalog_only_count": 256,
     "source_year_layer_row_count": 2527,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",

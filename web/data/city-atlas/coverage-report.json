@@ -9,7 +9,7 @@
     "total_unique_events": 356388,
     "duplicate_event_id_count": 0,
     "active_source_count": 490,
-    "source_catalog_only_count": 254,
+    "source_catalog_only_count": 256,
     "source_year_layer_row_count": 2527,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
@@ -29172,9 +29172,9 @@
       "unique_event_count": 224003,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 294,
+      "source_count": 295,
       "active_source_count": 193,
-      "source_catalog_only_count": 101,
+      "source_catalog_only_count": 102,
       "year_range": {
         "first_event_year": 1801,
         "last_event_year": 2026
@@ -43384,6 +43384,20 @@
           "coverage_status": "source_catalog_only"
         },
         {
+          "source_id": "osm-overpass",
+          "title": "OpenStreetMap extracts via Overpass API",
+          "provider": "OpenStreetMap contributors and Overpass API",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Data Commons Open Database License 1.0",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
           "source_id": "src_kingston_town_house_opened",
           "title": "src_kingston_town_house_opened",
           "provider": "Kingston University London",
@@ -44042,6 +44056,12 @@
             "reliability": "usable_with_caveats"
           },
           {
+            "source_id": "osm-overpass",
+            "title": "OpenStreetMap extracts via Overpass API",
+            "provider": "OpenStreetMap contributors and Overpass API",
+            "reliability": "usable_with_caveats"
+          },
+          {
             "source_id": "src_kingston_town_house_opened",
             "title": "src_kingston_town_house_opened",
             "provider": "Kingston University London",
@@ -44091,9 +44111,9 @@
       "unique_event_count": 99236,
       "duplicate_event_id_count": 0,
       "duplicate_event_ids": [],
-      "source_count": 203,
+      "source_count": 204,
       "active_source_count": 82,
-      "source_catalog_only_count": 121,
+      "source_catalog_only_count": 122,
       "year_range": {
         "first_event_year": 1797,
         "last_event_year": 2026
@@ -59379,6 +59399,20 @@
           "coverage_status": "source_catalog_only"
         },
         {
+          "source_id": "osm-overpass",
+          "title": "OpenStreetMap extracts via Overpass API",
+          "provider": "OpenStreetMap contributors and Overpass API",
+          "reliability": "usable_with_caveats",
+          "licence": "Open Data Commons Open Database License 1.0",
+          "event_count": 0,
+          "years": [],
+          "first_year": null,
+          "last_year": null,
+          "layer_counts": {},
+          "confidence_counts": {},
+          "coverage_status": "source_catalog_only"
+        },
+        {
           "source_id": "p8u6-a6it",
           "title": "Digital Tax Map: Condominiums",
           "provider": "NYC Open Data / City agency",
@@ -60298,6 +60332,12 @@
             "source_id": "nycha-press-pages",
             "title": "NYCHA press release pages",
             "provider": "New York City Housing Authority",
+            "reliability": "usable_with_caveats"
+          },
+          {
+            "source_id": "osm-overpass",
+            "title": "OpenStreetMap extracts via Overpass API",
+            "provider": "OpenStreetMap contributors and Overpass API",
             "reliability": "usable_with_caveats"
           },
           {

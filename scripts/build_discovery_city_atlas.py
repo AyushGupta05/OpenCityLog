@@ -23,8 +23,10 @@ DISCOVERY = ROOT / "data-discovery"
 OUT = ROOT / "web/data/city-atlas"
 ARCHITECTURE_MILESTONES = ROOT / "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json"
 SUPPLEMENTAL_LENS_GAP_EVENTS = ROOT / "data/manual_drops/lens_gap_events/lens_gap_events_2007_2015.json"
+SOURCE_REGISTRY = ROOT / "config/source_registry.json"
 GENERATED_AT = os.environ.get("BIMS_DATA_GENERATED_AT") or datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 SCHEMA = "1.0.0"
+DISCOVERY_REQUIRED_REGISTRY_SOURCE_IDS = {"osm-overpass"}
 NON_SITE_MAP_GEOMETRY_STATUS = "withheld_non_site_scope"
 NON_SITE_MAP_GEOMETRY_REASON = (
     "Map geometry is withheld because the available location is a city/area reference, "
@@ -183,6 +185,28 @@ def supplemental_events_for_city(city: str) -> list[dict[str, Any]]:
         annotated["_source_path"] = source_path
         events.append(annotated)
     return events
+
+
+def central_source_registry_by_id() -> dict[str, dict[str, Any]]:
+    if not SOURCE_REGISTRY.exists():
+        return {}
+    return {
+        str(source.get("source_id")): source
+        for source in read_json(SOURCE_REGISTRY).get("sources", [])
+        if source.get("source_id")
+    }
+
+
+def normalize_central_registry_source(source: dict[str, Any]) -> dict[str, Any]:
+    caveats = list(source.get("caveats") or [])
+    if not source.get("accessed_at") and not source.get("retrieved_at"):
+        caveats.append("Exact source retrieval date is not recorded in the legacy source registry; review the linked publisher page before formal reuse.")
+    return {
+        **source,
+        "accessed_at": source.get("accessed_at") or source.get("retrieved_at"),
+        "registry_reviewed_at": source.get("registry_reviewed_at") or source.get("retrieved_at") or GENERATED_AT,
+        "caveats": list(dict.fromkeys(caveats)),
+    }
 
 
 def generated_artifact_paths(city: str, city_dir: Path) -> dict[str, str]:
@@ -936,7 +960,7 @@ def dedupe_sources(source_raw: list[dict[str, Any]]) -> list[dict[str, Any]]:
 def source_families(sources: list[dict[str, Any]], events: list[dict[str, Any]]) -> list[dict[str, Any]]:
     grouped: dict[str, list[str]] = defaultdict(list)
     for s in sources:
-        bucket = str(s.get("bucket") or "other").split("/")[0].strip().lower().replace(" ", "_") or "other"
+        bucket = str(s.get("bucket") or s.get("source_family") or "other").split("/")[0].strip().lower().replace(" ", "_") or "other"
         grouped[bucket].append(s["source_id"])
     counts = Counter()
     years_by_source: dict[str, set[int]] = defaultdict(set)
@@ -973,6 +997,17 @@ def build_city(city: str) -> dict[str, Any]:
     source_raw = dedupe_sources(catalog_payload.get("sources", []) + architecture_sources_for_city(city) + supplemental_sources_for_city(city))
     sources = [source_to_registry(city, s) for s in source_raw]
     source_by_id = {s["source_id"]: raw for s, raw in zip(sources, source_raw)}
+    central_sources = central_source_registry_by_id()
+    for source_id in sorted(DISCOVERY_REQUIRED_REGISTRY_SOURCE_IDS):
+        if source_id in source_by_id:
+            continue
+        source = central_sources.get(source_id)
+        if not source:
+            continue
+        normalized = normalize_central_registry_source(source)
+        sources.append(normalized)
+        source_by_id[source_id] = normalized
+    sources = sorted(sources, key=lambda source: str(source.get("source_id") or ""))
     city_dir = OUT / "cities" / city
     city_dir.mkdir(parents=True, exist_ok=True)
     events = []
@@ -1133,7 +1168,15 @@ def main() -> int:
     for city in ["london", "nyc"]:
         summaries[city] = build_city(city)
     ordered = [summaries[c] for c in ["belfast", "london", "nyc"] if c in summaries]
-    index = {"schema_version": SCHEMA, "generated_at": GENERATED_AT, "default_city_id": "belfast", "city_count": len(ordered), "cities": ordered, "contracts": old_index.get("contracts", {"city_schema":"schemas/city.schema.json","source_schema":"schemas/source.schema.json","event_schema":"schemas/event.schema.json","availability_schema":"schemas/availability.schema.json"})}
+    index = {
+        **old_index,
+        "schema_version": SCHEMA,
+        "generated_at": GENERATED_AT,
+        "default_city_id": "belfast",
+        "city_count": len(ordered),
+        "cities": ordered,
+        "contracts": old_index.get("contracts", {"city_schema":"schemas/city.schema.json","source_schema":"schemas/source.schema.json","event_schema":"schemas/event.schema.json","availability_schema":"schemas/availability.schema.json"}),
+    }
     write_json(index_path, index)
     print(f"Discovery atlas ready: " + ", ".join(f"{c['city_id']}={c['event_count']} events/{c['source_count']} sources" for c in ordered))
     return 0

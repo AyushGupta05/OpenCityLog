@@ -790,6 +790,7 @@
     transportRoadFeaturesByYear: new Map(),
     transportRoadFeatureLoadsByYear: new Map(),
     transportStopFeaturesPathLoaded: null,
+    transportStopContextMetadata: null,
     transportStopFeatures: [],
     utilityNetworkPathLoaded: null,
     utilityNetworkFeaturesPathLoaded: null,
@@ -3870,13 +3871,13 @@
         ],
         "circle-opacity": [
           "case",
-          ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 0,
+          ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 0.74,
           ["==", ["get", "node_style"], "transport_route"], 0.96,
           0.92,
         ],
         "circle-stroke-width": [
           "case",
-          ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 0,
+          ["all", ["==", ["get", "node_style"], "transport"], ["==", ["get", "lens_id"], "transport-access"]], 1.45,
           ["==", ["get", "node_style"], "transport_route"], 1.8,
           ["==", ["get", "node_style"], "transport"], 2.2,
           2.2,
@@ -5669,6 +5670,7 @@
       ];
     }
     if (["civic-catchment", "civic-demand"].includes(lens?.id)) return guideSublayerFilter(base, lens);
+    if (lens?.id === "transport-access") return transportAccessActiveSublayerFilter(base);
     if (lens?.id !== "planning-parcels") return base;
     const activeStatuses = [...state.activeAspectLayers].filter(Boolean);
     return [
@@ -5710,6 +5712,7 @@
         civicAccessActiveSublayerFilter(["coverage"]),
       ];
     }
+    if (lens?.id === "transport-access") return transportAccessActiveSublayerFilter(base);
     return ["all", base, ["==", ["get", "lens_id"], lens?.id || ""]];
   }
 
@@ -5789,6 +5792,13 @@
         ["any", ["==", ["get", "node_style"], "transport"], ["==", ["get", "node_style"], "transport_route"]],
       ];
     }
+    if (lens?.id === "transport-access") {
+      return transportAccessActiveSublayerFilter([
+        "all",
+        ["==", ["get", "kind"], "node"],
+        ["any", ["==", ["get", "node_style"], "transport"], ["==", ["get", "node_style"], "transport_route"]],
+      ]);
+    }
     if (lens?.id?.startsWith("transport-")) {
       return [
         "all",
@@ -5812,6 +5822,13 @@
   }
 
   function guideIconNodeLayerFilter(lens = activeMapLens()) {
+    if (lens?.id === "transport-access") {
+      return transportAccessActiveSublayerFilter([
+        "all",
+        ["==", ["get", "kind"], "node"],
+        ["any", ["==", ["get", "node_style"], "transport"], ["==", ["get", "node_style"], "transport_route"]],
+      ]);
+    }
     if (lens?.id?.startsWith("transport-")) {
       return [
         "all",
@@ -5902,6 +5919,24 @@
     return active.length
       ? ["match", ["get", "layer_id"], active, true, false]
       : ["==", ["get", "layer_id"], "__none__"];
+  }
+
+  function transportAccessActiveSublayerFilter(base) {
+    const active = [];
+    if (state.activeAspectLayers.has("stations_stops")) {
+      for (const mode of ["bus", "rail", "ferry"]) {
+        const sublayerId = transportAccessModeSublayerId(mode);
+        if (state.activeAspectLayers.has(sublayerId)) active.push(sublayerId);
+      }
+    }
+    return [
+      "all",
+      base,
+      ["==", ["get", "layer_id"], "stations_stops"],
+      active.length
+        ? ["match", ["get", "sublayer_id"], active, true, false]
+        : ["==", ["get", "sublayer_id"], "__none__"],
+    ];
   }
 
   function updateBuiltFootprintLensLayers() {
@@ -6238,13 +6273,17 @@
     if (!path) {
       if (state.transportStopFeaturesPathLoaded !== null || state.transportStopFeatures.length) {
         state.transportStopFeaturesPathLoaded = null;
+        state.transportStopContextMetadata = null;
         state.transportStopFeatures = [];
         updateLensGuideSource();
+        renderLayers();
+        renderLensLegend();
       }
       return;
     }
     if (state.transportStopFeaturesPathLoaded === path) return;
     state.transportStopFeaturesPathLoaded = path;
+    state.transportStopContextMetadata = null;
     state.transportStopFeatures = [];
     fetch(path, { cache: "no-store" })
       .then((response) => {
@@ -6253,16 +6292,23 @@
       })
       .then((payload) => {
         if (state.transportStopFeaturesPathLoaded !== path) return;
+        state.transportStopContextMetadata = payload?.metadata || null;
         state.transportStopFeatures = Array.isArray(payload.features)
           ? payload.features.filter((feature) => feature.geometry?.type === "Point")
           : [];
         updateLensGuideSource();
+        renderLayers();
+        renderLensLegend();
+        renderDetail();
       })
       .catch((error) => {
         if (state.transportStopFeaturesPathLoaded !== path) return;
+        state.transportStopContextMetadata = null;
         state.transportStopFeatures = [];
         console.warn("[atlas] transport stop coverage unavailable", error);
         updateLensGuideSource();
+        renderLayers();
+        renderLensLegend();
       });
   }
 
@@ -6464,12 +6510,14 @@
       : [];
     const contextFeatures = civicContextCitywideGuideFeatures(lens, year)
       .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
-    const features = directFeatures.concat(contextFeatures);
+    const transportContextFeatures = transportAccessContextCitywideGuideFeatures(lens, year)
+      .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
+    const features = directFeatures.concat(contextFeatures, transportContextFeatures);
     return { type: "FeatureCollection", features };
   }
 
   function sourceBackedGuideLensSupported(lens = activeMapLens()) {
-    return ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens?.id);
+    return ["planning-pressure", "transport-access", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens?.id);
   }
 
   function sourceBackedGuideDetailFeatures(lens, year) {
@@ -6662,9 +6710,8 @@
     }
     const features = [...buckets.values()]
       .map((entry) => sourceBackedCitywideGuideFeature(entry, lens, year, bucketM, origin))
-      .filter(Boolean)
-      .sort((a, b) => Number(b.properties?.score || 0) - Number(a.properties?.score || 0));
-    return features.slice(0, citywideGuideFeatureLimit(lens));
+      .filter(Boolean);
+    return spatiallyBalancedGuideFeatures(features, citywideGuideFeatureLimit(lens), lens);
   }
 
   function sourceBackedCitywideGuideFeature(entry, lens, year, bucketM, origin) {
@@ -6796,11 +6843,10 @@
       if (props.caveat) entry.caveats.add(props.caveat);
       buckets.set(bucket, entry);
     }
-    return [...buckets.values()]
+    const features = [...buckets.values()]
       .map((entry) => civicContextCitywideGuideFeature(entry, lens, year, bucketM, origin))
-      .filter(Boolean)
-      .sort((a, b) => Number(b.properties?.score || 0) - Number(a.properties?.score || 0))
-      .slice(0, citywideGuideFeatureLimit(lens));
+      .filter(Boolean);
+    return spatiallyBalancedGuideFeatures(features, citywideGuideFeatureLimit(lens), lens);
   }
 
   function civicContextCitywideGuideFeature(entry, lens, year, bucketM, origin) {
@@ -6900,6 +6946,301 @@
     return `https://www.openstreetmap.org/${type}/${id}`;
   }
 
+  function transportAccessContextGuideCanRender(lens = activeMapLens()) {
+    if (lens?.id !== "transport-access") return false;
+    if (!state.activeLayers.has("transport")) return false;
+    if (!state.showInferred) return false;
+    if (state.search || state.areaFilter) return false;
+    if (!citywideOverviewActive() && !state.citywideLensMode) return false;
+    if (!state.activeAspectLayers.has("stations_stops")) return false;
+    if (!["bus", "rail", "ferry"].some((mode) => state.activeAspectLayers.has(transportAccessModeSublayerId(mode)))) return false;
+    return Boolean(state.transportStopFeatures.length || transportStopsPath());
+  }
+
+  function transportAccessContextCitywideGuideFeatures(lens, year) {
+    if (!transportAccessContextGuideCanRender(lens)) return [];
+    const anchors = Array.isArray(state.transportStopFeatures) ? state.transportStopFeatures : [];
+    if (!anchors.length) return [];
+    const bucketM = citywideGuideBucketMeters(lens);
+    const origin = mapCenter();
+    const bounds = cityBoundsValues();
+    const buckets = new Map();
+    const nodeCandidates = [];
+    for (const feature of anchors) {
+      const props = feature?.properties || {};
+      const point = geometryToLngLat(feature?.geometry);
+      if (!point) continue;
+      if (bounds && (point[0] < bounds.west || point[0] > bounds.east || point[1] < bounds.south || point[1] > bounds.north)) continue;
+      const objectId = String(props.source_object_id || props.source_id || "").trim();
+      if (!objectId) continue;
+      const mode = transportStopModeKey(props);
+      if (!transportAccessStopContextVisible(mode)) continue;
+      const local = lngLatToLocalMeters(point, origin);
+      if (!Number.isFinite(local[0]) || !Number.isFinite(local[1])) continue;
+      const lineCount = Math.max(0, Number(props.servingLineCount || props.routeNode || 0));
+      const rank = Math.max(0.5, Number(props.rank || 1));
+      const weight = Math.max(0.22, Math.min(1.65, 0.32 + Number(props.weight || 0.35) * 0.72 + rank * 0.08 + Math.min(0.18, lineCount * 0.012)));
+      const bucket = `${Math.round(local[0] / bucketM)}:${Math.round(local[1] / bucketM)}:${mode}`;
+      const entry = buckets.get(bucket) || {
+        bucket,
+        mode,
+        count: 0,
+        weight: 0,
+        sumX: 0,
+        sumY: 0,
+        maxRank: 0,
+        maxLineCount: 0,
+        objectIds: new Set(),
+        sourceIds: new Set(),
+        sourceUrls: new Set(),
+        sourceNames: new Set(),
+        dataYears: new Set(),
+        labels: [],
+        caveats: new Set(),
+        proxyCount: 0,
+      };
+      entry.count += 1;
+      entry.weight += weight;
+      entry.sumX += local[0] * weight;
+      entry.sumY += local[1] * weight;
+      entry.maxRank = Math.max(entry.maxRank, rank);
+      entry.maxLineCount = Math.max(entry.maxLineCount, lineCount);
+      entry.objectIds.add(objectId);
+      for (const sourceId of transportStopAnchorSourceRegistryIds(props, objectId)) entry.sourceIds.add(sourceId);
+      for (const sourceUrl of transportStopAnchorSourceUrls(props, objectId)) entry.sourceUrls.add(sourceUrl);
+      if (props.sourceName || props.source_name) entry.sourceNames.add(props.sourceName || props.source_name);
+      if (props.context_data_year) entry.dataYears.add(props.context_data_year);
+      else if (/^\d{4}/.test(String(props.sourceUpdated || ""))) entry.dataYears.add(String(props.sourceUpdated).slice(0, 4));
+      if (props.name) entry.labels.push(props.name);
+      if (props.caveat) entry.caveats.add(props.caveat);
+      if (props.osm_element_type && props.osm_element_type !== "node") entry.proxyCount += 1;
+      buckets.set(bucket, entry);
+      nodeCandidates.push({
+        point,
+        props,
+        mode,
+        objectId,
+        sourceIds: transportStopAnchorSourceRegistryIds(props, objectId),
+        sourceUrls: transportStopAnchorSourceUrls(props, objectId),
+        lineCount,
+        rank,
+        weight,
+        score: weight + Math.min(0.28, lineCount * 0.018) + Math.min(0.22, rank * 0.035) + stableUnit(`${objectId}:${mode}`) * 0.04,
+      });
+    }
+    const cells = [...buckets.values()]
+      .map((entry) => transportAccessContextCitywideGuideFeature(entry, lens, year, bucketM, origin))
+      .filter(Boolean);
+    const balancedCells = spatiallyBalancedGuideFeatures(cells, citywideGuideFeatureLimit(lens), lens);
+    const nodes = transportAccessContextNodeGuideFeatures(nodeCandidates, lens, year);
+    return balancedCells.concat(nodes);
+  }
+
+  function transportAccessContextCitywideGuideFeature(entry, lens, year, bucketM, origin) {
+    if (!entry?.objectIds?.size || !entry.weight) return null;
+    const center = offsetLngLat(origin, entry.sumX / entry.weight, entry.sumY / entry.weight);
+    const seed = stableUnit(`${entry.bucket}:${lens.id}:transport-context`);
+    const count = Math.max(1, entry.count);
+    const intensity = clamp01(0.14 + Math.min(0.36, Math.log1p(count) * 0.078) + Math.min(0.2, entry.maxRank * 0.038) + Math.min(0.14, entry.maxLineCount * 0.01) + seed * 0.035);
+    const halfLong = bucketM * sourceBackedGuideLongScale(lens) * (0.76 + intensity * 0.2);
+    const halfShort = bucketM * sourceBackedGuideShortScale(lens) * (0.72 + intensity * 0.18);
+    const angle = (seed - 0.5) * 0.16;
+    const modeLabel = transportAccessContextModeLabel(entry.mode);
+    const objectIds = [...entry.objectIds].slice(0, 26);
+    const sourceIds = [...entry.sourceIds].slice(0, 8);
+    const sourceUrls = [...entry.sourceUrls].slice(0, 12);
+    const contextDataYear = transportStopContextDataYear(entry);
+    const caveat = [...entry.caveats][0] || "Current mapped stop/station anchor only; not official GTFS, timetable, service frequency, reliability, journey-time, accessibility, or selected-year service evidence.";
+    return {
+      type: "Feature",
+      properties: {
+        kind: "surface_cell",
+        lens_id: lens.id,
+        surface_style: sourceBackedGuideSurfaceStyle(lens),
+        guide_scale: "citywide_summary",
+        source_kind: "current_context",
+        evidence_role: "context_not_year_specific_change_evidence",
+        context_year: "current_mapped_context",
+        context_data_year: contextDataYear,
+        selected_year: String(year),
+        detail_layer: "transport_stop_anchor",
+        event_id: "",
+        event_ids: "",
+        event_count: 0,
+        source_ids: sourceIds.length ? sourceIds.join(",") : "osm-overpass",
+        source_object_ids: objectIds.join(","),
+        source_urls: sourceUrls.length ? sourceUrls.join(",") : "https://www.openstreetmap.org/copyright",
+        source_names: [...entry.sourceNames].slice(0, 4).join(","),
+        source_count: Math.max(1, sourceIds.length),
+        context_anchor_count: count,
+        center_proxy_anchor_count: entry.proxyCount,
+        confidence: "inferred",
+        generated_from: transportStopContextGeneratedFrom(),
+        title: `${compactNumber(count)} current mapped ${modeLabel} anchor${count === 1 ? "" : "s"}`,
+        label: entry.labels[0]
+          ? `${transportAccessContextModeTitle(entry.mode)}: ${truncate(entry.labels[0], 28)}`
+          : `${compactNumber(count)} mapped ${modeLabel} anchors`,
+        timing_note: "Current mapped transport-stop context; not selected-year direct change evidence.",
+        caveat: `${caveat} OSM or publisher mapped visibility may post-date the selected timeline year, and no service quality, capacity, entitlement, reliability, or causal impact is inferred.`,
+        geometry_precision_mix: "Aggregated from current mapped stop/station anchor points and documented source-object center proxies.",
+        aggregation_note: `Citywide ${Math.round(bucketM)}m context-grid summary generated from ${shortCityName(state.city?.display_name || state.cityMeta?.display_name || state.cityId)} mapped transport stops; excluded from headline event totals.`,
+        direct_evidence_counted: false,
+        headline_count_included: false,
+        layer_id: "stations_stops",
+        sublayer_id: transportAccessModeSublayerId(entry.mode),
+        mode: entry.mode,
+        intensity: Number(intensity.toFixed(3)),
+        score: Number((intensity + Math.min(0.22, count * 0.014) + seed * 0.035).toFixed(3)),
+        color: transportAccessContextColor(entry.mode, intensity),
+      },
+      geometry: orientedRectanglePolygon(center, halfLong, halfShort, angle),
+    };
+  }
+
+  function transportAccessContextNodeGuideFeatures(candidates, lens, year) {
+    const selected = [];
+    const buckets = new Map();
+    const modeCounts = new Map();
+    const citywide = cityBoundsValues();
+    const basisM = citywide
+      ? Math.max(
+        lngLatDistanceMeters([citywide.west, (citywide.south + citywide.north) / 2], [citywide.east, (citywide.south + citywide.north) / 2]),
+        lngLatDistanceMeters([(citywide.west + citywide.east) / 2, citywide.south], [(citywide.west + citywide.east) / 2, citywide.north]),
+      )
+      : 30000;
+    const minSpacingM = Math.max(520, Math.min(1250, basisM / 58));
+    const maxNodes = 92;
+    const origin = mapCenter();
+    for (const item of candidates.sort((a, b) => b.score - a.score)) {
+      if (selected.length >= maxNodes) break;
+      const modeLimit = item.mode === "bus" ? 58 : item.mode === "rail" ? 32 : 10;
+      if ((modeCounts.get(item.mode) || 0) >= modeLimit) continue;
+      const [x, y] = lngLatToLocalMeters(item.point, origin);
+      const bucket = `${Math.round(x / minSpacingM)}:${Math.round(y / minSpacingM)}:${item.mode}`;
+      if (buckets.has(bucket)) continue;
+      if (selected.some((existing) => existing.mode === item.mode && lngLatDistanceMeters(existing.point, item.point) < minSpacingM)) continue;
+      selected.push(item);
+      buckets.set(bucket, true);
+      modeCounts.set(item.mode, (modeCounts.get(item.mode) || 0) + 1);
+    }
+    return selected.map((item, index) => {
+      const props = item.props || {};
+      const sourceIds = item.sourceIds.filter((sourceId) => state.sourceById.has(sourceId));
+      const sourceUrls = item.sourceUrls.filter(Boolean);
+      const caveat = props.caveat || "Current mapped stop/station anchor only; not official GTFS, timetable, service frequency, reliability, journey-time, accessibility, or selected-year service evidence.";
+      const sourceObjectId = props.source_object_id || props.source_id || item.objectId;
+      return {
+        type: "Feature",
+        properties: {
+          kind: "node",
+          lens_id: lens.id,
+          surface_style: sourceBackedGuideSurfaceStyle(lens),
+          source_kind: "current_context",
+          evidence_role: "context_not_year_specific_change_evidence",
+          context_year: "current_mapped_context",
+          context_data_year: transportStopContextDataYear(),
+          selected_year: String(year),
+          detail_layer: "transport_stop_anchor",
+          generated_from: transportStopContextGeneratedFrom(),
+          confidence: "inferred",
+          caveat: `${caveat} Excluded from headline event totals.`,
+          direct_evidence_counted: false,
+          headline_count_included: false,
+          event_id: "",
+          event_ids: "",
+          event_count: 0,
+          source_id: sourceIds[0] || "osm-overpass",
+          source_ids: sourceIds.length ? sourceIds.join(",") : "osm-overpass",
+          source_object_id: sourceObjectId,
+          source_object_ids: sourceObjectId,
+          source_urls: sourceUrls.length ? sourceUrls.join(",") : "https://www.openstreetmap.org/copyright",
+          source_name: props.sourceName || props.source_name || "",
+          source_updated: props.sourceUpdated || "",
+          source_count: Math.max(1, sourceIds.length),
+          kind_rank: index + 1,
+          layer_id: "stations_stops",
+          sublayer_id: transportAccessModeSublayerId(item.mode),
+          node_style: "transport",
+          node_icon: "stop",
+          mode: item.mode,
+          title: props.name || `${transportAccessContextModeTitle(item.mode)} stop/station`,
+          label: truncate(props.name || transportAccessContextModeTitle(item.mode), 24),
+          label_detail: item.lineCount ? `${item.lineCount} lines` : transportAccessContextModeTitle(item.mode),
+          intensity: Number(Math.max(0.38, Math.min(0.98, item.weight)).toFixed(2)),
+          color: transportAccessContextColor(item.mode, item.weight),
+        },
+        geometry: { type: "Point", coordinates: item.point },
+      };
+    });
+  }
+
+  function transportStopContextGeneratedFrom() {
+    const loaded = state.transportStopFeaturesPathLoaded || transportStopsPath();
+    if (!loaded) return "";
+    if (/^\/data\//.test(loaded)) return `web${loaded}`;
+    return String(loaded).replace(/^\//, "");
+  }
+
+  function transportStopContextDataYear(entry = null) {
+    const years = entry?.dataYears?.size ? [...entry.dataYears].filter(Boolean) : [];
+    if (years.length) return years.sort().at(-1);
+    const meta = state.transportStopContextMetadata || {};
+    return String(meta.context_data_year || meta.year || "2026");
+  }
+
+  function transportStopAnchorSourceRegistryIds(props = {}, objectId = "") {
+    const explicit = splitGuidePropertyList(props.source_registry_ids || props.source_registry_id || props.registry_source_id)
+      .filter((sourceId) => state.sourceById.has(sourceId));
+    if (explicit.length) return explicit;
+    const sourceIds = splitGuidePropertyList(props.source_ids || props.source_id)
+      .filter((sourceId) => state.sourceById.has(sourceId));
+    if (sourceIds.length) return sourceIds;
+    if (/translink/i.test(`${props.sourceName || ""} ${props.publisher || ""} ${props.sourceFamilies || ""}`) && state.sourceById.has("translink-open-data")) return ["translink-open-data"];
+    return osmObjectUrl(props.source_object_id || objectId || props.source_id) && state.sourceById.has("osm-overpass") ? ["osm-overpass"] : [];
+  }
+
+  function transportStopAnchorSourceUrls(props = {}, objectId = "") {
+    const urls = splitGuidePropertyList(props.source_urls || props.source_url);
+    const objectUrl = osmObjectUrl(props.source_object_id || objectId || props.source_id);
+    if (objectUrl) urls.push(objectUrl);
+    for (const sourceId of transportStopAnchorSourceRegistryIds(props, objectId)) {
+      const source = state.sourceById.get(sourceId);
+      if (source?.url) urls.push(source.url);
+    }
+    return [...new Set(urls.filter(Boolean))];
+  }
+
+  function transportAccessContextModeLabel(mode) {
+    if (mode === "rail") return "rail/tram station";
+    if (mode === "ferry") return "ferry terminal";
+    return "bus stop";
+  }
+
+  function transportAccessModeSublayerId(mode) {
+    if (mode === "rail") return "rail_network";
+    if (mode === "ferry") return "ferry_routes";
+    return "bus_network";
+  }
+
+  function transportAccessStopContextVisible(mode) {
+    return state.activeAspectLayers.has("stations_stops")
+      && state.activeAspectLayers.has(transportAccessModeSublayerId(mode));
+  }
+
+  function transportAccessContextModeTitle(mode) {
+    if (mode === "rail") return "Rail/tram";
+    if (mode === "ferry") return "Ferry";
+    return "Bus";
+  }
+
+  function transportAccessContextColor(mode, intensity = 0.5) {
+    if (mode === "rail") return intensity > 0.72 ? "#6f3d91" : "#8762a7";
+    if (mode === "ferry") return intensity > 0.72 ? "#147d91" : "#2f8fa4";
+    if (intensity > 0.72) return "#176f92";
+    if (intensity > 0.52) return "#1f8fa3";
+    return "#5aaeb5";
+  }
+
   function citywideGuideBucketMeters(lens) {
     const bounds = cityBoundsValues();
     if (!bounds) return lens?.id === "planning-pressure" ? 560 : lens?.category === "civic_services" ? 620 : 640;
@@ -6916,13 +7257,71 @@
 
   function citywideGuideFeatureLimit(lens) {
     if (lens?.id === "planning-pressure") return 1150;
+    if (lens?.id === "transport-access") return 1120;
     if (lens?.id === "economy-land-use") return 1250;
     if (lens?.category === "civic_services") return 1180;
     return 900;
   }
 
+  function spatiallyBalancedGuideFeatures(features, limit, lens = activeMapLens()) {
+    const valid = (Array.isArray(features) ? features : []).filter(Boolean);
+    const capped = Math.max(1, Math.floor(Number(limit) || 0));
+    if (valid.length <= capped) return guideFeaturesByScore(valid);
+    const bounds = cityBoundsValues();
+    if (!bounds) return guideFeaturesByScore(valid).slice(0, capped);
+    const width = Math.max(0.000001, bounds.east - bounds.west);
+    const height = Math.max(0.000001, bounds.north - bounds.south);
+    const aspect = Math.max(0.35, Math.min(2.8, width / height));
+    const targetCells = Math.max(16, Math.min(capped, Math.floor(capped * 0.78)));
+    const cols = Math.max(4, Math.ceil(Math.sqrt(targetCells * aspect)));
+    const rows = Math.max(4, Math.ceil(targetCells / cols));
+    const spatialReserve = Math.max(Math.floor(capped * 0.62), Math.min(capped, targetCells));
+    const ranked = guideFeaturesByScore(valid);
+    const selected = [];
+    const selectedSet = new Set();
+    const occupied = new Set();
+    for (const feature of ranked) {
+      if (selected.length >= spatialReserve) break;
+      const key = guideFeatureSpatialKey(feature, bounds, cols, rows, lens);
+      if (!key || occupied.has(key)) continue;
+      selected.push(feature);
+      selectedSet.add(feature);
+      occupied.add(key);
+    }
+    for (const feature of ranked) {
+      if (selected.length >= capped) break;
+      if (selectedSet.has(feature)) continue;
+      selected.push(feature);
+      selectedSet.add(feature);
+    }
+    return guideFeaturesByScore(selected);
+  }
+
+  function guideFeaturesByScore(features) {
+    return [...features].sort((a, b) => {
+      const delta = Number(b?.properties?.score || 0) - Number(a?.properties?.score || 0);
+      if (delta) return delta;
+      return String(a?.properties?.source_object_ids || a?.properties?.event_ids || a?.properties?.label || "")
+        .localeCompare(String(b?.properties?.source_object_ids || b?.properties?.event_ids || b?.properties?.label || ""));
+    });
+  }
+
+  function guideFeatureSpatialKey(feature, bounds, cols, rows, lens = activeMapLens()) {
+    const point = geometryToLngLat(feature?.geometry);
+    if (!point) return "";
+    const [lng, lat] = point;
+    if (!Number.isFinite(lng) || !Number.isFinite(lat)) return "";
+    const width = Math.max(0.000001, bounds.east - bounds.west);
+    const height = Math.max(0.000001, bounds.north - bounds.south);
+    const col = Math.max(0, Math.min(cols - 1, Math.floor(((lng - bounds.west) / width) * cols)));
+    const row = Math.max(0, Math.min(rows - 1, Math.floor(((lat - bounds.south) / height) * rows)));
+    const layer = feature?.properties?.sublayer_id || feature?.properties?.layer_id || lens?.id || "";
+    return `${col}:${row}:${layer}`;
+  }
+
   function sourceBackedGuideSurfaceStyle(lens) {
     if (lens?.id === "planning-pressure") return "planning_footprint";
+    if (lens?.id === "transport-access") return "access_fabric";
     if (lens?.id === "economy-land-use") return "land_use_tile";
     if (lens?.id === "civic-demand") return "demand_surface";
     if (lens?.id === "civic-catchment") return "catchment_area";
@@ -6963,6 +7362,7 @@
 
   function sourceBackedGuideLongScale(lens) {
     if (lens?.id === "planning-pressure") return 0.58;
+    if (lens?.id === "transport-access") return 0.72;
     if (lens?.id === "economy-land-use") return 0.64;
     if (lens?.id === "civic-catchment") return 1.04;
     if (lens?.id === "civic-demand") return 0.94;
@@ -6972,6 +7372,7 @@
 
   function sourceBackedGuideShortScale(lens) {
     if (lens?.id === "planning-pressure") return 0.42;
+    if (lens?.id === "transport-access") return 0.42;
     if (lens?.id === "economy-land-use") return 0.5;
     if (lens?.id === "civic-catchment") return 0.78;
     if (lens?.id === "civic-demand") return 0.66;
@@ -16490,6 +16891,7 @@
         resetEventListLimit();
         renderAll();
         updateTimeDependentMapState();
+        updateLensGuideSource();
         renderMarkers();
         await reconcileSelectionWithFilters({ keepCamera: false });
       };

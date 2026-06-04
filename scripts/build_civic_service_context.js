@@ -6,6 +6,7 @@ const {
 } = require("./build_lens_overlays");
 
 const ROOT = path.resolve(__dirname, "..");
+const ATLAS_INDEX = "web/data/city-atlas/index.json";
 
 const CITY_INPUTS = {
   belfast: {
@@ -113,6 +114,11 @@ const SERVICE_COLORS = {
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function writeJson(filePath, value) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, JSON.stringify(value));
 }
 
 function round(value, precision = 7) {
@@ -509,7 +515,7 @@ function buildCity(cityId, config) {
   if (!sourcePaths.length) {
     if (fs.existsSync(output)) {
       console.log(`Preserving existing ${path.relative(ROOT, output)}; source input(s) missing. Run npm run fetch:civic-services-osm first to refresh this artifact.`);
-      return;
+      return config.output;
     }
     throw new Error(`${cityId} civic-service context source input(s) are missing: ${config.inputs.map((input) => input.path).join(", ")}`);
   }
@@ -519,8 +525,7 @@ function buildCity(cityId, config) {
   const thinning = applyCitywideThinning(features, config);
   stats.emittedFeatureCount = thinning.features.length;
 
-  fs.mkdirSync(path.dirname(output), { recursive: true });
-  fs.writeFileSync(output, JSON.stringify({
+  writeJson(output, {
     type: "FeatureCollection",
     name: `${cityId}_civic_services_2026`,
     metadata: {
@@ -545,11 +550,37 @@ function buildCity(cityId, config) {
         : "",
     },
     features: thinning.features,
-  }));
+  });
 
   console.log(`Wrote ${thinning.features.length} civic service anchors to ${path.relative(ROOT, output)}`);
+  return config.output;
+}
+
+function updateArtifactPath(cityId, relativePath) {
+  if (!relativePath) return;
+  const cityPath = path.join(ROOT, "web", "data", "city-atlas", "cities", cityId, "city.json");
+  const cityDoc = readJson(cityPath);
+  const sourcesPath = cityDoc.artifact_paths?.sources || `web/data/city-atlas/cities/${cityId}/sources.json`;
+  const sourcesDoc = fs.existsSync(path.join(ROOT, sourcesPath)) ? readJson(path.join(ROOT, sourcesPath)) : null;
+  const sourceCount = Array.isArray(sourcesDoc?.sources) ? sourcesDoc.sources.length : null;
+  cityDoc.artifact_paths = Object.assign({}, cityDoc.artifact_paths, {
+    civic_services_context: relativePath,
+  });
+  writeJson(cityPath, cityDoc);
+
+  const indexPath = path.join(ROOT, ATLAS_INDEX);
+  const indexDoc = readJson(indexPath);
+  for (const city of indexDoc.cities || []) {
+    if (city.city_id !== cityId) continue;
+    city.artifact_paths = Object.assign({}, city.artifact_paths, {
+      civic_services_context: relativePath,
+    });
+    if (sourceCount !== null) city.source_count = sourceCount;
+  }
+  writeJson(indexPath, indexDoc);
 }
 
 for (const cityId of selectedCities()) {
-  buildCity(cityId, CITY_INPUTS[cityId]);
+  const output = buildCity(cityId, CITY_INPUTS[cityId]);
+  updateArtifactPath(cityId, output);
 }

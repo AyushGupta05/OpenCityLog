@@ -396,6 +396,69 @@ for (const cityId of ["belfast", "london", "nyc"]) {
 """
         subprocess.run(["node", "-e", script], cwd=REPO_ROOT, check=True)
 
+    def test_transport_stop_context_clips_to_official_city_scope(self) -> None:
+        script = r"""
+const fs = require("fs");
+const path = require("path");
+const {
+  loadCityScopeBoundary,
+  pointInBoundary,
+} = require("./scripts/build_lens_overlays");
+
+const minimumDropped = { london: 1, nyc: 1 };
+for (const cityId of ["london", "nyc"]) {
+  const boundary = loadCityScopeBoundary(cityId);
+  const artifactPath = path.join(
+    process.cwd(),
+    "web",
+    "data",
+    "city-atlas",
+    "cities",
+    cityId,
+    "transport_stops_2026.geojson",
+  );
+  const payload = JSON.parse(fs.readFileSync(artifactPath, "utf8"));
+  const scopeFilter = payload.metadata?.city_scope_filter;
+  if (!scopeFilter) throw new Error(`${cityId} missing transport-stop official boundary filter metadata`);
+  if (!scopeFilter.boundary_source_url || !scopeFilter.boundary_licence) {
+    throw new Error(`${cityId} missing transport-stop official boundary provenance`);
+  }
+  if ((scopeFilter.dropped_out_of_scope_feature_count || 0) < minimumDropped[cityId]) {
+    throw new Error(`${cityId} dropped too few bbox transport-stop anchors: ${scopeFilter.dropped_out_of_scope_feature_count || 0}`);
+  }
+  if (scopeFilter.emitted_feature_count !== (payload.features || []).length) {
+    throw new Error(`${cityId} transport-stop emitted count does not match artifact feature count`);
+  }
+  for (const sourcePath of payload.metadata?.source_paths || []) {
+    if (!fs.existsSync(path.join(process.cwd(), sourcePath))) {
+      throw new Error(`${cityId} transport-stop source path is missing from the worktree: ${sourcePath}`);
+    }
+  }
+  const modes = new Set();
+  let outside = 0;
+  let centerProxyCount = 0;
+  for (const feature of payload.features || []) {
+    const props = feature.properties || {};
+    modes.add(props.mode);
+    const coords = feature.geometry?.coordinates;
+    if (!pointInBoundary(coords, boundary)) outside += 1;
+    if (
+      props.osm_element_type
+      && props.osm_element_type !== "node"
+      && /Overpass center point/i.test(String(props.geometry_source || ""))
+    ) {
+      centerProxyCount += 1;
+    }
+  }
+  if (outside) throw new Error(`${cityId} emitted ${outside} transport-stop anchor(s) outside the official boundary`);
+  for (const requiredMode of ["bus", "rail"]) {
+    if (!modes.has(requiredMode)) throw new Error(`${cityId} missing ${requiredMode} transport-stop anchors`);
+  }
+  if (!centerProxyCount) throw new Error(`${cityId} transport-stop layer lost OSM way/relation center-proxy provenance`);
+}
+"""
+        subprocess.run(["node", "-e", script], cwd=REPO_ROOT, check=True)
+
     def test_belfast_city_bounds_match_official_lgd_scope(self) -> None:
         city = read_json(REPO_ROOT / "config" / "cities" / "belfast.json")
         boundary = read_json(REPO_ROOT / "data" / "raw" / "boundaries" / "belfast_osni_lgd_boundary_2012.geojson")

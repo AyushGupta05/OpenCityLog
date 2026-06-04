@@ -515,7 +515,14 @@ async function assertDesktopCitywideCoverage(page) {
         && atlas?.state?.showInferred !== false
         && !atlas?.state?.search
         && !atlas?.state?.areaFilter;
-      const canRenderGuide = directCanRenderGuide || civicContextCanRenderGuide;
+      const transportContextCanRenderGuide = activeAspect === "transport-access"
+        && Boolean(atlas?.state?.activeLayers?.has?.("transport"))
+        && (atlas?.state?.transportStopFeatures || []).length > 0
+        && citywideScope
+        && atlas?.state?.showInferred !== false
+        && !atlas?.state?.search
+        && !atlas?.state?.areaFilter;
+      const canRenderGuide = directCanRenderGuide || civicContextCanRenderGuide || transportContextCanRenderGuide;
       const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
       const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
       const invalidGuideCount = guideFeatures.filter((feature) => {
@@ -1220,6 +1227,121 @@ async function assertPannedSourceBackedLensCoverage(page, cityId, check) {
   await page.waitForFunction(() => document.querySelector("#mapStudyChip")?.dataset.scope === "city", null, { timeout: 10000 });
 }
 
+async function assertTransportAccessStopContext(page, city) {
+  await page.waitForFunction(() => window.BimsAtlas?.state?.activeAspect === "transport-access", null, { timeout: 15000 });
+  await page.waitForFunction(
+    (minimum) => (window.BimsAtlas?.state?.transportStopFeatures || []).length >= minimum,
+    city.minStops,
+    { timeout: 20000 }
+  );
+  await page.waitForFunction(
+    () => (window.BimsAtlas?.state?.lensGuideFeatureCache?.features || []).length > 0,
+    null,
+    { timeout: 20000 }
+  );
+  await page.waitForFunction(
+    () => {
+      const map = window.BimsAtlas?.state?.map;
+      return ["lens-guide-citywide-cell-fill", "lens-guide-citywide-cell-line", "lens-guide-node", "lens-guide-icon-node"].some((layerId) => {
+        if (!map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") return false;
+        try {
+          return map.queryRenderedFeatures({ layers: [layerId] }).length > 0;
+        } catch (_error) {
+          return false;
+        }
+      });
+    },
+    null,
+    { timeout: 20000 }
+  );
+  await page.waitForTimeout(700);
+  const state = await page.evaluate(() => {
+    const atlas = window.BimsAtlas;
+    const map = atlas?.state?.map;
+    const stops = atlas?.state?.transportStopFeatures || [];
+    const guide = atlas?.state?.lensGuideFeatureCache?.features || [];
+    const modes = stops.reduce((acc, feature) => {
+      const mode = feature.properties?.mode || "unknown";
+      acc[mode] = (acc[mode] || 0) + 1;
+      return acc;
+    }, {});
+    const renderedGuide = ["lens-guide-citywide-cell-fill", "lens-guide-citywide-cell-line", "lens-guide-node", "lens-guide-icon-node"].reduce((count, layerId) => {
+      if (!map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") return count;
+      try {
+        return count + map.queryRenderedFeatures({ layers: [layerId] }).length;
+      } catch (_error) {
+        return count;
+      }
+    }, 0);
+    return {
+      city: document.querySelector("#cityNameLabel")?.textContent.trim() || "",
+      activeAspect: atlas?.state?.activeAspect || "",
+      stopPath: atlas?.state?.transportStopFeaturesPathLoaded || "",
+      stopCount: stops.length,
+      modes,
+      guideSublayers: guide.reduce((acc, feature) => {
+        const sublayerId = feature.properties?.sublayer_id || "";
+        if (sublayerId) acc[sublayerId] = (acc[sublayerId] || 0) + 1;
+        return acc;
+      }, {}),
+      proxyCount: stops.filter((feature) => {
+        const props = feature.properties || {};
+        return props.osm_element_type && props.osm_element_type !== "node" && /Overpass center point/i.test(props.geometry_source || "");
+      }).length,
+      guideCount: guide.length,
+      renderedGuide,
+      appStatus: document.querySelector("#appStatus")?.textContent.trim() || "",
+    };
+  });
+  assert(state.city === city.label, `transport context ${city.id}: loaded ${state.city} instead of ${city.label}.`);
+  assert(state.activeAspect === "transport-access", `transport context ${city.id}: active aspect is ${state.activeAspect}.`);
+  assert(state.stopPath.includes("transport_stops_2026.geojson"), `transport context ${city.id}: stop artifact path did not load.`);
+  assert(state.stopCount >= city.minStops, `transport context ${city.id}: expected at least ${city.minStops} stops, got ${state.stopCount}.`);
+  for (const mode of city.requiredModes) {
+    assert((state.modes[mode] || 0) > 0, `transport context ${city.id}: missing ${mode} stops.`);
+  }
+  if (city.requiresCenterProxy) {
+    assert(state.proxyCount > 0, `transport context ${city.id}: OSM center-proxy provenance was not available at runtime.`);
+  }
+  assert(state.guideCount >= city.minGuideFeatures, `transport context ${city.id}: too few guide features (${state.guideCount}).`);
+  for (const sublayerId of city.requiredSublayers) {
+    assert((state.guideSublayers[sublayerId] || 0) > 0, `transport context ${city.id}: missing ${sublayerId} guide features.`);
+  }
+  assert(state.renderedGuide > 0, `transport context ${city.id}: guide features did not render.`);
+  assert(!state.appStatus, `transport context ${city.id}: app status reported ${state.appStatus}.`);
+  const png = await page.screenshot({
+    path: path.join(outputDir, `paper-atlas-${city.id}-transport-access-context.png`),
+    fullPage: false,
+  });
+  assertDetailedPng(png, assert, `transport context ${city.id}`);
+
+  await page.locator(".layer-row[data-sublayer='stations_stops']").click();
+  await page.waitForFunction(
+    () => (window.BimsAtlas?.state?.lensGuideFeatureCache?.features || []).length === 0,
+    null,
+    { timeout: 10000 }
+  );
+  await page.locator(".layer-row[data-sublayer='stations_stops']").click();
+  await page.waitForFunction(
+    (minimum) => (window.BimsAtlas?.state?.lensGuideFeatureCache?.features || []).length >= minimum,
+    city.minGuideFeatures,
+    { timeout: 10000 }
+  );
+
+  await page.locator(".layer-row[data-sublayer='bus_network']").click();
+  await page.waitForFunction(
+    () => !(window.BimsAtlas?.state?.lensGuideFeatureCache?.features || []).some((feature) => feature.properties?.sublayer_id === "bus_network"),
+    null,
+    { timeout: 10000 }
+  );
+  await page.locator(".layer-row[data-sublayer='bus_network']").click();
+  await page.waitForFunction(
+    () => (window.BimsAtlas?.state?.lensGuideFeatureCache?.features || []).some((feature) => feature.properties?.sublayer_id === "bus_network"),
+    null,
+    { timeout: 10000 }
+  );
+}
+
 (async () => {
   ensureOutputDir();
   const browser = await chromium.launch(chromiumLaunchOptions);
@@ -1289,10 +1411,29 @@ async function assertPannedSourceBackedLensCoverage(page, cityId, check) {
     }
   }
 
+  const transportContextChecks = [
+    { id: "belfast", label: "Belfast", year: 2007, minStops: 1500, minGuideFeatures: 500, requiredModes: ["bus"], requiredSublayers: ["bus_network"], requiresCenterProxy: false },
+    { id: "london", label: "London", year: 2024, minStops: 6500, minGuideFeatures: 1100, requiredModes: ["bus", "rail", "ferry"], requiredSublayers: ["bus_network", "rail_network", "ferry_routes"], requiresCenterProxy: true },
+    { id: "nyc", label: "New York City", year: 2024, minStops: 6500, minGuideFeatures: 1100, requiredModes: ["bus", "rail", "ferry"], requiredSublayers: ["bus_network", "rail_network", "ferry_routes"], requiresCenterProxy: true },
+  ];
+  for (const city of transportContextChecks) {
+    progress("transport access context", city.id);
+    const cityBrowser = await chromium.launch(chromiumLaunchOptions);
+    const page = await cityBrowser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+    try {
+      attachConsoleCapture(page, consoleMessages, pageErrors);
+      await openAtlas(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=transport-access`);
+      await assertTransportAccessStopContext(page, city);
+    } finally {
+      await page.close().catch(() => {});
+      await cityBrowser.close().catch(() => {});
+    }
+  }
+
   const actionable = actionableConsoleMessages(consoleMessages);
   assert(pageErrors.length === 0, `Dashboard page errors:\n${pageErrors.join("\n")}`);
   assert(actionable.length === 0, `Dashboard console warnings/errors:\n${actionable.map((message) => `${message.type}: ${message.text}`).join("\n")}`);
-  console.log("OpenCityLog paper-atlas dashboard smoke OK: desktop, tablet, mobile, and Belfast/London/NYC city checks passed.");
+  console.log("OpenCityLog paper-atlas dashboard smoke OK: desktop, tablet, mobile, Belfast/London/NYC city checks, and transport-access context checks passed.");
 })().catch((error) => {
   console.error(error);
   process.exit(1);

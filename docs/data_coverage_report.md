@@ -7,8 +7,8 @@ This report counts source-backed records emitted into `web/data/city-atlas`. It 
 | City | Events | Active sources | Catalog-only sources | Event years | Top layers | Catalog gaps |
 | --- | ---: | ---: | ---: | --- | --- | --- |
 | Belfast, Northern Ireland | 33149 | 215 | 32 | 2007-2026 | transport 17108, built_environment 13827, utilities 855 | 32 catalog-only source(s) |
-| London, England | 224003 | 193 | 101 | 1801-2026 | civic_services 82081, built_environment 78562, economy 35500 | 101 catalog-only source(s) |
-| New York City, New York | 99236 | 82 | 121 | 1797-2026 | built_environment 78552, transport 5619, economy 5096 | 121 catalog-only source(s) |
+| London, England | 224003 | 193 | 102 | 1801-2026 | civic_services 82081, built_environment 78562, economy 35500 | 102 catalog-only source(s) |
+| New York City, New York | 99236 | 82 | 122 | 1797-2026 | built_environment 78552, transport 5619, economy 5096 | 122 catalog-only source(s) |
 
 ## Belfast, Northern Ireland
 
@@ -50,7 +50,7 @@ Backed events: 224003. Unique event IDs: 224003. Duplicate IDs: 0.
 | Planning Data: Brownfield Land | 5643 | 2017-2026 | built_environment 5643 | usable_with_caveats |
 | Planning London Datahub applications API | 4500 | 2008-2025 | built_environment 4473, utilities 27 | usable_with_caveats |
 
-Catalog-only sources without emitted event rows: 101.
+Catalog-only sources without emitted event rows: 102.
 
 ## New York City, New York
 
@@ -71,5 +71,5 @@ Backed events: 99236. Unique event IDs: 99236. Duplicate IDs: 0.
 | Motor Vehicle Collisions - Crashes | 2389 | 2012-2026 | transport 2389 | usable_with_caveats |
 | Primary Land Use Tax Lot Output (PLUTO) | 2383 | 1811-2026 | economy 2379, built_environment 4 | usable_with_caveats |
 
-Catalog-only sources without emitted event rows: 121.
+Catalog-only sources without emitted event rows: 122.
 

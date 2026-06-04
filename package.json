@@ -16,7 +16,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "build:data": "node scripts/build_city_atlas_all.js && node scripts/build_area_facets.js",
+    "build:data": "node scripts/build_city_atlas_all.js && node scripts/build_area_facets.js && npm run build:civic-services -- london nyc && npm run build:transport-stops",
     "build:area-facets": "node scripts/build_area_facets.js",
     "ingest:open-sources": "node scripts/run_python.js scripts/expand_london_nyc_events_from_open_sources.py && npm run build:data",
     "build:coverage": "node scripts/build_city_coverage_report.js",
@@ -28,9 +28,11 @@
     "build:transit": "node scripts/build_translink_transit_layers.js",
     "fetch:utilities-osm": "node scripts/fetch_belfast_utility_context_osm.js",
     "fetch:civic-services-osm": "node scripts/fetch_city_civic_service_osm.js",
+    "fetch:transport-stops-osm": "node scripts/fetch_city_transport_stops_osm.js",
     "build:utilities": "node scripts/build_utility_network_context.js",
     "build:economy-anchors": "node scripts/build_economy_anchor_context.js",
     "build:civic-services": "node scripts/build_civic_service_context.js",
+    "build:transport-stops": "node scripts/build_transport_stop_context.js",
     "build:detail-layers": "node scripts/build_osm_detail_layers.js",
     "build:lens-overlays": "node scripts/build_lens_overlays_by_city.js",
     "build:lens-contract": "node scripts/build_15_lens_manifest.js",
