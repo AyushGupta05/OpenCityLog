@@ -802,6 +802,8 @@
     transportStopFeatures: [],
     utilityNetworkPathLoaded: null,
     utilityNetworkFeaturesPathLoaded: null,
+    utilityNetworkLoadPath: null,
+    utilityNetworkLoadPromise: null,
     utilityNetworkFeatures: [],
     economyAnchorFeaturesPathLoaded: null,
     economyAnchorFeatures: [],
@@ -2740,19 +2742,8 @@
       }
 
       const utilityNetworkSource = state.map.getSource(UTILITY_NETWORK_SOURCE_ID);
-      const utilityPath = shouldLoadUtilityNetwork() ? utilityNetworkPath() : "";
-      if (utilityPath) {
-        if (utilityNetworkSource?.setData) {
-          if (state.utilityNetworkPathLoaded !== utilityPath) utilityNetworkSource.setData(utilityPath);
-        } else {
-          state.map.addSource(UTILITY_NETWORK_SOURCE_ID, { type: "geojson", data: utilityPath, generateId: true });
-        }
-        state.utilityNetworkPathLoaded = utilityPath;
-      } else if (!utilityNetworkSource) {
+      if (!utilityNetworkSource) {
         state.map.addSource(UTILITY_NETWORK_SOURCE_ID, { type: "geojson", data: emptyFeatureCollection(), generateId: true });
-        state.utilityNetworkPathLoaded = "";
-      } else if (utilityNetworkSource?.setData && state.utilityNetworkPathLoaded !== "") {
-        utilityNetworkSource.setData(emptyFeatureCollection());
         state.utilityNetworkPathLoaded = "";
       }
 
@@ -5276,6 +5267,8 @@
     state.transportStopFeatures = [];
     state.utilityNetworkPathLoaded = null;
     state.utilityNetworkFeaturesPathLoaded = null;
+    state.utilityNetworkLoadPath = null;
+    state.utilityNetworkLoadPromise = null;
     state.utilityNetworkFeatures = [];
     state.economyAnchorFeaturesPathLoaded = null;
     state.economyAnchorFeatures = [];
@@ -6312,16 +6305,24 @@
     const source = state.map?.getSource(UTILITY_NETWORK_SOURCE_ID);
     if (!source?.setData) return;
     if (!path) {
+      const hadUtilityContext = state.utilityNetworkPathLoaded !== ""
+        || state.utilityNetworkFeaturesPathLoaded !== null
+        || state.utilityNetworkFeatures.length
+        || state.utilityNetworkLoadPromise;
+      state.utilityNetworkFeaturesPathLoaded = null;
+      state.utilityNetworkLoadPath = null;
+      state.utilityNetworkLoadPromise = null;
+      state.utilityNetworkFeatures = [];
       if (state.utilityNetworkPathLoaded !== "") {
         source.setData(emptyFeatureCollection());
         state.utilityNetworkPathLoaded = "";
-        updateUtilityNetworkFeatureCache("");
+      }
+      if (hadUtilityContext) {
+        updateLensGuideSource();
+        renderLayers();
+        renderLensLegend();
       }
       return;
-    }
-    if (state.utilityNetworkPathLoaded !== path) {
-      source.setData(path);
-      state.utilityNetworkPathLoaded = path;
     }
     updateUtilityNetworkFeatureCache(path);
   }
@@ -6336,19 +6337,30 @@
       }
       return;
     }
-    if (state.utilityNetworkFeaturesPathLoaded === path) return;
+    if (
+      state.utilityNetworkFeaturesPathLoaded === path
+      && state.utilityNetworkPathLoaded === path
+      && !state.utilityNetworkLoadPromise
+    ) return;
+    if (state.utilityNetworkLoadPromise && state.utilityNetworkLoadPath === path) return;
     state.utilityNetworkFeaturesPathLoaded = path;
     state.utilityNetworkFeatures = [];
-    fetch(path, { cache: "no-store" })
+    state.utilityNetworkLoadPath = path;
+    const promise = fetch(path, { cache: "no-store" })
       .then((response) => {
         if (!response.ok) throw new Error(`${path} -> ${response.status}`);
         return response.json();
       })
       .then((payload) => {
         if (state.utilityNetworkFeaturesPathLoaded !== path) return;
+        const source = state.map?.getSource(UTILITY_NETWORK_SOURCE_ID);
         state.utilityNetworkFeatures = Array.isArray(payload.features)
           ? payload.features.filter((feature) => feature.geometry && feature.properties?.layer === "utility_network")
           : [];
+        if (source?.setData) {
+          source.setData(payload?.type === "FeatureCollection" ? payload : emptyFeatureCollection());
+          state.utilityNetworkPathLoaded = path;
+        }
         updateLensGuideSource();
         renderLayers();
         renderLensLegend();
@@ -6356,10 +6368,23 @@
       .catch((error) => {
         if (state.utilityNetworkFeaturesPathLoaded !== path) return;
         state.utilityNetworkFeatures = [];
+        const source = state.map?.getSource(UTILITY_NETWORK_SOURCE_ID);
+        if (source?.setData) {
+          source.setData(emptyFeatureCollection());
+          state.utilityNetworkPathLoaded = "";
+        }
         console.warn("[atlas] utility network context unavailable", error);
         updateLensGuideSource();
         renderLayers();
+        renderLensLegend();
+      })
+      .finally(() => {
+        if (state.utilityNetworkLoadPromise === promise) {
+          state.utilityNetworkLoadPromise = null;
+          state.utilityNetworkLoadPath = null;
+        }
       });
+    state.utilityNetworkLoadPromise = promise;
   }
 
   function updateTransportStopFeatureCache(path) {

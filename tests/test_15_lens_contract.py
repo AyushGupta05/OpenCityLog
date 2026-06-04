@@ -359,6 +359,136 @@ assertScopedRoads("belfast", 1, { detail_layers: "web/data/city-atlas/cities/bel
 """
         subprocess.run(["node", "-e", script], cwd=REPO_ROOT, check=True)
 
+    def test_utility_context_fetcher_preserves_polygon_boundary_rings(self) -> None:
+        script = r"""
+const {
+  geometryIntersectsBoundary,
+  pointInBoundary,
+  polygonRings,
+} = require("./scripts/fetch_city_utility_context_osm");
+
+const polygon = {
+  type: "Polygon",
+  coordinates: [[
+    [0, 0], [2, 0], [2, 2], [0, 2], [0, 0],
+  ], [
+    [0.75, 0.75], [1.25, 0.75], [1.25, 1.25], [0.75, 1.25], [0.75, 0.75],
+  ]],
+};
+const polygons = polygonRings(polygon);
+if (polygons.length !== 1 || polygons[0].length !== 2 || typeof polygons[0][0][0][0] !== "number") {
+  throw new Error("Polygon boundary rings were not grouped as outer-plus-hole rings");
+}
+if (!pointInBoundary([0.5, 0.5], polygons)) throw new Error("Polygon fixture rejected an interior point");
+if (pointInBoundary([1, 1], polygons)) throw new Error("Polygon fixture accepted a point inside an excluded hole");
+if (pointInBoundary([3, 3], polygons)) throw new Error("Polygon fixture accepted an exterior point");
+if (!geometryIntersectsBoundary({ type: "LineString", coordinates: [[-1, 0.5], [3, 0.5]] }, polygons)) {
+  throw new Error("Polygon fixture rejected a line crossing the boundary");
+}
+if (geometryIntersectsBoundary({ type: "LineString", coordinates: [[0.85, 1], [1.15, 1]] }, polygons)) {
+  throw new Error("Polygon fixture accepted a line contained inside an excluded hole");
+}
+if (!geometryIntersectsBoundary({
+  type: "Polygon",
+  coordinates: [[
+    [-1, -1], [3, -1], [3, 3], [-1, 3], [-1, -1],
+  ]],
+}, polygons)) {
+  throw new Error("Polygon fixture rejected a source area that fully contains the boundary");
+}
+
+const multiPolygon = {
+  type: "MultiPolygon",
+  coordinates: [
+    [[[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]]],
+    [[[3, 3], [4, 3], [4, 4], [3, 4], [3, 3]]],
+  ],
+};
+const multiPolygons = polygonRings(multiPolygon);
+if (multiPolygons.length !== 2 || typeof multiPolygons[1][0][0][0] !== "number") {
+  throw new Error("MultiPolygon boundary rings were not grouped as polygon ring arrays");
+}
+if (!pointInBoundary([3.5, 3.5], multiPolygons)) throw new Error("MultiPolygon fixture rejected an interior point");
+"""
+        subprocess.run(["node", "-e", script], cwd=REPO_ROOT, check=True)
+
+    def test_utility_context_fetcher_preserves_relation_member_geometry(self) -> None:
+        script = r"""
+const { classifyUtility, geometryFromElement } = require("./scripts/fetch_city_utility_context_osm");
+
+const classified = [
+  [classifyUtility({ utility: "power" }), "electricity"],
+  [classifyUtility({ utility: "sewer" }), "drainage"],
+  [classifyUtility({ utility: "drain" }), "drainage"],
+  [classifyUtility({ man_made: "mast" }), "telecoms"],
+];
+for (const [result, expected] of classified) {
+  if (result?.utilityType !== expected) {
+    throw new Error(`Expected ${expected} classification, got ${result?.utilityType || "none"}`);
+  }
+}
+
+const lineRelation = {
+  type: "relation",
+  id: 7,
+  tags: { waterway: "river", type: "route" },
+  bounds: { minlon: 0, minlat: 0, maxlon: 10, maxlat: 10 },
+  members: [
+    { type: "way", role: "", geometry: [{ lon: 0, lat: 0 }, { lon: 1, lat: 1 }] },
+    { type: "way", role: "", geometry: [{ lon: 1, lat: 1 }, { lon: 2, lat: 1 }] },
+  ],
+};
+const lineGeometry = geometryFromElement(lineRelation, { utilityType: "water", role: "river" });
+if (lineGeometry.type !== "MultiLineString" || lineGeometry.coordinates.length !== 2) {
+  throw new Error(`Relation line geometry collapsed to ${lineGeometry.type}`);
+}
+
+const areaRelation = {
+  type: "relation",
+  id: 8,
+  tags: { power: "substation", type: "multipolygon" },
+  bounds: { minlon: 0, minlat: 0, maxlon: 2, maxlat: 2 },
+  members: [{
+    type: "way",
+    role: "outer",
+    geometry: [
+      { lon: 0, lat: 0 },
+      { lon: 2, lat: 0 },
+      { lon: 2, lat: 2 },
+    ],
+  }, {
+    type: "way",
+    role: "outer",
+    geometry: [
+      { lon: 2, lat: 2 },
+      { lon: 0, lat: 2 },
+      { lon: 0, lat: 0 },
+    ],
+  }, {
+    type: "way",
+    role: "inner",
+    geometry: [
+      { lon: 0.75, lat: 0.75 },
+      { lon: 1.25, lat: 0.75 },
+      { lon: 1.25, lat: 1.25 },
+    ],
+  }, {
+    type: "way",
+    role: "inner",
+    geometry: [
+      { lon: 1.25, lat: 1.25 },
+      { lon: 0.75, lat: 1.25 },
+      { lon: 0.75, lat: 0.75 },
+    ],
+  }],
+};
+const areaGeometry = geometryFromElement(areaRelation, { utilityType: "electricity", role: "substation" });
+if (areaGeometry.type !== "Polygon" || areaGeometry.coordinates.length !== 2 || areaGeometry.coordinates[1].length !== 5) {
+  throw new Error(`Relation area geometry did not preserve inner hole rings: ${areaGeometry.type}`);
+}
+"""
+        subprocess.run(["node", "-e", script], cwd=REPO_ROOT, check=True)
+
     def test_civic_service_context_clips_to_official_city_scope(self) -> None:
         script = r"""
 const fs = require("fs");

@@ -21,7 +21,8 @@
         "lens_year_coverage": "web/data/city-atlas/cities/belfast/lens_year_coverage.json",
         "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson",
         "transport_roads_template": "web/data/city-atlas/cities/belfast/transport_roads_{year}.geojson",
-        "lens_detail_template": "web/data/city-atlas/cities/belfast/lens_detail_{year}.geojson"
+        "lens_detail_template": "web/data/city-atlas/cities/belfast/lens_detail_{year}.geojson",
+        "utility_network": "web/data/city-atlas/cities/belfast/utility_network_2026.geojson"
       }
     },
     {
@@ -43,7 +44,8 @@
         "civic_services_context": "web/data/city-atlas/cities/london/civic_services_2026.geojson",
         "transport_stops": "web/data/city-atlas/cities/london/transport_stops_2026.geojson",
         "lens_manifest": "web/data/city-atlas/cities/london/lens_manifest.json",
-        "lens_year_coverage": "web/data/city-atlas/cities/london/lens_year_coverage.json"
+        "lens_year_coverage": "web/data/city-atlas/cities/london/lens_year_coverage.json",
+        "utility_network": "web/data/city-atlas/cities/london/utility_network_2026.geojson"
       }
     },
     {
@@ -65,7 +67,8 @@
         "civic_services_context": "web/data/city-atlas/cities/nyc/civic_services_2026.geojson",
         "transport_stops": "web/data/city-atlas/cities/nyc/transport_stops_2026.geojson",
         "lens_manifest": "web/data/city-atlas/cities/nyc/lens_manifest.json",
-        "lens_year_coverage": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
+        "lens_year_coverage": "web/data/city-atlas/cities/nyc/lens_year_coverage.json",
+        "utility_network": "web/data/city-atlas/cities/nyc/utility_network_2026.geojson"
       }
     }
   ],

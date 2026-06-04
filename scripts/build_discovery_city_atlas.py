@@ -215,6 +215,7 @@ def generated_artifact_paths(city: str, city_dir: Path) -> dict[str, str]:
         "detail_layers": "detail_layers.geojson",
         "lens_overlays": "lens_overlays.geojson",
         "transport_roads_base": "transport_roads_base.geojson",
+        "utility_network": "utility_network_2026.geojson",
     }
     for key, filename in known_files.items():
         if (city_dir / filename).exists():

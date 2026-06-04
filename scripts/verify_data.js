@@ -11,8 +11,10 @@ const CONFIDENCE_VALUES = new Set(["documented", "corroborated", "inferred", "di
 const RELIABILITY_VALUES = new Set(["strong", "usable_with_caveats", "risky", "reject"]);
 const AVAILABILITY_VALUES = new Set(["ready", "partial_local", "planned", "adapter_placeholder", "blocked"]);
 const EVIDENCE_KINDS = new Set(["source_url", "local_file", "changeset", "source_record"]);
-const REQUIRED_OVERLAY_ARTIFACTS = ["lens_overlays", "lens_detail_template", "transport_roads_base", "transport_roads_template"];
+const REQUIRED_OVERLAY_ARTIFACTS = ["lens_overlays", "lens_detail_template", "transport_roads_base", "transport_roads_template", "utility_network"];
 const BELFAST_REQUIRED_OVERLAY_ARTIFACTS = ["detail_layers", ...REQUIRED_OVERLAY_ARTIFACTS];
+const UTILITY_NETWORK_TYPES = new Set(["water", "electricity", "telecoms", "gas", "drainage", "district_energy"]);
+const UTILITY_NETWORK_GEOMETRIES = new Set(["asset", "line", "area"]);
 const GEOMETRY_TYPES = new Set([
   "Point",
   "MultiPoint",
@@ -361,6 +363,41 @@ function validateGeoJsonArtifact(failures, root, artifactPath, label, expectedCi
   return payload;
 }
 
+function validateUtilityNetworkArtifact(failures, label, payload) {
+  const caveatText = [
+    payload.metadata?.caveat,
+    ...(payload.metadata?.caveats || []),
+  ].filter(Boolean).join(" ");
+  assert(
+    failures,
+    /not (?:a )?(?:measured )?utility capacity|does not contain measured utility capacity|no capacity/i.test(caveatText)
+      && /service availability|service-availability/i.test(caveatText),
+    `${label} metadata must caveat capacity and service availability claims`,
+  );
+  assert(failures, (payload.features || []).length > 0, `${label} must include citywide utility network context features`);
+  for (const [index, feature] of (payload.features || []).entries()) {
+    const props = feature.properties || {};
+    const featureLabel = `${label} feature ${props.id || index}`;
+    assert(failures, props.layer === "utility_network", `${featureLabel} must use layer=utility_network`);
+    assert(failures, props.category === "utilities", `${featureLabel} must use category=utilities`);
+    assert(failures, UTILITY_NETWORK_TYPES.has(props.utility_type), `${featureLabel} has unsupported utility_type ${props.utility_type || "<missing>"}`);
+    assert(failures, UTILITY_NETWORK_GEOMETRIES.has(props.network_geometry), `${featureLabel} has unsupported network_geometry ${props.network_geometry || "<missing>"}`);
+    for (const field of ["source_id", "source_registry_id", "source_object_id", "source_name", "publisher", "source_url", "license", "accessed_at", "transformation_method", "geometry_source", "original_geometry_type", "context_year", "confidence", "caveat"]) {
+      assert(failures, props[field] !== undefined && String(props[field]).trim() !== "", `${featureLabel} missing ${field}`);
+    }
+    assert(failures, props.source_registry_id === "osm-overpass", `${featureLabel} must retain source_registry_id=osm-overpass`);
+    assert(failures, /^https:\/\/www\.openstreetmap\.org\/(node|way|relation)\/\d+/.test(String(props.source_url || "")), `${featureLabel} source_url must point to the OSM object`);
+    assert(failures, /ODbL/i.test(String(props.license || "")), `${featureLabel} must retain ODbL license`);
+    assert(failures, props.confidence === "inferred", `${featureLabel} must be confidence=inferred for current mapped context`);
+    assert(
+      failures,
+      /not .*capacity|capacity measurement/i.test(String(props.caveat || ""))
+        && /service[-\s]?availability/i.test(String(props.caveat || "")),
+      `${featureLabel} caveat must reject capacity/service availability claims`,
+    );
+  }
+}
+
 function lensDetailSiteText(feature) {
   const props = feature.properties || {};
   return {
@@ -445,7 +482,10 @@ function validateOverlayArtifacts(failures, root, citySummary, artifactCity, eve
   }
   for (const key of advertisedKeys.filter((item) => !["transport_roads_template", "lens_detail_template"].includes(item))) {
     const artifactPath = summaryPaths[key] || cityPaths[key];
-    if (artifactPath) validateGeoJsonArtifact(failures, root, artifactPath, `${cityId} ${key}`, cityId);
+    if (artifactPath) {
+      const payload = validateGeoJsonArtifact(failures, root, artifactPath, `${cityId} ${key}`, cityId);
+      if (key === "utility_network" && payload) validateUtilityNetworkArtifact(failures, `${cityId} ${key}`, payload);
+    }
   }
   const template = summaryPaths.transport_roads_template || cityPaths.transport_roads_template;
   if (template) {

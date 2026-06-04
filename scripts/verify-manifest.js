@@ -33,6 +33,8 @@ function assert(condition, message) {
 }
 
 const LENS_DETAIL_SITE_LAYERS = new Set(["planning_cell", "civic_coverage_cell", "economy_activity_cell", "economy_frontage", "civic_facility", "utility_trace", "utility_asset"]);
+const UTILITY_NETWORK_TYPES = new Set(["water", "electricity", "telecoms", "gas", "drainage", "district_energy"]);
+const UTILITY_NETWORK_GEOMETRIES = new Set(["asset", "line", "area"]);
 const LENS_DETAIL_BAD_SOURCE_PATTERN = /\buk[-_\s]?hpi\b|\bhpi monthly\b|house[-_\s]?price[-_\s]?index|uk[-_\s]?house[-_\s]?price[-_\s]?index|market[-_\s]?trend|lon-extra-uk-house-price-index/i;
 const LENS_DETAIL_BAD_PRECISION_PATTERN = /\bborough aggregate\b|\baggregate,\s*not\b|\barea\/city reference\b|\bcitywide\b|\bnot an exact event geometry\b|^(approximate\s+)?district(?:-extension)?(?:\s+approximate|\s+centroid)?\b|^(approximate\s+)?neighbou?rhood(?:\s+approximate|\s+centroid)?\b|^(rail[-\s])?corridor(?:\s+approximate|\s+centroid)?\b|^(multiple sites|multi[-\s]?site|programme approximate)\b/i;
 const REQUIRED_LENS_DETAIL_EVENT_IDS = {
@@ -132,17 +134,20 @@ if (atlas) {
     const detailLayers = paths.detail_layers ? readJson(paths.detail_layers) : null;
     const lensOverlays = paths.lens_overlays ? readJson(paths.lens_overlays) : null;
     const transportRoadBase = paths.transport_roads_base ? readJson(paths.transport_roads_base) : null;
+    const utilityNetwork = paths.utility_network ? readJson(paths.utility_network) : null;
     const sourceById = new Map((sources?.sources || []).map((source) => [source.source_id, source]));
 
-    for (const key of ["lens_overlays", "lens_detail_template", "transport_roads_base", "transport_roads_template"]) {
+    for (const key of ["lens_overlays", "lens_detail_template", "transport_roads_base", "transport_roads_template", "utility_network"]) {
       assert(paths[key], `City ${city.city_id} is missing required artifact_paths.${key}.`);
     }
     if (paths.lens_overlays) assert(exists(paths.lens_overlays), `City ${city.city_id} lens overlay artifact is missing: ${paths.lens_overlays}`);
     if (paths.transport_roads_base) assert(exists(paths.transport_roads_base), `City ${city.city_id} transport base road artifact is missing: ${paths.transport_roads_base}`);
+    if (paths.utility_network) assert(exists(paths.utility_network), `City ${city.city_id} utility network artifact is missing: ${paths.utility_network}`);
 
     if (cityMeta) {
       assert(Array.isArray(cityMeta.default_center) && cityMeta.default_center.length === 2, `City ${city.city_id} must define a [lng, lat] default_center.`);
       assert(typeof cityMeta.default_zoom === "number", `City ${city.city_id} must define numeric default_zoom.`);
+      assert(cityMeta.artifact_paths?.utility_network === paths.utility_network, `City ${city.city_id} utility_network path must match index and city artifact.`);
     }
 
     if (sources) {
@@ -273,6 +278,22 @@ if (atlas) {
       assert(/not measured traffic/i.test(String(transportRoadBase.metadata?.caveat || "")), `City ${city.city_id} transport_roads_base must caveat traffic intensity.`);
       assert((transportRoadBase.features || []).length > 0, `City ${city.city_id} transport_roads_base must include citywide road features.`);
       assert((transportRoadBase.features || []).every((feature) => feature.properties?.layer === "traffic_road_base" && feature.geometry), `City ${city.city_id} transport_roads_base features need traffic_road_base layer and geometry.`);
+    }
+    if (utilityNetwork) {
+      assert(utilityNetwork.type === "FeatureCollection", `City ${city.city_id} utility_network must be a GeoJSON FeatureCollection.`);
+      assert(/does not contain measured utility capacity|no capacity/i.test((utilityNetwork.metadata?.caveats || []).join(" ")), `City ${city.city_id} utility_network must caveat utility capacity.`);
+      assert(/service availability|service-availability/i.test((utilityNetwork.metadata?.caveats || []).join(" ")), `City ${city.city_id} utility_network must caveat service availability.`);
+      assert((utilityNetwork.features || []).length > 0, `City ${city.city_id} utility_network must include citywide utility context features.`);
+      for (const feature of utilityNetwork.features || []) {
+        const props = feature.properties || {};
+        assert(feature.geometry, `City ${city.city_id} utility_network feature ${props.id || "<unknown>"} needs geometry.`);
+        assert(props.layer === "utility_network" && props.category === "utilities", `City ${city.city_id} utility_network feature ${props.id || "<unknown>"} needs utility layer/category.`);
+        assert(UTILITY_NETWORK_TYPES.has(props.utility_type), `City ${city.city_id} utility_network feature ${props.id || "<unknown>"} has unsupported utility_type.`);
+        assert(UTILITY_NETWORK_GEOMETRIES.has(props.network_geometry), `City ${city.city_id} utility_network feature ${props.id || "<unknown>"} has unsupported network_geometry.`);
+        for (const field of ["source_id", "source_registry_id", "source_object_id", "publisher", "source_url", "license", "accessed_at", "transformation_method", "geometry_source", "context_year", "confidence", "caveat"]) {
+          assert(props[field] !== undefined && String(props[field]).trim() !== "", `City ${city.city_id} utility_network feature ${props.id || "<unknown>"} missing ${field}.`);
+        }
+      }
     }
   }
 }

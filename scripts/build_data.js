@@ -240,6 +240,7 @@ function generatedArtifactPaths(root, cityOutputDir) {
     lens_overlays: "lens_overlays.geojson",
     lens_year_coverage: "lens_year_coverage.json",
     transport_roads_base: "transport_roads_base.geojson",
+    utility_network: "utility_network_2026.geojson",
   };
   for (const [key, filename] of Object.entries(knownFiles)) {
     const filePath = path.join(cityOutputDir, filename);

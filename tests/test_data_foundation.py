@@ -320,6 +320,77 @@ class DataFoundationTests(unittest.TestCase):
             self.assertNotEqual(completed.returncode, 0)
             self.assertIn("belfast lens_overlays missing coverage/caveat metadata", completed.stderr)
 
+    def test_verify_rejects_utility_network_without_license(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            utility_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "utility_network_2026.geojson"
+            write_json(
+                utility_path,
+                {
+                    "type": "FeatureCollection",
+                    "metadata": {
+                        "schema_version": "1.0.0",
+                        "city_id": "belfast",
+                        "method": "Fixture current OSM utility context.",
+                        "caveats": [
+                            "The artifact does not contain measured utility capacity, outage state, or service availability."
+                        ],
+                    },
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "id": "fixture-utility-network-1",
+                                "layer": "utility_network",
+                                "category": "utilities",
+                                "utility_type": "water",
+                                "network_role": "water",
+                                "network_geometry": "line",
+                                "asset_priority": 0,
+                                "source_id": "way/123",
+                                "source_registry_id": "osm-overpass",
+                                "source_object_id": "way/123",
+                                "source_name": "OpenStreetMap fixture",
+                                "publisher": "OpenStreetMap contributors",
+                                "source_url": "https://www.openstreetmap.org/way/123",
+                                "source_type": "open geospatial extract",
+                                "accessed_at": "2026-06-04T00:00:00Z",
+                                "transformation_method": "fixture",
+                                "geometry_source": "OpenStreetMap fixture geometry.",
+                                "original_geometry_type": "LineString",
+                                "observed_year": 2026,
+                                "context_year": 2026,
+                                "confidence": "inferred",
+                                "rank": 1,
+                                "intensity": 0.5,
+                                "caveat": "Current OSM mapped context; not a confirmed installation date, capacity measurement, outage state, or service-availability claim.",
+                            },
+                            "geometry": {
+                                "type": "LineString",
+                                "coordinates": [[-5.94, 54.61], [-5.93, 54.62]],
+                            },
+                        }
+                    ],
+                },
+            )
+            relative_utility = "web/data/city-atlas/cities/belfast/utility_network_2026.geojson"
+            city_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "city.json"
+            city = read_json(city_path)
+            city["artifact_paths"]["utility_network"] = relative_utility
+            write_json(city_path, city)
+            index_path = root / "web" / "data" / "city-atlas" / "index.json"
+            index = read_json(index_path)
+            index["cities"][0]["artifact_paths"]["utility_network"] = relative_utility
+            write_json(index_path, index)
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("belfast utility_network feature fixture-utility-network-1 missing license", completed.stderr)
+
     def test_build_promotes_local_belfast_air_quality_csv(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

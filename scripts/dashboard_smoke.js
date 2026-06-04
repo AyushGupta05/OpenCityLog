@@ -1322,6 +1322,93 @@ async function assertEconomyLandUseCitywideContext(page, cityId, targetYear) {
   assert(state.invalid === 0, `economy land-use context ${cityId}: ${state.invalid} context tile(s) lack provenance/non-headline flags.`);
 }
 
+async function assertUtilityNetworkCitywideContext(page, cityId) {
+  const minimumFeatures = { belfast: 5000, london: 25000, nyc: 10000 }[cityId] || 1000;
+  await page.waitForFunction(
+    ({ cityId: expectedCityId, minimumFeatures: minimum }) => {
+      const atlas = window.BimsAtlas;
+      return (atlas?.state?.utilityNetworkFeaturesPathLoaded || "").includes(`/cities/${expectedCityId}/utility_network_2026.geojson`)
+        && (atlas?.state?.utilityNetworkPathLoaded || "").includes(`/cities/${expectedCityId}/utility_network_2026.geojson`)
+        && (atlas?.state?.utilityNetworkFeatures || []).length >= minimum;
+    },
+    { cityId, minimumFeatures },
+    { timeout: 30000 }
+  );
+  await page.waitForFunction(
+    () => {
+      const map = window.BimsAtlas?.state?.map;
+      if (!map?.getSource?.("lens-utility-network-context")) return false;
+      try {
+        const renderedLines = map.getLayer?.("lens-utility-network") && map.getLayoutProperty("lens-utility-network", "visibility") !== "none"
+          ? map.queryRenderedFeatures({ layers: ["lens-utility-network"] }).length
+          : 0;
+        const renderedAssets = map.getLayer?.("lens-utility-network-assets") && map.getLayoutProperty("lens-utility-network-assets", "visibility") !== "none"
+          ? map.queryRenderedFeatures({ layers: ["lens-utility-network-assets"] }).length
+          : 0;
+        return renderedLines + renderedAssets > 0;
+      } catch (_error) {
+        return false;
+      }
+    },
+    null,
+    { timeout: 20000 }
+  );
+  const state = await page.evaluate((expectedCityId) => {
+    const atlas = window.BimsAtlas;
+    const map = atlas?.state?.map;
+    const features = atlas?.state?.utilityNetworkFeatures || [];
+    const resourceNeedle = `/data/city-atlas/cities/${expectedCityId}/utility_network_2026.geojson`;
+    let renderedLines = 0;
+    let renderedAssets = 0;
+    try {
+      renderedLines = map?.getLayer?.("lens-utility-network") && map.getLayoutProperty("lens-utility-network", "visibility") !== "none"
+        ? map.queryRenderedFeatures({ layers: ["lens-utility-network"] }).length
+        : 0;
+      renderedAssets = map?.getLayer?.("lens-utility-network-assets") && map.getLayoutProperty("lens-utility-network-assets", "visibility") !== "none"
+        ? map.queryRenderedFeatures({ layers: ["lens-utility-network-assets"] }).length
+        : 0;
+    } catch (_error) {
+      renderedLines = 0;
+      renderedAssets = 0;
+    }
+    const validTypes = new Set(["water", "electricity", "telecoms", "gas", "drainage", "district_energy"]);
+    const validGeometries = new Set(["asset", "line", "area"]);
+    const requiredFields = ["source_id", "source_registry_id", "source_object_id", "publisher", "source_url", "license", "accessed_at", "transformation_method", "geometry_source", "original_geometry_type", "context_year", "confidence", "caveat"];
+    const invalidFeatureCount = features.filter((feature) => {
+      const props = feature.properties || {};
+      return !feature.geometry
+        || props.layer !== "utility_network"
+        || props.category !== "utilities"
+        || !validTypes.has(props.utility_type)
+        || !validGeometries.has(props.network_geometry)
+        || requiredFields.some((field) => props[field] === undefined || String(props[field]).trim() === "")
+        || props.source_registry_id !== "osm-overpass"
+        || !/^https:\/\/www\.openstreetmap\.org\/(node|way|relation)\/\d+/.test(String(props.source_url || ""))
+        || !/ODbL/i.test(String(props.license || ""))
+        || !/capacity measurement/i.test(String(props.caveat || ""))
+        || !/service[-\s]?availability/i.test(String(props.caveat || ""));
+    }).length;
+    return {
+      featureCount: features.length,
+      invalidFeatureCount,
+      path: atlas?.state?.utilityNetworkFeaturesPathLoaded || "",
+      sourcePath: atlas?.state?.utilityNetworkPathLoaded || "",
+      resourceFetchCount: performance.getEntriesByType("resource")
+        .filter((entry) => String(entry.name || "").includes(resourceNeedle))
+        .length,
+      renderedLines,
+      renderedAssets,
+      legend: document.querySelector("#lensLegend")?.textContent || "",
+    };
+  }, cityId);
+  assert(state.featureCount >= minimumFeatures, `utility network ${cityId}: too few current utility context features loaded (${state.featureCount}).`);
+  assert(state.sourcePath.includes(`/cities/${cityId}/utility_network_2026.geojson`), `utility network ${cityId}: map source did not use the parsed utility payload (${state.sourcePath}).`);
+  assert(state.resourceFetchCount <= 1, `utility network ${cityId}: utility GeoJSON was fetched ${state.resourceFetchCount} times.`);
+  assert(state.invalidFeatureCount === 0, `utility network ${cityId}: ${state.invalidFeatureCount} feature(s) lack provenance/no-capacity caveats.`);
+  assert(state.renderedLines + state.renderedAssets > 0, `utility network ${cityId}: network context did not render.`);
+  assert(/No capacity data is inferred|not.*capacity/i.test(state.legend), `utility network ${cityId}: legend does not caveat capacity.`);
+}
+
 async function assertCitySourceBackedLensCoverage(page, cityId) {
   await page.evaluate(async () => {
     await window.BimsAtlas?.setAreaFilter?.("");
@@ -1440,6 +1527,9 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     }
     if (check.landUseContextExpected) {
       await assertEconomyLandUseCitywideContext(page, cityId, targetYear);
+    }
+    if (check.aspect === "utilities-capacity") {
+      await assertUtilityNetworkCitywideContext(page, cityId);
     }
     const citywidePng = await page.screenshot({
       path: path.join(outputDir, `paper-atlas-${cityId}-${check.aspect}-citywide.png`),
