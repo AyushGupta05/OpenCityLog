@@ -17,6 +17,39 @@ function progress(...parts) {
   if (process.env.SMOKE_PROGRESS) console.log("[dashboard_smoke]", ...parts);
 }
 
+const CITYWIDE_REFERENCE_LENS_CHECKS = {
+  belfast: [
+    { aspect: "planning-delta", year: 2007, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], detailLayers: ["planning_cell"], minDetailFeatures: 1, minDirectRecords: 1, label: "built-change planning cells" },
+    { aspect: "planning-parcels", year: 2007, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], detailLayers: ["planning_cell"], minDetailFeatures: 1, minDirectRecords: 1, label: "parcel-stage planning cells" },
+    { aspect: "civic-catchment", year: 2008, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 2, minDirectRecords: 1, label: "civic catchment cells" },
+    { aspect: "civic-demand", year: 2008, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 2, minDirectRecords: 1, label: "civic demand cells" },
+    { aspect: "economy-vitality", year: 2015, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 2, minDirectRecords: 1, label: "high-street activity context" },
+    { aspect: "economy-gravity", year: 2015, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 2, minDirectRecords: 1, label: "economic context links" },
+    { aspect: "utilities-resilience", year: 2012, rendered: ["lensUtilityTraceRendered", "lensUtilityAssetsRendered"], renderedLayers: ["lens-utilities-trace", "lens-utility-asset-icons"], detailLayers: ["utility_trace", "utility_asset"], minDetailFeatures: 2, minDirectRecords: 1, label: "utility network context" },
+    { aspect: "utilities-works", year: 2012, rendered: ["lensUtilityTraceRendered", "lensUtilityAssetsRendered"], renderedLayers: ["lens-utilities-trace", "lens-utility-asset-icons"], detailLayers: ["utility_trace", "utility_asset"], minDetailFeatures: 2, minDirectRecords: 1, label: "utility works traces" },
+  ],
+  london: [
+    { aspect: "planning-delta", year: 2018, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], detailLayers: ["planning_cell"], minDetailFeatures: 1200, minDirectRecords: 1600, label: "built-change planning cells" },
+    { aspect: "planning-parcels", year: 2018, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], detailLayers: ["planning_cell"], minDetailFeatures: 1200, minDirectRecords: 1600, label: "parcel-stage planning cells" },
+    { aspect: "civic-catchment", year: 2009, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 16, minDirectRecords: 8, label: "civic catchment cells" },
+    { aspect: "civic-demand", year: 2024, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 21000, minDirectRecords: 18000, label: "civic demand cells" },
+    { aspect: "economy-vitality", year: 2025, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 8000, minDirectRecords: 5000, label: "high-street activity context" },
+    { aspect: "economy-gravity", year: 2025, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 8000, minDirectRecords: 5000, label: "economic context links" },
+    { aspect: "utilities-resilience", year: 2019, rendered: ["lensUtilityTraceRendered", "lensUtilityAssetsRendered"], renderedLayers: ["lens-utilities-trace", "lens-utility-asset-icons"], detailLayers: ["utility_trace", "utility_asset"], minDetailFeatures: 70, minDirectRecords: 36, label: "utility network context" },
+    { aspect: "utilities-works", year: 2019, rendered: ["lensUtilityTraceRendered", "lensUtilityAssetsRendered"], renderedLayers: ["lens-utilities-trace", "lens-utility-asset-icons"], detailLayers: ["utility_trace", "utility_asset"], minDetailFeatures: 70, minDirectRecords: 36, label: "utility works traces" },
+  ],
+  nyc: [
+    { aspect: "planning-delta", year: 2025, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], detailLayers: ["planning_cell"], minDetailFeatures: 4900, minDirectRecords: 7000, label: "built-change planning cells" },
+    { aspect: "planning-parcels", year: 2025, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], detailLayers: ["planning_cell"], minDetailFeatures: 4900, minDirectRecords: 7000, label: "parcel-stage planning cells" },
+    { aspect: "civic-catchment", year: 2026, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 230, minDirectRecords: 150, label: "civic catchment cells" },
+    { aspect: "civic-demand", year: 2026, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 230, minDirectRecords: 150, label: "civic demand cells" },
+    { aspect: "economy-vitality", year: 2009, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 520, minDirectRecords: 290, label: "high-street activity context" },
+    { aspect: "economy-gravity", year: 2009, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 520, minDirectRecords: 290, label: "economic context links" },
+    { aspect: "utilities-resilience", year: 2008, rendered: ["lensUtilityTraceRendered", "lensUtilityAssetsRendered"], renderedLayers: ["lens-utilities-trace", "lens-utility-asset-icons"], detailLayers: ["utility_trace", "utility_asset"], minDetailFeatures: 13, minDirectRecords: 9, label: "utility network context" },
+    { aspect: "utilities-works", year: 2008, rendered: ["lensUtilityTraceRendered", "lensUtilityAssetsRendered"], renderedLayers: ["lens-utilities-trace", "lens-utility-asset-icons"], detailLayers: ["utility_trace", "utility_asset"], minDetailFeatures: 13, minDirectRecords: 9, label: "utility works traces" },
+  ],
+};
+
 async function openAtlasShell(page, targetUrl) {
   await page.goto(targetUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
   await page.waitForSelector("#map .maplibregl-canvas", { timeout: 45000 });
@@ -1348,6 +1381,122 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     await assertPannedSourceBackedLensCoverage(page, cityId, check);
   }
   await assertSparseLensCoverageHonesty(page, cityId);
+  await assertReferenceLensCitywideArtifacts(page, cityId);
+}
+
+async function assertReferenceLensCitywideArtifacts(page, cityId) {
+  const checks = CITYWIDE_REFERENCE_LENS_CHECKS[cityId] || [];
+  for (const check of checks) {
+    progress("city reference lens", cityId, check.aspect, check.year);
+    await page.evaluate(async ({ aspect, year }) => {
+      const atlas = window.BimsAtlas;
+      if (atlas?.state) atlas.state.showInferred = true;
+      await atlas?.setAreaFilter?.("");
+      await atlas?.setYear?.(year);
+      await atlas?.setActiveAspect?.(aspect);
+      atlas?.recenterMap?.();
+    }, { aspect: check.aspect, year: check.year });
+    await page.waitForFunction(
+      ({ aspect, year }) => window.BimsAtlas?.state?.activeAspect === aspect
+        && Number(window.BimsAtlas?.state?.year) === Number(year)
+        && document.querySelector("#mapStudyChip")?.dataset.scope === "city",
+      { aspect: check.aspect, year: check.year },
+      { timeout: 20000 }
+    );
+    await page.waitForFunction(
+      (year) => Number(window.BimsAtlas?.state?.lensDetailYearLoaded) === Number(year),
+      check.year,
+      { timeout: 25000 }
+    );
+    await page.waitForFunction(
+      () => {
+        const map = window.BimsAtlas?.state?.map;
+        if (!map?.getSource?.("lens-detail-overlays")) return false;
+        try {
+          return map.isSourceLoaded?.("lens-detail-overlays") === true;
+        } catch (_error) {
+          return false;
+        }
+      },
+      null,
+      { timeout: 25000 }
+    );
+    await page.waitForFunction(
+      (layers) => {
+        const map = window.BimsAtlas?.state?.map;
+        if (!map) return false;
+        return layers.reduce((sum, layerId) => {
+          if (!map.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none") return sum;
+          try {
+            return sum + map.queryRenderedFeatures({ layers: [layerId] }).length;
+          } catch (_error) {
+            return sum;
+          }
+        }, 0) > 0;
+      },
+      check.renderedLayers,
+      { timeout: 25000 }
+    );
+    await assertActiveSelectionMatchesFilters(page, `city ${cityId}: reference ${check.aspect}`, { required: true });
+    const layoutState = await assertResponsiveLayout(page, `city ${cityId} ${check.aspect}`);
+    const rendered = check.rendered.reduce((sum, field) => sum + Number(layoutState[field] || 0), 0);
+    assert(rendered > 0, `city ${cityId}: ${check.label} did not render on the ${check.year} citywide map.`);
+    const coverage = await page.evaluate(({ aspect, year, detailLayers }) => {
+      const atlas = window.BimsAtlas;
+      const row = atlas?.state?.lensYearCoverageByKey?.get?.(`${aspect}:${Number(year)}`);
+      const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
+      const contextPattern = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
+      const matchingDetails = (atlas?.state?.lensDetailFeatures || []).filter((feature) => {
+        const props = feature?.properties || {};
+        return detailLayers.includes(props.layer) && Number(props.year || props.visible_year || 0) === Number(year);
+      });
+      const invalidDetailCount = matchingDetails.filter((feature) => {
+        const props = feature?.properties || {};
+        return !feature?.geometry
+          || !props.layer
+          || !props.category
+          || !props.confidence
+          || !props.source_ids
+          || !props.source_urls
+          || !props.event_ids
+          || !props.generated_from
+          || !props.caveat
+          || !splitIds(props.source_ids).length
+          || !splitIds(props.event_ids).length
+          || contextPattern.test(`${props.source_kind || ""} ${props.evidence_role || ""}`);
+      }).length;
+      return {
+        status: row?.status || "",
+        visible: Boolean(row?.visible_map_contract),
+        eventCount: Number(row?.event_count || 0),
+        directCount: Number(row?.direct_event_count || 0),
+        detailFeatureCount: Number(row?.detail_feature_count || 0),
+        sourceCount: Number(row?.source_count || 0),
+        matchingDetailCount: matchingDetails.length,
+        invalidDetailCount,
+        chip: document.querySelector("#mapStudyChipText")?.textContent.trim() || "",
+        contractText: document.querySelector(".lens-contract-strip")?.textContent.replace(/\s+/g, " ").trim() || "",
+        legend: document.querySelector("#lensLegend")?.textContent || "",
+      };
+    }, { aspect: check.aspect, year: check.year, detailLayers: check.detailLayers });
+    assert(coverage.status === "source_backed_records", `city ${cityId}: ${check.aspect} ${check.year} is ${coverage.status || "missing"}, not source-backed.`);
+    assert(coverage.visible, `city ${cityId}: ${check.aspect} ${check.year} is not visible under the map contract.`);
+    assert(coverage.directCount >= check.minDirectRecords, `city ${cityId}: ${check.aspect} ${check.year} direct count ${coverage.directCount} is below ${check.minDirectRecords}.`);
+    assert(coverage.detailFeatureCount >= check.minDetailFeatures, `city ${cityId}: ${check.aspect} ${check.year} detail count ${coverage.detailFeatureCount} is below ${check.minDetailFeatures}.`);
+    assert(coverage.matchingDetailCount >= check.minDetailFeatures, `city ${cityId}: ${check.aspect} ${check.year} loaded ${coverage.matchingDetailCount} matching detail features, below ${check.minDetailFeatures}.`);
+    assert(coverage.sourceCount > 0, `city ${cityId}: ${check.aspect} ${check.year} has no source count.`);
+    assert(coverage.invalidDetailCount === 0, `city ${cityId}: ${check.aspect} ${check.year} has ${coverage.invalidDetailCount} detail feature(s) missing provenance fields.`);
+    assert(/Citywide extent/i.test(coverage.chip), `city ${cityId}: ${check.aspect} citywide chip is not visible.`);
+    assert(!/No direct source-backed|No source-backed/i.test(coverage.legend), `city ${cityId}: ${check.aspect} ${check.year} still shows a no-records legend contradiction.`);
+    if (check.minDetailFeatures <= 16 || check.minDirectRecords <= 10) {
+      assert(/mapped in \d{4}.*no filler/i.test(coverage.contractText), `city ${cityId}: ${check.aspect} ${check.year} sparse selected-year warning is not visible.`);
+    }
+    const png = await page.screenshot({
+      path: path.join(outputDir, `paper-atlas-${cityId}-${check.aspect}-citywide.png`),
+      fullPage: false,
+    });
+    assertDetailedPng(png, assert, `city ${cityId} ${check.aspect} citywide`);
+  }
 }
 
 async function assertSparseLensCoverageHonesty(page, cityId) {

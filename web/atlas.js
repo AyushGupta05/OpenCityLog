@@ -4773,13 +4773,17 @@
       ],
       "icon-allow-overlap": allowOverlap,
       "icon-ignore-placement": allowOverlap,
-      "icon-size": [
-        "interpolate", ["linear"], ["zoom"],
-        9, baseSize / 24,
-        13, baseSize / 17,
-        16, baseSize / 13,
-      ],
+      "icon-size": detailUtilityIconSizeExpression(baseSize),
     };
+  }
+
+  function detailUtilityIconSizeExpression(baseSize) {
+    return [
+      "interpolate", ["linear"], ["zoom"],
+      9, baseSize / 24,
+      13, baseSize / 17,
+      16, baseSize / 13,
+    ];
   }
 
   function detailIconPaint(opacity) {
@@ -5540,8 +5544,17 @@
     setLayerPaintIfPresent("lens-economy-frontage", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.72, 1) : lensDetailLineOpacity(0.36, 0.92));
     setLayerPaintIfPresent("lens-economy-frontage-case", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(3.2, 8.8) : lensTraceWidthExpression(2.6, 8.4));
     setLayerPaintIfPresent("lens-economy-frontage", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(1.35, 4.8) : lensTraceWidthExpression(1.05, 4.9));
+    const sparseUtilityDetail = ["utilities-resilience", "utilities-works"].includes(aspect.id)
+      && Boolean(selectedYearSparseMapCoverageNote(aspect, activeLensYearCoverageRow(aspect, state.year)));
     setLayerPaintIfPresent("lens-utilities-trace", "line-color", utilityTraceColorExpression());
+    setLayerPaintIfPresent("lens-utilities-trace-case", "line-opacity", sparseUtilityDetail ? lensDetailLineOpacity(0.42, 0.86) : lensDetailLineOpacity(0.24, 0.62));
+    setLayerPaintIfPresent("lens-utilities-trace", "line-opacity", sparseUtilityDetail ? lensDetailLineOpacity(0.72, 1) : lensDetailLineOpacity(0.36, 0.94));
+    setLayerPaintIfPresent("lens-utilities-trace-case", "line-width", sparseUtilityDetail ? lensTraceWidthExpression(4.2, 10.8) : lensTraceWidthExpression(2.8, 8.8));
+    setLayerPaintIfPresent("lens-utilities-trace", "line-width", sparseUtilityDetail ? lensTraceWidthExpression(2.2, 6.7) : lensTraceWidthExpression(1.05, 5.2));
     setLayerPaintIfPresent("lens-utilities-trace", "line-dasharray", activeMapLens().id === "utilities-works" ? [2, 1.2] : [1, 0.0001]);
+    if (state.map.getLayer("lens-utility-asset-icons")) {
+      state.map.setLayoutProperty("lens-utility-asset-icons", "icon-size", detailUtilityIconSizeExpression(sparseUtilityDetail ? 12.8 : 9.8));
+    }
   }
 
   function hasCitywideGuideSummaryForActiveLens() {
@@ -18446,7 +18459,8 @@
       }
       return `${compactNumber(broadCount)} broad source-backed ${label} match${broadCount === 1 ? "" : "es"} are available for ${row.year}, but none are direct same-category records for this lens/year. No direct map marks, headline counts, coverage surface, or filler geometry are generated.`;
     }
-    return `${compactNumber(directCount)} direct source-backed ${lens?.label || "lens"} record${directCount === 1 ? "" : "s"} match ${row.year}; broad matches, confidence, limitations, sources, licences, and transform notes are in the evidence panel and exports.`;
+    const sparseNote = selectedYearSparseMapCoverageNote(lens, row);
+    return `${compactNumber(directCount)} direct source-backed ${lens?.label || "lens"} record${directCount === 1 ? "" : "s"} match ${row.year}; broad matches, confidence, limitations, sources, licences, and transform notes are in the evidence panel and exports.${sparseNote ? ` ${sparseNote}` : ""}`;
   }
 
   function compactLensYearCoverageNote(row = activeLensYearCoverageRow(), lens = activeMapLens(), category = lens?.category || lens?.layerId || state.activeLens) {
@@ -18787,13 +18801,18 @@
     const visibleYears = Number(yearContract.visible_year_count || 0);
     const directCoverage = directLensCoverageSummary(lens, coverage);
     const broadOnlyCount = Math.max(0, directCoverage.broadEventCount - directCoverage.eventCount);
+    const activeYearRow = activeLensYearCoverageRow(lens, state.year);
+    const sparseYearNote = selectedYearSparseMapCoverageNote(lens, activeYearRow)
+      ? selectedYearSparseMapCoverageStripLabel(lens, activeYearRow)
+      : "";
     els.lensAspectSwitcher.innerHTML = `
       <div class="lens-contract-strip" role="status">
-        <span><strong>${escapeHtml(compactNumber(directCoverage.eventCount))}</strong> direct records</span>
-        <span><strong>${escapeHtml(compactNumber(directCoverage.sourceCount))}</strong> direct sources</span>
-        ${broadOnlyCount ? `<span><strong>${escapeHtml(compactNumber(broadOnlyCount))}</strong> broad-only matches</span>` : ""}
-        <span><strong>${escapeHtml(compactNumber(visibleYears))}</strong> visible years ${escapeHtml(requiredYears)}</span>
-        <span>${escapeHtml(yearRange)}</span>
+        <span><strong>${escapeHtml(compactNumber(directCoverage.eventCount))}</strong> direct records / <strong>${escapeHtml(compactNumber(directCoverage.sourceCount))}</strong> sources</span>
+        ${sparseYearNote ? `<span class="lens-contract-warning">${escapeHtml(sparseYearNote)}</span>` : `
+          ${broadOnlyCount ? `<span><strong>${escapeHtml(compactNumber(broadOnlyCount))}</strong> broad-only matches</span>` : ""}
+          <span><strong>${escapeHtml(compactNumber(visibleYears))}</strong> visible years ${escapeHtml(requiredYears)}</span>
+          <span>${escapeHtml(yearRange)}</span>
+        `}
       </div>
     `;
   }
@@ -19525,10 +19544,16 @@
       }
       if (lens.id === "economy-gravity") {
         const anchorCount = state.economyAnchorFeatures.length;
+        const anchorLabel = anchorCount
+          ? `${compactNumber(anchorCount)} anchors + ${renderableCount} records`
+          : `${compactNumber(renderableCount)} source records`;
+        const anchorNote = anchorCount
+          ? "Current OSM economy anchors are context only and may post-date the selected year."
+          : "No current OSM economy anchors are loaded for this city/year view; visible links/frontages are derived from source-backed economy records.";
         return {
-          label: `${compactNumber(anchorCount)} anchors + ${renderableCount} records`,
+          label: anchorLabel,
           empty: false,
-          note: `${lensGeometryNote(lens, count, renderableCount)} Current OSM economy anchors are context only and may post-date the selected year.`,
+          note: `${lensGeometryNote(lens, count, renderableCount)} ${anchorNote}`,
         };
       }
       if (lens.id === "economy-land-use" && economyLandUseContextCanRender(lens, state.year) && state.economyAnchorFeatures.length) {
@@ -19617,6 +19642,37 @@
     return lensMissingSameCategoryCoverageForYear(lens, state.year);
   }
 
+  function selectedYearSparseMapCoverageNote(lens = activeMapLens(), row = activeLensYearCoverageRow(lens, state.year)) {
+    if (!lens || !row || row.status !== "source_backed_records" || row.visible_map_contract === false) return "";
+    const directCount = lensCoverageDirectEventCount(row);
+    const mapDirectCount = Number(row.map_direct_event_count ?? directCount);
+    const detailFeatureCount = Number(row.detail_feature_count || 0);
+    if (directCount <= 0 && mapDirectCount <= 0 && detailFeatureCount <= 0) return "";
+    const sparse = (detailFeatureCount > 0 && detailFeatureCount <= 16)
+      || (mapDirectCount > 0 && mapDirectCount <= 10)
+      || (directCount > 0 && directCount <= 10);
+    if (!sparse) return "";
+    const directSummary = directLensCoverageSummary(lens);
+    const year = Number(row.year || state.year);
+    const mappedLabel = detailFeatureCount > 0
+      ? `${compactNumber(detailFeatureCount)} mapped detail feature${detailFeatureCount === 1 ? "" : "s"}`
+      : `${compactNumber(mapDirectCount || directCount)} mappable record${(mapDirectCount || directCount) === 1 ? "" : "s"}`;
+    const allYearNote = directSummary.eventCount > directCount
+      ? ` The ${lens.label} lens has ${compactNumber(directSummary.eventCount)} direct records across loaded years; they are not all selected-year map geometry.`
+      : "";
+    return `Selected-year citywide map is limited to ${mappedLabel} for ${year}; wider source-backed records remain in the changelog, timeline, evidence panel, or other years as their own source rows.${allYearNote} No filler geometry is generated.`;
+  }
+
+  function selectedYearSparseMapCoverageStripLabel(_lens = activeMapLens(), row = activeLensYearCoverageRow(_lens, state.year)) {
+    if (!row) return "";
+    const directCount = lensCoverageDirectEventCount(row);
+    const mapDirectCount = Number(row.map_direct_event_count ?? directCount);
+    const detailFeatureCount = Number(row.detail_feature_count || 0);
+    const mappedCount = detailFeatureCount || mapDirectCount || directCount;
+    if (!mappedCount) return "";
+    return `${compactNumber(mappedCount)} mapped in ${row.year || state.year}; selected-year geometry is limited, no filler`;
+  }
+
   function lensMissingSameCategoryCoverageForYear(lens = activeMapLens(), year = state.year) {
     if (!lens) return false;
     const category = lens.category || lens.layerId || state.activeLens;
@@ -19647,8 +19703,11 @@
 
   function lensGeometryNote(lens, rawCount, renderableCount) {
     const skipped = Math.max(0, rawCount - renderableCount);
-    if (!skipped) return lens.caveat;
-    return `${lens.caveat} ${skipped} aggregate or non-site record${skipped === 1 ? "" : "s"} remain available in the event list.`;
+    const sparseNote = selectedYearSparseMapCoverageNote(lens);
+    const base = skipped
+      ? `${lens.caveat} ${skipped} aggregate or non-site record${skipped === 1 ? "" : "s"} remain available in the event list.`
+      : lens.caveat;
+    return sparseNote ? `${base} ${sparseNote}` : base;
   }
 
   function isLensDetailEligibleEvent(event) {
@@ -19681,7 +19740,9 @@
     const lens = activeMapLens();
     const lensStatus = lens ? lensStatusText(lens) : null;
     const missingLensCoverage = activeLensMissingSameCategoryCoverage(lens);
+    const sparseMapCoverageNote = !missingLensCoverage ? selectedYearSparseMapCoverageNote(lens) : "";
     if (missingLensCoverage) parts.push(lensStatus?.note || missingSameCategoryCoverageNote(lens));
+    if (sparseMapCoverageNote) parts.push(sparseMapCoverageNote);
     const summary = state.availability?.summary;
     const status = summary?.status || state.cityMeta?.availability_status;
     if (status) parts.push(`Coverage: ${status.replace(/_/g, " ")}`);
@@ -19695,7 +19756,7 @@
     if (state.lensOverlayError) parts.push(`Map lens unavailable: ${state.lensOverlayError}`);
     els.coverageNote.textContent = parts.join(" ");
     els.coverageNote.toggleAttribute("data-warning", Boolean(state.availabilityError || state.lensYearCoverageError || yearError || state.detailLayerError || state.lensOverlayError));
-    els.coverageNote.toggleAttribute("data-lens-warning", Boolean(missingLensCoverage));
+    els.coverageNote.toggleAttribute("data-lens-warning", Boolean(missingLensCoverage || sparseMapCoverageNote));
   }
 
   function renderTimeline() {
@@ -21522,6 +21583,7 @@
         </button>
         <div class="detail-eyebrow">Evidence brief</div>
         <div class="planning-detail-subtitle">${escapeHtml(eventSubtitleLine(event))}</div>
+        <h2 class="detail-title">${escapeHtml(event.title)}</h2>
         ${renderDetailLensControls(event, context)}
         <div class="planning-caution stage-caution gravity-caution"><span></span><p>Associated nearby change; causation is not claimed <b>Not a forecast</b></p></div>
       </div>
