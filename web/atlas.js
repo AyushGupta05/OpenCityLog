@@ -687,6 +687,8 @@
     "lens-utility-asset-icons",
   ];
   const LENS_UTILITY_NETWORK_LAYER_IDS = [
+    "lens-utility-network-area-fill",
+    "lens-utility-network-area-line",
     "lens-utility-network-case",
     "lens-utility-network",
     "lens-utility-network-assets",
@@ -4295,10 +4297,35 @@
   function addUtilityNetworkLayers() {
     if (!state.map?.getSource(UTILITY_NETWORK_SOURCE_ID) || state.map.getLayer("lens-utility-network")) return;
     state.map.addLayer({
+      id: "lens-utility-network-area-fill",
+      type: "fill",
+      source: UTILITY_NETWORK_SOURCE_ID,
+      minzoom: 7.4,
+      filter: utilityNetworkAreaFilter(),
+      layout: { visibility: "none" },
+      paint: {
+        "fill-color": utilityNetworkContextColorExpression(),
+        "fill-opacity": utilityNetworkAreaOpacityExpression(),
+      },
+    });
+    state.map.addLayer({
+      id: "lens-utility-network-area-line",
+      type: "line",
+      source: UTILITY_NETWORK_SOURCE_ID,
+      minzoom: 7.4,
+      filter: utilityNetworkAreaFilter(),
+      layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
+      paint: {
+        "line-color": utilityNetworkContextColorExpression(),
+        "line-opacity": utilityNetworkAreaOutlineOpacityExpression(),
+        "line-width": utilityNetworkAreaOutlineWidthExpression(),
+      },
+    });
+    state.map.addLayer({
       id: "lens-utility-network-case",
       type: "line",
       source: UTILITY_NETWORK_SOURCE_ID,
-      minzoom: 8.6,
+      minzoom: 7.4,
       filter: utilityNetworkLineFilter(),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
@@ -4312,7 +4339,7 @@
       id: "lens-utility-network",
       type: "line",
       source: UTILITY_NETWORK_SOURCE_ID,
-      minzoom: 8.6,
+      minzoom: 7.4,
       filter: utilityNetworkLineFilter(),
       layout: { visibility: "none", "line-cap": "round", "line-join": "round" },
       paint: {
@@ -4326,7 +4353,7 @@
       id: "lens-utility-network-assets",
       type: "symbol",
       source: UTILITY_NETWORK_SOURCE_ID,
-      minzoom: 10.1,
+      minzoom: 9.2,
       filter: utilityNetworkAssetFilter(),
       layout: {
         visibility: "none",
@@ -4342,9 +4369,9 @@
         ],
         "icon-size": [
           "interpolate", ["linear"], ["zoom"],
-          10, ["*", 0.22, utilityNetworkAssetSizeFactorExpression()],
-          14, ["*", 0.32, utilityNetworkAssetSizeFactorExpression()],
-          16, ["*", 0.45, utilityNetworkAssetSizeFactorExpression()],
+          9.2, ["*", 0.28, utilityNetworkAssetSizeFactorExpression()],
+          14, ["*", 0.42, utilityNetworkAssetSizeFactorExpression()],
+          16, ["*", 0.56, utilityNetworkAssetSizeFactorExpression()],
         ],
         "icon-allow-overlap": true,
         "icon-ignore-placement": true,
@@ -4359,6 +4386,13 @@
     return ["all",
       ["==", ["get", "layer"], "utility_network"],
       ["==", ["get", "network_geometry"], "line"],
+    ];
+  }
+
+  function utilityNetworkAreaFilter() {
+    return ["all",
+      ["==", ["get", "layer"], "utility_network"],
+      ["==", ["get", "network_geometry"], "area"],
     ];
   }
 
@@ -4386,9 +4420,9 @@
     if (mode === "utilities-works") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1],
-        1, 0.08,
-        2, 0.16,
-        4, 0.3,
+        1, 0.16,
+        2, 0.34,
+        4, 0.62,
       ];
     }
     if (mode === "utilities-capacity") {
@@ -4408,6 +4442,52 @@
       ];
     }
     return ["interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1], 1, 0.24, 2, 0.54, 4, 0.92];
+  }
+
+  function utilityNetworkAreaOpacityExpression() {
+    const mode = activeMapLens().id;
+    const factor = mode === "utilities-capacity" ? 1
+      : mode === "utilities-resilience" ? 0.68
+        : mode === "utilities-works" ? 0.7
+          : 0.72;
+    return [
+      "*",
+      factor,
+      ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
+        0, 0.055,
+        1, 0.22,
+      ],
+    ];
+  }
+
+  function utilityNetworkAreaOutlineOpacityExpression() {
+    const mode = activeMapLens().id;
+    const factor = mode === "utilities-capacity" ? 1
+      : mode === "utilities-resilience" ? 0.74
+        : mode === "utilities-works" ? 0.72
+          : 0.8;
+    return [
+      "*",
+      factor,
+      ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
+        0, 0.12,
+        1, 0.46,
+      ],
+    ];
+  }
+
+  function utilityNetworkAreaOutlineWidthExpression() {
+    const mode = activeMapLens().id;
+    const factor = mode === "utilities-capacity" ? 1.08
+      : mode === "utilities-resilience" ? 0.82
+        : mode === "utilities-works" ? 0.68
+          : 0.88;
+    return [
+      "interpolate", ["linear"], ["zoom"],
+      7.4, ["*", factor, 0.72],
+      10, ["*", factor, 1.18],
+      14, ["*", factor, 2.1],
+    ];
   }
 
   function utilityNetworkContextColorExpression() {
@@ -4457,19 +4537,19 @@
     if (mode === "utilities-capacity") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.34,
-        1, 0.9,
+        0, 0.46,
+        1, 0.92,
       ];
     }
     if (mode === "utilities-resilience") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.08,
-        1, 0.36,
+        0, 0.18,
+        1, 0.58,
       ];
     }
-    const high = mode === "utilities-resilience" ? 0.78 : mode === "utilities-capacity" ? 0.88 : mode === "utilities-works" ? 0.2 : 0.72;
-    const low = mode === "utilities-works" ? 0.04 : mode === "utilities-capacity" ? 0.22 : 0.22;
+    const high = mode === "utilities-resilience" ? 0.78 : mode === "utilities-capacity" ? 0.88 : mode === "utilities-works" ? 0.56 : 0.72;
+    const low = mode === "utilities-works" ? 0.18 : mode === "utilities-capacity" ? 0.22 : 0.22;
     return [
       "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
       0, low,
@@ -4482,31 +4562,32 @@
     if (mode === "utilities-capacity") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.18,
-        1, 0.52,
+        0, 0.24,
+        1, 0.6,
       ];
     }
     if (mode === "utilities-resilience") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.035,
-        1, 0.16,
+        0, 0.08,
+        1, 0.28,
       ];
     }
-    const high = mode === "utilities-resilience" ? 0.42 : mode === "utilities-capacity" ? 0.44 : mode === "utilities-works" ? 0.12 : 0.36;
+    const high = mode === "utilities-resilience" ? 0.42 : mode === "utilities-capacity" ? 0.44 : mode === "utilities-works" ? 0.32 : 0.36;
     return [
       "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-      0, mode === "utilities-works" ? 0.02 : 0.08,
+      0, mode === "utilities-works" ? 0.1 : 0.08,
       1, high,
     ];
   }
 
   function utilityNetworkWidthExpression() {
     const mode = activeMapLens().id;
-    const factor = mode === "utilities-resilience" ? 0.58 : mode === "utilities-works" ? 0.56 : mode === "utilities-capacity" ? 1.18 : 1;
+    const factor = mode === "utilities-resilience" ? 0.82 : mode === "utilities-works" ? 1.02 : mode === "utilities-capacity" ? 1.3 : 1;
     return [
       "interpolate", ["linear"], ["zoom"],
-      9, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.26, 5, 0.9]],
+      7.4, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.24, 5, 0.72]],
+      9, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.36, 5, 1.12]],
       13, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.58, 5, 2.15]],
       16, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.96, 5, 3.4]],
     ];
@@ -4514,10 +4595,11 @@
 
   function utilityNetworkCaseWidthExpression() {
     const mode = activeMapLens().id;
-    const factor = mode === "utilities-resilience" ? 0.56 : mode === "utilities-capacity" ? 1.24 : mode === "utilities-works" ? 0.64 : 1;
+    const factor = mode === "utilities-resilience" ? 0.76 : mode === "utilities-capacity" ? 1.34 : mode === "utilities-works" ? 1.08 : 1;
     return [
       "interpolate", ["linear"], ["zoom"],
-      9, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.72, 5, 1.8]],
+      7.4, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.58, 5, 1.46]],
+      9, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.82, 5, 2.15]],
       13, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 1.28, 5, 3.6]],
       16, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 1.7, 5, 5.1]],
     ];
@@ -5570,6 +5652,17 @@
       state.map.setLayoutProperty(layerId, "visibility", visible ? "visible" : "none");
     }
     if (!visible) return;
+    if (state.map.getLayer("lens-utility-network-area-fill")) {
+      state.map.setFilter("lens-utility-network-area-fill", utilityNetworkAreaFilter());
+      state.map.setPaintProperty("lens-utility-network-area-fill", "fill-color", utilityNetworkContextColorExpression());
+      state.map.setPaintProperty("lens-utility-network-area-fill", "fill-opacity", utilityNetworkAreaOpacityExpression());
+    }
+    if (state.map.getLayer("lens-utility-network-area-line")) {
+      state.map.setFilter("lens-utility-network-area-line", utilityNetworkAreaFilter());
+      state.map.setPaintProperty("lens-utility-network-area-line", "line-color", utilityNetworkContextColorExpression());
+      state.map.setPaintProperty("lens-utility-network-area-line", "line-opacity", utilityNetworkAreaOutlineOpacityExpression());
+      state.map.setPaintProperty("lens-utility-network-area-line", "line-width", utilityNetworkAreaOutlineWidthExpression());
+    }
     if (state.map.getLayer("lens-utility-network-case")) {
       state.map.setFilter("lens-utility-network-case", utilityNetworkLineFilter());
       state.map.setPaintProperty("lens-utility-network-case", "line-opacity", utilityNetworkCaseOpacityExpression());
@@ -5586,9 +5679,9 @@
       state.map.setFilter("lens-utility-network-assets", utilityNetworkAssetFilter());
       state.map.setLayoutProperty("lens-utility-network-assets", "icon-size", [
         "interpolate", ["linear"], ["zoom"],
-        10, ["*", 0.22, utilityNetworkAssetSizeFactorExpression()],
-        14, ["*", 0.32, utilityNetworkAssetSizeFactorExpression()],
-        16, ["*", 0.45, utilityNetworkAssetSizeFactorExpression()],
+        9.2, ["*", 0.28, utilityNetworkAssetSizeFactorExpression()],
+        14, ["*", 0.42, utilityNetworkAssetSizeFactorExpression()],
+        16, ["*", 0.56, utilityNetworkAssetSizeFactorExpression()],
       ]);
       state.map.setPaintProperty("lens-utility-network-assets", "icon-opacity", utilityNetworkAssetOpacityExpression());
     }
@@ -6210,7 +6303,16 @@
   }
 
   function shouldLoadUtilityNetwork() {
-    return Boolean(activeLensYearAllowsMapContext() && activeMapLens()?.id?.startsWith("utilities-") && state.activeLayers.has("utilities"));
+    return utilityNetworkContextCanRender();
+  }
+
+  function utilityNetworkContextCanRender(lens = activeMapLens()) {
+    if (!lens?.id?.startsWith("utilities-")) return false;
+    if (!state.activeLayers.has("utilities")) return false;
+    if (!state.showInferred) return false;
+    if (state.search || state.areaFilter) return false;
+    if (!citywideOverviewActive() && !state.citywideLensMode) return false;
+    return Boolean(utilityNetworkPath());
   }
 
   function activeLensYearAllowsMapContext(lens = activeMapLens(), year = state.year) {
@@ -12567,6 +12669,7 @@
       return economyGravityFlowFeatures(center, lens);
     }
     if (lens.id.startsWith("utilities-")) {
+      if (!activeLensYearAllowsMapContext(lens)) return [];
       return utilityNetworkStreetFeatures(center, lens);
     }
     const radiusM = Number(lens.radiusM || 1500);
@@ -19438,10 +19541,13 @@
       };
     }
     if (lensCoverageHasWithheldDirectGeometry(yearCoverage)) {
+      const withheldNote = lensYearCoverageNote(yearCoverage, lens, category);
       return {
         label: "Records, no map",
         empty: true,
-        note: lensYearCoverageNote(yearCoverage, lens, category),
+        note: category === "utilities" && utilityNetworkContextCanRender(lens)
+          ? `${withheldNote} ${utilityNetworkContextOnlyNote(lens, category, state.year)}`
+          : withheldNote,
       };
     }
     if (category === "transport") {
@@ -19596,25 +19702,41 @@
     if (category === "utilities") {
       const count = lensPointCount(category);
       const renderableCount = lensRenderablePointCount(category);
+      const contextCount = utilityNetworkContextFeatureCount();
       if (lens.id === "utilities-capacity") {
         const flowCounts = utilityCapacityGuideTypeCounts();
-        const contextCount = flowCounts.total || (state.utilityNetworkFeatures || [])
-          .filter((feature) => {
-            const props = feature.properties || {};
-            return props.layer === "utility_network" && ["line", "area", "asset"].includes(props.network_geometry);
-          })
-          .length;
-        if (!count && contextCount) {
+        const visibleContextCount = flowCounts.total || contextCount;
+        if (!count && visibleContextCount) {
           return {
-            label: "No records",
-            empty: true,
-            note: missingSameCategoryCoverageNote(lens, category),
+            label: `${compactNumber(visibleContextCount)} current context features`,
+            empty: false,
+            note: utilityNetworkContextOnlyNote(lens, category, state.year),
           };
         }
       }
+      if (!count && utilityNetworkContextCanRender(lens)) {
+        return {
+          label: contextCount ? `${compactNumber(contextCount)} current context features` : "Context loading",
+          empty: !contextCount,
+          note: utilityNetworkContextOnlyNote(lens, category, state.year),
+        };
+      }
       if (!count) return { label: "No records", empty: true, note: missingSameCategoryCoverageNote(lens, category) };
+      if (!renderableCount && contextCount) {
+        return {
+          label: `${compactNumber(contextCount)} current context features`,
+          empty: false,
+          note: `Utility records exist for ${state.year}, but only aggregate or non-site geometry is available. ${utilityNetworkContextOnlyNote(lens, category, state.year)}`,
+        };
+      }
       if (!renderableCount) return { label: "No site geometry", empty: true, note: "Utility records exist for this year, but only aggregate or non-site geometry is available." };
-      return { label: `Traces + ${renderableCount} assets`, empty: false, note: lensGeometryNote(lens, count, renderableCount) };
+      return {
+        label: `Traces + ${renderableCount} assets`,
+        empty: false,
+        note: contextCount
+          ? `${lensGeometryNote(lens, count, renderableCount)} ${utilityNetworkAdditionalContextNote(lens, category, state.year)}`
+          : lensGeometryNote(lens, count, renderableCount),
+      };
     }
     const count = lensPointCount(category);
     if (!count) return { label: "No records", empty: true, note: missingSameCategoryCoverageNote(lens, category) };
@@ -19648,6 +19770,9 @@
     if (transportNetworkCitywideGuideCanRender(lens)) {
       return `${prefix}${broadOnly} Current mapped road context may be shown separately as non-headline orientation only; it is not measured speed, live congestion, timetable adherence, reliability, or selected-year direct evidence.`;
     }
+    if (utilityNetworkContextCanRender(lens)) {
+      return `${prefix}${broadOnly} ${utilityNetworkContextOnlyNote(lens, category, year)}`;
+    }
     return `${prefix}${broadOnly} No generated marks, context surfaces, or filler geometry are shown for this lens/year.`;
   }
 
@@ -19663,7 +19788,25 @@
     if (civicContextGuideCanRender(lens)) return `No direct source-backed ${year} ${label} records; current context only.`;
     if (transportAccessContextGuideCanRender(lens)) return `No direct source-backed ${year} ${label} records; current transport context only.`;
     if (transportNetworkCitywideGuideCanRender(lens)) return `No direct source-backed ${year} ${label} records; current road context only.`;
+    if (utilityNetworkContextCanRender(lens)) return `No direct source-backed ${year} ${label} records; current OSM utility context only.`;
     return `No direct source-backed ${year} ${label} records; no filler geometry.`;
+  }
+
+  function utilityNetworkContextFeatureCount() {
+    return (state.utilityNetworkFeatures || [])
+      .filter((feature) => {
+        const props = feature.properties || {};
+        return props.layer === "utility_network" && ["line", "area", "asset"].includes(props.network_geometry);
+      })
+      .length;
+  }
+
+  function utilityNetworkContextOnlyNote(_lens = activeMapLens(), _category = "utilities", year = state.year) {
+    return `Current mapped OSM utility network context may be shown separately from ${year} source-backed records as non-headline current context; it is not selected-year utility work, service availability, outage, engineering capacity, or direct change evidence, and no direct map marks, headline counts, or filler geometry are generated.`;
+  }
+
+  function utilityNetworkAdditionalContextNote(_lens = activeMapLens(), _category = "utilities", year = state.year) {
+    return `Current mapped OSM utility network context may also be shown as non-headline current context; it may post-date ${year} source-backed utility traces/assets and is not selected-year utility work, service availability, outage, engineering capacity, or direct change evidence.`;
   }
 
   function activeLensMissingSameCategoryCoverage(lens = activeMapLens()) {
