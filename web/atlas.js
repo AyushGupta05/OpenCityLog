@@ -3299,7 +3299,7 @@
           ["==", ["get", "flow_style"], "planning_pressure_trace"], 0.34,
           ["==", ["get", "flow_style"], "catchment_street_seam"], 0.64,
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]], 0.96,
-          ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]], 0.28,
+          ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]], 0.34,
           ["==", ["get", "flow_style"], "transport_backbone"], 0.9,
           ["==", ["get", "flow_style"], "transport_thread"], 0.56,
           ["==", ["get", "flow_style"], "utility_capacity_trace"],
@@ -3397,7 +3397,7 @@
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 2.8, 1, 7.1],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 1.4],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.58, 1, 1.92],
           ["==", ["get", "flow_style"], "transport_backbone"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 3.1, 1, 8.8],
           ["==", ["get", "flow_style"], "transport_thread"],
@@ -3516,7 +3516,7 @@
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.86, 1, 1],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.28, 1, 0.58],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.38, 1, 0.74],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "interrupted"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 0.98],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "planned"]],
@@ -3525,6 +3525,10 @@
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.68, 1, 0.92],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "inferred"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 0.7],
+          ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "flow_style"], "transport_backbone"]],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 1],
+          ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "flow_style"], "transport_thread"]],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 0.8],
           ["==", ["get", "flow_style"], "transport_backbone"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 1],
           ["==", ["get", "flow_style"], "transport_thread"],
@@ -3628,13 +3632,13 @@
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "reliability_status"], "inferred"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.36, 1, 1.38],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "flow_style"], "transport_backbone"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.82, 1, 3.05],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.98, 1, 3.45],
           ["all", ["==", ["get", "lens_id"], "transport-reliability"], ["==", ["get", "flow_style"], "transport_thread"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.32, 1, 1.32],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.42, 1, 1.62],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.3, 1, 4.4],
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.34, 1, 1.18],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.48, 1, 1.58],
           ["==", ["get", "flow_style"], "transport_backbone"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.75, 1, 6.1],
           ["==", ["get", "flow_style"], "transport_thread"],
@@ -4398,7 +4402,7 @@
 
   function utilityNetworkAssetFilter() {
     const lensId = activeMapLens().id;
-    const minPriority = lensId === "utilities-resilience" ? 3 : lensId === "utilities-capacity" ? 2 : 2;
+    const minPriority = ["utilities-capacity", "utilities-resilience", "utilities-works"].includes(lensId) ? 1 : 2;
     return ["all",
       ["==", ["get", "layer"], "utility_network"],
       ["==", ["get", "network_geometry"], "asset"],
@@ -4407,11 +4411,13 @@
   }
 
   function utilityNetworkAssetSizeFactorExpression() {
-    const capacityBoost = activeMapLens().id === "utilities-capacity" ? 0.98 : 1;
+    const mode = activeMapLens().id;
+    const capacityBoost = mode === "utilities-capacity" ? 0.98 : 1;
+    const lowPrioritySize = mode === "utilities-works" ? 1.25 : 1.08;
     return [
       "*",
       capacityBoost,
-      ["interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1], 1, 0.82, 2, 0.95, 4, 1.18],
+      ["interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1], 1, lowPrioritySize, 2, 1, 4, 1.18],
     ];
   }
 
@@ -4420,15 +4426,15 @@
     if (mode === "utilities-works") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1],
-        1, 0.16,
-        2, 0.34,
-        4, 0.62,
+        1, 0.9,
+        2, 0.82,
+        4, 0.94,
       ];
     }
     if (mode === "utilities-capacity") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1],
-        1, 0.24,
+        1, 0.58,
         2, 0.52,
         4, 0.9,
       ];
@@ -4436,9 +4442,9 @@
     if (mode === "utilities-resilience") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1],
-        1, 0.06,
-        2, 0.16,
-        4, 0.42,
+        1, 0.38,
+        2, 0.48,
+        4, 0.68,
       ];
     }
     return ["interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1], 1, 0.24, 2, 0.54, 4, 0.92];
@@ -4447,8 +4453,8 @@
   function utilityNetworkAreaOpacityExpression() {
     const mode = activeMapLens().id;
     const factor = mode === "utilities-capacity" ? 1
-      : mode === "utilities-resilience" ? 0.68
-        : mode === "utilities-works" ? 0.7
+      : mode === "utilities-resilience" ? 0.9
+        : mode === "utilities-works" ? 0.92
           : 0.72;
     return [
       "*",
@@ -4463,8 +4469,8 @@
   function utilityNetworkAreaOutlineOpacityExpression() {
     const mode = activeMapLens().id;
     const factor = mode === "utilities-capacity" ? 1
-      : mode === "utilities-resilience" ? 0.74
-        : mode === "utilities-works" ? 0.72
+      : mode === "utilities-resilience" ? 0.92
+        : mode === "utilities-works" ? 0.96
           : 0.8;
     return [
       "*",
@@ -4479,8 +4485,8 @@
   function utilityNetworkAreaOutlineWidthExpression() {
     const mode = activeMapLens().id;
     const factor = mode === "utilities-capacity" ? 1.08
-      : mode === "utilities-resilience" ? 0.82
-        : mode === "utilities-works" ? 0.68
+      : mode === "utilities-resilience" ? 1
+        : mode === "utilities-works" ? 0.9
           : 0.88;
     return [
       "interpolate", ["linear"], ["zoom"],
@@ -4544,12 +4550,12 @@
     if (mode === "utilities-resilience") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.18,
-        1, 0.58,
+        0, 0.34,
+        1, 0.8,
       ];
     }
-    const high = mode === "utilities-resilience" ? 0.78 : mode === "utilities-capacity" ? 0.88 : mode === "utilities-works" ? 0.56 : 0.72;
-    const low = mode === "utilities-works" ? 0.18 : mode === "utilities-capacity" ? 0.22 : 0.22;
+    const high = mode === "utilities-resilience" ? 0.78 : mode === "utilities-capacity" ? 0.88 : mode === "utilities-works" ? 0.82 : 0.72;
+    const low = mode === "utilities-works" ? 0.32 : mode === "utilities-capacity" ? 0.22 : 0.22;
     return [
       "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
       0, low,
@@ -4569,21 +4575,21 @@
     if (mode === "utilities-resilience") {
       return [
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.08,
-        1, 0.28,
+        0, 0.16,
+        1, 0.42,
       ];
     }
-    const high = mode === "utilities-resilience" ? 0.42 : mode === "utilities-capacity" ? 0.44 : mode === "utilities-works" ? 0.32 : 0.36;
+    const high = mode === "utilities-resilience" ? 0.42 : mode === "utilities-capacity" ? 0.44 : mode === "utilities-works" ? 0.46 : 0.36;
     return [
       "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-      0, mode === "utilities-works" ? 0.1 : 0.08,
+      0, mode === "utilities-works" ? 0.16 : 0.08,
       1, high,
     ];
   }
 
   function utilityNetworkWidthExpression() {
     const mode = activeMapLens().id;
-    const factor = mode === "utilities-resilience" ? 0.82 : mode === "utilities-works" ? 1.02 : mode === "utilities-capacity" ? 1.3 : 1;
+    const factor = mode === "utilities-resilience" ? 1.04 : mode === "utilities-works" ? 1.15 : mode === "utilities-capacity" ? 1.3 : 1;
     return [
       "interpolate", ["linear"], ["zoom"],
       7.4, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.24, 5, 0.72]],
@@ -4595,7 +4601,7 @@
 
   function utilityNetworkCaseWidthExpression() {
     const mode = activeMapLens().id;
-    const factor = mode === "utilities-resilience" ? 0.76 : mode === "utilities-capacity" ? 1.34 : mode === "utilities-works" ? 1.08 : 1;
+    const factor = mode === "utilities-resilience" ? 0.98 : mode === "utilities-capacity" ? 1.34 : mode === "utilities-works" ? 1.2 : 1;
     return [
       "interpolate", ["linear"], ["zoom"],
       7.4, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.58, 5, 1.46]],
@@ -8439,11 +8445,34 @@
         reliability_status: "",
         intensity: Number(intensity.toFixed(3)),
         score: Number((item.supplemental ? item.score * 0.74 : item.score).toFixed(3)),
-        color: item.supplemental ? "#a8bfc0" : lens.id === "transport-reliability" ? "#6f969d" : "#8faeb3",
+        color: transportCurrentContextThreadColor(lens, item, intensity),
         edge_offset: Number(((item.seed - 0.5) * 0.18).toFixed(2)),
       },
       geometry: item.road.geometry,
     };
+  }
+
+  function transportCurrentContextThreadColor(lens, item, intensity) {
+    const rank = Number(item?.rank || 1);
+    const lengthM = Number(item?.lengthM || 0);
+    const signal = clamp01(
+      Number(intensity || 0)
+      + Math.min(0.16, Math.max(0, rank - 1) * 0.045)
+      + Math.min(0.12, lengthM / 3600),
+    );
+    if (lens?.id === "transport-speed") {
+      if (item?.supplemental) return signal >= 0.48 ? "#2f94b8" : "#4fa7b8";
+      if (signal >= 0.62 || rank >= 3.6) return "#1769e0";
+      if (signal >= 0.5 || rank >= 2.8) return "#1687ad";
+      return "#1f9a8a";
+    }
+    if (lens?.id === "transport-reliability") {
+      if (item?.supplemental) return signal >= 0.48 ? "#358fa4" : "#55aeb0";
+      if (signal >= 0.62 || rank >= 3.6) return "#3557d8";
+      if (signal >= 0.5 || rank >= 2.8) return "#0e8fa5";
+      return "#149b86";
+    }
+    return item?.supplemental ? "#a8bfc0" : "#8faeb3";
   }
 
   function transportRoadYearGeneratedFrom(year) {

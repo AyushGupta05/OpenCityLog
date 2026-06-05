@@ -1783,6 +1783,7 @@ async function assertReferenceLensCitywideArtifacts(page, cityId) {
       assert(layoutState.zoomButtons === 2, `city ${cityId} ${check.aspect}: zoom buttons are missing.`);
       assert(layoutState.citywideLensMode, `city ${cityId} ${check.aspect}: context capture left citywide mode.`);
     }
+    await assertReferenceCitywideMapField(page, `city ${cityId} ${check.aspect}`);
     const rendered = check.rendered.reduce((sum, field) => sum + Number(layoutState[field] || 0), 0);
     if (!requiresUtilityContext) {
       assert(rendered > 0, `city ${cityId}: ${check.label} did not render on the ${check.year} citywide map.`);
@@ -1865,6 +1866,98 @@ async function assertReferenceLensCitywideArtifacts(page, cityId) {
     assertReferenceViewportPng(png, `city ${cityId} ${check.aspect} citywide`);
     assertDetailedPng(png, assert, `city ${cityId} ${check.aspect} citywide`);
   }
+}
+
+async function assertReferenceCitywideMapField(page, label) {
+  const layout = await page.evaluate(() => {
+    const rect = (selector) => {
+      const element = document.querySelector(selector);
+      if (!element || element.hidden || element.getAttribute("data-open") === "false") return null;
+      const styles = getComputedStyle(element);
+      if (styles.display === "none" || styles.visibility === "hidden" || Number(styles.opacity || 1) === 0) return null;
+      const bounds = element.getBoundingClientRect();
+      if (bounds.width <= 0 || bounds.height <= 0) return null;
+      return {
+        left: bounds.left,
+        right: bounds.right,
+        top: bounds.top,
+        bottom: bounds.bottom,
+        width: bounds.width,
+        height: bounds.height,
+      };
+    };
+    const layers = rect("#layersPanel");
+    const changelog = rect("#changelogPanel");
+    const detail = rect("#detailPanel");
+    const topbar = rect(".topbar");
+    const timeline = rect(".timeline");
+    const leftRailRight = Math.max(layers?.right || 0, changelog?.right || 0);
+    const mapLeft = leftRailRight ? leftRailRight + 16 : 0;
+    const mapRight = detail?.left ? detail.left - 16 : window.innerWidth;
+    const mapTop = topbar?.bottom ? topbar.bottom + 16 : 0;
+    const mapBottom = timeline?.top ? timeline.top - 16 : window.innerHeight;
+    return {
+      width: window.innerWidth,
+      layers,
+      changelog,
+      detail,
+      mapFieldWidth: mapRight - mapLeft,
+      mapFieldHeight: mapBottom - mapTop,
+      leftRailRight,
+      leftPanelsStacked: Boolean(layers && changelog && changelog.left <= layers.left + 4 && changelog.right <= layers.right + 4),
+    };
+  });
+  if (layout.width >= REFERENCE_VIEWPORT.width) {
+    assert(layout.leftPanelsStacked, `${label}: reference citywide layout still places the changelog beside the layers rail.`);
+    assert(layout.leftRailRight <= 324, `${label}: left rail consumes too much citywide map width (${Math.round(layout.leftRailRight)}px).`);
+    assert(layout.mapFieldWidth >= 1080, `${label}: central citywide map field is too narrow (${Math.round(layout.mapFieldWidth)}px).`);
+    assert(layout.mapFieldHeight >= 700, `${label}: central citywide map field is too short (${Math.round(layout.mapFieldHeight)}px).`);
+  }
+}
+
+async function visibleCitywideMapClip(page, fallbackRatios = { x: 0.36, y: 0.08, width: 0.36, height: 0.7 }) {
+  const viewport = page.viewportSize() || { width: 1440, height: 900 };
+  const clip = await page.evaluate(() => {
+    const rect = (selector) => {
+      const element = document.querySelector(selector);
+      if (!element || element.hidden || element.getAttribute("data-open") === "false") return null;
+      const styles = getComputedStyle(element);
+      if (styles.display === "none" || styles.visibility === "hidden" || Number(styles.opacity || 1) === 0) return null;
+      const bounds = element.getBoundingClientRect();
+      if (bounds.width <= 0 || bounds.height <= 0) return null;
+      return { left: bounds.left, right: bounds.right, top: bounds.top, bottom: bounds.bottom };
+    };
+    const layers = rect("#layersPanel");
+    const changelog = rect("#changelogPanel");
+    const detail = rect("#detailPanel");
+    const topbar = rect(".topbar");
+    const timeline = rect(".timeline");
+    const left = Math.max(layers?.right || 0, changelog?.right || 0) + 16;
+    const right = (detail?.left || window.innerWidth) - 16;
+    const top = (topbar?.bottom || 0) + 16;
+    const bottom = (timeline?.top || window.innerHeight) - 16;
+    return {
+      x: Math.max(0, left),
+      y: Math.max(0, top),
+      width: Math.max(0, right - left),
+      height: Math.max(0, bottom - top),
+    };
+  });
+  const fallback = {
+    x: Math.round(viewport.width * fallbackRatios.x),
+    y: Math.round(viewport.height * fallbackRatios.y),
+    width: Math.round(viewport.width * fallbackRatios.width),
+    height: Math.round(viewport.height * fallbackRatios.height),
+  };
+  const raw = clip && clip.width >= 240 && clip.height >= 180 ? clip : fallback;
+  const x = Math.max(0, Math.min(viewport.width - 1, Math.round(raw.x)));
+  const y = Math.max(0, Math.min(viewport.height - 1, Math.round(raw.y)));
+  return {
+    x,
+    y,
+    width: Math.max(1, Math.min(viewport.width - x, Math.round(raw.width))),
+    height: Math.max(1, Math.min(viewport.height - y, Math.round(raw.height))),
+  };
 }
 
 async function assertSparseLensCoverageHonesty(page, cityId) {
@@ -2225,15 +2318,9 @@ async function assertTransportAccessStopContext(page, city) {
   if (city.expectsContextOnlyNote) {
     assert(/current mapped transport stop\/station context|current transport context/i.test(state.bodyText), `transport context ${city.id}: status copy does not identify current transport context.`);
   }
-  const viewport = page.viewportSize() || { width: 1440, height: 900 };
   const png = await page.screenshot({
     path: path.join(outputDir, `paper-atlas-${city.id}-transport-access-context.png`),
-    clip: {
-      x: Math.round(viewport.width * 0.47),
-      y: Math.round(viewport.height * 0.1),
-      width: Math.round(viewport.width * 0.26),
-      height: Math.round(viewport.height * 0.68),
-    },
+    clip: await visibleCitywideMapClip(page, { x: 0.47, y: 0.1, width: 0.26, height: 0.68 }),
   });
   assertDetailedPng(png, assert, `transport context ${city.id}`);
 
@@ -2419,15 +2506,9 @@ async function assertTransportNetworkCitywideContext(page, city) {
     assert(state.currentContextCount >= city.minCurrentContext, `transport ${city.id} ${city.lens}: too few current-context road routes (${state.currentContextCount}).`);
     assert(state.roadBasePath.includes("transport_roads_base.geojson"), `transport ${city.id} ${city.lens}: base road context did not load (${state.roadBasePath}).`);
   }
-  const viewport = page.viewportSize() || { width: 1440, height: 900 };
   const png = await page.screenshot({
     path: path.join(outputDir, `paper-atlas-${city.id}-${city.lens}-network-context-probe.png`),
-    clip: {
-      x: Math.round(viewport.width * 0.47),
-      y: Math.round(viewport.height * 0.1),
-      width: Math.round(viewport.width * 0.26),
-      height: Math.round(viewport.height * 0.68),
-    },
+    clip: await visibleCitywideMapClip(page, { x: 0.47, y: 0.1, width: 0.26, height: 0.68 }),
   });
   assertDetailedPng(png, assert, `transport ${city.id} ${city.lens} citywide`);
 }
@@ -2533,15 +2614,9 @@ async function assertCivicAccessCitywideContext(page, city) {
   if (state.directCount <= 0 || state.coverageStatus !== "source_backed_records") {
     assert(/current mapped civic-service context|current context only/i.test(state.bodyText), `civic context ${city.id}: status copy does not identify current civic-service context.`);
   }
-  const viewport = page.viewportSize() || { width: 1440, height: 900 };
   const png = await page.screenshot({
     path: path.join(outputDir, `paper-atlas-${city.id}-civic-access-context.png`),
-    clip: {
-      x: Math.round(viewport.width * 0.36),
-      y: Math.round(viewport.height * 0.08),
-      width: Math.round(viewport.width * 0.36),
-      height: Math.round(viewport.height * 0.7),
-    },
+    clip: await visibleCitywideMapClip(page, { x: 0.36, y: 0.08, width: 0.36, height: 0.7 }),
   });
   assertDetailedPng(png, assert, `civic context ${city.id}`);
 

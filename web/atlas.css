@@ -5993,21 +5993,19 @@ button { font-family: inherit; }
 
 @media (min-width: 1400px) {
   #root {
-    --desktop-layers-width: 284px;
-    --desktop-event-width: 360px;
-    --desktop-left-width: calc(var(--desktop-layers-width) + 12px + var(--desktop-event-width));
-    --desktop-left-layer-height: calc(100dvh - 76px - var(--desktop-bottom-rail));
+    --desktop-left-width: 284px;
+    --desktop-left-layer-height: clamp(292px, 36dvh, 388px);
   }
 
   .layers {
-    width: var(--desktop-layers-width);
+    width: var(--desktop-left-width);
   }
 
   .changelog {
-    left: calc(16px + var(--desktop-layers-width) + 12px);
-    top: 76px;
+    left: 16px;
+    top: calc(76px + var(--desktop-left-layer-height) + 12px);
     bottom: var(--desktop-bottom-rail);
-    width: var(--desktop-event-width);
+    width: var(--desktop-left-width);
   }
 }
 
