@@ -232,10 +232,10 @@ p {
 }
 
 h1 {
-  max-width: 780px;
+  max-width: 640px;
   margin: 0;
   font-family: Newsreader, Georgia, serif;
-  font-size: clamp(60px, 7.2vw, 104px);
+  font-size: clamp(58px, 6.2vw, 90px);
   font-weight: 650;
   letter-spacing: -0.052em;
   line-height: 0.9;
