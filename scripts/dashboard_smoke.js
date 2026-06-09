@@ -1477,6 +1477,7 @@ async function assertUtilityNetworkContextGuards(page, cityId, minimumRendered) 
 async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
   const minimumFeatures = { belfast: 5000, london: 25000, nyc: 10000 }[cityId] || 1000;
   const minimumRendered = { belfast: 8, london: 20, nyc: 14 }[cityId] || 4;
+  const maximumRenderedAssets = { belfast: 420, london: 2200, nyc: 180 }[cityId] || 1200;
   await page.evaluate(() => window.BimsAtlas?.recenterMap?.());
   await page.waitForFunction(
     () => document.querySelector("#mapStudyChip")?.dataset.scope === "city",
@@ -1558,6 +1559,11 @@ async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
       renderedAreaLines,
       renderedLineCases,
       legend: document.querySelector("#lensLegend")?.textContent || "",
+      selectedEventId: atlas?.state?.selectedEventId || "",
+      zoom: Number(map?.getZoom?.() || 0),
+      detailText: (document.querySelector("#detailInner:not([hidden])") || document.querySelector("#detailEmpty:not([hidden])") || document.querySelector("#detailPanel"))?.textContent.replace(/\s+/g, " ").trim() || "",
+      detailInnerVisible: Boolean(document.querySelector("#detailInner:not([hidden])")),
+      detailEmptyVisible: Boolean(document.querySelector("#detailEmpty:not([hidden])")),
     };
   }, cityId);
   assert(state.featureCount >= minimumFeatures, `utility network ${cityId}: too few current utility context features loaded (${state.featureCount}).`);
@@ -1568,7 +1574,14 @@ async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
     state.renderedAreaFills + state.renderedAreaLines + state.renderedLineCases + state.renderedLines + state.renderedAssets >= minimumRendered,
     `utility network ${cityId}: network context rendered too sparsely (${state.renderedAreaFills + state.renderedAreaLines + state.renderedLineCases + state.renderedLines + state.renderedAssets}).`
   );
+  assert(state.renderedAssets <= maximumRenderedAssets, `utility network ${cityId}: citywide asset symbols overdraw the map (${state.renderedAssets} rendered at zoom ${state.zoom.toFixed(2)}).`);
   assert(/No capacity data is inferred|not.*capacity|not selected-year|non-headline|engineering capacity/i.test(state.legend), `utility network ${cityId}: legend does not caveat current utility context.`);
+  assert(!/Pick a change on the map or in search/i.test(state.detailText), `utility network ${cityId}: context-only utility view still shows the generic empty detail prompt.`);
+  assert(state.detailInnerVisible && !state.detailEmptyVisible, `utility network ${cityId}: utility context detail panel is not visible.`);
+  if (!state.selectedEventId) {
+    assert(/Current mapped utility context|OpenStreetMap|ODbL/i.test(state.detailText), `utility network ${cityId}: context-only detail panel does not identify OSM/ODbL utility context.`);
+    assert(/not.*capacity|outage|service[-\s]?availability|non-headline/i.test(state.detailText), `utility network ${cityId}: context-only detail panel lacks capacity/outage/service caveats.`);
+  }
   if (options.verifyGuards) await assertUtilityNetworkContextGuards(page, cityId, minimumRendered);
   return state;
 }

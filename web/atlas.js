@@ -491,7 +491,7 @@
       label: "Utility Context",
       shortLabel: "Context",
       title: "Utility context x-ray",
-      description: "See where mapped utility context and work records cluster.",
+      description: "See where mapped utility context and dated utility records cluster.",
       radiusM: 800,
       accent: "#6c4a82",
       mapMode: "utilities-capacity",
@@ -522,7 +522,7 @@
       label: "Utility Network Context",
       shortLabel: "Network",
       title: "Utility-context paths",
-      description: "Trace mapped infrastructure routes, alternates, and possible context constraints.",
+      description: "Trace mapped utility routes and context constraints without treating them as service evidence.",
       radiusM: 1500,
       accent: "#e85b1f",
       mapMode: "utilities-resilience",
@@ -550,16 +550,16 @@
       category: "utilities",
       domain: "Utilities Lens",
       badge: "W",
-      label: "Utility Works",
+      label: "Utility Works Context",
       shortLabel: "Works",
-      title: "Maintenance and disruption timeline map",
-      description: "What works are happening where and when?",
+      title: "Utility work records and context",
+      description: "Review source-backed utility work records alongside current mapped utility context.",
       radiusM: 800,
       accent: "#0f7d8a",
       mapMode: "utilities-works",
       panelMode: "utilities",
-      summary: "Utility works are styled by source-reported planned work, repairs, failure/outage notices, permits, and reinstatement status where present.",
-      caveat: "OSM mapped visibility and permit records may differ from real-world works dates.",
+      summary: "Utility work records are styled by source-reported planned work, repairs, failure/outage notices, permits, and reinstatement status where present.",
+      caveat: "OSM mapped visibility and permit records may differ from real-world works dates; this is not live outage or service-availability data.",
       layers: [
         { id: "utilities", label: "Utility works (all)", color: "#248b94", categoryToggle: true },
         { id: "planned", label: "Planned works", color: "#248b94" },
@@ -806,6 +806,7 @@
     utilityNetworkFeaturesPathLoaded: null,
     utilityNetworkLoadPath: null,
     utilityNetworkLoadPromise: null,
+    utilityNetworkLoadError: "",
     utilityNetworkFeatures: [],
     economyAnchorFeaturesPathLoaded: null,
     economyAnchorFeatures: [],
@@ -1558,6 +1559,7 @@
     state.map.on("resize", scheduleLensGuideLabelRender);
     state.map.on("moveend", () => {
       syncCitywideLensModeFromCamera();
+      updateUtilityNetworkLayers();
       renderMapStudyChip();
       renderMarkers();
     });
@@ -4378,7 +4380,7 @@
           16, ["*", 0.56, utilityNetworkAssetSizeFactorExpression()],
         ],
         "icon-allow-overlap": true,
-        "icon-ignore-placement": true,
+        "icon-ignore-placement": false,
       },
       paint: {
         "icon-opacity": utilityNetworkAssetOpacityExpression(),
@@ -4401,12 +4403,12 @@
   }
 
   function utilityNetworkAssetFilter() {
-    const lensId = activeMapLens().id;
-    const minPriority = ["utilities-capacity", "utilities-resilience", "utilities-works"].includes(lensId) ? 1 : 2;
+    const minPriority = activeMapLens().id.startsWith("utilities-") ? 3 : 2;
     return ["all",
       ["==", ["get", "layer"], "utility_network"],
       ["==", ["get", "network_geometry"], "asset"],
       [">=", ["to-number", ["get", "asset_priority"], 0], minPriority],
+      ["!", ["match", ["downcase", ["to-string", ["get", "network_role"]]], ["generator", "pole", "street_lamp", "lamp", "lighting", "solar"], true, false]],
     ];
   }
 
@@ -4423,31 +4425,27 @@
 
   function utilityNetworkAssetOpacityExpression() {
     const mode = activeMapLens().id;
+    const byPriority = (stops) => [
+      "interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1],
+      ...stops,
+    ];
+    const zoomed = (base) => [
+      "interpolate", ["linear"], ["zoom"],
+      9.2, ["*", base, ["case", [">=", ["to-number", ["get", "asset_priority"], 0], 4], 0.22, 0.05]],
+      10.2, ["*", base, ["case", [">=", ["to-number", ["get", "asset_priority"], 0], 4], 0.38, [">=", ["to-number", ["get", "asset_priority"], 0], 3], 0.16, 0.08]],
+      11.3, ["*", base, ["case", [">=", ["to-number", ["get", "asset_priority"], 0], 4], 0.72, [">=", ["to-number", ["get", "asset_priority"], 0], 3], 0.46, 0.28]],
+      13, base,
+    ];
     if (mode === "utilities-works") {
-      return [
-        "interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1],
-        1, 0.9,
-        2, 0.82,
-        4, 0.94,
-      ];
+      return zoomed(byPriority([1, 0.72, 2, 0.82, 4, 0.94]));
     }
     if (mode === "utilities-capacity") {
-      return [
-        "interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1],
-        1, 0.58,
-        2, 0.52,
-        4, 0.9,
-      ];
+      return zoomed(byPriority([1, 0.42, 2, 0.52, 4, 0.9]));
     }
     if (mode === "utilities-resilience") {
-      return [
-        "interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1],
-        1, 0.38,
-        2, 0.48,
-        4, 0.68,
-      ];
+      return zoomed(byPriority([1, 0.28, 2, 0.48, 4, 0.68]));
     }
-    return ["interpolate", ["linear"], ["to-number", ["get", "asset_priority"], 1], 1, 0.24, 2, 0.54, 4, 0.92];
+    return zoomed(byPriority([1, 0.24, 2, 0.54, 4, 0.92]));
   }
 
   function utilityNetworkAreaOpacityExpression() {
@@ -5357,6 +5355,7 @@
     state.utilityNetworkFeaturesPathLoaded = null;
     state.utilityNetworkLoadPath = null;
     state.utilityNetworkLoadPromise = null;
+    state.utilityNetworkLoadError = "";
     state.utilityNetworkFeatures = [];
     state.economyAnchorFeaturesPathLoaded = null;
     state.economyAnchorFeatures = [];
@@ -6416,10 +6415,12 @@
       const hadUtilityContext = state.utilityNetworkPathLoaded !== ""
         || state.utilityNetworkFeaturesPathLoaded !== null
         || state.utilityNetworkFeatures.length
-        || state.utilityNetworkLoadPromise;
+        || state.utilityNetworkLoadPromise
+        || state.utilityNetworkLoadError;
       state.utilityNetworkFeaturesPathLoaded = null;
       state.utilityNetworkLoadPath = null;
       state.utilityNetworkLoadPromise = null;
+      state.utilityNetworkLoadError = "";
       state.utilityNetworkFeatures = [];
       if (state.utilityNetworkPathLoaded !== "") {
         source.setData(emptyFeatureCollection());
@@ -6429,6 +6430,7 @@
         updateLensGuideSource();
         renderLayers();
         renderLensLegend();
+        renderDetail();
       }
       return;
     }
@@ -6439,6 +6441,7 @@
     if (!path) {
       if (state.utilityNetworkFeaturesPathLoaded !== null || state.utilityNetworkFeatures.length) {
         state.utilityNetworkFeaturesPathLoaded = null;
+        state.utilityNetworkLoadError = "";
         state.utilityNetworkFeatures = [];
         updateLensGuideSource();
         renderLayers();
@@ -6454,6 +6457,7 @@
     state.utilityNetworkFeaturesPathLoaded = path;
     state.utilityNetworkFeatures = [];
     state.utilityNetworkLoadPath = path;
+    state.utilityNetworkLoadError = "";
     const promise = fetch(path, { cache: "no-store" })
       .then((response) => {
         if (!response.ok) throw new Error(`${path} -> ${response.status}`);
@@ -6465,6 +6469,7 @@
         state.utilityNetworkFeatures = Array.isArray(payload.features)
           ? payload.features.filter((feature) => feature.geometry && feature.properties?.layer === "utility_network")
           : [];
+        state.utilityNetworkLoadError = "";
         if (source?.setData) {
           source.setData(payload?.type === "FeatureCollection" ? payload : emptyFeatureCollection());
           state.utilityNetworkPathLoaded = path;
@@ -6472,10 +6477,12 @@
         updateLensGuideSource();
         renderLayers();
         renderLensLegend();
+        renderDetail();
       })
       .catch((error) => {
         if (state.utilityNetworkFeaturesPathLoaded !== path) return;
         state.utilityNetworkFeatures = [];
+        state.utilityNetworkLoadError = error.message || "Utility network context failed to load.";
         const source = state.map?.getSource(UTILITY_NETWORK_SOURCE_ID);
         if (source?.setData) {
           source.setData(emptyFeatureCollection());
@@ -6485,6 +6492,7 @@
         updateLensGuideSource();
         renderLayers();
         renderLensLegend();
+        renderDetail();
       })
       .finally(() => {
         if (state.utilityNetworkLoadPromise === promise) {
@@ -23085,9 +23093,177 @@
     return "0";
   }
 
+  function utilityNetworkContextStats() {
+    const features = (state.utilityNetworkFeatures || []).filter((feature) => {
+      const props = feature?.properties || {};
+      return feature?.geometry
+        && props.layer === "utility_network"
+        && ["asset", "line", "area"].includes(props.network_geometry);
+    });
+    const byGeometry = { asset: 0, line: 0, area: 0 };
+    const byType = new Map();
+    const sources = new Map();
+    const licenses = new Set();
+    const accessed = new Set();
+    for (const feature of features) {
+      const props = feature.properties || {};
+      const geometry = props.network_geometry || "";
+      if (byGeometry[geometry] !== undefined) byGeometry[geometry] += 1;
+      const type = props.utility_type || "utility";
+      if (!byType.has(type)) {
+        byType.set(type, {
+          type,
+          label: utilityCapacityLegendLabel(type),
+          color: utilityTypeColor(type),
+          total: 0,
+          asset: 0,
+          line: 0,
+          area: 0,
+          highSignal: 0,
+        });
+      }
+      const row = byType.get(type);
+      row.total += 1;
+      if (row[geometry] !== undefined) row[geometry] += 1;
+      if (Number(props.intensity || 0) >= 0.78 || Number(props.rank || 0) >= 4 || Number(props.asset_priority || 0) >= 4) row.highSignal += 1;
+      const registryId = props.source_registry_id || props.source_id || "";
+      if (registryId) {
+        sources.set(registryId, {
+          id: registryId,
+          title: props.source_name || props.publisher || registryId,
+          publisher: props.publisher || "",
+          url: props.source_url || "",
+        });
+      }
+      if (props.license) licenses.add(String(props.license));
+      if (props.accessed_at) accessed.add(String(props.accessed_at).slice(0, 10));
+    }
+    const layerOrder = (activeMapLens()?.layers || []).map((layer) => layer.utilityType || layer.id);
+    const rows = [...byType.values()].sort((a, b) => {
+      const ai = layerOrder.indexOf(a.type);
+      const bi = layerOrder.indexOf(b.type);
+      if (ai !== -1 || bi !== -1) return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+      return b.total - a.total;
+    });
+    return {
+      total: features.length,
+      byGeometry,
+      rows,
+      sourceCount: sources.size,
+      sources: [...sources.values()].slice(0, 4),
+      licenses: [...licenses],
+      accessed: [...accessed].sort().slice(-3),
+      path: state.utilityNetworkFeaturesPathLoaded || utilityNetworkPath() || "",
+      error: state.utilityNetworkLoadError || "",
+    };
+  }
+
+  function renderUtilityContextOnlyDetail() {
+    const lens = activeMapLens();
+    const stats = utilityNetworkContextStats();
+    const city = shortCityName(state.city?.display_name || "city");
+    const sourceLabel = stats.sourceCount === 1 ? "source registry" : "source registries";
+    const loaded = stats.total > 0;
+    const unavailable = Boolean(stats.error && !loaded);
+    const rows = stats.rows.slice(0, 6);
+    return `
+      <div class="detail-head lens-detail-head utility-context-only-head" style="--accent:${escapeAttr(lens?.accent || "#6c4a82")}">
+        <div class="detail-eyebrow">Current context</div>
+        <div class="planning-detail-subtitle">${escapeHtml(city)} / ${escapeHtml(lens?.label || "Utility context")} / ${escapeHtml(String(currentTimelineYear()))}</div>
+        <h2 class="detail-title">${unavailable ? "Utility context unavailable" : "Current mapped utility context"}</h2>
+        <div class="planning-caution stage-caution utility-capacity-caution"><span></span><p>${unavailable ? "Current OSM utility context did not load" : "Context-only OSM utility network"} <b>Not capacity or outage evidence</b></p></div>
+      </div>
+      <div class="detail-body utility-capacity-detail-body utility-context-only-body">
+        <section class="detail-meaning-card utility-context-meaning">
+          <div class="detail-meaning-head">
+            <span style="--accent:${escapeAttr(lens?.accent || "#6c4a82")}"></span>
+            <div>
+              <strong>What this context means</strong>
+              <p>${escapeHtml(loaded
+                ? `The map is showing ${compactNumber(stats.total)} current OpenStreetMap-derived utility context features across ${city}.`
+                : unavailable
+                  ? `Current OpenStreetMap-derived utility context is unavailable for ${city} in this session.`
+                  : `The map is loading current OpenStreetMap-derived utility context for ${city}.`)}</p>
+            </div>
+          </div>
+          <dl class="detail-meaning-facts">
+            <div><dt>Feature mix</dt><dd>${escapeHtml(`${compactNumber(stats.byGeometry.line)} lines / ${compactNumber(stats.byGeometry.area)} areas / ${compactNumber(stats.byGeometry.asset)} assets`)}</dd></div>
+            <div><dt>Sources</dt><dd>${escapeHtml(`${compactNumber(stats.sourceCount)} ${sourceLabel}`)}</dd></div>
+            <div><dt>License</dt><dd>${escapeHtml(stats.licenses.join(", ") || "ODbL-1.0")}</dd></div>
+            <div><dt>Map role</dt><dd>Context only; excluded from headline change totals</dd></div>
+          </dl>
+          <div class="detail-meaning-note">${escapeHtml(unavailable ? `${stats.error} No fallback utility geometry is generated.` : utilityNetworkContextOnlyNote(lens, "utilities", currentTimelineYear()))}</div>
+        </section>
+
+        <section class="detail-section utility-capacity-section">
+          <h4>Utility context by type <span>(current mapped context)</span></h4>
+          ${loaded && rows.length ? `
+            <div class="utility-capacity-table utility-context-table" role="table" aria-label="Current utility context by type">
+              <div class="utility-capacity-row utility-capacity-head" role="row">
+                <span>Utility</span>
+                <strong>Lines</strong>
+                <strong>Assets</strong>
+                <em>High signal</em>
+              </div>
+              ${rows.map((row) => `
+                <div class="utility-capacity-row" role="row" style="--accent:${escapeAttr(row.color)}">
+                  <span><i></i>${escapeHtml(row.label)}</span>
+                  <strong>${escapeHtml(compactNumber(row.line + row.area))}</strong>
+                  <strong>${escapeHtml(compactNumber(row.asset))}</strong>
+                  <em>${escapeHtml(compactNumber(row.highSignal))}</em>
+                </div>
+              `).join("")}
+            </div>
+          ` : `<div class="lens-evidence-note">${escapeHtml(unavailable ? "Current utility context is unavailable; no fallback utility marks are generated." : "Loading current utility context features.")}</div>`}
+        </section>
+
+        <section class="detail-section">
+          <h4>Provenance</h4>
+          <div class="provenance-grid">
+            <div class="provenance-row"><span>Primary source</span><strong>OpenStreetMap contributors via Overpass/local extracts</strong></div>
+            <div class="provenance-row"><span>Artifact</span><strong>${escapeHtml(stats.path ? stats.path.replace(/^\/?/, "") : "utility_network_2026.geojson")}</strong></div>
+            <div class="provenance-row"><span>Accessed</span><strong>${escapeHtml(stats.accessed.join(", ") || "Recorded in source metadata")}</strong></div>
+            <div class="provenance-row"><span>Counted as change?</span><strong>No. Current context is non-headline evidence context.</strong></div>
+          </div>
+        </section>
+
+        ${stats.sources.length ? `
+          <section class="detail-section">
+            <h4>Source labels</h4>
+            <div class="utility-context-source-list">
+              ${stats.sources.map((source) => `
+                <div class="source-row compact-source-row">
+                  <div>
+                    <strong>${escapeHtml(source.title || source.id)}</strong>
+                    <span>${escapeHtml(source.publisher || "OpenStreetMap contributors")} / ODbL</span>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </section>
+        ` : ""}
+      </div>
+    `;
+  }
+
+  function finalizeContextOnlyDetailAccessibility() {
+    const title = els.detailInner?.querySelector(".detail-title");
+    if (!title) return;
+    title.id = "detailTitle";
+    title.setAttribute("tabindex", "-1");
+    els.detailPanel?.setAttribute("aria-labelledby", "detailTitle");
+  }
+
   function renderDetail() {
     if (!els.detailPanel) return;
     if (!state.selectedEvent) {
+      if (utilityNetworkContextCanRender()) {
+        els.detailEmpty.setAttribute("hidden", "");
+        els.detailInner.removeAttribute("hidden");
+        els.detailInner.innerHTML = renderUtilityContextOnlyDetail();
+        finalizeContextOnlyDetailAccessibility();
+        return;
+      }
       els.detailInner.setAttribute("hidden", "");
       els.detailEmpty.removeAttribute("hidden");
       els.detailPanel.setAttribute("aria-labelledby", "detailEmptyTitle");
