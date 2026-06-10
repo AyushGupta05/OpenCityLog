@@ -1448,6 +1448,17 @@ async function assertEconomyVitalityCitywideContext(page, cityId, targetYear) {
           && props.source_kind === "source_backed_lens_detail_aggregate"
           && props.evidence_role === "selected_year_direct_lens_detail_aggregate";
       }).length;
+    const paintText = (layerId, property) => {
+      try {
+        return JSON.stringify(map?.getPaintProperty?.(layerId, property) || "");
+      } catch (_error) {
+        return "";
+      }
+    };
+    const frontageOpacity = paintText("lens-economy-frontage", "line-opacity");
+    const frontageWidth = paintText("lens-economy-frontage", "line-width");
+    const frontageCaseOpacity = paintText("lens-economy-frontage-case", "line-opacity");
+    const frontageCaseWidth = paintText("lens-economy-frontage-case", "line-width");
     return {
       contextTileCount: features.length,
       directGuideCount,
@@ -1457,6 +1468,8 @@ async function assertEconomyVitalityCitywideContext(page, cityId, targetYear) {
       sourceFeatureCount: atlas?.state?.economyAnchorFeatures?.length || 0,
       visible: Boolean(row?.visible_map_contract),
       directCount: Number(row?.direct_event_count || 0),
+      calmFrontagePaint: frontageOpacity.includes("0.36") && frontageWidth.includes("2.25"),
+      calmFrontageCasePaint: frontageCaseOpacity.includes("0.18") && frontageCaseWidth.includes("4.4"),
     };
   }, { year: targetYear });
   const minSourceFeatureCount = { belfast: 1200, london: 6000, nyc: 5000 }[cityId] || 1200;
@@ -1468,6 +1481,7 @@ async function assertEconomyVitalityCitywideContext(page, cityId, targetYear) {
   assert(state.contextTileCount >= minContextTileCount, `economy vitality context ${cityId}: too few current-context vitality tiles (${state.contextTileCount}).`);
   assert(state.rendered > 0, `economy vitality context ${cityId}: current-context vitality tiles did not render.`);
   assert(state.invalid === 0, `economy vitality context ${cityId}: ${state.invalid} context tile(s) lack provenance/non-headline flags.`);
+  assert(state.calmFrontagePaint && state.calmFrontageCasePaint, `economy vitality context ${cityId}: citywide frontage detail did not use calm summary paint.`);
 }
 
 async function assertEconomyGravityCitywideContext(page, cityId, targetYear) {

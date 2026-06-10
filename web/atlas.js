@@ -3030,7 +3030,9 @@
           "interpolate", ["linear"], ["zoom"],
           5.5, ["case",
             ["==", ["get", "surface_style"], "land_use_tile"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.3, 1, 0.66],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.22, 1, 0.52],
+            ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.2, 1, 0.5],
             ["==", ["get", "surface_style"], "access_fabric"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.28, 1, 0.54],
             ["==", ["get", "surface_style"], "vitality_anchor_tile"],
@@ -3041,7 +3043,9 @@
           ],
           8.8, ["case",
             ["==", ["get", "surface_style"], "land_use_tile"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.24, 1, 0.56],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.18, 1, 0.44],
+            ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.16, 1, 0.4],
             ["==", ["get", "surface_style"], "access_fabric"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.22, 1, 0.48],
             ["==", ["get", "surface_style"], "vitality_anchor_tile"],
@@ -3052,7 +3056,9 @@
           ],
           10.8, ["case",
             ["==", ["get", "surface_style"], "land_use_tile"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.12, 1, 0.28],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.08, 1, 0.22],
+            ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.08, 1, 0.22],
             ["==", ["get", "surface_style"], "access_fabric"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.16, 1, 0.34],
             ["==", ["get", "surface_style"], "vitality_anchor_tile"],
@@ -3077,22 +3083,41 @@
           "case",
           ["==", ["get", "surface_style"], "planning_footprint"], ["coalesce", ["get", "color"], "#fff7eb"],
           ["==", ["get", "surface_style"], "land_use_tile"], "#fffaf0",
+          ["==", ["get", "surface_style"], "vitality_ribbon_tile"], "#fffaf0",
           ["==", ["get", "surface_style"], "vitality_anchor_tile"], "#fffaf0",
           ["==", ["get", "surface_style"], "gravity_anchor_tile"], "#fffaf0",
           ["coalesce", ["get", "color"], "#ffffff"],
         ],
         "line-opacity": [
           "interpolate", ["linear"], ["zoom"],
-          5.5, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.28, 1, 0.68],
-          8.8, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.14, 1, 0.36],
-          10.8, ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.06, 1, 0.18],
+          5.5, ["case",
+            ["==", ["get", "surface_style"], "land_use_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.2, 1, 0.46],
+            ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.16, 1, 0.38],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.28, 1, 0.68],
+          ],
+          8.8, ["case",
+            ["==", ["get", "surface_style"], "land_use_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.1, 1, 0.28],
+            ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.08, 1, 0.24],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.14, 1, 0.36],
+          ],
+          10.8, ["case",
+            ["==", ["get", "surface_style"], "land_use_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.04, 1, 0.14],
+            ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.03, 1, 0.1],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.06, 1, 0.18],
+          ],
           12.2, 0,
         ],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          5.5, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.42, 0.36],
-          8.8, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.34, 0.3],
-          10.8, 0.18,
+          5.5, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.32, ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.28, 0.36],
+          8.8, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.24, ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.22, 0.3],
+          10.8, ["case", ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.12, 0.18],
           12.2, 0,
         ],
       },
@@ -5649,6 +5674,8 @@
     if (!state.map?.getSource(LENS_DETAIL_SOURCE_ID)) return;
     const aspect = activeMapLens();
     const quietDetailUnderCitywideSummary = citywideOverviewActive() && hasCitywideGuideSummaryForActiveLens();
+    const citywideEconomyVitalitySummary = quietDetailUnderCitywideSummary && aspect.id === "economy-vitality";
+    const citywideEconomyLandUseSummary = quietDetailUnderCitywideSummary && aspect.id === "economy-land-use";
     const showPlanningCells = isActiveMapLens("built_environment");
     const showCivicCells = isActiveMapLens("civic_services");
     const showCivicFacilityIcons = isActiveMapLens("civic_services") && !quietDetailUnderCitywideSummary;
@@ -5698,13 +5725,13 @@
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "civic-demand" ? lensDetailLineOpacity(0.003, 0.018) : quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailLineOpacity(0.02, 0.08) : aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.11, 0.34) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.07, 0.2) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.07, 0.22) : lensDetailLineOpacity(0.18, 0.58));
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-outline", "line-color", economyCellColorExpression());
-    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-gravity" ? lensDetailFillOpacity(0.012, 0.05) : quietDetailUnderCitywideSummary && aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.08, 0.24) : aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.04, 0.16) : lensDetailFillOpacity(0.08, 0.26));
-    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-gravity" ? lensDetailLineOpacity(0.018, 0.07) : quietDetailUnderCitywideSummary && aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.08, 0.24) : aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.08, 0.26) : lensDetailLineOpacity(0.1, 0.34));
+    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-gravity" ? lensDetailFillOpacity(0.012, 0.05) : citywideEconomyVitalitySummary ? lensDetailFillOpacity(0.012, 0.055) : citywideEconomyLandUseSummary ? lensDetailFillOpacity(0.035, 0.12) : aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.04, 0.16) : lensDetailFillOpacity(0.08, 0.26));
+    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-gravity" ? lensDetailLineOpacity(0.018, 0.07) : citywideEconomyVitalitySummary ? lensDetailLineOpacity(0.018, 0.08) : citywideEconomyLandUseSummary ? lensDetailLineOpacity(0.035, 0.12) : aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.08, 0.26) : lensDetailLineOpacity(0.1, 0.34));
     setLayerPaintIfPresent("lens-economy-frontage", "line-color", economyCellColorExpression());
-    setLayerPaintIfPresent("lens-economy-frontage-case", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-gravity" ? lensDetailLineOpacity(0.035, 0.11) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.42, 0.78) : lensDetailLineOpacity(0.24, 0.58));
-    setLayerPaintIfPresent("lens-economy-frontage", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-gravity" ? lensDetailLineOpacity(0.075, 0.2) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.72, 1) : lensDetailLineOpacity(0.36, 0.92));
-    setLayerPaintIfPresent("lens-economy-frontage-case", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(3.2, 8.8) : lensTraceWidthExpression(2.6, 8.4));
-    setLayerPaintIfPresent("lens-economy-frontage", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(1.35, 4.8) : lensTraceWidthExpression(1.05, 4.9));
+    setLayerPaintIfPresent("lens-economy-frontage-case", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-gravity" ? lensDetailLineOpacity(0.035, 0.11) : citywideEconomyVitalitySummary ? lensDetailLineOpacity(0.06, 0.18) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.42, 0.78) : lensDetailLineOpacity(0.24, 0.58));
+    setLayerPaintIfPresent("lens-economy-frontage", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-gravity" ? lensDetailLineOpacity(0.075, 0.2) : citywideEconomyVitalitySummary ? lensDetailLineOpacity(0.14, 0.36) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.72, 1) : lensDetailLineOpacity(0.36, 0.92));
+    setLayerPaintIfPresent("lens-economy-frontage-case", "line-width", citywideEconomyVitalitySummary ? lensTraceWidthExpression(1.45, 4.4) : aspect.id === "economy-vitality" ? lensTraceWidthExpression(3.2, 8.8) : lensTraceWidthExpression(2.6, 8.4));
+    setLayerPaintIfPresent("lens-economy-frontage", "line-width", citywideEconomyVitalitySummary ? lensTraceWidthExpression(0.55, 2.25) : aspect.id === "economy-vitality" ? lensTraceWidthExpression(1.35, 4.8) : lensTraceWidthExpression(1.05, 4.9));
     const sparseUtilityDetail = ["utilities-resilience", "utilities-works"].includes(aspect.id)
       && Boolean(selectedYearSparseMapCoverageNote(aspect, activeLensYearCoverageRow(aspect, state.year)));
     setLayerPaintIfPresent("lens-utilities-trace", "line-color", utilityTraceColorExpression());
