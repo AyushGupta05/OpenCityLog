@@ -1708,7 +1708,7 @@ async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
   const minimumFeatures = { belfast: 5000, london: 25000, nyc: 10000 }[cityId] || 1000;
   const minimumDisplayFeatures = { belfast: 1000, london: 7000, nyc: 2200 }[cityId] || 500;
   const minimumRendered = { belfast: 8, london: 20, nyc: 14 }[cityId] || 4;
-  const maximumRenderedAssets = { belfast: 420, london: 2200, nyc: 180 }[cityId] || 1200;
+  const maximumRenderedAssets = { belfast: 240, london: 900, nyc: 180 }[cityId] || 1200;
   await page.evaluate(() => window.BimsAtlas?.recenterMap?.());
   await page.waitForFunction(
     () => document.querySelector("#mapStudyChip")?.dataset.scope === "city",
@@ -1861,6 +1861,8 @@ async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
     `utility network ${cityId}: network context rendered too sparsely (${state.renderedAreaFills + state.renderedAreaLines + state.renderedLineCases + state.renderedLines + state.renderedAssets}).`
   );
   assert(state.renderedAssets <= maximumRenderedAssets, `utility network ${cityId}: citywide asset symbols overdraw the map (${state.renderedAssets} rendered at zoom ${state.zoom.toFixed(2)}).`);
+  assert(!/Records,\s*no map/i.test(state.legend), `utility network ${cityId}: utility context is visible but the map lens still reports records with no map.`);
+  assert(/current context features|Context loading|Traces|assets/i.test(state.legend), `utility network ${cityId}: map lens does not identify visible utility context or direct utility traces.`);
   assert(/No capacity data is inferred|not.*capacity|not selected-year|non-headline|engineering capacity/i.test(state.legend), `utility network ${cityId}: legend does not caveat current utility context.`);
   assert(!/Pick a change on the map or in search/i.test(state.detailText), `utility network ${cityId}: context-only utility view still shows the generic empty detail prompt.`);
   assert(state.detailInnerVisible && !state.detailEmptyVisible, `utility network ${cityId}: utility context detail panel is not visible.`);
@@ -3086,6 +3088,8 @@ async function runDashboardSmoke() {
       attachConsoleCapture(page, consoleMessages, pageErrors);
       await openAtlas(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=${city.aspect}`);
       await page.waitForTimeout(city.id === "london" ? 2400 : 1400);
+      await page.evaluate(() => window.BimsAtlas?.recenterMap?.());
+      await page.waitForTimeout(800);
       const cityState = await assertResponsiveLayout(page, `city ${city.id}`);
       assert(cityState.city === city.label, `city ${city.id}: loaded ${cityState.city} instead of ${city.label}.`);
       assert(cityState.citywideLensMode, `city ${city.id}: atlas did not start in citywide lens mode.`);

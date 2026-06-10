@@ -4427,12 +4427,21 @@
 
   function utilityNetworkAssetFilter() {
     const minPriority = activeMapLens().id.startsWith("utilities-") ? 3 : 2;
+    const symbolFlag = utilityNetworkAssetSymbolFlag();
     return ["all",
       ["==", ["get", "layer"], "utility_network"],
       ["==", ["get", "network_geometry"], "asset"],
+      ["==", ["get", symbolFlag], true],
       [">=", ["to-number", ["get", "asset_priority"], 0], minPriority],
       ["!", ["match", ["downcase", ["to-string", ["get", "network_role"]]], ["generator", "pole", "street_lamp", "lamp", "lighting", "solar"], true, false]],
     ];
+  }
+
+  function utilityNetworkAssetSymbolFlag() {
+    const mode = activeMapLens().id;
+    if (mode === "utilities-resilience") return "city_display_symbol_resilience";
+    if (mode === "utilities-works") return "city_display_symbol_works";
+    return "city_display_symbol_capacity";
   }
 
   function utilityNetworkAssetSizeFactorExpression() {
@@ -6605,7 +6614,165 @@
     const displayFeatures = (features || [])
       .map((feature) => utilityNetworkDisplayFeature(feature))
       .filter(Boolean);
-    return { type: "FeatureCollection", features: displayFeatures };
+    return { type: "FeatureCollection", features: utilityNetworkAnnotateDisplayAssetSymbols(displayFeatures) };
+  }
+
+  function utilityNetworkAnnotateDisplayAssetSymbols(displayFeatures) {
+    const annotated = (displayFeatures || []).map((feature) => {
+      if (feature?.properties?.network_geometry !== "asset") return feature;
+      return {
+        ...feature,
+        properties: {
+          ...feature.properties,
+          city_display_symbol_capacity: false,
+          city_display_symbol_resilience: false,
+          city_display_symbol_works: false,
+          city_display_symbol_weight: 0,
+        },
+      };
+    });
+    const candidates = [];
+    annotated.forEach((feature, index) => {
+      const props = feature?.properties || {};
+      if (props.network_geometry !== "asset" || !utilityNetworkAssetDisplayCandidate(props)) return;
+      const point = geometryToLngLat(feature.geometry);
+      if (!point) return;
+      const key = props.source_object_id || props.id || props.source_url || props.network_role || index;
+      candidates.push({ feature, point, key: String(key), type: props.utility_type || "utility", index });
+    });
+    for (const mode of ["utilities-capacity", "utilities-resilience", "utilities-works"]) {
+      const flag = utilityNetworkAssetSymbolFlagForMode(mode);
+      const selected = selectUtilityNetworkAssetSymbols(candidates, mode);
+      for (const item of selected) {
+        item.feature.properties[flag] = true;
+        item.feature.properties.city_display_symbol_weight = Math.max(
+          Number(item.feature.properties.city_display_symbol_weight || 0),
+          Number(item.weight || 0.7),
+        );
+      }
+    }
+    return annotated;
+  }
+
+  function utilityNetworkAssetDisplayCandidate(props = {}) {
+    const priority = Number(props.asset_priority || 0);
+    if (priority < 3) return false;
+    const role = String(props.network_role || "").toLowerCase();
+    return !/generator|pole|street_lamp|lamp|lighting|solar/.test(role);
+  }
+
+  function utilityNetworkAssetSymbolFlagForMode(mode) {
+    if (mode === "utilities-resilience") return "city_display_symbol_resilience";
+    if (mode === "utilities-works") return "city_display_symbol_works";
+    return "city_display_symbol_capacity";
+  }
+
+  function selectUtilityNetworkAssetSymbols(candidates, mode) {
+    const plan = utilityNetworkAssetSymbolPlan(mode);
+    if (!candidates.length || plan.limit <= 0) return [];
+    const scored = candidates
+      .map((item) => ({
+        ...item,
+        score: utilityNetworkAssetSymbolScore(item, mode),
+      }))
+      .sort((a, b) => b.score - a.score || a.key.localeCompare(b.key));
+    const selected = [];
+    const selectedKeys = new Set();
+    const typeCounts = new Map();
+    const typeCaps = utilityNetworkAssetTypeCaps(plan.limit, mode);
+    const spacingPasses = [plan.spacingM, plan.spacingM * 0.72, plan.spacingM * 0.48, 0];
+    for (let passIndex = 0; passIndex < spacingPasses.length && selected.length < plan.limit; passIndex += 1) {
+      const spacingM = spacingPasses[passIndex];
+      for (const item of scored) {
+        if (selected.length >= plan.limit) break;
+        if (selectedKeys.has(item.key)) continue;
+        const type = item.type || "utility";
+        const currentTypeCount = typeCounts.get(type) || 0;
+        const cap = typeCaps[type] || Math.max(4, Math.round(plan.limit * 0.08));
+        if (passIndex < 2 && currentTypeCount >= cap) continue;
+        if (spacingM > 0 && selected.some((existing) => lngLatDistanceMeters(existing.point, item.point) < spacingM)) continue;
+        selected.push({
+          ...item,
+          weight: Number(Math.max(0.55, Math.min(1, item.score / 520)).toFixed(3)),
+        });
+        selectedKeys.add(item.key);
+        typeCounts.set(type, currentTypeCount + 1);
+      }
+    }
+    return selected;
+  }
+
+  function utilityNetworkAssetSymbolPlan(mode) {
+    const cityId = state.cityId || "";
+    const defaults = { limit: 240, spacingM: 420 };
+    const plans = {
+      "utilities-capacity": {
+        belfast: { limit: 165, spacingM: 290 },
+        london: { limit: 620, spacingM: 520 },
+        nyc: { limit: 160, spacingM: 560 },
+      },
+      "utilities-resilience": {
+        belfast: { limit: 135, spacingM: 330 },
+        london: { limit: 470, spacingM: 610 },
+        nyc: { limit: 130, spacingM: 650 },
+      },
+      "utilities-works": {
+        belfast: { limit: 105, spacingM: 410 },
+        london: { limit: 360, spacingM: 760 },
+        nyc: { limit: 105, spacingM: 760 },
+      },
+    };
+    return plans[mode]?.[cityId] || defaults;
+  }
+
+  function utilityNetworkAssetTypeCaps(limit, mode) {
+    const capacity = {
+      electricity: 0.52,
+      water: 0.24,
+      drainage: 0.14,
+      telecoms: 0.12,
+      gas: 0.06,
+      district_energy: 0.04,
+    };
+    const resilience = {
+      electricity: 0.42,
+      water: 0.28,
+      drainage: 0.18,
+      telecoms: 0.13,
+      gas: 0.07,
+      district_energy: 0.05,
+    };
+    const works = {
+      electricity: 0.36,
+      water: 0.26,
+      drainage: 0.2,
+      telecoms: 0.12,
+      gas: 0.08,
+      district_energy: 0.06,
+    };
+    const fractions = mode === "utilities-resilience" ? resilience : mode === "utilities-works" ? works : capacity;
+    return Object.fromEntries(Object.entries(fractions).map(([type, fraction]) => [type, Math.max(3, Math.round(limit * fraction))]));
+  }
+
+  function utilityNetworkAssetSymbolScore(item, mode) {
+    const props = item.feature?.properties || {};
+    const priority = Number(props.asset_priority || 0);
+    const rank = Number(props.rank || 0);
+    const intensity = Number(props.intensity || 0.35);
+    const type = String(props.utility_type || "");
+    const role = String(props.network_role || "").toLowerCase();
+    const typeBoosts = mode === "utilities-resilience"
+      ? { water: 36, drainage: 28, electricity: 26, telecoms: 16, gas: 14, district_energy: 14 }
+      : mode === "utilities-works"
+        ? { drainage: 34, water: 32, gas: 24, electricity: 18, telecoms: 14, district_energy: 16 }
+        : { electricity: 32, water: 28, drainage: 18, telecoms: 16, gas: 12, district_energy: 12 };
+    const roleBoost = /substation|exchange|cabinet|pump|station|valve|regulator|chamber|manhole/.test(role) ? 18 : 0;
+    return priority * 92
+      + rank * 12
+      + intensity * 54
+      + (typeBoosts[type] || 8)
+      + roleBoost
+      + stableUnit(`${mode}:${item.key}`) * 6;
   }
 
   function utilityNetworkDisplayFeature(feature) {
@@ -20092,6 +20259,14 @@
       };
     }
     if (lensCoverageHasWithheldDirectGeometry(yearCoverage)) {
+      if (category === "utilities" && utilityNetworkContextCanRender(lens)) {
+        const contextCount = utilityNetworkContextFeatureCount();
+        return {
+          label: contextCount ? `${compactNumber(contextCount)} current context features` : "Context loading",
+          empty: !contextCount,
+          note: `${lensYearCoverageNote(yearCoverage, lens, category)} ${utilityNetworkContextOnlyNote(lens, category, state.year)}`,
+        };
+      }
       const withheldNote = lensYearCoverageNote(yearCoverage, lens, category);
       return {
         label: "Records, no map",
