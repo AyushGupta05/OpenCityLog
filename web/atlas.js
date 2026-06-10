@@ -5685,8 +5685,8 @@
     setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.035, 0.12) : aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.12, 0.36) : aspect.id === "planning-delta" ? lensDetailLineOpacity(0.08, 0.32) : aspect.id === "planning-parcels" ? lensDetailLineOpacity(0.07, 0.24) : lensDetailLineOpacity(0.28, 0.82));
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-color", civicCellColorExpression());
-    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailFillOpacity(0.012, 0.055) : aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.08, 0.28) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.06, 0.22) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.045, 0.18) : lensDetailFillOpacity(0.16, 0.5));
-    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailLineOpacity(0.02, 0.08) : aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.11, 0.34) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.07, 0.2) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.07, 0.22) : lensDetailLineOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.id === "civic-demand" ? lensDetailFillOpacity(0.002, 0.014) : quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailFillOpacity(0.012, 0.055) : aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.08, 0.28) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.06, 0.22) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.045, 0.18) : lensDetailFillOpacity(0.16, 0.5));
+    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "civic-demand" ? lensDetailLineOpacity(0.003, 0.018) : quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailLineOpacity(0.02, 0.08) : aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.11, 0.34) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.07, 0.2) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.07, 0.22) : lensDetailLineOpacity(0.18, 0.58));
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-outline", "line-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.08, 0.24) : aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.04, 0.16) : lensDetailFillOpacity(0.08, 0.26));
@@ -7573,7 +7573,9 @@
         score: Number((intensity + Math.min(0.2, entry.count * 0.012) + seed * 0.035).toFixed(3)),
         color: entry.color,
       },
-      geometry: orientedRectanglePolygon(center, halfLong, halfShort, angle),
+      geometry: lens.id === "civic-demand"
+        ? civicDemandPressureCellPolygon(center, bucketM * (0.5 + intensity * 0.09 + seed * 0.025), angle, seed, intensity)
+        : orientedRectanglePolygon(center, halfLong, halfShort, angle),
     };
   }
 
@@ -8089,7 +8091,9 @@
       },
       geometry: lens.id === "civic-access-gaps"
         ? isochronePolygon(center, bucketM * (0.52 + intensity * 0.32), seed * 12)
-        : orientedRectanglePolygon(center, halfLong, halfShort, angle),
+        : lens.id === "civic-demand"
+          ? civicDemandPressureCellPolygon(center, bucketM * (0.46 + intensity * 0.085 + seed * 0.02), angle, seed, intensity)
+          : orientedRectanglePolygon(center, halfLong, halfShort, angle),
     };
   }
 
@@ -9612,10 +9616,10 @@
     const widthM = lngLatDistanceMeters([bounds.west, midLat], [bounds.east, midLat]);
     const heightM = lngLatDistanceMeters([(bounds.west + bounds.east) / 2, bounds.south], [(bounds.west + bounds.east) / 2, bounds.north]);
     const basis = Math.max(widthM, heightM);
-    const divisor = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 74 : lens?.category === "civic_services" ? 78 : 82;
+    const divisor = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 74 : lens?.id === "civic-demand" ? 54 : lens?.category === "civic_services" ? 78 : 82;
     const raw = basis / divisor;
-    const min = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 360 : lens?.category === "civic_services" ? 390 : 420;
-    const max = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 1180 : lens?.category === "civic_services" ? 1120 : 1050;
+    const min = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 360 : lens?.id === "civic-demand" ? 540 : lens?.category === "civic_services" ? 390 : 420;
+    const max = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 1180 : lens?.id === "civic-demand" ? 1680 : lens?.category === "civic_services" ? 1120 : 1050;
     return Math.max(min, Math.min(max, raw));
   }
 
@@ -9625,6 +9629,7 @@
     if (lens?.id === "economy-land-use") return 1250;
     if (lens?.id === "economy-vitality") return 1450;
     if (lens?.id === "economy-gravity") return 1360;
+    if (lens?.id === "civic-demand") return 1050;
     if (lens?.category === "civic_services") return 3200;
     return 900;
   }

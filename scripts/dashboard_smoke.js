@@ -1003,6 +1003,14 @@ async function directGuideState(page) {
       }
     }
     const guideFeatures = state?.lensGuideFeatureCache?.features || [];
+    let renderedCivicDemandRawCells = 0;
+    if (activeAspect === "civic-demand" && map?.getLayer?.("lens-civic-coverage-fill") && map.getLayoutProperty("lens-civic-coverage-fill") !== "none") {
+      try {
+        renderedCivicDemandRawCells = map.queryRenderedFeatures({ layers: ["lens-civic-coverage-fill"] }).length;
+      } catch (_error) {
+        renderedCivicDemandRawCells = 0;
+      }
+    }
     const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
     const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
     const citywideScope = Boolean(state?.citywideLensMode) || document.querySelector("#mapStudyChip")?.dataset.scope === "city";
@@ -1070,6 +1078,7 @@ async function directGuideState(page) {
       guideFeatureCount: guideFeatures.length,
       directGuideFeatureCount,
       contextGuideFeatureCount,
+      renderedCivicDemandRawCells,
       renderedGuides,
       invalidGuideCount,
     };
@@ -1102,6 +1111,12 @@ async function assertDirectGuideSurface(page, label, { expected, allowContextGui
     assert(state.guideFeatureCount > 0, `${label}: guide cache is empty.`);
     assert(state.renderedGuides > 0, `${label}: guide did not render.`);
     assert(state.invalidGuideCount === 0, `${label}: guide has ${state.invalidGuideCount} invalid feature(s).`);
+    if (state.activeAspect === "civic-demand") {
+      assert(state.guideFeatureCount <= 2200, `${label}: civic-demand guide overdraw is too high (${state.guideFeatureCount}).`);
+      assert(state.contextGuideFeatureCount <= 1100, `${label}: civic-demand current-context guide overdraw is too high (${state.contextGuideFeatureCount}).`);
+      assert(state.directGuideFeatureCount <= 1100, `${label}: civic-demand direct guide overdraw is too high (${state.directGuideFeatureCount}).`);
+      assert(state.renderedCivicDemandRawCells <= 3600, `${label}: civic-demand raw detail layer overdraw is too high (${state.renderedCivicDemandRawCells}).`);
+    }
     return;
   }
   if (allowContextGuide) {
