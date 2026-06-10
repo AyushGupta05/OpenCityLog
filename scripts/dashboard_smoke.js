@@ -795,6 +795,7 @@ async function assertDesktopCitywideCoverage(page) {
         renderedTransportYearRoads,
         transportRoadFeatureCount: atlas?.state?.transportRoadFeatureCount,
         utilityNetworkFeatureCount: atlas?.state?.utilityNetworkFeatures?.length || 0,
+        utilityNetworkDisplayFeatureCount: atlas?.state?.utilityNetworkDisplayFeatures?.length || 0,
         utilityNetworkPath: atlas?.state?.utilityNetworkFeaturesPathLoaded || "",
         renderedUtilityContext,
         markerCount: atlas?.state?.markers?.size || 0,
@@ -817,6 +818,7 @@ async function assertDesktopCitywideCoverage(page) {
     if (citywideState.activeLens === "utilities") {
       assert(citywideState.utilityNetworkPath.includes("/utility_network_2026.geojson"), `desktop citywide ${lens.id}: current utility context did not load (${citywideState.utilityNetworkPath}).`);
       assert(citywideState.utilityNetworkFeatureCount >= 5000, `desktop citywide ${lens.id}: too few current utility context features loaded (${citywideState.utilityNetworkFeatureCount}).`);
+      assert(citywideState.utilityNetworkDisplayFeatureCount >= 1000, `desktop citywide ${lens.id}: too few city-bounded utility context features displayed (${citywideState.utilityNetworkDisplayFeatureCount}).`);
       assert(citywideState.renderedUtilityContext >= 8, `desktop citywide ${lens.id}: current utility context rendered too sparsely (${citywideState.renderedUtilityContext}).`);
       assert(/Current mapped OSM utility|current.*utility context|not.*capacity|not selected-year/i.test(citywideState.legend), `desktop citywide ${lens.id}: current utility context is not explicitly caveated.`);
     }
@@ -1587,6 +1589,7 @@ async function utilityNetworkContextRenderState(page) {
       sourcePath: atlas?.state?.utilityNetworkPathLoaded || "",
       featurePath: atlas?.state?.utilityNetworkFeaturesPathLoaded || "",
       featureCount: (atlas?.state?.utilityNetworkFeatures || []).length,
+      displayFeatureCount: (atlas?.state?.utilityNetworkDisplayFeatures || []).length,
       showInferred: Boolean(atlas?.state?.showInferred),
       areaFilter: atlas?.state?.areaFilter || "",
       legend: document.querySelector("#lensLegend")?.textContent || "",
@@ -1625,6 +1628,7 @@ async function waitForUtilityNetworkContextHidden(page) {
       const map = atlas?.state?.map;
       if ((atlas?.state?.utilityNetworkPathLoaded || "") !== "") return false;
       if ((atlas?.state?.utilityNetworkFeatures || []).length !== 0) return false;
+      if ((atlas?.state?.utilityNetworkDisplayFeatures || []).length !== 0) return false;
       try {
         return layerIds.every((layerId) => !map?.getLayer?.(layerId) || map.getLayoutProperty(layerId, "visibility") === "none");
       } catch (_error) {
@@ -1687,6 +1691,7 @@ async function assertUtilityNetworkContextGuards(page, cityId, minimumRendered) 
 
 async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
   const minimumFeatures = { belfast: 5000, london: 25000, nyc: 10000 }[cityId] || 1000;
+  const minimumDisplayFeatures = { belfast: 1000, london: 7000, nyc: 2200 }[cityId] || 500;
   const minimumRendered = { belfast: 8, london: 20, nyc: 14 }[cityId] || 4;
   const maximumRenderedAssets = { belfast: 420, london: 2200, nyc: 180 }[cityId] || 1200;
   await page.evaluate(() => window.BimsAtlas?.recenterMap?.());
@@ -1700,7 +1705,8 @@ async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
       const atlas = window.BimsAtlas;
       return (atlas?.state?.utilityNetworkFeaturesPathLoaded || "").includes(`/cities/${expectedCityId}/utility_network_2026.geojson`)
         && (atlas?.state?.utilityNetworkPathLoaded || "").includes(`/cities/${expectedCityId}/utility_network_2026.geojson`)
-        && (atlas?.state?.utilityNetworkFeatures || []).length >= minimum;
+        && (atlas?.state?.utilityNetworkFeatures || []).length >= minimum
+        && (atlas?.state?.utilityNetworkDisplayFeatures || []).length > 0;
     },
     { cityId, minimumFeatures },
     { timeout: 30000 }
@@ -1710,6 +1716,7 @@ async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
     const atlas = window.BimsAtlas;
     const map = atlas?.state?.map;
     const features = atlas?.state?.utilityNetworkFeatures || [];
+    const displayFeatures = atlas?.state?.utilityNetworkDisplayFeatures || [];
     const resourceNeedle = `/data/city-atlas/cities/${expectedCityId}/utility_network_2026.geojson`;
     let renderedAreaFills = 0;
     let renderedAreaLines = 0;
@@ -1742,6 +1749,37 @@ async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
     const validTypes = new Set(["water", "electricity", "telecoms", "gas", "drainage", "district_energy"]);
     const validGeometries = new Set(["asset", "line", "area"]);
     const requiredFields = ["source_id", "source_registry_id", "source_object_id", "publisher", "source_url", "license", "accessed_at", "transformation_method", "geometry_source", "original_geometry_type", "context_year", "confidence", "caveat"];
+    const bounds = (atlas?.state?.city?.bounds || []).map(Number);
+    const [west, south, east, north] = bounds;
+    const padX = Number.isFinite(west) && Number.isFinite(east) ? Math.max((east - west) * 0.018, 0.0025) : 0;
+    const padY = Number.isFinite(south) && Number.isFinite(north) ? Math.max((north - south) * 0.018, 0.0025) : 0;
+    const displayBounds = {
+      west: west - padX - 0.000001,
+      south: south - padY - 0.000001,
+      east: east + padX + 0.000001,
+      north: north + padY + 0.000001,
+    };
+    const geometryBounds = (geometry) => {
+      const result = { minLng: Infinity, minLat: Infinity, maxLng: -Infinity, maxLat: -Infinity };
+      let count = 0;
+      const visit = (coords) => {
+        if (!Array.isArray(coords)) return;
+        if (typeof coords[0] === "number" && typeof coords[1] === "number") {
+          const [lng, lat] = coords;
+          if (Number.isFinite(lng) && Number.isFinite(lat)) {
+            result.minLng = Math.min(result.minLng, lng);
+            result.maxLng = Math.max(result.maxLng, lng);
+            result.minLat = Math.min(result.minLat, lat);
+            result.maxLat = Math.max(result.maxLat, lat);
+            count += 1;
+          }
+          return;
+        }
+        coords.forEach(visit);
+      };
+      visit(geometry?.coordinates);
+      return count ? result : null;
+    };
     const invalidFeatureCount = features.filter((feature) => {
       const props = feature.properties || {};
       return !feature.geometry
@@ -1756,9 +1794,27 @@ async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
         || !/capacity measurement/i.test(String(props.caveat || ""))
         || !/service[-\s]?availability/i.test(String(props.caveat || ""));
     }).length;
+    const invalidDisplayFeatureCount = displayFeatures.filter((feature) => {
+      const props = feature.properties || {};
+      const bounds = geometryBounds(feature.geometry);
+      return !feature.geometry
+        || props.layer !== "utility_network"
+        || props.city_context_scope !== "city_bounds_display"
+        || props.city_display_role === undefined
+        || Number(props.city_display_weight || 0) <= 0
+        || !bounds
+        || bounds.minLng < displayBounds.west
+        || bounds.maxLng > displayBounds.east
+        || bounds.minLat < displayBounds.south
+        || bounds.maxLat > displayBounds.north;
+    }).length;
     return {
       featureCount: features.length,
+      displayFeatureCount: displayFeatures.length,
+      clippedDisplayCount: displayFeatures.filter((feature) => feature.properties?.city_display_clipped === true).length,
+      regionalDisplayCount: displayFeatures.filter((feature) => feature.properties?.city_display_role === "regional_corridor").length,
       invalidFeatureCount,
+      invalidDisplayFeatureCount,
       path: atlas?.state?.utilityNetworkFeaturesPathLoaded || "",
       sourcePath: atlas?.state?.utilityNetworkPathLoaded || "",
       resourceFetchCount: performance.getEntriesByType("resource")
@@ -1778,9 +1834,13 @@ async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
     };
   }, cityId);
   assert(state.featureCount >= minimumFeatures, `utility network ${cityId}: too few current utility context features loaded (${state.featureCount}).`);
+  assert(state.displayFeatureCount >= minimumDisplayFeatures, `utility network ${cityId}: too few city-bounded utility context features displayed (${state.displayFeatureCount}).`);
+  assert(state.displayFeatureCount <= state.featureCount, `utility network ${cityId}: displayed utility context count exceeds loaded source count (${state.displayFeatureCount}/${state.featureCount}).`);
+  assert(state.clippedDisplayCount > 0, `utility network ${cityId}: utility context did not clip any regional linework to the city display bounds.`);
   assert(state.sourcePath.includes(`/cities/${cityId}/utility_network_2026.geojson`), `utility network ${cityId}: map source did not use the parsed utility payload (${state.sourcePath}).`);
   assert(state.resourceFetchCount <= 1, `utility network ${cityId}: utility GeoJSON was fetched ${state.resourceFetchCount} times.`);
   assert(state.invalidFeatureCount === 0, `utility network ${cityId}: ${state.invalidFeatureCount} feature(s) lack provenance/no-capacity caveats.`);
+  assert(state.invalidDisplayFeatureCount === 0, `utility network ${cityId}: ${state.invalidDisplayFeatureCount} displayed feature(s) are unbounded or lack display metadata.`);
   assert(
     state.renderedAreaFills + state.renderedAreaLines + state.renderedLineCases + state.renderedLines + state.renderedAssets >= minimumRendered,
     `utility network ${cityId}: network context rendered too sparsely (${state.renderedAreaFills + state.renderedAreaLines + state.renderedLineCases + state.renderedLines + state.renderedAssets}).`
@@ -1790,7 +1850,7 @@ async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
   assert(!/Pick a change on the map or in search/i.test(state.detailText), `utility network ${cityId}: context-only utility view still shows the generic empty detail prompt.`);
   assert(state.detailInnerVisible && !state.detailEmptyVisible, `utility network ${cityId}: utility context detail panel is not visible.`);
   if (!state.selectedEventId) {
-    assert(/Current mapped utility context|OpenStreetMap|ODbL/i.test(state.detailText), `utility network ${cityId}: context-only detail panel does not identify OSM/ODbL utility context.`);
+    assert(/Current mapped utility context|city-bounded|OpenStreetMap|ODbL/i.test(state.detailText), `utility network ${cityId}: context-only detail panel does not identify bounded OSM/ODbL utility context.`);
     assert(/not.*capacity|outage|service[-\s]?availability|non-headline/i.test(state.detailText), `utility network ${cityId}: context-only detail panel lacks capacity/outage/service caveats.`);
   }
   if (options.verifyGuards) await assertUtilityNetworkContextGuards(page, cityId, minimumRendered);
@@ -2056,6 +2116,13 @@ async function assertReferenceLensCitywideArtifact(page, cityId, check) {
       assert(layoutState.mapCanvas === 1, `city ${cityId} ${check.aspect}: MapLibre canvas is missing.`);
       assert(layoutState.zoomButtons === 2, `city ${cityId} ${check.aspect}: zoom buttons are missing.`);
       assert(layoutState.citywideLensMode, `city ${cityId} ${check.aspect}: context capture left citywide mode.`);
+      const contextDetail = await page.evaluate(() => ({
+        selectedEventId: window.BimsAtlas?.state?.selectedEventId || "",
+        title: document.querySelector(".detail-title")?.textContent.replace(/\s+/g, " ").trim() || "",
+        detail: document.querySelector("#detailInner")?.textContent.replace(/\s+/g, " ").trim() || "",
+      }));
+      assert(!contextDetail.selectedEventId, `city ${cityId} ${check.aspect}: current utility context opened with selected event ${contextDetail.selectedEventId}.`);
+      assert(/Current mapped utility context/i.test(`${contextDetail.title} ${contextDetail.detail}`), `city ${cityId} ${check.aspect}: current utility context detail panel is not visible.`);
     }
     await assertReferenceCitywideMapField(page, `city ${cityId} ${check.aspect}`);
     const rendered = check.rendered.reduce((sum, field) => sum + Number(layoutState[field] || 0), 0);

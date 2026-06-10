@@ -808,6 +808,7 @@
     utilityNetworkLoadPromise: null,
     utilityNetworkLoadError: "",
     utilityNetworkFeatures: [],
+    utilityNetworkDisplayFeatures: [],
     economyAnchorFeaturesPathLoaded: null,
     economyAnchorFeatures: [],
     civicServiceFeaturesPathLoaded: null,
@@ -2117,7 +2118,7 @@
         </div>
       `;
     }).join("");
-    const assetCount = (state.utilityNetworkFeatures || [])
+    const assetCount = (utilityNetworkDisplayedFeatures() || [])
       .filter((feature) => feature.properties?.network_geometry === "asset")
       .length;
     return `
@@ -4550,76 +4551,109 @@
     ];
   }
 
+  function utilityNetworkDisplayWeightExpression() {
+    return [
+      "case",
+      ["has", "city_display_weight"], ["to-number", ["get", "city_display_weight"], 1],
+      1,
+    ];
+  }
+
+  function utilityNetworkDisplayWidthWeightExpression() {
+    return [
+      "interpolate", ["linear"], utilityNetworkDisplayWeightExpression(),
+      0.22, 0.48,
+      0.5, 0.68,
+      1, 1,
+    ];
+  }
+
+  function utilityNetworkDisplayOpacityExpression(expression) {
+    return ["*", expression, utilityNetworkDisplayWeightExpression()];
+  }
+
   function utilityNetworkOpacityExpression() {
     const mode = activeMapLens().id;
     if (mode === "utilities-capacity") {
-      return [
+      return utilityNetworkDisplayOpacityExpression([
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
         0, 0.46,
         1, 0.92,
-      ];
+      ]);
     }
     if (mode === "utilities-resilience") {
-      return [
+      return utilityNetworkDisplayOpacityExpression([
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
         0, 0.34,
         1, 0.8,
-      ];
+      ]);
     }
     const high = mode === "utilities-resilience" ? 0.78 : mode === "utilities-capacity" ? 0.88 : mode === "utilities-works" ? 0.82 : 0.72;
     const low = mode === "utilities-works" ? 0.32 : mode === "utilities-capacity" ? 0.22 : 0.22;
-    return [
+    return utilityNetworkDisplayOpacityExpression([
       "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
       0, low,
       1, high,
-    ];
+    ]);
   }
 
   function utilityNetworkCaseOpacityExpression() {
     const mode = activeMapLens().id;
     if (mode === "utilities-capacity") {
-      return [
+      return utilityNetworkDisplayOpacityExpression([
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
         0, 0.24,
         1, 0.6,
-      ];
+      ]);
     }
     if (mode === "utilities-resilience") {
-      return [
+      return utilityNetworkDisplayOpacityExpression([
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
         0, 0.16,
         1, 0.42,
-      ];
+      ]);
     }
     const high = mode === "utilities-resilience" ? 0.42 : mode === "utilities-capacity" ? 0.44 : mode === "utilities-works" ? 0.46 : 0.36;
-    return [
+    return utilityNetworkDisplayOpacityExpression([
       "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
       0, mode === "utilities-works" ? 0.16 : 0.08,
       1, high,
-    ];
+    ]);
   }
 
   function utilityNetworkWidthExpression() {
     const mode = activeMapLens().id;
     const factor = mode === "utilities-resilience" ? 1.04 : mode === "utilities-works" ? 1.15 : mode === "utilities-capacity" ? 1.3 : 1;
+    const rankedWidth = (low, high) => [
+      "*",
+      factor,
+      utilityNetworkDisplayWidthWeightExpression(),
+      ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, low, 5, high],
+    ];
     return [
       "interpolate", ["linear"], ["zoom"],
-      7.4, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.24, 5, 0.72]],
-      9, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.36, 5, 1.12]],
-      13, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.58, 5, 2.15]],
-      16, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.96, 5, 3.4]],
+      7.4, rankedWidth(0.24, 0.72),
+      9, rankedWidth(0.36, 1.12),
+      13, rankedWidth(0.58, 2.15),
+      16, rankedWidth(0.96, 3.4),
     ];
   }
 
   function utilityNetworkCaseWidthExpression() {
     const mode = activeMapLens().id;
     const factor = mode === "utilities-resilience" ? 0.98 : mode === "utilities-capacity" ? 1.34 : mode === "utilities-works" ? 1.2 : 1;
+    const rankedWidth = (low, high) => [
+      "*",
+      factor,
+      utilityNetworkDisplayWidthWeightExpression(),
+      ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, low, 5, high],
+    ];
     return [
       "interpolate", ["linear"], ["zoom"],
-      7.4, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.58, 5, 1.46]],
-      9, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 0.82, 5, 2.15]],
-      13, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 1.28, 5, 3.6]],
-      16, ["*", factor, ["interpolate", ["linear"], ["to-number", ["get", "rank"], 1], 1, 1.7, 5, 5.1]],
+      7.4, rankedWidth(0.58, 1.46),
+      9, rankedWidth(0.82, 2.15),
+      13, rankedWidth(1.28, 3.6),
+      16, rankedWidth(1.7, 5.1),
     ];
   }
 
@@ -5386,6 +5420,7 @@
     state.utilityNetworkLoadPromise = null;
     state.utilityNetworkLoadError = "";
     state.utilityNetworkFeatures = [];
+    state.utilityNetworkDisplayFeatures = [];
     state.economyAnchorFeaturesPathLoaded = null;
     state.economyAnchorFeatures = [];
     state.civicServiceFeaturesPathLoaded = null;
@@ -6351,6 +6386,19 @@
     return Boolean(utilityNetworkPath());
   }
 
+  function activeLensDefaultsToContextPanel(lens = activeMapLens(), year = state.year) {
+    const latestYear = Number(state.yearRange?.[1]);
+    return lens?.id?.startsWith("utilities-")
+      && Number.isFinite(latestYear)
+      && Number(year) >= latestYear
+      && state.activeLayers.has("utilities")
+      && state.showInferred
+      && !state.search
+      && !state.areaFilter
+      && (state.citywideLensMode || citywideOverviewActive())
+      && Boolean(utilityNetworkPath());
+  }
+
   function activeLensYearAllowsMapContext(lens = activeMapLens(), year = state.year) {
     const row = activeLensYearCoverageRow(lens, year);
     if (row && Object.prototype.hasOwnProperty.call(row, "direct_event_count")) return row.visible_map_contract !== false;
@@ -6446,6 +6494,7 @@
       const hadUtilityContext = state.utilityNetworkPathLoaded !== ""
         || state.utilityNetworkFeaturesPathLoaded !== null
         || state.utilityNetworkFeatures.length
+        || state.utilityNetworkDisplayFeatures.length
         || state.utilityNetworkLoadPromise
         || state.utilityNetworkLoadError;
       state.utilityNetworkFeaturesPathLoaded = null;
@@ -6453,6 +6502,7 @@
       state.utilityNetworkLoadPromise = null;
       state.utilityNetworkLoadError = "";
       state.utilityNetworkFeatures = [];
+      state.utilityNetworkDisplayFeatures = [];
       if (state.utilityNetworkPathLoaded !== "") {
         source.setData(emptyFeatureCollection());
         state.utilityNetworkPathLoaded = "";
@@ -6470,10 +6520,11 @@
 
   function updateUtilityNetworkFeatureCache(path) {
     if (!path) {
-      if (state.utilityNetworkFeaturesPathLoaded !== null || state.utilityNetworkFeatures.length) {
+      if (state.utilityNetworkFeaturesPathLoaded !== null || state.utilityNetworkFeatures.length || state.utilityNetworkDisplayFeatures.length) {
         state.utilityNetworkFeaturesPathLoaded = null;
         state.utilityNetworkLoadError = "";
         state.utilityNetworkFeatures = [];
+        state.utilityNetworkDisplayFeatures = [];
         updateLensGuideSource();
         renderLayers();
       }
@@ -6487,6 +6538,7 @@
     if (state.utilityNetworkLoadPromise && state.utilityNetworkLoadPath === path) return;
     state.utilityNetworkFeaturesPathLoaded = path;
     state.utilityNetworkFeatures = [];
+    state.utilityNetworkDisplayFeatures = [];
     state.utilityNetworkLoadPath = path;
     state.utilityNetworkLoadError = "";
     const promise = fetch(path, { cache: "no-store" })
@@ -6500,9 +6552,11 @@
         state.utilityNetworkFeatures = Array.isArray(payload.features)
           ? payload.features.filter((feature) => feature.geometry && feature.properties?.layer === "utility_network")
           : [];
+        const displayPayload = utilityNetworkDisplayFeatureCollection(state.utilityNetworkFeatures);
+        state.utilityNetworkDisplayFeatures = displayPayload.features;
         state.utilityNetworkLoadError = "";
         if (source?.setData) {
-          source.setData(payload?.type === "FeatureCollection" ? payload : emptyFeatureCollection());
+          source.setData(displayPayload);
           state.utilityNetworkPathLoaded = path;
         }
         updateLensGuideSource();
@@ -6513,6 +6567,7 @@
       .catch((error) => {
         if (state.utilityNetworkFeaturesPathLoaded !== path) return;
         state.utilityNetworkFeatures = [];
+        state.utilityNetworkDisplayFeatures = [];
         state.utilityNetworkLoadError = error.message || "Utility network context failed to load.";
         const source = state.map?.getSource(UTILITY_NETWORK_SOURCE_ID);
         if (source?.setData) {
@@ -6532,6 +6587,206 @@
         }
       });
     state.utilityNetworkLoadPromise = promise;
+  }
+
+  function utilityNetworkDisplayedFeatures() {
+    return state.utilityNetworkDisplayFeatures?.length ? state.utilityNetworkDisplayFeatures : (state.utilityNetworkFeatures || []);
+  }
+
+  function utilityNetworkDisplayFeatureCollection(features) {
+    const displayFeatures = (features || [])
+      .map((feature) => utilityNetworkDisplayFeature(feature))
+      .filter(Boolean);
+    return { type: "FeatureCollection", features: displayFeatures };
+  }
+
+  function utilityNetworkDisplayFeature(feature) {
+    const props = feature?.properties || {};
+    if (!feature?.geometry || props.layer !== "utility_network") return null;
+    const bounds = utilityNetworkDisplayBounds();
+    if (!bounds) return feature;
+    const geomClass = props.network_geometry || geometryClassForMap(feature.geometry);
+    if (geomClass === "line") {
+      const clippedGeometry = clipLineGeometryToBounds(feature.geometry, bounds);
+      if (!clippedGeometry) return null;
+      const originalLengthM = geometryLineLengthMeters(feature.geometry);
+      const clippedLengthM = geometryLineLengthMeters(clippedGeometry);
+      const clipped = originalLengthM > 0 && clippedLengthM < originalLengthM * 0.992;
+      return {
+        ...feature,
+        properties: {
+          ...props,
+          city_context_scope: "city_bounds_display",
+          city_display_clipped: clipped,
+          city_display_role: utilityNetworkDisplayRole(props, originalLengthM, clippedLengthM),
+          city_display_weight: utilityNetworkDisplayWeight(props, originalLengthM, clippedLengthM),
+          city_display_original_length_m: Math.round(originalLengthM),
+          city_display_length_m: Math.round(clippedLengthM),
+        },
+        geometry: clippedGeometry,
+      };
+    }
+    const featureBounds = geometryBounds(feature.geometry);
+    const point = geometryToLngLat(feature.geometry);
+    const inside = geomClass === "asset"
+      ? pointWithinBounds(point, bounds)
+      : boundsWithin(featureBounds, bounds);
+    if (!inside) return null;
+    return {
+      ...feature,
+      properties: {
+        ...props,
+        city_context_scope: "city_bounds_display",
+        city_display_clipped: false,
+        city_display_role: "city_context",
+        city_display_weight: 1,
+      },
+    };
+  }
+
+  function utilityNetworkDisplayBounds() {
+    const bounds = cityBoundsValues();
+    if (!bounds) return null;
+    const width = bounds.east - bounds.west;
+    const height = bounds.north - bounds.south;
+    const padX = Math.max(width * 0.018, 0.0025);
+    const padY = Math.max(height * 0.018, 0.0025);
+    return {
+      west: bounds.west - padX,
+      south: bounds.south - padY,
+      east: bounds.east + padX,
+      north: bounds.north + padY,
+    };
+  }
+
+  function utilityNetworkDisplayRole(props = {}, originalLengthM = 0, clippedLengthM = 0) {
+    const basis = Math.max(1, citywideBasisMeters());
+    const ratio = Math.max(originalLengthM, clippedLengthM) / basis;
+    if (ratio >= 0.42 || (props.utility_type === "electricity" && Number(props.rank || 0) >= 5)) return "regional_corridor";
+    if (ratio >= 0.22) return "city_spine";
+    return "city_context";
+  }
+
+  function utilityNetworkDisplayWeight(props = {}, originalLengthM = 0, clippedLengthM = 0) {
+    const basis = Math.max(1, citywideBasisMeters());
+    const ratio = Math.max(originalLengthM, clippedLengthM) / basis;
+    let weight = 1;
+    if (ratio >= 0.75) weight = 0.3;
+    else if (ratio >= 0.48) weight = 0.38;
+    else if (ratio >= 0.3) weight = 0.5;
+    else if (ratio >= 0.18) weight = 0.68;
+    const type = String(props.utility_type || "");
+    const role = String(props.network_role || "");
+    if (type === "electricity" && Number(props.rank || 0) >= 5) weight *= 0.78;
+    if (type === "water" && /river|canal|stream|waterway/.test(role)) weight = Math.min(weight, 0.62);
+    return Number(Math.max(0.22, Math.min(1, weight)).toFixed(3));
+  }
+
+  function pointWithinBounds(point, bounds) {
+    const lng = Number(point?.[0]);
+    const lat = Number(point?.[1]);
+    return Number.isFinite(lng) && Number.isFinite(lat)
+      && lng >= bounds.west && lng <= bounds.east
+      && lat >= bounds.south && lat <= bounds.north;
+  }
+
+  function boundsIntersect(a, b) {
+    if (!a || !b) return false;
+    const west = Number(a.west ?? a.minLng);
+    const east = Number(a.east ?? a.maxLng);
+    const south = Number(a.south ?? a.minLat);
+    const north = Number(a.north ?? a.maxLat);
+    if ([west, east, south, north].some((value) => !Number.isFinite(value))) return false;
+    return west <= b.east && east >= b.west && south <= b.north && north >= b.south;
+  }
+
+  function boundsWithin(a, b) {
+    if (!a || !b) return false;
+    const west = Number(a.west ?? a.minLng);
+    const east = Number(a.east ?? a.maxLng);
+    const south = Number(a.south ?? a.minLat);
+    const north = Number(a.north ?? a.maxLat);
+    if ([west, east, south, north].some((value) => !Number.isFinite(value))) return false;
+    return west >= b.west && east <= b.east && south >= b.south && north <= b.north;
+  }
+
+  function geometryClassForMap(geometry) {
+    if (!geometry) return "";
+    if (geometry.type === "Point" || geometry.type === "MultiPoint") return "asset";
+    if (geometry.type === "LineString" || geometry.type === "MultiLineString") return "line";
+    if (geometry.type === "Polygon" || geometry.type === "MultiPolygon") return "area";
+    return "";
+  }
+
+  function clipLineGeometryToBounds(geometry, bounds) {
+    if (!geometry || !bounds) return null;
+    const clippedSequences = [];
+    const flush = (sequence) => {
+      if (sequence.length >= 2 && geometryLineLengthMeters({ type: "LineString", coordinates: sequence }) >= 7) {
+        clippedSequences.push(sequence);
+      }
+    };
+    for (const sequence of geometryLineCoordinateSequences(geometry)) {
+      let current = [];
+      for (let index = 1; index < sequence.length; index += 1) {
+        const from = sequence[index - 1];
+        const to = sequence[index];
+        const interval = lineSegmentBoundsInterval(from, to, bounds);
+        if (!interval) {
+          flush(current);
+          current = [];
+          continue;
+        }
+        const [startT, endT] = interval;
+        const start = interpolateLngLat(from, to, startT);
+        const end = interpolateLngLat(from, to, endT);
+        if (!current.length) {
+          current.push(start);
+        } else if (lngLatDistanceMeters(current[current.length - 1], start) > 8) {
+          flush(current);
+          current = [start];
+        }
+        if (lngLatDistanceMeters(current[current.length - 1], end) >= 0.5) current.push(end);
+        if (endT < 0.999) {
+          flush(current);
+          current = [];
+        }
+      }
+      flush(current);
+    }
+    if (!clippedSequences.length) return null;
+    if (clippedSequences.length === 1) return { type: "LineString", coordinates: clippedSequences[0] };
+    return { type: "MultiLineString", coordinates: clippedSequences };
+  }
+
+  function lineSegmentBoundsInterval(from, to, bounds) {
+    if (!pointIsLngLat(from) || !pointIsLngLat(to)) return null;
+    const dx = to[0] - from[0];
+    const dy = to[1] - from[1];
+    let t0 = 0;
+    let t1 = 1;
+    const clip = (p, q) => {
+      if (Math.abs(p) < 1e-12) return q >= 0;
+      const r = q / p;
+      if (p < 0) {
+        if (r > t1) return false;
+        if (r > t0) t0 = r;
+      } else if (p > 0) {
+        if (r < t0) return false;
+        if (r < t1) t1 = r;
+      }
+      return true;
+    };
+    if (!clip(-dx, from[0] - bounds.west)) return null;
+    if (!clip(dx, bounds.east - from[0])) return null;
+    if (!clip(-dy, from[1] - bounds.south)) return null;
+    if (!clip(dy, bounds.north - from[1])) return null;
+    if (t1 < t0) return null;
+    return [Math.max(0, t0), Math.min(1, t1)];
+  }
+
+  function pointIsLngLat(point) {
+    return Number.isFinite(point?.[0]) && Number.isFinite(point?.[1]);
   }
 
   function updateTransportStopFeatureCache(path) {
@@ -20049,7 +20304,7 @@
   }
 
   function utilityNetworkContextFeatureCount() {
-    return (state.utilityNetworkFeatures || [])
+    return (utilityNetworkDisplayedFeatures() || [])
       .filter((feature) => {
         const props = feature.properties || {};
         return props.layer === "utility_network" && ["line", "area", "asset"].includes(props.network_geometry);
@@ -23313,7 +23568,13 @@
   }
 
   function utilityNetworkContextStats() {
-    const features = (state.utilityNetworkFeatures || []).filter((feature) => {
+    const rawFeatures = (state.utilityNetworkFeatures || []).filter((feature) => {
+      const props = feature?.properties || {};
+      return feature?.geometry
+        && props.layer === "utility_network"
+        && ["asset", "line", "area"].includes(props.network_geometry);
+    });
+    const features = (utilityNetworkDisplayedFeatures() || []).filter((feature) => {
       const props = feature?.properties || {};
       return feature?.geometry
         && props.layer === "utility_network"
@@ -23366,6 +23627,9 @@
     });
     return {
       total: features.length,
+      rawTotal: rawFeatures.length,
+      clippedTotal: features.filter((feature) => feature.properties?.city_display_clipped === true).length,
+      regionalTotal: features.filter((feature) => feature.properties?.city_display_role === "regional_corridor").length,
       byGeometry,
       rows,
       sourceCount: sources.size,
@@ -23399,7 +23663,7 @@
             <div>
               <strong>What this context means</strong>
               <p>${escapeHtml(loaded
-                ? `The map is showing ${compactNumber(stats.total)} current OpenStreetMap-derived utility context features across ${city}.`
+                ? `The map is showing ${compactNumber(stats.total)} city-bounded current OpenStreetMap-derived utility context features across ${city}${stats.rawTotal > stats.total ? `, clipped from ${compactNumber(stats.rawTotal)} loaded source features` : ""}.`
                 : unavailable
                   ? `Current OpenStreetMap-derived utility context is unavailable for ${city} in this session.`
                   : `The map is loading current OpenStreetMap-derived utility context for ${city}.`)}</p>
@@ -23410,6 +23674,7 @@
             <div><dt>Sources</dt><dd>${escapeHtml(`${compactNumber(stats.sourceCount)} ${sourceLabel}`)}</dd></div>
             <div><dt>License</dt><dd>${escapeHtml(stats.licenses.join(", ") || "ODbL-1.0")}</dd></div>
             <div><dt>Map role</dt><dd>Context only; excluded from headline change totals</dd></div>
+            <div><dt>Display bound</dt><dd>${escapeHtml(stats.clippedTotal ? `${compactNumber(stats.clippedTotal)} clipped line features` : "City-bounded source geometry")}</dd></div>
           </dl>
           <div class="detail-meaning-note">${escapeHtml(unavailable ? `${stats.error} No fallback utility geometry is generated.` : utilityNetworkContextOnlyNote(lens, "utilities", currentTimelineYear()))}</div>
         </section>
@@ -24707,6 +24972,7 @@
   }
 
   async function selectFirstVisibleEvent(opts = {}) {
+    if (!opts.force && activeLensDefaultsToContextPanel()) return;
     const events = filteredEvents();
     const preferred = events.find((e) => e.id === "official-2024-grand-central")
       || events.find((e) => /Belfast Grand Central Station opened/i.test(e.title || ""))
@@ -24729,6 +24995,16 @@
 
   async function reconcileSelectionWithFilters(opts = {}) {
     const events = filteredEvents();
+    if (activeLensDefaultsToContextPanel()) {
+      state.selectedEventId = null;
+      state.selectedEvent = null;
+      state.pendingCameraFocusEventId = null;
+      renderDetail();
+      renderEventList();
+      renderMarkers();
+      syncTopline();
+      return;
+    }
     if (!events.length) {
       state.selectedEventId = null;
       state.selectedEvent = null;
@@ -24971,6 +25247,10 @@
       state.selectedEvent = null;
       state.pendingCameraFocusEventId = null;
     };
+    if (activeLensDefaultsToContextPanel(lens)) {
+      clearSelectionState();
+      return;
+    }
     if (!state.loadedEvents.has(state.year)) {
       if (state.selectedEvent && !eventMatchesCurrentPrimarySelection(state.selectedEvent)) clearSelectionState();
       return;
