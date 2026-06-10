@@ -8827,8 +8827,8 @@
     const bounds = cityBoundsValues();
     const basisM = citywideBasisMeters();
     const limit = opts.supplemental
-      ? Math.max(220, Math.min(720, Math.round(basisM / 72)))
-      : Math.max(280, Math.min(980, Math.round(basisM / 58)));
+      ? Math.max(360, Math.min(1150, Math.round(basisM / 52)))
+      : Math.max(460, Math.min(1450, Math.round(basisM / 44)));
     const excluded = opts.excludeObjectIds instanceof Set ? opts.excludeObjectIds : new Set();
     const candidates = [];
     for (const road of roads) {
@@ -8842,10 +8842,22 @@
       if (excluded.has(objectId)) continue;
       const rank = Math.max(0.6, Number(props.rank || 1));
       const lengthM = geometryLineLengthMeters(road.geometry);
-      if (rank < 1.85 && lengthM < 160) continue;
+      const rankFloor = lens.id === "transport-speed"
+        ? (opts.supplemental ? 1.48 : 1.6)
+        : (opts.supplemental ? 1.58 : 1.72);
+      const lengthFloor = lens.id === "transport-speed"
+        ? (opts.supplemental ? 92 : 118)
+        : (opts.supplemental ? 112 : 142);
+      if (rank < rankFloor && lengthM < lengthFloor) continue;
       const seed = stableUnit(`${objectId}:${lens.id}:current-road-context`);
-      const intensity = clamp01(0.16 + Math.min(0.24, rank * 0.045) + Math.min(0.16, lengthM / 4200) + seed * 0.035);
-      const score = intensity + Math.min(0.18, rank * 0.045) + Math.min(0.14, lengthM / 5200) + seed * 0.025;
+      const intensity = clamp01(
+        0.21
+        + Math.min(0.28, rank * 0.055)
+        + Math.min(0.2, lengthM / 3600)
+        + seed * 0.045
+        + (opts.supplemental ? 0.018 : 0),
+      );
+      const score = intensity + Math.min(0.22, rank * 0.052) + Math.min(0.18, lengthM / 4300) + seed * 0.03;
       candidates.push({ road, point, objectId, rank, lengthM, intensity, score, seed, supplemental: Boolean(opts.supplemental) });
     }
     const selected = spatiallyBalancedGuideFeatures(
@@ -8857,7 +8869,7 @@
       limit,
       lens,
     );
-    return opts.supplemental ? selected : promoteTransportBackboneFeatures(selected, lens, { currentContextOnly: true });
+    return promoteTransportBackboneFeatures(selected, lens, { currentContextOnly: true });
   }
 
   function transportNetworkCurrentRoadContextGuideFeature(item, lens, year, index, origin) {
@@ -8868,7 +8880,8 @@
     const sourceUrls = uniqueGuideValues([props.source_url, objectUrl, source?.url || source?.source_url || "https://overpass-turbo.eu/"]);
     const caveat = props.timing_note || state.transportAccessRoadContextMetadata?.caveat || "Current OSM road geometry is citywide transport context only; it is not selected-year speed, reliability, timetable, traffic-volume, congestion, construction, or service evidence.";
     const name = props.name && props.name !== "mapped road segment" ? props.name : "mapped road segment";
-    const intensity = item.supplemental ? item.intensity * 0.68 : item.intensity;
+    const supplementalScale = lens.id === "transport-speed" ? 0.86 : 0.84;
+    const intensity = item.supplemental ? item.intensity * supplementalScale : item.intensity;
     return {
       type: "Feature",
       properties: {
@@ -20103,11 +20116,17 @@
       const lineworkContextNote = transportAccessContextGuideCanRender(lens)
         ? `${compactNumber(directTransportCount)} direct source-backed ${lens.label} record${directTransportCount === 1 ? "" : "s"} match ${state.year}. Selected-year access linework combines source-backed records with mapped stop/station and road context; it is non-headline context, not timetable, service-frequency, journey-time, accessibility entitlement, reliability, or filler geometry.`
         : `${compactNumber(directTransportCount)} direct source-backed ${lens.label} record${directTransportCount === 1 ? "" : "s"} match ${state.year}. Selected-year road activity linework is derived from source-backed records and mapped road context; it is not measured speed, live congestion, timetable adherence, reliability, or filler geometry.`;
-      if (!transportRoadYearPath(state.year)) return { label: "No linework", empty: true, note: noLineworkNote };
+      const contextOnlyLabel = transportAccessContextGuideCanRender(lens)
+        ? "Access context"
+        : transportNetworkCitywideGuideCanRender(lens) && transportRoadBaseContextPath()
+          ? "Current context"
+          : "No linework";
+      const contextOnlyEmpty = contextOnlyLabel === "No linework";
+      if (!transportRoadYearPath(state.year)) return { label: contextOnlyLabel, empty: contextOnlyEmpty, note: noLineworkNote };
       if (state.transportRoadFeatureCountYearLoaded === state.year && state.transportRoadFeatureCount === 0) {
         return {
-          label: "No linework",
-          empty: true,
+          label: contextOnlyLabel,
+          empty: contextOnlyEmpty,
           note: noLineworkNote,
         };
       }

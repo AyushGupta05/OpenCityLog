@@ -2830,6 +2830,10 @@ async function assertTransportNetworkCitywideContext(page, city) {
       networkFlowCount: networkFlows.length,
       activityContextCount: networkFlows.filter((feature) => feature.properties?.source_kind === "selected_year_transport_activity_context").length,
       currentContextCount: networkFlows.filter((feature) => feature.properties?.source_kind === "current_context").length,
+      currentContextBackboneCount: networkFlows.filter((feature) => {
+        const props = feature.properties || {};
+        return props.source_kind === "current_context" && props.flow_style === "transport_backbone";
+      }).length,
       backboneCount: networkFlows.filter((feature) => feature.properties?.flow_style === "transport_backbone").length,
       threadCount: networkFlows.filter((feature) => feature.properties?.flow_style === "transport_thread").length,
       invalidFlows,
@@ -2857,6 +2861,12 @@ async function assertTransportNetworkCitywideContext(page, city) {
   if (city.minCurrentContext) {
     assert(state.currentContextCount >= city.minCurrentContext, `transport ${city.id} ${city.lens}: too few current-context road routes (${state.currentContextCount}).`);
     assert(state.roadBasePath.includes("transport_roads_base.geojson"), `transport ${city.id} ${city.lens}: base road context did not load (${state.roadBasePath}).`);
+  }
+  if (city.minCurrentBackbone) {
+    assert(
+      state.currentContextBackboneCount >= city.minCurrentBackbone,
+      `transport ${city.id} ${city.lens}: too few current-context backbone routes (${state.currentContextBackboneCount}).`
+    );
   }
   const png = await page.screenshot({
     path: path.join(outputDir, `paper-atlas-${city.id}-${city.lens}-network-context-probe.png`),
@@ -3095,12 +3105,12 @@ async function runDashboardSmoke() {
   }
 
   const transportNetworkChecks = [
-    { id: "belfast", label: "Belfast", year: 2007, lens: "transport-speed", minFlows: 180, minRenderedGuideFlows: 80, minCurrentContext: 180 },
-    { id: "belfast", label: "Belfast", year: 2007, lens: "transport-reliability", minFlows: 180, minRenderedGuideFlows: 80, minCurrentContext: 180 },
-    { id: "london", label: "London", year: 2024, lens: "transport-speed", minFlows: 1200, minRenderedGuideFlows: 220, minActivityContext: 700, minCurrentContext: 300 },
-    { id: "london", label: "London", year: 2024, lens: "transport-reliability", minFlows: 900, minRenderedGuideFlows: 180, minActivityContext: 550, minCurrentContext: 300 },
-    { id: "nyc", label: "New York City", year: 2024, lens: "transport-speed", minFlows: 900, minRenderedGuideFlows: 300, minActivityContext: 520, minCurrentContext: 240 },
-    { id: "nyc", label: "New York City", year: 2024, lens: "transport-reliability", minFlows: 760, minRenderedGuideFlows: 260, minActivityContext: 430, minCurrentContext: 240 },
+    { id: "belfast", label: "Belfast", year: 2007, lens: "transport-speed", minFlows: 240, minRenderedGuideFlows: 100, minCurrentContext: 240, minCurrentBackbone: 72 },
+    { id: "belfast", label: "Belfast", year: 2007, lens: "transport-reliability", minFlows: 240, minRenderedGuideFlows: 100, minCurrentContext: 240, minCurrentBackbone: 72 },
+    { id: "london", label: "London", year: 2024, lens: "transport-speed", minFlows: 1800, minRenderedGuideFlows: 300, minActivityContext: 700, minCurrentContext: 760, minCurrentBackbone: 220 },
+    { id: "london", label: "London", year: 2024, lens: "transport-reliability", minFlows: 1500, minRenderedGuideFlows: 260, minActivityContext: 550, minCurrentContext: 760, minCurrentBackbone: 220 },
+    { id: "nyc", label: "New York City", year: 2024, lens: "transport-speed", minFlows: 1450, minRenderedGuideFlows: 360, minActivityContext: 520, minCurrentContext: 650, minCurrentBackbone: 180 },
+    { id: "nyc", label: "New York City", year: 2024, lens: "transport-reliability", minFlows: 1300, minRenderedGuideFlows: 320, minActivityContext: 430, minCurrentContext: 650, minCurrentBackbone: 180 },
   ];
   for (const city of transportNetworkChecks) {
     progress("transport network context", city.id, city.lens);
