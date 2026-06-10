@@ -9336,6 +9336,7 @@
     const name = props.name && props.name !== "mapped road segment" ? props.name : "mapped road segment";
     const supplementalScale = lens.id === "transport-speed" ? 0.86 : 0.84;
     const intensity = item.supplemental ? item.intensity * supplementalScale : item.intensity;
+    const contextTier = transportCurrentRoadContextTier(item, intensity);
     return {
       type: "Feature",
       properties: {
@@ -9376,6 +9377,7 @@
         road_rank: Number(item.rank.toFixed(2)),
         route_length_m: Math.round(item.lengthM),
         activity: 0,
+        context_tier: contextTier,
         context_rank: index + 1,
         corridor_key: transportCorridorKey(props),
         corridor_named: props.name && props.name !== "mapped road segment" ? 1 : 0,
@@ -9383,14 +9385,25 @@
         reliability_status: "",
         intensity: Number(intensity.toFixed(3)),
         score: Number((item.supplemental ? item.score * 0.74 : item.score).toFixed(3)),
-        color: transportCurrentContextThreadColor(lens, item, intensity),
+        color: transportCurrentContextThreadColor(lens, item, intensity, contextTier),
         edge_offset: Number(((item.seed - 0.5) * 0.18).toFixed(2)),
       },
       geometry: item.road.geometry,
     };
   }
 
-  function transportCurrentContextThreadColor(lens, item, intensity) {
+  function transportCurrentRoadContextTier(item, intensity) {
+    const rank = Number(item?.rank || 1);
+    const lengthM = Number(item?.lengthM || 0);
+    const highway = String(item?.road?.properties?.highway || "").toLowerCase();
+    if (/motorway|trunk/.test(highway) || rank >= 4.6 || (rank >= 4.2 && lengthM >= 260)) return "regional_backbone";
+    if (/primary/.test(highway) || rank >= 3.55 || (rank >= 3 && lengthM >= 360)) return "primary_route";
+    if (/secondary|tertiary/.test(highway) || rank >= 2.45 || lengthM >= 520) return "connector_route";
+    if (Number(intensity || 0) >= 0.5 || rank >= 1.8) return "local_connector";
+    return "local_context";
+  }
+
+  function transportCurrentContextThreadColor(lens, item, intensity, contextTier = "") {
     const rank = Number(item?.rank || 1);
     const lengthM = Number(item?.lengthM || 0);
     const signal = clamp01(
@@ -9399,16 +9412,18 @@
       + Math.min(0.12, lengthM / 3600),
     );
     if (lens?.id === "transport-speed") {
-      if (item?.supplemental) return signal >= 0.48 ? "#2f94b8" : "#4fa7b8";
-      if (signal >= 0.62 || rank >= 3.6) return "#1769e0";
-      if (signal >= 0.5 || rank >= 2.8) return "#1687ad";
+      if (contextTier === "regional_backbone") return item?.supplemental ? "#d6a33e" : "#d66a3a";
+      if (contextTier === "primary_route") return signal >= 0.62 ? "#d99a36" : "#e2ad2f";
+      if (contextTier === "connector_route") return "#55a760";
+      if (contextTier === "local_connector") return "#1f9a75";
       return "#1f9a8a";
     }
     if (lens?.id === "transport-reliability") {
-      if (item?.supplemental) return signal >= 0.48 ? "#358fa4" : "#55aeb0";
-      if (signal >= 0.62 || rank >= 3.6) return "#3557d8";
-      if (signal >= 0.5 || rank >= 2.8) return "#0e8fa5";
-      return "#149b86";
+      if (contextTier === "regional_backbone") return signal >= 0.64 ? "#7a3b97" : "#8e66aa";
+      if (contextTier === "primary_route") return "#168a94";
+      if (contextTier === "connector_route") return "#5eaaa2";
+      if (contextTier === "local_connector") return "#8faeb3";
+      return "#9fa7aa";
     }
     return item?.supplemental ? "#a8bfc0" : "#8faeb3";
   }
@@ -13953,10 +13968,12 @@
   }
 
   function transportSpeedThreadColor(pressure, activity, rank) {
-    if (pressure >= 0.86 || (activity >= 0.94 && rank >= 3.2)) return "#b91f32";
-    if (pressure >= 0.72 || (activity >= 0.84 && rank >= 2.8)) return "#df4b32";
-    if (pressure >= 0.56) return "#e2ad2f";
-    if (pressure >= 0.32) return "#55a760";
+    const rankSignal = clamp01(Math.max(0, Number(rank || 1) - 1) / 3.8);
+    const signal = clamp01(Number(pressure || 0) * 0.72 + Number(activity || 0) * 0.12 + rankSignal * 0.22);
+    if (signal >= 0.82 || (pressure >= 0.72 && activity >= 0.58)) return "#b91f32";
+    if (signal >= 0.66 || (pressure >= 0.52 && rank >= 3.1)) return "#df4b32";
+    if (signal >= 0.44 || (rank >= 3.8 && activity >= 0.16)) return "#e2ad2f";
+    if (signal >= 0.24 || pressure >= 0.24 || activity >= 0.12) return "#55a760";
     return "#1f9a75";
   }
 

@@ -768,6 +768,15 @@ async function assertDesktopCitywideCoverage(page) {
       const renderedSourceBackedDetail = (detailLayersByLens[activeLens] || [])
         .reduce((sum, layerId) => sum + renderedLayerCount(layerId), 0);
       const renderedTransportYearRoads = renderedLayerCount("lens-transport-roads");
+      const transportGuideFeatures = guideFeatures.filter((feature) => {
+        const props = feature?.properties || {};
+        return ["transport-speed", "transport-reliability"].includes(activeAspect)
+          && props.kind === "flow"
+          && ["transport_thread", "transport_backbone"].includes(props.flow_style);
+      });
+      const transportGuideColorCount = new Set(transportGuideFeatures.map((feature) => feature.properties?.color).filter(Boolean)).size;
+      const transportCurrentContextFeatures = transportGuideFeatures.filter((feature) => feature.properties?.source_kind === "current_context");
+      const transportContextTierCount = new Set(transportCurrentContextFeatures.map((feature) => feature.properties?.context_tier).filter(Boolean)).size;
       const bounds = atlas?.state?.city?.bounds || [];
       const [west, south, east, north] = bounds.map(Number);
       const cells = new Set();
@@ -794,6 +803,9 @@ async function assertDesktopCitywideCoverage(page) {
         renderedSourceBackedDetail,
         renderedTransportYearRoads,
         transportRoadFeatureCount: atlas?.state?.transportRoadFeatureCount,
+        transportGuideColorCount,
+        transportCurrentContextCount: transportCurrentContextFeatures.length,
+        transportContextTierCount,
         utilityNetworkFeatureCount: atlas?.state?.utilityNetworkFeatures?.length || 0,
         utilityNetworkDisplayFeatureCount: atlas?.state?.utilityNetworkDisplayFeatures?.length || 0,
         utilityNetworkPath: atlas?.state?.utilityNetworkFeaturesPathLoaded || "",
@@ -839,6 +851,12 @@ async function assertDesktopCitywideCoverage(page) {
         );
       } else {
         assert(citywideState.renderedTransportYearRoads > 0, `desktop citywide ${lens.id}: source-backed transport records exist but rendered no year-specific road features.`);
+      }
+      if (["transport-speed", "transport-reliability"].includes(citywideState.activeAspect) && citywideState.canRenderGuide) {
+        assert(citywideState.transportGuideColorCount >= 3, `desktop citywide ${lens.id}: transport guide collapsed to ${citywideState.transportGuideColorCount} color tier(s).`);
+        if (citywideState.transportCurrentContextCount > 0) {
+          assert(citywideState.transportContextTierCount >= 2, `desktop citywide ${lens.id}: current road context collapsed to ${citywideState.transportContextTierCount} tier(s).`);
+        }
       }
     }
   }
