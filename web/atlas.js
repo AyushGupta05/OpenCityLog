@@ -3033,6 +3033,8 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.22, 1, 0.52],
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.2, 1, 0.5],
+            ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.1, 1, 0.28],
             ["==", ["get", "surface_style"], "access_fabric"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.28, 1, 0.54],
             ["==", ["get", "surface_style"], "vitality_anchor_tile"],
@@ -3046,6 +3048,8 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.18, 1, 0.44],
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.16, 1, 0.4],
+            ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.07, 1, 0.22],
             ["==", ["get", "surface_style"], "access_fabric"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.22, 1, 0.48],
             ["==", ["get", "surface_style"], "vitality_anchor_tile"],
@@ -3059,6 +3063,8 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.08, 1, 0.22],
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.08, 1, 0.22],
+            ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.04, 1, 0.14],
             ["==", ["get", "surface_style"], "access_fabric"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.16, 1, 0.34],
             ["==", ["get", "surface_style"], "vitality_anchor_tile"],
@@ -3095,6 +3101,8 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.2, 1, 0.46],
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.16, 1, 0.38],
+            ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.12, 1, 0.32],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.28, 1, 0.68],
           ],
           8.8, ["case",
@@ -3102,6 +3110,8 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.1, 1, 0.28],
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.08, 1, 0.24],
+            ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.06, 1, 0.18],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.14, 1, 0.36],
           ],
           10.8, ["case",
@@ -3109,15 +3119,17 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.04, 1, 0.14],
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.03, 1, 0.1],
+            ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.02, 1, 0.08],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.06, 1, 0.18],
           ],
           12.2, 0,
         ],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          5.5, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.32, ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.28, 0.36],
-          8.8, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.24, ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.22, 0.3],
-          10.8, ["case", ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.12, 0.18],
+          5.5, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.32, ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.28, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.18, 0.36],
+          8.8, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.24, ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.22, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.14, 0.3],
+          10.8, ["case", ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.12, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.08, 0.18],
           12.2, 0,
         ],
       },
@@ -5674,6 +5686,7 @@
     if (!state.map?.getSource(LENS_DETAIL_SOURCE_ID)) return;
     const aspect = activeMapLens();
     const quietDetailUnderCitywideSummary = citywideOverviewActive() && hasCitywideGuideSummaryForActiveLens();
+    const citywideCivicAccessSummary = quietDetailUnderCitywideSummary && aspect.id === "civic-access-gaps";
     const citywideEconomyVitalitySummary = quietDetailUnderCitywideSummary && aspect.id === "economy-vitality";
     const citywideEconomyLandUseSummary = quietDetailUnderCitywideSummary && aspect.id === "economy-land-use";
     const showPlanningCells = isActiveMapLens("built_environment");
@@ -5721,8 +5734,8 @@
     setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.035, 0.12) : aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.12, 0.36) : aspect.id === "planning-delta" ? lensDetailLineOpacity(0.08, 0.32) : aspect.id === "planning-parcels" ? lensDetailLineOpacity(0.07, 0.24) : lensDetailLineOpacity(0.28, 0.82));
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-color", civicCellColorExpression());
-    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.id === "civic-demand" ? lensDetailFillOpacity(0.002, 0.014) : quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailFillOpacity(0.012, 0.055) : aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.08, 0.28) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.06, 0.22) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.045, 0.18) : lensDetailFillOpacity(0.16, 0.5));
-    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "civic-demand" ? lensDetailLineOpacity(0.003, 0.018) : quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailLineOpacity(0.02, 0.08) : aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.11, 0.34) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.07, 0.2) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.07, 0.22) : lensDetailLineOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.id === "civic-demand" ? lensDetailFillOpacity(0.002, 0.014) : citywideCivicAccessSummary ? lensDetailFillOpacity(0.004, 0.025) : quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailFillOpacity(0.012, 0.055) : aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.08, 0.28) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.06, 0.22) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.045, 0.18) : lensDetailFillOpacity(0.16, 0.5));
+    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "civic-demand" ? lensDetailLineOpacity(0.003, 0.018) : citywideCivicAccessSummary ? lensDetailLineOpacity(0.008, 0.035) : quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailLineOpacity(0.02, 0.08) : aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.11, 0.34) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.07, 0.2) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.07, 0.22) : lensDetailLineOpacity(0.18, 0.58));
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-outline", "line-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-gravity" ? lensDetailFillOpacity(0.012, 0.05) : citywideEconomyVitalitySummary ? lensDetailFillOpacity(0.012, 0.055) : citywideEconomyLandUseSummary ? lensDetailFillOpacity(0.035, 0.12) : aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.04, 0.16) : lensDetailFillOpacity(0.08, 0.26));

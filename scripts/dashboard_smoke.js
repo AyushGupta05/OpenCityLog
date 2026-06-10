@@ -3054,6 +3054,16 @@ async function assertCivicAccessCitywideContext(page, city) {
       }
       return acc;
     }, {});
+    const paintText = (layerId, property) => {
+      try {
+        return JSON.stringify(map?.getPaintProperty?.(layerId, property) || "");
+      } catch (_error) {
+        return "";
+      }
+    };
+    const citywideCellWidth = paintText("lens-guide-citywide-cell-line", "line-width");
+    const directCoverageFill = paintText("lens-civic-coverage-fill", "fill-opacity");
+    const directCoverageLine = paintText("lens-civic-coverage-outline", "line-opacity");
     return {
       city: document.querySelector("#cityNameLabel")?.textContent.trim() || "",
       activeAspect: atlas?.state?.activeAspect || "",
@@ -3070,6 +3080,7 @@ async function assertCivicAccessCitywideContext(page, city) {
       directCount: Number(row?.direct_event_count || 0),
       coverageStatus: row?.status || "",
       renderedByLayer,
+      calmCivicCoveragePaint: citywideCellWidth.includes("0.08") && directCoverageFill.includes("0.025") && directCoverageLine.includes("0.035"),
       appStatus: document.querySelector("#appStatus")?.textContent.trim() || "",
       bodyText: document.body?.innerText || "",
     };
@@ -3087,6 +3098,7 @@ async function assertCivicAccessCitywideContext(page, city) {
   assert(state.serviceNodeCount >= city.minServiceNodes, `civic context ${city.id}: too few civic service nodes (${state.serviceNodeCount}).`);
   assert(state.stopNodeCount >= city.minStopNodes, `civic context ${city.id}: too few stop nodes (${state.stopNodeCount}).`);
   assert(Object.values(state.renderedByLayer).some((count) => count > 0), `civic context ${city.id}: no guide layer rendered.`);
+  assert(state.calmCivicCoveragePaint, `civic context ${city.id}: citywide coverage cells did not use calm summary paint.`);
   assert(!state.appStatus, `civic context ${city.id}: app status reported ${state.appStatus}.`);
   if (state.directCount <= 0 || state.coverageStatus !== "source_backed_records") {
     assert(/current mapped civic-service context|current context only/i.test(state.bodyText), `civic context ${city.id}: status copy does not identify current civic-service context.`);
