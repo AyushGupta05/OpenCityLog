@@ -58,9 +58,9 @@ const CITYWIDE_REFERENCE_LENS_CHECKS = {
     { aspect: "civic-access-gaps", year: 2007, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 2, minDirectRecords: 1, label: "civic access-gap cells" },
     { aspect: "civic-catchment", year: 2008, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 2, minDirectRecords: 1, label: "civic catchment cells" },
     { aspect: "civic-demand", year: 2008, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 2, minDirectRecords: 1, label: "civic demand cells" },
-    { aspect: "economy-land-use", year: 2012, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], detailLayers: ["economy_activity_cell"], minDetailFeatures: 1, minDirectRecords: 1, label: "land-use economy cells" },
+    { aspect: "economy-land-use", year: 2012, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], detailLayers: ["economy_activity_cell"], minDetailFeatures: 1, minDirectRecords: 1, landUseContextExpected: true, label: "land-use economy cells" },
     { aspect: "economy-vitality", year: 2015, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 2, minDirectRecords: 1, guideExpected: true, vitalityContextExpected: true, label: "high-street activity context" },
-    { aspect: "economy-gravity", year: 2015, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 2, minDirectRecords: 1, label: "economic context links" },
+    { aspect: "economy-gravity", year: 2015, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 2, minDirectRecords: 1, gravityContextExpected: true, label: "economic context links" },
     { aspect: "utilities-capacity", year: 2026, rendered: [], renderedLayers: ["lens-utility-network-area-line", "lens-utility-network-case", "lens-utility-network", "lens-utility-network-assets"], detailLayers: [], minDetailFeatures: 0, minDirectRecords: 0, contextArtifact: "utility_network", label: "current utility context" },
     { aspect: "utilities-resilience", year: 2026, rendered: [], renderedLayers: ["lens-utility-network-area-line", "lens-utility-network-case", "lens-utility-network", "lens-utility-network-assets"], detailLayers: [], minDetailFeatures: 0, minDirectRecords: 0, contextArtifact: "utility_network", label: "current utility network context" },
     { aspect: "utilities-works", year: 2026, rendered: [], renderedLayers: ["lens-utility-network-area-line", "lens-utility-network-case", "lens-utility-network", "lens-utility-network-assets"], detailLayers: [], minDetailFeatures: 0, minDirectRecords: 0, contextArtifact: "utility_network", label: "current utility works context" },
@@ -75,9 +75,9 @@ const CITYWIDE_REFERENCE_LENS_CHECKS = {
     { aspect: "civic-access-gaps", year: 2009, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 16, minDirectRecords: 8, label: "civic access-gap cells" },
     { aspect: "civic-catchment", year: 2009, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 16, minDirectRecords: 8, label: "civic catchment cells" },
     { aspect: "civic-demand", year: 2024, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 21000, minDirectRecords: 18000, label: "civic demand cells" },
-    { aspect: "economy-land-use", year: 2025, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], detailLayers: ["economy_activity_cell"], minDetailFeatures: 4000, minDirectRecords: 3000, label: "land-use economy cells" },
+    { aspect: "economy-land-use", year: 2025, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], detailLayers: ["economy_activity_cell"], minDetailFeatures: 4000, minDirectRecords: 3000, landUseContextExpected: true, label: "land-use economy cells" },
     { aspect: "economy-vitality", year: 2025, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 8000, minDirectRecords: 5000, guideExpected: true, vitalityContextExpected: true, label: "high-street activity context" },
-    { aspect: "economy-gravity", year: 2025, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 8000, minDirectRecords: 5000, label: "economic context links" },
+    { aspect: "economy-gravity", year: 2025, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 8000, minDirectRecords: 5000, gravityContextExpected: true, label: "economic context links" },
     { aspect: "utilities-capacity", year: 2026, rendered: [], renderedLayers: ["lens-utility-network-area-line", "lens-utility-network-case", "lens-utility-network", "lens-utility-network-assets"], detailLayers: [], minDetailFeatures: 0, minDirectRecords: 0, contextArtifact: "utility_network", label: "current utility context" },
     { aspect: "utilities-resilience", year: 2026, rendered: [], renderedLayers: ["lens-utility-network-area-line", "lens-utility-network-case", "lens-utility-network", "lens-utility-network-assets"], detailLayers: [], minDetailFeatures: 0, minDirectRecords: 0, contextArtifact: "utility_network", label: "current utility network context" },
     { aspect: "utilities-works", year: 2026, rendered: [], renderedLayers: ["lens-utility-network-area-line", "lens-utility-network-case", "lens-utility-network", "lens-utility-network-assets"], detailLayers: [], minDetailFeatures: 0, minDirectRecords: 0, contextArtifact: "utility_network", label: "current utility works context" },
@@ -92,9 +92,9 @@ const CITYWIDE_REFERENCE_LENS_CHECKS = {
     { aspect: "civic-access-gaps", year: 2026, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 230, minDirectRecords: 150, label: "civic access-gap cells" },
     { aspect: "civic-catchment", year: 2026, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 230, minDirectRecords: 150, label: "civic catchment cells" },
     { aspect: "civic-demand", year: 2026, rendered: ["lensCivicCoverageRendered"], renderedLayers: ["lens-civic-coverage-fill"], detailLayers: ["civic_coverage_cell", "civic_facility"], minDetailFeatures: 230, minDirectRecords: 150, label: "civic demand cells" },
-    { aspect: "economy-land-use", year: 2009, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], detailLayers: ["economy_activity_cell"], minDetailFeatures: 260, minDirectRecords: 120, label: "land-use economy cells" },
+    { aspect: "economy-land-use", year: 2009, rendered: ["lensEconomyCellsRendered"], renderedLayers: ["lens-economy-cells-fill"], detailLayers: ["economy_activity_cell"], minDetailFeatures: 260, minDirectRecords: 120, landUseContextExpected: true, label: "land-use economy cells" },
     { aspect: "economy-vitality", year: 2009, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 520, minDirectRecords: 290, guideExpected: true, vitalityContextExpected: true, label: "high-street activity context" },
-    { aspect: "economy-gravity", year: 2009, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 520, minDirectRecords: 290, label: "economic context links" },
+    { aspect: "economy-gravity", year: 2009, rendered: ["lensEconomyCellsRendered", "lensEconomyFrontageRendered"], renderedLayers: ["lens-economy-cells-fill", "lens-economy-frontage"], detailLayers: ["economy_activity_cell", "economy_frontage"], minDetailFeatures: 520, minDirectRecords: 290, gravityContextExpected: true, label: "economic context links" },
     { aspect: "utilities-capacity", year: 2026, rendered: [], renderedLayers: ["lens-utility-network-area-line", "lens-utility-network-case", "lens-utility-network", "lens-utility-network-assets"], detailLayers: [], minDetailFeatures: 0, minDirectRecords: 0, contextArtifact: "utility_network", label: "current utility context" },
     { aspect: "utilities-resilience", year: 2026, rendered: [], renderedLayers: ["lens-utility-network-area-line", "lens-utility-network-case", "lens-utility-network", "lens-utility-network-assets"], detailLayers: [], minDetailFeatures: 0, minDirectRecords: 0, contextArtifact: "utility_network", label: "current utility network context" },
     { aspect: "utilities-works", year: 2026, rendered: [], renderedLayers: ["lens-utility-network-area-line", "lens-utility-network-case", "lens-utility-network", "lens-utility-network-assets"], detailLayers: [], minDetailFeatures: 0, minDirectRecords: 0, contextArtifact: "utility_network", label: "current utility works context" },
@@ -1453,6 +1453,109 @@ async function assertEconomyVitalityCitywideContext(page, cityId, targetYear) {
   assert(state.invalid === 0, `economy vitality context ${cityId}: ${state.invalid} context tile(s) lack provenance/non-headline flags.`);
 }
 
+async function assertEconomyGravityCitywideContext(page, cityId, targetYear) {
+  await page.waitForFunction(() => {
+    const features = window.BimsAtlas?.state?.lensGuideFeatureCache?.features || [];
+    return features.some((feature) => {
+      const props = feature?.properties || {};
+      return props.lens_id === "economy-gravity"
+        && props.source_kind === "current_context"
+        && props.detail_layer === "economy_anchors_2026"
+        && props.surface_style === "gravity_anchor_tile";
+    });
+  }, null, { timeout: 20000 });
+  await page.waitForFunction(() => {
+    const map = window.BimsAtlas?.state?.map;
+    if (!map?.getLayer?.("lens-guide-citywide-cell-fill") || map.getLayoutProperty("lens-guide-citywide-cell-fill", "visibility") === "none") return false;
+    try {
+      return map.queryRenderedFeatures({ layers: ["lens-guide-citywide-cell-fill"] }).some((feature) => {
+        const props = feature.properties || {};
+        return props.lens_id === "economy-gravity"
+          && props.source_kind === "current_context"
+          && props.detail_layer === "economy_anchors_2026"
+          && props.surface_style === "gravity_anchor_tile";
+      });
+    } catch (_error) {
+      return false;
+    }
+  }, null, { timeout: 20000 });
+  const state = await page.evaluate(({ year }) => {
+    const atlas = window.BimsAtlas;
+    const map = atlas?.state?.map;
+    const features = (atlas?.state?.lensGuideFeatureCache?.features || [])
+      .filter((feature) => {
+        const props = feature.properties || {};
+        return props.lens_id === "economy-gravity"
+          && props.source_kind === "current_context"
+          && props.detail_layer === "economy_anchors_2026";
+      });
+    const split = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
+    const invalid = features.filter((feature) => {
+      const props = feature.properties || {};
+      const eventIds = split(props.event_ids || props.event_id);
+      const sourceIds = split(props.source_ids || props.source_id);
+      const objectIds = split(props.source_object_ids || props.source_object_id);
+      return !feature.geometry
+        || props.kind !== "surface_cell"
+        || props.surface_style !== "gravity_anchor_tile"
+        || props.evidence_role !== "context_not_year_specific_change_evidence"
+        || !props.context_year
+        || !props.generated_from
+        || !props.source_urls
+        || !props.confidence
+        || !props.caveat
+        || props.direct_evidence_counted !== false
+        || props.headline_count_included !== false
+        || eventIds.length > 0
+        || !sourceIds.length
+        || !objectIds.length
+        || !sourceIds.every((id) => atlas?.state?.sourceById?.has?.(id));
+    }).length;
+    let rendered = 0;
+    if (map?.getLayer?.("lens-guide-citywide-cell-fill") && map.getLayoutProperty("lens-guide-citywide-cell-fill", "visibility") !== "none") {
+      try {
+        rendered = map.queryRenderedFeatures({ layers: ["lens-guide-citywide-cell-fill"] })
+          .filter((feature) => {
+            const props = feature.properties || {};
+            return props.lens_id === "economy-gravity"
+              && props.source_kind === "current_context"
+              && props.detail_layer === "economy_anchors_2026"
+              && props.surface_style === "gravity_anchor_tile";
+          }).length;
+      } catch (_error) {
+        rendered = 0;
+      }
+    }
+    const row = atlas?.state?.lensYearCoverageByKey?.get?.(`economy-gravity:${Number(year)}`);
+    const directGuideCount = (atlas?.state?.lensGuideFeatureCache?.features || [])
+      .filter((feature) => {
+        const props = feature.properties || {};
+        return props.lens_id === "economy-gravity"
+          && props.source_kind === "source_backed_lens_detail_aggregate"
+          && props.evidence_role === "selected_year_direct_lens_detail_aggregate";
+      }).length;
+    return {
+      contextTileCount: features.length,
+      directGuideCount,
+      invalid,
+      rendered,
+      sourcePath: atlas?.state?.economyAnchorFeaturesPathLoaded || "",
+      sourceFeatureCount: atlas?.state?.economyAnchorFeatures?.length || 0,
+      visible: Boolean(row?.visible_map_contract),
+      directCount: Number(row?.direct_event_count || 0),
+    };
+  }, { year: targetYear });
+  const minSourceFeatureCount = { belfast: 1200, london: 6000, nyc: 5000 }[cityId] || 1200;
+  const minContextTileCount = { belfast: 360, london: 760, nyc: 720 }[cityId] || 360;
+  assert(state.sourcePath.includes("economy_anchors_2026.geojson"), `economy gravity context ${cityId}: economy anchors did not load (${state.sourcePath}).`);
+  assert(state.sourceFeatureCount >= minSourceFeatureCount, `economy gravity context ${cityId}: too few source economy anchors loaded (${state.sourceFeatureCount}).`);
+  assert(state.visible && state.directCount > 0, `economy gravity context ${cityId}: current context rendered without selected-year direct economy evidence.`);
+  assert(state.directGuideCount > 0, `economy gravity context ${cityId}: source-backed direct citywide guide cells did not render alongside current context.`);
+  assert(state.contextTileCount >= minContextTileCount, `economy gravity context ${cityId}: too few current-context gravity tiles (${state.contextTileCount}).`);
+  assert(state.rendered > 0, `economy gravity context ${cityId}: current-context gravity tiles did not render.`);
+  assert(state.invalid === 0, `economy gravity context ${cityId}: ${state.invalid} context tile(s) lack provenance/non-headline flags.`);
+}
+
 async function utilityNetworkContextRenderState(page) {
   return page.evaluate((layerIds) => {
     const atlas = window.BimsAtlas;
@@ -1828,6 +1931,9 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     if (check.vitalityContextExpected) {
       await assertEconomyVitalityCitywideContext(page, cityId, targetYear);
     }
+    if (check.gravityContextExpected) {
+      await assertEconomyGravityCitywideContext(page, cityId, targetYear);
+    }
     if (check.aspect === "utilities-capacity") {
       await assertUtilityNetworkCitywideContext(page, cityId);
     }
@@ -2026,6 +2132,9 @@ async function assertReferenceLensCitywideArtifact(page, cityId, check) {
     }
     if (check.vitalityContextExpected) {
       await assertEconomyVitalityCitywideContext(page, cityId, check.year);
+    }
+    if (check.gravityContextExpected) {
+      await assertEconomyGravityCitywideContext(page, cityId, check.year);
     }
     const sparseSelectedYear = (coverage.detailFeatureCount > 0 && coverage.detailFeatureCount <= 16)
       || (coverage.mapDirectCount > 0 && coverage.mapDirectCount <= 10)

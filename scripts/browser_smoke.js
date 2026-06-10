@@ -65,6 +65,8 @@ async function guideSignalState(page) {
       ? "planning_cell"
       : activeAspect === "economy-land-use"
       ? "economy_activity_cell"
+      : ["economy-vitality", "economy-gravity"].includes(activeAspect)
+      ? "economy_frontage"
       : ["civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
       ? "civic_coverage_cell"
       : "";
@@ -94,13 +96,23 @@ async function guideSignalState(page) {
       && row?.status === "source_backed_records"
       && row?.visible_map_contract !== false
       && Number(row?.direct_event_count || 0) > 0;
-    const directCanRender = ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+    const economyContextCanRender = ["economy-land-use", "economy-vitality", "economy-gravity"].includes(activeAspect)
+      && Boolean(state?.activeLayers?.has?.("economy"))
+      && (state?.economyAnchorFeatures || []).length > 0
+      && citywideScope
+      && state?.showInferred !== false
+      && !state?.search
+      && !state?.areaFilter
+      && row?.status === "source_backed_records"
+      && row?.visible_map_contract !== false
+      && Number(row?.direct_event_count || 0) > 0;
+    const directCanRender = ["planning-pressure", "economy-land-use", "economy-vitality", "economy-gravity", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
       && row?.status === "source_backed_records"
       && row?.visible_map_contract !== false
       && matchingDetailCount > 0;
     return {
       activeAspect,
-      canRenderGuide: directCanRender || civicContextCanRender || transportNetworkContextCanRender,
+      canRenderGuide: directCanRender || civicContextCanRender || economyContextCanRender || transportNetworkContextCanRender,
       guideFeatureCount: features.length,
       rendered,
       invalidFeatureCount: features.filter((feature) => {
@@ -200,6 +212,8 @@ async function assertGeneratedGuideSignal(page, label) {
       ? "planning_cell"
       : activeAspect === "economy-land-use"
       ? "economy_activity_cell"
+      : ["economy-vitality", "economy-gravity"].includes(activeAspect)
+      ? "economy_frontage"
       : ["civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
       ? "civic_coverage_cell"
       : "";
@@ -229,11 +243,21 @@ async function assertGeneratedGuideSignal(page, label) {
       && row?.status === "source_backed_records"
       && row?.visible_map_contract !== false
       && Number(row?.direct_event_count || 0) > 0;
-    const directCanRender = ["planning-pressure", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+    const economyContextCanRender = ["economy-land-use", "economy-vitality", "economy-gravity"].includes(activeAspect)
+      && Boolean(state?.activeLayers?.has?.("economy"))
+      && (state?.economyAnchorFeatures || []).length > 0
+      && citywideScope
+      && state?.showInferred !== false
+      && !state?.search
+      && !state?.areaFilter
+      && row?.status === "source_backed_records"
+      && row?.visible_map_contract !== false
+      && Number(row?.direct_event_count || 0) > 0;
+    const directCanRender = ["planning-pressure", "economy-land-use", "economy-vitality", "economy-gravity", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
       && row?.status === "source_backed_records"
       && row?.visible_map_contract !== false
       && matchingDetailCount > 0;
-    const canRenderGuide = directCanRender || civicContextCanRender || transportNetworkContextCanRender;
+    const canRenderGuide = directCanRender || civicContextCanRender || economyContextCanRender || transportNetworkContextCanRender;
     const invalidFeatureCount = features.filter((feature) => {
       const props = feature?.properties || {};
       const eventIds = splitIds(props.event_ids || props.event_id);
