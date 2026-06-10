@@ -46,12 +46,15 @@ Use stable internal slugs, but public-facing labels:
 
 No partial lens list is allowed for a launched city. If a city lacks data for a lens, find credible public data and add it to the repo before launch.
 
-Every launched city must also expose every mandatory lens for every year from 2007 through 2026 inclusive. This is a lens-year visibility contract, not permission to invent records. When no same-lens event rows are available for a city/year/lens, the atlas must either add credible public event data or show a source-backed coverage-context surface from official scope/context sources with an explicit limitation:
+Every launched city must also expose contract metadata for every mandatory lens for every year from 2007 through 2026 inclusive. This is a lens-year audit contract, not permission to invent records. When no same-lens event rows are available for a city/year/lens, the atlas must either add credible public event data or show an explicit missing-data state:
 
 - `event_count` remains `0`.
-- Context features are visually distinct and excluded from headline record counts.
+- `source_count` remains `0`; missing rows must not borrow boundary, context, or scope sources.
+- `visible_map_contract` is `false`.
+- No generated marks, context surfaces, or filler geometry are emitted.
 - The map, timeline, legend, list state, evidence text, and exports must state that the year has no source-backed event records for that lens.
-- Context features cannot become clickable evidence objects unless they have their own source-backed evidence panel record.
+
+When broad source-backed lens matching admits adjacent evidence, the artifact must also expose `direct_event_count`, `direct_compatible_event_count`, `direct_source_count`, and `direct_source_ids`. Direct counts mean same-category event rows for the lens. Broad matches with `direct_event_count: 0` must use `adjacent_source_backed_records`, keep `visible_map_contract: false`, keep direct headline counts at zero, and be shown only with an explicit adjacent-evidence caveat.
 
 ## Visual Grammar
 
@@ -113,7 +116,7 @@ Timeline granularity follows source evidence while the control remains visually 
 
 Date uncertainty should also be visible on the map through subtle non-color cues such as stroke style, opacity, icons, or range badges.
 
-For 2007-2026, timeline cells must not disappear just because a same-lens event count is zero. No-record lens-years render a subtle coverage-context marker labelled as context only, with `0` event records.
+For 2007-2026, timeline metadata must exist even when a same-lens event count is zero. No-record lens-years render an empty/no-data state with `0` event records; they must not render a synthetic context marker.
 
 ## Confidence, Limits, And Freshness
 

@@ -9,6 +9,6 @@ The local server is intentionally small: it serves the static atlas frontend, br
 
 ## Retired endpoints
 
-The old replay-manifest route, layer API, and proposal-impact analogue endpoints are no longer public runtime paths. `GET /api/proposal-impact/schema` and `POST /api/proposal-impact` return `410` tombstones so old clients do not mistake the retired feature for an active lens.
+The old replay-manifest route, layer API, and proposal-impact analogue endpoints are no longer public runtime paths. The checked-in `api/replay-manifest.json` tombstone has been removed, and `GET /api/proposal-impact/schema` plus `POST /api/proposal-impact` return `410` tombstones so old clients do not mistake the retired feature for an active lens.
 
 Do not re-add proposal/future endpoints unless a future accepted spec restores them with source-backed methods, tests, provenance, and clear limits. Current atlas work should use the 15 historical/current lenses, evidence panels, and Markdown/CSV/GeoJSON exports.

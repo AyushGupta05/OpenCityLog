@@ -1,5 +1,9 @@
 const fs = require("fs");
 const path = require("path");
+const {
+  eventWithholdsMapGeometry,
+  sourceWithholdsMapGeometry,
+} = require("../lib/atlas-lenses");
 
 const CONFIDENCE_VALUES = new Set(["documented", "corroborated", "inferred", "disputed"]);
 const EVIDENCE_KINDS = new Set(["source_url", "local_file", "changeset", "source_record"]);
@@ -340,8 +344,17 @@ function validateEvent(audit, root, city, sourceById, event, chunkPath, chunkYea
   assertIssue(audit, CONFIDENCE_VALUES.has(event.confidence), "blocker", "event_bad_confidence", { label, confidence: event.confidence, file: rel(root, chunkPath) });
   assertIssue(audit, Array.isArray(event.source_ids) && event.source_ids.length > 0, "blocker", "event_missing_source_ids", { label, file: rel(root, chunkPath) });
   assertIssue(audit, Array.isArray(event.evidence) && event.evidence.length > 0, "blocker", "event_missing_evidence", { label, file: rel(root, chunkPath) });
-  assertIssue(audit, geometryIsValid(event.geometry), "blocker", "event_invalid_geometry", { label, file: rel(root, chunkPath) });
-  assertIssue(audit, coordinatesInBounds(event.geometry, city.bounds), "blocker", "event_geometry_outside_city_bounds", { label, coordinates: geometryCoordinates(event.geometry)[0], bounds: city.bounds, file: rel(root, chunkPath) });
+  const mapWithheldSourceIds = sourceIds.filter((sourceId) => sourceWithholdsMapGeometry(sourceById.get(sourceId)));
+  if (mapWithheldSourceIds.length) {
+    assertIssue(audit, !event.geometry, "blocker", "event_map_withheld_source_has_geometry", { label, source_ids: mapWithheldSourceIds, file: rel(root, chunkPath) });
+    assertIssue(audit, event.geometry_status === "withheld_rights_review" || event.provenance?.geometry_status === "withheld_rights_review", "blocker", "event_map_withheld_missing_status", { label, source_ids: mapWithheldSourceIds, file: rel(root, chunkPath) });
+  } else if (eventWithholdsMapGeometry(event)) {
+    assertIssue(audit, !event.geometry, "blocker", "event_map_withheld_has_geometry", { label, status: event.geometry_status || event.provenance?.geometry_status, file: rel(root, chunkPath) });
+    assertIssue(audit, /^withheld_/.test(String(event.geometry_status || event.provenance?.geometry_status || "")), "blocker", "event_map_withheld_missing_status", { label, file: rel(root, chunkPath) });
+  } else {
+    assertIssue(audit, geometryIsValid(event.geometry), "blocker", "event_invalid_geometry", { label, file: rel(root, chunkPath) });
+    assertIssue(audit, coordinatesInBounds(event.geometry, city.bounds), "blocker", "event_geometry_outside_city_bounds", { label, coordinates: geometryCoordinates(event.geometry)[0], bounds: city.bounds, file: rel(root, chunkPath) });
+  }
   assertIssue(audit, Boolean(compact(event.affected_area?.label)), "blocker", "event_missing_area_label", { label, file: rel(root, chunkPath) });
   assertIssue(audit, Boolean(event.provenance?.transform), "blocker", "event_missing_transform", { label, file: rel(root, chunkPath) });
   assertIssue(audit, Boolean(event.provenance?.source_date_field || event.source_date_field), "blocker", "event_missing_source_date_field", { label, file: rel(root, chunkPath) });
@@ -416,9 +429,23 @@ async function auditCity(audit, args, indexCity, parksBoroughById) {
     if (fs.existsSync(geojsonPath)) {
       const geojson = readJson(geojsonPath);
       assertIssue(audit, geojson.type === "FeatureCollection", "blocker", "event_geojson_not_feature_collection", { city_id: indexCity.city_id, path: chunk.geojson_path });
-      assertIssue(audit, Array.isArray(geojson.features) && geojson.features.length === events.length, "blocker", "event_geojson_feature_count_mismatch", { city_id: indexCity.city_id, path: chunk.geojson_path, event_count: events.length, feature_count: geojson.features?.length });
+      const expectedMapFeatureCount = Number.isInteger(chunk.map_feature_count)
+        ? chunk.map_feature_count
+        : Number.isInteger(payload.map_feature_count)
+          ? payload.map_feature_count
+          : events.filter((event) => event.geometry).length;
+      const geojsonMapFeatureCount = Object.prototype.hasOwnProperty.call(geojson, "map_feature_count")
+        ? geojson.map_feature_count
+        : geojson.features.length;
+      assertIssue(audit, Array.isArray(geojson.features) && geojson.features.length === expectedMapFeatureCount, "blocker", "event_geojson_feature_count_mismatch", { city_id: indexCity.city_id, path: chunk.geojson_path, event_count: events.length, map_feature_count: expectedMapFeatureCount, feature_count: geojson.features?.length });
+      assertIssue(audit, Number(geojsonMapFeatureCount) === expectedMapFeatureCount, "blocker", "event_geojson_map_feature_count_mismatch", { city_id: indexCity.city_id, path: chunk.geojson_path, map_feature_count: expectedMapFeatureCount, geojson_map_feature_count: geojson.map_feature_count });
       for (const feature of geojson.features || []) {
         assertIssue(audit, geometryIsValid(feature.geometry), "blocker", "event_geojson_invalid_feature_geometry", { city_id: indexCity.city_id, path: chunk.geojson_path, id: feature.id || feature.properties?.event_id });
+        const event = events.find((item) => item.event_id === (feature.id || feature.properties?.event_id));
+        const mapWithheldSourceIds = eventSourceIds(event || {})
+          .filter((sourceId) => sourceWithholdsMapGeometry(sourceById.get(sourceId)));
+        assertIssue(audit, mapWithheldSourceIds.length === 0, "blocker", "event_geojson_exposes_withheld_geometry", { city_id: indexCity.city_id, path: chunk.geojson_path, id: feature.id || feature.properties?.event_id, source_ids: mapWithheldSourceIds });
+        assertIssue(audit, !eventWithholdsMapGeometry(event), "blocker", "event_geojson_exposes_event_withheld_geometry", { city_id: indexCity.city_id, path: chunk.geojson_path, id: feature.id || feature.properties?.event_id });
       }
     }
   }

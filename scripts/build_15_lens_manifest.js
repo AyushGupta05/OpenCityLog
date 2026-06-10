@@ -2,9 +2,12 @@ const fs = require("fs");
 const path = require("path");
 const {
   LENS_DEFINITIONS,
+  eventDirectlyMatchesLensCategory,
   eventMatchesLens,
+  eventWithholdsMapGeometry,
   licenseNeedsReview,
   sourceHasMinimumLicense,
+  sourceWithholdsMapGeometry,
 } = require("../lib/atlas-lenses");
 
 const SCHEMA_VERSION = "1.0.0";
@@ -27,15 +30,15 @@ const CITY_SCOPE = {
   belfast: {
     official_boundary: {
       label: "Belfast City Council boundary",
-      source_name: "OpenDataNI / Spatial NI local government boundary datasets",
+      source_name: "OSNI Open Data - Largescale Boundaries - Local Government Districts (2012)",
       publisher: "Land and Property Services / OpenDataNI",
-      source_url: "https://www.opendatani.gov.uk/",
+      source_url: "https://ckan.publishing.service.gov.uk/dataset/osni-open-data-largescale-boundaries-local-government-districts-20123",
       source_type: "official boundary dataset",
-      licence: "Open Government Licence v3.0 where the resource is marked OGL",
+      licence: "UK Open Government Licence (OGL) v3.0; contains Ordnance Survey of Northern Ireland data.",
       licence_url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-      attribution_text: "Contains public sector information licensed under the Open Government Licence v3.0.",
-      accessed_at: "2026-05-25",
-      source_ids: ["opendatani-spatial-ni"],
+      attribution_text: "Contains public sector information licensed under the Open Government Licence v3.0 and Ordnance Survey of Northern Ireland attribution.",
+      accessed_at: "2026-06-03",
+      source_ids: ["osni-open-data-largescale-boundaries-local-government-districts-2012"],
     },
     admin_overlays: [
       "Belfast District Electoral Areas and wards where Spatial NI/NISRA source-backed boundaries are available.",
@@ -202,6 +205,13 @@ function eventHasCompatibleSources(event, sourceById) {
   return sources.length > 0 && sources.every((source) => sourceHasMinimumLicense(source) && !licenseNeedsReview(source));
 }
 
+function eventHasMapEligibleSources(event, sourceById) {
+  const sourceIds = event.source_ids || event.sourceIds || [];
+  return eventHasCompatibleSources(event, sourceById)
+    && !eventWithholdsMapGeometry(event)
+    && sourceIds.every((sourceId) => !sourceWithholdsMapGeometry(sourceById.get(sourceId)));
+}
+
 function collectEvents(root, eventsIndex) {
   const events = [];
   for (const chunk of eventsIndex.chunks || []) {
@@ -240,30 +250,20 @@ function sourceSummary(source) {
   };
 }
 
-function officialScopeSourceIds(cityId, sourceById) {
-  const sourceIds = CITY_SCOPE[cityId]?.official_boundary?.source_ids || [];
-  const ready = sourceIds.filter((sourceId) => {
-    const source = sourceById.get(sourceId);
-    return sourceHasMinimumLicense(source) && !licenseNeedsReview(source);
-  });
-  if (ready.length) return ready;
-  return Array.from(sourceById.values())
-    .filter((source) => sourceHasMinimumLicense(source) && !licenseNeedsReview(source))
-    .filter((source) => /boundar|ward|borough|district|geograph|spatial/i.test([
-      source.source_id,
-      source.title,
-      source.source_family,
-      source.provenance_notes,
-    ].filter(Boolean).join(" ")))
-    .slice(0, 3)
-    .map((source) => source.source_id);
-}
-
 function featureSourceIds(feature) {
   return String(feature?.properties?.source_ids || "")
     .split(",")
     .map((value) => value.trim())
     .filter(Boolean);
+}
+
+function featureExcludedFromLens(feature, lens) {
+  const raw = feature?.properties?.excluded_lens_slugs || "";
+  return String(raw)
+    .split(/[,|]/)
+    .map((value) => value.trim().toLowerCase())
+    .filter(Boolean)
+    .includes(String(lens?.slug || "").toLowerCase());
 }
 
 function lensDetailPath(root, city, year) {
@@ -279,57 +279,80 @@ function loadLensDetailFeatures(root, city, year, cache) {
   return features;
 }
 
-function detailCountsForLens(root, city, lens, year, cache) {
+function transportContextCounts(root, city, sourceById) {
+  return {
+    detail_feature_count: 0,
+    coverage_context_feature_count: 0,
+    source_ids: [],
+  };
+}
+
+function detailCountsForLens(root, city, lens, year, cache, sourceById) {
+  if (lens.group === "transport") {
+    return transportContextCounts(root, city, sourceById);
+  }
   const layers = LENS_DETAIL_LAYERS_BY_GROUP[lens.group] || new Set();
   if (!layers.size) {
     return { detail_feature_count: 0, coverage_context_feature_count: 0, source_ids: [] };
   }
   const sourceIds = new Set();
   let detailFeatureCount = 0;
-  let coverageContextFeatureCount = 0;
   for (const feature of loadLensDetailFeatures(root, city, year, cache)) {
     const props = feature.properties || {};
     if (props.category !== lens.category || !layers.has(props.layer)) continue;
+    if (featureExcludedFromLens(feature, lens)) continue;
+    if (props.coverage_status === "no_same_category_records" || props.evidence_role === "context_not_year_specific_change_evidence") continue;
     detailFeatureCount += 1;
-    if (props.coverage_status === "no_same_category_records") coverageContextFeatureCount += 1;
     for (const sourceId of featureSourceIds(feature)) sourceIds.add(sourceId);
   }
   return {
     detail_feature_count: detailFeatureCount,
-    coverage_context_feature_count: coverageContextFeatureCount,
+    coverage_context_feature_count: 0,
     source_ids: [...sourceIds].sort(),
   };
 }
 
-function yearCoverageStatus(eventCount, detailCounts) {
-  if (eventCount > 0) return "source_backed_records";
-  if (detailCounts.coverage_context_feature_count > 0) return "source_backed_context_no_year_records";
+function yearCoverageStatus(broadEventCount, directEventCount) {
+  if (directEventCount > 0) return "source_backed_records";
+  if (broadEventCount > 0) return "adjacent_source_backed_records";
   return "missing_source_backed_view";
 }
 
-function rowLimitations(status, lens, year) {
+function rowLimitations(status, lens, year, visibleMapContract = false, withheldGeometryEventCount = 0) {
   const common = [
     "Counts are source-backed records available in this repo, not a complete census of city change.",
     "Sparse areas remain sparse; no records are generated to create visual density.",
   ];
   if (status === "source_backed_records") {
+    const directLimitations = [
+      ...common,
+      "Direct map marks and headline counts use same-category event geometry and derived lens-detail geometry where available; inspect evidence before reuse.",
+    ];
+    if (!visibleMapContract || withheldGeometryEventCount > 0) {
+      directLimitations.push(
+        `${withheldGeometryEventCount} source-backed ${lens.label} record(s) are evidence-only for map purposes because geometry is withheld for rights review, non-site scope, or aggregate/reference-location limits; they remain available in event JSON/evidence records, but do not create map marks or lens-detail surfaces.`,
+      );
+    }
+    return directLimitations;
+  }
+  if (status === "adjacent_source_backed_records") {
     return [
       ...common,
-      "Map marks use event geometry and derived lens-detail geometry where available; inspect evidence before reuse.",
+      `Broad source-backed ${lens.label} lens matches are available for ${year}, but no direct same-category ${lens.category} records are currently ingested.`,
+      "Direct map marks and headline counts are disabled for this lens/year; broad matches are retained only for adjacent-evidence audit and source review.",
     ];
   }
   return [
     ...common,
     `No license-compatible ${lens.label} records are currently ingested for ${year}.`,
-    "The visible map surface is source-backed coverage context only, not a city-change event or measured condition.",
-    "Coverage-context features are excluded from headline counts and exports as events.",
+    "No map marks or coverage surfaces are generated for this lens/year; sparse data remains sparse.",
+    "Use the citywide boundary and event list to inspect what is available, not as evidence of complete coverage.",
   ];
 }
 
 function buildLensYearCoverage(root, citySummary, city, eventsIndex, events, sourceById, generatedAt) {
   const eventsByYear = groupEventsByYear(events);
   const detailCache = new Map();
-  const scopeSourceIds = officialScopeSourceIds(citySummary.city_id, sourceById);
   const rows = [];
   for (const lens of LENS_DEFINITIONS) {
     for (const year of REQUIRED_LENS_YEARS) {
@@ -337,17 +360,29 @@ function buildLensYearCoverage(root, citySummary, city, eventsIndex, events, sou
       const compatibleEvents = yearEvents.filter((event) => (
         eventMatchesLens(event, lens, sourceById) && eventHasCompatibleSources(event, sourceById)
       ));
+      const directCompatibleEvents = compatibleEvents.filter((event) => eventDirectlyMatchesLensCategory(event, lens));
+      const mapEligibleEvents = compatibleEvents.filter((event) => event.geometry && eventHasMapEligibleSources(event, sourceById));
+      const directMapEligibleEvents = directCompatibleEvents.filter((event) => event.geometry && eventHasMapEligibleSources(event, sourceById));
+      const withheldGeometryEventCount = Math.max(0, compatibleEvents.length - mapEligibleEvents.length);
+      const directWithheldGeometryEventCount = Math.max(0, directCompatibleEvents.length - directMapEligibleEvents.length);
       const confidenceCounts = {};
       const eventSourceIds = new Set();
       for (const event of compatibleEvents) {
         confidenceCounts[event.confidence] = (confidenceCounts[event.confidence] || 0) + 1;
         for (const sourceId of event.source_ids || []) eventSourceIds.add(sourceId);
       }
-      const detailCounts = detailCountsForLens(root, city, lens, year, detailCache);
-      const status = yearCoverageStatus(compatibleEvents.length, detailCounts);
-      const sourceIds = compatibleEvents.length
-        ? [...eventSourceIds].sort()
-        : (detailCounts.source_ids.length ? detailCounts.source_ids : scopeSourceIds);
+      const directSourceIds = new Set();
+      for (const event of directCompatibleEvents) {
+        for (const sourceId of event.source_ids || []) directSourceIds.add(sourceId);
+      }
+      const rawDetailCounts = detailCountsForLens(root, city, lens, year, detailCache, sourceById);
+      const status = yearCoverageStatus(compatibleEvents.length, directCompatibleEvents.length);
+      const visibleMapContract = directMapEligibleEvents.length > 0;
+      const detailCounts = visibleMapContract
+        ? rawDetailCounts
+        : { detail_feature_count: 0, coverage_context_feature_count: 0, source_ids: [] };
+      const sourceIds = compatibleEvents.length ? [...eventSourceIds].sort() : [];
+      const directSourceList = directCompatibleEvents.length ? [...directSourceIds].sort() : [];
       rows.push({
         city_id: citySummary.city_id,
         display_name: city.display_name,
@@ -357,27 +392,42 @@ function buildLensYearCoverage(root, citySummary, city, eventsIndex, events, sou
         category: lens.category,
         year,
         required_year: true,
-        visible_map_contract: status !== "missing_source_backed_view",
+        visible_map_contract: visibleMapContract,
         status,
         event_count: compatibleEvents.length,
         compatible_event_count: compatibleEvents.length,
+        map_event_count: mapEligibleEvents.length,
+        map_direct_event_count: directMapEligibleEvents.length,
+        withheld_geometry_event_count: withheldGeometryEventCount,
+        direct_withheld_geometry_event_count: directWithheldGeometryEventCount,
+        broad_match_event_count: compatibleEvents.length,
+        broad_match_compatible_event_count: compatibleEvents.length,
+        direct_event_count: directCompatibleEvents.length,
+        direct_compatible_event_count: directCompatibleEvents.length,
         detail_feature_count: detailCounts.detail_feature_count,
         coverage_context_feature_count: detailCounts.coverage_context_feature_count,
-        headline_count_included: compatibleEvents.length,
+        headline_count_included: directCompatibleEvents.length,
         headline_count_excluded_context_features: detailCounts.coverage_context_feature_count,
         confidence_counts: confidenceCounts,
         source_count: sourceIds.length,
         source_ids: sourceIds,
         compatible_source_ids: sourceIds,
+        broad_match_source_count: sourceIds.length,
+        broad_match_source_ids: sourceIds,
+        direct_source_count: directSourceList.length,
+        direct_source_ids: directSourceList,
         evidence_basis: compatibleEvents.length
-          ? `Source-backed ${lens.label} event rows in web/data/city-atlas/cities/${citySummary.city_id}/events_${year}.json matched by lib/atlas-lenses.js#eventMatchesLens.`
-          : `No same-lens event rows matched for ${year}; source-backed coverage-context features in lens_detail_${year}.geojson keep the lens visible without adding event records.`,
+          ? `Source-backed ${lens.label} event rows in web/data/city-atlas/cities/${citySummary.city_id}/events_${year}.json matched by lib/atlas-lenses.js#eventMatchesLens; ${directCompatibleEvents.length} direct same-category ${lens.category} row(s) matched; ${directMapEligibleEvents.length} direct row(s) have map-eligible geometry.`
+          : `No same-lens source-backed event rows matched for ${year}; no generated filler geometry is emitted.`,
         map_artifacts: {
           events_json: `web/data/city-atlas/cities/${citySummary.city_id}/events_${year}.json`,
           events_geojson: `web/data/city-atlas/cities/${citySummary.city_id}/events_${year}.geojson`,
           lens_detail_geojson: `web/data/city-atlas/cities/${citySummary.city_id}/lens_detail_${year}.geojson`,
+          ...(lens.group === "transport" && compatibleEvents.length > 0 && city.artifact_paths?.transport_roads_base
+            ? { transport_roads_base: city.artifact_paths.transport_roads_base }
+            : {}),
         },
-        limitations: rowLimitations(status, lens, year),
+        limitations: rowLimitations(status, lens, year, visibleMapContract, withheldGeometryEventCount),
         exports: {
           markdown: true,
           csv: true,
@@ -419,7 +469,7 @@ function summarizeYearContract(yearRows, relativeCoveragePath) {
     visible_year_count: visibleRows.length,
     missing_visible_years: yearRows.filter((row) => !row.visible_map_contract).map((row) => row.year),
     source_backed_record_year_count: yearRows.filter((row) => row.status === "source_backed_records").length,
-    source_backed_context_year_count: yearRows.filter((row) => row.status === "source_backed_context_no_year_records").length,
+    source_backed_context_year_count: 0,
     lens_year_coverage_path: relativeCoveragePath,
   };
 }

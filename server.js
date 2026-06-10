@@ -4,21 +4,30 @@ const path = require("path");
 
 const rootDir = __dirname;
 const webDir = path.join(rootDir, "web");
-const port = Number(process.env.PORT || 5173);
 
 loadLocalEnv(path.join(rootDir, ".env.local"));
 
+const port = parsePort(process.env.PORT || "5173");
+const host = process.env.HOST || "0.0.0.0";
+
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
+  ".csv": "text/csv; charset=utf-8",
   ".geojson": "application/geo+json; charset=utf-8",
   ".html": "text/html; charset=utf-8",
+  ".ico": "image/x-icon",
   ".js": "application/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
+  ".map": "application/json; charset=utf-8",
   ".md": "text/markdown; charset=utf-8",
+  ".mjs": "application/javascript; charset=utf-8",
   ".pdf": "application/pdf",
   ".png": "image/png",
   ".svg": "image/svg+xml",
+  ".txt": "text/plain; charset=utf-8",
+  ".wasm": "application/wasm",
   ".webp": "image/webp",
+  ".xml": "application/xml; charset=utf-8",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".tif": "image/tiff"
@@ -40,12 +49,22 @@ function loadLocalEnv(filePath) {
   }
 }
 
-function sendJson(res, status, payload) {
+function parsePort(value) {
+  const portNumber = Number(value);
+  if (!Number.isInteger(portNumber) || portNumber < 1 || portNumber > 65535) {
+    throw new Error(`Invalid PORT value: ${value}`);
+  }
+  return portNumber;
+}
+
+function sendJson(req, res, status, payload) {
+  const body = JSON.stringify(payload, null, 2);
   res.writeHead(status, {
     "content-type": "application/json; charset=utf-8",
-    "cache-control": "no-store"
+    "cache-control": "no-store",
+    "content-length": Buffer.byteLength(body)
   });
-  res.end(JSON.stringify(payload, null, 2));
+  res.end(req.method === "HEAD" ? undefined : body);
 }
 
 function sendText(res, status, message) {
@@ -66,8 +85,8 @@ function normalizeUrlPath(pathname) {
 }
 
 function safeStaticPath(baseDir, pathname) {
-  if (pathname === "/") return path.resolve(baseDir, "index.html");
-  if (pathname === "/atlas") return path.resolve(baseDir, "atlas.html");
+  if (pathname === "/" || pathname === "/index.html") return path.resolve(baseDir, "index.html");
+  if (pathname === "/atlas" || pathname === "/atlas/") return path.resolve(baseDir, "atlas.html");
   const cleanPath = pathname;
   const decoded = normalizeUrlPath(cleanPath);
   if (decoded === null) return null;
@@ -78,22 +97,64 @@ function safeStaticPath(baseDir, pathname) {
   return candidate;
 }
 
-function serveFile(res, filePath) {
-  if (!filePath || !fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
+async function serveFile(req, res, filePath) {
+  let stat = null;
+  if (filePath) {
+    try {
+      stat = await fs.promises.stat(filePath);
+    } catch (_error) {
+      stat = null;
+    }
+  }
+  if (!filePath || !stat?.isFile()) {
     sendText(res, 404, "Not found");
     return;
   }
   const ext = path.extname(filePath).toLowerCase();
   const localAssetCache = ext === ".html" || ext === ".js" || ext === ".css" ? "no-store" : "public, max-age=60";
-  res.writeHead(200, {
+  const etag = `W/\"${stat.size.toString(16)}-${Math.floor(stat.mtimeMs).toString(16)}\"`;
+  const lastModified = stat.mtime.toUTCString();
+  const commonHeaders = {
     "content-type": mimeTypes[ext] || "application/octet-stream",
-    "cache-control": localAssetCache
+    "cache-control": localAssetCache,
+    "content-length": stat.size,
+    "last-modified": lastModified,
+    "etag": etag,
+    "accept-ranges": "bytes"
+  };
+  if (req.headers["if-none-match"] === etag || req.headers["if-modified-since"] === lastModified) {
+    res.writeHead(304, {
+      "cache-control": localAssetCache,
+      "last-modified": lastModified,
+      "etag": etag
+    });
+    res.end();
+    return;
+  }
+  res.writeHead(200, commonHeaders);
+  if (req.method === "HEAD") {
+    res.end();
+    return;
+  }
+  const stream = fs.createReadStream(filePath);
+  stream.on("error", (error) => {
+    if (!res.headersSent) {
+      sendText(res, 500, "Unable to read file");
+      return;
+    }
+    res.destroy(error);
   });
-  fs.createReadStream(filePath).pipe(res);
+  stream.pipe(res);
 }
 
 const server = http.createServer((req, res) => {
-  const requestUrl = new URL(req.url, `http://${req.headers.host || `localhost:${port}`}`);
+  let requestUrl;
+  try {
+    requestUrl = new URL(req.url || "/", `http://${req.headers.host || `localhost:${port}`}`);
+  } catch (_error) {
+    sendText(res, 400, "Invalid URL");
+    return;
+  }
   const pathname = requestUrl.pathname;
   const decodedPathname = normalizeUrlPath(pathname);
   if (decodedPathname === null) {
@@ -101,8 +162,8 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  if (req.method === "GET" && pathname === "/api/health") {
-    sendJson(res, 200, {
+  if ((req.method === "GET" || req.method === "HEAD") && pathname === "/api/health") {
+    sendJson(req, res, 200, {
       ok: true,
       product: "Open Citylog",
       mode: "city-change-atlas",
@@ -112,7 +173,7 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.method === "GET" && pathname === "/api/proposal-impact/schema") {
-    sendJson(res, 410, {
+    sendJson(req, res, 410, {
       ok: false,
       error: "Retired endpoint",
       detail: "Proposal/future analogue paths are quarantined by the current city-change atlas contract. Use the 15 historical/current lens manifests and evidence exports instead."
@@ -121,7 +182,7 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.method === "POST" && pathname === "/api/proposal-impact") {
-    sendJson(res, 410, {
+    sendJson(req, res, 410, {
       ok: false,
       error: "Retired endpoint",
       detail: "Proposal/future analogue paths are quarantined by the current city-change atlas contract. Use the 15 historical/current lens manifests and evidence exports instead."
@@ -139,9 +200,22 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  serveFile(res, safeStaticPath(webDir, pathname));
+  serveFile(req, res, safeStaticPath(webDir, pathname)).catch((error) => {
+    if (!res.headersSent) sendText(res, 500, "Unable to serve request");
+    else res.destroy(error);
+  });
 });
 
-server.listen(port, () => {
-  console.log(`Open Citylog atlas UI/API running at http://localhost:${port}`);
+server.on("clientError", (_error, socket) => {
+  if (socket.writable) socket.end("HTTP/1.1 400 Bad Request\r\n\r\n");
+});
+
+server.on("error", (error) => {
+  console.error(`Open Citylog server failed: ${error.message}`);
+  process.exit(1);
+});
+
+server.listen(port, host, () => {
+  const displayHost = host === "0.0.0.0" ? "localhost" : host;
+  console.log(`Open Citylog atlas UI/API running at http://${displayHost}:${port} (bound to ${host}:${port})`);
 });

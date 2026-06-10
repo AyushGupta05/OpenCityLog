@@ -1,12 +1,16 @@
 const fs = require("fs");
 const path = require("path");
 const { chromium } = require("playwright");
-const { assertDetailedPng } = require("./image_detail");
+const { assertDetailedPng, imageDetail } = require("./image_detail");
 
 const rootDir = path.resolve(__dirname, "..");
-const outputDir = path.join(rootDir, "output", "playwright");
+const outputDir = path.resolve(process.env.ATLAS_SMOKE_OUTPUT_DIR || path.join(rootDir, "output", "playwright"));
 const baseUrl = (process.env.URL || "http://127.0.0.1:5173").replace(/\/$/, "");
 const atlasUrl = (process.env.ATLAS_URL || `${baseUrl}/atlas`).replace(/\/$/, "");
+const chromiumLaunchOptions = {
+  headless: true,
+  args: ["--use-gl=swiftshader", "--disable-dev-shm-usage"],
+};
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -53,6 +57,14 @@ async function atlasState(page) {
     const map = atlas?.state?.map;
     const center = map?.getCenter?.();
     const layerVisible = (id) => Boolean(map?.getLayer?.(id)) && map.getLayoutProperty(id, "visibility") !== "none";
+    const sourceLoaded = (id) => {
+      if (!map?.getSource?.(id)) return false;
+      try {
+        return map.isSourceLoaded?.(id) === true;
+      } catch {
+        return false;
+      }
+    };
     const renderedLayerCount = (id) => {
       if (!map?.getLayer?.(id)) return 0;
       try {
@@ -63,6 +75,12 @@ async function atlasState(page) {
     };
     const markerStats = { transportPinCount: 0, visibleTransportPinCount: 0 };
     const activeCoverageRow = atlas?.state?.lensYearCoverageByKey?.get?.(`${atlas?.state?.activeAspect}:${Number(atlas?.state?.year)}`) || null;
+    const elementVisible = (el) => {
+      if (!el || el.hidden) return false;
+      const style = getComputedStyle(el);
+      const rect = el.getBoundingClientRect();
+      return style.display !== "none" && style.visibility !== "hidden" && Number(style.opacity || 1) !== 0 && rect.width > 0 && rect.height > 0;
+    };
     for (const [id, marker] of atlas?.state?.markers || []) {
       const event = atlas?.state?.eventById?.get(id);
       if (event?.category !== "transport") continue;
@@ -77,6 +95,7 @@ async function atlasState(page) {
       return {
         text: pin.textContent.trim(),
         active: pin.getAttribute("data-active") === "true",
+        scope: pin.getAttribute("data-scope") || pin.closest(".pin-wrap")?.dataset.scope || "",
         x: Math.round(rect.left + rect.width / 2),
         y: Math.round(rect.top + rect.height / 2),
         inViewport: rect.right >= 0 && rect.left <= window.innerWidth && rect.bottom >= 0 && rect.top <= window.innerHeight,
@@ -89,15 +108,29 @@ async function atlasState(page) {
       if (style.display === "none" || style.visibility === "hidden" || Number(style.opacity || 1) === 0) return null;
       const rect = el.getBoundingClientRect();
       if (rect.width <= 0 || rect.height <= 0) return null;
+      let left = rect.left;
+      let right = rect.right;
+      let top = rect.top;
+      let bottom = rect.bottom;
+      for (let parent = el.parentElement; parent; parent = parent.parentElement) {
+        const parentStyle = getComputedStyle(parent);
+        if (!/(auto|scroll|hidden|clip)/.test(`${parentStyle.overflow} ${parentStyle.overflowX} ${parentStyle.overflowY}`)) continue;
+        const parentRect = parent.getBoundingClientRect();
+        left = Math.max(left, parentRect.left);
+        right = Math.min(right, parentRect.right);
+        top = Math.max(top, parentRect.top);
+        bottom = Math.min(bottom, parentRect.bottom);
+      }
+      if (right - left <= 0 || bottom - top <= 0) return null;
       return {
         selector,
         el,
-        left: rect.left,
-        right: rect.right,
-        top: rect.top,
-        bottom: rect.bottom,
-        width: rect.width,
-        height: rect.height,
+        left,
+        right,
+        top,
+        bottom,
+        width: right - left,
+        height: bottom - top,
       };
     };
     const panelRects = [
@@ -122,6 +155,18 @@ async function atlasState(page) {
         }
       }
     }
+    const contentOverflows = [
+      ["detailBody", ".detail-body"],
+      ["transportSummary", ".transport-speed-summary-grid"],
+      ["transportBands", ".transport-speed-band-table"],
+      ["lensSwitcher", "#lensSwitcher"],
+      ["timelineHead", ".tl-head"],
+    ].flatMap(([name, selector]) => {
+      const el = document.querySelector(selector);
+      if (!elementVisible(el)) return [];
+      const overflowX = el.scrollWidth - el.clientWidth;
+      return overflowX > 3 ? [`${name} +${Math.round(overflowX)}px`] : [];
+    });
     return {
       title: document.title,
       url: location.href,
@@ -133,13 +178,19 @@ async function atlasState(page) {
       layersCount: document.querySelector("#layersCount")?.textContent.trim() || "",
       activeLens: atlas?.state?.activeLens || document.querySelector(".lens-choice[data-active='true']")?.getAttribute("data-lens") || "",
       activeAspect: atlas?.state?.activeAspect || document.querySelector(".lens-choice[data-active='true']")?.getAttribute("data-aspect") || "",
+      citywideLensMode: Boolean(atlas?.state?.citywideLensMode),
       lensChoiceCount: document.querySelectorAll(".lens-choice").length,
+      visibleLensButtonCount: [...document.querySelectorAll(".lens-choice")].filter(elementVisible).length,
       lensDataState: document.querySelector("#lensDataState")?.textContent.trim() || "",
       lensLegendText: document.querySelector("#lensLegend")?.textContent.trim() || "",
       lensYearCoverageLoaded: Boolean(atlas?.state?.lensYearCoverage?.rows?.length),
       lensYearCoverageError: atlas?.state?.lensYearCoverageError || "",
       lensYearCoverageStatus: activeCoverageRow?.status || "",
       lensYearCoverageEventCount: Number(activeCoverageRow?.event_count || 0),
+      lensYearCoverageBroadCount: Number(activeCoverageRow?.broad_match_event_count || activeCoverageRow?.event_count || 0),
+      lensYearCoverageDirectCount: Number(activeCoverageRow?.direct_event_count || 0),
+      lensYearCoverageMapDirectCount: Number(activeCoverageRow?.map_direct_event_count || 0),
+      lensYearCoverageWithheldCount: Number(activeCoverageRow?.direct_withheld_geometry_event_count || activeCoverageRow?.withheld_geometry_event_count || 0),
       lensYearCoverageContextCount: Number(activeCoverageRow?.coverage_context_feature_count || 0),
       lensYearCoverageVisible: Boolean(activeCoverageRow?.visible_map_contract),
       areaFilterValue: document.querySelector("#areaFilterInput")?.value || "",
@@ -148,6 +199,8 @@ async function atlasState(page) {
       areaFilterOptionCount: document.querySelectorAll("#areaFilterOptions option").length,
       eventListMeta: document.querySelector("#eventListMeta")?.textContent.trim() || "",
       transportOn: document.querySelector(".layer-row[data-layer='transport']")?.getAttribute("data-on") || "",
+      visibleLayerRowCount: [...document.querySelectorAll(".layer-row")].filter(elementVisible).length,
+      filterControlCount: ["#confidenceFilter", "#areaFilterInput", "#showInferredToggle"].filter((selector) => elementVisible(document.querySelector(selector))).length,
       detailTitle: document.querySelector(".detail-title")?.textContent.trim() || "",
       detailOpen: !document.querySelector("#detailInner")?.hasAttribute("hidden"),
       detailLensEvidenceRows: document.querySelectorAll("#detailInner .lens-evidence-row").length,
@@ -167,6 +220,8 @@ async function atlasState(page) {
       mapCenter: center ? { lng: Number(center.lng.toFixed(6)), lat: Number(center.lat.toFixed(6)) } : null,
       detailLayerLoaded: Boolean(atlas?.state?.detailLayerLoaded),
       detailLayerError: atlas?.state?.detailLayerError || "",
+      detailBuildingsRendered: renderedLayerCount("detail-buildings-fill"),
+      detailBuildingsYearRendered: renderedLayerCount("detail-buildings-year-outline"),
       lensOverlayLoaded: Boolean(atlas?.state?.lensOverlayLoaded),
       lensOverlayError: atlas?.state?.lensOverlayError || "",
       lensEventFeatureCount: atlas?.state?.lensEventFeatureCount || 0,
@@ -185,10 +240,17 @@ async function atlasState(page) {
       lensUtilityTraceVisible: layerVisible("lens-utilities-trace"),
       lensUtilityAssetsVisible: layerVisible("lens-utility-asset-icons"),
       lensPlanningCellsRendered: renderedLayerCount("lens-planning-cells-fill"),
+      lensBuiltFootprintsRendered: renderedLayerCount("lens-built-footprints-fill"),
+      lensBuiltFootprintsYearRendered: renderedLayerCount("lens-built-footprints-year"),
+      lensCivicIconsRendered: renderedLayerCount("lens-civic-icons"),
+      lensEconomyIconsRendered: renderedLayerCount("lens-economy-icons"),
+      lensUtilitiesIconsRendered: renderedLayerCount("lens-utilities-icons"),
       lensCivicCoverageRendered: renderedLayerCount("lens-civic-coverage-fill"),
       lensEconomyCellsRendered: renderedLayerCount("lens-economy-cells-fill"),
       lensEconomyFrontageRendered: renderedLayerCount("lens-economy-frontage"),
       lensUtilityTraceRendered: renderedLayerCount("lens-utilities-trace"),
+      lensUtilityAssetsRendered: renderedLayerCount("lens-utility-asset-icons"),
+      lensDetailSourceLoaded: sourceLoaded("lens-detail-overlays"),
       lensDetailYearLoaded: atlas?.state?.lensDetailYearLoaded || null,
       transportRoadVisible: layerVisible("lens-transport-roads"),
       transportRoadRendered: renderedLayerCount("lens-transport-roads"),
@@ -197,6 +259,7 @@ async function atlasState(page) {
       pinCount: pins.length,
       visiblePinCount: pins.filter((pin) => pin.inViewport).length,
       panelOverlaps,
+      contentOverflows,
       transportPinCount: markerStats.transportPinCount,
       visibleTransportPinCount: markerStats.visibleTransportPinCount,
       activePin: pins.find((pin) => pin.active) || null,
@@ -281,12 +344,14 @@ function actionableConsoleMessages(messages) {
 module.exports = {
   assert,
   assertDetailedPng,
+  imageDetail,
   atlasState,
   atlasUrl,
   attachConsoleCapture,
   actionableConsoleMessages,
   baseUrl,
   chromium,
+  chromiumLaunchOptions,
   clickPin,
   closeWelcome,
   ensureOutputDir,

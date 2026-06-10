@@ -1,5 +1,14 @@
 const fs = require("fs");
 const path = require("path");
+const {
+  eventMapGeometryStatus,
+  licenseNeedsReview,
+  sourceWithholdsMapGeometry,
+} = require("../lib/atlas-lenses");
+const {
+  boundaryIndexFromGeoJson,
+  pointInBoundary,
+} = require("./build_lens_overlays");
 
 const DEFAULT_GENERATED_AT = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
 const EVENT_SCHEMA_VERSION = "1.0.0";
@@ -7,6 +16,12 @@ const ATLAS_SCHEMA_VERSION = "1.0.0";
 const BELFAST_AIR_QUALITY_SOURCE_ID = "ni-air-belfast-centre-hourly-2021-2024";
 const BELFAST_AIR_QUALITY_CSV = "belfast_air_quality.csv";
 const SUPPLEMENTAL_LENS_GAP_PACKAGE = "data/manual_drops/lens_gap_events/lens_gap_events_2007_2015.json";
+const CITY_SCOPE_BOUNDARIES = {
+  belfast: {
+    path: "data/raw/boundaries/belfast_osni_lgd_boundary_2012.geojson",
+    label: "official Belfast City Council boundary",
+  },
+};
 const BELFAST_CENTRE_STATION = {
   code: "BEL2",
   name: "Belfast Centre",
@@ -221,8 +236,11 @@ function generatedArtifactPaths(root, cityOutputDir) {
   const artifactPaths = {};
   const knownFiles = {
     detail_layers: "detail_layers.geojson",
+    lens_manifest: "lens_manifest.json",
     lens_overlays: "lens_overlays.geojson",
+    lens_year_coverage: "lens_year_coverage.json",
     transport_roads_base: "transport_roads_base.geojson",
+    utility_network: "utility_network_2026.geojson",
   };
   for (const [key, filename] of Object.entries(knownFiles)) {
     const filePath = path.join(cityOutputDir, filename);
@@ -260,7 +278,7 @@ function normalizeSourceForArtifact(source, generatedAt) {
   if (!source.accessed_at && !source.retrieved_at) {
     caveats.push("Exact source retrieval date is not recorded in the legacy source registry; review the linked publisher page before formal reuse.");
   }
-  if (/requires source-level review|verify|terms|dataset-specific/i.test(String(source.licence || ""))) {
+  if (licenseNeedsReview(source)) {
     caveats.push("Licence or terms require source-level review before redistribution or formal analytical reuse.");
   }
   return {
@@ -305,6 +323,204 @@ function sourceRegistryForCity(registry, cityId, generatedAt, root = path.resolv
     ...registrySources,
     ...supplementalSourcesForCity(root, cityId, generatedAt),
   ]);
+}
+
+function sourceAccessedAt(source) {
+  return source?.accessed_at || source?.retrieved_at || null;
+}
+
+function sourceRegistryReviewedAt(source) {
+  return source?.registry_reviewed_at || null;
+}
+
+function sourceCanonicalUrl(source) {
+  return source?.url || source?.access_url || source?.source_url || null;
+}
+
+function evidenceUrlForSource(item, source) {
+  const registryUrl = sourceCanonicalUrl(source);
+  const currentUrl = item?.url || null;
+  if (!registryUrl) return currentUrl;
+  if (!currentUrl) return registryUrl;
+  const sourceId = String(item?.source_id || "");
+  if (
+    sourceId.startsWith("dfi-planning-statistics-2024-25-round")
+    && /\/articles\/planning-activity-statistics\b/.test(currentUrl)
+  ) {
+    return registryUrl;
+  }
+  return currentUrl;
+}
+
+function provenanceUrlForSources(provenance, sourceIds, sourceById) {
+  const currentUrl = provenance?.source_url || null;
+  if (!currentUrl) return currentUrl;
+  for (const sourceId of sourceIds) {
+    if (!String(sourceId).startsWith("dfi-planning-statistics-2024-25-round")) continue;
+    if (!/\/articles\/planning-activity-statistics\b/.test(currentUrl)) continue;
+    const registryUrl = sourceCanonicalUrl(sourceById.get(sourceId));
+    if (registryUrl) return registryUrl;
+  }
+  return currentUrl;
+}
+
+function eventSourcesWithholdMapGeometry(sourceIds, sourceById) {
+  return (sourceIds || []).some((sourceId) => sourceWithholdsMapGeometry(sourceById.get(sourceId)));
+}
+
+function mapGeometryWithheldReason(sourceIds, sourceById) {
+  const withheldSources = (sourceIds || [])
+    .map((sourceId) => sourceById.get(sourceId))
+    .filter(sourceWithholdsMapGeometry);
+  const sourceLabels = withheldSources
+    .map((source) => source.title || source.source_id)
+    .filter(Boolean)
+    .slice(0, 3)
+    .join("; ");
+  const suffix = sourceLabels ? ` Source(s): ${sourceLabels}.` : "";
+  return `Map geometry is withheld pending OSNI/LPS mapping-rights confirmation; the event remains available as administrative source evidence.${suffix}`;
+}
+
+function withMapGeometryPolicy(event, sourceIds, sourceById) {
+  const eventStatus = eventMapGeometryStatus(event);
+  const eventGeometryWithheld = Boolean(eventStatus);
+  const sourceGeometryWithheld = eventSourcesWithholdMapGeometry(sourceIds, sourceById);
+  if (!eventGeometryWithheld && !sourceGeometryWithheld) return event;
+  const reason = sourceGeometryWithheld
+    ? mapGeometryWithheldReason(sourceIds, sourceById)
+    : "Map geometry is withheld because the available location is a city/area reference, aggregate geography, or dataset marker rather than source-backed site geometry; the event remains available as administrative source evidence.";
+  const status = sourceGeometryWithheld ? "withheld_rights_review" : eventStatus;
+  const precision = sourceGeometryWithheld
+    ? "Map geometry withheld; use affected_area label, source row, and evidence URL for spatial interpretation until coordinate redistribution is cleared."
+    : "Map geometry withheld; use affected_area label, source row, and evidence URL for spatial interpretation because the supplied location is not row-level site geometry.";
+  const geometrySource = sourceGeometryWithheld
+    ? "Source row includes location fields, but generated atlas map geometry is withheld pending OSNI/LPS mapping-rights confirmation."
+    : "Generated atlas map geometry is withheld because the location represents a city/area reference, aggregate geography, or dataset marker rather than a source-backed site geometry.";
+  return {
+    ...event,
+    geometry: null,
+    geometry_status: status,
+    map_geometry_status: status,
+    map_geometry_withheld_reason: reason,
+    caveats: [...new Set([...(event.caveats || []), reason])],
+    provenance: {
+      ...(event.provenance || {}),
+      geometry_status: status,
+      map_geometry_status: status,
+      map_geometry_withheld_reason: reason,
+      geometry_source: geometrySource,
+      geometry_precision: precision,
+    },
+  };
+}
+
+function loadCityScopeBoundary(root, cityId) {
+  const source = CITY_SCOPE_BOUNDARIES[cityId];
+  if (!source) return null;
+  const absolutePath = resolve(root, source.path);
+  if (!fs.existsSync(absolutePath)) return null;
+  const payload = readJson(absolutePath);
+  const metadata = payload.metadata || {};
+  return {
+    ...boundaryIndexFromGeoJson(payload, {
+      city_id: cityId,
+      path: source.path,
+      source_name: metadata.source_name || source.label,
+      source_url: metadata.source_url || "",
+      licence: metadata.licence || "",
+      boundary_scope: metadata.boundary_scope || source.label,
+    }),
+    label: source.label,
+    metadata,
+  };
+}
+
+function eventGeometryCoordinates(event) {
+  const geometry = event?.geometry;
+  if (!geometry || typeof geometry !== "object") return [];
+  if (geometry.type === "Point" && validPoint(geometry.coordinates)) return [geometry.coordinates];
+  const coordinates = [];
+  function walk(value) {
+    if (!Array.isArray(value)) return;
+    if (validPoint(value)) {
+      coordinates.push(value);
+      return;
+    }
+    for (const item of value) walk(item);
+  }
+  if (geometry.type === "GeometryCollection") {
+    for (const item of geometry.geometries || []) {
+      coordinates.push(...eventGeometryCoordinates({ geometry: item }));
+    }
+  } else {
+    walk(geometry.coordinates);
+  }
+  return coordinates;
+}
+
+function eventGeometryInsideScope(event, boundary) {
+  if (!boundary || !event?.geometry) return true;
+  const coordinates = eventGeometryCoordinates(event);
+  return coordinates.length > 0 && coordinates.every((coord) => pointInBoundary(coord, boundary));
+}
+
+function withCityScopeGeometryPolicy(event, boundary, scopeStats) {
+  if (!boundary || !event?.geometry || eventGeometryInsideScope(event, boundary)) return event;
+  if (scopeStats) scopeStats.geometry_withheld_out_of_scope_event_count += 1;
+  const reason = `Map geometry is withheld because the event point falls outside the ${boundary.label} used for this atlas; the source-backed record remains available as evidence until a city adapter reassigns or excludes it.`;
+  return {
+    ...event,
+    geometry: null,
+    geometry_status: "withheld_outside_official_city_boundary",
+    map_geometry_status: "withheld_outside_official_city_boundary",
+    map_geometry_withheld_reason: reason,
+    caveats: [...new Set([...(event.caveats || []), reason])],
+    provenance: {
+      ...(event.provenance || {}),
+      geometry_status: "withheld_outside_official_city_boundary",
+      map_geometry_status: "withheld_outside_official_city_boundary",
+      map_geometry_withheld_reason: reason,
+      city_scope_boundary_source_path: boundary.source_path,
+      city_scope_boundary_source_name: boundary.source_name,
+      city_scope_boundary_source_url: boundary.source_url,
+      geometry_source: "Generated atlas map geometry is withheld because the point lies outside the official city boundary used for the citywide atlas scope.",
+      geometry_precision: "Out-of-scope source point retained for evidence review; it is not rendered as Belfast city map geometry.",
+    },
+  };
+}
+
+function enrichEventSourceAccess(event, sourceById) {
+  const sourceIds = Array.isArray(event.source_ids) ? event.source_ids : [];
+  const exactAccessBySource = new Map();
+  for (const sourceId of sourceIds) {
+    const exactAccess = sourceAccessedAt(sourceById.get(sourceId));
+    if (exactAccess) exactAccessBySource.set(sourceId, exactAccess);
+  }
+
+  const firstExactAccess = event.provenance?.source_retrieved_at || [...exactAccessBySource.values()][0] || null;
+  const firstRegistryReview = event.provenance?.source_registry_reviewed_at
+    || sourceIds.map((sourceId) => sourceRegistryReviewedAt(sourceById.get(sourceId))).find(Boolean)
+    || null;
+  const canonicalProvenanceUrl = provenanceUrlForSources(event.provenance, sourceIds, sourceById);
+
+  const enriched = {
+    ...event,
+    evidence: (event.evidence || []).map((item) => {
+      const source = sourceById.get(item.source_id);
+      return {
+        ...item,
+        url: evidenceUrlForSource(item, source),
+        accessed_at: item.accessed_at || exactAccessBySource.get(item.source_id) || null,
+      };
+    }),
+    provenance: {
+      ...(event.provenance || {}),
+      ...(canonicalProvenanceUrl ? { source_url: canonicalProvenanceUrl } : {}),
+      ...(firstExactAccess ? { source_retrieved_at: firstExactAccess } : {}),
+      ...(firstRegistryReview ? { source_registry_reviewed_at: firstRegistryReview } : {}),
+    },
+  };
+  return withMapGeometryPolicy(enriched, sourceIds, sourceById);
 }
 
 function yearRange(start, end) {
@@ -496,7 +712,7 @@ function eventForBelfastAirQualitySummary(summary, csvRelativePath) {
       start: summary.start_date,
       end: summary.end_date,
     },
-    date_precision: "year",
+    date_precision: "range",
     source_date_field: "Date and Time",
     category: "environment",
     lens: "environment",
@@ -611,14 +827,15 @@ function geometryForSupplementalEvent(item) {
 }
 
 function evidenceForSupplementalEvent(item, sourceIds) {
-  const url = item.source_url || null;
+  const urlsBySource = item.source_urls && typeof item.source_urls === "object" ? item.source_urls : {};
+  const recordIdsBySource = item.source_record_ids && typeof item.source_record_ids === "object" ? item.source_record_ids : {};
   return sourceIds.map((sourceId) => ({
     source_id: sourceId,
     label: item.source_name || sourceId,
-    kind: url ? "source_url" : "source_record",
-    url,
+    kind: (urlsBySource[sourceId] || item.source_url) ? "source_url" : "source_record",
+    url: urlsBySource[sourceId] || item.source_url || null,
     file_path: null,
-    record_id: item.source_record_id || item.event_id || null,
+    record_id: recordIdsBySource[sourceId] || item.source_record_id || item.event_id || null,
     accessed_at: item.source_retrieved_at || null,
   }));
 }
@@ -655,6 +872,8 @@ function normalizeSupplementalLensGapEvent(item, sourcePath) {
     evidence: evidenceForSupplementalEvent(item, sourceIds),
     confidence: item.confidence || "documented",
     affected_signals: Array.isArray(item.affected_signals) ? item.affected_signals.map(String).sort() : [],
+    excluded_lens_slugs: Array.isArray(item.excluded_lens_slugs) ? item.excluded_lens_slugs.map(String).sort() : [],
+    exclude_transport_road_scoring: item.exclude_transport_road_scoring === true,
     explanation: String(item.observed_change || item.summary || title),
     caveats: [
       String(item.limitations || "Source-backed supplemental event; inspect cited source before reuse."),
@@ -823,6 +1042,7 @@ function normalizedYearForLegacyEvent(event, dates) {
 }
 
 function evidenceForLegacyEvent(event, sourceId, legacyCatalogPath) {
+  const accessedAt = event.sourceAccessedAt || event.retrievedAt || null;
   const evidence = [];
   if (event.sourceUrl) {
     evidence.push({
@@ -832,6 +1052,7 @@ function evidenceForLegacyEvent(event, sourceId, legacyCatalogPath) {
       url: event.sourceUrl,
       file_path: null,
       record_id: event.sourceId || event.id || null,
+      accessed_at: accessedAt,
     });
   }
   if (event.osmChangesetUrl) {
@@ -842,6 +1063,7 @@ function evidenceForLegacyEvent(event, sourceId, legacyCatalogPath) {
       url: event.osmChangesetUrl,
       file_path: null,
       record_id: event.osmChangeset ? String(event.osmChangeset) : null,
+      accessed_at: accessedAt,
     });
   }
   evidence.push({
@@ -851,6 +1073,7 @@ function evidenceForLegacyEvent(event, sourceId, legacyCatalogPath) {
     url: null,
     file_path: legacyCatalogPath,
     record_id: event.id || null,
+    accessed_at: accessedAt,
   });
   return evidence;
 }
@@ -1077,24 +1300,31 @@ function countByPair(items, firstKeyFn, secondKeyFn) {
 }
 
 function featureForEvent(event) {
+  const properties = {
+    city_id: event.city_id,
+    event_id: event.event_id,
+    title: event.title,
+    year: event.year,
+    effective_date: event.effective_date,
+    date_precision: event.date_precision,
+    short_description: event.short_description,
+    category: event.category,
+    lens: event.lens,
+    confidence: event.confidence,
+    source_ids: event.source_ids,
+    affected_area_label: event.affected_area?.label || null,
+    explanation: event.explanation,
+  };
+  if (Array.isArray(event.excluded_lens_slugs) && event.excluded_lens_slugs.length) {
+    properties.excluded_lens_slugs = event.excluded_lens_slugs;
+  }
+  if (event.exclude_transport_road_scoring === true) {
+    properties.exclude_transport_road_scoring = true;
+  }
   return {
     type: "Feature",
     id: event.event_id,
-    properties: {
-      city_id: event.city_id,
-      event_id: event.event_id,
-      title: event.title,
-      year: event.year,
-      effective_date: event.effective_date,
-      date_precision: event.date_precision,
-      short_description: event.short_description,
-      category: event.category,
-      lens: event.lens,
-      confidence: event.confidence,
-      source_ids: event.source_ids,
-      affected_area_label: event.affected_area?.label || null,
-      explanation: event.explanation,
-    },
+    properties,
     geometry: event.geometry || null,
   };
 }
@@ -1149,6 +1379,26 @@ function buildCityArtifacts(root, outputDir, city, citySources, legacyCatalogPat
   if (existing) return existing;
   const cityOutputDir = path.join(outputDir, "cities", city.city_id);
   const { events, migration } = eventsForCity(root, city, legacyCatalogPath);
+  const sourceById = new Map(citySources.map((source) => [source.source_id, source]));
+  const cityScopeBoundary = loadCityScopeBoundary(root, city.city_id);
+  const cityScopeStats = cityScopeBoundary
+    ? {
+        boundary_source_path: cityScopeBoundary.source_path,
+        boundary_source_name: cityScopeBoundary.source_name,
+        boundary_source_url: cityScopeBoundary.source_url,
+        boundary_licence: cityScopeBoundary.licence,
+        boundary_scope: cityScopeBoundary.boundary_scope,
+        method: "Generated map geometry is retained only when event coordinates fall inside the official city boundary polygon. Out-of-scope records keep source evidence but do not render as city map features.",
+        geometry_withheld_out_of_scope_event_count: 0,
+      }
+    : null;
+  for (let index = 0; index < events.length; index += 1) {
+    events[index] = withCityScopeGeometryPolicy(
+      enrichEventSourceAccess(events[index], sourceById),
+      cityScopeBoundary,
+      cityScopeStats,
+    );
+  }
   const eventsByYear = new Map();
   for (const event of events) {
     if (!eventsByYear.has(event.year)) eventsByYear.set(event.year, []);
@@ -1160,11 +1410,15 @@ function buildCityArtifacts(root, outputDir, city, citySources, legacyCatalogPat
     const yearEvents = eventsByYear.get(year).sort((a, b) => a.event_id.localeCompare(b.event_id));
     const jsonPath = path.join(cityOutputDir, `events_${year}.json`);
     const geojsonPath = path.join(cityOutputDir, `events_${year}.geojson`);
+    const mapFeatureEvents = yearEvents.filter((event) => event.geometry);
+    const withheldGeometryEventCount = yearEvents.length - mapFeatureEvents.length;
     writeJson(jsonPath, {
       schema_version: ATLAS_SCHEMA_VERSION,
       city_id: city.city_id,
       year,
       event_count: yearEvents.length,
+      map_feature_count: mapFeatureEvents.length,
+      withheld_geometry_event_count: withheldGeometryEventCount,
       events: yearEvents,
     });
     writeJson(geojsonPath, {
@@ -1172,11 +1426,15 @@ function buildCityArtifacts(root, outputDir, city, citySources, legacyCatalogPat
       schema_version: ATLAS_SCHEMA_VERSION,
       city_id: city.city_id,
       year,
-      features: yearEvents.map(featureForEvent),
+      map_feature_count: mapFeatureEvents.length,
+      withheld_geometry_event_count: withheldGeometryEventCount,
+      features: mapFeatureEvents.map(featureForEvent),
     });
     chunks.push({
       year,
       event_count: yearEvents.length,
+      map_feature_count: mapFeatureEvents.length,
+      withheld_geometry_event_count: withheldGeometryEventCount,
       counts_by_category: countBy(yearEvents, (event) => event.category),
       counts_by_confidence: countBy(yearEvents, (event) => event.confidence),
       counts_by_category_confidence: countByPair(yearEvents, (event) => event.category, (event) => event.confidence),
@@ -1202,7 +1460,7 @@ function buildCityArtifacts(root, outputDir, city, citySources, legacyCatalogPat
     event_count: events.length,
     event_years: [...eventsByYear.keys()].sort((a, b) => a - b),
     chunks,
-    migration,
+    migration: cityScopeStats ? { ...(migration || {}), city_scope_filter: cityScopeStats } : migration,
   };
 
   const sourcePayload = {

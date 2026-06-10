@@ -1,5 +1,11 @@
 const fs = require("fs");
 const path = require("path");
+const {
+  eventWithholdsMapGeometry: eventWithholdsMapGeometryByStatus,
+  licenseNeedsReview,
+  sourceHasMinimumLicense,
+  sourceWithholdsMapGeometry,
+} = require("../lib/atlas-lenses");
 
 const rootDir = path.resolve(__dirname, "..");
 const failures = [];
@@ -27,6 +33,8 @@ function assert(condition, message) {
 }
 
 const LENS_DETAIL_SITE_LAYERS = new Set(["planning_cell", "civic_coverage_cell", "economy_activity_cell", "economy_frontage", "civic_facility", "utility_trace", "utility_asset"]);
+const UTILITY_NETWORK_TYPES = new Set(["water", "electricity", "telecoms", "gas", "drainage", "district_energy"]);
+const UTILITY_NETWORK_GEOMETRIES = new Set(["asset", "line", "area"]);
 const LENS_DETAIL_BAD_SOURCE_PATTERN = /\buk[-_\s]?hpi\b|\bhpi monthly\b|house[-_\s]?price[-_\s]?index|uk[-_\s]?house[-_\s]?price[-_\s]?index|market[-_\s]?trend|lon-extra-uk-house-price-index/i;
 const LENS_DETAIL_BAD_PRECISION_PATTERN = /\bborough aggregate\b|\baggregate,\s*not\b|\barea\/city reference\b|\bcitywide\b|\bnot an exact event geometry\b|^(approximate\s+)?district(?:-extension)?(?:\s+approximate|\s+centroid)?\b|^(approximate\s+)?neighbou?rhood(?:\s+approximate|\s+centroid)?\b|^(rail[-\s])?corridor(?:\s+approximate|\s+centroid)?\b|^(multiple sites|multi[-\s]?site|programme approximate)\b/i;
 const REQUIRED_LENS_DETAIL_EVENT_IDS = {
@@ -74,6 +82,33 @@ function lensDetailEventIds(features) {
   return ids;
 }
 
+function eventHasCompatibleSources(event, sourceById) {
+  const ids = Array.isArray(event?.source_ids) ? event.source_ids : [];
+  return ids.length > 0
+    && ids.every((sourceId) => {
+      const source = sourceById.get(sourceId);
+      return sourceHasMinimumLicense(source) && !licenseNeedsReview(source);
+    });
+}
+
+function eventWithholdsMapGeometry(event, sourceById) {
+  const ids = Array.isArray(event?.source_ids) ? event.source_ids : [];
+  return eventWithholdsMapGeometryByStatus(event)
+    || ids.some((sourceId) => sourceWithholdsMapGeometry(sourceById.get(sourceId)));
+}
+
+function compatibleRequiredLensDetailEventIds(eventsManifest, year, requiredIds, sourceById) {
+  if (!requiredIds?.length) return [];
+  const chunk = (eventsManifest.chunks || []).find((item) => Number(item.year) === Number(year));
+  if (!chunk?.json_path) return requiredIds;
+  const payload = readJson(chunk.json_path);
+  const eventById = new Map((payload?.events || []).map((event) => [event.event_id, event]));
+  return requiredIds.filter((eventId) => {
+    const event = eventById.get(eventId);
+    return !event || eventHasCompatibleSources(event, sourceById);
+  });
+}
+
 const atlasIndexPath = "web/data/city-atlas/index.json";
 const atlas = readJson(atlasIndexPath);
 
@@ -99,16 +134,20 @@ if (atlas) {
     const detailLayers = paths.detail_layers ? readJson(paths.detail_layers) : null;
     const lensOverlays = paths.lens_overlays ? readJson(paths.lens_overlays) : null;
     const transportRoadBase = paths.transport_roads_base ? readJson(paths.transport_roads_base) : null;
+    const utilityNetwork = paths.utility_network ? readJson(paths.utility_network) : null;
+    const sourceById = new Map((sources?.sources || []).map((source) => [source.source_id, source]));
 
-    for (const key of ["lens_overlays", "lens_detail_template", "transport_roads_base", "transport_roads_template"]) {
+    for (const key of ["lens_overlays", "lens_detail_template", "transport_roads_base", "transport_roads_template", "utility_network"]) {
       assert(paths[key], `City ${city.city_id} is missing required artifact_paths.${key}.`);
     }
     if (paths.lens_overlays) assert(exists(paths.lens_overlays), `City ${city.city_id} lens overlay artifact is missing: ${paths.lens_overlays}`);
     if (paths.transport_roads_base) assert(exists(paths.transport_roads_base), `City ${city.city_id} transport base road artifact is missing: ${paths.transport_roads_base}`);
+    if (paths.utility_network) assert(exists(paths.utility_network), `City ${city.city_id} utility network artifact is missing: ${paths.utility_network}`);
 
     if (cityMeta) {
       assert(Array.isArray(cityMeta.default_center) && cityMeta.default_center.length === 2, `City ${city.city_id} must define a [lng, lat] default_center.`);
       assert(typeof cityMeta.default_zoom === "number", `City ${city.city_id} must define numeric default_zoom.`);
+      assert(cityMeta.artifact_paths?.utility_network === paths.utility_network, `City ${city.city_id} utility_network path must match index and city artifact.`);
     }
 
     if (sources) {
@@ -139,7 +178,23 @@ if (atlas) {
         if (eventChunk) {
           assert(Array.isArray(eventChunk.events), `City ${city.city_id} ${chunk.year} chunk must expose events[].`);
           assert(eventChunk.events.length === chunk.event_count, `City ${city.city_id} ${chunk.year} chunk event_count mismatch.`);
-          assert(eventChunk.events.every((event) => event.event_id && event.title && event.year && event.geometry), `City ${city.city_id} ${chunk.year} events need id/title/year/geometry.`);
+          assert(eventChunk.events.every((event) => event.event_id && event.title && event.year), `City ${city.city_id} ${chunk.year} events need id/title/year.`);
+          const eventsWithBadGeometry = eventChunk.events.filter((event) => (
+            eventWithholdsMapGeometry(event, sourceById)
+              ? (event.geometry || !/^withheld_/.test(String(event.geometry_status || event.provenance?.geometry_status || "")))
+              : !event.geometry
+          ));
+          assert(eventsWithBadGeometry.length === 0, `City ${city.city_id} ${chunk.year} events have invalid or undisclosed geometry state.`);
+          const geojson = chunk.geojson_path && exists(chunk.geojson_path) ? readJson(chunk.geojson_path) : null;
+          if (geojson) {
+            const expectedMapFeatureCount = Number.isInteger(chunk.map_feature_count)
+              ? chunk.map_feature_count
+              : Number.isInteger(eventChunk.map_feature_count)
+                ? eventChunk.map_feature_count
+                : eventChunk.events.filter((event) => event.geometry).length;
+            assert(geojson.type === "FeatureCollection", `City ${city.city_id} ${chunk.year} event GeoJSON must be a FeatureCollection.`);
+            assert(Array.isArray(geojson.features) && geojson.features.length === expectedMapFeatureCount, `City ${city.city_id} ${chunk.year} event GeoJSON feature count must match map_feature_count.`);
+          }
         }
       }
 
@@ -177,7 +232,12 @@ if (atlas) {
             );
             assert((lensDetail.features || []).every((feature) => feature.properties?.category && Number.isInteger(Number(feature.properties?.year))), `City ${city.city_id} lens_detail_${year} features need category and year.`);
             assert(!(lensDetail.features || []).some(hasNonSiteLensDetail), `City ${city.city_id} lens_detail_${year} must not render aggregate/statistical/non-site records as lens geometry.`);
-            const requiredIds = REQUIRED_LENS_DETAIL_EVENT_IDS[city.city_id]?.[year] || [];
+            const requiredIds = compatibleRequiredLensDetailEventIds(
+              eventsManifest,
+              year,
+              REQUIRED_LENS_DETAIL_EVENT_IDS[city.city_id]?.[year] || [],
+              sourceById,
+            );
             if (requiredIds.length) {
               const emittedIds = lensDetailEventIds(lensDetail.features || []);
               for (const eventId of requiredIds) {
@@ -218,6 +278,22 @@ if (atlas) {
       assert(/not measured traffic/i.test(String(transportRoadBase.metadata?.caveat || "")), `City ${city.city_id} transport_roads_base must caveat traffic intensity.`);
       assert((transportRoadBase.features || []).length > 0, `City ${city.city_id} transport_roads_base must include citywide road features.`);
       assert((transportRoadBase.features || []).every((feature) => feature.properties?.layer === "traffic_road_base" && feature.geometry), `City ${city.city_id} transport_roads_base features need traffic_road_base layer and geometry.`);
+    }
+    if (utilityNetwork) {
+      assert(utilityNetwork.type === "FeatureCollection", `City ${city.city_id} utility_network must be a GeoJSON FeatureCollection.`);
+      assert(/does not contain measured utility capacity|no capacity/i.test((utilityNetwork.metadata?.caveats || []).join(" ")), `City ${city.city_id} utility_network must caveat utility capacity.`);
+      assert(/service availability|service-availability/i.test((utilityNetwork.metadata?.caveats || []).join(" ")), `City ${city.city_id} utility_network must caveat service availability.`);
+      assert((utilityNetwork.features || []).length > 0, `City ${city.city_id} utility_network must include citywide utility context features.`);
+      for (const feature of utilityNetwork.features || []) {
+        const props = feature.properties || {};
+        assert(feature.geometry, `City ${city.city_id} utility_network feature ${props.id || "<unknown>"} needs geometry.`);
+        assert(props.layer === "utility_network" && props.category === "utilities", `City ${city.city_id} utility_network feature ${props.id || "<unknown>"} needs utility layer/category.`);
+        assert(UTILITY_NETWORK_TYPES.has(props.utility_type), `City ${city.city_id} utility_network feature ${props.id || "<unknown>"} has unsupported utility_type.`);
+        assert(UTILITY_NETWORK_GEOMETRIES.has(props.network_geometry), `City ${city.city_id} utility_network feature ${props.id || "<unknown>"} has unsupported network_geometry.`);
+        for (const field of ["source_id", "source_registry_id", "source_object_id", "publisher", "source_url", "license", "accessed_at", "transformation_method", "geometry_source", "context_year", "confidence", "caveat"]) {
+          assert(props[field] !== undefined && String(props[field]).trim() !== "", `City ${city.city_id} utility_network feature ${props.id || "<unknown>"} missing ${field}.`);
+        }
+      }
     }
   }
 }

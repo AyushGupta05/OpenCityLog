@@ -1,0 +1,178 @@
+{
+  "dataset": "64uk-42ks",
+  "retrieved_at": "2026-06-02T08:38:33Z",
+  "per_year_borough_limit": 25,
+  "counts_by_year_borough": {
+    "2007": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2008": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2009": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2010": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2011": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2012": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2013": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2014": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2015": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2016": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2017": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2018": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2019": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2020": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2021": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2022": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2023": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2024": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2025": {
+      "Manhattan": 25,
+      "Bronx": 25,
+      "Brooklyn": 25,
+      "Queens": 25,
+      "Staten Island": 25
+    },
+    "2026": {
+      "Manhattan": 3,
+      "Bronx": 1,
+      "Brooklyn": 0,
+      "Queens": 0,
+      "Staten Island": 0
+    }
+  },
+  "skipped_without_event": 0,
+  "privacy_minimization": "Owner name and street-address fields are not persisted; BBL and source row URL are retained for provenance.",
+  "event_count": 2379,
+  "fetched": 2379,
+  "sample_fields": [
+    "borough",
+    "borocode",
+    "block",
+    "lot",
+    "bbl",
+    "landuse",
+    "bldgclass",
+    "lotarea",
+    "bldgarea",
+    "comarea",
+    "resarea",
+    "officearea",
+    "retailarea",
+    "factryarea",
+    "otherarea",
+    "numbldgs",
+    "numfloors",
+    "unitsres",
+    "unitstotal",
+    "yearbuilt",
+    "yearalter1",
+    "yearalter2",
+    "latitude",
+    "longitude",
+    "version"
+  ]
+}

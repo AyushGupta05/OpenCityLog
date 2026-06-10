@@ -318,7 +318,8 @@
       "retrieved_at": "2026-04-28T12:18:46.277794+00:00",
       "raw_metadata_file": "raw_metadata/london__tfl-road-disruptions__page.json",
       "access_url": "https://api.tfl.gov.uk/Road",
-      "licence": "Requires source-level review; many official sources use OGL/UK Open Government Licence, TfL terms, NYC Open Data Terms, or agency-specific terms."
+      "licence": "TfL open data/API terms; public-sector information is available under Open Government Licence v3.0 with TfL attribution and API terms/caching requirements.",
+      "licence_url": "https://tfl.gov.uk/info-for/open-data-users/"
     },
     {
       "id": "dft-road-traffic-counts",

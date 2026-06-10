@@ -1,8 +1,0 @@
-{
-  "source_id": "lon_high_streets",
-  "title": "London High Streets Data Service",
-  "requested_url": "https://data.london.gov.uk/dataset/high-streets-data-service",
-  "fetched_url": "https://data.london.gov.uk/dataset/high-streets-data-service",
-  "retrieved_at": "2026-04-28T11:05:55.421638+00:00",
-  "error": "<HTTPError 404: 'Not Found'>"
-}

@@ -15,6 +15,11 @@ const steps = [
     args: ["scripts/run_python.js", "scripts/build_discovery_city_atlas.py"],
   },
   {
+    label: "event presentation normalization",
+    command: process.execPath,
+    args: ["scripts/normalize_event_presentation.js"],
+  },
+  {
     label: "OSM detail layers",
     command: process.execPath,
     args: ["scripts/build_osm_detail_layers.js"],

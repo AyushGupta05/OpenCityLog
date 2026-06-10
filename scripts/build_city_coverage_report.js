@@ -2,7 +2,6 @@ const fs = require("fs");
 const path = require("path");
 
 const DEFAULT_GENERATED_AT = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
-const DEFAULT_TARGET_EVENTS = 100000;
 
 function parseArgs(argv) {
   const args = {
@@ -11,7 +10,6 @@ function parseArgs(argv) {
     output: "web/data/city-atlas/coverage-report.json",
     markdownOutput: "docs/data_coverage_report.md",
     generatedAt: process.env.BIMS_DATA_GENERATED_AT || DEFAULT_GENERATED_AT,
-    targetEvents: DEFAULT_TARGET_EVENTS,
   };
   for (let index = 2; index < argv.length; index += 1) {
     const arg = argv[index];
@@ -31,15 +29,9 @@ function parseArgs(argv) {
     } else if (arg === "--generated-at") {
       args.generatedAt = next;
       index += 1;
-    } else if (arg === "--target-events") {
-      args.targetEvents = Number(next);
-      index += 1;
     } else {
       throw new Error(`Unknown argument: ${arg}`);
     }
-  }
-  if (!Number.isFinite(args.targetEvents) || args.targetEvents < 1) {
-    throw new Error("--target-events must be a positive number");
   }
   return args;
 }
@@ -140,7 +132,7 @@ function compactSource(source, eventCount, yearSet, layerCounts, confidenceCount
   };
 }
 
-function buildCityCoverage(root, atlasRoot, citySummary, targetEvents) {
+function buildCityCoverage(root, atlasRoot, citySummary) {
   const cityDir = path.join(atlasRoot, "cities", citySummary.city_id);
   const cityPath = path.join(cityDir, "city.json");
   const sourcesPath = path.join(cityDir, "sources.json");
@@ -274,12 +266,6 @@ function buildCityCoverage(root, atlasRoot, citySummary, targetEvents) {
     source_count: sources.length,
     active_source_count: sourceRows.filter((source) => source.event_count > 0).length,
     source_catalog_only_count: sourcesWithoutEvents.length,
-    target_coverage_gap: {
-      target_events: targetEvents,
-      backed_event_count: allEvents.length,
-      gap_events: Math.max(0, targetEvents - allEvents.length),
-      note: "This is only a transparent large-count benchmark. Gaps are not filled with synthetic or unsupported records.",
-    },
     year_range: {
       first_event_year: eventYears.length ? eventYears[0] : null,
       last_event_year: eventYears.length ? eventYears[eventYears.length - 1] : null,
@@ -309,8 +295,8 @@ function renderMarkdown(report) {
   lines.push("");
   lines.push("This report counts source-backed records emitted into `web/data/city-atlas`. It is not a claim of complete city coverage, and gaps are not padded with synthetic records.");
   lines.push("");
-  lines.push("| City | Events | Active sources | Catalog-only sources | Event years | Top layers | Gap to 100k |");
-  lines.push("| --- | ---: | ---: | ---: | --- | --- | ---: |");
+  lines.push("| City | Events | Active sources | Catalog-only sources | Event years | Top layers | Catalog gaps |");
+  lines.push("| --- | ---: | ---: | ---: | --- | --- | --- |");
   for (const city of report.cities) {
     const topLayers = Object.entries(city.event_counts_by_layer)
       .sort((a, b) => Number(b[1]) - Number(a[1]))
@@ -320,7 +306,10 @@ function renderMarkdown(report) {
     const years = city.year_range.first_event_year === null
       ? "none"
       : `${city.year_range.first_event_year}-${city.year_range.last_event_year}`;
-    lines.push(`| ${city.display_name} | ${city.event_count} | ${city.active_source_count} | ${city.source_catalog_only_count} | ${years} | ${topLayers || "none"} | ${city.target_coverage_gap.gap_events} |`);
+    const gaps = city.gaps.sources_without_events.length
+      ? `${city.gaps.sources_without_events.length} catalog-only source(s)`
+      : "none recorded";
+    lines.push(`| ${city.display_name} | ${city.event_count} | ${city.active_source_count} | ${city.source_catalog_only_count} | ${years} | ${topLayers || "none"} | ${gaps} |`);
   }
   lines.push("");
 
@@ -359,7 +348,7 @@ function buildCoverageReport(args) {
   const indexPath = path.join(atlasRoot, "index.json");
   const index = readJson(indexPath);
   const cities = (index.cities || []).map((citySummary) =>
-    buildCityCoverage(args.root, atlasRoot, citySummary, args.targetEvents)
+    buildCityCoverage(args.root, atlasRoot, citySummary)
   );
   const coverageRows = cities.flatMap((city) => city.source_year_layer_rows);
   const report = {

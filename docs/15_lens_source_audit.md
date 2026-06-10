@@ -62,7 +62,7 @@ Each launched city must expose all 15 lenses. A lens can use the same source-bac
 | London | TfL disruptions/status feeds, DfT road-collision records, London Datastore transport datasets | TfL terms and OGL | Disruption records are event/status rows, not timetable reliability measurements. |
 | NYC | MTA status/open data, NYC DOT street closures/permits, Open Data service and street-event feeds | MTA and NYC Open Data terms | Planned and active disruptions must be labelled separately. |
 
-### Journey Speed
+### Transport Activity
 
 | City | Compatible sources | Licence notes | Main caveats |
 | --- | --- | --- | --- |
@@ -86,11 +86,11 @@ Each launched city must expose all 15 lenses. A lens can use the same source-bac
 | London | London Datastore facilities, NHS/education public data where linked, ONS/GLA geographies | OGL/dataset-specific terms | Catchments are display aids around source rows, not eligibility areas. |
 | NYC | NYC Open Data facilities, school, library, parks, health, community district datasets | NYC Open Data terms | Official service boundaries must only be shown when the dataset supplies them. |
 
-### Service Demand
+### Service Context
 
 | City | Compatible sources | Licence notes | Main caveats |
 | --- | --- | --- | --- |
-| Belfast | Council service pages, NISRA denominators, civic facility/project records, public request/notice sources where available | OGL where stated | Demand grids are descriptive context; no population or capacity model is implied. |
+| Belfast | Council service pages, NISRA denominators, civic facility/project records, public request/notice sources where available | OGL where stated | Service-context grids are descriptive context; no population or capacity model is implied. |
 | London | Police.uk, LFB, FHRS, London Datastore demographic/geography datasets, ONS denominators | OGL/dataset-specific terms | Counts must preserve privacy-minimization and geography vintage. |
 | NYC | NYC 311, HPD, FDNY/EMS, facilities and demographic geography from NYC Open Data/Census context | NYC Open Data/US public data terms | Request and incident rows are administrative records, not validated demand estimates. |
 
@@ -118,7 +118,7 @@ Each launched city must expose all 15 lenses. A lens can use the same source-bac
 | London | GLA/London Datastore economic layers, transport hubs, HM Land Registry/HPI, FSA/LFB/Police context | OGL/dataset terms | Economic pull must remain a source-backed context grouping, not an opaque score. |
 | NYC | Open Data employment/business/facility datasets, MTA/DOT anchors, DCP economic/geography resources | NYC Open Data/agency terms | Do not infer visitor flows, spending, or job impacts from anchor proximity. |
 
-### Utility Capacity
+### Utility Context
 
 | City | Compatible sources | Licence notes | Main caveats |
 | --- | --- | --- | --- |
@@ -126,7 +126,7 @@ Each launched city must expose all 15 lenses. A lens can use the same source-bac
 | London | London Datastore infrastructure layers, streetworks/open works feeds where public, OSM utility context | OGL/ODbL/dataset-specific terms | Public works/assets are context, not capacity headroom. |
 | NYC | NYC Open Data infrastructure/capital assets, DOT permits/street closures, DEP/utility-related public datasets, OSM | NYC Open Data/ODbL | Asset presence is not available capacity. |
 
-### Network Resilience
+### Utility Network Context
 
 | City | Compatible sources | Licence notes | Main caveats |
 | --- | --- | --- | --- |
@@ -157,7 +157,7 @@ The generated lens-year coverage artifacts are:
 - `web/data/city-atlas/cities/london/lens_year_coverage.json`
 - `web/data/city-atlas/cities/nyc/lens_year_coverage.json`
 
-Each city artifact contains 300 rows: 15 mandatory lenses times the required years 2007-2026. A row with `source_backed_records` has compatible same-lens event records for that year. A row with `source_backed_context_no_year_records` has `event_count: 0` and keeps the lens visible through source-backed coverage-context features from official scope/context sources. Those context features are not city-change events, are excluded from headline counts, and cannot be treated as evidence of a built, service, economic, utility, or transport change.
+Each city artifact contains 300 rows: 15 mandatory lenses times the required years 2007-2026. A row with `source_backed_records` has direct same-category event evidence for that lens/year and may be visible on the map. The row also separates `broad_match_*` counts from `direct_*` counts, where `direct_*` means same-category event evidence for that lens. A row with broad matches but `direct_event_count: 0` is labelled `adjacent_source_backed_records`, has `visible_map_contract: false`, and must not be presented as complete direct lens coverage. A row with `missing_source_backed_view` has `event_count: 0`, `source_count: 0`, and `visible_map_contract: false`; no generated marks, context surfaces, or filler geometry are emitted for that lens/year.
 
 Run:
 
@@ -166,7 +166,7 @@ npm run build:lens-contract
 npm run verify:lens-contract
 ```
 
-The verifier fails if a launched city is missing any lens, required 2007-2026 lens-year row, full-city boundary source, licence URL, attribution, compatible source count, freshness, export flag, reference-screen coverage, required year artifact, or basic provenance fields. Same-lens event count may be zero only when the corresponding lens-year row and `lens_detail_<year>.geojson` file expose source-backed context features that are explicitly labelled and excluded from headline counts.
+The verifier fails if a launched city is missing any lens, required 2007-2026 lens-year row, full-city boundary source, licence URL, attribution, compatible source count, direct/source-count relationship, freshness, export flag, reference-screen coverage, required year artifact, or basic provenance fields. Broad-only event rows must be labelled `adjacent_source_backed_records`, hidden from direct map/headline coverage, and caveated as adjacent evidence. Broad event count may be zero only when the row is explicitly labelled `missing_source_backed_view`, is not visible on the map, has no borrowed context sources, and states that no marks or coverage surfaces are generated.
 
 ## Public Reference Pages
 

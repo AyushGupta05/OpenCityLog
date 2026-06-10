@@ -1,53 +1,43 @@
-name: New source
-description: Suggest a public dataset, register, document set, or API for a city adapter.
-title: "[Source]: "
-labels: ["new-source", "licence-review"]
+name: New public source
+about: Suggest a public dataset, register, report, or API for a city adapter.
+title: "Source: "
+labels: ["source", "data"]
 body:
   - type: input
     id: city
     attributes:
-      label: City or geography
-    validations:
-      required: true
-  - type: input
-    id: source_url
-    attributes:
-      label: Source URL
+      label: City or region
+      placeholder: e.g. Belfast, Greater London, New York City
     validations:
       required: true
   - type: input
     id: publisher
     attributes:
       label: Publisher
+      placeholder: e.g. city council, transport agency, planning portal
     validations:
       required: true
   - type: input
+    id: url
+    attributes:
+      label: Source URL
+      description: Direct public link to the dataset/page/API/documentation.
+    validations:
+      required: true
+  - type: dropdown
     id: licence
     attributes:
-      label: Licence or terms URL
-      description: Use "unknown" if the licence is not clear.
+      label: Licence known?
+      options:
+        - Yes, open licence is stated
+        - Licence unclear
+        - Restricted or non-open
     validations:
       required: true
   - type: textarea
     id: coverage
     attributes:
-      label: Coverage and update notes
-      description: Years, geography, update frequency, row ids, and known gaps.
+      label: Coverage and caveats
+      description: Date range, geography, fields, update frequency, and known limitations.
     validations:
       required: true
-  - type: textarea
-    id: event_use
-    attributes:
-      label: How should Bims use it?
-      description: Explain whether this supports events, current context, source discovery, or methodology.
-    validations:
-      required: true
-  - type: checkboxes
-    id: checks
-    attributes:
-      label: Checks
-      options:
-        - label: I understand unclear licences should block redistribution until reviewed.
-          required: true
-        - label: I am not proposing private or sensitive non-public data.
-          required: true

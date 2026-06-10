@@ -1,12 +1,20 @@
 const fs = require("fs");
 const path = require("path");
+const {
+  eventWithholdsMapGeometry,
+  licenseNeedsReview,
+  sourceHasMinimumLicense,
+  sourceWithholdsMapGeometry,
+} = require("../lib/atlas-lenses");
 
 const CONFIDENCE_VALUES = new Set(["documented", "corroborated", "inferred", "disputed"]);
 const RELIABILITY_VALUES = new Set(["strong", "usable_with_caveats", "risky", "reject"]);
 const AVAILABILITY_VALUES = new Set(["ready", "partial_local", "planned", "adapter_placeholder", "blocked"]);
 const EVIDENCE_KINDS = new Set(["source_url", "local_file", "changeset", "source_record"]);
-const REQUIRED_OVERLAY_ARTIFACTS = ["lens_overlays", "lens_detail_template", "transport_roads_base", "transport_roads_template"];
+const REQUIRED_OVERLAY_ARTIFACTS = ["lens_overlays", "lens_detail_template", "transport_roads_base", "transport_roads_template", "utility_network"];
 const BELFAST_REQUIRED_OVERLAY_ARTIFACTS = ["detail_layers", ...REQUIRED_OVERLAY_ARTIFACTS];
+const UTILITY_NETWORK_TYPES = new Set(["water", "electricity", "telecoms", "gas", "drainage", "district_energy"]);
+const UTILITY_NETWORK_GEOMETRIES = new Set(["asset", "line", "area"]);
 const GEOMETRY_TYPES = new Set([
   "Point",
   "MultiPoint",
@@ -175,22 +183,45 @@ function validateSourceRegistry(root, sourceRegistryPath, cityConfigs, failures)
   return byId;
 }
 
-function coordinatesAreValid(value) {
-  if (!Array.isArray(value)) return false;
-  if (value.length >= 2 && typeof value[0] === "number" && typeof value[1] === "number") {
-    return Number.isFinite(value[0]) && Number.isFinite(value[1]) && value[0] >= -180 && value[0] <= 180 && value[1] >= -90 && value[1] <= 90;
-  }
-  return value.every(coordinatesAreValid);
+function positionIsValid(value) {
+  return Array.isArray(value)
+    && value.length === 2
+    && Number.isFinite(value[0])
+    && Number.isFinite(value[1])
+    && value[0] >= -180
+    && value[0] <= 180
+    && value[1] >= -90
+    && value[1] <= 90;
+}
+
+function lineStringIsValid(value) {
+  return Array.isArray(value) && value.length >= 2 && value.every(positionIsValid);
+}
+
+function linearRingIsValid(value) {
+  if (!Array.isArray(value) || value.length < 4 || !value.every(positionIsValid)) return false;
+  const first = value[0];
+  const last = value[value.length - 1];
+  return first[0] === last[0] && first[1] === last[1];
+}
+
+function polygonIsValid(value) {
+  return Array.isArray(value) && value.length > 0 && value.every(linearRingIsValid);
 }
 
 function geometryIsValid(geometry) {
-  if (geometry === null || geometry === undefined) return true;
   if (!geometry || typeof geometry !== "object") return false;
   if (!GEOMETRY_TYPES.has(geometry.type)) return false;
+  if (geometry.type === "Point") return positionIsValid(geometry.coordinates);
+  if (geometry.type === "MultiPoint") return Array.isArray(geometry.coordinates) && geometry.coordinates.length > 0 && geometry.coordinates.every(positionIsValid);
+  if (geometry.type === "LineString") return lineStringIsValid(geometry.coordinates);
+  if (geometry.type === "MultiLineString") return Array.isArray(geometry.coordinates) && geometry.coordinates.length > 0 && geometry.coordinates.every(lineStringIsValid);
+  if (geometry.type === "Polygon") return polygonIsValid(geometry.coordinates);
+  if (geometry.type === "MultiPolygon") return Array.isArray(geometry.coordinates) && geometry.coordinates.length > 0 && geometry.coordinates.every(polygonIsValid);
   if (geometry.type === "GeometryCollection") {
-    return Array.isArray(geometry.geometries) && geometry.geometries.every(geometryIsValid);
+    return Array.isArray(geometry.geometries) && geometry.geometries.length > 0 && geometry.geometries.every(geometryIsValid);
   }
-  return coordinatesAreValid(geometry.coordinates);
+  return false;
 }
 
 function hasEvidencePointer(item) {
@@ -241,6 +272,34 @@ function compactText(value) {
   return String(value || "").replace(/\s+/g, " ").trim();
 }
 
+function validMonth(year, month) {
+  return Number.isInteger(year) && Number.isInteger(month) && year >= 1700 && month >= 1 && month <= 12;
+}
+
+function validDay(year, month, day) {
+  if (!validMonth(year, month) || !Number.isInteger(day) || day < 1 || day > 31) return false;
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day;
+}
+
+function effectiveDateIsValid(value) {
+  const text = String(value || "").trim();
+  let match = text.match(/^(\d{4})$/);
+  if (match) return Number(match[1]) >= 1700;
+  match = text.match(/^(\d{4})-(\d{2})$/);
+  if (match) return validMonth(Number(match[1]), Number(match[2]));
+  match = text.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (match) return validDay(Number(match[1]), Number(match[2]), Number(match[3]));
+  return false;
+}
+
+function effectiveDateSortKey(value) {
+  const text = String(value || "").trim();
+  if (/^\d{4}$/.test(text)) return `${text}-01-01`;
+  if (/^\d{4}-\d{2}$/.test(text)) return `${text}-01`;
+  return text;
+}
+
 function sourceRecordSignature(event) {
   const provenance = event.provenance || {};
   const recordId = compactText(provenance.source_record_id || provenance.planning_application_id || provenance.legacy_source_id);
@@ -253,6 +312,26 @@ function sourceRecordSignature(event) {
 
 function hasSourceAccessTrace(source) {
   return Boolean(source.accessed_at || source.retrieved_at || source.registry_reviewed_at);
+}
+
+function hasEventAccessTrace(event) {
+  const provenance = event.provenance || {};
+  return Boolean(
+    provenance.source_retrieved_at
+      || provenance.source_registry_reviewed_at
+      || (event.evidence || []).some((item) => item.accessed_at),
+  );
+}
+
+function hasOsmMappedVisibilityCaveat(event) {
+  const text = [
+    event.source_date_field,
+    event.provenance?.source_date_field,
+    event.provenance?.geometry_precision,
+    event.explanation,
+    ...(event.caveats || []),
+  ].join(" ");
+  return /OSM/i.test(text) && /mapped.visibility|edit timestamp|mapping activity|not (a )?(confirmed )?(real-world )?(construction|opening) date/i.test(text);
 }
 
 function isPlaceholderLicence(source) {
@@ -278,10 +357,45 @@ function validateGeoJsonArtifact(failures, root, artifactPath, label, expectedCi
   if (expectedCityId) assert(failures, metadata.city_id === expectedCityId, `${label} metadata.city_id must be ${expectedCityId}`);
   assert(failures, metadataHasMethod(metadata), `${label} missing source/method metadata`);
   assert(failures, metadataHasLimitations(metadata), `${label} missing coverage/caveat metadata`);
-  for (const feature of (payload.features || []).slice(0, 25)) {
-    assert(failures, geometryIsValid(feature.geometry), `${label} has invalid sample feature geometry`);
+  for (const [index, feature] of (payload.features || []).entries()) {
+    assert(failures, geometryIsValid(feature.geometry), `${label} has invalid feature geometry at index ${index}`);
   }
   return payload;
+}
+
+function validateUtilityNetworkArtifact(failures, label, payload) {
+  const caveatText = [
+    payload.metadata?.caveat,
+    ...(payload.metadata?.caveats || []),
+  ].filter(Boolean).join(" ");
+  assert(
+    failures,
+    /not (?:a )?(?:measured )?utility capacity|does not contain measured utility capacity|no capacity/i.test(caveatText)
+      && /service availability|service-availability/i.test(caveatText),
+    `${label} metadata must caveat capacity and service availability claims`,
+  );
+  assert(failures, (payload.features || []).length > 0, `${label} must include citywide utility network context features`);
+  for (const [index, feature] of (payload.features || []).entries()) {
+    const props = feature.properties || {};
+    const featureLabel = `${label} feature ${props.id || index}`;
+    assert(failures, props.layer === "utility_network", `${featureLabel} must use layer=utility_network`);
+    assert(failures, props.category === "utilities", `${featureLabel} must use category=utilities`);
+    assert(failures, UTILITY_NETWORK_TYPES.has(props.utility_type), `${featureLabel} has unsupported utility_type ${props.utility_type || "<missing>"}`);
+    assert(failures, UTILITY_NETWORK_GEOMETRIES.has(props.network_geometry), `${featureLabel} has unsupported network_geometry ${props.network_geometry || "<missing>"}`);
+    for (const field of ["source_id", "source_registry_id", "source_object_id", "source_name", "publisher", "source_url", "license", "accessed_at", "transformation_method", "geometry_source", "original_geometry_type", "context_year", "confidence", "caveat"]) {
+      assert(failures, props[field] !== undefined && String(props[field]).trim() !== "", `${featureLabel} missing ${field}`);
+    }
+    assert(failures, props.source_registry_id === "osm-overpass", `${featureLabel} must retain source_registry_id=osm-overpass`);
+    assert(failures, /^https:\/\/www\.openstreetmap\.org\/(node|way|relation)\/\d+/.test(String(props.source_url || "")), `${featureLabel} source_url must point to the OSM object`);
+    assert(failures, /ODbL/i.test(String(props.license || "")), `${featureLabel} must retain ODbL license`);
+    assert(failures, props.confidence === "inferred", `${featureLabel} must be confidence=inferred for current mapped context`);
+    assert(
+      failures,
+      /not .*capacity|capacity measurement/i.test(String(props.caveat || ""))
+        && /service[-\s]?availability/i.test(String(props.caveat || "")),
+      `${featureLabel} caveat must reject capacity/service availability claims`,
+    );
+  }
 }
 
 function lensDetailSiteText(feature) {
@@ -300,10 +414,11 @@ function validateLensDetailSemantics(failures, label, features) {
     const layer = feature.properties?.layer;
     if (!LENS_DETAIL_SITE_LAYERS.has(layer)) continue;
     if (feature.properties?.coverage_status === "no_same_category_records") {
-      assert(failures, Number(feature.properties?.event_count || 0) === 0, `${label} coverage context must not carry event_count`);
-      assert(failures, feature.properties?.headline_count_excluded === true, `${label} coverage context must be excluded from headline counts`);
-      assert(failures, feature.properties?.evidence_role === "context_not_year_specific_change_evidence", `${label} coverage context missing evidence_role`);
-      assert(failures, Boolean(feature.properties?.source_ids), `${label} coverage context missing official scope source ids`);
+      assert(failures, false, `${label} contains generated filler geometry in ${layer}: ${feature.properties?.id || "<unknown>"}`);
+      continue;
+    }
+    if (feature.properties?.evidence_role === "context_not_year_specific_change_evidence") {
+      assert(failures, false, `${label} contains context-only lens evidence in ${layer}: ${feature.properties?.id || "<unknown>"}`);
       continue;
     }
     const siteText = lensDetailSiteText(feature);
@@ -329,7 +444,29 @@ function validateRequiredLensDetailEvents(failures, label, payload, requiredIds)
   }
 }
 
-function validateOverlayArtifacts(failures, root, citySummary, artifactCity, eventsIndex) {
+function eventHasCompatibleSources(event, sourceById) {
+  const ids = Array.isArray(event?.source_ids) ? event.source_ids : [];
+  return ids.length > 0
+    && ids.every((sourceId) => {
+      const source = sourceById.get(sourceId);
+      return sourceHasMinimumLicense(source) && !licenseNeedsReview(source);
+    });
+}
+
+function compatibleRequiredLensDetailEventIds(root, eventsIndex, yearText, requiredIds, sourceById) {
+  if (!requiredIds?.length) return [];
+  const targetYear = Number(yearText);
+  const chunk = (eventsIndex.chunks || []).find((item) => Number(item.year) === targetYear);
+  if (!chunk?.json_path) return requiredIds;
+  const payload = readJson(resolve(root, chunk.json_path));
+  const eventById = new Map((payload.events || []).map((event) => [event.event_id, event]));
+  return requiredIds.filter((eventId) => {
+    const event = eventById.get(eventId);
+    return !event || eventHasCompatibleSources(event, sourceById);
+  });
+}
+
+function validateOverlayArtifacts(failures, root, citySummary, artifactCity, eventsIndex, sourceById) {
   const cityId = citySummary.city_id;
   const summaryPaths = citySummary.artifact_paths || {};
   const cityPaths = artifactCity.artifact_paths || {};
@@ -345,7 +482,10 @@ function validateOverlayArtifacts(failures, root, citySummary, artifactCity, eve
   }
   for (const key of advertisedKeys.filter((item) => !["transport_roads_template", "lens_detail_template"].includes(item))) {
     const artifactPath = summaryPaths[key] || cityPaths[key];
-    if (artifactPath) validateGeoJsonArtifact(failures, root, artifactPath, `${cityId} ${key}`, cityId);
+    if (artifactPath) {
+      const payload = validateGeoJsonArtifact(failures, root, artifactPath, `${cityId} ${key}`, cityId);
+      if (key === "utility_network" && payload) validateUtilityNetworkArtifact(failures, `${cityId} ${key}`, payload);
+    }
   }
   const template = summaryPaths.transport_roads_template || cityPaths.transport_roads_template;
   if (template) {
@@ -392,7 +532,8 @@ function validateOverlayArtifacts(failures, root, citySummary, artifactCity, eve
     const requiredByYear = REQUIRED_LENS_DETAIL_EVENT_IDS[cityId] || {};
     for (const [yearText, requiredIds] of Object.entries(requiredByYear)) {
       const payload = validateGeoJsonArtifact(failures, root, lensTemplate.replace("{year}", yearText), `${cityId} lens_detail_${yearText}`, cityId);
-      if (payload) validateRequiredLensDetailEvents(failures, `${cityId} lens_detail_${yearText}`, payload, requiredIds);
+      const compatibleRequiredIds = compatibleRequiredLensDetailEventIds(root, eventsIndex, yearText, requiredIds, sourceById);
+      if (payload) validateRequiredLensDetailEvents(failures, `${cityId} lens_detail_${yearText}`, payload, compatibleRequiredIds);
     }
   }
 }
@@ -408,9 +549,26 @@ function validateEvent(failures, event, city, sourceById, chunkPath) {
   assert(failures, shortDescription.length >= 12, `${prefix} short_description is too short`);
   assert(failures, shortDescription.length <= 220, `${prefix} short_description is longer than 220 characters`);
   assert(failures, Number.isInteger(event.year), `${prefix} missing integer year`);
+  assert(failures, effectiveDateIsValid(event.effective_date), `${prefix} has invalid effective_date ${event.effective_date || "<missing>"}`);
   const effectiveYear = Number(String(event.effective_date || "").slice(0, 4));
   if (Number.isInteger(effectiveYear) && event.date_precision !== "range") {
     assert(failures, effectiveYear === event.year, `${prefix} effective_date year ${effectiveYear} does not match event year ${event.year}`);
+  }
+  if (event.effective_date_range) {
+    assert(failures, event.date_precision === "range", `${prefix} has effective_date_range but date_precision is ${event.date_precision}`);
+    assert(failures, Boolean(event.effective_date_range.start && event.effective_date_range.end), `${prefix} effective_date_range must include start and end`);
+    assert(failures, effectiveDateIsValid(event.effective_date_range.start), `${prefix} has invalid effective_date_range.start ${event.effective_date_range.start || "<missing>"}`);
+    assert(failures, effectiveDateIsValid(event.effective_date_range.end), `${prefix} has invalid effective_date_range.end ${event.effective_date_range.end || "<missing>"}`);
+    if (effectiveDateIsValid(event.effective_date_range.start) && effectiveDateIsValid(event.effective_date_range.end)) {
+      assert(
+        failures,
+        effectiveDateSortKey(event.effective_date_range.start) <= effectiveDateSortKey(event.effective_date_range.end),
+        `${prefix} effective_date_range start must be on or before end`,
+      );
+    }
+  }
+  if (event.date_precision === "range") {
+    assert(failures, Boolean(event.effective_date_range), `${prefix} has range precision without effective_date_range`);
   }
   const supported = city.available_years || {};
   assert(
@@ -424,12 +582,13 @@ function validateEvent(failures, event, city, sourceById, chunkPath) {
   assert(failures, Array.isArray(event.source_ids) && event.source_ids.length > 0, `${prefix} missing source_ids`);
   assert(failures, Array.isArray(event.evidence) && event.evidence.length > 0, `${prefix} missing evidence`);
   assert(failures, event.geometry || event.affected_area?.label, `${prefix} needs geometry or affected_area label`);
-  assert(failures, geometryIsValid(event.geometry), `${prefix} has invalid geometry`);
+  if (event.geometry) assert(failures, geometryIsValid(event.geometry), `${prefix} has invalid geometry`);
   assert(failures, Array.isArray(event.affected_signals), `${prefix} missing affected_signals array`);
   assert(failures, Boolean(event.explanation), `${prefix} missing explanation`);
   assert(failures, Array.isArray(event.caveats) && event.caveats.length > 0, `${prefix} missing caveats`);
   assert(failures, !isSourceLayerMarker(event), `${prefix} is a source-layer marker, not a real event`);
   assert(failures, hasProvenanceTrace(event), `${prefix} missing event-level provenance trace`);
+  assert(failures, hasEventAccessTrace(event), `${prefix} missing event source retrieval or registry review timestamp`);
   assert(failures, Boolean(event.source_date_field || event.provenance?.source_date_field), `${prefix} missing source_date_field for effective date interpretation`);
   assert(failures, Boolean(event.provenance?.geometry_source), `${prefix} missing provenance.geometry_source for spatial interpretation`);
   assert(failures, Boolean(event.provenance?.geometry_precision), `${prefix} missing provenance.geometry_precision for spatial precision/caveats`);
@@ -448,10 +607,30 @@ function validateEvent(failures, event, city, sourceById, chunkPath) {
     }
   }
 
+  const mapWithheldSourceIds = (event.source_ids || [])
+    .filter((sourceId) => sourceWithholdsMapGeometry(sourceById.get(sourceId)));
+  if (mapWithheldSourceIds.length) {
+    assert(failures, !event.geometry, `${prefix} uses map-withheld source geometry from ${mapWithheldSourceIds.join(", ")}`);
+    assert(failures, event.geometry_status === "withheld_rights_review" || event.provenance?.geometry_status === "withheld_rights_review", `${prefix} missing withheld geometry status`);
+    assert(failures, /withheld|rights/i.test(`${event.map_geometry_withheld_reason || ""} ${(event.caveats || []).join(" ")}`), `${prefix} missing withheld geometry caveat`);
+  }
+  if (eventWithholdsMapGeometry(event)) {
+    assert(failures, !event.geometry, `${prefix} exposes event-level map-withheld geometry`);
+    assert(failures, /^withheld_/.test(String(event.geometry_status || event.provenance?.geometry_status || "")), `${prefix} missing event-level withheld geometry status`);
+    assert(failures, /withheld|reference|aggregate|evidence/i.test(`${event.map_geometry_withheld_reason || ""} ${(event.caveats || []).join(" ")}`), `${prefix} missing event-level withheld geometry caveat`);
+  }
+
   for (const evidence of event.evidence || []) {
     assert(failures, event.source_ids.includes(evidence.source_id), `${prefix} evidence source ${evidence.source_id} not listed in source_ids`);
     assert(failures, EVIDENCE_KINDS.has(evidence.kind), `${prefix} evidence ${evidence.label || evidence.kind} has invalid kind ${evidence.kind}`);
     assert(failures, hasEvidencePointer(evidence), `${prefix} evidence ${evidence.label || evidence.kind} lacks url/file/record pointer`);
+  }
+
+  if (event.provenance?.osm_timestamp) {
+    assert(failures, hasOsmMappedVisibilityCaveat(event), `${prefix} has OSM timestamp without mapped-visibility caveat`);
+    if (event.confidence === "documented" || event.confidence === "corroborated") {
+      assert(failures, !/osmTimestamp/i.test(String(event.source_date_field || event.provenance?.source_date_field || "")), `${prefix} uses OSM edit timestamp as documented/corroborated event date`);
+    }
   }
 
   for (const delta of event.impact_deltas || []) {
@@ -516,7 +695,7 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
     }
 
     const eventsIndex = readJson(path.join(cityDir, "events.json"));
-    validateOverlayArtifacts(failures, root, citySummary, artifactCity, eventsIndex);
+    validateOverlayArtifacts(failures, root, citySummary, artifactCity, eventsIndex, effectiveSourceById);
     let countedEvents = 0;
     const seenEventIds = new Set();
     const seenSourceRecords = new Map();
@@ -549,9 +728,24 @@ function validateAtlas(root, atlasDir, cityConfigs, sourceById, failures) {
         const geojson = readJson(geojsonPath);
         assert(failures, geojson.type === "FeatureCollection", `${chunk.geojson_path} is not a FeatureCollection`);
         assert(failures, Array.isArray(geojson.features), `${chunk.geojson_path} missing features`);
-        assert(failures, geojson.features.length === payload.events.length, `${chunk.geojson_path} feature count mismatch`);
+        const expectedMapFeatureCount = Number.isInteger(chunk.map_feature_count)
+          ? chunk.map_feature_count
+          : Number.isInteger(payload.map_feature_count)
+            ? payload.map_feature_count
+            : payload.events.filter((event) => event.geometry).length;
+        const geojsonMapFeatureCount = Object.prototype.hasOwnProperty.call(geojson, "map_feature_count")
+          ? geojson.map_feature_count
+          : geojson.features.length;
+        assert(failures, geojson.features.length === expectedMapFeatureCount, `${chunk.geojson_path} feature count mismatch`);
+        assert(failures, Number(geojsonMapFeatureCount) === expectedMapFeatureCount, `${chunk.geojson_path} map_feature_count mismatch`);
+        assert(failures, Number(chunk.withheld_geometry_event_count || 0) === Number(payload.withheld_geometry_event_count || 0), `${chunk.geojson_path} withheld geometry count differs between index and event JSON`);
         for (const feature of geojson.features || []) {
           assert(failures, geometryIsValid(feature.geometry), `${chunk.geojson_path} has invalid feature geometry`);
+          const event = (payload.events || []).find((item) => item.event_id === (feature.id || feature.properties?.event_id));
+          const mapWithheldSourceIds = (event?.source_ids || [])
+            .filter((sourceId) => sourceWithholdsMapGeometry(effectiveSourceById.get(sourceId)));
+          assert(failures, mapWithheldSourceIds.length === 0, `${chunk.geojson_path} exposes map-withheld source geometry for ${feature.id || feature.properties?.event_id}`);
+          assert(failures, !eventWithholdsMapGeometry(event), `${chunk.geojson_path} exposes event-level map-withheld geometry for ${feature.id || feature.properties?.event_id}`);
         }
       }
     }
@@ -580,7 +774,8 @@ function validateCoverageReport(root, atlasRoot, index, failures) {
     assert(failures, city.duplicate_event_id_count === 0, `Coverage report found duplicate event ids for ${city.city_id}`);
     assert(failures, Array.isArray(city.source_year_layer_rows), `Coverage report city ${city.city_id} missing source_year_layer_rows`);
     assert(failures, Array.isArray(city.sources), `Coverage report city ${city.city_id} missing source summaries`);
-    assert(failures, city.target_coverage_gap?.note, `Coverage report city ${city.city_id} missing target coverage caveat`);
+    assert(failures, city.target_coverage_gap === undefined, `Coverage report city ${city.city_id} must not use arbitrary target coverage gaps`);
+    assert(failures, Array.isArray(city.gaps?.notes), `Coverage report city ${city.city_id} missing gaps notes`);
     eventTotal += Number(city.event_count || 0);
     for (const row of city.source_year_layer_rows || []) {
       assert(failures, row.city_id === city.city_id, `Coverage report row city mismatch for ${city.city_id}`);

@@ -759,7 +759,7 @@
       },
       "event_types": ["planning_application", "planning_decision"],
       "current_artifacts": {
-        "raw_snapshot_path": "planning_statistics/",
+        "raw_snapshot_path": "data/raw/planning_statistics/",
         "candidate_pack_path": "data/manual_drops/architecture_milestones/architecture_milestones_2008_2026.json",
         "generated_event_path": "web/data/city-atlas/cities/belfast/events.json"
       },

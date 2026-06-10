@@ -35,6 +35,7 @@ class DataFoundationTests(unittest.TestCase):
             self.assertLessEqual(len(event["short_description"]), 220)
             self.assertEqual(event["source_ids"], ["osm-overpass"])
             self.assertEqual(event["geometry"]["type"], "Point")
+            self.assertIn("source_registry_reviewed_at", event["provenance"])
             self.assertIn("not a confirmed real-world opening", event["explanation"])
             self.assertTrue(event["evidence"])
 
@@ -55,10 +56,42 @@ class DataFoundationTests(unittest.TestCase):
                     for row in coverage_report["coverage_rows"]
                 )
             )
-            self.assertEqual(coverage_report["cities"][0]["target_coverage_gap"]["gap_events"], 99998)
+            self.assertNotIn("target_coverage_gap", coverage_report["cities"][0])
+            self.assertIn("gaps", coverage_report["cities"][0])
             self.assertTrue((root / "docs" / "data_coverage_report.md").exists())
             atlas_index = read_json(root / "web" / "data" / "city-atlas" / "index.json")
             self.assertEqual(atlas_index["coverage_report_path"], "web/data/city-atlas/coverage-report.json")
+
+    def test_build_withholds_belfast_legacy_geometry_outside_official_scope(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root, include_outside_scope_event=True)
+
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+            completed = run_node(root, "scripts/verify_data.js")
+            self.assertIn("Data verification OK", completed.stdout)
+
+            atlas = root / "web" / "data" / "city-atlas" / "cities" / "belfast"
+            index = read_json(atlas / "events.json")
+            self.assertEqual(index["event_count"], 3)
+            self.assertEqual(
+                index["migration"]["city_scope_filter"]["geometry_withheld_out_of_scope_event_count"],
+                1,
+            )
+
+            year_payload = read_json(atlas / "events_2024.json")
+            by_id = {event["event_id"]: event for event in year_payload["events"]}
+            outside = by_id["osm-traffic-way-outside"]
+            self.assertIsNone(outside["geometry"])
+            self.assertEqual(outside["map_geometry_status"], "withheld_outside_official_city_boundary")
+            self.assertIn("official Belfast City Council boundary", outside["map_geometry_withheld_reason"])
+            self.assertIn("city_scope_boundary_source_path", outside["provenance"])
+
+            geojson = read_json(atlas / "events_2024.geojson")
+            feature_ids = {feature["properties"]["event_id"] for feature in geojson["features"]}
+            self.assertIn("osm-traffic-way-123", feature_ids)
+            self.assertNotIn("osm-traffic-way-outside", feature_ids)
 
     def test_verify_rejects_missing_source_attribution(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -119,6 +152,80 @@ class DataFoundationTests(unittest.TestCase):
             completed = run_node(root, "scripts/verify_data.js", check=False)
             self.assertNotEqual(completed.returncode, 0)
             self.assertIn("missing provenance.geometry_source", completed.stderr)
+
+    def test_verify_rejects_structurally_invalid_geometry(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            payload["events"][0]["geometry"] = {
+                "type": "LineString",
+                "coordinates": [[-5.94, 54.61]],
+            }
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("has invalid geometry", completed.stderr)
+
+    def test_verify_rejects_invalid_effective_date(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            payload["events"][0]["effective_date"] = "not a date"
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("has invalid effective_date not a date", completed.stderr)
+
+    def test_verify_rejects_missing_event_access_trace(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            payload["events"][0]["provenance"].pop("source_retrieved_at", None)
+            payload["events"][0]["provenance"].pop("source_registry_reviewed_at", None)
+            for evidence in payload["events"][0]["evidence"]:
+                evidence.pop("accessed_at", None)
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("missing event source retrieval or registry review timestamp", completed.stderr)
+
+    def test_verify_rejects_osm_timestamp_without_mapped_visibility_caveat(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            payload["events"][0]["source_date_field"] = "timestamp"
+            payload["events"][0]["provenance"]["source_date_field"] = "timestamp"
+            payload["events"][0]["provenance"]["geometry_precision"] = "point"
+            payload["events"][0]["explanation"] = "Fixture road event."
+            payload["events"][0]["caveats"] = ["Fixture caveat."]
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("has OSM timestamp without mapped-visibility caveat", completed.stderr)
 
     def test_verify_rejects_missing_short_description(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -213,6 +320,77 @@ class DataFoundationTests(unittest.TestCase):
             self.assertNotEqual(completed.returncode, 0)
             self.assertIn("belfast lens_overlays missing coverage/caveat metadata", completed.stderr)
 
+    def test_verify_rejects_utility_network_without_license(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+            run_node(root, "scripts/build_city_coverage_report.js")
+
+            utility_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "utility_network_2026.geojson"
+            write_json(
+                utility_path,
+                {
+                    "type": "FeatureCollection",
+                    "metadata": {
+                        "schema_version": "1.0.0",
+                        "city_id": "belfast",
+                        "method": "Fixture current OSM utility context.",
+                        "caveats": [
+                            "The artifact does not contain measured utility capacity, outage state, or service availability."
+                        ],
+                    },
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "id": "fixture-utility-network-1",
+                                "layer": "utility_network",
+                                "category": "utilities",
+                                "utility_type": "water",
+                                "network_role": "water",
+                                "network_geometry": "line",
+                                "asset_priority": 0,
+                                "source_id": "way/123",
+                                "source_registry_id": "osm-overpass",
+                                "source_object_id": "way/123",
+                                "source_name": "OpenStreetMap fixture",
+                                "publisher": "OpenStreetMap contributors",
+                                "source_url": "https://www.openstreetmap.org/way/123",
+                                "source_type": "open geospatial extract",
+                                "accessed_at": "2026-06-04T00:00:00Z",
+                                "transformation_method": "fixture",
+                                "geometry_source": "OpenStreetMap fixture geometry.",
+                                "original_geometry_type": "LineString",
+                                "observed_year": 2026,
+                                "context_year": 2026,
+                                "confidence": "inferred",
+                                "rank": 1,
+                                "intensity": 0.5,
+                                "caveat": "Current OSM mapped context; not a confirmed installation date, capacity measurement, outage state, or service-availability claim.",
+                            },
+                            "geometry": {
+                                "type": "LineString",
+                                "coordinates": [[-5.94, 54.61], [-5.93, 54.62]],
+                            },
+                        }
+                    ],
+                },
+            )
+            relative_utility = "web/data/city-atlas/cities/belfast/utility_network_2026.geojson"
+            city_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "city.json"
+            city = read_json(city_path)
+            city["artifact_paths"]["utility_network"] = relative_utility
+            write_json(city_path, city)
+            index_path = root / "web" / "data" / "city-atlas" / "index.json"
+            index = read_json(index_path)
+            index["cities"][0]["artifact_paths"]["utility_network"] = relative_utility
+            write_json(index_path, index)
+
+            completed = run_node(root, "scripts/verify_data.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("belfast utility_network feature fixture-utility-network-1 missing license", completed.stderr)
+
     def test_build_promotes_local_belfast_air_quality_csv(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -260,9 +438,15 @@ def read_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def write_fixture_project(root: Path, missing_attribution: bool = False, include_air_quality: bool = False) -> None:
+def write_fixture_project(
+    root: Path,
+    missing_attribution: bool = False,
+    include_air_quality: bool = False,
+    include_outside_scope_event: bool = False,
+) -> None:
     (root / "config" / "cities").mkdir(parents=True)
     (root / "data" / "derived" / "2026").mkdir(parents=True)
+    (root / "data" / "raw" / "boundaries").mkdir(parents=True)
 
     city = {
         "schema_version": "1.0.0",
@@ -347,48 +531,104 @@ def write_fixture_project(root: Path, missing_attribution: bool = False, include
             encoding="utf-8",
         )
 
-    legacy = {
-        "schemaVersion": "1.0.0",
-        "kind": "belfast.infrastructureEventCatalog",
-        "eventCount": 2,
-        "basis": ["Fixture"],
-        "events": [
+    legacy_events = [
+        {
+            "id": "official-2021-test-service",
+            "year": 2021,
+            "month": "Feb 2021",
+            "signal": "services",
+            "category": "services",
+            "title": "Fixture service opened",
+            "area": "Fixture area",
+            "coordinates": [-5.93, 54.6],
+            "confidence": "high",
+            "sourceName": "Belfast City Council",
+            "sourceUrl": "https://example.test/service",
+            "sourceBasis": "official council project opening",
+        },
+        {
+            "id": "osm-traffic-way-123",
+            "sourceId": "way/123",
+            "year": 2024,
+            "signal": "traffic",
+            "category": "traffic",
+            "title": "Fixture road mapped in OSM",
+            "area": "Fixture road",
+            "coordinates": [-5.94, 54.61],
+            "confidence": "medium",
+            "sourceName": "OpenStreetMap / Overpass API",
+            "sourceUrl": "https://www.openstreetmap.org/way/123",
+            "osmChangesetUrl": "https://www.openstreetmap.org/changeset/456",
+            "osmTimestamp": "2024-03-04T10:11:12Z",
+            "osmVersion": 1,
+            "osmChangeset": 456,
+            "sourceBasis": "OSM mapped infrastructure event",
+            "tags": {"highway": "residential", "name": "Fixture road"},
+        },
+    ]
+    if include_outside_scope_event:
+        legacy_events.append(
             {
-                "id": "official-2021-test-service",
-                "year": 2021,
-                "month": "Feb 2021",
-                "signal": "services",
-                "category": "services",
-                "title": "Fixture service opened",
-                "area": "Fixture area",
-                "coordinates": [-5.93, 54.6],
-                "confidence": "high",
-                "sourceName": "Belfast City Council",
-                "sourceUrl": "https://example.test/service",
-                "sourceBasis": "official council project opening",
-            },
-            {
-                "id": "osm-traffic-way-123",
-                "sourceId": "way/123",
+                "id": "osm-traffic-way-outside",
+                "sourceId": "way/999",
                 "year": 2024,
                 "signal": "traffic",
                 "category": "traffic",
-                "title": "Fixture road mapped in OSM",
-                "area": "Fixture road",
-                "coordinates": [-5.94, 54.61],
+                "title": "Out-of-scope fixture road mapped in OSM",
+                "area": "Adjacent fixture road",
+                "coordinates": [-5.75, 54.61],
                 "confidence": "medium",
                 "sourceName": "OpenStreetMap / Overpass API",
-                "sourceUrl": "https://www.openstreetmap.org/way/123",
-                "osmChangesetUrl": "https://www.openstreetmap.org/changeset/456",
+                "sourceUrl": "https://www.openstreetmap.org/way/999",
+                "osmChangesetUrl": "https://www.openstreetmap.org/changeset/999",
                 "osmTimestamp": "2024-03-04T10:11:12Z",
                 "osmVersion": 1,
-                "osmChangeset": 456,
+                "osmChangeset": 999,
                 "sourceBasis": "OSM mapped infrastructure event",
-                "tags": {"highway": "residential", "name": "Fixture road"},
-            },
-        ],
+                "tags": {"highway": "residential", "name": "Adjacent fixture road"},
+            }
+        )
+
+    legacy = {
+        "schemaVersion": "1.0.0",
+        "kind": "belfast.infrastructureEventCatalog",
+        "eventCount": len(legacy_events),
+        "basis": ["Fixture"],
+        "events": legacy_events,
     }
     write_json(root / "data" / "derived" / "2026" / "belfast_infrastructure_events_2016_2026.json", legacy)
+
+    write_json(
+        root / "data" / "raw" / "boundaries" / "belfast_osni_lgd_boundary_2012.geojson",
+        {
+            "type": "FeatureCollection",
+            "name": "belfast_official_city_scope_boundary_fixture",
+            "metadata": {
+                "schema_version": "1.0.0",
+                "city_id": "belfast",
+                "source_name": "Fixture Belfast boundary",
+                "source_url": "https://example.test/boundary",
+                "licence": "Fixture licence",
+                "boundary_scope": "Fixture Belfast city boundary.",
+            },
+            "features": [
+                {
+                    "type": "Feature",
+                    "properties": {"LGDNAME": "Belfast"},
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [[
+                            [-6.0, 54.5],
+                            [-5.8, 54.5],
+                            [-5.8, 54.7],
+                            [-6.0, 54.7],
+                            [-6.0, 54.5],
+                        ]],
+                    },
+                }
+            ],
+        },
+    )
 
 
 def source(source_id: str, city_ids: list[str], family: str, attribution: str) -> dict:

@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-30T16:01:00Z",
+  "generated_at": "2026-06-04T02:59:34Z",
   "default_city_id": "belfast",
   "city_count": 3,
   "cities": [
     {
       "city_id": "belfast",
       "display_name": "Belfast, Northern Ireland",
-      "event_count": 33159,
-      "source_count": 242,
+      "event_count": 33149,
+      "source_count": 247,
       "availability_status": "mvp_partial",
       "artifact_paths": {
         "city": "web/data/city-atlas/cities/belfast/city.json",
@@ -16,19 +16,20 @@
         "events": "web/data/city-atlas/cities/belfast/events.json",
         "availability": "web/data/city-atlas/cities/belfast/availability.json",
         "detail_layers": "web/data/city-atlas/cities/belfast/detail_layers.geojson",
+        "lens_manifest": "web/data/city-atlas/cities/belfast/lens_manifest.json",
         "lens_overlays": "web/data/city-atlas/cities/belfast/lens_overlays.geojson",
+        "lens_year_coverage": "web/data/city-atlas/cities/belfast/lens_year_coverage.json",
         "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson",
         "transport_roads_template": "web/data/city-atlas/cities/belfast/transport_roads_{year}.geojson",
         "lens_detail_template": "web/data/city-atlas/cities/belfast/lens_detail_{year}.geojson",
-        "lens_manifest": "web/data/city-atlas/cities/belfast/lens_manifest.json",
-        "lens_year_coverage": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
+        "utility_network": "web/data/city-atlas/cities/belfast/utility_network_2026.geojson"
       }
     },
     {
       "city_id": "london",
       "display_name": "London, England",
       "event_count": 224003,
-      "source_count": 294,
+      "source_count": 295,
       "availability_status": "partial_source_backed",
       "artifact_paths": {
         "city": "web/data/city-atlas/cities/london/city.json",
@@ -40,15 +41,18 @@
         "transport_roads_base": "web/data/city-atlas/cities/london/transport_roads_base.geojson",
         "transport_roads_template": "web/data/city-atlas/cities/london/transport_roads_{year}.geojson",
         "lens_detail_template": "web/data/city-atlas/cities/london/lens_detail_{year}.geojson",
+        "civic_services_context": "web/data/city-atlas/cities/london/civic_services_2026.geojson",
+        "transport_stops": "web/data/city-atlas/cities/london/transport_stops_2026.geojson",
         "lens_manifest": "web/data/city-atlas/cities/london/lens_manifest.json",
-        "lens_year_coverage": "web/data/city-atlas/cities/london/lens_year_coverage.json"
+        "lens_year_coverage": "web/data/city-atlas/cities/london/lens_year_coverage.json",
+        "utility_network": "web/data/city-atlas/cities/london/utility_network_2026.geojson"
       }
     },
     {
       "city_id": "nyc",
       "display_name": "New York City, New York",
-      "event_count": 94861,
-      "source_count": 203,
+      "event_count": 99236,
+      "source_count": 204,
       "availability_status": "partial_source_backed",
       "artifact_paths": {
         "city": "web/data/city-atlas/cities/nyc/city.json",
@@ -60,8 +64,11 @@
         "transport_roads_base": "web/data/city-atlas/cities/nyc/transport_roads_base.geojson",
         "transport_roads_template": "web/data/city-atlas/cities/nyc/transport_roads_{year}.geojson",
         "lens_detail_template": "web/data/city-atlas/cities/nyc/lens_detail_{year}.geojson",
+        "civic_services_context": "web/data/city-atlas/cities/nyc/civic_services_2026.geojson",
+        "transport_stops": "web/data/city-atlas/cities/nyc/transport_stops_2026.geojson",
         "lens_manifest": "web/data/city-atlas/cities/nyc/lens_manifest.json",
-        "lens_year_coverage": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
+        "lens_year_coverage": "web/data/city-atlas/cities/nyc/lens_year_coverage.json",
+        "utility_network": "web/data/city-atlas/cities/nyc/utility_network_2026.geojson"
       }
     }
   ],
@@ -75,15 +82,15 @@
   },
   "lens_manifest_path": "web/data/city-atlas/lens-manifest.json",
   "coverage_report_path": "web/data/city-atlas/coverage-report.json",
-  "coverage_report_generated_at": "2026-05-30T16:04:29Z",
+  "coverage_report_generated_at": "2026-06-03T20:35:34Z",
   "coverage_summary": {
     "city_count": 3,
-    "total_events": 352023,
-    "total_unique_events": 352023,
+    "total_events": 356388,
+    "total_unique_events": 356388,
     "duplicate_event_id_count": 0,
-    "active_source_count": 485,
-    "source_catalog_only_count": 254,
-    "source_year_layer_row_count": 2481,
+    "active_source_count": 490,
+    "source_catalog_only_count": 256,
+    "source_year_layer_row_count": 2527,
     "notes": [
       "Counts are emitted source-backed atlas events, not complete civic coverage.",
       "A row in coverage_rows is keyed by city_id, source_id, year, and layer.",

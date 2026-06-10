@@ -12,7 +12,7 @@
 ## Verification
 
 - [ ] `npm run verify`
-- [ ] `python -m unittest discover tests`
+- [ ] `python3 -m unittest discover tests`
 - [ ] `npm run verify:browser` for UI changes
 - [ ] Docs updated when public behavior, data coverage, or contribution flow changed
 

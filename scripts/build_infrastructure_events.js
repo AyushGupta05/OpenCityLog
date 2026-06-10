@@ -55,11 +55,10 @@ const officialEvents = [
     subtitle: "Belfast Rapid Transit introduced Glider services across East-West and Titanic Quarter corridors.",
     area: "City Centre",
     coordinates: [-5.9301, 54.5973],
-    confidence: "high",
+    confidence: "documented",
     sourceBasis: "official project/service launch",
     sourceName: "Department for Infrastructure / Translink public information",
-    sourceUrl: "https://www.infrastructure-ni.gov.uk/articles/belfast-rapid-transit",
-    impactNote: "Use the traffic lens to inspect where bus-priority corridors and city-centre access changes overlap the replay grid."
+    sourceUrl: "https://www.infrastructure-ni.gov.uk/articles/belfast-rapid-transit"
   },
   {
     id: "official-2023-templemore-baths",
@@ -71,11 +70,10 @@ const officialEvents = [
     subtitle: "A restored leisure and community facility re-entered Belfast's public service network.",
     area: "East Belfast",
     coordinates: [-5.9107, 54.5946],
-    confidence: "high",
+    confidence: "documented",
     sourceBasis: "official council project opening",
     sourceName: "Belfast City Council",
-    sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/templemore-baths",
-    impactNote: "Use the services lens to inspect public-service access around East Belfast and the Lagan corridor."
+    sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/templemore-baths"
   },
   {
     id: "official-2024-grand-central",
@@ -87,11 +85,10 @@ const officialEvents = [
     subtitle: "The new integrated bus and rail station changed access patterns around the city centre.",
     area: "City Centre",
     coordinates: [-5.9391, 54.5943],
-    confidence: "high",
+    confidence: "documented",
     sourceBasis: "official station opening",
     sourceName: "Translink",
-    sourceUrl: "https://www.translink.co.uk/usingtranslink/stations/belfastgrandcentral",
-    impactNote: "Use the traffic and jobs lenses to inspect city-centre accessibility and interchange pressure."
+    sourceUrl: "https://www.translink.co.uk/usingtranslink/stations/belfastgrandcentral"
   },
   {
     id: "official-2024-york-street-station",
@@ -103,11 +100,10 @@ const officialEvents = [
     subtitle: "The station replaced Yorkgate and added a new north Belfast rail access point.",
     area: "Cathedral Quarter",
     coordinates: [-5.9238, 54.6092],
-    confidence: "high",
+    confidence: "documented",
     sourceBasis: "official station opening",
     sourceName: "Translink",
-    sourceUrl: "https://www.translink.co.uk/usingtranslink/stations/yorkstreet",
-    impactNote: "Use the traffic and jobs lenses to inspect access changes between York Street, Cathedral Quarter and north Belfast."
+    sourceUrl: "https://www.translink.co.uk/usingtranslink/stations/yorkstreet"
   },
   {
     id: "official-2022-ulster-belfast-campus",
@@ -119,11 +115,10 @@ const officialEvents = [
     subtitle: "The expanded city-centre campus created a major education and employment-access anchor.",
     area: "Cathedral Quarter",
     coordinates: [-5.928, 54.6047],
-    confidence: "high",
+    confidence: "documented",
     sourceBasis: "official institutional opening",
     sourceName: "Ulster University",
-    sourceUrl: "https://www.ulster.ac.uk/campuses/belfast",
-    impactNote: "Use the jobs and buildings lenses to inspect education, employment and development pressure around Cathedral Quarter."
+    sourceUrl: "https://www.ulster.ac.uk/campuses/belfast"
   },
   {
     id: "official-2020-andersonstown-leisure",
@@ -135,11 +130,10 @@ const officialEvents = [
     subtitle: "A major leisure redevelopment changed service access in west Belfast.",
     area: "West Belfast",
     coordinates: [-5.999, 54.584],
-    confidence: "high",
+    confidence: "documented",
     sourceBasis: "official council leisure programme",
     sourceName: "Belfast City Council",
-    sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/andersonstown-leisure-centre",
-    impactNote: "Use the services lens to inspect civic-service access in west Belfast."
+    sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/andersonstown-leisure-centre"
   },
   {
     id: "official-2017-olympia-leisure",
@@ -151,11 +145,10 @@ const officialEvents = [
     subtitle: "The Olympia redevelopment created a new public leisure and community-service anchor.",
     area: "South Belfast",
     coordinates: [-5.955, 54.588],
-    confidence: "high",
+    confidence: "documented",
     sourceBasis: "official council leisure programme",
     sourceName: "Belfast City Council",
-    sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/olympia-leisure-centre",
-    impactNote: "Use the services lens to inspect leisure and community access around south Belfast."
+    sourceUrl: "https://www.belfastcity.gov.uk/leisure/centres/olympia-leisure-centre"
   },
   {
     id: "official-2021-transport-hub-works",
@@ -164,14 +157,13 @@ const officialEvents = [
     signal: "traffic",
     category: "traffic",
     title: "Belfast Transport Hub works advanced at Weavers Cross",
-    subtitle: "Construction activity around the transport hub reshaped city-centre access and development pressure.",
+    subtitle: "Construction activity around the transport hub is retained as a source-backed city-centre transport and development-area milestone.",
     area: "City Centre",
     coordinates: [-5.9391, 54.5943],
-    confidence: "medium-high",
+    confidence: "documented",
     sourceBasis: "official transport-hub project record",
     sourceName: "Translink Weavers Cross",
-    sourceUrl: "https://www.weaverscross.co.uk/",
-    impactNote: "Use the traffic and buildings lenses to inspect the station district and nearby development cells."
+    sourceUrl: "https://www.weaverscross.co.uk/"
   }
 ];
 
@@ -310,7 +302,7 @@ function planningEvents() {
       if (!/approved/i.test(decision)) continue;
       const date = parsePlanningDate(row[index.DecisionIssuedDate] || row[index.DateValid] || row[index.DateReceived]);
       if (!date) continue;
-      const year = Math.max(2016, Math.min(2026, date.getUTCFullYear()));
+      const year = date.getUTCFullYear();
       if (!years.includes(year)) continue;
       const easting = normaliseEastingNorthing(row[index.Easting]);
       const northing = normaliseEastingNorthing(row[index.Northing]);
@@ -331,7 +323,7 @@ function planningEvents() {
         subtitle: `${decision} planning record from Belfast planning statistics dataset.`,
         area: row[index.SiteAddress] || "Belfast",
         coordinates: point.map((value) => Number(value.toFixed(6))),
-        confidence: "high",
+        confidence: "documented",
         sourceBasis: "official planning statistics record",
         sourceName: `Northern Ireland planning statistics ${file}`,
         sourceUrl: "https://www.infrastructure-ni.gov.uk/articles/planning-activity-statistics",
@@ -345,7 +337,6 @@ function planningEvents() {
           classification: row[index.Classification],
           status: row[index["Status@31Mar"]],
         },
-        impactNote: "Use the buildings, jobs, services or electricity lens to inspect replay-impact cells around this approved planning record."
       });
     }
   }
@@ -406,7 +397,6 @@ function architectureMilestoneEvents() {
           architect: event.architect,
           project_type: event.project_type,
         },
-        impactNote: "Use the buildings lens to inspect nearby source-backed city-change records without treating this milestone as causal evidence.",
       };
     })
     .filter((event) => Number.isInteger(event.year) && years.includes(event.year));
@@ -420,7 +410,11 @@ function buildMetaMap(metaPath) {
   const filePath = path.join(rootDir, metaPath);
   if (!fs.existsSync(filePath)) return new Map();
   const payload = JSON.parse(fs.readFileSync(filePath, "utf8"));
-  return new Map((payload.elements || []).map((element) => [sourceIdForElement(element), element]));
+  const sourceAccessedAt = payload.fetchedAt || payload.accessed_at || payload.retrieved_at || payload.generated_at || null;
+  return new Map((payload.elements || []).map((element) => [
+    sourceIdForElement(element),
+    sourceAccessedAt && !element.sourceAccessedAt ? { ...element, sourceAccessedAt } : element,
+  ]));
 }
 
 function walkCoords(value, coords = []) {
@@ -450,7 +444,7 @@ function inBelfast(point) {
 function eventYear(timestamp) {
   const year = Number(String(timestamp || "").slice(0, 4));
   if (!Number.isFinite(year)) return null;
-  return Math.max(2016, Math.min(2026, year));
+  return years.includes(year) ? year : null;
 }
 
 function titleFor(config, feature, meta) {
@@ -476,7 +470,7 @@ function eventForFeature(config, feature, meta) {
   const sourceId = props.source_id;
   const year = eventYear(meta.timestamp);
   const point = centroid(feature);
-  if (!sourceId || !year || year < 2016 || !inBelfast(point)) return null;
+  if (!sourceId || !year || !inBelfast(point)) return null;
   const tags = meta.tags || {};
   const sourceUrl = publicOsmUrl(sourceId);
   const osmChangesetUrl = changesetUrl(meta.changeset);
@@ -491,17 +485,17 @@ function eventForFeature(config, feature, meta) {
     subtitle: `Public OSM mapped-event record for ${config.assetLabel}; use as mapped change evidence, not a confirmed construction/opening date.`,
     area: props.name || tags.name || config.assetLabel,
     coordinates: point.map((value) => Number(value.toFixed(6))),
-    confidence: "medium",
+    confidence: "inferred",
     sourceBasis: "OSM mapped infrastructure event",
     sourceName: "OpenStreetMap / Overpass API",
     sourceUrl,
+    sourceAccessedAt: meta.sourceAccessedAt || null,
     osmChangesetUrl,
     osmTimestamp: meta.timestamp,
     osmVersion: meta.version,
     osmChangeset: meta.changeset,
     osmUser: meta.user,
-    tags: Object.fromEntries(config.tagKeys.map((key) => [key, tags[key] || props[key]]).filter((entry) => entry[1])),
-    impactNote: `Use the ${config.signal} lens to inspect cells around this mapped ${config.assetLabel} record.`
+    tags: Object.fromEntries(config.tagKeys.map((key) => [key, tags[key] || props[key]]).filter((entry) => entry[1]))
   };
 }
 
@@ -519,8 +513,7 @@ function jobsEventFrom(event) {
     signal: "jobs",
     category: "jobs",
     title: event.title.replace(/ mapped in OSM$/, " employment/service anchor mapped in OSM"),
-    subtitle: "Public OSM mapped-event record for a commercial, education, health or service anchor used by the jobs/opportunity lens.",
-    impactNote: "Use the jobs lens to inspect employment and opportunity access around this mapped public-source record."
+    subtitle: "Public OSM mapped-event record for a commercial, education, health or service anchor used by the jobs/opportunity lens."
   };
 }
 

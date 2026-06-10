@@ -30,6 +30,8 @@
     "city_id": {"type": "string"},
     "event_id": {"type": "string"},
     "title": {"type": "string"},
+    "subtitle": {"type": "string", "minLength": 12, "maxLength": 180},
+    "details": {"type": "string", "minLength": 12, "maxLength": 500},
     "short_description": {"type": "string", "minLength": 12, "maxLength": 220},
     "year": {"type": "integer", "minimum": 1700},
     "effective_date": {"type": ["string", "null"]},
@@ -48,8 +50,8 @@
     "category": {"type": "string"},
     "lens": {"type": "string"},
     "geometry": {
-      "type": "object",
-      "description": "GeoJSON geometry in EPSG:4326. Launched atlas events must be spatially inspectable through map geometry and list/evidence paths."
+      "type": ["object", "null"],
+      "description": "GeoJSON geometry in EPSG:4326 when map redistribution is allowed. Null means the event remains inspectable through list/evidence paths while map geometry is withheld or unavailable."
     },
     "affected_area": {
       "type": "object",

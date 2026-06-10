@@ -3,9 +3,12 @@ const path = require("path");
 const {
   LENS_DEFINITIONS,
   LENS_SLUGS,
+  eventDirectlyMatchesLensCategory,
   eventMatchesLens,
+  eventWithholdsMapGeometry,
   licenseNeedsReview,
   sourceHasMinimumLicense,
+  sourceWithholdsMapGeometry,
 } = require("../lib/atlas-lenses");
 const { validateValue } = require("./validate_city_atlas_schema");
 
@@ -17,13 +20,6 @@ const REQUIRED_EXPORTS = [
 ];
 const REQUIRED_LENS_YEARS = Array.from({ length: 20 }, (_, index) => 2007 + index);
 const LENS_BY_SLUG = new Map(LENS_DEFINITIONS.map((lens) => [lens.slug, lens]));
-const LENS_DETAIL_LAYERS_BY_GROUP = {
-  planning: new Set(["planning_cell"]),
-  transport: new Set([]),
-  civic: new Set(["civic_coverage_cell", "civic_facility"]),
-  economy: new Set(["economy_activity_cell", "economy_frontage"]),
-  utilities: new Set(["utility_trace", "utility_asset"]),
-};
 
 const BANNED = [
   /\bwill\s+(increase|decrease|reduce|improve|worsen|cause)\b/i,
@@ -115,11 +111,17 @@ function eventSourceIds(event) {
   return event.source_ids || event.sourceIds || [];
 }
 
-function detailFeatureSourceIds(feature) {
-  return String(feature?.properties?.source_ids || "")
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean);
+function sortedUniqueSourceIds(events) {
+  const sourceIds = new Set();
+  for (const event of events || []) {
+    for (const sourceId of eventSourceIds(event)) sourceIds.add(sourceId);
+  }
+  return [...sourceIds].sort();
+}
+
+function arraysEqual(left = [], right = []) {
+  if (left.length !== right.length) return false;
+  return left.every((value, index) => value === right[index]);
 }
 
 function lensDetailPath(citySummary, cityArtifact, year) {
@@ -139,25 +141,32 @@ function readLensDetail(root, citySummary, cityArtifact, year, cache) {
   return features;
 }
 
-function lensDetailFeatureMatches(row, feature) {
-  const lens = LENS_BY_SLUG.get(row.lens_slug);
-  const layers = LENS_DETAIL_LAYERS_BY_GROUP[lens?.group] || new Set();
-  const props = feature.properties || {};
-  return props.category === row.category
-    && Number(props.year) === Number(row.year)
-    && layers.has(props.layer);
-}
-
-function actualCompatibleEventCount(root, row, eventsIndex, sourceById, eventCache) {
+function compatibleLensEventsForRow(root, row, eventsIndex, sourceById, eventCache) {
   const chunk = (eventsIndex.chunks || []).find((item) => Number(item.year) === Number(row.year));
-  if (!chunk?.json_path || !fs.existsSync(resolve(root, chunk.json_path))) return 0;
+  if (!chunk?.json_path || !fs.existsSync(resolve(root, chunk.json_path))) return [];
   if (!eventCache.has(row.year)) {
     eventCache.set(row.year, readJson(resolve(root, chunk.json_path)).events || []);
   }
   const lens = LENS_BY_SLUG.get(row.lens_slug);
   return (eventCache.get(row.year) || [])
     .filter((event) => eventMatchesLens(event, lens, sourceById) && eventHasCompatibleSources(event, sourceById))
-    .length;
+}
+
+function directCompatibleLensEventsForRow(root, row, eventsIndex, sourceById, eventCache) {
+  const lens = LENS_BY_SLUG.get(row.lens_slug);
+  return compatibleLensEventsForRow(root, row, eventsIndex, sourceById, eventCache)
+    .filter((event) => eventDirectlyMatchesLensCategory(event, lens));
+}
+
+function eventHasMapEligibleSources(event, sourceById) {
+  const sourceIds = event.source_ids || event.sourceIds || [];
+  return eventHasCompatibleSources(event, sourceById)
+    && !eventWithholdsMapGeometry(event)
+    && sourceIds.every((sourceId) => !sourceWithholdsMapGeometry(sourceById.get(sourceId)));
+}
+
+function mapEligibleEvents(events, sourceById) {
+  return events.filter((event) => event.geometry && eventHasMapEligibleSources(event, sourceById));
 }
 
 function validateReferenceScreens(root, referenceDir, failures) {
@@ -189,8 +198,12 @@ function validateLensRow(failures, label, lens, sourceById) {
   assert(failures, lens.coverage?.year_contract?.required_years?.start === 2007, `${label} year contract must start at 2007`);
   assert(failures, lens.coverage?.year_contract?.required_years?.end === 2026, `${label} year contract must end at 2026`);
   assert(failures, lens.coverage?.year_contract?.required_year_count === 20, `${label} year contract must require 20 years`);
-  assert(failures, lens.coverage?.year_contract?.visible_year_count === 20, `${label} must be visible in all 20 required years`);
-  assert(failures, Array.isArray(lens.coverage?.year_contract?.missing_visible_years) && lens.coverage.year_contract.missing_visible_years.length === 0, `${label} has missing visible years`);
+  assert(
+    failures,
+    Number(lens.coverage?.year_contract?.visible_year_count || 0) <= Number(lens.coverage?.year_contract?.source_backed_record_year_count || 0),
+    `${label} visible years must be a subset of real source-backed record years`,
+  );
+  assert(failures, (lens.coverage?.year_contract?.source_backed_context_year_count || 0) === 0, `${label} must not use context-only years`);
   assert(failures, Boolean(lens.coverage?.year_contract?.lens_year_coverage_path), `${label} missing lens_year_coverage_path`);
   assert(failures, Boolean(lens.freshness?.last_retrieved_or_reviewed), `${label} missing freshness retrieval/review date`);
   assert(failures, Boolean(lens.freshness?.source_coverage_period), `${label} missing source coverage period`);
@@ -210,15 +223,19 @@ function validateLensRow(failures, label, lens, sourceById) {
     const source = sourceById.get(sourceId);
     assert(failures, Boolean(source), `${label} references missing source ${sourceId}`);
     if (source) {
-      assert(failures, Boolean(source.licence), `${label} source ${sourceId} missing licence`);
-      assert(failures, Boolean(source.licence_url), `${label} source ${sourceId} missing licence_url`);
-      assert(failures, Boolean(source.attribution_text), `${label} source ${sourceId} missing attribution_text`);
+      validateSourceMinimumLicense(failures, label, sourceId, source);
     }
   }
 
   for (const source of lens.provenance.source_samples || []) {
     assert(failures, source.licence_review_required !== true, `${label} source sample ${source.source_id || source.title || "unknown"} still needs licence review`);
   }
+}
+
+function validateSourceMinimumLicense(failures, label, sourceId, source) {
+  assert(failures, Boolean(source.licence), `${label} source ${sourceId} missing licence`);
+  assert(failures, Boolean(source.licence_url), `${label} source ${sourceId} missing licence_url`);
+  assert(failures, Boolean(source.attribution_text), `${label} source ${sourceId} missing attribution_text`);
 }
 
 function validateCityManifest(root, atlasRoot, schema, lensYearCoverageSchema, citySummary, failures) {
@@ -236,6 +253,8 @@ function validateCityManifest(root, atlasRoot, schema, lensYearCoverageSchema, c
   const cityArtifact = readJson(cityPath);
   const manifest = readJson(manifestPath);
   const eventsIndex = readJson(eventsPath);
+  const cityPaths = cityArtifact.artifact_paths || {};
+  const summaryPaths = citySummary.artifact_paths || {};
   const schemaFailures = [];
   validateValue(manifest, schema, rel(root, manifestPath), schemaFailures, schema);
   schemaFailures.forEach((message) => fail(failures, message));
@@ -249,9 +268,21 @@ function validateCityManifest(root, atlasRoot, schema, lensYearCoverageSchema, c
   assert(failures, manifest.visual_reference_set === "tmp/reference-screens", `${citySummary.city_id} manifest visual reference mismatch`);
   assert(failures, manifest.lens_count === 15, `${citySummary.city_id} must have 15 lenses`);
   assert(failures, Boolean(manifest.lens_year_coverage_path), `${citySummary.city_id} manifest missing lens_year_coverage_path`);
+  for (const key of ["lens_manifest", "lens_year_coverage"]) {
+    assert(failures, Boolean(summaryPaths[key]), `Atlas index ${citySummary.city_id} missing artifact_paths.${key}`);
+    assert(failures, Boolean(cityPaths[key]), `City artifact ${citySummary.city_id} missing artifact_paths.${key}`);
+    if (summaryPaths[key] && cityPaths[key]) {
+      assert(failures, summaryPaths[key] === cityPaths[key], `${citySummary.city_id} artifact_paths.${key} differs between index and city artifact`);
+    }
+  }
   assert(failures, manifest.launched_city === true, `${citySummary.city_id} must be marked launched_city true`);
   assert(failures, Boolean(manifest.official_scope?.official_boundary?.licence), `${citySummary.city_id} missing official boundary licence`);
   assert(failures, Boolean(manifest.official_scope?.official_boundary?.source_url), `${citySummary.city_id} missing official boundary source_url`);
+  for (const sourceId of manifest.official_scope?.official_boundary?.source_ids || []) {
+    const source = sourceById.get(sourceId);
+    assert(failures, Boolean(source), `${citySummary.city_id} official boundary source ${sourceId} is not registered in sources artifact`);
+    if (source) validateSourceMinimumLicense(failures, `${citySummary.city_id} official boundary`, sourceId, source);
+  }
   assert(failures, Boolean(manifest.official_scope?.scope_note), `${citySummary.city_id} missing official scope note`);
   validateAreaFacets(failures, citySummary.city_id, eventsIndex);
   validateRequiredYearArtifacts(root, failures, citySummary, cityArtifact, eventsIndex);
@@ -315,25 +346,51 @@ function validateCoverageRow(failures, root, row, citySummary, cityArtifact, sou
     assert(failures, row.category === lens.category, `${label} category mismatch`);
   }
   assert(failures, row.required_year === true, `${label} must be marked required_year`);
-  assert(failures, row.visible_map_contract === true, `${label} must be visible under the 2007-2026 lens contract`);
-  assert(failures, row.status !== "missing_source_backed_view", `${label} has missing source-backed view`);
+  assert(failures, !/context/i.test(row.status || ""), `${label} must not use generated filler status`);
   assert(failures, row.compatible_event_count === row.event_count, `${label} compatible_event_count must match launched event_count`);
-  assert(failures, row.headline_count_included === row.event_count, `${label} headline_count_included must equal event_count`);
+  assert(failures, row.broad_match_event_count === row.event_count, `${label} broad_match_event_count must preserve event_count semantics`);
+  assert(failures, row.broad_match_compatible_event_count === row.compatible_event_count, `${label} broad_match_compatible_event_count must preserve compatible_event_count semantics`);
+  assert(failures, row.direct_compatible_event_count === row.direct_event_count, `${label} direct_compatible_event_count must match direct_event_count`);
+  assert(failures, Number(row.direct_event_count || 0) <= Number(row.event_count || 0), `${label} direct_event_count must not exceed event_count`);
+  assert(failures, row.headline_count_included === row.direct_event_count, `${label} headline_count_included must equal direct_event_count`);
+  assert(failures, Number(row.coverage_context_feature_count || 0) === 0, `${label} must not expose generated filler features`);
+  assert(failures, Number(row.headline_count_excluded_context_features || 0) === 0, `${label} must not hide generated context features from headline counts`);
   assert(failures, Array.isArray(row.limitations) && row.limitations.length > 0, `${label} missing limitations`);
   assert(failures, row.exports?.markdown === true && row.exports?.csv === true && row.exports?.geojson === true, `${label} missing required exports`);
 
-  const actualEventCount = actualCompatibleEventCount(root, row, eventsIndex, sourceById, eventCache);
-  assert(failures, row.event_count === actualEventCount, `${label} event_count ${row.event_count} does not match source-backed events ${actualEventCount}`);
+  const actualCompatibleEvents = compatibleLensEventsForRow(root, row, eventsIndex, sourceById, eventCache);
+  const actualDirectCompatibleEvents = directCompatibleLensEventsForRow(root, row, eventsIndex, sourceById, eventCache);
+  const actualMapEligibleEvents = mapEligibleEvents(actualCompatibleEvents, sourceById);
+  const actualDirectMapEligibleEvents = mapEligibleEvents(actualDirectCompatibleEvents, sourceById);
+  const actualBroadSourceIds = sortedUniqueSourceIds(actualCompatibleEvents);
+  const actualDirectSourceIds = sortedUniqueSourceIds(actualDirectCompatibleEvents);
+  assert(failures, row.event_count === actualCompatibleEvents.length, `${label} event_count ${row.event_count} does not match source-backed events ${actualCompatibleEvents.length}`);
+  assert(failures, row.direct_event_count === actualDirectCompatibleEvents.length, `${label} direct_event_count ${row.direct_event_count} does not match direct same-category events ${actualDirectCompatibleEvents.length}`);
+  assert(failures, row.visible_map_contract === (actualDirectMapEligibleEvents.length > 0), `${label} visibility must follow direct map-eligible same-category source-backed event records`);
+  assert(failures, Number(row.map_event_count || 0) === actualMapEligibleEvents.length, `${label} map_event_count ${row.map_event_count || 0} does not match map-eligible events ${actualMapEligibleEvents.length}`);
+  assert(failures, Number(row.map_direct_event_count || 0) === actualDirectMapEligibleEvents.length, `${label} map_direct_event_count ${row.map_direct_event_count || 0} does not match direct map-eligible events ${actualDirectMapEligibleEvents.length}`);
+  assert(failures, Number(row.withheld_geometry_event_count || 0) === Math.max(0, actualCompatibleEvents.length - actualMapEligibleEvents.length), `${label} withheld_geometry_event_count mismatch`);
+  assert(failures, Number(row.direct_withheld_geometry_event_count || 0) === Math.max(0, actualDirectCompatibleEvents.length - actualDirectMapEligibleEvents.length), `${label} direct_withheld_geometry_event_count mismatch`);
 
   const sourceIds = row.source_ids || [];
-  assert(failures, sourceIds.length > 0, `${label} missing source_ids`);
-  for (const sourceId of sourceIds) {
-    const source = sourceById.get(sourceId);
-    assert(failures, Boolean(source), `${label} references missing source ${sourceId}`);
-    if (source) {
-      assert(failures, sourceHasMinimumLicense(source), `${label} source ${sourceId} missing minimum license fields`);
-      assert(failures, !licenseNeedsReview(source), `${label} source ${sourceId} still needs license review`);
+  assert(failures, Number(row.broad_match_source_count || 0) === sourceIds.length, `${label} broad_match_source_count must match source_ids length`);
+  assert(failures, arraysEqual(row.broad_match_source_ids || [], sourceIds), `${label} broad_match_source_ids must match source_ids`);
+  assert(failures, arraysEqual(sourceIds.slice().sort(), actualBroadSourceIds), `${label} source_ids must match compatible broad source-backed events`);
+  assert(failures, Number(row.direct_source_count || 0) === (row.direct_source_ids || []).length, `${label} direct_source_count must match direct_source_ids length`);
+  assert(failures, arraysEqual((row.direct_source_ids || []).slice().sort(), actualDirectSourceIds), `${label} direct_source_ids must match direct same-category source-backed events`);
+  if (row.event_count > 0) {
+    assert(failures, sourceIds.length > 0, `${label} missing source_ids`);
+    for (const sourceId of sourceIds) {
+      const source = sourceById.get(sourceId);
+      assert(failures, Boolean(source), `${label} references missing source ${sourceId}`);
+      if (source) {
+        validateSourceMinimumLicense(failures, label, sourceId, source);
+        assert(failures, sourceHasMinimumLicense(source), `${label} source ${sourceId} missing minimum license fields`);
+        assert(failures, !licenseNeedsReview(source), `${label} source ${sourceId} still needs license review`);
+      }
     }
+  } else {
+    assert(failures, sourceIds.length === 0, `${label} missing-source rows must not borrow boundary/context sources`);
   }
 
   for (const artifactPath of Object.values(row.map_artifacts || {})) {
@@ -341,26 +398,25 @@ function validateCoverageRow(failures, root, row, citySummary, cityArtifact, sou
     if (artifactPath) assert(failures, fs.existsSync(resolve(root, artifactPath)), `${label} map artifact missing: ${artifactPath}`);
   }
 
-  if (row.event_count > 0) {
-    assert(failures, row.status === "source_backed_records", `${label} with records must use source_backed_records status`);
+  if (row.direct_event_count > 0) {
+    assert(failures, row.status === "source_backed_records", `${label} with direct records must use source_backed_records status`);
+    if (!row.visible_map_contract) {
+      assert(failures, Number(row.direct_withheld_geometry_event_count || 0) > 0, `${label} with direct records but no map visibility must disclose withheld geometry count`);
+      assert(failures, /withheld.*rights review|geometry withheld/i.test((row.limitations || []).join(" ")), `${label} missing geometry-withheld limitation`);
+    }
     return;
   }
 
-  assert(failures, row.status === "source_backed_context_no_year_records", `${label} without records must use context status`);
-  assert(failures, row.coverage_context_feature_count > 0, `${label} missing coverage context features`);
-  assert(failures, row.headline_count_excluded_context_features >= row.coverage_context_feature_count, `${label} context features must be excluded from headline counts`);
-  assert(failures, /No license-compatible/i.test((row.limitations || []).join(" ")), `${label} missing plain no-record limitation`);
-  const detailFeatures = readLensDetail(root, citySummary, cityArtifact, row.year, detailCache)
-    .filter((feature) => lensDetailFeatureMatches(row, feature));
-  const contextFeatures = detailFeatures.filter((feature) => feature.properties?.coverage_status === "no_same_category_records");
-  assert(failures, contextFeatures.length === row.coverage_context_feature_count, `${label} coverage context feature count mismatch`);
-  for (const feature of contextFeatures.slice(0, 25)) {
-    const props = feature.properties || {};
-    assert(failures, Number(props.event_count || 0) === 0, `${label} coverage context feature must not carry event_count`);
-    assert(failures, props.headline_count_excluded === true, `${label} coverage context feature must be headline-count excluded`);
-    assert(failures, props.evidence_role === "context_not_year_specific_change_evidence", `${label} coverage context feature missing evidence_role`);
-    assert(failures, detailFeatureSourceIds(feature).length > 0, `${label} coverage context feature missing source_ids`);
+  if (row.event_count > 0) {
+    assert(failures, row.status === "adjacent_source_backed_records", `${label} with broad-only records must use adjacent_source_backed_records status`);
+    assert(failures, row.visible_map_contract === false, `${label} broad-only records must not be visible as direct map coverage`);
+    assert(failures, /adjacent[- ]evidence/i.test((row.limitations || []).join(" ")), `${label} broad-only row missing adjacent-evidence limitation`);
+    return;
   }
+
+  assert(failures, row.status === "missing_source_backed_view", `${label} without records must stay missing, not filled with context geometry`);
+  assert(failures, row.visible_map_contract === false, `${label} without records must not be visible on the map`);
+  assert(failures, /No map marks or coverage surfaces are generated/i.test((row.limitations || []).join(" ")), `${label} missing plain no-filler limitation`);
 }
 
 function validateLensYearCoverage(root, schema, citySummary, cityArtifact, manifest, eventsIndex, sourceById, failures) {
@@ -434,7 +490,7 @@ function main() {
       for (const failure of failures) console.error(`- ${failure}`);
       process.exit(1);
     }
-    console.log("15-lens contract OK: launched cities expose all 15 source-backed lenses for every year 2007-2026, with provenance, freshness, exports, scope, and reference-screen coverage.");
+    console.log("15-lens contract OK: launched cities expose 15 lens-year audit rows for every year 2007-2026; visible rows are source-backed and zero-event rows stay explicit, invisible, and filler-free.");
   } catch (error) {
     console.error(`verify:lens-contract failed: ${error.message}`);
     process.exit(1);

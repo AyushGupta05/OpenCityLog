@@ -1,8 +1,0 @@
-{
-  "source_id": "lon_voa_nndr",
-  "title": "VOA non-domestic rating lists",
-  "requested_url": "https://www.gov.uk/government/statistical-data-sets/non-domestic-rating-list-data",
-  "fetched_url": "https://www.gov.uk/government/statistical-data-sets/non-domestic-rating-list-data",
-  "retrieved_at": "2026-04-28T11:05:55.576167+00:00",
-  "error": "<HTTPError 404: 'Not Found'>"
-}

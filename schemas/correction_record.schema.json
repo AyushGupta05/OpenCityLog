@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bims.local/schemas/correction_record.schema.json",
+  "title": "OpenCityLog Append-Only Correction Ledger",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_kind",
+    "corrections"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "string"},
+    "artifact_kind": {"const": "correction_ledger"},
+    "corrections": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/correction"},
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "correction": {
+      "type": "object",
+      "required": [
+        "correction_id",
+        "status",
+        "target",
+        "correction_type",
+        "submitted_at",
+        "summary",
+        "public_evidence",
+        "review_notes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "correction_id": {"type": "string", "pattern": "^corr-[0-9]{8}-[a-z0-9-]+$"},
+        "status": {"type": "string", "enum": ["proposed", "accepted", "rejected", "superseded"]},
+        "target": {
+          "type": "object",
+          "required": ["city_id"],
+          "additionalProperties": false,
+          "properties": {
+            "city_id": {"type": "string"},
+            "event_id": {"type": ["string", "null"]},
+            "source_id": {"type": ["string", "null"]},
+            "file_path": {"type": ["string", "null"]},
+            "lens_slug": {"type": ["string", "null"]}
+          }
+        },
+        "correction_type": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["date", "geometry", "category", "confidence", "caveat", "licence", "attribution", "source_url", "record_id", "other"]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "submitted_at": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+        "resolved_at": {"type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+        "summary": {"type": "string", "minLength": 12},
+        "public_evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "url_or_path"],
+            "additionalProperties": false,
+            "properties": {
+              "label": {"type": "string", "minLength": 1},
+              "url_or_path": {"type": "string", "minLength": 1},
+              "accessed_at": {"type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$"}
+            }
+          },
+          "minItems": 1
+        },
+        "review_notes": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

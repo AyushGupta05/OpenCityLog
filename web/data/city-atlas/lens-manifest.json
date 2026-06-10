@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_kind": "bims_15_lens_manifest_index",
-  "generated_at": "2026-05-30T16:04:02Z",
+  "generated_at": "2026-06-03T20:35:16Z",
   "contract_source": "docs/15_lens_city_design_contract.md",
   "visual_reference_set": "tmp/reference-screens",
   "lens_count": 15,
@@ -136,36 +136,54 @@
       "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json",
       "official_boundary": {
         "label": "Belfast City Council boundary",
-        "source_name": "OpenDataNI / Spatial NI local government boundary datasets",
+        "source_name": "OSNI Open Data - Largescale Boundaries - Local Government Districts (2012)",
         "publisher": "Land and Property Services / OpenDataNI",
-        "source_url": "https://www.opendatani.gov.uk/",
+        "source_url": "https://ckan.publishing.service.gov.uk/dataset/osni-open-data-largescale-boundaries-local-government-districts-20123",
         "source_type": "official boundary dataset",
-        "licence": "Open Government Licence v3.0 where the resource is marked OGL",
+        "licence": "UK Open Government Licence (OGL) v3.0; contains Ordnance Survey of Northern Ireland data.",
         "licence_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-        "attribution_text": "Contains public sector information licensed under the Open Government Licence v3.0.",
-        "accessed_at": "2026-05-25",
+        "attribution_text": "Contains public sector information licensed under the Open Government Licence v3.0 and Ordnance Survey of Northern Ireland attribution.",
+        "accessed_at": "2026-06-03",
         "source_ids": [
-          "opendatani-spatial-ni"
+          "osni-open-data-largescale-boundaries-local-government-districts-2012"
         ]
       },
       "lenses": [
         {
           "slug": "planning-pressure",
           "public_label": "Planning Activity",
-          "event_count": 14910,
-          "compatible_event_count": 14910,
-          "source_count": 190,
-          "compatible_source_count": 190,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 522,
+          "compatible_event_count": 522,
+          "source_count": 23,
+          "compatible_source_count": 23,
+          "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 3,
+            "missing_visible_years": [
+              2008,
+              2010,
+              2011,
+              2012,
+              2013,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 5,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -173,20 +191,38 @@
         {
           "slug": "planning-parcels",
           "public_label": "Development Sites",
-          "event_count": 14910,
-          "compatible_event_count": 14910,
-          "source_count": 190,
-          "compatible_source_count": 190,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 522,
+          "compatible_event_count": 522,
+          "source_count": 23,
+          "compatible_source_count": 23,
+          "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 3,
+            "missing_visible_years": [
+              2008,
+              2010,
+              2011,
+              2012,
+              2013,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 5,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -194,20 +230,38 @@
         {
           "slug": "planning-delta",
           "public_label": "Built Change",
-          "event_count": 14910,
-          "compatible_event_count": 14910,
-          "source_count": 190,
-          "compatible_source_count": 190,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 522,
+          "compatible_event_count": 522,
+          "source_count": 23,
+          "compatible_source_count": 23,
+          "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 3,
+            "missing_visible_years": [
+              2008,
+              2010,
+              2011,
+              2012,
+              2013,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 5,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -215,20 +269,40 @@
         {
           "slug": "transport-access",
           "public_label": "Access to Transport",
-          "event_count": 21157,
-          "compatible_event_count": 21157,
-          "source_count": 83,
-          "compatible_source_count": 83,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 2,
+          "compatible_event_count": 2,
+          "source_count": 3,
+          "compatible_source_count": 3,
+          "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 1,
+            "missing_visible_years": [
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 1,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -236,20 +310,40 @@
         {
           "slug": "transport-reliability",
           "public_label": "Service Reliability",
-          "event_count": 21157,
-          "compatible_event_count": 21157,
-          "source_count": 83,
-          "compatible_source_count": 83,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 2,
+          "compatible_event_count": 2,
+          "source_count": 2,
+          "compatible_source_count": 2,
+          "last_retrieved_or_reviewed": "2026-06-02",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 1,
+            "missing_visible_years": [
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 1,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -257,20 +351,40 @@
         {
           "slug": "transport-speed",
           "public_label": "Transport Activity",
-          "event_count": 21157,
-          "compatible_event_count": 21157,
-          "source_count": 83,
-          "compatible_source_count": 83,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 2,
+          "compatible_event_count": 2,
+          "source_count": 2,
+          "compatible_source_count": 2,
+          "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 1,
+            "missing_visible_years": [
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 1,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -278,20 +392,39 @@
         {
           "slug": "civic-access-gaps",
           "public_label": "Service Coverage Context",
-          "event_count": 1529,
-          "compatible_event_count": 1529,
-          "source_count": 45,
-          "compatible_source_count": 45,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 31,
+          "compatible_event_count": 31,
+          "source_count": 3,
+          "compatible_source_count": 3,
+          "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 2,
+            "missing_visible_years": [
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 2,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -299,20 +432,39 @@
         {
           "slug": "civic-catchment",
           "public_label": "Service Catchments",
-          "event_count": 1529,
-          "compatible_event_count": 1529,
-          "source_count": 45,
-          "compatible_source_count": 45,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 31,
+          "compatible_event_count": 31,
+          "source_count": 3,
+          "compatible_source_count": 3,
+          "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 2,
+            "missing_visible_years": [
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 2,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -320,20 +472,39 @@
         {
           "slug": "civic-demand",
           "public_label": "Service Context",
-          "event_count": 1529,
-          "compatible_event_count": 1529,
-          "source_count": 45,
-          "compatible_source_count": 45,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 31,
+          "compatible_event_count": 31,
+          "source_count": 3,
+          "compatible_source_count": 3,
+          "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 2,
+            "missing_visible_years": [
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 2,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -341,20 +512,39 @@
         {
           "slug": "economy-land-use",
           "public_label": "Land Use",
-          "event_count": 2049,
-          "compatible_event_count": 2049,
-          "source_count": 38,
-          "compatible_source_count": 38,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 78,
+          "compatible_event_count": 78,
+          "source_count": 8,
+          "compatible_source_count": 8,
+          "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 2,
+            "missing_visible_years": [
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2013,
+              2014,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 2,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -362,20 +552,38 @@
         {
           "slug": "economy-vitality",
           "public_label": "High Street Activity",
-          "event_count": 2049,
-          "compatible_event_count": 2049,
-          "source_count": 38,
-          "compatible_source_count": 38,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 78,
+          "compatible_event_count": 78,
+          "source_count": 8,
+          "compatible_source_count": 8,
+          "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 3,
+            "missing_visible_years": [
+              2007,
+              2008,
+              2009,
+              2011,
+              2013,
+              2014,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 3,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -383,20 +591,38 @@
         {
           "slug": "economy-gravity",
           "public_label": "Economic Context Links",
-          "event_count": 2049,
-          "compatible_event_count": 2049,
-          "source_count": 38,
-          "compatible_source_count": 38,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 78,
+          "compatible_event_count": 78,
+          "source_count": 8,
+          "compatible_source_count": 8,
+          "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 3,
+            "missing_visible_years": [
+              2007,
+              2008,
+              2009,
+              2011,
+              2013,
+              2014,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 3,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -404,20 +630,37 @@
         {
           "slug": "utilities-capacity",
           "public_label": "Utility Context",
-          "event_count": 14487,
-          "compatible_event_count": 14487,
-          "source_count": 73,
-          "compatible_source_count": 73,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 522,
+          "compatible_event_count": 522,
+          "source_count": 23,
+          "compatible_source_count": 23,
+          "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 4,
+            "missing_visible_years": [
+              2009,
+              2010,
+              2011,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 4,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -425,20 +668,37 @@
         {
           "slug": "utilities-resilience",
           "public_label": "Utility Network Context",
-          "event_count": 14487,
-          "compatible_event_count": 14487,
-          "source_count": 73,
-          "compatible_source_count": 73,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 522,
+          "compatible_event_count": 522,
+          "source_count": 23,
+          "compatible_source_count": 23,
+          "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 4,
+            "missing_visible_years": [
+              2009,
+              2010,
+              2011,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 4,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -446,20 +706,37 @@
         {
           "slug": "utilities-works",
           "public_label": "Utility Works",
-          "event_count": 14487,
-          "compatible_event_count": 14487,
-          "source_count": 73,
-          "compatible_source_count": 73,
-          "last_retrieved_or_reviewed": "2026-05-30T16:00:58Z",
+          "event_count": 522,
+          "compatible_event_count": 522,
+          "source_count": 23,
+          "compatible_source_count": 23,
+          "last_retrieved_or_reviewed": "2026-06-03",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 4,
+            "missing_visible_years": [
+              2009,
+              2010,
+              2011,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 4,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/belfast/lens_year_coverage.json"
           }
@@ -491,11 +768,11 @@
         {
           "slug": "planning-pressure",
           "public_label": "Planning Activity",
-          "event_count": 52965,
-          "compatible_event_count": 52965,
-          "source_count": 68,
-          "compatible_source_count": 68,
-          "last_retrieved_or_reviewed": "2026-05-27",
+          "event_count": 51712,
+          "compatible_event_count": 51712,
+          "source_count": 27,
+          "compatible_source_count": 27,
+          "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -512,11 +789,11 @@
         {
           "slug": "planning-parcels",
           "public_label": "Development Sites",
-          "event_count": 52965,
-          "compatible_event_count": 52965,
-          "source_count": 68,
-          "compatible_source_count": 68,
-          "last_retrieved_or_reviewed": "2026-05-27",
+          "event_count": 51712,
+          "compatible_event_count": 51712,
+          "source_count": 27,
+          "compatible_source_count": 27,
+          "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -533,11 +810,11 @@
         {
           "slug": "planning-delta",
           "public_label": "Built Change",
-          "event_count": 52965,
-          "compatible_event_count": 52965,
-          "source_count": 68,
-          "compatible_source_count": 68,
-          "last_retrieved_or_reviewed": "2026-05-27",
+          "event_count": 51712,
+          "compatible_event_count": 51712,
+          "source_count": 27,
+          "compatible_source_count": 27,
+          "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -554,10 +831,10 @@
         {
           "slug": "transport-access",
           "public_label": "Access to Transport",
-          "event_count": 59103,
-          "compatible_event_count": 59103,
-          "source_count": 25,
-          "compatible_source_count": 25,
+          "event_count": 41928,
+          "compatible_event_count": 41928,
+          "source_count": 15,
+          "compatible_source_count": 15,
           "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
@@ -565,9 +842,17 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 13,
+            "missing_visible_years": [
+              2007,
+              2011,
+              2013,
+              2015,
+              2017,
+              2019,
+              2026
+            ],
+            "source_backed_record_year_count": 13,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
           }
@@ -575,10 +860,10 @@
         {
           "slug": "transport-reliability",
           "public_label": "Service Reliability",
-          "event_count": 59103,
-          "compatible_event_count": 59103,
-          "source_count": 25,
-          "compatible_source_count": 25,
+          "event_count": 41928,
+          "compatible_event_count": 41928,
+          "source_count": 15,
+          "compatible_source_count": 15,
           "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
@@ -586,9 +871,17 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 13,
+            "missing_visible_years": [
+              2007,
+              2011,
+              2013,
+              2015,
+              2017,
+              2019,
+              2026
+            ],
+            "source_backed_record_year_count": 13,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
           }
@@ -596,10 +889,10 @@
         {
           "slug": "transport-speed",
           "public_label": "Transport Activity",
-          "event_count": 59103,
-          "compatible_event_count": 59103,
-          "source_count": 25,
-          "compatible_source_count": 25,
+          "event_count": 41928,
+          "compatible_event_count": 41928,
+          "source_count": 15,
+          "compatible_source_count": 15,
           "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
@@ -607,9 +900,17 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 13,
+            "missing_visible_years": [
+              2007,
+              2011,
+              2013,
+              2015,
+              2017,
+              2019,
+              2026
+            ],
+            "source_backed_record_year_count": 13,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
           }
@@ -617,10 +918,10 @@
         {
           "slug": "civic-access-gaps",
           "public_label": "Service Coverage Context",
-          "event_count": 93639,
-          "compatible_event_count": 93639,
-          "source_count": 45,
-          "compatible_source_count": 45,
+          "event_count": 10085,
+          "compatible_event_count": 10085,
+          "source_count": 5,
+          "compatible_source_count": 5,
           "last_retrieved_or_reviewed": "2026-05-27",
           "year_contract": {
             "required_years": {
@@ -628,9 +929,13 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 17,
+            "missing_visible_years": [
+              2021,
+              2023,
+              2024
+            ],
+            "source_backed_record_year_count": 17,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
           }
@@ -638,10 +943,10 @@
         {
           "slug": "civic-catchment",
           "public_label": "Service Catchments",
-          "event_count": 93639,
-          "compatible_event_count": 93639,
-          "source_count": 45,
-          "compatible_source_count": 45,
+          "event_count": 10085,
+          "compatible_event_count": 10085,
+          "source_count": 5,
+          "compatible_source_count": 5,
           "last_retrieved_or_reviewed": "2026-05-27",
           "year_contract": {
             "required_years": {
@@ -649,9 +954,13 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 17,
+            "missing_visible_years": [
+              2021,
+              2023,
+              2024
+            ],
+            "source_backed_record_year_count": 17,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
           }
@@ -659,10 +968,10 @@
         {
           "slug": "civic-demand",
           "public_label": "Service Context",
-          "event_count": 93639,
-          "compatible_event_count": 93639,
-          "source_count": 45,
-          "compatible_source_count": 45,
+          "event_count": 65237,
+          "compatible_event_count": 65237,
+          "source_count": 7,
+          "compatible_source_count": 7,
           "last_retrieved_or_reviewed": "2026-05-27",
           "year_contract": {
             "required_years": {
@@ -670,9 +979,11 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 19,
+            "missing_visible_years": [
+              2021
+            ],
+            "source_backed_record_year_count": 19,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
           }
@@ -680,10 +991,10 @@
         {
           "slug": "economy-land-use",
           "public_label": "Land Use",
-          "event_count": 59420,
-          "compatible_event_count": 59420,
-          "source_count": 17,
-          "compatible_source_count": 17,
+          "event_count": 59284,
+          "compatible_event_count": 59284,
+          "source_count": 4,
+          "compatible_source_count": 4,
           "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
@@ -701,10 +1012,10 @@
         {
           "slug": "economy-vitality",
           "public_label": "High Street Activity",
-          "event_count": 59420,
-          "compatible_event_count": 59420,
-          "source_count": 17,
-          "compatible_source_count": 17,
+          "event_count": 59284,
+          "compatible_event_count": 59284,
+          "source_count": 4,
+          "compatible_source_count": 4,
           "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
@@ -722,10 +1033,10 @@
         {
           "slug": "economy-gravity",
           "public_label": "Economic Context Links",
-          "event_count": 59420,
-          "compatible_event_count": 59420,
-          "source_count": 17,
-          "compatible_source_count": 17,
+          "event_count": 59284,
+          "compatible_event_count": 59284,
+          "source_count": 4,
+          "compatible_source_count": 4,
           "last_retrieved_or_reviewed": "2026-05-20",
           "year_contract": {
             "required_years": {
@@ -743,10 +1054,10 @@
         {
           "slug": "utilities-capacity",
           "public_label": "Utility Context",
-          "event_count": 249,
-          "compatible_event_count": 249,
-          "source_count": 17,
-          "compatible_source_count": 17,
+          "event_count": 251,
+          "compatible_event_count": 251,
+          "source_count": 2,
+          "compatible_source_count": 2,
           "last_retrieved_or_reviewed": "2026-05-27",
           "year_contract": {
             "required_years": {
@@ -754,9 +1065,16 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 14,
+            "missing_visible_years": [
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 14,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
           }
@@ -764,10 +1082,10 @@
         {
           "slug": "utilities-resilience",
           "public_label": "Utility Network Context",
-          "event_count": 249,
-          "compatible_event_count": 249,
-          "source_count": 17,
-          "compatible_source_count": 17,
+          "event_count": 251,
+          "compatible_event_count": 251,
+          "source_count": 2,
+          "compatible_source_count": 2,
           "last_retrieved_or_reviewed": "2026-05-27",
           "year_contract": {
             "required_years": {
@@ -775,9 +1093,16 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 14,
+            "missing_visible_years": [
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 14,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
           }
@@ -785,10 +1110,10 @@
         {
           "slug": "utilities-works",
           "public_label": "Utility Works",
-          "event_count": 249,
-          "compatible_event_count": 249,
-          "source_count": 17,
-          "compatible_source_count": 17,
+          "event_count": 251,
+          "compatible_event_count": 251,
+          "source_count": 2,
+          "compatible_source_count": 2,
           "last_retrieved_or_reviewed": "2026-05-27",
           "year_contract": {
             "required_years": {
@@ -796,9 +1121,16 @@
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 14,
+            "missing_visible_years": [
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ],
+            "source_backed_record_year_count": 14,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/london/lens_year_coverage.json"
           }
@@ -831,11 +1163,11 @@
         {
           "slug": "planning-pressure",
           "public_label": "Planning Activity",
-          "event_count": 62813,
-          "compatible_event_count": 62813,
-          "source_count": 46,
-          "compatible_source_count": 46,
-          "last_retrieved_or_reviewed": "2026-05-23",
+          "event_count": 84940,
+          "compatible_event_count": 84940,
+          "source_count": 47,
+          "compatible_source_count": 47,
+          "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -852,11 +1184,11 @@
         {
           "slug": "planning-parcels",
           "public_label": "Development Sites",
-          "event_count": 62813,
-          "compatible_event_count": 62813,
-          "source_count": 46,
-          "compatible_source_count": 46,
-          "last_retrieved_or_reviewed": "2026-05-23",
+          "event_count": 84940,
+          "compatible_event_count": 84940,
+          "source_count": 47,
+          "compatible_source_count": 47,
+          "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -873,11 +1205,11 @@
         {
           "slug": "planning-delta",
           "public_label": "Built Change",
-          "event_count": 62813,
-          "compatible_event_count": 62813,
-          "source_count": 46,
-          "compatible_source_count": 46,
-          "last_retrieved_or_reviewed": "2026-05-23",
+          "event_count": 84940,
+          "compatible_event_count": 84940,
+          "source_count": 47,
+          "compatible_source_count": 47,
+          "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -894,19 +1226,21 @@
         {
           "slug": "transport-access",
           "public_label": "Access to Transport",
-          "event_count": 4029,
-          "compatible_event_count": 4029,
-          "source_count": 26,
-          "compatible_source_count": 26,
-          "last_retrieved_or_reviewed": "2026-05-23",
+          "event_count": 10825,
+          "compatible_event_count": 10825,
+          "source_count": 42,
+          "compatible_source_count": 42,
+          "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
+            "visible_year_count": 19,
+            "missing_visible_years": [
+              2007
+            ],
             "source_backed_record_year_count": 20,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
@@ -915,19 +1249,21 @@
         {
           "slug": "transport-reliability",
           "public_label": "Service Reliability",
-          "event_count": 4029,
-          "compatible_event_count": 4029,
-          "source_count": 26,
-          "compatible_source_count": 26,
-          "last_retrieved_or_reviewed": "2026-05-23",
+          "event_count": 10825,
+          "compatible_event_count": 10825,
+          "source_count": 42,
+          "compatible_source_count": 42,
+          "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
+            "visible_year_count": 19,
+            "missing_visible_years": [
+              2007
+            ],
             "source_backed_record_year_count": 20,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
@@ -936,19 +1272,21 @@
         {
           "slug": "transport-speed",
           "public_label": "Transport Activity",
-          "event_count": 4029,
-          "compatible_event_count": 4029,
-          "source_count": 26,
-          "compatible_source_count": 26,
-          "last_retrieved_or_reviewed": "2026-05-23",
+          "event_count": 10825,
+          "compatible_event_count": 10825,
+          "source_count": 42,
+          "compatible_source_count": 42,
+          "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
+            "visible_year_count": 19,
+            "missing_visible_years": [
+              2007
+            ],
             "source_backed_record_year_count": 20,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
@@ -957,19 +1295,32 @@
         {
           "slug": "civic-access-gaps",
           "public_label": "Service Coverage Context",
-          "event_count": 2234,
-          "compatible_event_count": 2234,
-          "source_count": 29,
-          "compatible_source_count": 29,
-          "last_retrieved_or_reviewed": "2026-05-20",
+          "event_count": 4774,
+          "compatible_event_count": 4774,
+          "source_count": 8,
+          "compatible_source_count": 8,
+          "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
+            "visible_year_count": 8,
+            "missing_visible_years": [
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2019
+            ],
             "source_backed_record_year_count": 20,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
@@ -978,19 +1329,32 @@
         {
           "slug": "civic-catchment",
           "public_label": "Service Catchments",
-          "event_count": 2234,
-          "compatible_event_count": 2234,
-          "source_count": 29,
-          "compatible_source_count": 29,
-          "last_retrieved_or_reviewed": "2026-05-20",
+          "event_count": 4774,
+          "compatible_event_count": 4774,
+          "source_count": 8,
+          "compatible_source_count": 8,
+          "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
+            "visible_year_count": 8,
+            "missing_visible_years": [
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2019
+            ],
             "source_backed_record_year_count": 20,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
@@ -999,19 +1363,32 @@
         {
           "slug": "civic-demand",
           "public_label": "Service Context",
-          "event_count": 2234,
-          "compatible_event_count": 2234,
-          "source_count": 29,
-          "compatible_source_count": 29,
-          "last_retrieved_or_reviewed": "2026-05-20",
+          "event_count": 4774,
+          "compatible_event_count": 4774,
+          "source_count": 8,
+          "compatible_source_count": 8,
+          "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
+            "visible_year_count": 8,
+            "missing_visible_years": [
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2019
+            ],
             "source_backed_record_year_count": 20,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
@@ -1020,11 +1397,11 @@
         {
           "slug": "economy-land-use",
           "public_label": "Land Use",
-          "event_count": 364,
-          "compatible_event_count": 364,
-          "source_count": 17,
-          "compatible_source_count": 17,
-          "last_retrieved_or_reviewed": "2026-05-23",
+          "event_count": 6695,
+          "compatible_event_count": 6695,
+          "source_count": 6,
+          "compatible_source_count": 6,
+          "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -1041,11 +1418,11 @@
         {
           "slug": "economy-vitality",
           "public_label": "High Street Activity",
-          "event_count": 364,
-          "compatible_event_count": 364,
-          "source_count": 17,
-          "compatible_source_count": 17,
-          "last_retrieved_or_reviewed": "2026-05-23",
+          "event_count": 6695,
+          "compatible_event_count": 6695,
+          "source_count": 6,
+          "compatible_source_count": 6,
+          "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -1062,11 +1439,11 @@
         {
           "slug": "economy-gravity",
           "public_label": "Economic Context Links",
-          "event_count": 364,
-          "compatible_event_count": 364,
-          "source_count": 17,
-          "compatible_source_count": 17,
-          "last_retrieved_or_reviewed": "2026-05-23",
+          "event_count": 6695,
+          "compatible_event_count": 6695,
+          "source_count": 6,
+          "compatible_source_count": 6,
+          "last_retrieved_or_reviewed": "2026-06-02T08:39:44Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
@@ -1083,20 +1460,27 @@
         {
           "slug": "utilities-capacity",
           "public_label": "Utility Context",
-          "event_count": 1002,
-          "compatible_event_count": 1002,
-          "source_count": 26,
-          "compatible_source_count": 26,
-          "last_retrieved_or_reviewed": "2026-05-23",
+          "event_count": 1025,
+          "compatible_event_count": 1025,
+          "source_count": 11,
+          "compatible_source_count": 11,
+          "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 14,
+            "missing_visible_years": [
+              2007,
+              2017,
+              2019,
+              2020,
+              2023,
+              2026
+            ],
+            "source_backed_record_year_count": 19,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
           }
@@ -1104,20 +1488,27 @@
         {
           "slug": "utilities-resilience",
           "public_label": "Utility Network Context",
-          "event_count": 1002,
-          "compatible_event_count": 1002,
-          "source_count": 26,
-          "compatible_source_count": 26,
-          "last_retrieved_or_reviewed": "2026-05-23",
+          "event_count": 1025,
+          "compatible_event_count": 1025,
+          "source_count": 11,
+          "compatible_source_count": 11,
+          "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 14,
+            "missing_visible_years": [
+              2007,
+              2017,
+              2019,
+              2020,
+              2023,
+              2026
+            ],
+            "source_backed_record_year_count": 19,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
           }
@@ -1125,20 +1516,27 @@
         {
           "slug": "utilities-works",
           "public_label": "Utility Works",
-          "event_count": 1002,
-          "compatible_event_count": 1002,
-          "source_count": 26,
-          "compatible_source_count": 26,
-          "last_retrieved_or_reviewed": "2026-05-23",
+          "event_count": 1025,
+          "compatible_event_count": 1025,
+          "source_count": 11,
+          "compatible_source_count": 11,
+          "last_retrieved_or_reviewed": "2026-06-02T08:38:33Z",
           "year_contract": {
             "required_years": {
               "start": 2007,
               "end": 2026
             },
             "required_year_count": 20,
-            "visible_year_count": 20,
-            "missing_visible_years": [],
-            "source_backed_record_year_count": 20,
+            "visible_year_count": 14,
+            "missing_visible_years": [
+              2007,
+              2017,
+              2019,
+              2020,
+              2023,
+              2026
+            ],
+            "source_backed_record_year_count": 19,
             "source_backed_context_year_count": 0,
             "lens_year_coverage_path": "web/data/city-atlas/cities/nyc/lens_year_coverage.json"
           }

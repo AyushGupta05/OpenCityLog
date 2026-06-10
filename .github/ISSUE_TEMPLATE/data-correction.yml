@@ -1,48 +1,38 @@
 name: Data correction
-description: Correct an event, source, licence, caveat, confidence label, date, or geometry.
-title: "[Data correction]: "
+about: Report an incorrect, missing, duplicated, or overclaimed city-change record.
+title: "Data correction: "
 labels: ["data-correction", "provenance"]
 body:
-  - type: input
-    id: event_or_source
+  - type: markdown
     attributes:
-      label: Event or source id
-      description: Include the event id, source id, or file path.
+      value: |
+        Use this for record/source corrections. OpenCityLog is evidence-first: please include public source links or explain the limitation clearly.
+  - type: input
+    id: city
+    attributes:
+      label: City
+      description: City or adapter affected.
+      placeholder: Belfast / London / NYC / other
     validations:
       required: true
-  - type: textarea
-    id: correction
+  - type: input
+    id: record
     attributes:
-      label: Proposed correction
-      description: Explain what is wrong and what should change.
+      label: Record or source ID
+      description: Paste the record ID, source ID, URL, or atlas permalink if available.
+    validations:
+      required: false
+  - type: textarea
+    id: issue
+    attributes:
+      label: What needs correcting?
+      description: Describe the incorrect date, geometry, title, source, confidence, licence, or limitation.
     validations:
       required: true
   - type: textarea
     id: evidence
     attributes:
-      label: Public evidence
-      description: Link source rows, public pages, files, or archived material that support the correction.
+      label: Evidence
+      description: Public source links, citations, rows, documents, or notes supporting the correction.
     validations:
       required: true
-  - type: dropdown
-    id: affected_fields
-    attributes:
-      label: What changes?
-      multiple: true
-      options:
-        - Date or date basis
-        - Geometry or place
-        - Category or lens
-        - Confidence
-        - Caveat or limitation
-        - Licence or attribution
-        - Source URL or record id
-  - type: checkboxes
-    id: checks
-    attributes:
-      label: Checks
-      options:
-        - label: I am not asking Bims to infer causation or prediction from this correction.
-          required: true
-        - label: The evidence I linked is public or otherwise safe to publish.
-          required: true

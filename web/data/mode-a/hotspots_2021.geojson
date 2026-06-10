@@ -1,8 +1,0 @@
-{
-  "type": "FeatureCollection",
-  "features": [],
-  "properties": {
-    "status": "retired",
-    "message": "Mode A replay/simulator layer retired. Active atlas data lives under web/data/city-atlas/."
-  }
-}
