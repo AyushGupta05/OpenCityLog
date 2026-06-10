@@ -556,7 +556,7 @@ async function assertDesktopCitywideCoverage(page) {
       const activeAspect = state?.activeAspect || "";
       const year = Number(state?.year);
       const row = state?.lensYearCoverageByKey?.get?.(`${activeAspect}:${year}`);
-      const detailLayer = activeAspect === "planning-pressure"
+      const detailLayer = ["planning-pressure", "planning-delta", "planning-parcels"].includes(activeAspect)
         ? "planning_cell"
         : activeAspect === "economy-land-use"
         ? "economy_activity_cell"
@@ -569,7 +569,7 @@ async function assertDesktopCitywideCoverage(page) {
           return props.layer === detailLayer && Number(props.year || props.visible_year || 0) === year;
         }).length
         : 0;
-      const canRenderGuide = ["planning-pressure", "economy-land-use", "economy-vitality"].includes(activeAspect)
+      const canRenderGuide = ["planning-pressure", "planning-delta", "planning-parcels", "economy-land-use", "economy-vitality"].includes(activeAspect)
         && row?.status === "source_backed_records"
         && row?.visible_map_contract !== false
         && matchingDetailCount > 0;
@@ -622,7 +622,7 @@ async function assertDesktopCitywideCoverage(page) {
       const activeCoverageRow = coverageRows.find((row) => row?.lens_slug === activeAspect && Number(row?.year) === Number(atlas?.state?.year)) || null;
       const contextRows = coverageRows.filter((row) => /context/i.test(row?.status || "") || Number(row?.coverage_context_feature_count || 0) > 0).length;
       const guideFeatures = atlas?.state?.lensGuideFeatureCache?.features || [];
-      const detailLayerForGuide = activeAspect === "planning-pressure"
+      const detailLayerForGuide = ["planning-pressure", "planning-delta", "planning-parcels"].includes(activeAspect)
         ? "planning_cell"
         : activeAspect === "economy-land-use"
         ? "economy_activity_cell"
@@ -637,7 +637,7 @@ async function assertDesktopCitywideCoverage(page) {
           return props.layer === detailLayerForGuide && Number(props.year || props.visible_year || 0) === Number(atlas?.state?.year);
         }).length
         : 0;
-      const directCanRenderGuide = ["planning-pressure", "economy-land-use", "economy-vitality", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+      const directCanRenderGuide = ["planning-pressure", "planning-delta", "planning-parcels", "economy-land-use", "economy-vitality", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
         && activeCoverageRow?.status === "source_backed_records"
         && activeCoverageRow?.visible_map_contract !== false
         && matchingDetailCount > 0;
@@ -977,7 +977,7 @@ async function directGuideState(page) {
     const activeAspect = state?.activeAspect || "";
     const year = Number(state?.year);
     const row = state?.lensYearCoverageByKey?.get?.(`${activeAspect}:${year}`);
-    const detailLayer = activeAspect === "planning-pressure"
+    const detailLayer = ["planning-pressure", "planning-delta", "planning-parcels"].includes(activeAspect)
       ? "planning_cell"
       : activeAspect === "economy-land-use"
       ? "economy_activity_cell"
@@ -1056,7 +1056,7 @@ async function directGuideState(page) {
     return {
       activeAspect,
       year,
-      canRenderGuide: (["planning-pressure", "economy-land-use", "economy-vitality", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+      canRenderGuide: (["planning-pressure", "planning-delta", "planning-parcels", "economy-land-use", "economy-vitality", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
         && row?.status === "source_backed_records"
         && row?.visible_map_contract !== false
         && matchingDetailCount > 0)
@@ -1135,8 +1135,8 @@ async function assertDirectGuideSurface(page, label, { expected, allowContextGui
   assert(state.renderedGuides === 0, `${label}: non-eligible guide rendered ${state.renderedGuides} feature(s).`);
 }
 
-async function assertPlanningPressureCitywideContext(page, cityId, targetYear) {
-  const minimumContextFlows = { belfast: 80, london: 260, nyc: 220 }[cityId] || 80;
+async function assertPlanningPressureCitywideContext(page, cityId, targetYear, lensId = "planning-pressure") {
+  const minimumContextFlows = { belfast: 160, london: 500, nyc: 500 }[cityId] || 120;
   await page.waitForFunction(() => {
     const features = window.BimsAtlas?.state?.lensGuideFeatureCache?.features || [];
     return features.some((feature) => feature?.properties?.source_kind === "current_context"
@@ -1157,12 +1157,12 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear) {
       return false;
     }
   }, null, { timeout: 20000 });
-  const state = await page.evaluate(({ year }) => {
+  const state = await page.evaluate(({ year, lensId }) => {
     const atlas = window.BimsAtlas;
     const map = atlas?.state?.map;
     const guide = atlas?.state?.lensGuideFeatureCache?.features || [];
     const split = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
-    const row = atlas?.state?.lensYearCoverageByKey?.get?.(`planning-pressure:${Number(year)}`) || null;
+    const row = atlas?.state?.lensYearCoverageByKey?.get?.(`${lensId}:${Number(year)}`) || null;
     const detailCount = (atlas?.state?.lensDetailFeatures || []).filter((feature) => {
       const props = feature.properties || {};
       return props.layer === "planning_cell" && Number(props.year || props.visible_year || 0) === Number(year);
@@ -1249,7 +1249,7 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear) {
       detailCount,
       mapDirectCount,
     };
-  }, { year: targetYear });
+  }, { year: targetYear, lensId });
   assert(state.roadContextPath.includes("transport_roads_base.geojson"), `planning context ${cityId}: road context path did not load (${state.roadContextPath}).`);
   assert(state.roadContextSourceCount >= minimumContextFlows, `planning context ${cityId}: too few source road features loaded (${state.roadContextSourceCount}).`);
   assert(state.contextFlowCount >= minimumContextFlows, `planning context ${cityId}: too few citywide current-context road traces (${state.contextFlowCount}).`);
@@ -1982,8 +1982,8 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     if (typeof check.guideExpected === "boolean") {
       await assertDirectGuideSurface(page, `city ${cityId}: ${check.aspect}`, { expected: check.guideExpected });
     }
-    if (check.aspect === "planning-pressure") {
-      await assertPlanningPressureCitywideContext(page, cityId, targetYear);
+    if (["planning-pressure", "planning-delta", "planning-parcels"].includes(check.aspect)) {
+      await assertPlanningPressureCitywideContext(page, cityId, targetYear, check.aspect);
     }
     if (check.landUseContextExpected) {
       await assertEconomyLandUseCitywideContext(page, cityId, targetYear);
@@ -2202,6 +2202,9 @@ async function assertReferenceLensCitywideArtifact(page, cityId, check) {
     }
     if (check.gravityContextExpected) {
       await assertEconomyGravityCitywideContext(page, cityId, check.year);
+    }
+    if (["planning-pressure", "planning-delta", "planning-parcels"].includes(check.aspect)) {
+      await assertPlanningPressureCitywideContext(page, cityId, check.year, check.aspect);
     }
     const sparseSelectedYear = (coverage.detailFeatureCount > 0 && coverage.detailFeatureCount <= 16)
       || (coverage.mapDirectCount > 0 && coverage.mapDirectCount <= 10)

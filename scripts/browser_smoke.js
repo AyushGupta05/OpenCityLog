@@ -61,7 +61,7 @@ async function guideSignalState(page) {
     const activeAspect = state?.activeAspect || "";
     const year = Number(state?.year);
     const row = state?.lensYearCoverageByKey?.get?.(`${activeAspect}:${year}`);
-    const detailLayer = activeAspect === "planning-pressure"
+    const detailLayer = ["planning-pressure", "planning-delta", "planning-parcels"].includes(activeAspect)
       ? "planning_cell"
       : activeAspect === "economy-land-use"
       ? "economy_activity_cell"
@@ -106,13 +106,22 @@ async function guideSignalState(page) {
       && row?.status === "source_backed_records"
       && row?.visible_map_contract !== false
       && Number(row?.direct_event_count || 0) > 0;
-    const directCanRender = ["planning-pressure", "economy-land-use", "economy-vitality", "economy-gravity", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+    const planningContextCanRender = ["planning-pressure", "planning-delta", "planning-parcels"].includes(activeAspect)
+      && Boolean(state?.activeLayers?.has?.("built_environment"))
+      && citywideScope
+      && state?.showInferred !== false
+      && !state?.search
+      && !state?.areaFilter
+      && row?.status === "source_backed_records"
+      && row?.visible_map_contract !== false
+      && Number(row?.direct_event_count || 0) > 0;
+    const directCanRender = ["planning-pressure", "planning-delta", "planning-parcels", "economy-land-use", "economy-vitality", "economy-gravity", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
       && row?.status === "source_backed_records"
       && row?.visible_map_contract !== false
       && matchingDetailCount > 0;
     return {
       activeAspect,
-      canRenderGuide: directCanRender || civicContextCanRender || economyContextCanRender || transportNetworkContextCanRender,
+      canRenderGuide: directCanRender || planningContextCanRender || civicContextCanRender || economyContextCanRender || transportNetworkContextCanRender,
       guideFeatureCount: features.length,
       rendered,
       invalidFeatureCount: features.filter((feature) => {
@@ -208,7 +217,7 @@ async function assertGeneratedGuideSignal(page, label) {
     const activeAspect = state?.activeAspect || "";
     const year = Number(state?.year);
     const row = state?.lensYearCoverageByKey?.get?.(`${activeAspect}:${year}`);
-    const detailLayer = activeAspect === "planning-pressure"
+    const detailLayer = ["planning-pressure", "planning-delta", "planning-parcels"].includes(activeAspect)
       ? "planning_cell"
       : activeAspect === "economy-land-use"
       ? "economy_activity_cell"
@@ -253,11 +262,20 @@ async function assertGeneratedGuideSignal(page, label) {
       && row?.status === "source_backed_records"
       && row?.visible_map_contract !== false
       && Number(row?.direct_event_count || 0) > 0;
-    const directCanRender = ["planning-pressure", "economy-land-use", "economy-vitality", "economy-gravity", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
+    const planningContextCanRender = ["planning-pressure", "planning-delta", "planning-parcels"].includes(activeAspect)
+      && Boolean(state?.activeLayers?.has?.("built_environment"))
+      && citywideScope
+      && state?.showInferred !== false
+      && !state?.search
+      && !state?.areaFilter
+      && row?.status === "source_backed_records"
+      && row?.visible_map_contract !== false
+      && Number(row?.direct_event_count || 0) > 0;
+    const directCanRender = ["planning-pressure", "planning-delta", "planning-parcels", "economy-land-use", "economy-vitality", "economy-gravity", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(activeAspect)
       && row?.status === "source_backed_records"
       && row?.visible_map_contract !== false
       && matchingDetailCount > 0;
-    const canRenderGuide = directCanRender || civicContextCanRender || economyContextCanRender || transportNetworkContextCanRender;
+    const canRenderGuide = directCanRender || planningContextCanRender || civicContextCanRender || economyContextCanRender || transportNetworkContextCanRender;
     const invalidFeatureCount = features.filter((feature) => {
       const props = feature?.properties || {};
       const eventIds = splitIds(props.event_ids || props.event_id);

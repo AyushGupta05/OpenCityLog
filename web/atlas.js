@@ -2184,7 +2184,11 @@
             <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#e7b454"></i><span>Change in use</span></div>
             <div class="planning-symbol-row"><i class="planning-fill" style="--planning-color:#8f9494"></i><span>Demolition / loss</span></div>
           </div>
-          ${renderLensLegendNote(status, lens, "Mapped footprint context is descriptive and is not measured construction volume.")}
+          <div class="planning-legend-section">
+            <span>Citywide context</span>
+            <div class="planning-line-row"><i style="border-color:#d9793e"></i><span>Current mapped road context</span></div>
+          </div>
+          ${renderLensLegendNote(status, lens, "Mapped footprint and current road context are descriptive; they are not measured construction volume.")}
         </div>
       </aside>
     `;
@@ -2215,8 +2219,12 @@
             <div class="planning-line-row"><i class="major"></i><span>Major</span></div>
             <div class="planning-line-row"><i class="strategic"></i><span>Strategic</span></div>
           </div>
+          <div class="planning-legend-section">
+            <span>Citywide context</span>
+            <div class="planning-line-row"><i style="border-color:#d9793e"></i><span>Current mapped road context</span></div>
+          </div>
           <div class="pressure-study-line"><i></i><span>Study area (${escapeHtml(formatRadius(lensEffectiveRadiusM(lens)))})</span></div>
-          ${renderLensLegendNote(status, lens, "Parcel-stage cells are source-backed where records exist; inferred context remains labelled.")}
+          ${renderLensLegendNote(status, lens, "Parcel-stage cells are source-backed where records exist; current road context is descriptive and labelled.")}
         </div>
       </aside>
     `;
@@ -3313,7 +3321,7 @@
           ["==", ["get", "flow_style"], "planning_pressure_spine"], 0.58,
           ["==", ["get", "flow_style"], "planning_pressure_edge"], 0.5,
           ["==", ["get", "flow_style"], "planning_pressure_cell_edge"], 0.34,
-          ["==", ["get", "flow_style"], "planning_pressure_trace"], 0.34,
+          ["==", ["get", "flow_style"], "planning_pressure_trace"], 0.46,
           ["==", ["get", "flow_style"], "catchment_street_seam"], 0.64,
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_backbone"]], 0.96,
           ["all", ["==", ["get", "lens_id"], "transport-speed"], ["==", ["get", "flow_style"], "transport_thread"]], 0.34,
@@ -3394,7 +3402,7 @@
           ["==", ["get", "flow_style"], "planning_pressure_cell_edge"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.78, 1, 2.35],
           ["==", ["get", "flow_style"], "planning_pressure_trace"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.9, 1, 2.75],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.18, 1, 3.4],
           ["==", ["get", "flow_style"], "catchment_street_seam"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 1.2, 1, 3.35],
           ["==", ["get", "flow_style"], "transport_service_tick"],
@@ -3525,7 +3533,7 @@
           ["==", ["get", "flow_style"], "planning_pressure_cell_edge"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.18, 1, 0.48],
           ["==", ["get", "flow_style"], "planning_pressure_trace"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.22, 1, 0.56],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.34, 1, 0.74],
           ["==", ["get", "flow_style"], "catchment_street_seam"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.62, 1, 0.9],
           ["==", ["get", "flow_style"], "transport_service_tick"],
@@ -3635,7 +3643,7 @@
           ["==", ["get", "flow_style"], "planning_pressure_cell_edge"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.24, 1, 0.82],
           ["==", ["get", "flow_style"], "planning_pressure_trace"],
-          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.34, 1, 1.14],
+          ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.46, 1, 1.55],
           ["==", ["get", "flow_style"], "catchment_street_seam"],
           ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.5], 0, 0.54, 1, 1.62],
           ["==", ["get", "flow_style"], "transport_service_tick"],
@@ -5766,7 +5774,7 @@
     const showGuide = Boolean(lens && state.activeLayers.has(lens.category || state.activeLens));
     const showRings = showGuide && ["transport-speed", "transport-reliability", "planning-pressure", "planning-delta", "planning-parcels", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens.id);
     const showCells = showGuide && ["transport-access", "planning-pressure", "planning-delta", "planning-parcels", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-land-use", "economy-vitality", "economy-gravity", "utilities-resilience"].includes(lens.id);
-    const showFlows = showGuide && ["transport-speed", "transport-access", "transport-reliability", "planning-pressure", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-vitality", "economy-gravity", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id);
+    const showFlows = showGuide && ["transport-speed", "transport-access", "transport-reliability", "planning-pressure", "planning-delta", "planning-parcels", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-vitality", "economy-gravity", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id);
     const showNodes = showGuide && ["transport-speed", "transport-access", "transport-reliability", "planning-pressure", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-vitality", "economy-gravity", "utilities-resilience", "utilities-capacity", "utilities-works"].includes(lens.id);
     const visibility = {
       "lens-guide-area-fill": showGuide,
@@ -7049,7 +7057,7 @@
   }
 
   function sourceBackedGuideLensSupported(lens = activeMapLens()) {
-    return ["planning-pressure", "transport-speed", "transport-access", "transport-reliability", "economy-land-use", "economy-vitality", "economy-gravity", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens?.id);
+    return ["planning-pressure", "planning-delta", "planning-parcels", "transport-speed", "transport-access", "transport-reliability", "economy-land-use", "economy-vitality", "economy-gravity", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens?.id);
   }
 
   function sourceBackedGuideDetailFeatures(lens, year) {
@@ -7090,7 +7098,7 @@
   }
 
   function sourceBackedGuideDetailLayers(lens) {
-    if (lens?.id === "planning-pressure") return ["planning_cell"];
+    if (["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id)) return ["planning_cell"];
     if (lens?.id === "economy-land-use") return ["economy_activity_cell"];
     if (lens?.id === "economy-vitality") return ["economy_frontage", "economy_activity_cell"];
     if (lens?.id === "economy-gravity") return ["economy_frontage", "economy_activity_cell"];
@@ -7437,7 +7445,7 @@
         sublayer_id: sublayerId,
         land_use_category: lens.id === "economy-land-use" ? sublayerId : "",
         service_type: lens.category === "civic_services" ? sublayerId : "",
-        planning_status: lens.id === "planning-pressure" ? (props.lifecycle_status || props.status || "documented") : "",
+        planning_status: ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens.id) ? (sublayerId || props.lifecycle_status || props.status || "documented") : "",
         intensity: Number(baseIntensity.toFixed(3)),
         score: Number((baseIntensity + Math.min(0.2, eventCount * 0.018) + Math.min(0.12, sourceCount * 0.025) + seed * 0.05).toFixed(3)),
         color,
@@ -7560,7 +7568,7 @@
         sublayer_id: entry.sublayerId,
         land_use_category: lens.id === "economy-land-use" ? entry.sublayerId : "",
         service_type: lens.category === "civic_services" ? entry.sublayerId : "",
-        planning_status: lens.id === "planning-pressure" ? entry.sublayerId : "",
+        planning_status: ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens.id) ? entry.sublayerId : "",
         intensity: Number(intensity.toFixed(3)),
         score: Number((intensity + Math.min(0.2, entry.count * 0.012) + seed * 0.035).toFixed(3)),
         color: entry.color,
@@ -7587,7 +7595,7 @@
       if (!sourceIds.length || !sourceUrls.length) continue;
       const local = lngLatToLocalMeters(event.lngLat, origin);
       if (!Number.isFinite(local[0]) || !Number.isFinite(local[1])) continue;
-      const sublayerId = planningPressureDriverKey(event);
+      const sublayerId = sourceBackedGuideSublayerId(event, lens);
       const bucket = `${Math.round(local[0] / bucketM)}:${Math.round(local[1] / bucketM)}:${sublayerId}`;
       const entry = buckets.get(bucket) || {
         bucket,
@@ -7639,7 +7647,7 @@
   }
 
   function sourceBackedEventCitywideGuideNeeded(detailFeatures, lens, year) {
-    if (lens?.id !== "planning-pressure") return false;
+    if (!["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id)) return false;
     if (!sourceBackedGuideLayerVisible(lens)) return false;
     if (state.search || state.areaFilter) return false;
     if (!citywideOverviewActive() && !state.citywideLensMode) return false;
@@ -7749,7 +7757,7 @@
     const roads = Array.isArray(state.planningRoadContextFeatures) ? state.planningRoadContextFeatures : [];
     if (!roads.length || !state.sourceById.has("osm-overpass")) return [];
     const basisM = citywideBasisMeters();
-    const limit = Math.max(360, Math.min(1350, Math.round(basisM / 52)));
+    const limit = Math.max(520, Math.min(1850, Math.round(basisM / 38)));
     const bounds = cityBoundsValues();
     const candidates = [];
     for (const road of roads) {
@@ -7788,7 +7796,7 @@
   }
 
   function planningPressureRoadContextCanRender(lens = activeMapLens(), year = currentTimelineYear()) {
-    if (lens?.id !== "planning-pressure") return false;
+    if (!["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id)) return false;
     if (!state.activeLayers.has("built_environment")) return false;
     if (!state.showInferred) return false;
     if (state.search || state.areaFilter) return false;
@@ -9586,20 +9594,20 @@
 
   function citywideGuideBucketMeters(lens) {
     const bounds = cityBoundsValues();
-    if (!bounds) return lens?.id === "planning-pressure" ? 560 : lens?.category === "civic_services" ? 620 : 640;
+    if (!bounds) return ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 560 : lens?.category === "civic_services" ? 620 : 640;
     const midLat = (bounds.south + bounds.north) / 2;
     const widthM = lngLatDistanceMeters([bounds.west, midLat], [bounds.east, midLat]);
     const heightM = lngLatDistanceMeters([(bounds.west + bounds.east) / 2, bounds.south], [(bounds.west + bounds.east) / 2, bounds.north]);
     const basis = Math.max(widthM, heightM);
-    const divisor = lens?.id === "planning-pressure" ? 74 : lens?.category === "civic_services" ? 78 : 82;
+    const divisor = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 74 : lens?.category === "civic_services" ? 78 : 82;
     const raw = basis / divisor;
-    const min = lens?.id === "planning-pressure" ? 360 : lens?.category === "civic_services" ? 390 : 420;
-    const max = lens?.id === "planning-pressure" ? 1180 : lens?.category === "civic_services" ? 1120 : 1050;
+    const min = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 360 : lens?.category === "civic_services" ? 390 : 420;
+    const max = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 1180 : lens?.category === "civic_services" ? 1120 : 1050;
     return Math.max(min, Math.min(max, raw));
   }
 
   function citywideGuideFeatureLimit(lens) {
-    if (lens?.id === "planning-pressure") return 1150;
+    if (["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id)) return 1150;
     if (lens?.id === "transport-access") return 1120;
     if (lens?.id === "economy-land-use") return 1250;
     if (lens?.id === "economy-vitality") return 1450;
@@ -9665,7 +9673,7 @@
   }
 
   function sourceBackedGuideSurfaceStyle(lens) {
-    if (lens?.id === "planning-pressure") return "planning_footprint";
+    if (["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id)) return "planning_footprint";
     if (lens?.id === "transport-access") return "access_fabric";
     if (lens?.id === "economy-land-use") return "land_use_tile";
     if (lens?.id === "economy-vitality") return "vitality_ribbon_tile";
@@ -9678,11 +9686,31 @@
 
   function sourceBackedGuideSublayerId(props = {}, lens = activeMapLens()) {
     if (lens?.id === "planning-pressure") return planningPressureDriverKey(props);
+    if (["planning-delta", "planning-parcels"].includes(lens?.id)) return planningStageGuideSublayerId(props);
     if (lens?.id === "economy-land-use") return economyLandUseCategory(props)?.id || "other_mixed";
     if (lens?.id === "economy-vitality") return economyVitalityLayerKey(props);
     if (lens?.id === "economy-gravity") return economyGravitySectorKey(props);
     if (lens?.category === "civic_services") return civicServiceSublayerKey(props);
     return props.sublayer_id || props.layer || "source_backed";
+  }
+
+  function planningStageGuideSublayerId(props = {}) {
+    const eventIds = detailEventIds(props);
+    if (eventIds.length) {
+      const seed = stableUnit(`${props.source_id || props.id || eventIds.join(",")}:planning-guide-stage`);
+      const stageMatch = planningParcelStageMatch(props, seed);
+      if (stageMatch?.status) return planningAspectLayerId(stageMatch.status);
+    }
+    const eventId = String(props.id || props.event_id || firstDetailEventId(props) || "").trim();
+    const event = eventId ? (state.eventById.get(eventId) || props) : props;
+    return planningAspectLayerId(
+      planningLifecycleStatusFromEvent(eventId, event)
+        || props.lifecycle_status
+        || props.planning_status
+        || props.status
+        || props.sublayer_id
+        || "unknown"
+    );
   }
 
   function sourceBackedGuideLayerId(lens, sublayerId) {
@@ -9693,6 +9721,7 @@
 
   function sourceBackedGuideColor(sublayerId, lens = activeMapLens()) {
     if (lens?.id === "planning-pressure") return planningDriverColor(sublayerId);
+    if (["planning-delta", "planning-parcels"].includes(lens?.id)) return planningFootprintColor(lens.id, {}, { lifecycle_status: sublayerId || "unknown" }, null);
     if (lens?.id === "economy-land-use") return economyLandUseCategories().find((category) => category.id === sublayerId)?.color || "#f6e4c2";
     if (lens?.id === "economy-vitality") return economyVitalityLayerColor(sublayerId);
     if (lens?.id === "economy-gravity") return economyGravitySectorColor(sublayerId);
@@ -9712,7 +9741,7 @@
   }
 
   function sourceBackedGuideLongScale(lens) {
-    if (lens?.id === "planning-pressure") return 0.58;
+    if (["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id)) return 0.58;
     if (lens?.id === "transport-access") return 0.72;
     if (lens?.id === "economy-land-use") return 0.64;
     if (lens?.id === "economy-vitality") return 0.72;
@@ -9724,7 +9753,7 @@
   }
 
   function sourceBackedGuideShortScale(lens) {
-    if (lens?.id === "planning-pressure") return 0.42;
+    if (["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id)) return 0.42;
     if (lens?.id === "transport-access") return 0.42;
     if (lens?.id === "economy-land-use") return 0.5;
     if (lens?.id === "economy-vitality") return 0.28;
