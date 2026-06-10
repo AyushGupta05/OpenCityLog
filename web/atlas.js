@@ -3024,6 +3024,8 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.3, 1, 0.66],
             ["==", ["get", "surface_style"], "access_fabric"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.28, 1, 0.54],
+            ["==", ["get", "surface_style"], "vitality_anchor_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.26, 1, 0.62],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.14, 1, 0.42],
           ],
           8.8, ["case",
@@ -3031,6 +3033,8 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.24, 1, 0.56],
             ["==", ["get", "surface_style"], "access_fabric"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.22, 1, 0.48],
+            ["==", ["get", "surface_style"], "vitality_anchor_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.22, 1, 0.52],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.1, 1, 0.32],
           ],
           10.8, ["case",
@@ -3038,6 +3042,8 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.12, 1, 0.28],
             ["==", ["get", "surface_style"], "access_fabric"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.16, 1, 0.34],
+            ["==", ["get", "surface_style"], "vitality_anchor_tile"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.14, 1, 0.32],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.06, 1, 0.18],
           ],
           12.2, 0,
@@ -3056,6 +3062,7 @@
           "case",
           ["==", ["get", "surface_style"], "planning_footprint"], ["coalesce", ["get", "color"], "#fff7eb"],
           ["==", ["get", "surface_style"], "land_use_tile"], "#fffaf0",
+          ["==", ["get", "surface_style"], "vitality_anchor_tile"], "#fffaf0",
           ["coalesce", ["get", "color"], "#ffffff"],
         ],
         "line-opacity": [
@@ -4752,14 +4759,7 @@
       ];
     }
     if (mode === "economy-vitality") {
-      return [
-        "interpolate", ["linear"], lensDetailIntensityExpression(),
-        0, "#1693a3",
-        0.32, "#ee3f47",
-        0.52, "#f0a51b",
-        0.72, "#a552a8",
-        1, "#6d2f90",
-      ];
+      return economyVitalitySourceColorExpression();
     }
     return [
       "match", ["get", "sector"],
@@ -4772,6 +4772,28 @@
       "residential_change", "#b887b8",
       "vacancy", "#655b54",
       "#8d5a90",
+    ];
+  }
+
+  function economyVitalitySourceColorExpression() {
+    return [
+      "case",
+      ["match", ["get", "activity_status"], ["closure", "closed", "closing"], true, false], "#c7354b",
+      ["match", ["get", "status"], ["closure", "closed", "closing"], true, false], "#c7354b",
+      ["match", ["get", "activity_status"], ["opening", "opened"], true, false], "#5eaa4e",
+      ["match", ["get", "status"], ["opening", "opened"], true, false], "#5eaa4e",
+      [
+        "match", ["get", "sector"],
+        "retail", "#f0a51b",
+        "commercial_activity", "#f0a51b",
+        "hospitality", "#7b3a8f",
+        "office", "#1693a3",
+        "culture_visitor", "#188a98",
+        "residential_change", "#55aeb4",
+        "industrial", "#8c5b3a",
+        "vacancy", "#ee3f47",
+        "#7b3a8f",
+      ],
     ];
   }
 
@@ -5701,7 +5723,7 @@
     const lens = activeMapLens();
     const showGuide = Boolean(lens && state.activeLayers.has(lens.category || state.activeLens));
     const showRings = showGuide && ["transport-speed", "transport-reliability", "planning-pressure", "planning-delta", "planning-parcels", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens.id);
-    const showCells = showGuide && ["transport-access", "planning-pressure", "planning-delta", "planning-parcels", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-land-use", "utilities-resilience"].includes(lens.id);
+    const showCells = showGuide && ["transport-access", "planning-pressure", "planning-delta", "planning-parcels", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-land-use", "economy-vitality", "utilities-resilience"].includes(lens.id);
     const showFlows = showGuide && ["transport-speed", "transport-access", "transport-reliability", "planning-pressure", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-vitality", "economy-gravity", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id);
     const showNodes = showGuide && ["transport-speed", "transport-access", "transport-reliability", "planning-pressure", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-vitality", "economy-gravity", "utilities-resilience", "utilities-capacity", "utilities-works"].includes(lens.id);
     const visibility = {
@@ -5872,6 +5894,7 @@
     }
     if (lens?.id === "civic-catchment") return guideSublayerFilter(base, lens);
     if (lens?.id === "economy-land-use") return ["all", base, ["==", ["get", "lens_id"], "economy-land-use"]];
+    if (lens?.id === "economy-vitality") return guideSublayerFilter(base, lens);
     if (lens?.id === "civic-demand") {
       return [
         "all",
@@ -6754,12 +6777,14 @@
       .filter((feature) => guideTransportNetworkContextFeatureHasProvenance(feature, lens));
     const economyLandUseContextFeatures = economyLandUseContextCitywideGuideFeatures(lens, year)
       .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
-    const features = directFeatures.concat(planningContextFeatures, economyLandUseContextFeatures, contextFeatures, transportContextFeatures, transportNetworkFeatures);
+    const economyVitalityContextFeatures = economyVitalityContextCitywideGuideFeatures(lens, year)
+      .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
+    const features = directFeatures.concat(planningContextFeatures, economyLandUseContextFeatures, economyVitalityContextFeatures, contextFeatures, transportContextFeatures, transportNetworkFeatures);
     return { type: "FeatureCollection", features };
   }
 
   function sourceBackedGuideLensSupported(lens = activeMapLens()) {
-    return ["planning-pressure", "transport-speed", "transport-access", "transport-reliability", "economy-land-use", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens?.id);
+    return ["planning-pressure", "transport-speed", "transport-access", "transport-reliability", "economy-land-use", "economy-vitality", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens?.id);
   }
 
   function sourceBackedGuideDetailFeatures(lens, year) {
@@ -6776,6 +6801,9 @@
     if (sourceBackedGuideUsesSublayerFilter(lens)) {
       const active = new Set(activeSublayerIdsForLens(lens));
       features = features.filter((feature) => active.has(sourceBackedGuideSublayerId(feature?.properties || {}, lens)));
+    }
+    if (lens?.id === "economy-vitality" && features.some((feature) => feature.properties?.layer === "economy_frontage")) {
+      return features.filter((feature) => feature.properties?.layer === "economy_frontage");
     }
     if (lens?.category === "civic_services" && features.some((feature) => feature.properties?.layer === "civic_coverage_cell")) {
       return features.filter((feature) => feature.properties?.layer === "civic_coverage_cell");
@@ -6799,6 +6827,7 @@
   function sourceBackedGuideDetailLayers(lens) {
     if (lens?.id === "planning-pressure") return ["planning_cell"];
     if (lens?.id === "economy-land-use") return ["economy_activity_cell"];
+    if (lens?.id === "economy-vitality") return ["economy_frontage", "economy_activity_cell"];
     if (["civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens?.id)) return ["civic_coverage_cell", "civic_facility"];
     return [];
   }
@@ -6928,6 +6957,87 @@
 
   function economyLandUseContextCanRender(lens = activeMapLens(), year = currentTimelineYear()) {
     if (lens?.id !== "economy-land-use") return false;
+    if (!state.activeLayers.has("economy")) return false;
+    if (!state.showInferred) return false;
+    if (state.search || state.areaFilter) return false;
+    if (!citywideOverviewActive() && !state.citywideLensMode) return false;
+    if (!economyAnchorPath()) return false;
+    const row = activeLensYearCoverageRow(lens, year);
+    if (!row || row.status !== "source_backed_records" || row.visible_map_contract === false) return false;
+    return Number(row.direct_event_count || row.map_direct_event_count || 0) > 0;
+  }
+
+  function economyVitalityContextCitywideGuideFeatures(lens = activeMapLens(), year = currentTimelineYear()) {
+    if (!economyVitalityContextCanRender(lens, year)) return [];
+    const anchors = Array.isArray(state.economyAnchorFeatures) ? state.economyAnchorFeatures : [];
+    if (!anchors.length || !state.sourceById.has("osm-overpass")) return [];
+    const generatedFrom = economyAnchorContextGeneratedFrom();
+    if (!generatedFrom) return [];
+    const dataYear = economyAnchorContextDataYear();
+    const bounds = cityBoundsValues();
+    const basisM = citywideBasisMeters();
+    const limit = Math.max(380, Math.min(980, Math.round(basisM / 52)));
+    const candidates = [];
+    for (const anchor of anchors) {
+      const props = anchor?.properties || {};
+      const point = geometryToLngLat(anchor?.geometry);
+      if (!point) continue;
+      if (bounds && (point[0] < bounds.west || point[0] > bounds.east || point[1] < bounds.south || point[1] > bounds.north)) continue;
+      const objectId = String(props.source_id || props.osm_id || props.id || "").trim();
+      const sourceUrl = props.source_url || osmObjectUrl(objectId);
+      if (!objectId || !sourceUrl) continue;
+      const rank = Math.max(0.6, Number(props.anchor_rank || 1));
+      const seed = stableUnit(`${objectId}:economy-vitality-context`);
+      const sublayerId = economyVitalityAnchorLayerKey(props);
+      const destinationBoost = /mall|arcade|market|square|department|hotel|theatre|cinema|museum|gallery|bank|restaurant|pub|bar|cafe|caf\u00e9/i.test(`${props.label || ""} ${props.osm_shop || ""} ${props.osm_amenity || ""} ${props.osm_tourism || ""}`)
+        ? 0.11
+        : 0;
+      const intensity = clamp01(0.2 + Math.min(0.32, rank * 0.11) + destinationBoost + seed * 0.08);
+      const widthM = Math.max(170, Math.min(480, 150 + rank * 70 + seed * 85));
+      const heightM = Math.max(38, Math.min(128, 34 + rank * 22 + (1 - seed) * 22));
+      candidates.push({
+        type: "Feature",
+        properties: {
+          kind: "surface_cell",
+          lens_id: lens.id,
+          surface_style: "vitality_anchor_tile",
+          guide_scale: "citywide_summary",
+          source_kind: "current_context",
+          evidence_role: "context_not_year_specific_change_evidence",
+          context_year: String(dataYear),
+          selected_year: String(year),
+          detail_layer: "economy_anchors_2026",
+          generated_from: generatedFrom,
+          source_id: objectId,
+          source_ids: "osm-overpass",
+          source_object_id: objectId,
+          source_object_ids: objectId,
+          source_urls: sourceUrl,
+          confidence: props.confidence || "inferred",
+          caveat: props.timing_note || "Current OSM economy anchors are non-headline context only; they are not selected-year change evidence, trading-status proof, measured footfall, spend, vacancy, or causal impact.",
+          timing_note: props.timing_note || "Current OSM context may post-date the selected evidence year.",
+          geometry_precision_mix: props.geometry_method || "Current OSM point or centroid context; not a surveyed frontage or parcel.",
+          direct_evidence_counted: false,
+          headline_count_included: false,
+          event_id: "",
+          event_ids: "",
+          event_ids_all: "",
+          layer_id: sublayerId,
+          sublayer_id: sublayerId,
+          label: props.label || props.name || economyVitalityLayerLabel(sublayerId),
+          title: props.label || props.name || economyVitalityLayerLabel(sublayerId),
+          intensity: Number(intensity.toFixed(3)),
+          score: Number((intensity + Math.min(0.22, rank * 0.045) + destinationBoost + seed * 0.055).toFixed(3)),
+          color: economyVitalityLayerColor(sublayerId),
+        },
+        geometry: orientedRectanglePolygon(point, widthM, heightM, (seed - 0.5) * 0.5),
+      });
+    }
+    return spatiallyBalancedGuideFeatures(candidates, limit, lens);
+  }
+
+  function economyVitalityContextCanRender(lens = activeMapLens(), year = currentTimelineYear()) {
+    if (lens?.id !== "economy-vitality") return false;
     if (!state.activeLayers.has("economy")) return false;
     if (!state.showInferred) return false;
     if (state.search || state.areaFilter) return false;
@@ -9147,6 +9257,7 @@
     if (lens?.id === "planning-pressure") return 1150;
     if (lens?.id === "transport-access") return 1120;
     if (lens?.id === "economy-land-use") return 1250;
+    if (lens?.id === "economy-vitality") return 1450;
     if (lens?.category === "civic_services") return 3200;
     return 900;
   }
@@ -9211,6 +9322,7 @@
     if (lens?.id === "planning-pressure") return "planning_footprint";
     if (lens?.id === "transport-access") return "access_fabric";
     if (lens?.id === "economy-land-use") return "land_use_tile";
+    if (lens?.id === "economy-vitality") return "vitality_ribbon_tile";
     if (lens?.id === "civic-demand") return "demand_surface";
     if (lens?.id === "civic-catchment") return "catchment_area";
     if (lens?.id === "civic-access-gaps") return "access_fabric";
@@ -9220,6 +9332,7 @@
   function sourceBackedGuideSublayerId(props = {}, lens = activeMapLens()) {
     if (lens?.id === "planning-pressure") return planningPressureDriverKey(props);
     if (lens?.id === "economy-land-use") return economyLandUseCategory(props)?.id || "other_mixed";
+    if (lens?.id === "economy-vitality") return economyVitalityLayerKey(props);
     if (lens?.category === "civic_services") return civicServiceSublayerKey(props);
     return props.sublayer_id || props.layer || "source_backed";
   }
@@ -9233,6 +9346,7 @@
   function sourceBackedGuideColor(sublayerId, lens = activeMapLens()) {
     if (lens?.id === "planning-pressure") return planningDriverColor(sublayerId);
     if (lens?.id === "economy-land-use") return economyLandUseCategories().find((category) => category.id === sublayerId)?.color || "#f6e4c2";
+    if (lens?.id === "economy-vitality") return economyVitalityLayerColor(sublayerId);
     if (lens?.id === "civic-access-gaps") {
       return {
         health: "#ef8f21",
@@ -9252,6 +9366,7 @@
     if (lens?.id === "planning-pressure") return 0.58;
     if (lens?.id === "transport-access") return 0.72;
     if (lens?.id === "economy-land-use") return 0.64;
+    if (lens?.id === "economy-vitality") return 0.72;
     if (lens?.id === "civic-catchment") return 1.04;
     if (lens?.id === "civic-demand") return 0.94;
     if (lens?.id === "civic-access-gaps") return 1.02;
@@ -9262,6 +9377,7 @@
     if (lens?.id === "planning-pressure") return 0.42;
     if (lens?.id === "transport-access") return 0.42;
     if (lens?.id === "economy-land-use") return 0.5;
+    if (lens?.id === "economy-vitality") return 0.28;
     if (lens?.id === "civic-catchment") return 0.78;
     if (lens?.id === "civic-demand") return 0.66;
     if (lens?.id === "civic-access-gaps") return 0.56;
@@ -19730,6 +19846,13 @@
       if (lens.id === "economy-land-use" && economyLandUseContextCanRender(lens, state.year) && state.economyAnchorFeatures.length) {
         return {
           label: `Cells/context + ${renderableCount} records`,
+          empty: false,
+          note: `${lensGeometryNote(lens, count, renderableCount)} Current OSM economy/service anchors are non-headline context only and may post-date the selected year.`,
+        };
+      }
+      if (lens.id === "economy-vitality" && economyVitalityContextCanRender(lens, state.year) && state.economyAnchorFeatures.length) {
+        return {
+          label: `Frontages/context + ${renderableCount} records`,
           empty: false,
           note: `${lensGeometryNote(lens, count, renderableCount)} Current OSM economy/service anchors are non-headline context only and may post-date the selected year.`,
         };
