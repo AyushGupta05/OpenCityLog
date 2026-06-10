@@ -23445,11 +23445,11 @@
         ` : ""}
 
         <div class="detail-actions">
-          <button class="btn" id="detailExportMarkdownAction" style="flex:1">
+          <button class="btn" id="detailExportMarkdownAction" type="button" style="flex:1">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 13h6M9 17h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Export evidence brief
           </button>
-          <button class="btn btn-icon" id="detailShare" title="Copy permalink" aria-label="Copy selected record permalink">
+          <button class="btn btn-icon" id="detailShare" type="button" title="Copy permalink" aria-label="Copy selected record permalink">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 11l8-4M8 13l8 4"/></svg>
           </button>
         </div>
@@ -23541,11 +23541,11 @@
         ` : ""}
 
         <div class="detail-actions">
-          <button class="btn" id="detailExportMarkdownAction" style="flex:1">
+          <button class="btn" id="detailExportMarkdownAction" type="button" style="flex:1">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 13h6M9 17h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Export evidence brief
           </button>
-          <button class="btn btn-icon" id="detailShare" title="Copy permalink" aria-label="Copy selected record permalink">
+          <button class="btn btn-icon" id="detailShare" type="button" title="Copy permalink" aria-label="Copy selected record permalink">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 11l8-4M8 13l8 4"/></svg>
           </button>
         </div>

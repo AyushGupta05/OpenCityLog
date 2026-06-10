@@ -165,7 +165,7 @@ const server = http.createServer((req, res) => {
   if ((req.method === "GET" || req.method === "HEAD") && pathname === "/api/health") {
     sendJson(req, res, 200, {
       ok: true,
-      product: "Open Citylog",
+      product: "OpenCityLog",
       mode: "city-change-atlas",
       atlasIndex: fs.existsSync(path.join(webDir, "data", "city-atlas", "index.json"))
     });
@@ -211,11 +211,11 @@ server.on("clientError", (_error, socket) => {
 });
 
 server.on("error", (error) => {
-  console.error(`Open Citylog server failed: ${error.message}`);
+  console.error(`OpenCityLog server failed: ${error.message}`);
   process.exit(1);
 });
 
 server.listen(port, host, () => {
   const displayHost = host === "0.0.0.0" ? "localhost" : host;
-  console.log(`Open Citylog atlas UI/API running at http://${displayHost}:${port} (bound to ${host}:${port})`);
+  console.log(`OpenCityLog atlas UI/API running at http://${displayHost}:${port} (bound to ${host}:${port})`);
 });

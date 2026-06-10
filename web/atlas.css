@@ -63,6 +63,14 @@ body {
 
 button { font-family: inherit; }
 [hidden] { display: none !important; }
+button,
+a,
+input,
+select,
+[role="button"],
+[role="tab"] {
+  touch-action: manipulation;
+}
 
 .sr-only {
   position: absolute;
@@ -154,12 +162,12 @@ button { font-family: inherit; }
   position: absolute;
   left: 0;
   top: 0;
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
   will-change: transform;
 }
 .pin-wrap[data-active="true"] {
-  pointer-events: none;
+  pointer-events: auto;
 }
 .pin-wrap:hover,
 .pin-wrap:focus-within {
@@ -167,7 +175,7 @@ button { font-family: inherit; }
 }
 .pin {
   position: relative;
-  width: 22px; height: 22px;
+  width: 28px; height: 28px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
@@ -701,6 +709,19 @@ button { font-family: inherit; }
 }
 .skip-link:focus { top: 12px; }
 
+.noscript-card {
+  position: absolute;
+  left: 50%;
+  top: 84px;
+  z-index: 700;
+  width: min(620px, calc(100vw - 32px));
+  padding: 16px 18px;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.45;
+  transform: translateX(-50%);
+}
+
 .panel-kicker {
   font-family: var(--font-mono);
   font-size: 9px;
@@ -911,6 +932,7 @@ button { font-family: inherit; }
   width: 260px;
   z-index: 300;
   padding: 0;
+  scrollbar-gutter: stable;
 }
 .active-lens-card {
   --lens-accent: var(--c-transport);
@@ -2397,6 +2419,7 @@ button { font-family: inherit; }
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  scrollbar-gutter: stable;
   transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.18s;
 }
 .changelog[data-open="false"] {
@@ -3048,7 +3071,12 @@ button { font-family: inherit; }
   margin-right: 6px;
 }
 
-.detail-inner { display: flex; flex-direction: column; height: 100%; }
+.detail-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
 
 .detail-head {
   padding: 14px 18px 12px;
@@ -3128,7 +3156,11 @@ button { font-family: inherit; }
 .detail-where .sep { color: var(--rule-strong); }
 .detail-body {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
   padding: 14px 18px 18px;
 }
 .detail-summary {
@@ -5608,6 +5640,8 @@ button { font-family: inherit; }
     -webkit-backdrop-filter: none;
     max-height: 148px;
     overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
   }
   .map-lens-switcher {
     padding: 6px 0;
@@ -5651,9 +5685,15 @@ button { font-family: inherit; }
     width: auto;
     max-height: min(34dvh, 280px);
     z-index: 370;
+    overscroll-behavior: contain;
   }
   .changelog[data-open="false"] {
-    transform: translateY(calc(100% + 24px));
+    transform: translateY(calc(100% + 140px));
+  }
+  .changelog[data-open="true"] {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
   .compare {
     top: 146px;
@@ -5683,13 +5723,19 @@ button { font-family: inherit; }
     max-height: min(34dvh, 280px);
   }
   .detail[data-open="false"] {
-    transform: translateY(calc(100% + 24px));
+    opacity: 0;
+    transform: translateY(calc(100% + 140px));
+  }
+  .detail[data-open="true"] {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
   .detail-empty {
     padding: 18px;
   }
   .detail-body {
-    max-height: min(23dvh, 184px);
+    max-height: none;
   }
   .timeline {
     bottom: 8px;
@@ -5783,12 +5829,33 @@ button { font-family: inherit; }
     font-size: 34px;
   }
   .maplibregl-ctrl-bottom-right {
-    right: 12px;
-    bottom: calc(112px + min(34dvh, 280px) + 54px);
+    left: 12px;
+    right: auto;
+    top: calc(132px + min(30dvh, 250px) + 18px);
+    bottom: auto;
+  }
+  .maplibregl-ctrl-bottom-right .maplibregl-ctrl-group {
+    display: flex;
+    flex-direction: row;
+  }
+  .maplibregl-ctrl-bottom-right .maplibregl-ctrl-group button + button {
+    border-top: 0;
+    border-left: 1px solid var(--rule);
+  }
+  .maplibregl-ctrl-compass {
+    display: none !important;
   }
   .maplibregl-ctrl-bottom-left {
     left: 12px;
     bottom: 120px;
+  }
+
+  .pin-label,
+  .pin[data-active="true"] .pin-label,
+  .pin:hover .pin-label,
+  .pin[data-active="true"]:hover .pin-label,
+  .pin[data-active="true"]:focus-within .pin-label {
+    display: none;
   }
 }
 

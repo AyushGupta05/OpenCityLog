@@ -76,6 +76,23 @@ body.landing-body::after {
   top: 18px;
 }
 
+.noscript-card {
+  position: fixed;
+  left: 50%;
+  top: 92px;
+  z-index: 40;
+  width: min(640px, calc(100vw - 32px));
+  padding: 14px 18px;
+  border: 1px solid rgba(216, 255, 123, 0.36);
+  border-radius: 18px;
+  color: var(--landing-ink);
+  background: rgba(5, 9, 8, 0.92);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.34);
+  font-size: 14px;
+  line-height: 1.45;
+  transform: translateX(-50%);
+}
+
 a {
   color: inherit;
   text-decoration: none;

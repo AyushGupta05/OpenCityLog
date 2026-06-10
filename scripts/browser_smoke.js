@@ -447,6 +447,83 @@ async function assertNoGapWarningForAspect(page, year, aspectId) {
   assert(!/No source-backed/i.test(state.lensLegendText), `${aspectId} ${year} retained a stale no-source-backed warning.`);
 }
 
+async function assertVisibleControlsHitTargets(page, label) {
+  const issues = await page.evaluate(() => {
+    const selectors = [
+      "button:not([disabled])",
+      "a[href]",
+      "input:not([disabled])",
+      "select:not([disabled])",
+      "[role='button']:not([aria-disabled='true'])",
+      "[role='tab']:not([aria-disabled='true'])",
+    ].join(",");
+    const isVisible = (element) => {
+      if (!element || element.hidden || element.closest("[hidden]")) return false;
+      if (element.closest("details:not([open])")) return false;
+      if (element.closest("[data-open='false'], [aria-hidden='true']")) return false;
+      if (element.closest(".maplibregl-ctrl-attrib")) return false;
+      if (element.closest(".maplibregl-marker")) return false;
+      const style = getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+      if (style.display === "none" || style.visibility === "hidden" || Number(style.opacity || 1) === 0) return false;
+      return rect.width > 0 && rect.height > 0;
+    };
+    const clippedCenter = (element, centerX, centerY) => {
+      for (let parent = element.parentElement; parent; parent = parent.parentElement) {
+        const style = getComputedStyle(parent);
+        if (!/(auto|scroll|hidden|clip)/.test(`${style.overflow} ${style.overflowX} ${style.overflowY}`)) continue;
+        const rect = parent.getBoundingClientRect();
+        if (centerX < rect.left || centerX > rect.right || centerY < rect.top || centerY > rect.bottom) return true;
+      }
+      return false;
+    };
+    const labelledHitArea = (element) => {
+      if (!element.matches("input[type='checkbox'], input[type='radio']")) return { element, rect: element.getBoundingClientRect() };
+      const label = element.closest("label") || (element.id ? document.querySelector(`label[for="${CSS.escape(element.id)}"]`) : null);
+      if (label && isVisible(label)) return { element: label, rect: label.getBoundingClientRect() };
+      return { element, rect: element.getBoundingClientRect() };
+    };
+    const nameFor = (element) => {
+      const text = element.innerText || element.value || element.getAttribute("aria-label") || element.getAttribute("title") || element.id || element.className || element.tagName;
+      return String(text).replace(/\s+/g, " ").trim().slice(0, 90);
+    };
+    return [...document.querySelectorAll(selectors)].flatMap((element) => {
+      if (!isVisible(element)) return [];
+      if (element.classList.contains("skip-link") && element.getBoundingClientRect().bottom < 0) return [];
+      const hitArea = labelledHitArea(element);
+      const rect = hitArea.rect;
+      const centerX = Math.round(rect.left + rect.width / 2);
+      const centerY = Math.round(rect.top + rect.height / 2);
+      if (centerX < 0 || centerY < 0 || centerX > innerWidth || centerY > innerHeight) return [];
+      if (clippedCenter(hitArea.element, centerX, centerY)) return [];
+      const issuesForElement = [];
+      const targetName = nameFor(element);
+      if (rect.width < 24 || rect.height < 24) {
+        issuesForElement.push(`${targetName}: touch target ${Math.round(rect.width)}x${Math.round(rect.height)}px`);
+      }
+      if (rect.left < -1 || rect.top < -1 || rect.right > innerWidth + 1 || rect.bottom > innerHeight + 1) {
+        issuesForElement.push(`${targetName}: clipped in viewport`);
+      }
+      const hit = document.elementFromPoint(centerX, centerY);
+      const hitTarget = hit?.closest?.(selectors);
+      if (!hit || (hit !== element && !element.contains(hit) && hitTarget !== element && hit !== hitArea.element && !hitArea.element.contains(hit))) {
+        issuesForElement.push(`${targetName}: center is covered by ${nameFor(hit || document.body)}`);
+      }
+      const hasAccessibleName = Boolean(
+        String(element.innerText || "").trim()
+        || element.getAttribute("aria-label")
+        || element.getAttribute("title")
+        || element.getAttribute("aria-labelledby")
+      );
+      if (["BUTTON", "A"].includes(element.tagName) && !hasAccessibleName) {
+        issuesForElement.push(`${element.id || element.className || element.tagName}: missing accessible name`);
+      }
+      return issuesForElement;
+    });
+  });
+  assert(issues.length === 0, `${label} has non-clickable or clipped visible controls:\n${issues.join("\n")}`);
+}
+
 let browser;
 
 async function runSmoke() {
@@ -532,6 +609,7 @@ async function runSmoke() {
   assert(initial.layersCount === "6/6 on", "All paper-atlas layers should be active on first load.");
   assert(initial.detailOpen && initial.detailTitle.length > 8, "Selected event detail panel did not render.");
   assert(initial.detailLensEvidenceRows === 6 && initial.detailEvidenceButtons > 0, "Detail panel did not render before/after evidence across lenses.");
+  await assertVisibleControlsHitTargets(page, "Desktop atlas");
   const crossLensSnapshot = await page.evaluate(() => {
     const rows = [...document.querySelectorAll(".cross-lens-row[data-aspect]")].map((row) => {
       const values = [...row.querySelectorAll(":scope > span:not(.cross-lens-name), :scope > strong")]
@@ -1094,8 +1172,72 @@ async function runSmoke() {
 
   const screenshot = await page.screenshot({ path: path.join(outputDir, "paper-atlas-browser-smoke.png"), fullPage: false });
   assertDetailedPng(screenshot, assert, "Paper atlas browser smoke");
+
+  const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, deviceScaleFactor: 2, acceptDownloads: true });
+  attachConsoleCapture(mobilePage, consoleMessages, pageErrors);
+  await openAtlas(mobilePage, `${atlasUrl}?city=belfast`);
+  await mobilePage.waitForFunction(
+    () => window.BimsAtlas?.state?.detailLayerLoaded && window.BimsAtlas?.state?.lensOverlayLoaded,
+    null,
+    { timeout: 45000 }
+  );
+  await mobilePage.waitForTimeout(800);
+  const mobileInitial = await atlasState(mobilePage);
+  assert(mobileInitial.panelOverlaps.length === 0, `Mobile atlas panels overlap: ${mobileInitial.panelOverlaps.join(", ")}`);
+  assert(mobileInitial.scrollWidth <= mobileInitial.clientWidth + 1, `Mobile atlas has horizontal page overflow: ${mobileInitial.scrollWidth} > ${mobileInitial.clientWidth}.`);
+  await assertVisibleControlsHitTargets(mobilePage, "Mobile atlas");
+  await mobilePage.locator("#changelogToggle").click();
+  await mobilePage.waitForFunction(
+    () => document.querySelector("#changelogPanel")?.getAttribute("data-open") === "true"
+      && document.querySelector("#detailPanel")?.getAttribute("data-open") === "false",
+    null,
+    { timeout: 10000 }
+  );
+  await mobilePage.waitForFunction(
+    () => {
+      const changelog = document.querySelector("#changelogPanel");
+      if (!changelog || changelog.getAttribute("data-open") !== "true") return false;
+      const rect = changelog.getBoundingClientRect();
+      const style = getComputedStyle(changelog);
+      return Number(style.opacity || 0) > 0.9 && rect.top < innerHeight && rect.bottom <= innerHeight + 1;
+    },
+    null,
+    { timeout: 10000 }
+  );
+  const mobileSheetState = await mobilePage.evaluate(() => {
+    const detail = document.querySelector("#detailPanel");
+    const changelog = document.querySelector("#changelogPanel");
+    const detailRect = detail?.getBoundingClientRect();
+    const changelogRect = changelog?.getBoundingClientRect();
+    const detailStyle = detail ? getComputedStyle(detail) : null;
+    const changelogStyle = changelog ? getComputedStyle(changelog) : null;
+    return {
+      detailOpen: detail?.getAttribute("data-open") || "",
+      detailOpacity: Number(detailStyle?.opacity || 1),
+      detailVisibleTop: Math.round(detailRect?.top ?? 0),
+      detailVisibleBottom: Math.round(detailRect?.bottom ?? 0),
+      changelogOpen: changelog?.getAttribute("data-open") || "",
+      changelogOpacity: Number(changelogStyle?.opacity || 1),
+      changelogTop: Math.round(changelogRect?.top ?? 0),
+      changelogBottom: Math.round(changelogRect?.bottom ?? 0),
+      viewportHeight: innerHeight,
+    };
+  });
+  assert(
+    mobileSheetState.detailOpacity === 0 || mobileSheetState.detailVisibleTop >= mobileSheetState.viewportHeight,
+    `Mobile closed detail sheet is still visible: ${JSON.stringify(mobileSheetState)}`
+  );
+  assert(
+    mobileSheetState.changelogOpen === "true" && mobileSheetState.changelogOpacity > 0 && mobileSheetState.changelogBottom <= mobileSheetState.viewportHeight,
+    `Mobile changelog sheet is not cleanly visible: ${JSON.stringify(mobileSheetState)}`
+  );
+  await assertVisibleControlsHitTargets(mobilePage, "Mobile changelog sheet");
+  await mobilePage.screenshot({ path: path.join(outputDir, "paper-atlas-browser-smoke-mobile.png"), fullPage: false });
+  await mobilePage.close();
+
   fs.writeFileSync(path.join(outputDir, "paper-atlas-browser-smoke-state.json"), JSON.stringify({
     initial,
+    mobileInitial,
     defaultPinLabel,
     afterPinClick,
     afterListClick,

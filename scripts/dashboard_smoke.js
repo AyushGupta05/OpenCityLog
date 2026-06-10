@@ -51,7 +51,7 @@ const CITYWIDE_REFERENCE_LENS_CHECKS = {
   belfast: [
     { aspect: "transport-speed", year: 2007, rendered: ["visiblePinCount"], renderedLayers: ["lens-guide-flow"], detailLayers: [], minDetailFeatures: 0, minDirectRecords: 1, label: "transport speed context" },
     { aspect: "transport-access", year: 2007, rendered: ["visiblePinCount"], renderedLayers: ["lens-guide-citywide-cell-fill", "lens-guide-flow"], detailLayers: [], minDetailFeatures: 0, minDirectRecords: 1, label: "transport access context" },
-    { aspect: "transport-reliability", year: 2007, rendered: ["visiblePinCount"], renderedLayers: ["lens-guide-flow"], detailLayers: [], minDetailFeatures: 0, minDirectRecords: 1, label: "transport reliability context" },
+    { aspect: "transport-reliability", year: 2007, rendered: ["visiblePinCount"], renderedLayers: ["lens-transport-event-points"], detailLayers: [], minDetailFeatures: 0, minDirectRecords: 1, label: "transport reliability source marker" },
     { aspect: "planning-pressure", year: 2007, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], detailLayers: ["planning_cell"], minDetailFeatures: 1, minDirectRecords: 1, label: "planning pressure cells" },
     { aspect: "planning-delta", year: 2007, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], detailLayers: ["planning_cell"], minDetailFeatures: 1, minDirectRecords: 1, label: "built-change planning cells" },
     { aspect: "planning-parcels", year: 2007, rendered: ["lensPlanningCellsRendered"], renderedLayers: ["lens-planning-cells-fill"], detailLayers: ["planning_cell"], minDetailFeatures: 1, minDirectRecords: 1, label: "parcel-stage planning cells" },
@@ -1586,6 +1586,14 @@ async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
   return state;
 }
 
+function atlasCityLensUrl(cityId, year, aspect) {
+  const url = new URL(atlasUrl);
+  url.searchParams.set("city", cityId);
+  url.searchParams.set("year", String(year));
+  url.searchParams.set("lens", aspect);
+  return url.href;
+}
+
 async function assertCitySourceBackedLensCoverage(page, cityId) {
   await page.evaluate(async () => {
     await window.BimsAtlas?.setAreaFilter?.("");
@@ -1720,12 +1728,48 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     await assertPannedSourceBackedLensCoverage(page, cityId, check);
   }
   await assertSparseLensCoverageHonesty(page, cityId);
-  await assertReferenceLensCitywideArtifacts(page, cityId);
 }
 
-async function assertReferenceLensCitywideArtifacts(page, cityId) {
+async function assertReferenceLensCitywideArtifacts(cityId, consoleMessages, pageErrors) {
   const checks = CITYWIDE_REFERENCE_LENS_CHECKS[cityId] || [];
   for (const check of checks) {
+    let lastError = null;
+    for (let attempt = 1; attempt <= 3; attempt += 1) {
+      try {
+        await assertReferenceLensCitywideArtifactIsolated(cityId, check, consoleMessages, pageErrors);
+        lastError = null;
+        break;
+      } catch (error) {
+        lastError = error;
+        if (!isClosedTargetError(error) || attempt === 3) throw error;
+        progress("city reference lens retry", cityId, check.aspect, `attempt ${attempt + 1}`);
+      }
+    }
+    if (lastError) throw lastError;
+  }
+}
+
+function isClosedTargetError(error) {
+  return /Target page, context or browser has been closed|Target closed|Browser has been closed/i.test(error?.message || "");
+}
+
+async function assertReferenceLensCitywideArtifactIsolated(cityId, check, consoleMessages, pageErrors) {
+  const browser = await chromium.launch(chromiumLaunchOptions);
+  const page = await browser.newPage({ viewport: REFERENCE_VIEWPORT, deviceScaleFactor: 1 });
+  try {
+    attachConsoleCapture(page, consoleMessages, pageErrors);
+    await openAtlas(page, atlasCityLensUrl(cityId, check.year, check.aspect), {
+      requirePins: Number(check.minDirectRecords || 0) > 0,
+    });
+    await page.waitForTimeout(cityId === "london" ? 1000 : 700);
+    await assertReferenceLensCitywideArtifact(page, cityId, check);
+  } finally {
+    await page.close().catch(() => {});
+    await browser.close().catch(() => {});
+  }
+}
+
+async function assertReferenceLensCitywideArtifact(page, cityId, check) {
     progress("city reference lens", cityId, check.aspect, check.year);
     const requiresDetail = (check.detailLayers || []).length > 0;
     const requiresUtilityContext = check.contextArtifact === "utility_network";
@@ -1878,7 +1922,6 @@ async function assertReferenceLensCitywideArtifacts(page, cityId) {
     });
     assertReferenceViewportPng(png, `city ${cityId} ${check.aspect} citywide`);
     assertDetailedPng(png, assert, `city ${cityId} ${check.aspect} citywide`);
-  }
 }
 
 async function assertReferenceCitywideMapField(page, label) {
@@ -2657,9 +2700,17 @@ async function assertCivicAccessCitywideContext(page, city) {
   await page.locator(".layer-row[data-sublayer='coverage']").click();
 }
 
-(async () => {
+let dashboardPrimaryBrowser = null;
+
+async function closeDashboardPrimaryBrowser() {
+  if (dashboardPrimaryBrowser) await dashboardPrimaryBrowser.close().catch(() => {});
+  dashboardPrimaryBrowser = null;
+}
+
+async function runDashboardSmoke() {
   ensureOutputDir();
-  const browser = await chromium.launch(chromiumLaunchOptions);
+  dashboardPrimaryBrowser = await chromium.launch(chromiumLaunchOptions);
+  const browser = dashboardPrimaryBrowser;
   const consoleMessages = [];
   const pageErrors = [];
 
@@ -2700,6 +2751,7 @@ async function assertCivicAccessCitywideContext(page, city) {
   await assertMobileButtonsRespond(mobile);
   await mobile.close();
   await browser.close();
+  dashboardPrimaryBrowser = null;
 
   const cityChecks = [
     { id: "belfast", label: "Belfast", placeholder: /Belfast/i, year: 2007, aspect: "transport-speed", minVisiblePins: 1 },
@@ -2724,6 +2776,7 @@ async function assertCivicAccessCitywideContext(page, city) {
       await page.close().catch(() => {});
       await cityBrowser.close().catch(() => {});
     }
+    await assertReferenceLensCitywideArtifacts(city.id, consoleMessages, pageErrors);
   }
 
   const transportContextChecks = [
@@ -2791,7 +2844,26 @@ async function assertCivicAccessCitywideContext(page, city) {
   assert(pageErrors.length === 0, `Dashboard page errors:\n${pageErrors.join("\n")}`);
   assert(actionable.length === 0, `Dashboard console warnings/errors:\n${actionable.map((message) => `${message.type}: ${message.text}`).join("\n")}`);
   console.log("OpenCityLog paper-atlas dashboard smoke OK: desktop, tablet, mobile, Belfast/London/NYC city checks, transport speed/reliability/access context, and civic-access context checks passed.");
-})().catch((error) => {
+}
+
+async function main() {
+  let lastError = null;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      await closeDashboardPrimaryBrowser();
+      await runDashboardSmoke();
+      return;
+    } catch (error) {
+      lastError = error;
+      await closeDashboardPrimaryBrowser();
+      if (!isClosedTargetError(error) || attempt === 3) break;
+      progress("dashboard retry", `attempt ${attempt + 1}`);
+    }
+  }
+  throw lastError;
+}
+
+main().catch((error) => {
   console.error(error);
   process.exit(1);
 });

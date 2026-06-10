@@ -20,11 +20,12 @@ function ensureOutputDir() {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
-async function waitForPaperAtlas(page) {
+async function waitForPaperAtlas(page, options = {}) {
+  const { requirePins = true } = options;
   await page.waitForSelector("#map .maplibregl-canvas", { timeout: 45000 });
   await page.waitForSelector("#activeLensCard", { timeout: 45000 });
   await page.waitForSelector("#layersList .layer-row", { state: "attached", timeout: 45000 });
-  await page.waitForSelector(".pin", { timeout: 45000 });
+  if (requirePins) await page.waitForSelector(".pin", { timeout: 45000 });
   await page.waitForFunction(
     () => document.querySelector("#appStatus")?.textContent.trim() === "",
     null,
@@ -45,9 +46,9 @@ async function closeWelcome(page) {
   }
 }
 
-async function openAtlas(page, targetUrl = atlasUrl) {
+async function openAtlas(page, targetUrl = atlasUrl, options = {}) {
   await page.goto(targetUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
-  await waitForPaperAtlas(page);
+  await waitForPaperAtlas(page, options);
   await closeWelcome(page);
 }
 
