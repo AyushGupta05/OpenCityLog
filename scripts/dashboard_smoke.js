@@ -1479,19 +1479,46 @@ async function assertEconomyGravityCitywideContext(page, cityId, targetYear) {
         && props.source_kind === "current_context"
         && props.detail_layer === "economy_anchors_2026"
         && props.surface_style === "gravity_anchor_tile";
+    }) && features.some((feature) => {
+      const props = feature?.properties || {};
+      return props.lens_id === "economy-gravity"
+        && props.source_kind === "current_context"
+        && props.detail_layer === "economy_anchors_2026"
+        && props.kind === "flow"
+        && props.flow_style === "economy_gravity_arc"
+        && props.surface_style === "gravity_anchor_corridor";
+    }) && features.some((feature) => {
+      const props = feature?.properties || {};
+      return props.lens_id === "economy-gravity"
+        && props.source_kind === "current_context"
+        && props.detail_layer === "economy_anchors_2026"
+        && props.kind === "node"
+        && props.node_style === "economy_anchor"
+        && props.surface_style === "gravity_anchor_node";
     });
   }, null, { timeout: 20000 });
   await page.waitForFunction(() => {
     const map = window.BimsAtlas?.state?.map;
-    if (!map?.getLayer?.("lens-guide-citywide-cell-fill") || map.getLayoutProperty("lens-guide-citywide-cell-fill", "visibility") === "none") return false;
+    if (!map?.getLayer?.("lens-guide-citywide-cell-fill") || !map.getLayer("lens-guide-flow")) return false;
+    if (map.getLayoutProperty("lens-guide-citywide-cell-fill", "visibility") === "none") return false;
+    if (map.getLayoutProperty("lens-guide-flow", "visibility") === "none") return false;
     try {
-      return map.queryRenderedFeatures({ layers: ["lens-guide-citywide-cell-fill"] }).some((feature) => {
+      const renderedTiles = map.queryRenderedFeatures({ layers: ["lens-guide-citywide-cell-fill"] }).some((feature) => {
         const props = feature.properties || {};
         return props.lens_id === "economy-gravity"
           && props.source_kind === "current_context"
           && props.detail_layer === "economy_anchors_2026"
           && props.surface_style === "gravity_anchor_tile";
       });
+      const renderedFlows = map.queryRenderedFeatures({ layers: ["lens-guide-flow"] }).some((feature) => {
+        const props = feature.properties || {};
+        return props.lens_id === "economy-gravity"
+          && props.source_kind === "current_context"
+          && props.detail_layer === "economy_anchors_2026"
+          && props.flow_style === "economy_gravity_arc"
+          && props.surface_style === "gravity_anchor_corridor";
+      });
+      return renderedTiles && renderedFlows;
     } catch (_error) {
       return false;
     }
@@ -1506,15 +1533,29 @@ async function assertEconomyGravityCitywideContext(page, cityId, targetYear) {
           && props.source_kind === "current_context"
           && props.detail_layer === "economy_anchors_2026";
       });
+    const tileFeatures = features.filter((feature) => {
+      const props = feature.properties || {};
+      return props.kind === "surface_cell" && props.surface_style === "gravity_anchor_tile";
+    });
+    const flowFeatures = features.filter((feature) => {
+      const props = feature.properties || {};
+      return props.kind === "flow" && props.flow_style === "economy_gravity_arc" && props.surface_style === "gravity_anchor_corridor";
+    });
+    const nodeFeatures = features.filter((feature) => {
+      const props = feature.properties || {};
+      return props.kind === "node" && props.node_style === "economy_anchor" && props.surface_style === "gravity_anchor_node";
+    });
     const split = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
     const invalid = features.filter((feature) => {
       const props = feature.properties || {};
       const eventIds = split(props.event_ids || props.event_id);
       const sourceIds = split(props.source_ids || props.source_id);
       const objectIds = split(props.source_object_ids || props.source_object_id);
+      const validKind = (props.kind === "surface_cell" && props.surface_style === "gravity_anchor_tile")
+        || (props.kind === "flow" && props.flow_style === "economy_gravity_arc" && props.surface_style === "gravity_anchor_corridor")
+        || (props.kind === "node" && props.node_style === "economy_anchor" && props.surface_style === "gravity_anchor_node");
       return !feature.geometry
-        || props.kind !== "surface_cell"
-        || props.surface_style !== "gravity_anchor_tile"
+        || !validKind
         || props.evidence_role !== "context_not_year_specific_change_evidence"
         || !props.context_year
         || !props.generated_from
@@ -1529,6 +1570,8 @@ async function assertEconomyGravityCitywideContext(page, cityId, targetYear) {
         || !sourceIds.every((id) => atlas?.state?.sourceById?.has?.(id));
     }).length;
     let rendered = 0;
+    let renderedFlow = 0;
+    let renderedNode = 0;
     if (map?.getLayer?.("lens-guide-citywide-cell-fill") && map.getLayoutProperty("lens-guide-citywide-cell-fill", "visibility") !== "none") {
       try {
         rendered = map.queryRenderedFeatures({ layers: ["lens-guide-citywide-cell-fill"] })
@@ -1543,6 +1586,36 @@ async function assertEconomyGravityCitywideContext(page, cityId, targetYear) {
         rendered = 0;
       }
     }
+    if (map?.getLayer?.("lens-guide-flow") && map.getLayoutProperty("lens-guide-flow", "visibility") !== "none") {
+      try {
+        renderedFlow = map.queryRenderedFeatures({ layers: ["lens-guide-flow"] })
+          .filter((feature) => {
+            const props = feature.properties || {};
+            return props.lens_id === "economy-gravity"
+              && props.source_kind === "current_context"
+              && props.detail_layer === "economy_anchors_2026"
+              && props.flow_style === "economy_gravity_arc"
+              && props.surface_style === "gravity_anchor_corridor";
+          }).length;
+      } catch (_error) {
+        renderedFlow = 0;
+      }
+    }
+    if (map?.getLayer?.("lens-guide-node") && map.getLayoutProperty("lens-guide-node", "visibility") !== "none") {
+      try {
+        renderedNode = map.queryRenderedFeatures({ layers: ["lens-guide-node"] })
+          .filter((feature) => {
+            const props = feature.properties || {};
+            return props.lens_id === "economy-gravity"
+              && props.source_kind === "current_context"
+              && props.detail_layer === "economy_anchors_2026"
+              && props.node_style === "economy_anchor"
+              && props.surface_style === "gravity_anchor_node";
+          }).length;
+      } catch (_error) {
+        renderedNode = 0;
+      }
+    }
     const row = atlas?.state?.lensYearCoverageByKey?.get?.(`economy-gravity:${Number(year)}`);
     const directGuideCount = (atlas?.state?.lensGuideFeatureCache?.features || [])
       .filter((feature) => {
@@ -1552,10 +1625,15 @@ async function assertEconomyGravityCitywideContext(page, cityId, targetYear) {
           && props.evidence_role === "selected_year_direct_lens_detail_aggregate";
       }).length;
     return {
-      contextTileCount: features.length,
+      contextFeatureCount: features.length,
+      contextTileCount: tileFeatures.length,
+      contextFlowCount: flowFeatures.length,
+      contextNodeCount: nodeFeatures.length,
       directGuideCount,
       invalid,
       rendered,
+      renderedFlow,
+      renderedNode,
       sourcePath: atlas?.state?.economyAnchorFeaturesPathLoaded || "",
       sourceFeatureCount: atlas?.state?.economyAnchorFeatures?.length || 0,
       visible: Boolean(row?.visible_map_contract),
@@ -1564,12 +1642,18 @@ async function assertEconomyGravityCitywideContext(page, cityId, targetYear) {
   }, { year: targetYear });
   const minSourceFeatureCount = { belfast: 1200, london: 6000, nyc: 5000 }[cityId] || 1200;
   const minContextTileCount = { belfast: 360, london: 760, nyc: 720 }[cityId] || 360;
+  const minContextFlowCount = { belfast: 12, london: 24, nyc: 20 }[cityId] || 12;
+  const minContextNodeCount = { belfast: 6, london: 8, nyc: 7 }[cityId] || 6;
   assert(state.sourcePath.includes("economy_anchors_2026.geojson"), `economy gravity context ${cityId}: economy anchors did not load (${state.sourcePath}).`);
   assert(state.sourceFeatureCount >= minSourceFeatureCount, `economy gravity context ${cityId}: too few source economy anchors loaded (${state.sourceFeatureCount}).`);
   assert(state.visible && state.directCount > 0, `economy gravity context ${cityId}: current context rendered without selected-year direct economy evidence.`);
   assert(state.directGuideCount > 0, `economy gravity context ${cityId}: source-backed direct citywide guide cells did not render alongside current context.`);
   assert(state.contextTileCount >= minContextTileCount, `economy gravity context ${cityId}: too few current-context gravity tiles (${state.contextTileCount}).`);
+  assert(state.contextFlowCount >= minContextFlowCount, `economy gravity context ${cityId}: too few current-context gravity corridors (${state.contextFlowCount}).`);
+  assert(state.contextNodeCount >= minContextNodeCount, `economy gravity context ${cityId}: too few current-context gravity anchors (${state.contextNodeCount}).`);
   assert(state.rendered > 0, `economy gravity context ${cityId}: current-context gravity tiles did not render.`);
+  assert(state.renderedFlow > 0, `economy gravity context ${cityId}: current-context gravity corridors did not render.`);
+  assert(state.renderedNode > 0, `economy gravity context ${cityId}: current-context gravity anchor nodes did not render.`);
   assert(state.invalid === 0, `economy gravity context ${cityId}: ${state.invalid} context tile(s) lack provenance/non-headline flags.`);
 }
 

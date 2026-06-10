@@ -5698,11 +5698,11 @@
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "civic-demand" ? lensDetailLineOpacity(0.003, 0.018) : quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailLineOpacity(0.02, 0.08) : aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.11, 0.34) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.07, 0.2) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.07, 0.22) : lensDetailLineOpacity(0.18, 0.58));
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-outline", "line-color", economyCellColorExpression());
-    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.08, 0.24) : aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.04, 0.16) : lensDetailFillOpacity(0.08, 0.26));
-    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.08, 0.24) : aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.08, 0.26) : lensDetailLineOpacity(0.1, 0.34));
+    setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-gravity" ? lensDetailFillOpacity(0.012, 0.05) : quietDetailUnderCitywideSummary && aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.08, 0.24) : aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.04, 0.16) : lensDetailFillOpacity(0.08, 0.26));
+    setLayerPaintIfPresent("lens-economy-cells-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-gravity" ? lensDetailLineOpacity(0.018, 0.07) : quietDetailUnderCitywideSummary && aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.08, 0.24) : aspect.id === "economy-land-use" ? lensDetailLineOpacity(0.32, 0.8) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.08, 0.26) : lensDetailLineOpacity(0.1, 0.34));
     setLayerPaintIfPresent("lens-economy-frontage", "line-color", economyCellColorExpression());
-    setLayerPaintIfPresent("lens-economy-frontage-case", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.42, 0.78) : lensDetailLineOpacity(0.24, 0.58));
-    setLayerPaintIfPresent("lens-economy-frontage", "line-opacity", aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.72, 1) : lensDetailLineOpacity(0.36, 0.92));
+    setLayerPaintIfPresent("lens-economy-frontage-case", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-gravity" ? lensDetailLineOpacity(0.035, 0.11) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.42, 0.78) : lensDetailLineOpacity(0.24, 0.58));
+    setLayerPaintIfPresent("lens-economy-frontage", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-gravity" ? lensDetailLineOpacity(0.075, 0.2) : aspect.id === "economy-vitality" ? lensDetailLineOpacity(0.72, 1) : lensDetailLineOpacity(0.36, 0.92));
     setLayerPaintIfPresent("lens-economy-frontage-case", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(3.2, 8.8) : lensTraceWidthExpression(2.6, 8.4));
     setLayerPaintIfPresent("lens-economy-frontage", "line-width", aspect.id === "economy-vitality" ? lensTraceWidthExpression(1.35, 4.8) : lensTraceWidthExpression(1.05, 4.9));
     const sparseUtilityDetail = ["utilities-resilience", "utilities-works"].includes(aspect.id)
@@ -7396,6 +7396,238 @@
     return spatiallyBalancedGuideFeatures(candidates, limit, lens);
   }
 
+  function economyGravityCitywideHubPoint() {
+    const bounds = cityBoundsValues();
+    const selected = state.selectedEvent?.lngLat;
+    if (selected && (!bounds || pointWithinBounds(selected, bounds))) return selected;
+    return mapCenter();
+  }
+
+  function economyGravityCitywideFlowLimit() {
+    const fixed = { belfast: 20, london: 36, nyc: 32 };
+    if (fixed[state.cityId]) return fixed[state.cityId];
+    return Math.max(20, Math.min(36, Math.round(citywideBasisMeters() / 1650)));
+  }
+
+  function economyGravityCitywideNodeLimit() {
+    const fixed = { belfast: 8, london: 10, nyc: 9 };
+    if (fixed[state.cityId]) return fixed[state.cityId];
+    return Math.max(8, Math.min(10, Math.round(citywideBasisMeters() / 5200)));
+  }
+
+  function economyGravityCitywideFocusPoints(lens, year) {
+    const bounds = cityBoundsValues();
+    const points = sourceBackedGuideDetailFeatures(lens, year)
+      .map((feature) => geometryToLngLat(feature?.geometry))
+      .filter((point) => point && (!bounds || pointWithinBounds(point, bounds)));
+    if (points.length < 24) return [];
+    return spatiallySampleLngLatPoints(points, { london: 900, nyc: 760 }[state.cityId] || 520);
+  }
+
+  function spatiallySampleLngLatPoints(points, limit) {
+    const valid = (Array.isArray(points) ? points : [])
+      .filter((point) => Number.isFinite(point?.[0]) && Number.isFinite(point?.[1]));
+    const capped = Math.max(1, Math.floor(Number(limit) || 0));
+    if (valid.length <= capped) return valid;
+    const bounds = cityBoundsValues();
+    if (!bounds) return valid.slice(0, capped);
+    const width = Math.max(0.000001, bounds.east - bounds.west);
+    const height = Math.max(0.000001, bounds.north - bounds.south);
+    const aspect = Math.max(0.35, Math.min(2.8, width / height));
+    const cols = Math.max(6, Math.ceil(Math.sqrt(capped * aspect)));
+    const rows = Math.max(6, Math.ceil(capped / cols));
+    const selected = [];
+    const occupied = new Set();
+    for (const point of valid) {
+      if (selected.length >= capped) break;
+      const col = Math.max(0, Math.min(cols - 1, Math.floor(((point[0] - bounds.west) / width) * cols)));
+      const row = Math.max(0, Math.min(rows - 1, Math.floor(((point[1] - bounds.south) / height) * rows)));
+      const key = `${col}:${row}`;
+      if (occupied.has(key)) continue;
+      occupied.add(key);
+      selected.push(point);
+    }
+    const step = Math.max(1, Math.floor(valid.length / capped));
+    for (let index = 0; selected.length < capped && index < valid.length; index += step) selected.push(valid[index]);
+    return selected.slice(0, capped);
+  }
+
+  function economyGravityCitywideAnchorFocusDistance() {
+    const fixed = { london: 1550, nyc: 1650 };
+    if (fixed[state.cityId]) return fixed[state.cityId];
+    return Math.max(1300, Math.min(2200, citywideBasisMeters() / 34));
+  }
+
+  function nearestEconomyGravityFocusDistance(point, focusPoints, maxDistance) {
+    if (!focusPoints.length) return Infinity;
+    let nearest = Infinity;
+    for (const focus of focusPoints) {
+      const distance = lngLatDistanceMeters(point, focus);
+      if (distance < nearest) nearest = distance;
+      if (nearest <= Math.min(140, maxDistance * 0.12)) break;
+    }
+    return nearest;
+  }
+
+  function economyGravityCitywideAnchorItems(anchorFeatures, hub, limit, focusPoints = []) {
+    const basisM = citywideBasisMeters();
+    const minDistance = Math.max(520, Math.min(2200, basisM / 36));
+    const spacingM = Math.max(280, Math.min(1280, basisM / 68));
+    const useFocusPoints = focusPoints.length >= 24;
+    const focusMaxDistance = economyGravityCitywideAnchorFocusDistance();
+    const ranked = (anchorFeatures || [])
+      .map((feature) => {
+        const props = feature?.properties || {};
+        const point = geometryToLngLat(feature?.geometry);
+        if (!point) return null;
+        const distance = lngLatDistanceMeters(hub, point);
+        if (!Number.isFinite(distance) || distance < minDistance) return null;
+        const focusDistance = useFocusPoints ? nearestEconomyGravityFocusDistance(point, focusPoints, focusMaxDistance) : Infinity;
+        if (useFocusPoints && focusDistance > focusMaxDistance) return null;
+        const objectId = String(props.source_object_id || props.source_id || "").trim();
+        const sourceUrl = String(props.source_urls || "").split(",").map((value) => value.trim()).filter(Boolean)[0] || osmObjectUrl(objectId);
+        if (!objectId || !sourceUrl) return null;
+        const sublayerId = props.sublayer_id || economyGravitySectorKey(props);
+        const radial = Math.min(1, distance / Math.max(1, basisM));
+        const outerPull = clamp01(1 - Math.abs(radial - 0.48) / 0.48);
+        const focusFit = useFocusPoints ? clamp01(1 - focusDistance / focusMaxDistance) : 0;
+        const seed = stableUnit(`${objectId}:economy-gravity-citywide-anchor`);
+        return {
+          feature,
+          props,
+          point,
+          objectId,
+          sourceUrl,
+          sublayerId,
+          sector: sublayerId,
+          distance,
+          focusDistance,
+          intensity: clamp01(Number(props.intensity || 0.42) + outerPull * 0.16 + seed * 0.045),
+          score: Number(props.score || 0) + outerPull * 0.22 + focusFit * 0.46 + radial * 0.08 + seed * 0.04,
+          seed,
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.score - a.score || a.objectId.localeCompare(b.objectId));
+    const selected = [];
+    const selectedKeys = new Set();
+    const sectorCounts = new Map();
+    const push = (item, options = {}) => {
+      if (!item || selected.length >= limit) return false;
+      const sectorLimit = Math.max(3, Math.ceil(limit * 0.38));
+      if ((sectorCounts.get(item.sublayerId) || 0) >= sectorLimit && !options.relaxSector) return false;
+      const angleBucket = transportAngleBucket(hub, item.point, Math.max(24, Math.min(48, Math.round(limit * 1.35))));
+      const ringBucket = Math.floor(clamp01(item.distance / Math.max(1, basisM)) * 6);
+      const key = `${angleBucket}:${ringBucket}:${item.sublayerId}`;
+      if (selectedKeys.has(key) && !options.relaxKey) return false;
+      const itemSpacing = spacingM * (options.spacingFactor || 1);
+      if (!options.relaxSpacing && selected.some((entry) => lngLatDistanceMeters(entry.point, item.point) < itemSpacing)) return false;
+      selected.push(item);
+      selectedKeys.add(key);
+      sectorCounts.set(item.sublayerId, (sectorCounts.get(item.sublayerId) || 0) + 1);
+      return true;
+    };
+    for (const item of ranked) push(item);
+    for (const item of ranked) push(item, { relaxKey: true, spacingFactor: 0.68 });
+    for (const item of ranked) push(item, { relaxKey: true, relaxSpacing: true, relaxSector: true });
+    return selected.slice(0, limit);
+  }
+
+  function economyGravityCitywideContextProps(item, lens, year, dataYear, generatedFrom) {
+    const props = item?.props || {};
+    const sublayerId = item?.sublayerId || props.sublayer_id || economyGravitySectorKey(props);
+    const label = economyGravityTargetLabel({ ...props, sublayerId, sector: sublayerId });
+    const caveat = props.timing_note || "Current OSM economy anchors are non-headline context only; schematic corridors are not measured flows, spending, footfall, attraction strength, selected-year change evidence, or causal impact.";
+    return {
+      lens_id: lens.id,
+      guide_scale: "citywide_summary",
+      source_kind: "current_context",
+      evidence_role: "context_not_year_specific_change_evidence",
+      context_year: String(dataYear),
+      selected_year: String(year),
+      detail_layer: "economy_anchors_2026",
+      generated_from: generatedFrom,
+      source_id: item.objectId,
+      source_ids: "osm-overpass",
+      source_object_id: item.objectId,
+      source_object_ids: item.objectId,
+      source_urls: item.sourceUrl,
+      source_name: props.source_name || "OpenStreetMap economy/service context",
+      source_type: props.source_type || "osm_current_context",
+      publisher: props.publisher || "OpenStreetMap contributors",
+      license: props.license || "ODbL-1.0",
+      confidence: props.confidence || "inferred",
+      caveat,
+      timing_note: props.timing_note || "Current OSM context may post-date the selected evidence year.",
+      geometry_precision_mix: props.geometry_method || "Current OSM point or centroid context; schematic corridor geometry is derived for orientation only.",
+      direct_evidence_counted: false,
+      headline_count_included: false,
+      event_id: "",
+      event_ids: "",
+      event_ids_all: "",
+      layer_id: sublayerId,
+      sublayer_id: sublayerId,
+      sector: sublayerId,
+      label,
+      title: label,
+      target_label: label,
+      target_detail: `${economyGravitySectorLabel(sublayerId)} / OSM context`,
+      focus_distance_m: Number.isFinite(item.focusDistance) ? Math.round(item.focusDistance) : "",
+      intensity: Number(clamp01(item.intensity || 0.44).toFixed(3)),
+      score: Number((Number(item.score || 0) + clamp01(item.intensity || 0.44) * 0.16).toFixed(3)),
+      color: economyGravitySectorColor(sublayerId),
+    };
+  }
+
+  function economyGravityCitywideCorridorGuideFeatures(anchorItems, hub, lens, year, dataYear, generatedFrom) {
+    const limit = economyGravityCitywideFlowLimit();
+    return anchorItems.slice(0, limit).map((item, index) => {
+      const props = economyGravityCitywideContextProps(item, lens, year, dataYear, generatedFrom);
+      return {
+        type: "Feature",
+        properties: {
+          ...props,
+          kind: "flow",
+          surface_style: "gravity_anchor_corridor",
+          flow_role: "gravity_anchor",
+          flow_style: "economy_gravity_arc",
+          distance_m: Math.round(item.distance || 0),
+          edge_offset: Number(((index % 5) - 2).toFixed(2)),
+          label: "",
+        },
+        geometry: {
+          type: "LineString",
+          coordinates: economyGravityArcLine(hub, item.point, {
+            sourceId: item.objectId,
+            eventId: "",
+            sector: item.sector,
+            sublayerId: item.sublayerId,
+            intensity: item.intensity,
+          }, index, 0, 1),
+        },
+      };
+    });
+  }
+
+  function economyGravityCitywideAnchorNodeGuideFeatures(anchorItems, lens, year, dataYear, generatedFrom) {
+    const limit = economyGravityCitywideNodeLimit();
+    return anchorItems.slice(0, limit).map((item, index) => {
+      const props = economyGravityCitywideContextProps(item, lens, year, dataYear, generatedFrom);
+      return {
+        type: "Feature",
+        properties: {
+          ...props,
+          kind: "node",
+          surface_style: "gravity_anchor_node",
+          node_style: "economy_anchor",
+          node_rank: index + 1,
+          label_rank: index + 1,
+        },
+        geometry: { type: "Point", coordinates: item.point },
+      };
+    });
+  }
+
   function economyLandUseContextCanRender(lens = activeMapLens(), year = currentTimelineYear()) {
     if (lens?.id !== "economy-land-use") return false;
     if (!state.activeLayers.has("economy")) return false;
@@ -7553,7 +7785,18 @@
         geometry: orientedRectanglePolygon(point, widthM, heightM, (seed - 0.5) * 0.48),
       });
     }
-    return spatiallyBalancedGuideFeatures(candidates, limit, lens);
+    const tileFeatures = spatiallyBalancedGuideFeatures(candidates, limit, lens);
+    const hub = economyGravityCitywideHubPoint();
+    const focusPoints = economyGravityCitywideFocusPoints(lens, year);
+    const anchorItems = economyGravityCitywideAnchorItems(
+      candidates,
+      hub,
+      Math.max(economyGravityCitywideFlowLimit(), economyGravityCitywideNodeLimit()),
+      focusPoints,
+    );
+    return tileFeatures
+      .concat(economyGravityCitywideCorridorGuideFeatures(anchorItems, hub, lens, year, dataYear, generatedFrom))
+      .concat(economyGravityCitywideAnchorNodeGuideFeatures(anchorItems, lens, year, dataYear, generatedFrom));
   }
 
   function economyGravityContextCanRender(lens = activeMapLens(), year = currentTimelineYear()) {
