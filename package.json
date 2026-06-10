@@ -16,7 +16,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "build:data": "node scripts/build_city_atlas_all.js && node scripts/build_area_facets.js && npm run build:civic-services -- london nyc && npm run build:transport-stops",
+    "build:data": "node scripts/build_city_atlas_all.js && node scripts/build_area_facets.js && npm run build:civic-services -- london nyc && npm run build:economy-anchors && npm run build:transport-stops",
     "build:area-facets": "node scripts/build_area_facets.js",
     "ingest:open-sources": "node scripts/run_python.js scripts/expand_london_nyc_events_from_open_sources.py && npm run build:data",
     "build:coverage": "node scripts/build_city_coverage_report.js",

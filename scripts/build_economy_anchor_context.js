@@ -2,12 +2,31 @@ const fs = require("fs");
 const path = require("path");
 
 const rootDir = path.resolve(__dirname, "..");
-const inputPaths = [
-  path.join(rootDir, "data", "2026", "belfastcommercial2026.geojson"),
-  path.join(rootDir, "data", "derived", "2026", "belfast_ni_services_osm_2026.geojson"),
-  path.join(rootDir, "data", "2026", "belfastlandmarks2026.geojson"),
-];
-const outputPath = path.join(rootDir, "web", "data", "city-atlas", "cities", "belfast", "economy_anchors_2026.geojson");
+const CITY_CONFIGS = {
+  belfast: {
+    name: "belfast_economy_anchor_context_2026",
+    source: "OpenStreetMap-derived Belfast commercial, services, and landmark context",
+    inputPaths: [
+      path.join(rootDir, "data", "2026", "belfastcommercial2026.geojson"),
+      path.join(rootDir, "data", "derived", "2026", "belfast_ni_services_osm_2026.geojson"),
+      path.join(rootDir, "data", "2026", "belfastlandmarks2026.geojson"),
+    ],
+  },
+  london: {
+    name: "london_economy_anchor_context_2026",
+    source: "OpenStreetMap-derived London civic, economy, service, visitor, office, and hospitality context",
+    inputPaths: [
+      path.join(rootDir, "data", "derived", "2026", "london_civic_services_osm_2026.geojson"),
+    ],
+  },
+  nyc: {
+    name: "nyc_economy_anchor_context_2026",
+    source: "OpenStreetMap-derived New York City civic, economy, service, visitor, office, and hospitality context",
+    inputPaths: [
+      path.join(rootDir, "data", "derived", "2026", "nyc_civic_services_osm_2026.geojson"),
+    ],
+  },
+};
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -69,7 +88,7 @@ function sectorFor(props) {
   if (/pub|bar|restaurant|cafe|fast_food|food|hotel|hostel|guest_house|tourism hotel/.test(text)) return "hospitality";
   if (/museum|gallery|theatre|cinema|attraction|viewpoint|university|college|library|arts_centre|historic|monument|memorial|tourism/.test(text)) return "visitor";
   if (/office|company|government|commercial|industrial|warehouse|business|coworking|employment/.test(text)) return "office";
-  if (/shop|retail|mall|supermarket|convenience|department_store|bank|atm|service/.test(text)) return "economy";
+  if (/shop|retail|mall|supermarket|convenience|department_store|bank|atm|service|pharmacy|chemist|dentist|clinic|doctors|salon|beauty|hairdresser/.test(text)) return "economy";
   return "";
 }
 
@@ -110,11 +129,15 @@ function featureSourceId(feature) {
   return props.source_id || props.id || feature.id || "";
 }
 
-function main() {
+function outputPathForCity(cityId) {
+  return path.join(rootDir, "web", "data", "city-atlas", "cities", cityId, "economy_anchors_2026.geojson");
+}
+
+function buildCity(cityId, config) {
   const features = [];
   const seen = new Set();
   const sourcePaths = [];
-  for (const filePath of inputPaths) {
+  for (const filePath of config.inputPaths) {
     if (!fs.existsSync(filePath)) continue;
     sourcePaths.push(path.relative(rootDir, filePath).replace(/\\/g, "/"));
     const payload = readJson(filePath);
@@ -170,14 +193,15 @@ function main() {
     || String(a.properties.label || "").localeCompare(String(b.properties.label || ""))
   );
 
+  const outputPath = outputPathForCity(cityId);
   writeJson(outputPath, {
     type: "FeatureCollection",
-    name: "belfast_economy_anchor_context_2026",
+    name: config.name,
     metadata: {
       schema_version: "1.0.0",
-      city_id: "belfast",
+      city_id: cityId,
       generated_at: new Date().toISOString(),
-      source: "OpenStreetMap-derived Belfast commercial, services, and landmark context",
+      source: config.source,
       source_paths: sourcePaths,
       license: "ODbL-1.0",
       feature_count: features.length,
@@ -191,6 +215,18 @@ function main() {
     features,
   });
   console.log(`Wrote ${path.relative(rootDir, outputPath)} with ${features.length} economy anchor feature(s).`);
+}
+
+function main() {
+  const requested = process.argv.slice(2).filter(Boolean);
+  const cityIds = requested.length ? requested : Object.keys(CITY_CONFIGS);
+  for (const cityId of cityIds) {
+    const config = CITY_CONFIGS[cityId];
+    if (!config) {
+      throw new Error(`Unknown city "${cityId}". Expected one of: ${Object.keys(CITY_CONFIGS).join(", ")}`);
+    }
+    buildCity(cityId, config);
+  }
 }
 
 main();
