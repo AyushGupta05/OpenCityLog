@@ -658,6 +658,9 @@
   const LENS_GUIDE_LAYER_IDS = [
     "lens-guide-area-fill",
     "lens-guide-area-line",
+    "lens-guide-demand-heat",
+    "lens-guide-citywide-cell-fill",
+    "lens-guide-citywide-cell-line",
     "lens-guide-cell-fill",
     "lens-guide-cell-line",
     "lens-guide-ring-line",
@@ -3018,6 +3021,55 @@
       },
     });
     state.map.addLayer({
+      id: "lens-guide-demand-heat",
+      type: "heatmap",
+      source: LENS_GUIDE_SOURCE_ID,
+      maxzoom: 12.2,
+      filter: [
+        "all",
+        ["==", ["get", "kind"], "demand_heat_point"],
+        ["==", ["get", "lens_id"], "civic-demand"],
+        ["==", ["get", "guide_scale"], "citywide_summary"],
+      ],
+      layout: { visibility: "none" },
+      paint: {
+        "heatmap-weight": [
+          "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.42],
+          0, 0.08,
+          0.35, 0.38,
+          0.68, 0.74,
+          1, 1,
+        ],
+        "heatmap-intensity": [
+          "interpolate", ["linear"], ["zoom"],
+          5.5, 1.2,
+          8.8, 2.4,
+          10.8, 1.5,
+        ],
+        "heatmap-radius": [
+          "interpolate", ["linear"], ["zoom"],
+          5.5, 30,
+          8.8, 52,
+          10.8, 38,
+        ],
+        "heatmap-color": [
+          "interpolate", ["linear"], ["heatmap-density"],
+          0, "rgba(0,0,0,0)",
+          0.12, "rgba(47,153,151,0.2)",
+          0.34, "rgba(143,200,190,0.44)",
+          0.55, "rgba(239,192,109,0.62)",
+          0.72, "rgba(237,124,98,0.78)",
+          1, "rgba(200,58,73,0.9)",
+        ],
+        "heatmap-opacity": [
+          "interpolate", ["linear"], ["zoom"],
+          5.5, 0.82,
+          10.8, 0.68,
+          12.2, 0,
+        ],
+      },
+    });
+    state.map.addLayer({
       id: "lens-guide-citywide-cell-fill",
       type: "fill",
       source: LENS_GUIDE_SOURCE_ID,
@@ -3033,6 +3085,10 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.22, 1, 0.52],
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.2, 1, 0.5],
+            ["==", ["get", "surface_style"], "demand_surface"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.015, 1, 0.07],
+            ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.1, 1, 0.3],
             ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.1, 1, 0.28],
             ["==", ["get", "surface_style"], "access_fabric"],
@@ -3048,6 +3104,10 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.18, 1, 0.44],
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.16, 1, 0.4],
+            ["==", ["get", "surface_style"], "demand_surface"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.012, 1, 0.055],
+            ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.075, 1, 0.24],
             ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.07, 1, 0.22],
             ["==", ["get", "surface_style"], "access_fabric"],
@@ -3063,6 +3123,10 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.08, 1, 0.22],
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.08, 1, 0.22],
+            ["==", ["get", "surface_style"], "demand_surface"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.006, 1, 0.025],
+            ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.04, 1, 0.15],
             ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.04, 1, 0.14],
             ["==", ["get", "surface_style"], "access_fabric"],
@@ -3101,6 +3165,10 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.2, 1, 0.46],
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.16, 1, 0.38],
+            ["==", ["get", "surface_style"], "demand_surface"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.005, 1, 0.018],
+            ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.1, 1, 0.32],
             ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.12, 1, 0.32],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.28, 1, 0.68],
@@ -3110,6 +3178,10 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.1, 1, 0.28],
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.08, 1, 0.24],
+            ["==", ["get", "surface_style"], "demand_surface"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.003, 1, 0.012],
+            ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.06, 1, 0.2],
             ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.06, 1, 0.18],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.14, 1, 0.36],
@@ -3119,6 +3191,10 @@
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.04, 1, 0.14],
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.03, 1, 0.1],
+            ["==", ["get", "surface_style"], "demand_surface"],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.001, 1, 0.005],
+            ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]],
+            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.02, 1, 0.08],
             ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.02, 1, 0.08],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.06, 1, 0.18],
@@ -3127,9 +3203,9 @@
         ],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          5.5, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.32, ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.28, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.18, 0.36],
-          8.8, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.24, ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.22, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.14, 0.3],
-          10.8, ["case", ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.12, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.08, 0.18],
+          5.5, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.32, ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.28, ["==", ["get", "surface_style"], "demand_surface"], 0.045, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.16, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.18, 0.36],
+          8.8, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.24, ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.22, ["==", ["get", "surface_style"], "demand_surface"], 0.035, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.12, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.14, 0.3],
+          10.8, ["case", ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.12, ["==", ["get", "surface_style"], "demand_surface"], 0.025, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.07, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.08, 0.18],
           12.2, 0,
         ],
       },
@@ -5687,6 +5763,8 @@
     const aspect = activeMapLens();
     const quietDetailUnderCitywideSummary = citywideOverviewActive() && hasCitywideGuideSummaryForActiveLens();
     const citywideCivicAccessSummary = quietDetailUnderCitywideSummary && aspect.id === "civic-access-gaps";
+    const citywideCivicCatchmentSummary = quietDetailUnderCitywideSummary && aspect.id === "civic-catchment";
+    const citywideCivicDemandSummary = quietDetailUnderCitywideSummary && aspect.id === "civic-demand";
     const citywideEconomyVitalitySummary = quietDetailUnderCitywideSummary && aspect.id === "economy-vitality";
     const citywideEconomyLandUseSummary = quietDetailUnderCitywideSummary && aspect.id === "economy-land-use";
     const showPlanningCells = isActiveMapLens("built_environment");
@@ -5734,8 +5812,8 @@
     setLayerPaintIfPresent("lens-planning-cells-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.035, 0.12) : aspect.id === "planning-pressure" ? lensDetailLineOpacity(0.12, 0.36) : aspect.id === "planning-delta" ? lensDetailLineOpacity(0.08, 0.32) : aspect.id === "planning-parcels" ? lensDetailLineOpacity(0.07, 0.24) : lensDetailLineOpacity(0.28, 0.82));
     setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-color", civicCellColorExpression());
     setLayerPaintIfPresent("lens-civic-coverage-outline", "line-color", civicCellColorExpression());
-    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.id === "civic-demand" ? lensDetailFillOpacity(0.002, 0.014) : citywideCivicAccessSummary ? lensDetailFillOpacity(0.004, 0.025) : quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailFillOpacity(0.012, 0.055) : aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.08, 0.28) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.06, 0.22) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.045, 0.18) : lensDetailFillOpacity(0.16, 0.5));
-    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", quietDetailUnderCitywideSummary && aspect.id === "civic-demand" ? lensDetailLineOpacity(0.003, 0.018) : citywideCivicAccessSummary ? lensDetailLineOpacity(0.008, 0.035) : quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailLineOpacity(0.02, 0.08) : aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.11, 0.34) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.07, 0.2) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.07, 0.22) : lensDetailLineOpacity(0.18, 0.58));
+    setLayerPaintIfPresent("lens-civic-coverage-fill", "fill-opacity", citywideCivicDemandSummary ? lensDetailFillOpacity(0.001, 0.006) : citywideCivicAccessSummary ? lensDetailFillOpacity(0.004, 0.025) : citywideCivicCatchmentSummary ? lensDetailFillOpacity(0.004, 0.02) : quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailFillOpacity(0.012, 0.055) : aspect.id === "civic-access-gaps" ? lensDetailFillOpacity(0.08, 0.28) : aspect.id === "civic-catchment" ? lensDetailFillOpacity(0.06, 0.22) : aspect.id === "civic-demand" ? lensDetailFillOpacity(0.045, 0.18) : lensDetailFillOpacity(0.16, 0.5));
+    setLayerPaintIfPresent("lens-civic-coverage-outline", "line-opacity", citywideCivicDemandSummary ? lensDetailLineOpacity(0.001, 0.008) : citywideCivicAccessSummary ? lensDetailLineOpacity(0.008, 0.035) : citywideCivicCatchmentSummary ? lensDetailLineOpacity(0.008, 0.03) : quietDetailUnderCitywideSummary && aspect.category === "civic_services" ? lensDetailLineOpacity(0.02, 0.08) : aspect.id === "civic-access-gaps" ? lensDetailLineOpacity(0.11, 0.34) : aspect.id === "civic-catchment" ? lensDetailLineOpacity(0.07, 0.2) : aspect.id === "civic-demand" ? lensDetailLineOpacity(0.07, 0.22) : lensDetailLineOpacity(0.18, 0.58));
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-outline", "line-color", economyCellColorExpression());
     setLayerPaintIfPresent("lens-economy-cells-fill", "fill-opacity", quietDetailUnderCitywideSummary && aspect.id === "economy-gravity" ? lensDetailFillOpacity(0.012, 0.05) : citywideEconomyVitalitySummary ? lensDetailFillOpacity(0.012, 0.055) : citywideEconomyLandUseSummary ? lensDetailFillOpacity(0.035, 0.12) : aspect.id === "economy-land-use" ? lensDetailFillOpacity(0.34, 0.76) : aspect.id === "economy-vitality" ? lensDetailFillOpacity(0.04, 0.16) : lensDetailFillOpacity(0.08, 0.26));
@@ -5821,6 +5899,8 @@
     if (!state.map?.getSource(LENS_GUIDE_SOURCE_ID)) return;
     const lens = activeMapLens();
     const showGuide = Boolean(lens && state.activeLayers.has(lens.category || state.activeLens));
+    const citywideSummaryActive = citywideOverviewActive() && hasCitywideGuideSummaryForActiveLens();
+    const showFineGuideCells = showGuide && !(citywideSummaryActive && lens?.id === "civic-demand");
     const showRings = showGuide && ["transport-speed", "transport-reliability", "planning-pressure", "planning-delta", "planning-parcels", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens.id);
     const showCells = showGuide && ["transport-access", "planning-pressure", "planning-delta", "planning-parcels", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-land-use", "economy-vitality", "economy-gravity", "utilities-resilience"].includes(lens.id);
     const showFlows = showGuide && ["transport-speed", "transport-access", "transport-reliability", "planning-pressure", "planning-delta", "planning-parcels", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-vitality", "economy-gravity", "utilities-capacity", "utilities-resilience", "utilities-works"].includes(lens.id);
@@ -5829,10 +5909,11 @@
       "lens-guide-area-fill": showGuide,
       "lens-guide-area-line": showGuide,
       "lens-guide-ring-line": showRings,
+      "lens-guide-demand-heat": showCells && lens?.id === "civic-demand" && citywideSummaryActive && activeSublayerIdsForLens(lens).includes("demand_grid"),
       "lens-guide-citywide-cell-fill": showCells,
       "lens-guide-citywide-cell-line": showCells,
-      "lens-guide-cell-fill": showCells,
-      "lens-guide-cell-line": showCells,
+      "lens-guide-cell-fill": showCells && showFineGuideCells,
+      "lens-guide-cell-line": showCells && showFineGuideCells,
       "lens-guide-parcel-hatch": showCells && lens.id === "planning-parcels",
       "lens-guide-coverage-flow-case": showFlows && lens.id === "civic-access-gaps",
       "lens-guide-coverage-flow": showFlows && lens.id === "civic-access-gaps",
@@ -5848,6 +5929,9 @@
     const citywideCellFilter = guideCitywideCellLayerFilter(lens);
     for (const layerId of ["lens-guide-citywide-cell-fill", "lens-guide-citywide-cell-line"]) {
       if (state.map.getLayer(layerId)) state.map.setFilter(layerId, citywideCellFilter);
+    }
+    if (state.map.getLayer("lens-guide-demand-heat")) {
+      state.map.setFilter("lens-guide-demand-heat", guideDemandHeatLayerFilter(lens));
     }
     for (const layerId of ["lens-guide-cell-fill", "lens-guide-cell-line"]) {
       if (state.map.getLayer(layerId)) state.map.setFilter(layerId, cellFilter);
@@ -6011,6 +6095,21 @@
     }
     if (lens?.id === "transport-access") return transportAccessActiveSublayerFilter(base);
     return ["all", base, ["==", ["get", "lens_id"], lens?.id || ""]];
+  }
+
+  function guideDemandHeatLayerFilter(lens = activeMapLens()) {
+    const base = [
+      "all",
+      ["==", ["get", "kind"], "demand_heat_point"],
+      ["==", ["get", "lens_id"], "civic-demand"],
+      ["==", ["get", "guide_scale"], "citywide_summary"],
+    ];
+    if (lens?.id !== "civic-demand") return ["all", base, ["==", ["get", "lens_id"], "__none__"]];
+    return [
+      "all",
+      base,
+      ["match", ["get", "layer_id"], activeSublayerIdsForLens(lens), true, false],
+    ];
   }
 
   function guideParcelHatchLayerFilter(lens = activeMapLens()) {
@@ -7969,7 +8068,13 @@
     const features = [...buckets.values()]
       .map((entry) => sourceBackedCitywideGuideFeature(entry, lens, year, bucketM, origin))
       .filter(Boolean);
-    return spatiallyBalancedGuideFeatures(features, citywideGuideFeatureLimit(lens), lens);
+    const balancedFeatures = spatiallyBalancedGuideFeatures(features, citywideGuideFeatureLimit(lens), lens);
+    if (lens.id !== "civic-demand") return balancedFeatures;
+    return balancedFeatures.concat(
+      balancedFeatures
+        .map((feature, index) => civicDemandCitywideHeatPoint(feature, index))
+        .filter(Boolean),
+    );
   }
 
   function sourceBackedCitywideGuideFeature(entry, lens, year, bucketM, origin) {
@@ -7985,6 +8090,9 @@
     const sourceIds = [...entry.sourceIds].slice(0, 18);
     const confidence = dominantGuideConfidence(entry.confidenceCounts);
     const style = sourceBackedGuideSurfaceStyle(lens);
+    const color = lens.id === "civic-demand"
+      ? civicDemandSurfaceColor(intensity, 0, intensity, intensity * 0.28, seed, null)
+      : entry.color;
     const label = entry.labels[0] || `${entry.eventCount} source-backed ${lens.label || "lens"} records`;
     return {
       type: "Feature",
@@ -8021,11 +8129,31 @@
         planning_status: ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens.id) ? entry.sublayerId : "",
         intensity: Number(intensity.toFixed(3)),
         score: Number((intensity + Math.min(0.2, entry.count * 0.012) + seed * 0.035).toFixed(3)),
-        color: entry.color,
+        color,
       },
       geometry: lens.id === "civic-demand"
-        ? civicDemandPressureCellPolygon(center, bucketM * (0.5 + intensity * 0.09 + seed * 0.025), angle, seed, intensity)
+        ? civicDemandPressureCellPolygon(center, bucketM * (0.66 + intensity * 0.16 + seed * 0.035), angle, seed, intensity)
         : orientedRectanglePolygon(center, halfLong, halfShort, angle),
+    };
+  }
+
+  function civicDemandCitywideHeatPoint(feature, index = 0) {
+    const props = feature?.properties || {};
+    const center = geometryToLngLat(feature?.geometry);
+    if (!center) return null;
+    return {
+      type: "Feature",
+      properties: {
+        ...props,
+        kind: "demand_heat_point",
+        surface_style: "demand_heat",
+        render_role: "citywide_demand_heat",
+        heat_rank: index,
+      },
+      geometry: {
+        type: "Point",
+        coordinates: center,
+      },
     };
   }
 
@@ -8471,6 +8599,13 @@
       .map((entry) => civicContextCitywideGuideFeature(entry, lens, year, bucketM, origin))
       .filter(Boolean);
     const balancedCells = spatiallyBalancedGuideFeatures(features, citywideGuideFeatureLimit(lens), lens);
+    if (lens?.id === "civic-demand") {
+      return balancedCells.concat(
+        balancedCells
+          .map((feature, index) => civicDemandCitywideHeatPoint(feature, index))
+          .filter(Boolean),
+      );
+    }
     if (lens?.id !== "civic-access-gaps") return balancedCells;
     const transportCandidates = civicAccessContextTransportStopCandidates(origin, bounds);
     return balancedCells.concat(
@@ -10081,10 +10216,10 @@
     const widthM = lngLatDistanceMeters([bounds.west, midLat], [bounds.east, midLat]);
     const heightM = lngLatDistanceMeters([(bounds.west + bounds.east) / 2, bounds.south], [(bounds.west + bounds.east) / 2, bounds.north]);
     const basis = Math.max(widthM, heightM);
-    const divisor = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 74 : lens?.id === "civic-demand" ? 54 : lens?.category === "civic_services" ? 78 : 82;
+    const divisor = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 74 : lens?.id === "civic-demand" ? 40 : lens?.id === "civic-catchment" ? 58 : lens?.category === "civic_services" ? 78 : 82;
     const raw = basis / divisor;
-    const min = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 360 : lens?.id === "civic-demand" ? 540 : lens?.category === "civic_services" ? 390 : 420;
-    const max = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 1180 : lens?.id === "civic-demand" ? 1680 : lens?.category === "civic_services" ? 1120 : 1050;
+    const min = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 360 : lens?.id === "civic-demand" ? 680 : lens?.id === "civic-catchment" ? 560 : lens?.category === "civic_services" ? 390 : 420;
+    const max = ["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id) ? 1180 : lens?.id === "civic-demand" ? 2200 : lens?.id === "civic-catchment" ? 1500 : lens?.category === "civic_services" ? 1120 : 1050;
     return Math.max(min, Math.min(max, raw));
   }
 
@@ -10094,7 +10229,8 @@
     if (lens?.id === "economy-land-use") return 1250;
     if (lens?.id === "economy-vitality") return 1450;
     if (lens?.id === "economy-gravity") return 1360;
-    if (lens?.id === "civic-demand") return 1050;
+    if (lens?.id === "civic-demand") return 430;
+    if (lens?.id === "civic-catchment") return 1450;
     if (lens?.category === "civic_services") return 3200;
     return 900;
   }

@@ -22,7 +22,8 @@
         "transport_roads_base": "web/data/city-atlas/cities/belfast/transport_roads_base.geojson",
         "transport_roads_template": "web/data/city-atlas/cities/belfast/transport_roads_{year}.geojson",
         "lens_detail_template": "web/data/city-atlas/cities/belfast/lens_detail_{year}.geojson",
-        "utility_network": "web/data/city-atlas/cities/belfast/utility_network_2026.geojson"
+        "utility_network": "web/data/city-atlas/cities/belfast/utility_network_2026.geojson",
+        "civic_services_context": "web/data/city-atlas/cities/belfast/civic_services_2026.geojson"
       }
     },
     {

@@ -1010,7 +1010,7 @@ async function directGuideState(page) {
         return props.layer === detailLayer && Number(props.year || props.visible_year || 0) === year;
       }).length
       : 0;
-    const guideLayers = ["lens-guide-flow", "lens-guide-citywide-cell-fill", "lens-guide-citywide-cell-line", "lens-guide-cell-fill", "lens-guide-area-line", "lens-guide-ring-line", "lens-guide-node"];
+    const guideLayers = ["lens-guide-flow", "lens-guide-demand-heat", "lens-guide-citywide-cell-fill", "lens-guide-citywide-cell-line", "lens-guide-cell-fill", "lens-guide-area-line", "lens-guide-ring-line", "lens-guide-node"];
     let renderedGuides = 0;
     for (const layer of guideLayers) {
       if (!map?.getLayer?.(layer) || map.getLayoutProperty(layer, "visibility") === "none") continue;
@@ -1022,13 +1022,44 @@ async function directGuideState(page) {
     }
     const guideFeatures = state?.lensGuideFeatureCache?.features || [];
     let renderedCivicDemandRawCells = 0;
-    if (activeAspect === "civic-demand" && map?.getLayer?.("lens-civic-coverage-fill") && map.getLayoutProperty("lens-civic-coverage-fill") !== "none") {
+    let renderedCivicDemandFineGuideCells = 0;
+    if (activeAspect === "civic-demand" && map?.getLayer?.("lens-civic-coverage-fill") && map.getLayoutProperty("lens-civic-coverage-fill", "visibility") !== "none") {
       try {
         renderedCivicDemandRawCells = map.queryRenderedFeatures({ layers: ["lens-civic-coverage-fill"] }).length;
       } catch (_error) {
         renderedCivicDemandRawCells = 0;
       }
     }
+    if (activeAspect === "civic-demand" && map?.getLayer?.("lens-guide-cell-fill") && map.getLayoutProperty("lens-guide-cell-fill", "visibility") !== "none") {
+      try {
+        renderedCivicDemandFineGuideCells = map.queryRenderedFeatures({ layers: ["lens-guide-cell-fill"] }).length;
+      } catch (_error) {
+        renderedCivicDemandFineGuideCells = 0;
+      }
+    }
+    const paintText = (layerId, property) => {
+      try {
+        return JSON.stringify(map?.getPaintProperty?.(layerId, property) || "");
+      } catch (_error) {
+        return "";
+      }
+    };
+    const civicFillPaint = paintText("lens-civic-coverage-fill", "fill-opacity");
+    const civicLinePaint = paintText("lens-civic-coverage-outline", "line-opacity");
+    const citywideCellLineWidth = paintText("lens-guide-citywide-cell-line", "line-width");
+    const demandHeatFeatureCount = guideFeatures.filter((feature) => feature?.properties?.kind === "demand_heat_point").length;
+    const demandHeatCellStyleLeakCount = guideFeatures.filter((feature) => {
+      const props = feature?.properties || {};
+      return props.kind === "demand_heat_point" && props.surface_style === "demand_surface";
+    }).length;
+    const demandHeatVisible = activeAspect === "civic-demand"
+      && map?.getLayer?.("lens-guide-demand-heat")
+      && map.getLayoutProperty("lens-guide-demand-heat", "visibility") !== "none";
+    const calmCivicSummaryPaint = activeAspect === "civic-demand"
+      ? civicFillPaint.includes("0.006") && civicLinePaint.includes("0.008") && citywideCellLineWidth.includes("0.025") && demandHeatVisible
+      : activeAspect === "civic-catchment"
+      ? civicFillPaint.includes("0.02") && civicLinePaint.includes("0.03") && citywideCellLineWidth.includes("0.07")
+      : true;
     const splitIds = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
     const forbiddenContext = /mapped_context|current_context|road_infill|building_context|context_not_year_specific/i;
     const citywideScope = Boolean(state?.citywideLensMode) || document.querySelector("#mapStudyChip")?.dataset.scope === "city";
@@ -1097,6 +1128,11 @@ async function directGuideState(page) {
       directGuideFeatureCount,
       contextGuideFeatureCount,
       renderedCivicDemandRawCells,
+      renderedCivicDemandFineGuideCells,
+      demandHeatFeatureCount,
+      demandHeatCellStyleLeakCount,
+      demandHeatVisible,
+      calmCivicSummaryPaint,
       renderedGuides,
       invalidGuideCount,
     };
@@ -1110,7 +1146,7 @@ async function assertDirectGuideSurface(page, label, { expected, allowContextGui
       const map = state?.map;
       const guideFeatures = state?.lensGuideFeatureCache?.features || [];
       if (!guideFeatures.length) return false;
-      const guideLayers = ["lens-guide-citywide-cell-fill", "lens-guide-citywide-cell-line", "lens-guide-cell-fill", "lens-guide-area-line", "lens-guide-flow", "lens-guide-node"];
+      const guideLayers = ["lens-guide-demand-heat", "lens-guide-citywide-cell-fill", "lens-guide-citywide-cell-line", "lens-guide-cell-fill", "lens-guide-area-line", "lens-guide-flow", "lens-guide-node"];
       let rendered = 0;
       for (const layer of guideLayers) {
         if (!map?.getLayer?.(layer) || map.getLayoutProperty(layer, "visibility") === "none") continue;
@@ -1134,6 +1170,16 @@ async function assertDirectGuideSurface(page, label, { expected, allowContextGui
       assert(state.contextGuideFeatureCount <= 1100, `${label}: civic-demand current-context guide overdraw is too high (${state.contextGuideFeatureCount}).`);
       assert(state.directGuideFeatureCount <= 1100, `${label}: civic-demand direct guide overdraw is too high (${state.directGuideFeatureCount}).`);
       assert(state.renderedCivicDemandRawCells <= 3600, `${label}: civic-demand raw detail layer overdraw is too high (${state.renderedCivicDemandRawCells}).`);
+      assert(state.renderedCivicDemandFineGuideCells === 0, `${label}: civic-demand fine guide cells should stay hidden under the citywide surface (${state.renderedCivicDemandFineGuideCells}).`);
+      assert(state.demandHeatFeatureCount > 0, `${label}: civic-demand citywide heat surface has no source-backed heat points.`);
+      assert(state.demandHeatCellStyleLeakCount === 0, `${label}: civic-demand heat points leaked into demand_surface cell metrics (${state.demandHeatCellStyleLeakCount}).`);
+      assert(state.demandHeatVisible, `${label}: civic-demand citywide heat layer is not visible.`);
+      assert(state.calmCivicSummaryPaint, `${label}: civic-demand citywide summary paint is not calm enough.`);
+    }
+    if (state.activeAspect === "civic-catchment") {
+      assert(state.guideFeatureCount <= 1700, `${label}: civic-catchment guide overdraw is too high (${state.guideFeatureCount}).`);
+      assert(state.contextGuideFeatureCount <= 1700, `${label}: civic-catchment current-context guide overdraw is too high (${state.contextGuideFeatureCount}).`);
+      assert(state.calmCivicSummaryPaint, `${label}: civic-catchment citywide summary paint is not calm enough.`);
     }
     return;
   }
@@ -3151,6 +3197,74 @@ async function assertCivicAccessCitywideContext(page, city) {
   await page.locator(".layer-row[data-sublayer='coverage']").click();
 }
 
+async function assertCivicDemandHeatToggle(page, city) {
+  await page.evaluate(async (year) => {
+    const atlas = window.BimsAtlas;
+    await atlas?.setAreaFilter?.("");
+    await atlas?.setYear?.(year);
+    await atlas?.setActiveAspect?.("civic-demand");
+    atlas?.recenterMap?.();
+  }, city.year);
+  await page.waitForFunction(
+    () => window.BimsAtlas?.state?.activeAspect === "civic-demand"
+      && document.querySelector(".layer-row[data-sublayer='demand_grid']")
+      && window.BimsAtlas?.state?.activeAspectLayers?.has?.("demand_grid"),
+    null,
+    { timeout: 15000 }
+  );
+  await page.waitForFunction(
+    () => {
+      const atlas = window.BimsAtlas;
+      const map = atlas?.state?.map;
+      const guide = atlas?.state?.lensGuideFeatureCache?.features || [];
+      return guide.some((feature) => feature.properties?.kind === "demand_heat_point")
+        && map?.getLayer?.("lens-guide-demand-heat")
+        && map.getLayoutProperty("lens-guide-demand-heat", "visibility") !== "none";
+    },
+    null,
+    { timeout: 15000 }
+  );
+  let demandState = await directGuideState(page);
+  assert(demandState.demandHeatFeatureCount > 0, `civic demand ${city.id}: no citywide heat points were generated.`);
+  assert(demandState.demandHeatCellStyleLeakCount === 0, `civic demand ${city.id}: heat points leaked into demand_surface cell metrics.`);
+  assert(demandState.demandHeatVisible, `civic demand ${city.id}: heat layer is not visible with demand_grid enabled.`);
+  assert(demandState.renderedCivicDemandFineGuideCells === 0, `civic demand ${city.id}: fine guide cells rendered under citywide heat.`);
+  assert(demandState.invalidGuideCount === 0, `civic demand ${city.id}: guide has ${demandState.invalidGuideCount} invalid feature(s).`);
+
+  await page.locator(".layer-row[data-sublayer='demand_grid']").click();
+  await page.waitForFunction(
+    () => {
+      const atlas = window.BimsAtlas;
+      const map = atlas?.state?.map;
+      const demandGridOff = atlas?.state?.activeAspectLayers && !atlas.state.activeAspectLayers.has("demand_grid");
+      const heatHidden = !map?.getLayer?.("lens-guide-demand-heat")
+        || map.getLayoutProperty("lens-guide-demand-heat", "visibility") === "none";
+      let renderedCitywideCells = 0;
+      if (map?.getLayer?.("lens-guide-citywide-cell-fill") && map.getLayoutProperty("lens-guide-citywide-cell-fill", "visibility") !== "none") {
+        try {
+          renderedCitywideCells = map.queryRenderedFeatures({ layers: ["lens-guide-citywide-cell-fill"] }).length;
+        } catch (_error) {
+          renderedCitywideCells = 0;
+        }
+      }
+      return demandGridOff && heatHidden && renderedCitywideCells === 0;
+    },
+    null,
+    { timeout: 12000 }
+  );
+  demandState = await directGuideState(page);
+  assert(!demandState.demandHeatVisible, `civic demand ${city.id}: heat layer stayed visible after demand_grid was disabled.`);
+
+  await page.locator(".layer-row[data-sublayer='demand_grid']").click();
+  await page.waitForFunction(
+    () => window.BimsAtlas?.state?.activeAspectLayers?.has?.("demand_grid")
+      && window.BimsAtlas?.state?.map?.getLayer?.("lens-guide-demand-heat")
+      && window.BimsAtlas.state.map.getLayoutProperty("lens-guide-demand-heat", "visibility") !== "none",
+    null,
+    { timeout: 12000 }
+  );
+}
+
 let dashboardPrimaryBrowser = null;
 
 async function closeDashboardPrimaryBrowser() {
@@ -3286,6 +3400,7 @@ async function runDashboardSmoke() {
       attachConsoleCapture(page, consoleMessages, pageErrors);
       await openAtlasShell(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=civic-access-gaps`);
       await assertCivicAccessCitywideContext(page, city);
+      await assertCivicDemandHeatToggle(page, city);
     } finally {
       await page.close().catch(() => {});
       await cityBrowser.close().catch(() => {});
