@@ -2243,11 +2243,21 @@ async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
         || bounds.minLat < displayBounds.south
         || bounds.maxLat > displayBounds.north;
     }).length;
+    const displayLineWeights = displayFeatures
+      .filter((feature) => feature.properties?.network_geometry === "line")
+      .map((feature) => Number(feature.properties?.city_display_weight || 0))
+      .filter((value) => Number.isFinite(value) && value > 0);
+    const regionalLineWeights = displayFeatures
+      .filter((feature) => feature.properties?.network_geometry === "line" && feature.properties?.city_display_role === "regional_corridor")
+      .map((feature) => Number(feature.properties?.city_display_weight || 0))
+      .filter((value) => Number.isFinite(value) && value > 0);
     return {
       featureCount: features.length,
       displayFeatureCount: displayFeatures.length,
       clippedDisplayCount: displayFeatures.filter((feature) => feature.properties?.city_display_clipped === true).length,
       regionalDisplayCount: displayFeatures.filter((feature) => feature.properties?.city_display_role === "regional_corridor").length,
+      minDisplayLineWeight: displayLineWeights.length ? Math.min(...displayLineWeights) : 0,
+      minRegionalLineWeight: regionalLineWeights.length ? Math.min(...regionalLineWeights) : 0,
       invalidFeatureCount,
       invalidDisplayFeatureCount,
       path: atlas?.state?.utilityNetworkFeaturesPathLoaded || "",
@@ -2272,6 +2282,8 @@ async function assertUtilityNetworkCitywideContext(page, cityId, options = {}) {
   assert(state.displayFeatureCount >= minimumDisplayFeatures, `utility network ${cityId}: too few city-bounded utility context features displayed (${state.displayFeatureCount}).`);
   assert(state.displayFeatureCount <= state.featureCount, `utility network ${cityId}: displayed utility context count exceeds loaded source count (${state.displayFeatureCount}/${state.featureCount}).`);
   assert(state.clippedDisplayCount > 0, `utility network ${cityId}: utility context did not clip any regional linework to the city display bounds.`);
+  assert(state.minDisplayLineWeight >= 0.32, `utility network ${cityId}: citywide utility line weights are too faint (${state.minDisplayLineWeight}).`);
+  assert(state.minRegionalLineWeight >= 0.32, `utility network ${cityId}: regional utility corridors are too faint (${state.minRegionalLineWeight}).`);
   assert(state.sourcePath.includes(`/cities/${cityId}/utility_network_2026.geojson`), `utility network ${cityId}: map source did not use the parsed utility payload (${state.sourcePath}).`);
   assert(state.resourceFetchCount <= 1, `utility network ${cityId}: utility GeoJSON was fetched ${state.resourceFetchCount} times.`);
   assert(state.invalidFeatureCount === 0, `utility network ${cityId}: ${state.invalidFeatureCount} feature(s) lack provenance/no-capacity caveats.`);

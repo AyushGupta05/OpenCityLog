@@ -4708,24 +4708,33 @@
     return ["*", expression, utilityNetworkDisplayWeightExpression()];
   }
 
+  function utilityNetworkCitywideStyleFactor(mode = activeMapLens().id) {
+    if (!mode?.startsWith("utilities-")) return 1;
+    if (!state.citywideLensMode && !citywideOverviewActive()) return 1;
+    if (mode === "utilities-capacity") return 1.34;
+    if (mode === "utilities-resilience") return 1.24;
+    if (mode === "utilities-works") return 1.2;
+    return 1.16;
+  }
+
   function utilityNetworkOpacityExpression() {
     const mode = activeMapLens().id;
     if (mode === "utilities-capacity") {
       return utilityNetworkDisplayOpacityExpression([
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.46,
-        1, 0.92,
+        0, 0.58,
+        1, 0.96,
       ]);
     }
     if (mode === "utilities-resilience") {
       return utilityNetworkDisplayOpacityExpression([
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.34,
-        1, 0.8,
+        0, 0.44,
+        1, 0.88,
       ]);
     }
-    const high = mode === "utilities-resilience" ? 0.78 : mode === "utilities-capacity" ? 0.88 : mode === "utilities-works" ? 0.82 : 0.72;
-    const low = mode === "utilities-works" ? 0.32 : mode === "utilities-capacity" ? 0.22 : 0.22;
+    const high = mode === "utilities-works" ? 0.88 : 0.76;
+    const low = mode === "utilities-works" ? 0.4 : 0.28;
     return utilityNetworkDisplayOpacityExpression([
       "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
       0, low,
@@ -4738,28 +4747,28 @@
     if (mode === "utilities-capacity") {
       return utilityNetworkDisplayOpacityExpression([
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.24,
-        1, 0.6,
+        0, 0.3,
+        1, 0.66,
       ]);
     }
     if (mode === "utilities-resilience") {
       return utilityNetworkDisplayOpacityExpression([
         "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-        0, 0.16,
-        1, 0.42,
+        0, 0.22,
+        1, 0.5,
       ]);
     }
-    const high = mode === "utilities-resilience" ? 0.42 : mode === "utilities-capacity" ? 0.44 : mode === "utilities-works" ? 0.46 : 0.36;
+    const high = mode === "utilities-works" ? 0.54 : 0.4;
     return utilityNetworkDisplayOpacityExpression([
       "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45],
-      0, mode === "utilities-works" ? 0.16 : 0.08,
+      0, mode === "utilities-works" ? 0.2 : 0.1,
       1, high,
     ]);
   }
 
   function utilityNetworkWidthExpression() {
     const mode = activeMapLens().id;
-    const factor = mode === "utilities-resilience" ? 1.04 : mode === "utilities-works" ? 1.15 : mode === "utilities-capacity" ? 1.3 : 1;
+    const factor = (mode === "utilities-resilience" ? 1.04 : mode === "utilities-works" ? 1.15 : mode === "utilities-capacity" ? 1.3 : 1) * utilityNetworkCitywideStyleFactor(mode);
     const rankedWidth = (low, high) => [
       "*",
       factor,
@@ -4768,16 +4777,16 @@
     ];
     return [
       "interpolate", ["linear"], ["zoom"],
-      7.4, rankedWidth(0.24, 0.72),
-      9, rankedWidth(0.36, 1.12),
-      13, rankedWidth(0.58, 2.15),
-      16, rankedWidth(0.96, 3.4),
+      7.4, rankedWidth(0.32, 1),
+      9, rankedWidth(0.48, 1.42),
+      13, rankedWidth(0.66, 2.3),
+      16, rankedWidth(1.02, 3.48),
     ];
   }
 
   function utilityNetworkCaseWidthExpression() {
     const mode = activeMapLens().id;
-    const factor = mode === "utilities-resilience" ? 0.98 : mode === "utilities-capacity" ? 1.34 : mode === "utilities-works" ? 1.2 : 1;
+    const factor = (mode === "utilities-resilience" ? 0.98 : mode === "utilities-capacity" ? 1.34 : mode === "utilities-works" ? 1.2 : 1) * utilityNetworkCitywideStyleFactor(mode);
     const rankedWidth = (low, high) => [
       "*",
       factor,
@@ -4786,10 +4795,10 @@
     ];
     return [
       "interpolate", ["linear"], ["zoom"],
-      7.4, rankedWidth(0.58, 1.46),
-      9, rankedWidth(0.82, 2.15),
-      13, rankedWidth(1.28, 3.6),
-      16, rankedWidth(1.7, 5.1),
+      7.4, rankedWidth(0.72, 1.74),
+      9, rankedWidth(1, 2.56),
+      13, rankedWidth(1.42, 3.86),
+      16, rankedWidth(1.8, 5.28),
     ];
   }
 
@@ -6991,15 +7000,15 @@
     const basis = Math.max(1, citywideBasisMeters());
     const ratio = Math.max(originalLengthM, clippedLengthM) / basis;
     let weight = 1;
-    if (ratio >= 0.75) weight = 0.3;
-    else if (ratio >= 0.48) weight = 0.38;
-    else if (ratio >= 0.3) weight = 0.5;
-    else if (ratio >= 0.18) weight = 0.68;
+    if (ratio >= 0.75) weight = 0.42;
+    else if (ratio >= 0.48) weight = 0.5;
+    else if (ratio >= 0.3) weight = 0.62;
+    else if (ratio >= 0.18) weight = 0.78;
     const type = String(props.utility_type || "");
     const role = String(props.network_role || "");
-    if (type === "electricity" && Number(props.rank || 0) >= 5) weight *= 0.78;
-    if (type === "water" && /river|canal|stream|waterway/.test(role)) weight = Math.min(weight, 0.62);
-    return Number(Math.max(0.22, Math.min(1, weight)).toFixed(3));
+    if (type === "electricity" && Number(props.rank || 0) >= 5) weight *= 0.88;
+    if (type === "water" && /river|canal|stream|waterway/.test(role)) weight = Math.min(weight, 0.7);
+    return Number(Math.max(0.32, Math.min(1, weight)).toFixed(3));
   }
 
   function pointWithinBounds(point, bounds) {
