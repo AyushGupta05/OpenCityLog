@@ -7485,9 +7485,9 @@
     if (!generatedFrom) return [];
     const dataYear = economyAnchorContextDataYear();
     const bounds = cityBoundsValues();
-    const basisM = citywideBasisMeters();
-    const limit = Math.max(520, Math.min(1450, Math.round(basisM / 42)));
-    const candidates = [];
+    const origin = mapCenter();
+    const bucketM = economyLandUseContextBucketMeters();
+    const buckets = new Map();
     for (const anchor of anchors) {
       const props = anchor?.properties || {};
       const point = geometryToLngLat(anchor?.geometry);
@@ -7496,51 +7496,127 @@
       const objectId = String(props.source_id || props.osm_id || props.id || "").trim();
       const sourceUrl = props.source_url || osmObjectUrl(objectId);
       if (!objectId || !sourceUrl) continue;
+      const local = lngLatToLocalMeters(point, origin);
+      if (!Number.isFinite(local[0]) || !Number.isFinite(local[1])) continue;
       const rank = Math.max(0.6, Number(props.anchor_rank || 1));
       const seed = stableUnit(`${objectId}:economy-land-use-context`);
       const sublayerId = economyLandUseContextSublayerId(props);
       const intensity = clamp01(0.18 + Math.min(0.34, rank * 0.105) + seed * 0.08);
-      const widthM = Math.max(38, Math.min(115, 38 + rank * 18 + seed * 18));
-      const heightM = Math.max(26, Math.min(82, 24 + rank * 12 + (1 - seed) * 15));
-      candidates.push({
-        type: "Feature",
-        properties: {
-          kind: "surface_cell",
-          lens_id: lens.id,
-          surface_style: "land_use_tile",
-          guide_scale: "citywide_summary",
-          source_kind: "current_context",
-          evidence_role: "context_not_year_specific_change_evidence",
-          context_year: String(dataYear),
-          detail_layer: "economy_anchors_2026",
-          generated_from: generatedFrom,
-          source_id: objectId,
-          source_ids: "osm-overpass",
-          source_object_id: objectId,
-          source_object_ids: objectId,
-          source_urls: sourceUrl,
-          confidence: props.confidence || "inferred",
-          caveat: props.timing_note || "Current OSM economy and service anchors are non-headline land-use context only; they are not selected-year change evidence, measured activity, footfall, spend, vacancy, or a complete land-use register.",
-          timing_note: props.timing_note || "Current OSM context may post-date the selected evidence year.",
-          geometry_precision_mix: props.geometry_method || "Current OSM point or centroid context; not a surveyed parcel or official land-use boundary.",
-          direct_evidence_counted: false,
-          headline_count_included: false,
-          event_id: "",
-          event_ids: "",
-          event_ids_all: "",
-          layer_id: sublayerId,
-          sublayer_id: sublayerId,
-          land_use_category: sublayerId,
-          label: props.label || props.name || "Mapped economy/service context",
-          title: props.label || props.name || "Mapped economy/service context",
-          intensity: Number(intensity.toFixed(3)),
-          score: Number((intensity + Math.min(0.22, rank * 0.045) + seed * 0.065).toFixed(3)),
-          color: sourceBackedGuideColor(sublayerId, lens),
-        },
-        geometry: orientedRectanglePolygon(point, widthM, heightM, (seed - 0.5) * 0.42),
-      });
+      const bucket = `${Math.round(local[0] / bucketM)}:${Math.round(local[1] / bucketM)}:${sublayerId}`;
+      const entry = buckets.get(bucket) || {
+        bucket,
+        sublayerId,
+        anchorCount: 0,
+        weight: 0,
+        sumX: 0,
+        sumY: 0,
+        maxIntensity: 0,
+        maxRank: 0,
+        sourceObjectIds: new Set(),
+        sourceUrls: new Set(),
+        labels: [],
+        confidenceCounts: new Map(),
+      };
+      const weight = Math.max(0.24, intensity) + Math.min(0.3, rank * 0.08);
+      entry.anchorCount += 1;
+      entry.weight += weight;
+      entry.sumX += local[0] * weight;
+      entry.sumY += local[1] * weight;
+      entry.maxIntensity = Math.max(entry.maxIntensity, intensity);
+      entry.maxRank = Math.max(entry.maxRank, rank);
+      entry.sourceObjectIds.add(objectId);
+      entry.sourceUrls.add(sourceUrl);
+      entry.confidenceCounts.set(props.confidence || "inferred", (entry.confidenceCounts.get(props.confidence || "inferred") || 0) + 1);
+      if (props.label || props.name) entry.labels.push(props.label || props.name);
+      buckets.set(bucket, entry);
     }
-    return spatiallyBalancedGuideFeatures(candidates, limit, lens);
+    const features = [...buckets.values()]
+      .map((entry, index) => economyLandUseContextMosaicGuideFeature(entry, lens, year, dataYear, generatedFrom, bucketM, origin, index))
+      .filter(Boolean);
+    return spatiallyBalancedGuideFeatures(features, economyLandUseContextFeatureLimit(), lens);
+  }
+
+  function economyLandUseContextBucketMeters() {
+    const fixed = { belfast: 520, london: 760, nyc: 880 };
+    if (fixed[state.cityId]) return fixed[state.cityId];
+    return Math.max(500, Math.min(960, citywideBasisMeters() / 58));
+  }
+
+  function economyLandUseContextFeatureLimit() {
+    const fixed = { belfast: 760, london: 1450, nyc: 1450 };
+    if (fixed[state.cityId]) return fixed[state.cityId];
+    return Math.max(620, Math.min(1450, Math.round(citywideBasisMeters() / 42)));
+  }
+
+  function economyLandUseContextMosaicGuideFeature(entry, lens, selectedYear, dataYear, generatedFrom, bucketM, origin, index = 0) {
+    if (!entry?.sourceObjectIds?.size || !entry?.sourceUrls?.size || !entry.weight) return null;
+    const sourceObjectIds = [...entry.sourceObjectIds].slice(0, 28);
+    const sourceUrls = [...entry.sourceUrls].slice(0, 14);
+    if (!sourceObjectIds.length || !sourceUrls.length) return null;
+    const sampledLabels = uniqueGuideValues(entry.labels).slice(0, 4);
+    const center = offsetLngLat(origin, entry.sumX / entry.weight, entry.sumY / entry.weight);
+    const seed = stableUnit(`${entry.bucket}:economy-land-use-mosaic`);
+    const anchorCount = Math.max(entry.anchorCount || 0, sourceObjectIds.length);
+    const densityBoost = Math.min(0.28, Math.log1p(anchorCount) * 0.075);
+    const rankBoost = Math.min(0.12, Number(entry.maxRank || 0) * 0.025);
+    const intensity = clamp01(0.24 + entry.maxIntensity * 0.42 + densityBoost + rankBoost + seed * 0.035);
+    const halfLong = bucketM * (0.48 + intensity * 0.12 + Math.min(0.08, anchorCount * 0.006));
+    const halfShort = bucketM * (0.34 + intensity * 0.09 + Math.min(0.06, anchorCount * 0.004));
+    const angle = (seed - 0.5) * 0.46;
+    const category = economyLandUseCategories().find((item) => item.id === entry.sublayerId);
+    const source = state.sourceById.get("osm-overpass");
+    const label = category?.label || "Mapped economy/service context";
+    return {
+      type: "Feature",
+      properties: {
+        kind: "surface_cell",
+        lens_id: lens.id,
+        surface_style: "land_use_tile",
+        guide_scale: "citywide_summary",
+        source_kind: "current_context",
+        evidence_role: "context_not_year_specific_change_evidence",
+        context_year: String(dataYear),
+        selected_year: String(selectedYear),
+        detail_layer: "economy_anchors_2026",
+        generated_from: generatedFrom,
+        source_id: "osm-overpass",
+        source_ids: "osm-overpass",
+        source_object_id: sourceObjectIds[0],
+        source_object_ids: sourceObjectIds.join(","),
+        source_urls: sourceUrls.join(","),
+        source_name: source?.title || "OpenStreetMap economy/service context",
+        source_type: source?.source_type || "current mapped economy/service context",
+        publisher: source?.publisher || "OpenStreetMap contributors",
+        license: source?.license || "ODbL-1.0",
+        source_count: 1,
+        source_object_count: anchorCount,
+        confidence: dominantGuideConfidence(entry.confidenceCounts),
+        caveat: "Current OSM economy and service anchors are aggregated into non-headline land-use context only; they are not selected-year change evidence, measured activity, footfall, spend, vacancy, or a complete land-use register. Excluded from headline event totals.",
+        timing_note: `Current ${dataYear} OSM context may post-date selected-year ${selectedYear} evidence.`,
+        geometry_precision_mix: "Aggregated from current OSM economy/service point or centroid context; not surveyed parcel geometry, official zoning, or land-use boundary data.",
+        aggregation_note: `Citywide ${Math.round(bucketM)}m land-use mosaic generated from current OSM economy/service anchors grouped by mapped category and approximate location.`,
+        source_object_sample_note: anchorCount > sourceObjectIds.length
+          ? `${sourceObjectIds.length} sampled OSM object id${sourceObjectIds.length === 1 ? "" : "s"} listed from ${anchorCount} grouped source object${anchorCount === 1 ? "" : "s"}.`
+          : `${sourceObjectIds.length} OSM object id${sourceObjectIds.length === 1 ? "" : "s"} listed for this grouped context cell.`,
+        direct_evidence_counted: false,
+        headline_count_included: false,
+        event_id: "",
+        event_ids: "",
+        event_ids_all: "",
+        event_count: 0,
+        layer_id: entry.sublayerId,
+        sublayer_id: entry.sublayerId,
+        land_use_category: entry.sublayerId,
+        label: `${label} context (${anchorCount} mapped OSM object${anchorCount === 1 ? "" : "s"})`,
+        title: `${label} context`,
+        sample_labels: sampledLabels.join(","),
+        context_rank: index + 1,
+        intensity: Number(intensity.toFixed(3)),
+        score: Number((intensity + Math.min(0.24, anchorCount * 0.018) + seed * 0.05).toFixed(3)),
+        color: sourceBackedGuideColor(entry.sublayerId, lens),
+      },
+      geometry: orientedRectanglePolygon(center, halfLong, halfShort, angle),
+    };
   }
 
   function economyGravityCitywideHubPoint() {

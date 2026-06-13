@@ -1495,6 +1495,52 @@ async function assertEconomyLandUseCitywideContext(page, cityId, targetYear) {
           && props.detail_layer === "economy_anchors_2026";
       });
     const split = (value) => String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
+    const featureCenter = (feature) => {
+      const ring = feature?.geometry?.coordinates?.[0];
+      if (!Array.isArray(ring) || ring.length < 4) return null;
+      const usable = ring.slice(0, -1).filter((point) => Number.isFinite(point?.[0]) && Number.isFinite(point?.[1]));
+      if (!usable.length) return null;
+      const sum = usable.reduce((acc, point) => [acc[0] + point[0], acc[1] + point[1]], [0, 0]);
+      return [sum[0] / usable.length, sum[1] / usable.length];
+    };
+    const bounds = Array.isArray(atlas?.state?.city?.bounds) ? atlas.state.city.bounds.map(Number) : [];
+    const midLng = bounds.length === 4 ? (bounds[0] + bounds[2]) / 2 : null;
+    const midLat = bounds.length === 4 ? (bounds[1] + bounds[3]) / 2 : null;
+    const quadrants = new Set();
+    const gridBuckets = new Set();
+    const categories = new Set();
+    const categoryCounts = new Map();
+    let aggregateCellCount = 0;
+    let maxSourceObjectCount = 0;
+    let aggregationNoteCount = 0;
+    let caveatExcludedCount = 0;
+    let sourceObjectSampleNoteCount = 0;
+    for (const feature of features) {
+      const props = feature.properties || {};
+      const objectIds = split(props.source_object_ids || props.source_object_id);
+      const sourceObjectCount = Number(props.source_object_count || objectIds.length || 0);
+      if (sourceObjectCount > 1 || objectIds.length > 1) aggregateCellCount += 1;
+      maxSourceObjectCount = Math.max(maxSourceObjectCount, sourceObjectCount, objectIds.length);
+      if (props.aggregation_note && /OSM|mosaic|anchor/i.test(String(props.aggregation_note))) aggregationNoteCount += 1;
+      if (/non-headline/i.test(String(props.caveat || "")) && /not selected-year/i.test(String(props.caveat || ""))) caveatExcludedCount += 1;
+      if (props.source_object_sample_note && /OSM object id/i.test(String(props.source_object_sample_note))) sourceObjectSampleNoteCount += 1;
+      if (props.sublayer_id) {
+        categories.add(props.sublayer_id);
+        categoryCounts.set(props.sublayer_id, (categoryCounts.get(props.sublayer_id) || 0) + 1);
+      }
+      const center = featureCenter(feature);
+      if (center && Number.isFinite(midLng) && Number.isFinite(midLat)) {
+        quadrants.add(`${center[0] < midLng ? "W" : "E"}${center[1] < midLat ? "S" : "N"}`);
+        if (bounds.length === 4) {
+          const col = Math.max(0, Math.min(2, Math.floor(((center[0] - bounds[0]) / Math.max(0.000001, bounds[2] - bounds[0])) * 3)));
+          const row = Math.max(0, Math.min(2, Math.floor(((center[1] - bounds[1]) / Math.max(0.000001, bounds[3] - bounds[1])) * 3)));
+          gridBuckets.add(`${col}:${row}`);
+        }
+      }
+    }
+    const topCategoryShare = features.length
+      ? Math.max(0, ...[...categoryCounts.values()].map((count) => count / features.length))
+      : 0;
     const invalid = features.filter((feature) => {
       const props = feature.properties || {};
       const eventIds = split(props.event_ids || props.event_id);
@@ -1503,12 +1549,21 @@ async function assertEconomyLandUseCitywideContext(page, cityId, targetYear) {
       return !feature.geometry
         || props.kind !== "surface_cell"
         || props.surface_style !== "land_use_tile"
+        || props.guide_scale !== "citywide_summary"
         || props.evidence_role !== "context_not_year_specific_change_evidence"
+        || props.selected_year !== String(year)
+        || props.context_year !== "2026"
         || !props.context_year
         || !props.generated_from
         || !props.source_urls
+        || !props.source_name
+        || !props.publisher
+        || !props.license
         || !props.confidence
         || !props.caveat
+        || !props.aggregation_note
+        || !props.source_object_sample_note
+        || Number(props.source_object_count || objectIds.length || 0) <= 0
         || props.direct_evidence_counted !== false
         || props.headline_count_included !== false
         || eventIds.length > 0
@@ -1539,16 +1594,36 @@ async function assertEconomyLandUseCitywideContext(page, cityId, targetYear) {
       sourceFeatureCount: atlas?.state?.economyAnchorFeatures?.length || 0,
       visible: Boolean(row?.visible_map_contract),
       directCount: Number(row?.direct_event_count || 0),
+      aggregateCellCount,
+      maxSourceObjectCount,
+      aggregationNoteCount,
+      caveatExcludedCount,
+      sourceObjectSampleNoteCount,
+      quadrantCount: quadrants.size,
+      gridBucketCount: gridBuckets.size,
+      categoryCount: categories.size,
+      topCategoryShare,
     };
   }, { year: targetYear });
   const minSourceFeatureCount = { belfast: 1200, london: 6000, nyc: 5000 }[cityId] || 1200;
   const minContextTileCount = { belfast: 420, london: 900, nyc: 800 }[cityId] || 420;
+  const minCategoryCount = { belfast: 4, london: 5, nyc: 5 }[cityId] || 4;
+  const minGridBucketCount = { belfast: 6, london: 8, nyc: 8 }[cityId] || 6;
   assert(state.sourcePath.includes("economy_anchors_2026.geojson"), `economy land-use context ${cityId}: economy anchors did not load (${state.sourcePath}).`);
   assert(state.sourceFeatureCount >= minSourceFeatureCount, `economy land-use context ${cityId}: too few source economy anchors loaded (${state.sourceFeatureCount}).`);
   assert(state.visible && state.directCount > 0, `economy land-use context ${cityId}: current context rendered without selected-year direct economy evidence.`);
   assert(state.contextTileCount >= minContextTileCount, `economy land-use context ${cityId}: too few current-context land-use tiles (${state.contextTileCount}).`);
+  assert(state.contextTileCount < state.sourceFeatureCount, `economy land-use context ${cityId}: context mosaic did not aggregate source anchors (${state.contextTileCount} tiles for ${state.sourceFeatureCount} source anchors).`);
   assert(state.rendered > 0, `economy land-use context ${cityId}: current-context land-use tiles did not render.`);
   assert(state.invalid === 0, `economy land-use context ${cityId}: ${state.invalid} context tile(s) lack provenance/non-headline flags.`);
+  assert(state.aggregateCellCount > 0 && state.maxSourceObjectCount > 1, `economy land-use context ${cityId}: current-context land-use cells were not aggregated from source objects.`);
+  assert(state.aggregationNoteCount === state.contextTileCount, `economy land-use context ${cityId}: ${state.contextTileCount - state.aggregationNoteCount} context tile(s) lack aggregation notes.`);
+  assert(state.caveatExcludedCount === state.contextTileCount, `economy land-use context ${cityId}: ${state.contextTileCount - state.caveatExcludedCount} context tile(s) lack non-headline caveats.`);
+  assert(state.sourceObjectSampleNoteCount === state.contextTileCount, `economy land-use context ${cityId}: ${state.contextTileCount - state.sourceObjectSampleNoteCount} context tile(s) lack source-object sample notes.`);
+  assert(state.quadrantCount === 4, `economy land-use context ${cityId}: context mosaic does not cover all city quadrants (${state.quadrantCount}).`);
+  assert(state.gridBucketCount >= minGridBucketCount, `economy land-use context ${cityId}: context mosaic does not span enough citywide grid buckets (${state.gridBucketCount}).`);
+  assert(state.categoryCount >= minCategoryCount, `economy land-use context ${cityId}: context mosaic has too few land-use categories (${state.categoryCount}).`);
+  assert(state.topCategoryShare <= 0.9, `economy land-use context ${cityId}: one land-use category dominates the mosaic (${Math.round(state.topCategoryShare * 100)}%).`);
 }
 
 async function assertEconomyVitalityCitywideContext(page, cityId, targetYear) {
@@ -2496,6 +2571,9 @@ async function assertReferenceLensCitywideArtifact(page, cityId, check) {
     }
     if (check.vitalityContextExpected) {
       await assertEconomyVitalityCitywideContext(page, cityId, check.year);
+    }
+    if (check.landUseContextExpected) {
+      await assertEconomyLandUseCitywideContext(page, cityId, check.year);
     }
     if (check.gravityContextExpected) {
       await assertEconomyGravityCitywideContext(page, cityId, check.year);
