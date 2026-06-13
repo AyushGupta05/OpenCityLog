@@ -804,6 +804,10 @@
     transportAccessRoadContextFeatures: [],
     transportAccessRoadContextMetadata: null,
     transportAccessRoadContextLoadPromise: null,
+    transportRouteContextPathLoaded: null,
+    transportRouteContextFeatures: [],
+    transportRouteContextMetadata: null,
+    transportRouteContextLoadPromise: null,
     transportStopFeaturesPathLoaded: null,
     transportStopContextMetadata: null,
     transportStopFeatures: [],
@@ -1238,6 +1242,10 @@
     state.transportAccessRoadContextFeatures = [];
     state.transportAccessRoadContextMetadata = null;
     state.transportAccessRoadContextLoadPromise = null;
+    state.transportRouteContextPathLoaded = null;
+    state.transportRouteContextFeatures = [];
+    state.transportRouteContextMetadata = null;
+    state.transportRouteContextLoadPromise = null;
     if (els.searchInput) els.searchInput.value = state.search;
     if (els.areaFilterInput) els.areaFilterInput.value = state.areaFilter;
     if (els.confidenceFilter) els.confidenceFilter.value = state.confidenceFilter;
@@ -2447,6 +2455,14 @@
     if (configured) return dataPathToUrl(configured);
     return state.cityId === "belfast"
       ? dataPathToUrl(`web/data/city-atlas/cities/${state.cityId}/transport_stops_2026.geojson`)
+      : "";
+  }
+
+  function transportRoutesPath() {
+    const configured = state.cityMeta?.artifact_paths?.transport_routes || state.city?.artifact_paths?.transport_routes;
+    if (configured) return dataPathToUrl(configured);
+    return state.cityId === "belfast"
+      ? dataPathToUrl(`web/data/city-atlas/cities/${state.cityId}/transport_routes_2026.geojson`)
       : "";
   }
 
@@ -5592,6 +5608,10 @@
     state.transportAccessRoadContextFeatures = [];
     state.transportAccessRoadContextMetadata = null;
     state.transportAccessRoadContextLoadPromise = null;
+    state.transportRouteContextPathLoaded = null;
+    state.transportRouteContextFeatures = [];
+    state.transportRouteContextMetadata = null;
+    state.transportRouteContextLoadPromise = null;
     clearLensGuideSourceRefreshTimers();
     state.transportStopFeaturesPathLoaded = null;
     state.transportStopFeatures = [];
@@ -10227,9 +10247,10 @@
       .map((entry) => transportAccessContextCitywideGuideFeature(entry, lens, year, bucketM, origin))
       .filter(Boolean);
     const balancedCells = spatiallyBalancedGuideFeatures(cells, citywideGuideFeatureLimit(lens), lens);
+    const routeFlows = transportAccessRouteContextCitywideGuideFeatures(lens, year);
     const roadFlows = transportAccessRoadContextCitywideGuideFeatures(lens, year);
     const nodes = transportAccessContextNodeGuideFeatures(nodeCandidates, lens, year);
-    return balancedCells.concat(roadFlows, nodes);
+    return balancedCells.concat(routeFlows, roadFlows, nodes);
   }
 
   function transportAccessContextCitywideGuideFeature(entry, lens, year, bucketM, origin) {
@@ -10291,6 +10312,218 @@
       },
       geometry: isochronePolygon(center, radiusM, seed * 10),
     };
+  }
+
+  function transportAccessRouteContextCitywideGuideFeatures(lens, year) {
+    if (!transportAccessRouteContextCanRender(lens)) return [];
+    requestTransportRouteContextFeatures();
+    const routes = Array.isArray(state.transportRouteContextFeatures) ? state.transportRouteContextFeatures : [];
+    if (!routes.length || !state.sourceById.has("translink-open-data")) return [];
+    const bounds = cityBoundsValues();
+    const basisM = citywideBasisMeters();
+    const limit = Math.max(260, Math.min(760, Math.round(basisM / 58)));
+    const candidates = [];
+    for (const feature of routes) {
+      const props = feature?.properties || {};
+      const mode = transportAccessRouteMode(props);
+      if (!transportAccessStopContextVisible(mode)) continue;
+      const point = geometryToLngLat(feature.geometry);
+      if (!point) continue;
+      if (bounds && (point[0] < bounds.west || point[0] > bounds.east || point[1] < bounds.south || point[1] > bounds.north)) continue;
+      const objectId = String(props.id || props.source_id || props.name || "").trim();
+      if (!objectId || !feature.geometry) continue;
+      const routeCount = Math.max(1, Number(props.routeCount || props.coverage || 1));
+      const coverage = Math.max(1, Number(props.coverage || routeCount));
+      const lengthM = Math.max(1, Number(props.lengthM || geometryLineLengthMeters(feature.geometry) || 1));
+      if (lengthM < 140 && coverage < 2) continue;
+      const strength = clamp01(Number(props.strength || 0.18) + Math.min(0.34, Math.log1p(coverage) * 0.075));
+      const seed = stableUnit(`${objectId}:translink-access-route`);
+      const intensity = clamp01(0.24 + strength * 0.46 + Math.min(0.18, Math.log1p(routeCount) * 0.055) + Math.min(0.12, lengthM / 5200) + seed * 0.035);
+      candidates.push({
+        feature,
+        props,
+        point,
+        objectId,
+        mode,
+        routeCount,
+        coverage,
+        lengthM,
+        intensity,
+        seed,
+        score: intensity
+          + Math.min(0.2, Math.log1p(coverage) * 0.055)
+          + Math.min(0.14, lengthM / 4800)
+          + (props.serviceClass === "frequent" ? 0.08 : props.serviceClass === "regular" ? 0.045 : 0)
+          + seed * 0.025,
+      });
+    }
+    return spatiallyBalancedGuideFeatures(
+      candidates
+        .sort((a, b) => b.score - a.score)
+        .slice(0, Math.max(1200, limit * 5))
+        .map((item, index) => transportAccessRouteContextGuideFeature(item, lens, year, index))
+        .filter(Boolean),
+      limit,
+      lens,
+    );
+  }
+
+  function transportAccessRouteContextCanRender(lens = activeMapLens()) {
+    if (!transportAccessContextGuideCanRender(lens)) return false;
+    return Boolean(transportRoutesPath());
+  }
+
+  function requestTransportRouteContextFeatures() {
+    const path = transportRoutesPath();
+    if (!path) {
+      state.transportRouteContextPathLoaded = null;
+      state.transportRouteContextFeatures = [];
+      state.transportRouteContextMetadata = null;
+      state.transportRouteContextLoadPromise = null;
+      return;
+    }
+    if (state.transportRouteContextPathLoaded === path || state.transportRouteContextLoadPromise) return;
+    state.transportRouteContextPathLoaded = path;
+    state.transportRouteContextFeatures = [];
+    state.transportRouteContextMetadata = null;
+    const promise = fetch(path, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`${path} -> ${response.status}`);
+        return response.json();
+      })
+      .then((payload) => {
+        if (state.transportRouteContextPathLoaded !== path) return [];
+        state.transportRouteContextFeatures = Array.isArray(payload.features)
+          ? payload.features.filter((feature) => feature?.geometry && ["LineString", "MultiLineString"].includes(feature.geometry.type))
+          : [];
+        state.transportRouteContextMetadata = payload.summary || payload.metadata || null;
+        updateLensGuideSource();
+        renderLensLegend();
+        return state.transportRouteContextFeatures;
+      })
+      .catch((error) => {
+        if (state.transportRouteContextPathLoaded !== path) return [];
+        console.warn("[atlas] transport route context unavailable", error);
+        state.transportRouteContextPathLoaded = null;
+        state.transportRouteContextFeatures = [];
+        state.transportRouteContextMetadata = null;
+        renderLensLegend();
+        return [];
+      })
+      .finally(() => {
+        if (state.transportRouteContextLoadPromise === promise) state.transportRouteContextLoadPromise = null;
+      });
+    state.transportRouteContextLoadPromise = promise;
+  }
+
+  function transportAccessRouteContextGuideFeature(item, lens, year, index) {
+    const source = state.sourceById.get("translink-open-data");
+    if (!source || !item?.feature?.geometry) return null;
+    const props = item.props || {};
+    const sourceUrls = uniqueGuideValues([
+      source.url || source.source_url || "https://www.translink.co.uk/foi-open-data",
+      ...transportRouteContextSourceUrls(),
+    ]).slice(0, 8);
+    const routeList = splitGuidePropertyList(props.routeList || props.name).slice(0, 24);
+    const routeLabel = routeList.length
+      ? routeList.slice(0, 3).join(", ")
+      : props.name || "Translink route segment";
+    const serviceClass = props.serviceClass || "mapped";
+    const contextGeneratedFrom = transportRouteContextGeneratedFrom();
+    const caveat = "Current Translink open-data route geometry is citywide access context only; it is not selected-year service evidence, timetable frequency, journey speed, reliability, accessibility entitlement, ridership, or proof of route operation on the selected timeline date.";
+    const intensity = Number(item.intensity.toFixed(3));
+    return {
+      type: "Feature",
+      properties: {
+        kind: "flow",
+        lens_id: lens.id,
+        surface_style: sourceBackedGuideSurfaceStyle(lens),
+        flow_role: "access_route_context",
+        flow_style: "access_route_context",
+        guide_scale: "citywide_context",
+        source_kind: "current_context",
+        evidence_role: "context_not_year_specific_change_evidence",
+        context_year: "current_mapped_context",
+        context_data_year: transportRouteContextDataYear(props),
+        selected_year: String(year),
+        detail_layer: "translink_route_segment",
+        event_id: "",
+        event_ids: "",
+        event_count: 0,
+        source_id: "translink-open-data",
+        source_ids: "translink-open-data",
+        source_object_id: item.objectId,
+        source_object_ids: item.objectId,
+        source_urls: sourceUrls.join(","),
+        source_name: source.title || "Translink open data feeds and files",
+        source_count: 1,
+        confidence: "inferred",
+        generated_from: contextGeneratedFrom,
+        title: `${transportAccessContextModeTitle(item.mode)} route context: ${routeLabel}`,
+        label: `${transportAccessContextModeTitle(item.mode)}: ${routeLabel}`,
+        timing_note: "Current Translink route-feed context; not selected-year direct transport-change evidence.",
+        caveat: `${caveat} Excluded from headline event totals.`,
+        geometry_precision_mix: "Translink route line geometry aggregated into current route-corridor segments and scoped to the Belfast route-data bounding box.",
+        aggregation_note: "Citywide current route corridors are drawn from Translink open data for spatial orientation; they are not counted as transport records or measured service outcomes.",
+        direct_evidence_counted: false,
+        headline_count_included: false,
+        layer_id: "stations_stops",
+        sublayer_id: transportAccessModeSublayerId(item.mode),
+        mode: item.mode,
+        access_mode: item.mode,
+        route_count: item.routeCount,
+        route_coverage: item.coverage,
+        route_list: routeList.join(","),
+        service_class: serviceClass,
+        route_length_m: Math.round(item.lengthM),
+        context_rank: index + 1,
+        intensity,
+        score: Number(item.score.toFixed(3)),
+        color: transportAccessRouteContextColor(item.mode, intensity, item.coverage, props.color),
+        edge_offset: Number(((item.seed - 0.5) * 0.34).toFixed(2)),
+      },
+      geometry: item.feature.geometry,
+    };
+  }
+
+  function transportRouteContextGeneratedFrom() {
+    const routePath = state.transportRouteContextPathLoaded || transportRoutesPath();
+    return routePath ? (/^\/data\//.test(routePath) ? `web${routePath}` : String(routePath).replace(/^\//, "")) : "";
+  }
+
+  function transportRouteContextDataYear(props = {}) {
+    if (props.visibleYear) return String(props.visibleYear);
+    const sourceYears = transportRouteContextSourceYears();
+    if (sourceYears.length) return sourceYears.sort().at(-1);
+    return transportStopContextDataYear() || "2026";
+  }
+
+  function transportRouteContextSourceYears() {
+    const sources = state.transportRouteContextMetadata?.sources || [];
+    return sources
+      .map((source) => String(source.updated || "").slice(0, 4))
+      .filter((year) => /^\d{4}$/.test(year));
+  }
+
+  function transportRouteContextSourceUrls() {
+    const sources = state.transportRouteContextMetadata?.sources || [];
+    return sources.map((source) => source.url).filter(Boolean);
+  }
+
+  function transportAccessRouteMode(props = {}) {
+    const text = `${props.kind || ""} ${props.sourceFamilies || ""} ${props.sourceDatasets || ""} ${props.name || ""}`.toLowerCase();
+    if (/rail|train/.test(text)) return "rail";
+    if (/ferry/.test(text)) return "ferry";
+    return "bus";
+  }
+
+  function transportAccessRouteContextColor(mode, intensity = 0.5, coverage = 1, sourceColor = "") {
+    if (mode === "rail") return "#72539a";
+    if (mode === "ferry") return "#167f91";
+    if (/^#[0-9a-f]{6}$/i.test(String(sourceColor || "")) && coverage >= 6) return sourceColor;
+    if (coverage >= 18 || intensity > 0.68) return "#176f92";
+    if (coverage >= 8 || intensity > 0.52) return "#1f8fa3";
+    return "#4fa5ad";
   }
 
   function transportAccessRoadContextCitywideGuideFeatures(lens, year) {
