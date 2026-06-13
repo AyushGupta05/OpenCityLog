@@ -1236,6 +1236,61 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear, l
       return false;
     }
   }, null, { timeout: 20000 });
+  await page.waitForFunction(({ cityId, year, lensId }) => {
+    const atlas = window.BimsAtlas;
+    const row = atlas?.state?.lensYearCoverageByKey?.get?.(`${lensId}:${Number(year)}`) || null;
+    const detailCount = (atlas?.state?.lensDetailFeatures || []).filter((feature) => {
+      const props = feature.properties || {};
+      return props.layer === "planning_cell" && Number(props.year || props.visible_year || 0) === Number(year);
+    }).length;
+    const hasVisibleContextYear = (atlas?.state?.lensYearCoverage?.rows || []).some((contextRow) => contextRow?.lens_slug === lensId
+      && contextRow.status === "source_backed_records"
+      && contextRow.visible_map_contract !== false
+      && Number(contextRow.year) !== Number(year)
+      && Number(contextRow.direct_event_count || contextRow.event_count || 0) >= 40
+      && (Number(contextRow.map_direct_event_count ?? contextRow.direct_event_count ?? 0) > 0 || Number(contextRow.detail_feature_count || 0) > 0));
+    const directCount = Number(row?.direct_event_count || row?.event_count || 0);
+    const mapDirectCount = Number(row?.map_direct_event_count ?? row?.direct_event_count ?? 0);
+    const expected = row?.status === "source_backed_records"
+      && row?.visible_map_contract !== false
+      && directCount > 0
+      && (detailCount < 32 || mapDirectCount < 32)
+      && hasVisibleContextYear;
+    if (!expected) return true;
+    const guide = atlas?.state?.lensGuideFeatureCache?.features || [];
+    const minCells = cityId === "belfast" ? 120 : 1;
+    return guide.filter((feature) => {
+      const props = feature.properties || {};
+      return props.kind === "surface_cell"
+        && props.source_kind === "current_context"
+        && props.evidence_role === "context_not_year_specific_change_evidence"
+        && props.detail_layer === "planning_event_corpus_context";
+    }).length >= minCells;
+  }, { cityId, year: targetYear, lensId }, { timeout: 20000 });
+  await page.waitForFunction(({ year, lensId }) => {
+    const atlas = window.BimsAtlas;
+    const row = atlas?.state?.lensYearCoverageByKey?.get?.(`${lensId}:${Number(year)}`) || null;
+    const detailCount = (atlas?.state?.lensDetailFeatures || []).filter((feature) => {
+      const props = feature.properties || {};
+      return props.layer === "planning_cell" && Number(props.year || props.visible_year || 0) === Number(year);
+    }).length;
+    const hasVisibleContextYear = (atlas?.state?.lensYearCoverage?.rows || []).some((contextRow) => contextRow?.lens_slug === lensId
+      && contextRow.status === "source_backed_records"
+      && contextRow.visible_map_contract !== false
+      && Number(contextRow.year) !== Number(year)
+      && Number(contextRow.direct_event_count || contextRow.event_count || 0) >= 40
+      && (Number(contextRow.map_direct_event_count ?? contextRow.direct_event_count ?? 0) > 0 || Number(contextRow.detail_feature_count || 0) > 0));
+    const directCount = Number(row?.direct_event_count || row?.event_count || 0);
+    const mapDirectCount = Number(row?.map_direct_event_count ?? row?.direct_event_count ?? 0);
+    const expected = row?.status === "source_backed_records"
+      && row?.visible_map_contract !== false
+      && directCount > 0
+      && (detailCount < 32 || mapDirectCount < 32)
+      && hasVisibleContextYear;
+    if (!expected) return true;
+    const pageText = document.body?.innerText || "";
+    return /Recent non-headline/i.test(pageText) && /recent context non-headline/i.test(pageText);
+  }, { year: targetYear, lensId }, { timeout: 20000 });
   const state = await page.evaluate(({ year, lensId }) => {
     const atlas = window.BimsAtlas;
     const map = atlas?.state?.map;
@@ -1253,6 +1308,12 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear, l
       for (const eventId of split(props.event_ids_all || props.event_ids || "")) detailEventIds.add(eventId);
     }
     const mapDirectCount = Number(row?.map_direct_event_count ?? row?.direct_event_count ?? 0);
+    const hasVisibleContextYear = (atlas?.state?.lensYearCoverage?.rows || []).some((contextRow) => contextRow?.lens_slug === lensId
+      && contextRow.status === "source_backed_records"
+      && contextRow.visible_map_contract !== false
+      && Number(contextRow.year) !== Number(year)
+      && Number(contextRow.direct_event_count || contextRow.event_count || 0) >= 40
+      && (Number(contextRow.map_direct_event_count ?? contextRow.direct_event_count ?? 0) > 0 || Number(contextRow.detail_feature_count || 0) > 0));
     let renderedContextFlows = 0;
     try {
       renderedContextFlows = map?.getLayer?.("lens-guide-flow") && map.getLayoutProperty("lens-guide-flow", "visibility") !== "none"
@@ -1281,6 +1342,26 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear, l
         && props.evidence_role === "selected_year_direct_event_aggregate"
         && props.detail_layer === "event_point_aggregate";
     });
+    const corpusContextCells = guide.filter((feature) => {
+      const props = feature.properties || {};
+      return props.kind === "surface_cell"
+        && props.source_kind === "current_context"
+        && props.evidence_role === "context_not_year_specific_change_evidence"
+        && props.detail_layer === "planning_event_corpus_context";
+    });
+    let renderedCorpusContextCells = 0;
+    try {
+      renderedCorpusContextCells = map?.getLayer?.("lens-guide-citywide-cell-fill") && map.getLayoutProperty("lens-guide-citywide-cell-fill", "visibility") !== "none"
+        ? map.queryRenderedFeatures({ layers: ["lens-guide-citywide-cell-fill"] }).filter((feature) => {
+          const props = feature.properties || {};
+          return props.source_kind === "current_context"
+            && props.evidence_role === "context_not_year_specific_change_evidence"
+            && props.detail_layer === "planning_event_corpus_context";
+        }).length
+        : 0;
+    } catch (_error) {
+      renderedCorpusContextCells = 0;
+    }
     const invalidContext = contextFlows.filter((feature) => {
       const props = feature.properties || {};
       return !feature.geometry
@@ -1308,6 +1389,23 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear, l
         || !props.generated_from
         || /current_context|context_not_year_specific/i.test(`${props.source_kind} ${props.evidence_role}`);
     }).length;
+    const invalidCorpusContext = corpusContextCells.filter((feature) => {
+      const props = feature.properties || {};
+      const sourceIds = split(props.source_ids || props.source_id);
+      const objectIds = split(props.source_object_ids || props.source_object_id);
+      return !feature.geometry
+        || props.direct_evidence_counted !== false
+        || props.headline_count_included !== false
+        || split(props.event_ids || props.event_id).length > 0
+        || !sourceIds.length
+        || !sourceIds.every((sourceId) => atlas?.state?.sourceById?.has?.(sourceId))
+        || !objectIds.length
+        || !props.source_urls
+        || !props.generated_from
+        || !props.caveat
+        || !/not selected-year direct evidence|not selected-year direct/i.test(props.caveat)
+        || !/Excluded from headline/i.test(props.caveat);
+    }).length;
     const duplicateDirectAggregateEventCount = directAggregates.reduce((sum, feature) => {
       const props = feature.properties || {};
       return sum + split(props.event_ids || props.event_id).filter((eventId) => detailEventIds.has(eventId)).length;
@@ -1315,14 +1413,26 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear, l
     const aggregateExpected = mapDirectCount >= 6
       && mapDirectCount > detailEventIds.size
       && detailCount < Math.min(96, Math.max(24, Math.round(mapDirectCount * 0.92)));
+    const corpusContextExpected = row?.status === "source_backed_records"
+      && row?.visible_map_contract !== false
+      && Number(row?.direct_event_count || row?.event_count || 0) > 0
+      && (detailCount < 32 || mapDirectCount < 32)
+      && hasVisibleContextYear;
+    const pageText = document.body?.innerText || "";
     return {
       contextFlowCount: contextFlows.length,
       directAggregateCount: directAggregates.length,
+      corpusContextCellCount: corpusContextCells.length,
+      renderedCorpusContextCells,
       invalidContext,
       invalidDirectAggregates,
+      invalidCorpusContext,
       duplicateDirectAggregateEventCount,
       renderedContextFlows,
       aggregateExpected,
+      corpusContextExpected,
+      corpusContextLegendLabel: /Recent non-headline/i.test(pageText),
+      corpusContextStripLabel: /recent context non-headline/i.test(pageText),
       roadContextPath: atlas?.state?.planningRoadContextPathLoaded || "",
       roadContextSourceCount: atlas?.state?.planningRoadContextFeatures?.length || 0,
       detailCount,
@@ -1338,6 +1448,14 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear, l
   assert(state.duplicateDirectAggregateEventCount === 0, `planning context ${cityId}: ${state.duplicateDirectAggregateEventCount} direct event aggregate id(s) duplicate detail cells.`);
   if (state.aggregateExpected) {
     assert(state.directAggregateCount > 0, `planning context ${cityId}: sparse planning detail did not produce direct event aggregate cells.`);
+  }
+  if (state.corpusContextExpected) {
+    const minimumCorpusCells = cityId === "belfast" ? 120 : 1;
+    assert(state.corpusContextCellCount >= minimumCorpusCells, `planning context ${cityId}: too few source-backed planning corpus context cells (${state.corpusContextCellCount}).`);
+    assert(state.renderedCorpusContextCells > 0, `planning context ${cityId}: planning corpus context cells did not render.`);
+    assert(state.invalidCorpusContext === 0, `planning context ${cityId}: ${state.invalidCorpusContext} planning corpus context cell(s) lack provenance/non-headline caveats.`);
+    assert(state.corpusContextLegendLabel, `planning context ${cityId}: legend does not identify recent records as non-headline context.`);
+    assert(state.corpusContextStripLabel, `planning context ${cityId}: sparse-year strip does not identify recent context as non-headline.`);
   }
 }
 

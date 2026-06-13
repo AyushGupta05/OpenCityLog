@@ -798,6 +798,8 @@
     planningRoadContextFeatures: [],
     planningRoadContextMetadata: null,
     planningRoadContextLoadPromise: null,
+    planningCorpusContextLoadKey: "",
+    planningCorpusContextLoadPromise: null,
     transportAccessRoadContextPathLoaded: null,
     transportAccessRoadContextFeatures: [],
     transportAccessRoadContextMetadata: null,
@@ -1230,6 +1232,8 @@
     state.planningRoadContextFeatures = [];
     state.planningRoadContextMetadata = null;
     state.planningRoadContextLoadPromise = null;
+    state.planningCorpusContextLoadKey = "";
+    state.planningCorpusContextLoadPromise = null;
     state.transportAccessRoadContextPathLoaded = null;
     state.transportAccessRoadContextFeatures = [];
     state.transportAccessRoadContextMetadata = null;
@@ -2190,6 +2194,7 @@
           <div class="planning-legend-section">
             <span>Citywide context</span>
             <div class="planning-line-row"><i style="border-color:#d9793e"></i><span>Current mapped road context</span></div>
+            ${renderPlanningCorpusContextInlineRow(lens)}
           </div>
           ${renderLensLegendNote(status, lens, "Mapped footprint and current road context are descriptive; they are not measured construction volume.")}
         </div>
@@ -2225,6 +2230,7 @@
           <div class="planning-legend-section">
             <span>Citywide context</span>
             <div class="planning-line-row"><i style="border-color:#d9793e"></i><span>Current mapped road context</span></div>
+            ${renderPlanningCorpusContextInlineRow(lens)}
           </div>
           <div class="pressure-study-line"><i></i><span>Study area (${escapeHtml(formatRadius(lensEffectiveRadiusM(lens)))})</span></div>
           ${renderLensLegendNote(status, lens, "Parcel-stage cells are source-backed where records exist; current road context is descriptive and labelled.")}
@@ -7299,7 +7305,7 @@
     state.lensGuideFeatureCache = collection;
     setLensGuideSourceData(collection);
     if (state.map?.getLayer("lens-guide-flow")) updateLensGuideLayers();
-    else renderLensGuideLabels();
+    renderLensGuideLabels();
     updateLensDetailLayers();
     updateTransportEventLensLayers();
     renderLayers();
@@ -7346,6 +7352,8 @@
       : [];
     const planningContextFeatures = planningPressureRoadContextCitywideGuideFeatures(lens, year)
       .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
+    const planningCorpusContextFeatures = planningCorpusContextCitywideGuideFeatures(lens, year, detailFeatures)
+      .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
     const contextFeatures = civicContextCitywideGuideFeatures(lens, year)
       .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
     const transportContextFeatures = transportAccessContextCitywideGuideFeatures(lens, year)
@@ -7358,7 +7366,7 @@
       .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
     const economyGravityContextFeatures = economyGravityContextCitywideGuideFeatures(lens, year)
       .filter((feature) => guideContextFeatureHasProvenance(feature, lens));
-    const features = directFeatures.concat(planningContextFeatures, economyLandUseContextFeatures, economyVitalityContextFeatures, economyGravityContextFeatures, contextFeatures, transportContextFeatures, transportNetworkFeatures);
+    const features = directFeatures.concat(planningContextFeatures, planningCorpusContextFeatures, economyLandUseContextFeatures, economyVitalityContextFeatures, economyGravityContextFeatures, contextFeatures, transportContextFeatures, transportNetworkFeatures);
     return { type: "FeatureCollection", features };
   }
 
@@ -8482,6 +8490,217 @@
         color: planningRoadContextColor(item.intensity, item.rank),
       },
       geometry: item.road.geometry,
+    };
+  }
+
+  function planningCorpusContextCitywideGuideFeatures(lens, year, detailFeatures = []) {
+    if (!planningCorpusContextCanRender(lens, year, detailFeatures)) return [];
+    const contextYears = planningCorpusContextYears(lens, year);
+    if (!contextYears.length) return [];
+    requestPlanningCorpusContextYears(contextYears, lens, year);
+    const events = planningCorpusContextEvents(contextYears, lens);
+    if (!events.length) return [];
+    const bucketM = citywideGuideBucketMeters(lens);
+    const origin = mapCenter();
+    const buckets = new Map();
+    for (const event of events) {
+      if (!event?.lngLat || !eventWithinCityBounds(event)) continue;
+      if (!isLensDetailEligibleEvent(event)) continue;
+      const sourceIds = registeredGuideSourceIds(event.sourceIds || []);
+      const sourceUrls = guideSourceUrlsForEvent(event, sourceIds);
+      if (!sourceIds.length || !sourceUrls.length) continue;
+      const local = lngLatToLocalMeters(event.lngLat, origin);
+      if (!Number.isFinite(local[0]) || !Number.isFinite(local[1])) continue;
+      const sublayerId = sourceBackedGuideSublayerId(event, lens);
+      const bucket = `${Math.round(local[0] / bucketM)}:${Math.round(local[1] / bucketM)}:${sublayerId}`;
+      const entry = buckets.get(bucket) || {
+        bucket,
+        sublayerId,
+        eventCount: 0,
+        sourceCount: 0,
+        weight: 0,
+        sumX: 0,
+        sumY: 0,
+        maxIntensity: 0,
+        eventIds: new Set(),
+        sourceIds: new Set(),
+        sourceUrls: new Set(),
+        generatedFrom: new Set(),
+        years: new Set(),
+        labels: [],
+        confidenceCounts: new Map(),
+      };
+      const sourceBoost = Math.min(0.16, sourceIds.length * 0.035);
+      const yearBoost = Math.min(0.12, Math.max(0, Number(event.year || year) - year) / 40);
+      const intensity = clamp01(0.28 + lensHeatWeight(event) * 0.34 + sourceBoost + yearBoost);
+      const weight = Math.max(0.22, intensity) + Math.min(0.38, Math.log1p(sourceIds.length) * 0.08);
+      entry.eventCount += 1;
+      entry.sourceCount += sourceIds.length;
+      entry.weight += weight;
+      entry.sumX += local[0] * weight;
+      entry.sumY += local[1] * weight;
+      entry.maxIntensity = Math.max(entry.maxIntensity, intensity);
+      entry.eventIds.add(event.id);
+      entry.years.add(Number(event.year));
+      sourceIds.slice(0, 12).forEach((sourceId) => entry.sourceIds.add(sourceId));
+      sourceUrls.slice(0, 12).forEach((url) => entry.sourceUrls.add(url));
+      guideGeneratedFromForEvent(event, null, Number(event.year) || year).slice(0, 4).forEach((value) => entry.generatedFrom.add(value));
+      entry.confidenceCounts.set(event.confidence || "documented", (entry.confidenceCounts.get(event.confidence || "documented") || 0) + 1);
+      if (event.title) entry.labels.push(event.title);
+      buckets.set(bucket, entry);
+    }
+    const features = [...buckets.values()]
+      .map((entry, index) => planningCorpusContextGuideFeature(entry, lens, year, bucketM, origin, index))
+      .filter(Boolean);
+    return spatiallyBalancedGuideFeatures(features, planningCorpusContextFeatureLimit(lens), lens);
+  }
+
+  function planningCorpusContextCanRender(lens = activeMapLens(), year = currentTimelineYear(), detailFeatures = []) {
+    if (!["planning-pressure", "planning-delta", "planning-parcels"].includes(lens?.id)) return false;
+    if (!state.activeLayers.has("built_environment")) return false;
+    if (!state.showInferred) return false;
+    if (state.search || state.areaFilter) return false;
+    if (!citywideOverviewActive() && !state.citywideLensMode) return false;
+    if (!sourceBackedGuideLayerVisible(lens)) return false;
+    const row = activeLensYearCoverageRow(lens, year);
+    if (!row || row.status !== "source_backed_records" || row.visible_map_contract === false) return false;
+    const directCount = lensCoverageDirectEventCount(row);
+    const mapDirectCount = Number(row.map_direct_event_count ?? row.direct_event_count ?? 0);
+    const detailCount = Array.isArray(detailFeatures) ? detailFeatures.length : 0;
+    return directCount > 0 && (detailCount < 32 || mapDirectCount < 32);
+  }
+
+  function planningCorpusContextYears(lens = activeMapLens(), selectedYear = currentTimelineYear()) {
+    const rows = state.lensYearCoverage?.rows || [];
+    return rows
+      .filter((row) => row?.lens_slug === lens?.id)
+      .filter((row) => row.status === "source_backed_records")
+      .filter((row) => row.visible_map_contract !== false)
+      .filter((row) => Number(row.year) !== Number(selectedYear))
+      .filter((row) => Number(row.direct_event_count || row.event_count || 0) >= 40)
+      .filter((row) => Number(row.map_direct_event_count ?? row.direct_event_count ?? 0) > 0 || Number(row.detail_feature_count || 0) > 0)
+      .sort((a, b) => Number(b.year) - Number(a.year))
+      .slice(0, 2)
+      .map((row) => Number(row.year))
+      .filter((value) => Number.isFinite(value));
+  }
+
+  function requestPlanningCorpusContextYears(years, lens, selectedYear) {
+    const missing = (years || []).filter((contextYear) => !state.loadedEvents.has(contextYear));
+    if (!missing.length) return;
+    const key = `${state.cityId}:${lens?.id || ""}:${selectedYear}:${missing.join(",")}`;
+    if (state.planningCorpusContextLoadKey === key && state.planningCorpusContextLoadPromise) return;
+    state.planningCorpusContextLoadKey = key;
+    const promise = Promise.all(missing.map((contextYear) => loadYear(contextYear)))
+      .then(() => {
+        if (state.planningCorpusContextLoadKey !== key) return;
+        updateLensGuideSource();
+        renderLensLegend();
+      })
+      .catch((error) => {
+        if (state.planningCorpusContextLoadKey === key) console.warn("[atlas] planning corpus context unavailable", error);
+      })
+      .finally(() => {
+        if (state.planningCorpusContextLoadPromise === promise) state.planningCorpusContextLoadPromise = null;
+      });
+    state.planningCorpusContextLoadPromise = promise;
+  }
+
+  function planningCorpusContextEvents(years, lens) {
+    const byId = new Map();
+    for (const event of (years || []).flatMap((contextYear) => state.loadedEvents.get(Number(contextYear)) || [])) {
+      if (!event?.id || byId.has(event.id)) continue;
+      if (event.category !== "built_environment") continue;
+      if (state.confidenceFilter !== "all" && event.confidence !== state.confidenceFilter) continue;
+      if (!state.showInferred && event.confidence === "inferred") continue;
+      if (!eventMatchesActiveLens(event, lens)) continue;
+      if (!event.lngLat || !eventWithinCityBounds(event)) continue;
+      byId.set(event.id, event);
+    }
+    return [...byId.values()];
+  }
+
+  function planningCorpusContextFeatureLimit(lens) {
+    const fixed = { belfast: 560, london: 480, nyc: 520 };
+    if (fixed[state.cityId]) return fixed[state.cityId];
+    return Math.max(260, Math.min(620, Math.round(citywideBasisMeters() / 32)));
+  }
+
+  function planningCorpusContextVisible(lens = activeMapLens(), row = activeLensYearCoverageRow(lens, state.year)) {
+    if (!row) return false;
+    const year = Number(row.year || state.year);
+    return planningCorpusContextCanRender(lens, year, state.lensDetailFeatures)
+      && planningCorpusContextYears(lens, year).length > 0;
+  }
+
+  function planningCorpusContextSummaryNote(lens = activeMapLens(), row = activeLensYearCoverageRow(lens, state.year)) {
+    if (!planningCorpusContextVisible(lens, row)) return "";
+    const years = planningCorpusContextYears(lens, Number(row?.year || state.year));
+    const ordered = years.filter(Number.isFinite).sort((a, b) => a - b);
+    const label = ordered.length === 1
+      ? String(ordered[0])
+      : `${ordered[0]}-${ordered[ordered.length - 1]}`;
+    return `Recent source-backed planning context (${label}) is shown separately as non-headline cells outside selected-year totals.`;
+  }
+
+  function planningCorpusContextGuideFeature(entry, lens, selectedYear, bucketM, origin, index = 0) {
+    if (!entry?.eventIds?.size || !entry?.sourceIds?.size || !entry.weight || !entry.sourceUrls?.size) return null;
+    const center = offsetLngLat(origin, entry.sumX / entry.weight, entry.sumY / entry.weight);
+    const seed = stableUnit(`${entry.bucket}:${lens.id}:planning-corpus-context`);
+    const eventIds = [...entry.eventIds].slice(0, 28);
+    const sourceIds = [...entry.sourceIds].slice(0, 14);
+    const eventCount = Math.max(entry.eventCount, eventIds.length);
+    const sourceCount = Math.max(entry.sourceIds.size, Number(entry.sourceCount || 0), sourceIds.length);
+    const contextYears = [...entry.years].filter(Number.isFinite).sort((a, b) => a - b);
+    const intensity = clamp01(0.24 + entry.maxIntensity * 0.46 + Math.min(0.24, Math.log1p(eventCount) * 0.09) + seed * 0.04);
+    const halfLong = bucketM * 0.58 * (0.9 + intensity * 0.2);
+    const halfShort = bucketM * 0.42 * (0.86 + intensity * 0.18);
+    const angle = (seed - 0.5) * 0.34;
+    const confidence = dominantGuideConfidence(entry.confidenceCounts);
+    const contextYearLabel = contextYears.length
+      ? contextYears.length === 1 ? String(contextYears[0]) : `${contextYears[0]}-${contextYears[contextYears.length - 1]}`
+      : "current_source_backed_context";
+    const label = entry.labels[0] || `${eventCount} source-backed planning context records`;
+    return {
+      type: "Feature",
+      properties: {
+        kind: "surface_cell",
+        lens_id: lens.id,
+        surface_style: sourceBackedGuideSurfaceStyle(lens),
+        guide_scale: "citywide_summary",
+        source_kind: "current_context",
+        evidence_role: "context_not_year_specific_change_evidence",
+        context_year: contextYearLabel,
+        selected_year: String(selectedYear),
+        detail_layer: "planning_event_corpus_context",
+        event_id: "",
+        event_ids: "",
+        event_count: eventCount,
+        source_id: sourceIds[0] || "",
+        source_ids: sourceIds.join(","),
+        source_object_id: eventIds[0] || "",
+        source_object_ids: eventIds.join(","),
+        source_urls: [...entry.sourceUrls].slice(0, 12).join(","),
+        source_count: sourceCount,
+        confidence,
+        generated_from: [...entry.generatedFrom].filter(Boolean).slice(0, 10).join(","),
+        title: `${eventCount} source-backed planning context record${eventCount === 1 ? "" : "s"}`,
+        label,
+        timing_note: `Source-backed planning/built records from ${contextYearLabel} are shown as context for sparse ${selectedYear} selected-year coverage.`,
+        caveat: "These cells are non-headline planning context from source-backed event records outside the selected year; they are not selected-year direct evidence, parcel boundaries, construction proof, forecasts, or causal claims. Excluded from headline event totals.",
+        geometry_precision_mix: "Aggregated from source-backed planning/built event point coordinates; not official parcel geometry.",
+        aggregation_note: `Citywide ${Math.round(bucketM)}m planning-context grid generated from source-backed planning/built event points in loaded context years.`,
+        direct_evidence_counted: false,
+        headline_count_included: false,
+        layer_id: sourceBackedGuideLayerId(lens, entry.sublayerId),
+        sublayer_id: entry.sublayerId,
+        planning_status: entry.sublayerId,
+        context_rank: index + 1,
+        intensity: Number(intensity.toFixed(3)),
+        score: Number((intensity + Math.min(0.18, eventCount * 0.015) + Math.min(0.12, sourceCount * 0.018) + seed * 0.035).toFixed(3)),
+        color: sourceBackedGuideColor(entry.sublayerId, lens),
+      },
+      geometry: orientedRectanglePolygon(center, halfLong, halfShort, angle),
     };
   }
 
@@ -20297,8 +20516,43 @@
           <span>Drivers (dominant)</span>
           <div class="pressure-drivers">${driverRows}</div>
         </div>
+        ${renderPlanningCorpusContextLegendRows(lens, "pressure")}
         <div class="pressure-study-line"><i></i><span>Study area (${escapeHtml(formatRadius(lensEffectiveRadiusM(lens)))})</span></div>
         ${renderLensLegendNote(status, lens, "Not a forecast. Pressure fields combine source-backed records and mapped context; causation is not claimed.")}
+      </div>
+    `;
+  }
+
+  function renderPlanningCorpusContextLegendRows(lens = activeMapLens(), mode = "planning") {
+    if (!planningCorpusContextVisible(lens)) return "";
+    if (mode === "pressure") {
+      return `
+        <div class="pressure-legend-section">
+          <span>Source-backed context</span>
+          <div class="pressure-driver-row">
+            <span class="pressure-driver-symbol document" style="--driver-color:#d99175"></span>
+            <span>Recent non-headline</span>
+          </div>
+        </div>
+      `;
+    }
+    return `
+      <div class="planning-legend-section">
+        <span>Source-backed context</span>
+        <div class="planning-symbol-row">
+          <i class="planning-fill" style="--planning-color:#d99175"></i>
+          <span>Recent non-headline</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderPlanningCorpusContextInlineRow(lens = activeMapLens()) {
+    if (!planningCorpusContextVisible(lens)) return "";
+    return `
+      <div class="planning-symbol-row">
+        <i class="planning-fill" style="--planning-color:#d99175"></i>
+        <span>Recent non-headline</span>
       </div>
     `;
   }
@@ -21006,7 +21260,8 @@
     const allYearNote = directSummary.eventCount > directCount
       ? ` The ${lens.label} lens has ${compactNumber(directSummary.eventCount)} direct records across loaded years; they are not all selected-year map geometry.`
       : "";
-    return `Selected-year citywide map is limited to ${mappedLabel} for ${year}; wider source-backed records remain in the changelog, timeline, evidence panel, or other years as their own source rows.${allYearNote} No filler geometry is generated.`;
+    const contextNote = planningCorpusContextSummaryNote(lens, row);
+    return `Selected-year citywide map is limited to ${mappedLabel} for ${year}; wider source-backed records remain in the changelog, timeline, evidence panel, or other years as their own source rows.${allYearNote}${contextNote ? ` ${contextNote}` : ""} No filler geometry is generated.`;
   }
 
   function selectedYearSparseMapCoverageStripLabel(_lens = activeMapLens(), row = activeLensYearCoverageRow(_lens, state.year)) {
@@ -21016,6 +21271,7 @@
     const detailFeatureCount = Number(row.detail_feature_count || 0);
     const mappedCount = detailFeatureCount || mapDirectCount || directCount;
     if (!mappedCount) return "";
+    if (planningCorpusContextVisible(_lens, row)) return `${compactNumber(mappedCount)} mapped in ${row.year || state.year}; recent context non-headline, no filler`;
     return `${compactNumber(mappedCount)} mapped in ${row.year || state.year}; selected-year geometry is limited, no filler`;
   }
 
