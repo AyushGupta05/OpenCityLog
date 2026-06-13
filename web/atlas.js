@@ -7541,9 +7541,13 @@
     if (!props.detail_layer || !props.generated_from || !props.source_urls || !props.confidence || !props.caveat) return false;
     const selectedYearContext = props.source_kind === "selected_year_transport_activity_context"
       && props.evidence_role === "selected_year_activity_surface_not_direct_change_evidence";
-    const currentContext = props.source_kind === "current_context"
-      && props.evidence_role === "context_not_year_specific_change_evidence";
-    if (!selectedYearContext && !currentContext) return false;
+    const currentRoadContext = props.source_kind === "current_context"
+      && props.evidence_role === "context_not_year_specific_change_evidence"
+      && props.flow_role === "transport_current_context";
+    const currentRouteContext = props.source_kind === "current_context"
+      && props.evidence_role === "context_not_year_specific_change_evidence"
+      && props.flow_role === "transport_route_context";
+    if (!selectedYearContext && !currentRoadContext && !currentRouteContext) return false;
     if (props.direct_evidence_counted !== false || props.headline_count_included !== false) return false;
     if (detailEventIds(props).length) return false;
     const sourceIds = splitGuidePropertyList(props.source_ids || props.source_id);
@@ -7551,7 +7555,8 @@
     if (!sourceIds.length || !sourceObjectIds.length) return false;
     if (!sourceIds.every((sourceId) => state.sourceById.has(sourceId))) return false;
     if (selectedYearContext && props.detail_layer !== "transport_roads_year") return false;
-    if (currentContext && props.detail_layer !== "transport_roads_base") return false;
+    if (currentRoadContext && props.detail_layer !== "transport_roads_base") return false;
+    if (currentRouteContext && props.detail_layer !== "translink_route_segment") return false;
     return true;
   }
 
@@ -9811,9 +9816,13 @@
     const yearRoadsLoaded = !yearPath
       || state.transportRoadFeaturesByYear.has(targetYear)
       || (state.transportRoadFeaturesPathLoaded === yearPath && state.transportRoadFeatureCountYearLoaded === targetYear);
-    if (yearRoads.length) return transportNetworkYearRoadGuideFeatures(yearRoads, lens, targetYear);
+    if (yearRoads.length) {
+      return transportNetworkYearRoadGuideFeatures(yearRoads, lens, targetYear)
+        .concat(transportNetworkRouteContextGuideFeatures(lens, targetYear));
+    }
     if (yearPath && !yearRoadsLoaded) return [];
-    return transportNetworkCurrentRoadContextGuideFeatures(lens, targetYear);
+    return transportNetworkCurrentRoadContextGuideFeatures(lens, targetYear)
+      .concat(transportNetworkRouteContextGuideFeatures(lens, targetYear));
   }
 
   function transportNetworkCitywideGuideCanRender(lens = activeMapLens(), year = currentTimelineYear()) {
@@ -10145,6 +10154,161 @@
       return "#9fa7aa";
     }
     return item?.supplemental ? "#a8bfc0" : "#8faeb3";
+  }
+
+  function transportNetworkRouteContextGuideFeatures(lens, year) {
+    if (!transportNetworkRouteContextCanRender(lens)) return [];
+    requestTransportRouteContextFeatures();
+    const routes = Array.isArray(state.transportRouteContextFeatures) ? state.transportRouteContextFeatures : [];
+    if (!routes.length || !state.sourceById.has("translink-open-data")) return [];
+    const bounds = cityBoundsValues();
+    const basisM = citywideBasisMeters();
+    const limit = lens.id === "transport-speed"
+      ? Math.max(230, Math.min(640, Math.round(basisM / 70)))
+      : Math.max(210, Math.min(560, Math.round(basisM / 82)));
+    const candidates = [];
+    for (const feature of routes) {
+      const props = feature?.properties || {};
+      const mode = transportAccessRouteMode(props);
+      if (!transportNetworkRouteContextVisible(mode)) continue;
+      const point = geometryToLngLat(feature.geometry);
+      if (!point) continue;
+      if (bounds && (point[0] < bounds.west || point[0] > bounds.east || point[1] < bounds.south || point[1] > bounds.north)) continue;
+      const objectId = String(props.id || props.source_id || props.name || "").trim();
+      if (!objectId || !feature.geometry) continue;
+      const routeCount = Math.max(1, Number(props.routeCount || props.coverage || 1));
+      const coverage = Math.max(1, Number(props.coverage || routeCount));
+      const lengthM = Math.max(1, Number(props.lengthM || geometryLineLengthMeters(feature.geometry) || 1));
+      if (lengthM < 150 && coverage < 2) continue;
+      const seed = stableUnit(`${objectId}:${lens.id}:translink-route-context`);
+      const classBoost = props.serviceClass === "frequent" ? 0.08 : props.serviceClass === "regular" ? 0.045 : 0;
+      const intensity = clamp01(
+        0.22
+        + Math.min(0.3, Math.log1p(coverage) * 0.074)
+        + Math.min(0.16, Math.log1p(routeCount) * 0.05)
+        + Math.min(0.18, lengthM / 5200)
+        + classBoost
+        + seed * 0.035,
+      );
+      candidates.push({
+        feature,
+        props,
+        point,
+        objectId,
+        mode,
+        routeCount,
+        coverage,
+        lengthM,
+        intensity,
+        seed,
+        score: intensity
+          + Math.min(0.2, Math.log1p(coverage) * 0.052)
+          + Math.min(0.14, lengthM / 4800)
+          + classBoost
+          + seed * 0.025,
+      });
+    }
+    return spatiallyBalancedGuideFeatures(
+      candidates
+        .sort((a, b) => b.score - a.score)
+        .slice(0, Math.max(1300, limit * 5))
+        .map((item, index) => transportNetworkRouteContextGuideFeature(item, lens, year, index))
+        .filter(Boolean),
+      limit,
+      lens,
+    );
+  }
+
+  function transportNetworkRouteContextCanRender(lens = activeMapLens()) {
+    if (!transportNetworkCitywideGuideCanRender(lens)) return false;
+    return Boolean(transportRoutesPath());
+  }
+
+  function transportNetworkRouteContextVisible(mode) {
+    if (mode === "rail") return state.activeAspectLayers.has("rail");
+    return state.activeAspectLayers.has("public_transport");
+  }
+
+  function transportNetworkRouteContextGuideFeature(item, lens, year, index) {
+    const source = state.sourceById.get("translink-open-data");
+    if (!source || !item?.feature?.geometry) return null;
+    const props = item.props || {};
+    const sourceUrls = uniqueGuideValues([
+      source.url || source.source_url || "https://www.translink.co.uk/foi-open-data",
+      ...transportRouteContextSourceUrls(),
+    ]).slice(0, 8);
+    const routeList = splitGuidePropertyList(props.routeList || props.name).slice(0, 24);
+    const routeLabel = routeList.length
+      ? routeList.slice(0, 3).join(", ")
+      : props.name || "Translink route segment";
+    const caveat = "Current Translink open-data route geometry is public-transport corridor context only; it is not selected-year speed, reliability, timetable-frequency, journey-time, delay, disruption, ridership, or proof of route operation on the selected timeline date.";
+    const intensity = Number(item.intensity.toFixed(3));
+    return {
+      type: "Feature",
+      properties: {
+        kind: "flow",
+        lens_id: lens.id,
+        surface_style: sourceBackedGuideSurfaceStyle(lens),
+        flow_role: "transport_route_context",
+        flow_style: "transport_thread",
+        guide_scale: "citywide_context",
+        source_kind: "current_context",
+        evidence_role: "context_not_year_specific_change_evidence",
+        context_year: "current_mapped_context",
+        context_data_year: transportRouteContextDataYear(props),
+        selected_year: String(year),
+        detail_layer: "translink_route_segment",
+        event_id: "",
+        event_ids: "",
+        event_count: 0,
+        source_id: "translink-open-data",
+        source_ids: "translink-open-data",
+        source_object_id: item.objectId,
+        source_object_ids: item.objectId,
+        source_urls: sourceUrls.join(","),
+        source_name: source.title || "Translink open data feeds and files",
+        source_count: 1,
+        confidence: "inferred",
+        generated_from: transportRouteContextGeneratedFrom(),
+        title: `Translink route context: ${routeLabel}`,
+        label: routeLabel,
+        timing_note: "Current Translink route-feed context; not selected-year direct speed or reliability evidence.",
+        caveat: `${caveat} Excluded from headline event totals.`,
+        geometry_precision_mix: "Translink route line geometry aggregated into current route-corridor segments and scoped to the Belfast route-data bounding box.",
+        aggregation_note: "Citywide current route corridors are drawn from Translink open data for spatial orientation; they are not counted as transport records or measured performance outcomes.",
+        direct_evidence_counted: false,
+        headline_count_included: false,
+        layer_id: "transport",
+        sublayer_id: item.mode === "rail" ? "rail" : "public_transport",
+        mode: item.mode,
+        access_mode: item.mode,
+        route_count: item.routeCount,
+        route_coverage: item.coverage,
+        route_list: routeList.join(","),
+        service_class: props.serviceClass || "mapped",
+        route_length_m: Math.round(item.lengthM),
+        context_rank: index + 1,
+        reliability_status: lens.id === "transport-reliability" ? "inferred" : "",
+        intensity,
+        score: Number(item.score.toFixed(3)),
+        color: transportNetworkRouteContextColor(lens, item.mode, intensity, item.coverage, props.color),
+        edge_offset: Number(((item.seed - 0.5) * 0.26).toFixed(2)),
+      },
+      geometry: item.feature.geometry,
+    };
+  }
+
+  function transportNetworkRouteContextColor(lens, mode, intensity = 0.5, coverage = 1, sourceColor = "") {
+    if (mode === "rail") return "#72539a";
+    if (lens?.id === "transport-reliability") {
+      if (coverage >= 14 || intensity > 0.64) return "#168a94";
+      if (coverage >= 6 || intensity > 0.5) return "#5eaaa2";
+      return "#8faeb3";
+    }
+    if (/^#[0-9a-f]{6}$/i.test(String(sourceColor || "")) && coverage >= 10) return sourceColor;
+    if (coverage >= 18 || intensity > 0.68) return "#176f92";
+    if (coverage >= 8 || intensity > 0.52) return "#1f8fa3";
+    return "#4fa5ad";
   }
 
   function transportRoadYearGeneratedFrom(year) {

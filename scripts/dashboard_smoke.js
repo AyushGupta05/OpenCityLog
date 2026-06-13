@@ -3299,6 +3299,26 @@ async function assertTransportNetworkCitywideContext(page, city) {
       { timeout: 45000 }
     );
   }
+  if (city.minRouteContextFlows) {
+    await page.waitForFunction(
+      ({ lensId, minRouteContextFlows }) => {
+        const atlas = window.BimsAtlas;
+        const guide = (atlas?.state?.lensGuideFeatureCache?.features || []).filter((feature) => feature.properties?.lens_id === lensId);
+        const routeContextCount = guide.filter((feature) => {
+          const props = feature.properties || {};
+          return props.kind === "flow"
+            && props.flow_role === "transport_route_context"
+            && props.detail_layer === "translink_route_segment"
+            && props.source_kind === "current_context";
+        }).length;
+        return /transport_routes_2026\.geojson/i.test(atlas?.state?.transportRouteContextPathLoaded || "")
+          && (atlas?.state?.transportRouteContextFeatures || []).length > 0
+          && routeContextCount >= minRouteContextFlows;
+      },
+      { lensId: city.lens, minRouteContextFlows: city.minRouteContextFlows },
+      { timeout: 45000 }
+    );
+  }
   await page.waitForTimeout(700);
   const state = await page.evaluate(({ lensId, year }) => {
     const atlas = window.BimsAtlas;
@@ -3309,22 +3329,32 @@ async function assertTransportNetworkCitywideContext(page, city) {
       const props = feature.properties || {};
       return props.kind === "flow"
         && ["transport_backbone", "transport_thread"].includes(props.flow_style)
-        && ["transport_activity_context", "transport_current_context"].includes(props.flow_role);
+        && ["transport_activity_context", "transport_current_context", "transport_route_context"].includes(props.flow_role);
     });
     let renderedGuideFlow = 0;
+    let renderedRouteContextFlows = 0;
     let renderedRoads = 0;
     let renderedEventPoints = 0;
     try {
-      renderedGuideFlow = map?.getLayer?.("lens-guide-flow") && map.getLayoutProperty("lens-guide-flow", "visibility") !== "none"
-        ? map.queryRenderedFeatures({ layers: ["lens-guide-flow"] }).filter((feature) => {
+      const renderedFlows = map?.getLayer?.("lens-guide-flow") && map.getLayoutProperty("lens-guide-flow", "visibility") !== "none"
+        ? map.queryRenderedFeatures({ layers: ["lens-guide-flow"] })
+        : [];
+      renderedGuideFlow = renderedFlows.filter((feature) => {
           const props = feature.properties || {};
           return props.lens_id === lensId
             && ["transport_backbone", "transport_thread"].includes(props.flow_style)
             && ["selected_year_transport_activity_context", "current_context"].includes(props.source_kind);
-        }).length
-        : 0;
+        }).length;
+      renderedRouteContextFlows = renderedFlows.filter((feature) => {
+        const props = feature.properties || {};
+        return props.lens_id === lensId
+          && props.flow_role === "transport_route_context"
+          && props.detail_layer === "translink_route_segment"
+          && props.source_kind === "current_context";
+      }).length;
     } catch (_error) {
       renderedGuideFlow = 0;
+      renderedRouteContextFlows = 0;
     }
     try {
       renderedRoads = map?.getLayer?.("lens-transport-roads") && map.getLayoutProperty("lens-transport-roads", "visibility") !== "none"
@@ -3352,6 +3382,10 @@ async function assertTransportNetworkCitywideContext(page, city) {
       const currentContext = props.source_kind === "current_context"
         && props.evidence_role === "context_not_year_specific_change_evidence"
         && props.detail_layer === "transport_roads_base";
+      const routeContext = props.source_kind === "current_context"
+        && props.evidence_role === "context_not_year_specific_change_evidence"
+        && props.flow_role === "transport_route_context"
+        && props.detail_layer === "translink_route_segment";
       return !feature.geometry
         || props.direct_evidence_counted !== false
         || props.headline_count_included !== false
@@ -3363,7 +3397,7 @@ async function assertTransportNetworkCitywideContext(page, city) {
         || !props.generated_from
         || !props.caveat
         || !props.context_year
-        || (!selectedYearContext && !currentContext);
+        || (!selectedYearContext && !currentContext && !routeContext);
     }).length;
     return {
       city: document.querySelector("#cityNameLabel")?.textContent.trim() || "",
@@ -3372,19 +3406,23 @@ async function assertTransportNetworkCitywideContext(page, city) {
       guideCount: guide.length,
       networkFlowCount: networkFlows.length,
       activityContextCount: networkFlows.filter((feature) => feature.properties?.source_kind === "selected_year_transport_activity_context").length,
-      currentContextCount: networkFlows.filter((feature) => feature.properties?.source_kind === "current_context").length,
+      currentContextCount: networkFlows.filter((feature) => feature.properties?.flow_role === "transport_current_context").length,
+      routeContextCount: networkFlows.filter((feature) => feature.properties?.flow_role === "transport_route_context").length,
       currentContextBackboneCount: networkFlows.filter((feature) => {
         const props = feature.properties || {};
-        return props.source_kind === "current_context" && props.flow_style === "transport_backbone";
+        return props.flow_role === "transport_current_context" && props.flow_style === "transport_backbone";
       }).length,
       backboneCount: networkFlows.filter((feature) => feature.properties?.flow_style === "transport_backbone").length,
       threadCount: networkFlows.filter((feature) => feature.properties?.flow_style === "transport_thread").length,
       invalidFlows,
       renderedGuideFlow,
+      renderedRouteContextFlows,
       renderedEventPoints,
       renderedRoads,
       roadYearPath: atlas?.state?.transportRoadFeaturesPathLoaded || "",
       roadBasePath: atlas?.state?.transportAccessRoadContextPathLoaded || "",
+      routeContextPath: atlas?.state?.transportRouteContextPathLoaded || "",
+      routeContextSourceCount: atlas?.state?.transportRouteContextFeatures?.length || 0,
       bodyText: document.body?.innerText || "",
       expectedYear: year,
     };
@@ -3410,6 +3448,12 @@ async function assertTransportNetworkCitywideContext(page, city) {
       state.currentContextBackboneCount >= city.minCurrentBackbone,
       `transport ${city.id} ${city.lens}: too few current-context backbone routes (${state.currentContextBackboneCount}).`
     );
+  }
+  if (city.minRouteContextFlows) {
+    assert(state.routeContextPath.includes("transport_routes_2026.geojson"), `transport ${city.id} ${city.lens}: route context path did not load (${state.routeContextPath}).`);
+    assert(state.routeContextSourceCount >= city.minRouteContextSourceFeatures, `transport ${city.id} ${city.lens}: too few source route features loaded (${state.routeContextSourceCount}).`);
+    assert(state.routeContextCount >= city.minRouteContextFlows, `transport ${city.id} ${city.lens}: too few Translink route-context flows (${state.routeContextCount}).`);
+    assert(state.renderedRouteContextFlows > 0, `transport ${city.id} ${city.lens}: Translink route-context flows did not render.`);
   }
   const png = await page.screenshot({
     path: path.join(outputDir, `paper-atlas-${city.id}-${city.lens}-network-context-probe.png`),
@@ -3754,8 +3798,8 @@ async function runDashboardSmoke() {
   }
 
   const transportNetworkChecks = [
-    { id: "belfast", label: "Belfast", year: 2007, lens: "transport-speed", minFlows: 240, minRenderedGuideFlows: 100, minCurrentContext: 240, minCurrentBackbone: 72 },
-    { id: "belfast", label: "Belfast", year: 2007, lens: "transport-reliability", minFlows: 240, minRenderedGuideFlows: 100, minCurrentContext: 240, minCurrentBackbone: 72 },
+    { id: "belfast", label: "Belfast", year: 2007, lens: "transport-speed", minFlows: 470, minRenderedGuideFlows: 130, minCurrentContext: 240, minCurrentBackbone: 72, minRouteContextSourceFeatures: 3000, minRouteContextFlows: 220 },
+    { id: "belfast", label: "Belfast", year: 2007, lens: "transport-reliability", minFlows: 450, minRenderedGuideFlows: 130, minCurrentContext: 240, minCurrentBackbone: 72, minRouteContextSourceFeatures: 3000, minRouteContextFlows: 200 },
     { id: "london", label: "London", year: 2024, lens: "transport-speed", minFlows: 1800, minRenderedGuideFlows: 300, minActivityContext: 700, minCurrentContext: 760, minCurrentBackbone: 220 },
     { id: "london", label: "London", year: 2024, lens: "transport-reliability", minFlows: 1500, minRenderedGuideFlows: 260, minActivityContext: 550, minCurrentContext: 760, minCurrentBackbone: 220 },
     { id: "nyc", label: "New York City", year: 2024, lens: "transport-speed", minFlows: 1450, minRenderedGuideFlows: 360, minActivityContext: 520, minCurrentContext: 650, minCurrentBackbone: 180 },
