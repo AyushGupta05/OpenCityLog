@@ -3040,23 +3040,23 @@
       layout: { visibility: "none" },
       paint: {
         "heatmap-weight": [
-          "interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.42],
+          "interpolate", ["linear"], ["to-number", ["get", "heat_weight"], ["to-number", ["get", "intensity"], 0.42]],
           0, 0.08,
-          0.35, 0.38,
-          0.68, 0.74,
-          1, 1,
+          0.35, 0.28,
+          0.68, 0.56,
+          1, 0.78,
         ],
         "heatmap-intensity": [
           "interpolate", ["linear"], ["zoom"],
-          5.5, 1.2,
-          8.8, 2.4,
-          10.8, 1.5,
+          5.5, 0.55,
+          8.8, 1.05,
+          10.8, 0.65,
         ],
         "heatmap-radius": [
           "interpolate", ["linear"], ["zoom"],
-          5.5, 30,
-          8.8, 52,
-          10.8, 38,
+          5.5, 22,
+          8.8, 34,
+          10.8, 24,
         ],
         "heatmap-color": [
           "interpolate", ["linear"], ["heatmap-density"],
@@ -3069,8 +3069,8 @@
         ],
         "heatmap-opacity": [
           "interpolate", ["linear"], ["zoom"],
-          5.5, 0.82,
-          10.8, 0.68,
+          5.5, 0.38,
+          10.8, 0.3,
           12.2, 0,
         ],
       },
@@ -3092,7 +3092,13 @@
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.2, 1, 0.5],
             ["==", ["get", "surface_style"], "demand_surface"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.015, 1, 0.07],
+            ["case",
+              ["==", ["get", "demand_evidence_mode"], "evidence_limited_cells"],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.08, 1, 0.22],
+              ["==", ["get", "demand_evidence_mode"], "current_context_cells"],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.032, 1, 0.11],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.04, 1, 0.15],
+            ],
             ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.1, 1, 0.3],
             ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
@@ -3111,7 +3117,13 @@
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.16, 1, 0.4],
             ["==", ["get", "surface_style"], "demand_surface"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.012, 1, 0.055],
+            ["case",
+              ["==", ["get", "demand_evidence_mode"], "evidence_limited_cells"],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.06, 1, 0.18],
+              ["==", ["get", "demand_evidence_mode"], "current_context_cells"],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.026, 1, 0.09],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.032, 1, 0.125],
+            ],
             ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.075, 1, 0.24],
             ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
@@ -3130,7 +3142,13 @@
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.08, 1, 0.22],
             ["==", ["get", "surface_style"], "demand_surface"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.006, 1, 0.025],
+            ["case",
+              ["==", ["get", "demand_evidence_mode"], "evidence_limited_cells"],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.025, 1, 0.07],
+              ["==", ["get", "demand_evidence_mode"], "current_context_cells"],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.012, 1, 0.042],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.016, 1, 0.06],
+            ],
             ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.04, 1, 0.15],
             ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
@@ -3172,7 +3190,13 @@
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.16, 1, 0.38],
             ["==", ["get", "surface_style"], "demand_surface"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.005, 1, 0.018],
+            ["case",
+              ["==", ["get", "demand_evidence_mode"], "evidence_limited_cells"],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.06, 1, 0.18],
+              ["==", ["get", "demand_evidence_mode"], "current_context_cells"],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.018, 1, 0.07],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.035, 1, 0.14],
+            ],
             ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.1, 1, 0.32],
             ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
@@ -3185,7 +3209,13 @@
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.08, 1, 0.24],
             ["==", ["get", "surface_style"], "demand_surface"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.003, 1, 0.012],
+            ["case",
+              ["==", ["get", "demand_evidence_mode"], "evidence_limited_cells"],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.045, 1, 0.14],
+              ["==", ["get", "demand_evidence_mode"], "current_context_cells"],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.014, 1, 0.055],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.028, 1, 0.11],
+            ],
             ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.06, 1, 0.2],
             ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
@@ -3198,7 +3228,13 @@
             ["==", ["get", "surface_style"], "vitality_ribbon_tile"],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.03, 1, 0.1],
             ["==", ["get", "surface_style"], "demand_surface"],
-            ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.001, 1, 0.005],
+            ["case",
+              ["==", ["get", "demand_evidence_mode"], "evidence_limited_cells"],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.02, 1, 0.075],
+              ["==", ["get", "demand_evidence_mode"], "current_context_cells"],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.006, 1, 0.026],
+              ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.012, 1, 0.05],
+            ],
             ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]],
             ["interpolate", ["linear"], ["to-number", ["get", "intensity"], 0.45], 0, 0.02, 1, 0.08],
             ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]],
@@ -3209,9 +3245,9 @@
         ],
         "line-width": [
           "interpolate", ["linear"], ["zoom"],
-          5.5, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.32, ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.28, ["==", ["get", "surface_style"], "demand_surface"], 0.045, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.16, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.18, 0.36],
-          8.8, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.24, ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.22, ["==", ["get", "surface_style"], "demand_surface"], 0.035, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.12, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.14, 0.3],
-          10.8, ["case", ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.12, ["==", ["get", "surface_style"], "demand_surface"], 0.025, ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.07, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.08, 0.18],
+          5.5, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.32, ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.28, ["==", ["get", "surface_style"], "demand_surface"], ["case", ["==", ["get", "demand_evidence_mode"], "evidence_limited_cells"], 0.16, 0.09], ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.16, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.18, 0.36],
+          8.8, ["case", ["==", ["get", "surface_style"], "land_use_tile"], 0.24, ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.22, ["==", ["get", "surface_style"], "demand_surface"], ["case", ["==", ["get", "demand_evidence_mode"], "evidence_limited_cells"], 0.13, 0.075], ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.12, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.14, 0.3],
+          10.8, ["case", ["==", ["get", "surface_style"], "vitality_ribbon_tile"], 0.12, ["==", ["get", "surface_style"], "demand_surface"], ["case", ["==", ["get", "demand_evidence_mode"], "evidence_limited_cells"], 0.095, 0.065], ["all", ["==", ["get", "surface_style"], "catchment_area"], ["==", ["get", "lens_id"], "civic-catchment"]], 0.07, ["all", ["==", ["get", "surface_style"], "access_fabric"], ["==", ["get", "lens_id"], "civic-access-gaps"]], 0.08, 0.18],
           12.2, 0,
         ],
       },
@@ -5910,11 +5946,23 @@
     if (state.map?.getLayer(layerId)) state.map.setPaintProperty(layerId, prop, value);
   }
 
+  function civicDemandCitywideHeatAvailable(lens = activeMapLens()) {
+    if (lens?.id !== "civic-demand") return false;
+    return (state.lensGuideFeatureCache?.features || []).some((feature) => {
+      const props = feature?.properties || {};
+      return props.kind === "demand_heat_point"
+        && props.lens_id === "civic-demand"
+        && props.guide_scale === "citywide_summary"
+        && props.civic_demand_heat_eligible === true;
+    });
+  }
+
   function updateLensGuideLayers() {
     if (!state.map?.getSource(LENS_GUIDE_SOURCE_ID)) return;
     const lens = activeMapLens();
     const showGuide = Boolean(lens && state.activeLayers.has(lens.category || state.activeLens));
     const citywideSummaryActive = citywideOverviewActive() && hasCitywideGuideSummaryForActiveLens();
+    const civicDemandHeatAvailable = civicDemandCitywideHeatAvailable(lens);
     const showFineGuideCells = showGuide && !(citywideSummaryActive && lens?.id === "civic-demand");
     const showRings = showGuide && ["transport-speed", "transport-reliability", "planning-pressure", "planning-delta", "planning-parcels", "civic-access-gaps", "civic-catchment", "civic-demand"].includes(lens.id);
     const showCells = showGuide && ["transport-access", "planning-pressure", "planning-delta", "planning-parcels", "civic-access-gaps", "civic-catchment", "civic-demand", "economy-land-use", "economy-vitality", "economy-gravity", "utilities-resilience"].includes(lens.id);
@@ -5924,7 +5972,7 @@
       "lens-guide-area-fill": showGuide,
       "lens-guide-area-line": showGuide,
       "lens-guide-ring-line": showRings,
-      "lens-guide-demand-heat": showCells && lens?.id === "civic-demand" && citywideSummaryActive && activeSublayerIdsForLens(lens).includes("demand_grid"),
+      "lens-guide-demand-heat": showCells && lens?.id === "civic-demand" && citywideSummaryActive && civicDemandHeatAvailable && activeSublayerIdsForLens(lens).includes("demand_grid"),
       "lens-guide-citywide-cell-fill": showCells,
       "lens-guide-citywide-cell-line": showCells,
       "lens-guide-cell-fill": showCells && showFineGuideCells,
@@ -6123,6 +6171,7 @@
     return [
       "all",
       base,
+      ["==", ["get", "civic_demand_heat_eligible"], true],
       ["match", ["get", "layer_id"], activeSublayerIdsForLens(lens), true, false],
     ];
   }
@@ -8163,11 +8212,68 @@
       .filter(Boolean);
     const balancedFeatures = spatiallyBalancedGuideFeatures(features, citywideGuideFeatureLimit(lens), lens);
     if (lens.id !== "civic-demand") return balancedFeatures;
-    return balancedFeatures.concat(
-      balancedFeatures
+    const heatEvidence = civicDemandCitywideHeatEvidence(detailFeatures, balancedFeatures, lens, year);
+    const demandCells = civicDemandCitywideAnnotateCells(balancedFeatures, heatEvidence);
+    if (!heatEvidence.eligible) return demandCells;
+    return demandCells.concat(
+      demandCells
         .map((feature, index) => civicDemandCitywideHeatPoint(feature, index))
         .filter(Boolean),
     );
+  }
+
+  function civicDemandCitywideHeatEvidence(detailFeatures, citywideCells, lens, year) {
+    const row = activeLensYearCoverageRow(lens, year);
+    const directEvents = lensCoverageDirectEventCount(row);
+    const mapDirectEvents = Number(row?.map_direct_event_count ?? directEvents);
+    const detailCount = Number(row?.detail_feature_count ?? detailFeatures.length);
+    const cellCount = Array.isArray(citywideCells) ? citywideCells.length : 0;
+    const minDirectEvents = 24;
+    const minMapDirectEvents = 16;
+    const minDetailFeatures = 24;
+    const minCitywideCells = 10;
+    const eligible = directEvents >= minDirectEvents
+      && mapDirectEvents >= minMapDirectEvents
+      && detailCount >= minDetailFeatures
+      && cellCount >= minCitywideCells;
+    return {
+      eligible,
+      directEvents,
+      mapDirectEvents,
+      detailCount,
+      cellCount,
+      minDirectEvents,
+      minMapDirectEvents,
+      minDetailFeatures,
+      minCitywideCells,
+      mode: eligible ? "selected_year_binned_heat" : "evidence_limited_cells",
+    };
+  }
+
+  function civicDemandCitywideAnnotateCells(features, heatEvidence) {
+    return (features || []).map((feature) => {
+      const props = feature?.properties || {};
+      const limitedCaveat = heatEvidence.eligible
+        ? props.caveat
+        : `${props.caveat || "Selected-year civic-demand evidence is limited."} Heatmap mode is disabled because the selected year has ${compactNumber(heatEvidence.mapDirectEvents)} map-direct record${heatEvidence.mapDirectEvents === 1 ? "" : "s"} across ${compactNumber(heatEvidence.cellCount)} citywide evidence cell${heatEvidence.cellCount === 1 ? "" : "s"}; current mapped service context is shown separately and excluded from headline totals.`;
+      return {
+        ...feature,
+        properties: {
+          ...props,
+          civic_demand_heat_eligible: heatEvidence.eligible,
+          demand_evidence_mode: heatEvidence.mode,
+          selected_year_direct_count: heatEvidence.directEvents,
+          selected_year_map_direct_count: heatEvidence.mapDirectEvents,
+          selected_year_detail_feature_count: heatEvidence.detailCount,
+          citywide_evidence_cell_count: heatEvidence.cellCount,
+          heat_threshold_direct_count: heatEvidence.minDirectEvents,
+          heat_threshold_map_direct_count: heatEvidence.minMapDirectEvents,
+          heat_threshold_detail_feature_count: heatEvidence.minDetailFeatures,
+          heat_threshold_citywide_cell_count: heatEvidence.minCitywideCells,
+          caveat: limitedCaveat,
+        },
+      };
+    });
   }
 
   function sourceBackedCitywideGuideFeature(entry, lens, year, bucketM, origin) {
@@ -8232,8 +8338,10 @@
 
   function civicDemandCitywideHeatPoint(feature, index = 0) {
     const props = feature?.properties || {};
+    if (props.civic_demand_heat_eligible !== true) return null;
     const center = geometryToLngLat(feature?.geometry);
     if (!center) return null;
+    const intensity = clamp01(Number(props.intensity || 0.42));
     return {
       type: "Feature",
       properties: {
@@ -8241,6 +8349,7 @@
         kind: "demand_heat_point",
         surface_style: "demand_heat",
         render_role: "citywide_demand_heat",
+        heat_weight: Number((0.18 + intensity * 0.58).toFixed(3)),
         heat_rank: index,
       },
       geometry: {
@@ -9047,11 +9156,7 @@
       .filter(Boolean);
     const balancedCells = spatiallyBalancedGuideFeatures(features, citywideGuideFeatureLimit(lens), lens);
     if (lens?.id === "civic-demand") {
-      return balancedCells.concat(
-        balancedCells
-          .map((feature, index) => civicDemandCitywideHeatPoint(feature, index))
-          .filter(Boolean),
-      );
+      return balancedCells.map((feature) => civicDemandContextAnnotateCell(feature));
     }
     if (lens?.id !== "civic-access-gaps") return balancedCells;
     const transportCandidates = civicAccessContextTransportStopCandidates(origin, bounds);
@@ -9059,6 +9164,18 @@
       civicAccessContextCitywideFlowFeatures(contextCandidates, transportCandidates, lens, year, origin),
       civicAccessContextCitywideNodeFeatures(contextCandidates, transportCandidates, lens, year, origin),
     );
+  }
+
+  function civicDemandContextAnnotateCell(feature) {
+    const props = feature?.properties || {};
+    return {
+      ...feature,
+      properties: {
+        ...props,
+        civic_demand_heat_eligible: false,
+        demand_evidence_mode: "current_context_cells",
+      },
+    };
   }
 
   function civicContextCitywideGuideFeature(entry, lens, year, bucketM, origin) {

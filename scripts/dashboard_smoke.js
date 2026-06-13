@@ -1047,16 +1047,41 @@ async function directGuideState(page) {
     const civicFillPaint = paintText("lens-civic-coverage-fill", "fill-opacity");
     const civicLinePaint = paintText("lens-civic-coverage-outline", "line-opacity");
     const citywideCellLineWidth = paintText("lens-guide-citywide-cell-line", "line-width");
+    const demandHeatOpacityPaint = paintText("lens-guide-demand-heat", "heatmap-opacity");
     const demandHeatFeatureCount = guideFeatures.filter((feature) => feature?.properties?.kind === "demand_heat_point").length;
+    const demandHeatEligibleFeatureCount = guideFeatures.filter((feature) => {
+      const props = feature?.properties || {};
+      return props.kind === "demand_heat_point" && props.civic_demand_heat_eligible === true;
+    }).length;
+    const demandHeatIneligibleFeatureCount = guideFeatures.filter((feature) => {
+      const props = feature?.properties || {};
+      return props.kind === "demand_heat_point" && props.civic_demand_heat_eligible !== true;
+    }).length;
     const demandHeatCellStyleLeakCount = guideFeatures.filter((feature) => {
       const props = feature?.properties || {};
       return props.kind === "demand_heat_point" && props.surface_style === "demand_surface";
+    }).length;
+    const citywideDemandCellCount = guideFeatures.filter((feature) => {
+      const props = feature?.properties || {};
+      return props.kind === "surface_cell" && props.surface_style === "demand_surface" && props.guide_scale === "citywide_summary";
+    }).length;
+    const evidenceLimitedDemandCellCount = guideFeatures.filter((feature) => {
+      const props = feature?.properties || {};
+      return props.kind === "surface_cell" && props.demand_evidence_mode === "evidence_limited_cells";
+    }).length;
+    const contextDemandCellCount = guideFeatures.filter((feature) => {
+      const props = feature?.properties || {};
+      return props.kind === "surface_cell" && props.demand_evidence_mode === "current_context_cells";
+    }).length;
+    const selectedYearBinnedHeatCellCount = guideFeatures.filter((feature) => {
+      const props = feature?.properties || {};
+      return props.kind === "surface_cell" && props.demand_evidence_mode === "selected_year_binned_heat";
     }).length;
     const demandHeatVisible = activeAspect === "civic-demand"
       && map?.getLayer?.("lens-guide-demand-heat")
       && map.getLayoutProperty("lens-guide-demand-heat", "visibility") !== "none";
     const calmCivicSummaryPaint = activeAspect === "civic-demand"
-      ? civicFillPaint.includes("0.006") && civicLinePaint.includes("0.008") && citywideCellLineWidth.includes("0.025") && demandHeatVisible
+      ? civicFillPaint.includes("0.006") && civicLinePaint.includes("0.008") && citywideCellLineWidth.includes("0.065") && demandHeatOpacityPaint.includes("0.38")
       : activeAspect === "civic-catchment"
       ? civicFillPaint.includes("0.02") && civicLinePaint.includes("0.03") && citywideCellLineWidth.includes("0.07")
       : true;
@@ -1130,7 +1155,13 @@ async function directGuideState(page) {
       renderedCivicDemandRawCells,
       renderedCivicDemandFineGuideCells,
       demandHeatFeatureCount,
+      demandHeatEligibleFeatureCount,
+      demandHeatIneligibleFeatureCount,
       demandHeatCellStyleLeakCount,
+      citywideDemandCellCount,
+      evidenceLimitedDemandCellCount,
+      contextDemandCellCount,
+      selectedYearBinnedHeatCellCount,
       demandHeatVisible,
       calmCivicSummaryPaint,
       renderedGuides,
@@ -1171,9 +1202,18 @@ async function assertDirectGuideSurface(page, label, { expected, allowContextGui
       assert(state.directGuideFeatureCount <= 1100, `${label}: civic-demand direct guide overdraw is too high (${state.directGuideFeatureCount}).`);
       assert(state.renderedCivicDemandRawCells <= 3600, `${label}: civic-demand raw detail layer overdraw is too high (${state.renderedCivicDemandRawCells}).`);
       assert(state.renderedCivicDemandFineGuideCells === 0, `${label}: civic-demand fine guide cells should stay hidden under the citywide surface (${state.renderedCivicDemandFineGuideCells}).`);
-      assert(state.demandHeatFeatureCount > 0, `${label}: civic-demand citywide heat surface has no source-backed heat points.`);
+      assert(state.citywideDemandCellCount > 0, `${label}: civic-demand citywide evidence/context cells are missing.`);
       assert(state.demandHeatCellStyleLeakCount === 0, `${label}: civic-demand heat points leaked into demand_surface cell metrics (${state.demandHeatCellStyleLeakCount}).`);
-      assert(state.demandHeatVisible, `${label}: civic-demand citywide heat layer is not visible.`);
+      assert(state.demandHeatIneligibleFeatureCount === 0, `${label}: civic-demand generated ${state.demandHeatIneligibleFeatureCount} heat point(s) without evidence eligibility.`);
+      if (state.demandHeatEligibleFeatureCount > 0) {
+        assert(state.demandHeatFeatureCount === state.demandHeatEligibleFeatureCount, `${label}: civic-demand heat feature count does not match heat-eligible selected-year features.`);
+        assert(state.selectedYearBinnedHeatCellCount > 0, `${label}: civic-demand heat is visible without selected-year binned evidence cells.`);
+        assert(state.demandHeatVisible, `${label}: civic-demand eligible citywide heat layer is not visible.`);
+      } else {
+        assert(state.demandHeatFeatureCount === 0, `${label}: civic-demand sparse evidence should not generate heat points (${state.demandHeatFeatureCount}).`);
+        assert(!state.demandHeatVisible, `${label}: civic-demand sparse evidence should hide the heat layer.`);
+        assert(state.evidenceLimitedDemandCellCount > 0 || state.contextDemandCellCount > 0, `${label}: civic-demand sparse evidence did not leave evidence-limited/context cells.`);
+      }
       assert(state.calmCivicSummaryPaint, `${label}: civic-demand citywide summary paint is not calm enough.`);
     }
     if (state.activeAspect === "civic-catchment") {
@@ -3486,21 +3526,40 @@ async function assertCivicDemandHeatToggle(page, city) {
     { timeout: 15000 }
   );
   await page.waitForFunction(
-    () => {
+    ({ evidenceLimitedExpected }) => {
       const atlas = window.BimsAtlas;
       const map = atlas?.state?.map;
       const guide = atlas?.state?.lensGuideFeatureCache?.features || [];
-      return guide.some((feature) => feature.properties?.kind === "demand_heat_point")
-        && map?.getLayer?.("lens-guide-demand-heat")
+      const hasDemandCells = guide.some((feature) => {
+        const props = feature.properties || {};
+        return props.kind === "surface_cell" && props.surface_style === "demand_surface" && props.guide_scale === "citywide_summary";
+      });
+      const hasEvidenceLimitedCell = guide.some((feature) => feature.properties?.demand_evidence_mode === "evidence_limited_cells");
+      const hasEligibleHeat = guide.some((feature) => feature.properties?.kind === "demand_heat_point" && feature.properties?.civic_demand_heat_eligible === true);
+      const heatVisible = map?.getLayer?.("lens-guide-demand-heat")
         && map.getLayoutProperty("lens-guide-demand-heat", "visibility") !== "none";
+      return hasDemandCells && (!evidenceLimitedExpected || hasEvidenceLimitedCell) && (!hasEligibleHeat || heatVisible);
     },
-    null,
+    { evidenceLimitedExpected: city.evidenceLimitedExpected === true },
     { timeout: 15000 }
   );
   let demandState = await directGuideState(page);
-  assert(demandState.demandHeatFeatureCount > 0, `civic demand ${city.id}: no citywide heat points were generated.`);
+  assert(demandState.citywideDemandCellCount > 0, `civic demand ${city.id}: no citywide demand cells were generated.`);
+  if (typeof city.heatExpected === "boolean") {
+    const hasEligibleHeat = demandState.demandHeatEligibleFeatureCount > 0;
+    assert(hasEligibleHeat === city.heatExpected, `civic demand ${city.id}: heat eligibility was ${hasEligibleHeat}, expected ${city.heatExpected}.`);
+  }
+  if (city.evidenceLimitedExpected) {
+    assert(demandState.evidenceLimitedDemandCellCount > 0, `civic demand ${city.id}: expected selected-year evidence-limited cells.`);
+  }
   assert(demandState.demandHeatCellStyleLeakCount === 0, `civic demand ${city.id}: heat points leaked into demand_surface cell metrics.`);
-  assert(demandState.demandHeatVisible, `civic demand ${city.id}: heat layer is not visible with demand_grid enabled.`);
+  assert(demandState.demandHeatIneligibleFeatureCount === 0, `civic demand ${city.id}: heat points were generated without evidence eligibility.`);
+  if (demandState.demandHeatEligibleFeatureCount > 0) {
+    assert(demandState.demandHeatVisible, `civic demand ${city.id}: heat layer is not visible with demand_grid enabled.`);
+  } else {
+    assert(!demandState.demandHeatVisible, `civic demand ${city.id}: sparse evidence should keep the heat layer hidden.`);
+    assert(demandState.evidenceLimitedDemandCellCount > 0 || demandState.contextDemandCellCount > 0, `civic demand ${city.id}: sparse evidence did not leave evidence-limited/context cells.`);
+  }
   assert(demandState.renderedCivicDemandFineGuideCells === 0, `civic demand ${city.id}: fine guide cells rendered under citywide heat.`);
   assert(demandState.invalidGuideCount === 0, `civic demand ${city.id}: guide has ${demandState.invalidGuideCount} invalid feature(s).`);
 
@@ -3530,10 +3589,15 @@ async function assertCivicDemandHeatToggle(page, city) {
 
   await page.locator(".layer-row[data-sublayer='demand_grid']").click();
   await page.waitForFunction(
-    () => window.BimsAtlas?.state?.activeAspectLayers?.has?.("demand_grid")
-      && window.BimsAtlas?.state?.map?.getLayer?.("lens-guide-demand-heat")
-      && window.BimsAtlas.state.map.getLayoutProperty("lens-guide-demand-heat", "visibility") !== "none",
-    null,
+    (expectedHeat) => {
+      const atlas = window.BimsAtlas;
+      const map = atlas?.state?.map;
+      if (!atlas?.state?.activeAspectLayers?.has?.("demand_grid")) return false;
+      if (!expectedHeat) return true;
+      return map?.getLayer?.("lens-guide-demand-heat")
+        && map.getLayoutProperty("lens-guide-demand-heat", "visibility") !== "none";
+    },
+    demandState.demandHeatEligibleFeatureCount > 0,
     { timeout: 12000 }
   );
 }
@@ -3661,9 +3725,9 @@ async function runDashboardSmoke() {
   }
 
   const civicContextChecks = [
-    { id: "belfast", label: "Belfast", year: 2024, minAnchors: 3500, minStops: 1500, minGuideFeatures: 1350, minCells: 900, minCoverageFlows: 70, minGapFlows: 70, minServiceNodes: 28, minStopNodes: 26 },
-    { id: "london", label: "London", year: 2024, minAnchors: 12000, minStops: 6500, minGuideFeatures: 3250, minCells: 2800, minCoverageFlows: 100, minGapFlows: 100, minServiceNodes: 32, minStopNodes: 30 },
-    { id: "nyc", label: "New York City", year: 2024, minAnchors: 12000, minStops: 6500, minGuideFeatures: 3250, minCells: 2800, minCoverageFlows: 100, minGapFlows: 100, minServiceNodes: 32, minStopNodes: 30 },
+    { id: "belfast", label: "Belfast", year: 2024, demandYear: 2008, heatExpected: false, evidenceLimitedExpected: true, minAnchors: 3500, minStops: 1500, minGuideFeatures: 1350, minCells: 900, minCoverageFlows: 70, minGapFlows: 70, minServiceNodes: 28, minStopNodes: 26 },
+    { id: "london", label: "London", year: 2024, demandYear: 2024, heatExpected: true, minAnchors: 12000, minStops: 6500, minGuideFeatures: 3250, minCells: 2800, minCoverageFlows: 100, minGapFlows: 100, minServiceNodes: 32, minStopNodes: 30 },
+    { id: "nyc", label: "New York City", year: 2024, demandYear: 2026, heatExpected: true, minAnchors: 12000, minStops: 6500, minGuideFeatures: 3250, minCells: 2800, minCoverageFlows: 100, minGapFlows: 100, minServiceNodes: 32, minStopNodes: 30 },
   ];
   for (const city of civicContextChecks) {
     progress("civic access context", city.id);
@@ -3673,7 +3737,7 @@ async function runDashboardSmoke() {
       attachConsoleCapture(page, consoleMessages, pageErrors);
       await openAtlasShell(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=civic-access-gaps`);
       await assertCivicAccessCitywideContext(page, city);
-      await assertCivicDemandHeatToggle(page, city);
+      await assertCivicDemandHeatToggle(page, { ...city, year: city.demandYear || city.year });
     } finally {
       await page.close().catch(() => {});
       await cityBrowser.close().catch(() => {});
