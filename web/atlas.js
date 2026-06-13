@@ -8447,7 +8447,7 @@
         score,
       });
     }
-    const selected = spatiallyBalancedGuideFeatures(
+    const selectedFlows = spatiallyBalancedGuideFeatures(
       candidates
         .sort((a, b) => b.score - a.score)
         .slice(0, Math.max(limit * 4, 900))
@@ -8456,7 +8456,150 @@
       limit,
       lens,
     );
-    return selected;
+    const fabricCells = planningRoadContextFabricGuideFeatures(candidates, lens, year);
+    return selectedFlows.concat(fabricCells);
+  }
+
+  function planningRoadContextFabricCanRender(lens = activeMapLens(), year = currentTimelineYear()) {
+    if (!planningPressureRoadContextCanRender(lens, year)) return false;
+    const row = activeLensYearCoverageRow(lens, year);
+    if (!row || row.status !== "source_backed_records" || row.visible_map_contract === false) return false;
+    const directCount = lensCoverageDirectEventCount(row);
+    const mapDirectCount = Number(row.map_direct_event_count ?? directCount);
+    const detailFeatureCount = Number(row.detail_feature_count || 0);
+    return directCount > 0 && (
+      (detailFeatureCount > 0 && detailFeatureCount <= 16)
+      || (mapDirectCount > 0 && mapDirectCount <= 10)
+      || directCount <= 10
+    );
+  }
+
+  function planningRoadContextFabricBucketMeters() {
+    const fixed = { belfast: 680, london: 920, nyc: 980 };
+    if (fixed[state.cityId]) return fixed[state.cityId];
+    return Math.max(620, Math.min(1100, citywideBasisMeters() / 36));
+  }
+
+  function planningRoadContextFabricFeatureLimit() {
+    const fixed = { belfast: 460, london: 520, nyc: 520 };
+    if (fixed[state.cityId]) return fixed[state.cityId];
+    return Math.max(260, Math.min(560, Math.round(citywideBasisMeters() / 46)));
+  }
+
+  function planningRoadContextFabricGuideFeatures(candidates, lens, year) {
+    if (!planningRoadContextFabricCanRender(lens, year)) return [];
+    const valid = Array.isArray(candidates) ? candidates.filter((item) => item?.point && item.objectId) : [];
+    if (!valid.length) return [];
+    const bucketM = planningRoadContextFabricBucketMeters();
+    const origin = mapCenter();
+    const buckets = new Map();
+    for (const item of valid) {
+      const local = lngLatToLocalMeters(item.point, origin);
+      if (!Number.isFinite(local[0]) || !Number.isFinite(local[1])) continue;
+      const rankBand = Number(item.rank || 1) >= 3.2 ? "primary" : Number(item.rank || 1) >= 2.1 ? "secondary" : "local";
+      const bucket = `${Math.round(local[0] / bucketM)}:${Math.round(local[1] / bucketM)}:${rankBand}`;
+      const entry = buckets.get(bucket) || {
+        bucket,
+        rankBand,
+        count: 0,
+        weight: 0,
+        sumX: 0,
+        sumY: 0,
+        maxIntensity: 0,
+        maxRank: 0,
+        totalLengthM: 0,
+        objectIds: new Set(),
+        sourceUrls: new Set(),
+        labels: [],
+      };
+      const weight = Math.max(0.18, Number(item.intensity || 0.32)) + Math.min(0.24, Number(item.rank || 1) * 0.045) + Math.min(0.16, Number(item.lengthM || 0) / 5200);
+      entry.count += 1;
+      entry.weight += weight;
+      entry.sumX += local[0] * weight;
+      entry.sumY += local[1] * weight;
+      entry.maxIntensity = Math.max(entry.maxIntensity, Number(item.intensity || 0));
+      entry.maxRank = Math.max(entry.maxRank, Number(item.rank || 0));
+      entry.totalLengthM += Number(item.lengthM || 0);
+      entry.objectIds.add(item.objectId);
+      const url = osmObjectUrl(item.objectId);
+      if (url) entry.sourceUrls.add(url);
+      const name = item.road?.properties?.name;
+      if (name && name !== "mapped road segment") entry.labels.push(name);
+      buckets.set(bucket, entry);
+    }
+    const features = [...buckets.values()]
+      .map((entry, index) => planningRoadContextFabricGuideFeature(entry, lens, year, bucketM, origin, index))
+      .filter(Boolean);
+    return spatiallyBalancedGuideFeatures(features, planningRoadContextFabricFeatureLimit(), lens);
+  }
+
+  function planningRoadContextFabricGuideFeature(entry, lens, selectedYear, bucketM, origin, index = 0) {
+    if (!entry?.objectIds?.size || !entry.sourceUrls?.size || !entry.weight) return null;
+    const objectIds = [...entry.objectIds].slice(0, 24);
+    const sourceUrls = [...entry.sourceUrls].slice(0, 12);
+    if (!objectIds.length || !sourceUrls.length) return null;
+    const center = offsetLngLat(origin, entry.sumX / entry.weight, entry.sumY / entry.weight);
+    const seed = stableUnit(`${entry.bucket}:${lens.id}:planning-road-fabric`);
+    const source = state.sourceById.get("osm-overpass");
+    const segmentCount = Math.max(entry.count || 0, objectIds.length);
+    const intensity = clamp01(0.18 + entry.maxIntensity * 0.38 + Math.min(0.2, Math.log1p(segmentCount) * 0.07) + Math.min(0.16, entry.maxRank * 0.032) + seed * 0.035);
+    const halfLong = bucketM * (0.42 + intensity * 0.13 + Math.min(0.08, segmentCount * 0.006));
+    const halfShort = bucketM * (0.28 + intensity * 0.1 + Math.min(0.06, segmentCount * 0.004));
+    const angle = (seed - 0.5) * 0.34;
+    const label = `${segmentCount} current mapped road segment${segmentCount === 1 ? "" : "s"}`;
+    return {
+      type: "Feature",
+      properties: {
+        kind: "surface_cell",
+        lens_id: lens.id,
+        surface_style: "planning_footprint",
+        guide_scale: "citywide_summary",
+        source_kind: "current_context",
+        evidence_role: "context_not_year_specific_change_evidence",
+        context_year: "current_mapped_context",
+        selected_year: String(selectedYear),
+        detail_layer: "transport_roads_base",
+        event_id: "",
+        event_ids: "",
+        event_count: 0,
+        source_id: "osm-overpass",
+        source_ids: "osm-overpass",
+        source_object_id: objectIds[0],
+        source_object_ids: objectIds.join(","),
+        source_urls: sourceUrls.join(","),
+        source_name: source?.title || "OpenStreetMap road context via Overpass API",
+        source_type: source?.source_type || "current mapped road context",
+        publisher: source?.publisher || "OpenStreetMap contributors",
+        license: source?.license || "ODbL-1.0",
+        source_count: 1,
+        source_object_count: segmentCount,
+        confidence: "inferred",
+        generated_from: planningRoadContextGeneratedFrom(),
+        title: "Current mapped road fabric context",
+        label,
+        timing_note: `Current mapped road context may post-date selected-year ${selectedYear} planning evidence.`,
+        caveat: "Current OSM road fabric is non-headline planning context only; it is not selected-year direct planning evidence, parcel geometry, building construction proof, traffic measurement, forecast, or causal claim. Excluded from headline event totals.",
+        geometry_precision_mix: "Aggregated from current OSM road centerline geometry clipped to the official city boundary; not official parcel, building, or application-boundary geometry.",
+        aggregation_note: `Citywide ${Math.round(bucketM)}m road-fabric context generated from current mapped road segments and excluded from planning record totals.`,
+        source_object_sample_note: segmentCount > objectIds.length
+          ? `${objectIds.length} sampled OSM road object id${objectIds.length === 1 ? "" : "s"} listed from ${segmentCount} grouped road segment${segmentCount === 1 ? "" : "s"}.`
+          : `${objectIds.length} OSM road object id${objectIds.length === 1 ? "" : "s"} listed for this grouped context cell.`,
+        direct_evidence_counted: false,
+        headline_count_included: false,
+        layer_id: "built_environment",
+        sublayer_id: "built_environment",
+        planning_status: "current_context",
+        context_rank: index + 1,
+        road_rank: Number(entry.maxRank.toFixed(2)),
+        route_length_m: Math.round(entry.totalLengthM || 0),
+        rank_band: entry.rankBand,
+        sample_labels: uniqueGuideValues(entry.labels).slice(0, 4).join(","),
+        intensity: Number(intensity.toFixed(3)),
+        score: Number((intensity + Math.min(0.22, segmentCount * 0.014) + Math.min(0.14, entry.totalLengthM / 18000) + seed * 0.035).toFixed(3)),
+        color: planningRoadContextColor(intensity, entry.maxRank),
+      },
+      geometry: orientedRectanglePolygon(center, halfLong, halfShort, angle),
+    };
   }
 
   function planningPressureRoadContextCanRender(lens = activeMapLens(), year = currentTimelineYear()) {

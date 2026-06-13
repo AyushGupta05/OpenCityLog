@@ -1335,6 +1335,15 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear, l
         && props.detail_layer === "transport_roads_base"
         && props.flow_style === "planning_pressure_trace";
     });
+    const roadFabricCells = guide.filter((feature) => {
+      const props = feature.properties || {};
+      return props.kind === "surface_cell"
+        && props.source_kind === "current_context"
+        && props.evidence_role === "context_not_year_specific_change_evidence"
+        && props.detail_layer === "transport_roads_base"
+        && props.surface_style === "planning_footprint"
+        && props.guide_scale === "citywide_summary";
+    });
     const directAggregates = guide.filter((feature) => {
       const props = feature.properties || {};
       return props.kind === "surface_cell"
@@ -1362,6 +1371,20 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear, l
     } catch (_error) {
       renderedCorpusContextCells = 0;
     }
+    let renderedRoadFabricCells = 0;
+    try {
+      renderedRoadFabricCells = map?.getLayer?.("lens-guide-citywide-cell-fill") && map.getLayoutProperty("lens-guide-citywide-cell-fill", "visibility") !== "none"
+        ? map.queryRenderedFeatures({ layers: ["lens-guide-citywide-cell-fill"] }).filter((feature) => {
+          const props = feature.properties || {};
+          return props.source_kind === "current_context"
+            && props.evidence_role === "context_not_year_specific_change_evidence"
+            && props.detail_layer === "transport_roads_base"
+            && props.surface_style === "planning_footprint";
+        }).length
+        : 0;
+    } catch (_error) {
+      renderedRoadFabricCells = 0;
+    }
     const invalidContext = contextFlows.filter((feature) => {
       const props = feature.properties || {};
       return !feature.geometry
@@ -1373,6 +1396,30 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear, l
         || !props.source_urls
         || !props.generated_from
         || !props.caveat;
+    }).length;
+    const invalidRoadFabric = roadFabricCells.filter((feature) => {
+      const props = feature.properties || {};
+      const sourceIds = split(props.source_ids || props.source_id);
+      const objectIds = split(props.source_object_ids || props.source_object_id);
+      return !feature.geometry
+        || props.direct_evidence_counted !== false
+        || props.headline_count_included !== false
+        || split(props.event_ids || props.event_id).length > 0
+        || !sourceIds.length
+        || !sourceIds.every((sourceId) => atlas?.state?.sourceById?.has?.(sourceId))
+        || !objectIds.length
+        || Number(props.source_object_count || objectIds.length || 0) <= 0
+        || !props.source_urls
+        || !props.generated_from
+        || !props.source_name
+        || !props.publisher
+        || !props.license
+        || !props.aggregation_note
+        || !props.source_object_sample_note
+        || !props.caveat
+        || !/non-headline/i.test(props.caveat)
+        || !/not selected-year direct planning evidence|not selected-year/i.test(props.caveat)
+        || !/Excluded from headline/i.test(props.caveat);
     }).length;
     const invalidDirectAggregates = directAggregates.filter((feature) => {
       const props = feature.properties || {};
@@ -1418,19 +1465,31 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear, l
       && Number(row?.direct_event_count || row?.event_count || 0) > 0
       && (detailCount < 32 || mapDirectCount < 32)
       && hasVisibleContextYear;
+    const roadFabricExpected = row?.status === "source_backed_records"
+      && row?.visible_map_contract !== false
+      && Number(row?.direct_event_count || row?.event_count || 0) > 0
+      && (
+        (detailCount > 0 && detailCount <= 16)
+        || (mapDirectCount > 0 && mapDirectCount <= 10)
+        || Number(row?.direct_event_count || row?.event_count || 0) <= 10
+      );
     const pageText = document.body?.innerText || "";
     return {
       contextFlowCount: contextFlows.length,
+      roadFabricCellCount: roadFabricCells.length,
       directAggregateCount: directAggregates.length,
       corpusContextCellCount: corpusContextCells.length,
       renderedCorpusContextCells,
+      renderedRoadFabricCells,
       invalidContext,
+      invalidRoadFabric,
       invalidDirectAggregates,
       invalidCorpusContext,
       duplicateDirectAggregateEventCount,
       renderedContextFlows,
       aggregateExpected,
       corpusContextExpected,
+      roadFabricExpected,
       corpusContextLegendLabel: /Recent non-headline/i.test(pageText),
       corpusContextStripLabel: /recent context non-headline/i.test(pageText),
       roadContextPath: atlas?.state?.planningRoadContextPathLoaded || "",
@@ -1444,6 +1503,12 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear, l
   assert(state.contextFlowCount >= minimumContextFlows, `planning context ${cityId}: too few citywide current-context road traces (${state.contextFlowCount}).`);
   assert(state.renderedContextFlows > 0, `planning context ${cityId}: current-context road traces did not render.`);
   assert(state.invalidContext === 0, `planning context ${cityId}: ${state.invalidContext} road-context guide feature(s) lack provenance/non-headline flags.`);
+  if (state.roadFabricExpected) {
+    const minimumFabricCells = cityId === "belfast" ? 180 : 1;
+    assert(state.roadFabricCellCount >= minimumFabricCells, `planning context ${cityId}: too few current-context road-fabric cells (${state.roadFabricCellCount}).`);
+    assert(state.renderedRoadFabricCells > 0, `planning context ${cityId}: current-context road-fabric cells did not render.`);
+    assert(state.invalidRoadFabric === 0, `planning context ${cityId}: ${state.invalidRoadFabric} road-fabric context cell(s) lack provenance/non-headline caveats.`);
+  }
   assert(state.invalidDirectAggregates === 0, `planning context ${cityId}: ${state.invalidDirectAggregates} direct event aggregate(s) lack provenance.`);
   assert(state.duplicateDirectAggregateEventCount === 0, `planning context ${cityId}: ${state.duplicateDirectAggregateEventCount} direct event aggregate id(s) duplicate detail cells.`);
   if (state.aggregateExpected) {
