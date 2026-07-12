@@ -1279,7 +1279,7 @@
     if (requestedEventId) {
       await selectEvent(requestedEventId, { silent: true });
     }
-    if (!state.selectedEvent) await selectFirstVisibleEvent({ keepCamera: true });
+    if (!state.selectedEvent) els.detailPanel?.setAttribute("data-open", "false");
   }
 
   async function loadYear(year) {
@@ -25404,6 +25404,7 @@
     if (!els.detailPanel) return;
     if (!state.selectedEvent) {
       if (utilityNetworkContextCanRender()) {
+        els.detailPanel.setAttribute("data-open", "true");
         els.detailEmpty.setAttribute("hidden", "");
         els.detailInner.removeAttribute("hidden");
         els.detailInner.innerHTML = renderUtilityContextOnlyDetail();
@@ -26173,7 +26174,7 @@
     const lens = activeMapLens();
     const searchNote = state.search ? ` Search: "${state.search}".` : "";
     const areaNote = state.areaFilter ? ` Area: "${areaFilterLabel()}".` : "";
-    setText(els.eventListMeta, `${city} / ${lens?.label || "active lens"} / ${state.year}. Timeline, layer, area, confidence, and inferred filters apply.${areaNote}${searchNote}`);
+    setText(els.eventListMeta, `${city} · ${state.year} · ${events.length} source-backed record${events.length === 1 ? "" : "s"}${areaNote}${searchNote}`);
 
     if (els.eventListMore) {
       els.eventListMore.hidden = limit >= events.length;
@@ -26534,10 +26535,10 @@
   }
 
   function searchPlaceholderForCity(cityId, city = "city") {
-    if (cityId === "nyc") return 'Search New York City records or areas... (try "Queens", "DOB", "hydrant")';
-    if (cityId === "london") return 'Search London records or areas... (try "Camden", "listed", "rail")';
-    if (cityId === "belfast") return 'Search Belfast records, areas, or postcodes... (try "BT1", "grand central", "cycle")';
-    return `Search source-backed changes in ${city}...`;
+    if (cityId === "nyc") return "Search New York City records, places, and sources";
+    if (cityId === "london") return "Search London records, places, and sources";
+    if (cityId === "belfast") return "Search Belfast records, places, and sources";
+    return `Search ${city} records, places, and sources`;
   }
 
   function areaPlaceholderForCity(cityId) {
@@ -26623,6 +26624,7 @@
     if (state.selectedEvent && state.selectedEvent.year !== next) {
       state.selectedEventId = null;
       state.selectedEvent = null;
+      els.detailPanel?.setAttribute("data-open", "false");
     }
     await loadYear(next);
     await loadLensYearsForTimeline(next);
@@ -26680,7 +26682,11 @@
     if (state.selectedEvent && events.some((event) => event.id === state.selectedEventId)) return;
     state.selectedEventId = null;
     state.selectedEvent = null;
-    await selectFirstVisibleEvent(opts);
+    els.detailPanel?.setAttribute("data-open", "false");
+    renderDetail();
+    renderEventList();
+    renderMarkers();
+    syncTopline();
   }
 
   async function ensureSelectionForCurrentView(opts = {}) {
@@ -26892,7 +26898,7 @@
     state.selectedEventId = null;
     state.selectedEvent = null;
     state.pendingCameraFocusEventId = null;
-    if (isMobileViewport()) els.detailPanel?.setAttribute("data-open", "false");
+    els.detailPanel?.setAttribute("data-open", "false");
     renderDetail();
     renderEventList();
     renderMarkers();
@@ -26919,15 +26925,8 @@
     }
     const events = visibleEventsForYear(state.year);
     if (state.selectedEvent?.year === state.year && events.some((event) => event.id === state.selectedEvent.id)) return;
-    const next = events.find((event) => event.category === category && event.confidence === "documented" && event.lngLat)
-      || events.find((event) => event.category === category && event.lngLat);
-    if (!next) {
-      clearSelectionState();
-      return;
-    }
-    state.selectedEventId = next.id;
-    state.selectedEvent = next;
-    state.pendingCameraFocusEventId = null;
+    clearSelectionState();
+    els.detailPanel?.setAttribute("data-open", "false");
   }
 
   // ---------------------------------------------------------------------------

@@ -96,6 +96,15 @@ async function guideSignalState(page) {
       && row?.status === "source_backed_records"
       && row?.visible_map_contract !== false
       && Number(row?.direct_event_count || 0) > 0;
+    const transportAccessContextCanRender = activeAspect === "transport-access"
+      && Boolean(state?.activeLayers?.has?.("transport"))
+      && (state?.transportStopFeatures || []).length > 0
+      && citywideScope
+      && state?.showInferred !== false
+      && !state?.search
+      && !state?.areaFilter
+      && Boolean(state?.activeAspectLayers?.has?.("stations_stops"))
+      && ["bus_network", "rail_network", "ferry_routes"].some((layerId) => state?.activeAspectLayers?.has?.(layerId));
     const economyContextCanRender = ["economy-land-use", "economy-vitality", "economy-gravity"].includes(activeAspect)
       && Boolean(state?.activeLayers?.has?.("economy"))
       && (state?.economyAnchorFeatures || []).length > 0
@@ -121,7 +130,7 @@ async function guideSignalState(page) {
       && matchingDetailCount > 0;
     return {
       activeAspect,
-      canRenderGuide: directCanRender || planningContextCanRender || civicContextCanRender || economyContextCanRender || transportNetworkContextCanRender,
+      canRenderGuide: directCanRender || planningContextCanRender || civicContextCanRender || economyContextCanRender || transportNetworkContextCanRender || transportAccessContextCanRender,
       guideFeatureCount: features.length,
       rendered,
       invalidFeatureCount: features.filter((feature) => {
@@ -583,6 +592,15 @@ async function runSmoke() {
     { timeout: 45000 }
   );
   await page.waitForTimeout(1200);
+  const overview = await atlasState(page);
+  assert(!overview.detailOpen, "Atlas should open as a citywide overview before a record is selected.");
+  await page.locator("#eventList .event-row").first().click();
+  await page.waitForFunction(
+    () => document.querySelector("#detailPanel")?.getAttribute("data-open") === "true"
+      && (document.querySelector("#detailInner")?.textContent || "").trim().length > 20,
+    null,
+    { timeout: 10000 }
+  );
   const initial = await atlasState(page);
 
   assert(initial.title === "OpenCityLog — A City Change Atlas", "Atlas page title changed or did not load.");

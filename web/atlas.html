@@ -36,7 +36,7 @@
   <div class="topbar panel">
     <div class="brand">
       <div class="brand-mark">OpenCity<em>Log</em></div>
-      <div class="brand-tag">v0.4 · alpha</div>
+      <div class="brand-tag">City change atlas</div>
     </div>
 
     <div class="city-switcher" id="citySwitcher">
@@ -49,7 +49,7 @@
 
     <div class="search" id="searchBox">
       <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4" stroke-linecap="round"/></svg>
-      <input id="searchInput" placeholder='Search changes in Belfast... (try "grand central", "cycle", "translink")' autocomplete="off" aria-label="Search source-backed records, areas, or source publishers" aria-describedby="searchHelp">
+      <input id="searchInput" placeholder="Search records, places, and sources" autocomplete="off" aria-label="Search source-backed records, areas, or source publishers" aria-describedby="searchHelp">
       <div id="searchHelp" class="sr-only">Search by record title, area name, source publisher, street, station, scheme, or local place alias. Examples update when the selected city changes.</div>
       <div class="search-results panel" id="searchResults" hidden></div>
     </div>
@@ -62,7 +62,7 @@
     </button>
     <button class="btn" id="changelogToggle" type="button" title="Show or hide the event changelog" aria-pressed="true">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M4 6h.01M4 12h.01M4 18h.01" stroke-linecap="round"/></svg>
-      Changelog
+      Change stream
     </button>
     <button class="btn" id="compareBtn" type="button" title="Compare source-backed record counts" aria-pressed="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><path d="M5 5v14M19 5v14"/><path d="M8 8h8M8 16h8"/></svg>
@@ -82,7 +82,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12" aria-hidden="true"><circle cx="12" cy="12" r="7"/><path d="M12 8v4l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
 
-  <!-- Layers panel (left) — overlay panel on by default -->
+  <!-- Map focus and filters -->
   <div class="layers panel" id="layersPanel" data-open="true">
     <div class="active-lens-card" id="activeLensCard">
       <div class="active-lens-icon" id="activeLensIcon" aria-hidden="true">T</div>
@@ -93,7 +93,7 @@
       </div>
     </div>
     <div class="layers-head">
-      <h3>Layers</h3>
+      <h3>Explore map</h3>
       <span class="count" id="layersCount">0/0 on</span>
     </div>
     <div class="map-lens" aria-labelledby="mapLensLabel">
@@ -107,35 +107,38 @@
     </div>
     <div class="layers-list" id="layersList"></div>
 
-    <div class="layer-controls">
-      <label class="confidence-row">
-        <span>Evidence</span>
-        <select id="confidenceFilter">
-          <option value="all">All confidence</option>
-          <option value="documented">Documented</option>
-          <option value="corroborated">Corroborated</option>
-          <option value="inferred">Inferred only</option>
-          <option value="disputed">Disputed</option>
-        </select>
-      </label>
-      <label class="area-row">
-        <span>Area</span>
-        <input id="areaFilterInput" list="areaFilterOptions" type="search" autocomplete="off" placeholder="Borough, ward, street">
-        <datalist id="areaFilterOptions"></datalist>
-      </label>
-      <label class="inferred-row">
-        <input type="checkbox" id="showInferredToggle" checked>
-        <span>Show inferred OSM visibility</span>
-      </label>
-      <div class="coverage-note" id="coverageNote"></div>
-    </div>
+    <details class="explore-filters">
+      <summary>Filters</summary>
+      <div class="layer-controls">
+        <label class="confidence-row">
+          <span>Evidence</span>
+          <select id="confidenceFilter">
+            <option value="all">All confidence</option>
+            <option value="documented">Documented</option>
+            <option value="corroborated">Corroborated</option>
+            <option value="inferred">Inferred only</option>
+            <option value="disputed">Disputed</option>
+          </select>
+        </label>
+        <label class="area-row">
+          <span>Area</span>
+          <input id="areaFilterInput" list="areaFilterOptions" type="search" autocomplete="off" placeholder="Borough, ward, street">
+          <datalist id="areaFilterOptions"></datalist>
+        </label>
+        <label class="inferred-row">
+          <input type="checkbox" id="showInferredToggle" checked>
+          <span>Show inferred OSM visibility</span>
+        </label>
+        <div class="coverage-note" id="coverageNote"></div>
+      </div>
+    </details>
   </div>
 
   <!-- Changelog panel (left) -->
   <section class="changelog panel" id="changelogPanel" data-open="true" aria-labelledby="changelogTitle">
     <div class="changelog-head">
       <div>
-        <div class="panel-kicker">Changelog</div>
+        <div class="panel-kicker">Change stream</div>
         <h3 id="changelogTitle">Source-backed records</h3>
       </div>
       <div class="changelog-actions" aria-label="Export filtered records">
@@ -190,8 +193,8 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M4 15l8 4 8-4"/><path d="M4 10l8 4 8-4"/><path d="M4 5l8 4 8-4"/></svg>
     </button>
   </div>
-  <!-- Detail panel (right) — overlay panel on by default, populated when an event is selected -->
-  <aside class="detail panel" id="detailPanel" data-open="true" role="region" aria-labelledby="detailTitle">
+  <!-- Detail panel is revealed after a deliberate record selection. -->
+  <aside class="detail panel" id="detailPanel" data-open="false" role="region" aria-labelledby="detailTitle">
     <div class="detail-empty" id="detailEmpty">
       <div class="detail-empty-eyebrow">Selected change</div>
       <div class="detail-empty-title" id="detailEmptyTitle">Pick a change on the map or in search</div>

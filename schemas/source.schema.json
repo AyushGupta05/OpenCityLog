@@ -25,7 +25,7 @@
     "title": {"type": "string"},
     "provider": {"type": "string"},
     "source_family": {"type": "string"},
-    "city_ids": {"type": "array", "items": {"type": "string"}},
+    "city_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true},
     "licence": {"type": "string"},
     "licence_url": {"type": "string"},
     "coverage_years": {
@@ -34,12 +34,12 @@
       "properties": {
         "start": {"type": "integer", "minimum": 1700},
         "end": {"type": "integer", "minimum": 1700},
-        "observed": {"type": "array", "items": {"type": "integer", "minimum": 1700}}
+        "observed": {"type": "array", "items": {"type": "integer", "minimum": 1700}, "uniqueItems": true}
       }
     },
     "update_frequency": {"type": "string"},
     "url": {"type": "string"},
-    "local_paths": {"type": "array", "items": {"type": "string"}},
+    "local_paths": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
     "reliability": {
       "type": "string",
       "enum": ["strong", "usable_with_caveats", "risky", "reject"]
@@ -50,6 +50,6 @@
     },
     "attribution_text": {"type": "string", "minLength": 1},
     "provenance_notes": {"type": "string"},
-    "caveats": {"type": "array", "items": {"type": "string"}}
+    "caveats": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1}
   }
 }

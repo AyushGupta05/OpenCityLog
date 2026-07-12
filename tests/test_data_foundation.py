@@ -104,6 +104,37 @@ class DataFoundationTests(unittest.TestCase):
             self.assertNotEqual(completed.returncode, 0)
             self.assertIn("missing attribution_text", completed.stderr)
 
+    def test_schema_rejects_incomplete_affected_area(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            payload["events"][0]["affected_area"] = {}
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/validate_city_atlas_schema.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("affected_area.label is required", completed.stderr)
+
+    def test_schema_rejects_duplicate_event_source_ids(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_fixture_project(root)
+            run_node(root, "scripts/build_data.js")
+
+            chunk_path = root / "web" / "data" / "city-atlas" / "cities" / "belfast" / "events_2024.json"
+            payload = read_json(chunk_path)
+            source_id = payload["events"][0]["source_ids"][0]
+            payload["events"][0]["source_ids"] = [source_id, source_id]
+            chunk_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+            completed = run_node(root, "scripts/validate_city_atlas_schema.js", check=False)
+            self.assertNotEqual(completed.returncode, 0)
+            self.assertIn("source_ids has duplicate item", completed.stderr)
+
     def test_verify_rejects_bad_event_source_reference(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
