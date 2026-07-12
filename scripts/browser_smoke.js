@@ -601,6 +601,10 @@ async function runSmoke() {
     null,
     { timeout: 10000 }
   );
+  await page.waitForFunction(() => {
+    const rect = document.querySelector("#detailPanel")?.getBoundingClientRect();
+    return rect && rect.left >= 0 && rect.right <= window.innerWidth;
+  }, null, { timeout: 10000 });
   const initial = await atlasState(page);
 
   assert(initial.title === "OpenCityLog — A City Change Atlas", "Atlas page title changed or did not load.");
@@ -1185,6 +1189,13 @@ async function runSmoke() {
   await page.locator("#recenterBtn").click();
   await page.waitForTimeout(800);
 
+  await page.locator("#eventList .event-row").first().click();
+  await page.waitForFunction(
+    () => document.querySelector("#detailPanel")?.getAttribute("data-open") === "true"
+      && document.querySelector(".detail-body")?.scrollHeight > document.querySelector(".detail-body")?.clientHeight,
+    null,
+    { timeout: 10000 }
+  );
   const detailScroll = await page.evaluate(() => {
     const detailBody = document.querySelector(".detail-body");
     if (!detailBody) return { hasBody: false };
@@ -1208,6 +1219,7 @@ async function runSmoke() {
     null,
     { timeout: 20000 }
   );
+  await page.waitForFunction(() => !window.BimsAtlas?.state?.map?.isMoving?.(), null, { timeout: 10000 });
 
   const scrubRect = await page.locator("#tlScrub").boundingBox();
   assert(scrubRect, "Timeline scrub target is missing.");

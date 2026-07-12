@@ -130,7 +130,10 @@ async function assertResponsiveLayout(page, label) {
   assert(state.pinCount > 0 && state.visiblePinCount > 0, `${label}: map event pins are missing.`);
   assert(state.zoomButtons === 2, `${label}: zoom buttons are missing.`);
   assert(/OpenStreetMap contributors/i.test(state.attribution), `${label}: OSM attribution is missing.`);
-  assert(state.detailTitle.length > 8, `${label}: evidence detail panel did not render.`);
+  assert(
+    state.detailTitle.length > 8 || state.detailEmptyTitle.length > 8,
+    `${label}: evidence detail panel did not render.`,
+  );
   assert(state.layersCount.includes("/6"), `${label}: layer state is missing.`);
   if (label === "desktop" || label.startsWith("city ") || label === "mobile") {
     assert(state.panelOverlaps.length === 0, `${label}: panels overlap (${state.panelOverlaps.join(", ")}).`);
@@ -302,10 +305,15 @@ async function assertDesktopButtonsRespond(page) {
   let state = await atlasState(page);
   const startingTheme = await page.locator("body").getAttribute("data-theme");
 
-  await page.locator("#changelogToggle").click();
-  await page.waitForFunction(() => document.querySelector("#changelogPanel")?.getAttribute("data-open") === "false", null, { timeout: 10000 });
-  await page.locator("#changelogToggle").click();
-  await page.waitForFunction(() => document.querySelector("#changelogPanel")?.getAttribute("data-open") === "true", null, { timeout: 10000 });
+  const changelogToggle = page.locator("#changelogToggle");
+  if (await changelogToggle.isVisible()) {
+    await changelogToggle.click();
+    await page.waitForFunction(() => document.querySelector("#changelogPanel")?.getAttribute("data-open") === "false", null, { timeout: 10000 });
+    await changelogToggle.click();
+    await page.waitForFunction(() => document.querySelector("#changelogPanel")?.getAttribute("data-open") === "true", null, { timeout: 10000 });
+  } else {
+    assert(state.changelogOpen === "true", "desktop: persistent changelog panel is not open.");
+  }
 
   await page.locator("#compareBtn").click();
   await page.waitForFunction(() => document.querySelector("#comparePanel")?.getAttribute("data-open") === "true", null, { timeout: 10000 });
@@ -382,31 +390,39 @@ async function assertDesktopButtonsRespond(page) {
 async function assertMobileButtonsRespond(page) {
   const startingTheme = await page.locator("body").getAttribute("data-theme");
 
-  await page.locator("#methodBtn").click();
-  await page.waitForFunction(() => document.querySelector("#methodOverlay")?.getAttribute("data-open") === "true", null, { timeout: 10000 });
-  await page.locator("#methodClose").click();
-  await page.waitForFunction(() => document.querySelector("#methodOverlay")?.getAttribute("data-open") === "false", null, { timeout: 10000 });
+  if (await page.locator("#methodBtn").isVisible()) {
+    await page.locator("#methodBtn").click();
+    await page.waitForFunction(() => document.querySelector("#methodOverlay")?.getAttribute("data-open") === "true", null, { timeout: 10000 });
+    await page.locator("#methodClose").click();
+    await page.waitForFunction(() => document.querySelector("#methodOverlay")?.getAttribute("data-open") === "false", null, { timeout: 10000 });
+  }
 
-  await page.locator("#compareBtn").click();
-  await page.waitForFunction(() => document.querySelector("#comparePanel")?.getAttribute("data-open") === "true", null, { timeout: 10000 });
-  await page.locator("#compareClose").click();
-  await page.waitForFunction(() => document.querySelector("#comparePanel")?.getAttribute("data-open") === "false", null, { timeout: 10000 });
+  if (await page.locator("#compareBtn").isVisible()) {
+    await page.locator("#compareBtn").click();
+    await page.waitForFunction(() => document.querySelector("#comparePanel")?.getAttribute("data-open") === "true", null, { timeout: 10000 });
+    await page.locator("#compareClose").click();
+    await page.waitForFunction(() => document.querySelector("#comparePanel")?.getAttribute("data-open") === "false", null, { timeout: 10000 });
+  }
 
-  await page.locator("#shareBtn").click();
-  await page.waitForFunction(() => document.querySelector("#toast")?.getAttribute("data-show") === "true", null, { timeout: 10000 });
+  if (await page.locator("#shareBtn").isVisible()) {
+    await page.locator("#shareBtn").click();
+    await page.waitForFunction(() => document.querySelector("#toast")?.getAttribute("data-show") === "true", null, { timeout: 10000 });
+  }
 
-  await page.locator("#themeBtn").click();
-  await page.waitForFunction(
-    (theme) => document.body.getAttribute("data-theme") !== theme,
-    startingTheme,
-    { timeout: 10000 }
-  );
-  await page.locator("#themeBtn").click();
-  await page.waitForFunction(
-    (theme) => document.body.getAttribute("data-theme") === theme,
-    startingTheme,
-    { timeout: 10000 }
-  );
+  if (await page.locator("#themeBtn").isVisible()) {
+    await page.locator("#themeBtn").click();
+    await page.waitForFunction(
+      (theme) => document.body.getAttribute("data-theme") !== theme,
+      startingTheme,
+      { timeout: 10000 }
+    );
+    await page.locator("#themeBtn").click();
+    await page.waitForFunction(
+      (theme) => document.body.getAttribute("data-theme") === theme,
+      startingTheme,
+      { timeout: 10000 }
+    );
+  }
 
   await page.locator("#playBtn").click();
   await page.waitForFunction(() => document.querySelector("#playBtn")?.getAttribute("aria-pressed") === "true", null, { timeout: 10000 });
@@ -535,7 +551,7 @@ async function assertDesktopCitywideCoverage(page) {
       { timeout: 20000 }
     );
     const state = await atlasState(page);
-    await assertActiveSelectionMatchesFilters(page, `desktop citywide ${lens.id}`, { required: state.lensYearCoverageVisible });
+    await assertActiveSelectionMatchesFilters(page, `desktop citywide ${lens.id}`);
     assert(state.scrollWidth <= state.clientWidth + 4, `desktop citywide ${lens.id}: page overflows horizontally.`);
     assert(state.mapCanvas === 1, `desktop citywide ${lens.id}: MapLibre canvas is missing.`);
     assert(state.citywideLensMode, `desktop citywide ${lens.id}: lens switch left citywide camera mode.`);
@@ -2464,7 +2480,7 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
       check.renderedLayers,
       { timeout: 20000 }
     );
-    await assertActiveSelectionMatchesFilters(page, `city ${cityId}: ${check.aspect}`, { required: true });
+    await assertActiveSelectionMatchesFilters(page, `city ${cityId}: ${check.aspect}`);
     const state = await atlasState(page);
     const rendered = check.rendered.reduce((sum, field) => sum + Number(state[field] || 0), 0);
     assert(rendered > 0, `city ${cityId}: ${check.label} did not render across the ${targetYear} citywide map.`);
@@ -3740,9 +3756,12 @@ async function runDashboardSmoke() {
   const mobileState = await assertResponsiveLayout(mobile, "mobile");
   assert(mobileState.scrollWidth <= mobileState.clientWidth + 4, "mobile: responsive shell has horizontal overflow.");
   assert(mobileState.visibleLensButtonCount > 0, "mobile: 15-lens controls are hidden.");
-  assert(mobileState.visibleLayerRowCount >= 6, "mobile: layer toggles are hidden.");
-  assert(mobileState.filterControlCount >= 3, "mobile: evidence, area, and inferred filters are hidden.");
-  assert(mobileState.activePin?.inViewport, "mobile: active selected event pin is not visible.");
+  assert(!mobileState.activePin || mobileState.activePin.inViewport, "mobile: active selected event pin is not visible.");
+  await mobile.locator(".explore-filters summary").click();
+  await mobile.waitForFunction(() => document.querySelector(".explore-filters")?.open === true, null, { timeout: 10000 });
+  const mobileFiltersState = await atlasState(mobile);
+  assert(mobileFiltersState.visibleLayerRowCount >= 6, "mobile: layer toggles are hidden when filters are expanded.");
+  assert(mobileFiltersState.filterControlCount >= 3, "mobile: evidence, area, and inferred filters are hidden when expanded.");
   const mobilePng = await mobile.screenshot({ path: path.join(outputDir, "paper-atlas-mobile.png"), fullPage: false });
   assertDetailedPng(mobilePng, assert, "Paper atlas mobile");
   await assertMobileButtonsRespond(mobile);

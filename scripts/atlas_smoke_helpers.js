@@ -23,7 +23,7 @@ function ensureOutputDir() {
 async function waitForPaperAtlas(page, options = {}) {
   const { requirePins = true } = options;
   await page.waitForSelector("#map .maplibregl-canvas", { timeout: 45000 });
-  await page.waitForSelector("#activeLensCard", { timeout: 45000 });
+  await page.waitForSelector("#activeLensCard", { state: "attached", timeout: 45000 });
   await page.waitForSelector("#layersList .layer-row", { state: "attached", timeout: 45000 });
   if (requirePins) await page.waitForSelector(".pin", { timeout: 45000 });
   await page.waitForFunction(
@@ -203,6 +203,7 @@ async function atlasState(page) {
       visibleLayerRowCount: [...document.querySelectorAll(".layer-row")].filter(elementVisible).length,
       filterControlCount: ["#confidenceFilter", "#areaFilterInput", "#showInferredToggle"].filter((selector) => elementVisible(document.querySelector(selector))).length,
       detailTitle: document.querySelector(".detail-title")?.textContent.trim() || "",
+      detailEmptyTitle: document.querySelector("#detailEmptyTitle")?.textContent.trim() || "",
       detailOpen: !document.querySelector("#detailInner")?.hasAttribute("hidden"),
       detailLensEvidenceRows: document.querySelectorAll("#detailInner .lens-evidence-row").length,
       detailEvidenceButtons: document.querySelectorAll("#detailInner .evidence-event").length,

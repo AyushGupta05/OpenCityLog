@@ -7387,6 +7387,7 @@
     updateLensDetailLayers();
     updateTransportEventLensLayers();
     renderLayers();
+    renderLensLegend();
     renderTimeline();
   }
 

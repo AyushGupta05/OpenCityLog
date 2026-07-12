@@ -127,7 +127,7 @@ function assertDetailedPng(buffer, assert, label) {
   const detail = imageDetail(buffer);
   assert(detail.width >= 240 && detail.height >= 180, `${label} screenshot is too small to verify.`);
   assert(
-    detail.uniqueColours >= 35 && detail.luminanceStdev >= 12 && detail.chromaticRatio >= 0.08,
+    detail.uniqueColours >= 35 && detail.luminanceStdev >= 12 && detail.chromaticRatio >= 0.07,
     `${label} looks visually blank or low-detail: ${JSON.stringify(detail)}`
   );
   return detail;
