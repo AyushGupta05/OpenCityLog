@@ -59,6 +59,17 @@ a Mapbox token for open-source deployment. Retired proof-flow,
 branch-simulation, forecast, and legacy replay-manifest runtime paths are
 guarded by `npm run verify`.
 
+The working atlas opens on Belfast's 2024 planning and built-environment
+register. Desktop uses a persistent change register, map, evidence timeline,
+and selected-change dossier; mobile uses a map, a register sheet, and a
+scrollable evidence dossier. Inferred OpenStreetMap visibility is opt-in.
+
+The **Before & after** view compares evidence attached to the selected record.
+If a dated pre-change condition is not linked, the interface says `Not linked`
+instead of substituting current basemap context or a record-count delta. The
+selected record, its sources, licence, retrieval metadata, and limitations
+remain available for review and export.
+
 Belfast also has a generated detail layer at
 `web/data/city-atlas/cities/belfast/detail_layers.geojson`. It renders
 OSM-derived road centerlines and building footprints as mapped in OSM over the

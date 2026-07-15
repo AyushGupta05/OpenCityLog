@@ -47,6 +47,26 @@
       "enum": ["day", "month", "year", "range", "unknown"]
     },
     "source_date_field": {"type": "string", "minLength": 1},
+    "before_state": {
+      "type": ["string", "null"],
+      "minLength": 12,
+      "description": "A dated, source-linked description of the pre-change condition. Omit or use null when no baseline is linked; never infer this from the current basemap."
+    },
+    "after_state": {
+      "type": ["string", "null"],
+      "minLength": 12,
+      "description": "A source-linked description of the recorded change or post-change condition. This must not imply an outcome beyond the cited evidence."
+    },
+    "documented_rationale": {
+      "type": ["string", "null"],
+      "minLength": 12,
+      "description": "Published reason or intent stated by a linked source. Omit or use null when intent is not documented; do not infer cause."
+    },
+    "record_type": {
+      "type": ["string", "null"],
+      "minLength": 3,
+      "description": "Source-backed event type, decision, or stage normalized from a structured source field. Do not derive this value from free-text keyword matches."
+    },
     "category": {"type": "string"},
     "lens": {"type": "string"},
     "geometry": {

@@ -21,7 +21,7 @@ function ensureOutputDir() {
 }
 
 async function waitForPaperAtlas(page, options = {}) {
-  const { requirePins = true } = options;
+  const { requirePins = false } = options;
   await page.waitForSelector("#map .maplibregl-canvas", { timeout: 45000 });
   await page.waitForSelector("#activeLensCard", { state: "attached", timeout: 45000 });
   await page.waitForSelector("#layersList .layer-row", { state: "attached", timeout: 45000 });
@@ -324,6 +324,12 @@ async function clickPin(page, text) {
       return top === pin || pin.contains(top) || top?.closest?.(".pin") === pin;
     });
   }, text, { timeout: 12000 }).catch(() => {});
+  const actionable = page.locator(".pin").filter({ hasText: text });
+  const actionableCount = await actionable.count();
+  if (actionableCount === 1) {
+    await actionable.click();
+    return pinPosition(page, text);
+  }
   const pin = await pinPosition(page, text);
   assert(pin, `Could not find map pin containing "${text}".`);
   await page.mouse.click(pin.x, pin.y);

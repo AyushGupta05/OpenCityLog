@@ -107,7 +107,9 @@
     },
   ];
   const MAP_LENS_BY_ID = new Map(MAP_LENSES.map((lens) => [lens.id, lens]));
-  const DEFAULT_MAP_LENS = "transport";
+  // Open on the evidence-rich built-environment register. Transport proxy
+  // overlays remain available, but they are not the product's first impression.
+  const DEFAULT_MAP_LENS = "built_environment";
   const LENS_ASPECTS = [
     {
       id: "transport-speed",
@@ -744,7 +746,7 @@
     activeAspect: DEFAULT_LENS_ASPECT_BY_CATEGORY[DEFAULT_MAP_LENS],
     activeAspectLayers: new Set(),
     confidenceFilter: "all",
-    showInferred: true,
+    showInferred: false,
     areaFilter: "",
     areaFilterTimelineLoading: false,
     search: "",
@@ -766,6 +768,7 @@
     playing: false,
     playRaf: null,
     map: null,
+    mapResizeObserver: null,
     mapReady: false,
     markers: new Map(),                // eventId -> maplibregl.Marker
     theme: "light",
@@ -1033,7 +1036,7 @@
       state.areaFilter ? url.searchParams.set("area", state.areaFilter) : url.searchParams.delete("area");
       state.search ? url.searchParams.set("q", state.search) : url.searchParams.delete("q");
       state.confidenceFilter !== "all" ? url.searchParams.set("confidence", state.confidenceFilter) : url.searchParams.delete("confidence");
-      state.showInferred ? url.searchParams.delete("inferred") : url.searchParams.set("inferred", "0");
+      state.showInferred ? url.searchParams.set("inferred", "1") : url.searchParams.delete("inferred");
       await copyText(url.toString(), "Permalink copied - view shared with city, year, lens, and filters");
     });
 
@@ -1183,7 +1186,7 @@
     }
     state.activeAspect = startupAspectForCoverage(state.activeAspect, state.activeLens, state.year, Boolean(requestedLensParam));
     state.activeLens = LENS_ASPECT_BY_ID.get(state.activeAspect)?.category || state.activeLens;
-    if (!hasRequestedYear && !aspectHasVisibleCoverageForYear(state.activeAspect, state.year)) {
+    if (requestedLensParam && !hasRequestedYear && !aspectHasVisibleCoverageForYear(state.activeAspect, state.year)) {
       const fallback = startupLensYearForCoverage(state.activeAspect, state.activeLens, state.year, Boolean(requestedLensParam));
       if (fallback) {
         state.year = fallback.year;
@@ -1198,7 +1201,7 @@
     state.confidenceFilter = ["all", "documented", "corroborated", "inferred", "disputed"].includes(requestedConfidence)
       ? requestedConfidence
       : "all";
-    state.showInferred = params.get("inferred") !== "0";
+    state.showInferred = params.get("inferred") === "1";
     state.search = requestedSearch;
 
     state.loadedEvents.clear();
@@ -1277,6 +1280,14 @@
     renderMarkers();
     setAppStatus("");
     if (requestedEventId) {
+      const requestedEvent = state.eventById.get(requestedEventId);
+      if (!params.has("inferred") && requestedEvent?.confidence === "inferred") {
+        state.showInferred = true;
+        if (els.showInferredToggle) els.showInferredToggle.checked = true;
+        renderAll();
+        updateTimeDependentMapState();
+        renderMarkers();
+      }
       await selectEvent(requestedEventId, { silent: true });
     }
     if (!state.selectedEvent) els.detailPanel?.setAttribute("data-open", "false");
@@ -1336,6 +1347,10 @@
       year: Number(props.year || fallbackYear),
       effectiveDate: props.effective_date || "",
       effectiveDateRange: props.effective_date_range || null,
+      beforeState: cleanSummary(props.before_state || props.before_summary || ""),
+      afterState: cleanSummary(props.after_state || props.after_summary || ""),
+      documentedRationale: cleanSummary(props.documented_rationale || props.rationale || props.reason || ""),
+      recordType: cleanSummary(props.record_type || ""),
       datePrecision: props.date_precision || "",
       sourceDateField: props.source_date_field || "",
       category: props.category || "built_environment",
@@ -1549,6 +1564,10 @@
       maxZoom: 18,
       attributionControl: false,
     });
+    if (!state.mapResizeObserver && typeof ResizeObserver === "function") {
+      state.mapResizeObserver = new ResizeObserver(() => state.map?.resize?.());
+      state.mapResizeObserver.observe(els.map);
+    }
     state.map.addControl(new window.maplibregl.NavigationControl({
       showCompass: true,
       showZoom: true,
@@ -1607,6 +1626,12 @@
   function cityBoundsPadding() {
     const width = window.innerWidth || 0;
     const height = window.innerHeight || 0;
+    const mapRect = state.map?.getContainer?.()?.getBoundingClientRect?.();
+    if (mapRect?.width && mapRect?.height) {
+      const horizontal = Math.max(16, Math.min(44, Math.floor(mapRect.width * 0.06)));
+      const vertical = Math.max(16, Math.min(44, Math.floor(mapRect.height * 0.07)));
+      return { top: vertical, right: horizontal, bottom: vertical, left: horizontal };
+    }
     if (width <= 760) return { top: 128, right: 18, bottom: 312, left: 18 };
     if (width <= 1100) return { top: 116, right: 380, bottom: 210, left: 280 };
     const panelRect = (selector) => {
@@ -1856,8 +1881,9 @@
         const id = el.dataset.eventId || event.id;
         selectEvent(id);
       };
-      el.addEventListener("click", selectMarker);
-      addPressHandler(el.querySelector(".pin"), selectMarker);
+      const pinElement = el.querySelector(".pin");
+      pinElement?.addEventListener("click", selectMarker);
+      addPressHandler(pinElement, selectMarker);
       const marker = new window.maplibregl.Marker({ element: el, anchor: "center" })
         .setLngLat(event.lngLat)
         .addTo(state.map);
@@ -20844,7 +20870,46 @@
     if (state.search) {
       events = events.filter((event) => eventMatchesSearchQuery(event, state.search));
     }
-    return events;
+    return [...events].sort(compareEventRegisterOrder);
+  }
+
+  function compareEventRegisterOrder(left, right) {
+    const leftDate = String(left.effectiveDate || `${left.year}-00-00`);
+    const rightDate = String(right.effectiveDate || `${right.year}-00-00`);
+    return rightDate.localeCompare(leftDate)
+      || String(left.area || "").localeCompare(String(right.area || ""))
+      || String(left.title || "").localeCompare(String(right.title || ""));
+  }
+
+  function eventRecordType(event) {
+    if (event?.recordType) return event.recordType;
+    const categoryLabels = {
+      built_environment: "Built-environment record",
+      transport: "Transport record",
+      civic_services: "Civic-services record",
+      economy: "Economic record",
+      utilities: "Utility record",
+      environment: "Environmental record",
+    };
+    return categoryLabels[event?.category] || "Source-backed change record";
+  }
+
+  function eventDateDisplay(event) {
+    const value = String(event?.effectiveDate || event?.year || "Date unknown");
+    const match = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!match) return value;
+    const [, year, month, day] = match;
+    return `${day} ${["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][Number(month) - 1] || month} ${year}`;
+  }
+
+  function eventAreaDisplay(event) {
+    const area = String(event?.area || "").trim();
+    if (!area) return event?.lngLat ? "Mapped site" : "Location not stated";
+    const normalize = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    if (normalize(area) === normalize(event?.title)) {
+      return event?.lngLat ? "Mapped site" : "Location not separately normalized";
+    }
+    return area;
   }
 
   // ---------------------------------------------------------------------------
@@ -22088,11 +22153,21 @@
     const sparseMapCoverageNote = !missingLensCoverage ? selectedYearSparseMapCoverageNote(lens) : "";
     if (missingLensCoverage) parts.push(lensStatus?.note || missingSameCategoryCoverageNote(lens));
     if (sparseMapCoverageNote) parts.push(sparseMapCoverageNote);
+    const productionWorkspace = Boolean(document.querySelector('link[href*="production.css"]'));
+    if (productionWorkspace && !parts.length) {
+      if (state.showInferred && state.activeAspect === "transport-access") {
+        parts.push("Current mapped transport stop/station context is shown for orientation; it is not selected-year change evidence.");
+      } else if (state.showInferred && ["civic-access-gaps", "civic-catchment", "civic-demand"].includes(state.activeAspect)) {
+        parts.push("Current mapped civic-service context is shown for orientation; it is not selected-year change evidence.");
+      } else {
+        parts.push("Map marks show only records with map-eligible site geometry; evidence-only records remain available in this register.");
+      }
+    }
     const summary = state.availability?.summary;
     const status = summary?.status || state.cityMeta?.availability_status;
-    if (status) parts.push(`Coverage: ${status.replace(/_/g, " ")}`);
-    if (summary?.summary) parts.push(summary.summary);
-    if (state.cityId) parts.push("Citywide map bounds are shown; record coverage is source-backed and partial, not a complete history of every change.");
+    if (!productionWorkspace && status) parts.push(`Coverage: ${status.replace(/_/g, " ")}`);
+    if (!productionWorkspace && summary?.summary) parts.push(summary.summary);
+    if (!productionWorkspace && state.cityId) parts.push("Citywide map bounds are shown; record coverage is source-backed and partial, not a complete history of every change.");
     if (state.availabilityError) parts.push(`Availability metadata unavailable: ${state.availabilityError}`);
     if (state.lensYearCoverageError) parts.push(`Lens-year coverage metadata unavailable: ${state.lensYearCoverageError}`);
     const yearError = state.yearLoadErrors.get(state.year);
@@ -25419,6 +25494,19 @@
     }
     els.detailEmpty.setAttribute("hidden", "");
     els.detailInner.removeAttribute("hidden");
+    if (document.querySelector('link[href*="production.css"]')) {
+      const selectedRecord = state.selectedEvent;
+      const selectedSources = buildSourceRows(selectedRecord);
+      const selectedProvenance = buildProvenanceFacts(selectedRecord);
+      els.detailInner.innerHTML = renderProductionDossier(selectedRecord, selectedSources, selectedProvenance);
+      els.detailInner.querySelector(".detail-close")?.addEventListener("click", clearSelection);
+      els.detailInner.querySelector("#detailExportMarkdownAction")?.addEventListener("click", () => exportSelectedMarkdown());
+      els.detailInner.querySelector("#detailExportGeojson")?.addEventListener("click", () => exportSelectedGeojson());
+      els.detailInner.querySelector("#detailShare")?.addEventListener("click", () => copySelectedPermalink());
+      finalizeDetailAccessibility();
+      return;
+    }
+
     const e = state.selectedEvent;
     const layer = LAYER_BY_ID.get(e.category) || LAYERS[1];
     const context = buildLensContext(e);
@@ -25612,6 +25700,107 @@
     finalizeDetailAccessibility();
   }
 
+  function renderProductionDossier(event, sources, provenanceFacts) {
+    const confidence = confidenceDescriptor(event.confidence);
+    const recordType = eventRecordType(event);
+    const sourceCount = eventSourceCount(event);
+    const linkedSourceCount = sources.filter((source) => source.url).length;
+    const licensedSourceCount = sources.filter((source) => source.licence).length;
+    const retrievedSourceCount = sources.filter((source) => source.accessed).length;
+    const evidenceTraceable = sources.length > 0
+      && linkedSourceCount === sources.length
+      && licensedSourceCount === sources.length
+      && retrievedSourceCount === sources.length;
+    const mapStatus = event.lngLat ? "Mapped record" : "Location not mapped";
+    const summary = event.shortDescription || event.details || event.summary || event.title;
+    const caveats = event.caveats?.length
+      ? event.caveats
+      : ["No event-specific limitation text is normalized. Review the linked source before relying on this record."];
+    return `
+      <div class="detail-head production-dossier-head">
+        <button class="detail-close" type="button" aria-label="Close change dossier">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+        </button>
+        <div class="detail-eyebrow">Change dossier</div>
+        <div class="dossier-status-line">
+          <span data-confidence="${escapeAttr(event.confidence)}">${escapeHtml(confidence.label)}</span>
+          <span>${escapeHtml(recordType)}</span>
+        </div>
+        <h2 class="detail-title">${escapeHtml(event.title)}</h2>
+        <div class="detail-where">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="11" height="11" aria-hidden="true"><path d="M12 22s7-7.5 7-13a7 7 0 10-14 0c0 5.5 7 13 7 13z" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span>${escapeHtml(eventAreaDisplay(event))}</span>
+          ${event.lngLat ? `<span class="sep">·</span><span class="dossier-coordinates">${event.lngLat[1].toFixed(5)}, ${event.lngLat[0].toFixed(5)}</span>` : ""}
+        </div>
+      </div>
+      <div class="detail-body production-dossier-body" data-production-dossier="true">
+        <section class="detail-meaning-card">
+          <div class="detail-meaning-head">
+            <div>
+              <strong>What changed</strong>
+              <p>${escapeHtml(summary)}</p>
+            </div>
+          </div>
+          <dl class="detail-meaning-facts dossier-primary-facts">
+            <div><dt>Recorded date</dt><dd>${escapeHtml(eventDateDisplay(event))}${event.datePrecision ? ` · ${escapeHtml(event.datePrecision)} precision` : ""}</dd></div>
+            <div><dt>Record type</dt><dd>${escapeHtml(recordType)}</dd></div>
+            <div><dt>Evidence</dt><dd>${escapeHtml(confidence.label)} · ${sourceCount} source row${sourceCount === 1 ? "" : "s"}</dd></div>
+            <div><dt>Location</dt><dd>${escapeHtml(eventAreaDisplay(event))} · ${escapeHtml(mapStatus)}</dd></div>
+          </dl>
+          <div class="detail-meaning-note">${escapeHtml(event.confidence === "inferred"
+            ? "This date records mapped visibility, not a confirmed construction, opening, or completion date."
+            : "This record describes what the cited public evidence documents. It does not establish an outcome or causal effect.")}</div>
+        </section>
+
+        <section class="dossier-comparison">
+          ${renderDossierComparison(event)}
+        </section>
+
+        <section class="detail-section dossier-evidence-section">
+          <div class="dossier-section-head">
+            <h3>Evidence chain</h3>
+            <span data-completeness="${evidenceTraceable ? "complete" : "partial"}">${evidenceTraceable ? "Traceable" : "Review gaps"}</span>
+          </div>
+          <div class="evidence-health-grid" aria-label="Evidence metadata coverage">
+            <div><strong>${sources.length}</strong><span>source rows</span></div>
+            <div><strong>${linkedSourceCount}</strong><span>direct links</span></div>
+            <div><strong>${licensedSourceCount}</strong><span>licences stated</span></div>
+            <div><strong>${retrievedSourceCount}</strong><span>retrieval dates</span></div>
+          </div>
+          <div class="dossier-source-list">
+            ${sources.length ? sources.map(renderSourceRow).join("") : `<div class="dossier-gap">No normalized source rows are available. Do not cite this record until its source mapping is repaired.</div>`}
+          </div>
+        </section>
+
+        <section class="detail-section dossier-limitations-section">
+          <h3>Limits and review notes</h3>
+          <ul class="caveat-list">${caveats.map((caveat) => `<li>${escapeHtml(caveat)}</li>`).join("")}</ul>
+          <p class="correction-note">Found an error? Use the repository correction flow and include this event id: <code>${escapeHtml(event.id)}</code>.</p>
+        </section>
+
+        ${provenanceFacts.length ? `
+          <details class="dossier-provenance">
+            <summary>Technical provenance</summary>
+            <div class="provenance-grid">
+              ${provenanceFacts.map((fact) => `
+                <div class="provenance-row">
+                  <span>${escapeHtml(fact.label)}</span>
+                  <strong>${escapeHtml(fact.value)}</strong>
+                </div>
+              `).join("")}
+            </div>
+          </details>
+        ` : ""}
+
+        <div class="detail-actions dossier-actions">
+          <button class="btn" id="detailExportMarkdownAction" type="button">Export evidence brief</button>
+          ${event.geometry ? '<button class="btn" id="detailExportGeojson" type="button">Export GeoJSON</button>' : ""}
+          <button class="btn" id="detailShare" type="button">Copy record link</button>
+        </div>
+      </div>
+    `;
+  }
+
   function renderEvidenceOnlyDetail(event, context, confidence, sources, provenanceFacts) {
     const layer = LAYER_BY_ID.get(event.category) || LAYERS[1];
     const lens = context.lens;
@@ -25710,7 +25899,7 @@
     state.areaFilter ? url.searchParams.set("area", state.areaFilter) : url.searchParams.delete("area");
     state.search ? url.searchParams.set("q", state.search) : url.searchParams.delete("q");
     state.confidenceFilter !== "all" ? url.searchParams.set("confidence", state.confidenceFilter) : url.searchParams.delete("confidence");
-    state.showInferred ? url.searchParams.delete("inferred") : url.searchParams.set("inferred", "0");
+    state.showInferred ? url.searchParams.set("inferred", "1") : url.searchParams.delete("inferred");
     await copyText(url.toString(), "Event permalink copied");
   }
 
@@ -25724,12 +25913,20 @@
     const body = els.detailInner?.querySelector(".detail-body");
     const event = state.selectedEvent;
     if (!body || !event) return;
+    if (body.dataset.productionDossier === "true") return;
     const context = buildLensContext(event);
     if (!body.querySelector(".detail-meaning-card")) {
       const card = document.createElement("section");
       card.className = "detail-meaning-card";
       card.innerHTML = renderDetailMeaningCard(event, context);
       body.insertBefore(card, body.firstChild);
+    }
+    if (!body.querySelector(".dossier-comparison")) {
+      const comparison = document.createElement("section");
+      comparison.className = "dossier-comparison";
+      comparison.innerHTML = renderDossierComparison(event);
+      const meaningCard = body.querySelector(".detail-meaning-card");
+      body.insertBefore(comparison, meaningCard?.nextSibling || body.firstChild);
     }
     if (!context.spatialContextAvailable) return;
     if (!body.querySelector(".detail-cross-lens-card")) {
@@ -25741,6 +25938,36 @@
       body.insertBefore(card, meaningCard?.nextSibling || body.firstChild);
       wireCrossLensSnapshot(card);
     }
+  }
+
+  function renderDossierComparison(event) {
+    const sources = buildSourceRows(event);
+    const beforeKnown = Boolean(event.beforeState);
+    const afterSummary = event.afterState || event.shortDescription || event.summary || event.title;
+    const rationale = event.documentedRationale;
+    return `
+      <div class="dossier-section-head">
+        <h3>Before / after evidence</h3>
+        <span data-completeness="${beforeKnown ? "complete" : "partial"}">${beforeKnown ? "Linked comparison" : "Partial evidence"}</span>
+      </div>
+      <div class="dossier-state-grid">
+        <article>
+          <small>Before</small>
+          <strong>${beforeKnown ? "Source-linked baseline" : "Baseline not linked"}</strong>
+          <p>${escapeHtml(event.beforeState || "This record does not include a dated, source-linked description of the pre-change condition. Open the primary sources before asserting what existed before.")}</p>
+        </article>
+        <article>
+          <small>Recorded change · ${escapeHtml(event.effectiveDate || String(event.year))}</small>
+          <strong>${sources.length} source row${sources.length === 1 ? "" : "s"}</strong>
+          <p>${escapeHtml(afterSummary)}</p>
+        </article>
+      </div>
+      <div class="dossier-rationale">
+        <strong>Why this change was recorded</strong>
+        <p>${escapeHtml(rationale || "No documented planning rationale is normalized for this record. Open the primary source before describing intent or cause.")}</p>
+      </div>
+      <p class="dossier-comparison-note">The dated record supports the change shown here. It does not, by itself, establish a complete site baseline, outcome, or causal explanation.</p>
+    `;
   }
 
   function focusDetailPanel() {
@@ -26010,6 +26237,12 @@
       "",
       event.shortDescription || event.summary || "No plain-language summary supplied.",
       "",
+      "## Before and recorded change",
+      "",
+      `- Before evidence: ${event.beforeState || "No dated, source-linked baseline is normalized for this record."}`,
+      `- Recorded change: ${event.afterState || event.shortDescription || event.summary || event.title}`,
+      `- Documented reason or intent: ${event.documentedRationale || "No source-linked rationale is normalized; consult the primary source before describing intent or cause."}`,
+      "",
       "## Provenance",
       "",
       ...facts.map((fact) => `- ${fact.label}: ${fact.value}`),
@@ -26047,8 +26280,12 @@
       "year",
       "effective_date",
       "date_precision",
+      "record_type",
       "confidence",
       "area",
+      "before_evidence",
+      "recorded_change",
+      "documented_rationale",
       "source_ids",
       "source_count",
       "licenses",
@@ -26070,8 +26307,12 @@
         event.year,
         event.effectiveDate,
         event.datePrecision,
+        eventRecordType(event),
         event.confidence,
         event.area,
+        event.beforeState || "",
+        event.afterState || event.shortDescription || event.summary || event.title,
+        event.documentedRationale || "",
         event.sourceIds.join(";"),
         eventSourceCount(event),
         sources.map((source) => source.licence).filter(Boolean).join(";"),
@@ -26115,8 +26356,12 @@
             year: event.year,
             effective_date: event.effectiveDate || "",
             date_precision: event.datePrecision || "",
+            record_type: eventRecordType(event),
             confidence: event.confidence || "",
             area: event.area || "",
+            before_evidence: event.beforeState || "",
+            recorded_change: event.afterState || event.shortDescription || event.summary || event.title,
+            documented_rationale: event.documentedRationale || "",
             source_ids: event.sourceIds || [],
             source_urls: sources.map((source) => source.url).filter(Boolean),
             licences: sources.map((source) => source.licence).filter(Boolean),
@@ -26170,12 +26415,12 @@
       ? [selectedEvent, ...events.filter((event) => event.id !== selectedEvent.id).slice(0, Math.max(0, limit - 1))]
       : events.slice(0, limit);
 
-    setText(els.eventListCount, `${events.length} visible`);
+    setText(els.eventListCount, `${events.length.toLocaleString()} visible`);
     const city = shortCityName(state.city?.display_name);
     const lens = activeMapLens();
     const searchNote = state.search ? ` Search: "${state.search}".` : "";
     const areaNote = state.areaFilter ? ` Area: "${areaFilterLabel()}".` : "";
-    setText(els.eventListMeta, `${city} · ${state.year} · ${events.length} source-backed record${events.length === 1 ? "" : "s"}${areaNote}${searchNote}`);
+    setText(els.eventListMeta, `${city} · ${state.year} · ${events.length.toLocaleString()} source-backed record${events.length === 1 ? "" : "s"} · newest first${areaNote}${searchNote}`);
 
     if (els.eventListMore) {
       els.eventListMore.hidden = limit >= events.length;
@@ -26195,20 +26440,22 @@
       const sourceCount = eventSourceCount(event);
       const confidence = confidenceDescriptor(event.confidence).label;
       const sourceText = `${sourceCount} source${sourceCount === 1 ? "" : "s"}`;
+      const recordType = eventRecordType(event);
+      const date = eventDateDisplay(event);
       return `
-        <button class="event-row" type="button" data-event-id="${escapeAttr(event.id)}" data-active="${event.id === state.selectedEventId}" style="--accent:${layer.color}" aria-label="${escapeAttr(`${event.title}. ${event.year}. ${layer.label}. ${confidence}. ${sourceText}.`)}">
+        <button class="event-row" type="button" data-event-id="${escapeAttr(event.id)}" data-active="${event.id === state.selectedEventId}" style="--accent:${layer.color}" aria-label="${escapeAttr(`${event.title}. ${date}. ${recordType}. ${confidence}. ${sourceText}.`)}">
           <span class="event-dot" data-rank="${index + 1}" aria-hidden="true"></span>
           <span class="event-main">
             <span class="event-title">${escapeHtml(event.title)}</span>
             <span class="event-summary">${escapeHtml(event.subtitle || event.shortDescription || event.summary || "")}</span>
             <span class="event-tags" aria-hidden="true">
-              <span>${escapeHtml(layer.label)}</span>
+              <span>${escapeHtml(recordType)}</span>
               <span>${escapeHtml(confidence)}</span>
               <span>${escapeHtml(sourceText)}</span>
             </span>
-            <span class="event-meta">${escapeHtml(event.area || "Unknown area")}</span>
+            <span class="event-meta">${escapeHtml(eventAreaDisplay(event))}</span>
           </span>
-          <span class="event-year">${event.year}</span>
+          <span class="event-year">${escapeHtml(date)}</span>
         </button>`;
     }).join("");
 
@@ -27254,6 +27501,35 @@
     renderCompareYearOptions();
     const beforeYear = state.compareBeforeYear || compareDefaultBeforeYear();
     const afterYear = state.compareAfterYear || state.year;
+    const selected = state.selectedEvent;
+    if (selected && els.compareStats) {
+      const sourceRows = buildSourceRows(selected);
+      els.compareStats.innerHTML = `
+        <div class="compare-selected-head">
+          <span>Selected change</span>
+          <strong>${escapeHtml(selected.title)}</strong>
+          <small>${escapeHtml(eventAreaDisplay(selected))}</small>
+        </div>
+        <div class="compare-state-grid">
+          <article>
+            <span>Before evidence</span>
+            <strong>${selected.beforeState ? "Source-linked baseline" : "Not linked"}</strong>
+            <p>${escapeHtml(selected.beforeState || "No dated pre-change condition is linked to this event. Open the primary source before making a before-state claim.")}</p>
+          </article>
+          <article>
+            <span>Recorded change</span>
+            <strong>${escapeHtml(selected.effectiveDate || String(selected.year))}</strong>
+            <p>${escapeHtml(selected.afterState || selected.shortDescription || selected.summary || selected.title)}</p>
+          </article>
+        </div>
+        <div class="compare-conclusion">
+          <strong>Evidence coverage: ${selected.beforeState ? "linked before and after" : "partial"}</strong>
+          <p>${sourceRows.length} source row${sourceRows.length === 1 ? "" : "s"} support the selected record. Missing baseline evidence is shown as missing, not inferred from the current map.</p>
+        </div>
+        <div class="compare-source-list">${sourceRows.map(renderSourceRow).join("")}</div>`;
+      setText(els.compareNote, "This comparison describes linked evidence only. It is not a prediction, impact score, or causal claim.");
+      return;
+    }
     const beforeCount = compareCountForYear(beforeYear);
     const afterCount = compareCountForYear(afterYear);
     const delta = afterCount - beforeCount;

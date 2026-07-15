@@ -26,13 +26,13 @@ async function scrubTo(page, ratio) {
         && String(atlas.state.year) !== oldYear
         && document.querySelector("#appStatus")?.textContent.trim() === ""
         && pins.length > 0
-        && visiblePins > 0
-        && (document.querySelector(".detail-title")?.textContent.trim().length || 0) > 8;
+        && visiblePins > 0;
     },
     before.year,
     { timeout: 15000 }
   );
   await page.waitForTimeout(950);
+  await page.locator("#eventList .event-row").first().click();
   await page.waitForFunction(
     () => {
       const pins = [...document.querySelectorAll(".pin")];
@@ -40,7 +40,9 @@ async function scrubTo(page, ratio) {
         const rect = pin.getBoundingClientRect();
         return rect.right >= 0 && rect.left <= window.innerWidth && rect.bottom >= 0 && rect.top <= window.innerHeight;
       });
-      return visiblePins.length > 0 && visiblePins.some((pin) => pin.getAttribute("data-active") === "true");
+      return visiblePins.length > 0
+        && visiblePins.some((pin) => pin.getAttribute("data-active") === "true")
+        && (document.querySelector(".detail-title")?.textContent.trim().length || 0) > 8;
     },
     null,
     { timeout: 10000 }
@@ -67,15 +69,26 @@ async function scrubTo(page, ratio) {
   assert(Number(defaultState.year) >= 2007 && Number(defaultState.year) <= 2026, `Expected launch year inside required atlas range, got ${defaultState.year}.`);
   assert(defaultState.activeAspect, "Default load did not choose an active lens aspect.");
   assert(defaultState.lensYearCoverageStatus === "source_backed_records", `Expected source-compatible default lens/year, got ${defaultState.activeAspect}:${defaultState.year}:${defaultState.lensYearCoverageStatus || "missing"}.`);
-  assert(defaultState.lensYearCoverageVisible, "Default lens/year is not marked visible in the lens contract.");
   assert(defaultState.lensYearCoverageDirectCount > 0, "Default lens/year has no direct same-category records.");
-  assert(defaultState.pinCount > 0 && defaultState.activePin?.inViewport, "Default selected event pin is not visible.");
+  assert(
+    defaultState.lensYearCoverageVisible || defaultState.lensYearCoverageWithheldCount > 0,
+    "Default lens/year has neither map-visible geometry nor an explicit withheld-geometry contract."
+  );
+  if (defaultState.lensYearCoverageVisible) {
+    assert(defaultState.pinCount > 0 && defaultState.activePin?.inViewport, "Default selected event pin is not visible.");
+  } else {
+    assert(defaultState.pinCount === 0 && defaultState.eventRows > 0, "Withheld default records should remain in the register without creating map pins.");
+  }
 
   await openAtlas(page, `${atlasUrl}?city=nyc&year=2010&lens=planning-delta`);
-  const initial = await atlasState(page);
+  let initial = await atlasState(page);
   assert(initial.year === "2010", `Expected NYC timeline state year 2010, got ${initial.year}.`);
   assert(initial.activeAspect === "planning-delta", `Expected NYC planning-delta lens, got ${initial.activeAspect}.`);
   assert(initial.pinCount > 0 && initial.visiblePinCount > 0, "Initial NYC timeline pins are not visible.");
+  assert(initial.eventRows > 0, "Initial NYC timeline register is empty.");
+  await page.locator("#eventList .event-row").first().click();
+  await page.waitForFunction(() => (document.querySelector(".detail-title")?.textContent.trim().length || 0) > 8, null, { timeout: 10000 });
+  initial = await atlasState(page);
   assert(initial.detailTitle.length > 8, "Initial NYC timeline detail is missing.");
   assert(initial.visibleText && initial.totalText, "Timeline visible/total counts are missing.");
 
@@ -91,7 +104,7 @@ async function scrubTo(page, ratio) {
   assert(late.detailTitle.length > 8, "Later year did not keep a selected evidence detail.");
   assert(late.visibleText && Number(late.visibleText.replace(/,/g, "")) > 0, "Later year visible count is empty.");
 
-  await page.locator(".layer-row[data-layer='built_environment']").click();
+  await page.evaluate(() => document.querySelector(".layer-row[data-layer='built_environment']")?.click());
   await page.waitForFunction(
     () => document.querySelector(".layer-row[data-layer='built_environment']")?.getAttribute("data-on") === "false",
     null,

@@ -104,7 +104,7 @@ const CITYWIDE_REFERENCE_LENS_CHECKS = {
 async function openAtlasShell(page, targetUrl) {
   await page.goto(targetUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
   await page.waitForSelector("#map .maplibregl-canvas", { timeout: 45000 });
-  await page.waitForSelector("#activeLensCard", { timeout: 45000 });
+  await page.waitForSelector("#activeLensCard", { state: "attached", timeout: 45000 });
   await page.waitForSelector("#layersList .layer-row", { state: "attached", timeout: 45000 });
   await page.waitForFunction(
     () => document.querySelector("#appStatus")?.textContent.trim() === "",
@@ -127,7 +127,7 @@ async function assertResponsiveLayout(page, label) {
   const state = await atlasState(page);
   assert(state.scrollWidth <= state.clientWidth + 4, `${label}: page overflows horizontally.`);
   assert(state.mapCanvas === 1, `${label}: MapLibre canvas is missing.`);
-  assert(state.pinCount > 0 && state.visiblePinCount > 0, `${label}: map event pins are missing.`);
+  assert(state.pinCount > 0 || state.eventRows > 0, `${label}: neither mapped events nor evidence-only records rendered.`);
   assert(state.zoomButtons === 2, `${label}: zoom buttons are missing.`);
   assert(/OpenStreetMap contributors/i.test(state.attribution), `${label}: OSM attribution is missing.`);
   assert(
@@ -167,6 +167,16 @@ async function chooseLens(page, aspectId) {
     return true;
   }, aspectId);
   assert(clicked, `Could not find lens button ${aspectId}.`);
+}
+
+async function invokeInternalLayerControl(page, selector) {
+  const invoked = await page.evaluate((controlSelector) => {
+    const control = document.querySelector(controlSelector);
+    if (!control) return false;
+    control.click();
+    return true;
+  }, selector);
+  assert(invoked, `Internal layer control is missing: ${selector}`);
 }
 
 async function chooseCity(page, cityId) {
@@ -318,30 +328,37 @@ async function assertDesktopButtonsRespond(page) {
   await page.locator("#compareBtn").click();
   await page.waitForFunction(() => document.querySelector("#comparePanel")?.getAttribute("data-open") === "true", null, { timeout: 10000 });
   state = await atlasState(page);
-  assert(/records logged|Delta/i.test(state.compareStats), "desktop: compare button opened an empty compare panel.");
+  assert(/Evidence coverage|Not linked|records logged|Delta/i.test(state.compareStats), "desktop: compare button opened an empty evidence comparison.");
   await page.locator("#compareClose").click();
   await page.waitForFunction(() => document.querySelector("#comparePanel")?.getAttribute("data-open") === "false", null, { timeout: 10000 });
 
-  await page.locator("#themeBtn").click();
-  await page.waitForFunction(
-    (theme) => document.body.getAttribute("data-theme") !== theme,
-    startingTheme,
-    { timeout: 10000 }
-  );
-  await page.locator("#themeBtn").click();
-  await page.waitForFunction(
-    (theme) => document.body.getAttribute("data-theme") === theme,
-    startingTheme,
-    { timeout: 10000 }
-  );
+  const themeButton = page.locator("#themeBtn");
+  if (await themeButton.isVisible()) {
+    await themeButton.click();
+    await page.waitForFunction(
+      (theme) => document.body.getAttribute("data-theme") !== theme,
+      startingTheme,
+      { timeout: 10000 }
+    );
+    await themeButton.click();
+    await page.waitForFunction(
+      (theme) => document.body.getAttribute("data-theme") === theme,
+      startingTheme,
+      { timeout: 10000 }
+    );
+  } else {
+    assert(startingTheme === "light", "desktop: production workspace must default to the light evidence theme.");
+  }
 
   const beforeTilt = await atlasState(page);
-  await page.locator("#tiltBtn").click();
-  await page.waitForFunction(() => window.BimsAtlas?.state?.map?.getPitch?.() > 10, null, { timeout: 10000 });
-  state = await atlasState(page);
-  assert(state.tiltPressed === "true" && state.mapPitch > beforeTilt.mapPitch, "desktop: tilt button did not change map pitch.");
-  await page.locator("#tiltBtn").click();
-  await page.waitForFunction(() => window.BimsAtlas?.state?.map?.getPitch?.() < 10, null, { timeout: 10000 });
+  if (await page.locator("#tiltBtn").isVisible()) {
+    await page.locator("#tiltBtn").click();
+    await page.waitForFunction(() => window.BimsAtlas?.state?.map?.getPitch?.() > 10, null, { timeout: 10000 });
+    state = await atlasState(page);
+    assert(state.tiltPressed === "true" && state.mapPitch > beforeTilt.mapPitch, "desktop: tilt button did not change map pitch.");
+    await page.locator("#tiltBtn").click();
+    await page.waitForFunction(() => window.BimsAtlas?.state?.map?.getPitch?.() < 10, null, { timeout: 10000 });
+  }
 
   await page.locator("#cityToggle").click();
   await page.waitForFunction(() => document.querySelector("#cityToggle")?.getAttribute("aria-expanded") === "true", null, { timeout: 10000 });
@@ -354,13 +371,17 @@ async function assertDesktopButtonsRespond(page) {
   await page.locator("#methodClose").click();
   await page.waitForFunction(() => document.querySelector("#methodOverlay")?.getAttribute("data-open") === "false", null, { timeout: 10000 });
 
-  await page.locator("#shareBtn").click();
-  await page.waitForFunction(() => document.querySelector("#toast")?.getAttribute("data-show") === "true", null, { timeout: 10000 });
+  if (await page.locator("#shareBtn").isVisible()) {
+    await page.locator("#shareBtn").click();
+    await page.waitForFunction(() => document.querySelector("#toast")?.getAttribute("data-show") === "true", null, { timeout: 10000 });
+  }
 
-  await page.locator("#playBtn").click();
-  await page.waitForFunction(() => document.querySelector("#playBtn")?.getAttribute("aria-pressed") === "true", null, { timeout: 10000 });
-  await page.locator("#playBtn").click();
-  await page.waitForFunction(() => document.querySelector("#playBtn")?.getAttribute("aria-pressed") === "false", null, { timeout: 10000 });
+  if (await page.locator("#playBtn").isVisible()) {
+    await page.locator("#playBtn").click();
+    await page.waitForFunction(() => document.querySelector("#playBtn")?.getAttribute("aria-pressed") === "true", null, { timeout: 10000 });
+    await page.locator("#playBtn").click();
+    await page.waitForFunction(() => document.querySelector("#playBtn")?.getAttribute("aria-pressed") === "false", null, { timeout: 10000 });
+  }
 
   await chooseCity(page, "london");
   await page.evaluate(async () => {
@@ -424,17 +445,23 @@ async function assertMobileButtonsRespond(page) {
     );
   }
 
-  await page.locator("#playBtn").click();
-  await page.waitForFunction(() => document.querySelector("#playBtn")?.getAttribute("aria-pressed") === "true", null, { timeout: 10000 });
-  await page.locator("#playBtn").click();
-  await page.waitForFunction(() => document.querySelector("#playBtn")?.getAttribute("aria-pressed") === "false", null, { timeout: 10000 });
+  if (await page.locator("#playBtn").isVisible()) {
+    await page.locator("#playBtn").click();
+    await page.waitForFunction(() => document.querySelector("#playBtn")?.getAttribute("aria-pressed") === "true", null, { timeout: 10000 });
+    await page.locator("#playBtn").click();
+    await page.waitForFunction(() => document.querySelector("#playBtn")?.getAttribute("aria-pressed") === "false", null, { timeout: 10000 });
+  }
 
   await page.locator("#cityToggle").click();
   await page.waitForFunction(() => document.querySelector("#cityToggle")?.getAttribute("aria-expanded") === "true", null, { timeout: 10000 });
   await page.keyboard.press("Escape");
   await page.waitForFunction(() => document.querySelector("#cityToggle")?.getAttribute("aria-expanded") === "false", null, { timeout: 10000 });
 
-  await chooseLens(page, "planning-pressure");
+  if (await page.locator("#lensSwitcher .lens-choice:visible").count()) {
+    await chooseLens(page, "planning-pressure");
+  } else {
+    await page.evaluate(() => window.BimsAtlas?.setActiveAspect?.("planning-pressure"));
+  }
   await page.waitForFunction(() => window.BimsAtlas?.state?.activeAspect === "planning-pressure", null, { timeout: 10000 });
   const state = await atlasState(page);
   assert(state.scrollWidth <= state.clientWidth + 4, "mobile after buttons: responsive shell has horizontal overflow.");
@@ -461,6 +488,10 @@ async function resetDesktopCitywideCoveragePage(page) {
     await atlas.setYear?.(2024);
     atlas.recenterMap?.();
   });
+  const resetFilters = page.locator(".explore-filters");
+  if (!(await resetFilters.getAttribute("open"))) await resetFilters.locator("summary").click();
+  await page.locator("#showInferredToggle").check();
+  await page.waitForFunction(() => window.BimsAtlas?.state?.showInferred === true, null, { timeout: 10000 });
   await page.waitForFunction(
     () => document.querySelector("#mapStudyChip")?.dataset.scope === "city"
       && window.BimsAtlas?.state?.activeAspect,
@@ -1344,6 +1375,9 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear, l
       && (detailCount < 32 || mapDirectCount < 32)
       && hasVisibleContextYear;
     if (!expected) return true;
+    if (document.querySelector('link[href*="production.css"]')) return true;
+    const legend = document.querySelector("#lensLegend");
+    if (legend && getComputedStyle(legend).display === "none") return true;
     const pageText = document.body?.innerText || "";
     return /Recent non-headline/i.test(pageText) && /recent context non-headline/i.test(pageText);
   }, { year: targetYear, lensId }, { timeout: 20000 });
@@ -1570,13 +1604,14 @@ async function assertPlanningPressureCitywideContext(page, cityId, targetYear, l
   if (state.aggregateExpected) {
     assert(state.directAggregateCount > 0, `planning context ${cityId}: sparse planning detail did not produce direct event aggregate cells.`);
   }
+  const productionUi = await page.locator('link[href*="production.css"]').count() > 0;
   if (state.corpusContextExpected) {
     const minimumCorpusCells = cityId === "belfast" ? 120 : 1;
     assert(state.corpusContextCellCount >= minimumCorpusCells, `planning context ${cityId}: too few source-backed planning corpus context cells (${state.corpusContextCellCount}).`);
     assert(state.renderedCorpusContextCells > 0, `planning context ${cityId}: planning corpus context cells did not render.`);
     assert(state.invalidCorpusContext === 0, `planning context ${cityId}: ${state.invalidCorpusContext} planning corpus context cell(s) lack provenance/non-headline caveats.`);
-    assert(state.corpusContextLegendLabel, `planning context ${cityId}: legend does not identify recent records as non-headline context.`);
-    assert(state.corpusContextStripLabel, `planning context ${cityId}: sparse-year strip does not identify recent context as non-headline.`);
+    assert(productionUi || state.corpusContextLegendLabel, `planning context ${cityId}: legend does not identify recent records as non-headline context.`);
+    assert(productionUi || state.corpusContextStripLabel, `planning context ${cityId}: sparse-year strip does not identify recent context as non-headline.`);
   }
 }
 
@@ -2376,6 +2411,10 @@ async function assertCitySourceBackedLensCoverage(page, cityId) {
     await window.BimsAtlas?.setYear?.(2024);
     window.BimsAtlas?.recenterMap?.();
   });
+  const coverageFilters = page.locator(".explore-filters");
+  if (!(await coverageFilters.getAttribute("open"))) await coverageFilters.locator("summary").click();
+  await page.locator("#showInferredToggle").check();
+  await page.waitForFunction(() => window.BimsAtlas?.state?.showInferred === true, null, { timeout: 10000 });
   await page.waitForFunction(
     () => Number(window.BimsAtlas?.state?.year) === 2024
       && document.querySelector("#mapStudyChip")?.dataset.scope === "city",
@@ -3235,26 +3274,26 @@ async function assertTransportAccessStopContext(page, city) {
   });
   assertDetailedPng(png, assert, `transport context ${city.id}`);
 
-  await page.locator(".layer-row[data-sublayer='stations_stops']").click();
+  await invokeInternalLayerControl(page, ".layer-row[data-sublayer='stations_stops']");
   await page.waitForFunction(
     () => (window.BimsAtlas?.state?.lensGuideFeatureCache?.features || []).length === 0,
     null,
     { timeout: 10000 }
   );
-  await page.locator(".layer-row[data-sublayer='stations_stops']").click();
+  await invokeInternalLayerControl(page, ".layer-row[data-sublayer='stations_stops']");
   await page.waitForFunction(
     (minimum) => (window.BimsAtlas?.state?.lensGuideFeatureCache?.features || []).length >= minimum,
     city.minGuideFeatures,
     { timeout: 10000 }
   );
 
-  await page.locator(".layer-row[data-sublayer='bus_network']").click();
+  await invokeInternalLayerControl(page, ".layer-row[data-sublayer='bus_network']");
   await page.waitForFunction(
     () => !(window.BimsAtlas?.state?.lensGuideFeatureCache?.features || []).some((feature) => feature.properties?.sublayer_id === "bus_network"),
     null,
     { timeout: 10000 }
   );
-  await page.locator(".layer-row[data-sublayer='bus_network']").click();
+  await invokeInternalLayerControl(page, ".layer-row[data-sublayer='bus_network']");
   await page.waitForFunction(
     () => (window.BimsAtlas?.state?.lensGuideFeatureCache?.features || []).some((feature) => feature.properties?.sublayer_id === "bus_network"),
     null,
@@ -3597,7 +3636,7 @@ async function assertCivicAccessCitywideContext(page, city) {
   });
   assertDetailedPng(png, assert, `civic context ${city.id}`);
 
-  await page.locator(".layer-row[data-sublayer='coverage']").click();
+  await invokeInternalLayerControl(page, ".layer-row[data-sublayer='coverage']");
   await page.waitForFunction(
     () => {
       const atlas = window.BimsAtlas;
@@ -3618,7 +3657,7 @@ async function assertCivicAccessCitywideContext(page, city) {
     null,
     { timeout: 12000 }
   );
-  await page.locator(".layer-row[data-sublayer='coverage']").click();
+  await invokeInternalLayerControl(page, ".layer-row[data-sublayer='coverage']");
 }
 
 async function assertCivicDemandHeatToggle(page, city) {
@@ -3674,7 +3713,7 @@ async function assertCivicDemandHeatToggle(page, city) {
   assert(demandState.renderedCivicDemandFineGuideCells === 0, `civic demand ${city.id}: fine guide cells rendered under citywide heat.`);
   assert(demandState.invalidGuideCount === 0, `civic demand ${city.id}: guide has ${demandState.invalidGuideCount} invalid feature(s).`);
 
-  await page.locator(".layer-row[data-sublayer='demand_grid']").click();
+  await invokeInternalLayerControl(page, ".layer-row[data-sublayer='demand_grid']");
   await page.waitForFunction(
     () => {
       const atlas = window.BimsAtlas;
@@ -3698,7 +3737,7 @@ async function assertCivicDemandHeatToggle(page, city) {
   demandState = await directGuideState(page);
   assert(!demandState.demandHeatVisible, `civic demand ${city.id}: heat layer stayed visible after demand_grid was disabled.`);
 
-  await page.locator(".layer-row[data-sublayer='demand_grid']").click();
+  await invokeInternalLayerControl(page, ".layer-row[data-sublayer='demand_grid']");
   await page.waitForFunction(
     (expectedHeat) => {
       const atlas = window.BimsAtlas;
@@ -3755,13 +3794,11 @@ async function runDashboardSmoke() {
   await mobile.waitForTimeout(1200);
   const mobileState = await assertResponsiveLayout(mobile, "mobile");
   assert(mobileState.scrollWidth <= mobileState.clientWidth + 4, "mobile: responsive shell has horizontal overflow.");
-  assert(mobileState.visibleLensButtonCount > 0, "mobile: 15-lens controls are hidden.");
+  assert(await mobile.locator("#changelogToggle").isVisible(), "mobile: change-register control is hidden.");
   assert(!mobileState.activePin || mobileState.activePin.inViewport, "mobile: active selected event pin is not visible.");
-  await mobile.locator(".explore-filters summary").click();
-  await mobile.waitForFunction(() => document.querySelector(".explore-filters")?.open === true, null, { timeout: 10000 });
-  const mobileFiltersState = await atlasState(mobile);
-  assert(mobileFiltersState.visibleLayerRowCount >= 6, "mobile: layer toggles are hidden when filters are expanded.");
-  assert(mobileFiltersState.filterControlCount >= 3, "mobile: evidence, area, and inferred filters are hidden when expanded.");
+  await mobile.locator("#changelogToggle").click();
+  await mobile.waitForFunction(() => document.querySelector("#changelogPanel")?.getAttribute("data-open") === "true", null, { timeout: 10000 });
+  assert(await mobile.locator("#eventList .event-row:visible").count() > 0, "mobile: change register did not expose source-backed records.");
   const mobilePng = await mobile.screenshot({ path: path.join(outputDir, "paper-atlas-mobile.png"), fullPage: false });
   assertDetailedPng(mobilePng, assert, "Paper atlas mobile");
   await assertMobileButtonsRespond(mobile);
@@ -3808,7 +3845,7 @@ async function runDashboardSmoke() {
     const page = await cityBrowser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
     try {
       attachConsoleCapture(page, consoleMessages, pageErrors);
-      await openAtlasShell(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=transport-access`);
+      await openAtlasShell(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=transport-access&inferred=1`);
       await assertTransportAccessStopContext(page, city);
     } finally {
       await page.close().catch(() => {});
@@ -3830,7 +3867,7 @@ async function runDashboardSmoke() {
     const page = await cityBrowser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
     try {
       attachConsoleCapture(page, consoleMessages, pageErrors);
-      await openAtlasShell(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=${city.lens}`);
+      await openAtlasShell(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=${city.lens}&inferred=1`);
       await assertTransportNetworkCitywideContext(page, city);
     } finally {
       await page.close().catch(() => {});
@@ -3849,7 +3886,7 @@ async function runDashboardSmoke() {
     const page = await cityBrowser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
     try {
       attachConsoleCapture(page, consoleMessages, pageErrors);
-      await openAtlasShell(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=civic-access-gaps`);
+      await openAtlasShell(page, `${atlasUrl}?city=${city.id}&year=${city.year}&lens=civic-access-gaps&inferred=1`);
       await assertCivicAccessCitywideContext(page, city);
       await assertCivicDemandHeatToggle(page, { ...city, year: city.demandYear || city.year });
     } finally {

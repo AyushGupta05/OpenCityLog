@@ -71,7 +71,6 @@ select,
 [role="tab"] {
   touch-action: manipulation;
 }
-
 :root {
   --paper: #f8fbfd;
   --paper-2: #ffffff;

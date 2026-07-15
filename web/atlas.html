@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OpenCityLog — A City Change Atlas</title>
+  <title>OpenCityLog — Source-backed change workspace</title>
   <meta name="description" content="A source-backed city change atlas for exploring observed urban changes over time.">
   <meta name="theme-color" content="#eef3f8">
   <meta property="og:type" content="website">
@@ -16,7 +16,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="/atlas.css?v=paper-atlas-31">
+  <link rel="stylesheet" href="/atlas.css?v=production-workspace-1">
+  <link rel="stylesheet" href="/production.css?v=production-workspace-1">
 </head>
 <body data-theme="light" data-mapstyle="osm">
 
@@ -58,7 +59,7 @@
 
     <button class="btn" id="methodBtn" type="button" title="Methodology and data sources">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><path d="M5 4h7a3 3 0 013 3v13H8a3 3 0 01-3-3V4z"/><path d="M19 4h-7a3 3 0 00-3 3v13h7a3 3 0 003-3V4z"/></svg>
-      Methodology
+      Method
     </button>
     <button class="btn" id="changelogToggle" type="button" title="Show or hide the event changelog" aria-pressed="true">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M4 6h.01M4 12h.01M4 18h.01" stroke-linecap="round"/></svg>
@@ -66,7 +67,7 @@
     </button>
     <button class="btn" id="compareBtn" type="button" title="Compare source-backed record counts" aria-pressed="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="12" height="12"><path d="M5 5v14M19 5v14"/><path d="M8 8h8M8 16h8"/></svg>
-      Compare
+      Before &amp; after
     </button>
     <button class="btn btn-icon" id="shareBtn" type="button" title="Share view" aria-label="Copy link to current atlas view">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 11l8-4M8 13l8 4"/></svg>
@@ -107,39 +108,14 @@
     </div>
     <div class="layers-list" id="layersList"></div>
 
-    <details class="explore-filters">
-      <summary>Filters</summary>
-      <div class="layer-controls">
-        <label class="confidence-row">
-          <span>Evidence</span>
-          <select id="confidenceFilter">
-            <option value="all">All confidence</option>
-            <option value="documented">Documented</option>
-            <option value="corroborated">Corroborated</option>
-            <option value="inferred">Inferred only</option>
-            <option value="disputed">Disputed</option>
-          </select>
-        </label>
-        <label class="area-row">
-          <span>Area</span>
-          <input id="areaFilterInput" list="areaFilterOptions" type="search" autocomplete="off" placeholder="Borough, ward, street">
-          <datalist id="areaFilterOptions"></datalist>
-        </label>
-        <label class="inferred-row">
-          <input type="checkbox" id="showInferredToggle" checked>
-          <span>Show inferred OSM visibility</span>
-        </label>
-        <div class="coverage-note" id="coverageNote"></div>
-      </div>
-    </details>
   </div>
 
   <!-- Changelog panel (left) -->
   <section class="changelog panel" id="changelogPanel" data-open="true" aria-labelledby="changelogTitle">
     <div class="changelog-head">
       <div>
-        <div class="panel-kicker">Change stream</div>
-        <h3 id="changelogTitle">Source-backed records</h3>
+        <div class="panel-kicker">Change register</div>
+        <h3 id="changelogTitle">Changes</h3>
       </div>
       <div class="changelog-actions" aria-label="Export filtered records">
         <span class="count" id="eventListCount">0 visible</span>
@@ -155,6 +131,31 @@
       </div>
     </div>
     <div class="changelog-meta" id="eventListMeta">Timeline and layer filters apply.</div>
+    <details class="explore-filters">
+      <summary>Filter this register</summary>
+      <div class="layer-controls">
+        <label class="confidence-row">
+          <span>Evidence quality</span>
+          <select id="confidenceFilter">
+            <option value="all">All confidence</option>
+            <option value="documented">Documented</option>
+            <option value="corroborated">Corroborated</option>
+            <option value="inferred">Inferred only</option>
+            <option value="disputed">Disputed</option>
+          </select>
+        </label>
+        <label class="area-row">
+          <span>Place</span>
+          <input id="areaFilterInput" list="areaFilterOptions" type="search" autocomplete="off" placeholder="Ward, street, project">
+          <datalist id="areaFilterOptions"></datalist>
+        </label>
+        <label class="inferred-row">
+          <input type="checkbox" id="showInferredToggle">
+          <span>Include inferred OSM visibility</span>
+        </label>
+      </div>
+    </details>
+    <div class="coverage-note" id="coverageNote" role="status"></div>
     <div class="event-list" id="eventList" role="list" tabindex="-1" aria-live="polite"></div>
     <button class="event-list-more" id="eventListMore" type="button" hidden>Show more records</button>
   </section>
@@ -163,8 +164,8 @@
   <section class="compare panel" id="comparePanel" data-open="false" aria-labelledby="compareTitle">
     <div class="compare-head">
       <div>
-        <div class="panel-kicker">Compare</div>
-        <h3 id="compareTitle">Observed record counts</h3>
+        <div class="panel-kicker">Evidence comparison</div>
+        <h3 id="compareTitle">Before &amp; after</h3>
       </div>
       <button class="panel-close" id="compareClose" type="button" aria-label="Close compare">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
@@ -196,12 +197,12 @@
   <!-- Detail panel is revealed after a deliberate record selection. -->
   <aside class="detail panel" id="detailPanel" data-open="false" role="region" aria-labelledby="detailTitle">
     <div class="detail-empty" id="detailEmpty">
-      <div class="detail-empty-eyebrow">Selected change</div>
-      <div class="detail-empty-title" id="detailEmptyTitle">Pick a change on the map or in search</div>
+      <div class="detail-empty-eyebrow">Change dossier</div>
+      <div class="detail-empty-title" id="detailEmptyTitle">Select a change to inspect its evidence</div>
       <div class="detail-empty-body">
-        Each pin is a source-backed city-change record in <strong id="emptyCityName">Belfast</strong>.
-        Some records are inferred from OSM mapped visibility and are labelled as such.
-        Move the timeline below to scope the visible changes, or filter layers on the left.
+        Review what changed, where and when it was recorded, the documented rationale when available,
+        and every linked public source in <strong id="emptyCityName">Belfast</strong>. Missing baselines and
+        limitations are shown explicitly rather than inferred.
       </div>
       <div class="detail-empty-hints">
         <span><kbd>←</kbd><kbd>→</kbd> scrub years</span>
